@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+    </group>
+
+    <item android:title="Rozpocznij naukę">
+        <menu>
+            <item
+                android:id="@+id/words"
+                android:title="Słówka" />
+            <item
+                android:id="@+id/irregular_verbs"
+                android:title="Czasowniki nieregularne" />
+        </menu>
+    </item>
+    <item android:title="Gramatyka">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Czasy" />
+            <item
+                android:id="@+id/reported_speech"
+                android:title="Mowa zależna" />
+            <item
+                android:id="@+id/passive_voice"
+                android:title="Strona bierna" />
+        </menu>
+    </item>
+    <item android:title="Twoje fiszki">
+        <menu>
+            <item
+                android:id="@+id/download_your_words"
+                android:title="Pobierz fiszki" />
+            <item
+                android:id="@+id/your_words"
+                android:title="Lista twoich fiszek" />
+        </menu>
+    </item>
+
+</menu>
