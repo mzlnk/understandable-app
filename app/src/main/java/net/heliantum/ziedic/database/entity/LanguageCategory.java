@@ -50,7 +50,7 @@ public enum LanguageCategory {
     public static LanguageCategory getEnumFromPolish(String name) {
 
         for(LanguageCategory c : LanguageCategory.values()) {
-            if(c.getName().equals(name)) return c;
+            if(c.getName().equalsIgnoreCase(name)) return c;
         }
 
         return LanguageCategory.OTHER;

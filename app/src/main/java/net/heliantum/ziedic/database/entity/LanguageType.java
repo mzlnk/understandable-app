@@ -40,7 +40,7 @@ public enum LanguageType {
     public static LanguageType getEnumFromPolish(String name) {
 
         for(LanguageType t : LanguageType.values()) {
-            if(t.getName().equals(name)) return t;
+            if(t.getName().equalsIgnoreCase(name)) return t;
         }
         return LanguageType.OTHER;
     }

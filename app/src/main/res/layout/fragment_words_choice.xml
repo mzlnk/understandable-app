@@ -53,21 +53,21 @@
                             android:text="Człowiek"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_1"
+                            android:id="@+id/category_0"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Dom"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_2"
+                            android:id="@+id/category_1"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Szkoła"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_3"
+                            android:id="@+id/category_2"
                             android:textSize="12sp" />
                     </TableRow>
 
@@ -79,21 +79,21 @@
                             android:text="Praca"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_4"
+                            android:id="@+id/category_3"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Życie rodzinne"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_5"
+                            android:id="@+id/category_4"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Życie towarzyskie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_6"
+                            android:id="@+id/category_5"
                             android:textSize="12sp" />
                     </TableRow>
 
@@ -105,21 +105,21 @@
                             android:text="Jedzenie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_7"
+                            android:id="@+id/category_6"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Zakupy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_8"
+                            android:id="@+id/category_7"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Podróżowanie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_9"
+                            android:id="@+id/category_8"
                             android:textSize="12sp" />
                     </TableRow>
 
@@ -131,21 +131,21 @@
                             android:text="Kultura"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_10"
+                            android:id="@+id/category_9"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Zdrowie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_11"
+                            android:id="@+id/category_10"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Sport"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_12"
+                            android:id="@+id/category_11"
                             android:textSize="12sp" />
                     </TableRow>
 
@@ -157,21 +157,21 @@
                             android:text="Nauka"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_13"
+                            android:id="@+id/category_12"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Środowisko"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_14"
+                            android:id="@+id/category_13"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Społeczeństwo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_15"
+                            android:id="@+id/category_14"
                             android:textSize="12sp" />
 
                     </TableRow>
@@ -184,14 +184,14 @@
                             android:text="Kraj"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_16"
+                            android:id="@+id/category_15"
                             android:textSize="12sp" />
 
                         <CheckBox
                             android:text="Inne"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/category_17"
+                            android:id="@+id/category_16"
                             android:textSize="12sp" />
 
                     </TableRow>
@@ -230,12 +230,26 @@
                         android:layout_height="match_parent" >
 
                         <CheckBox
-                            android:text="rzeczowniki"
+                            android:text="rzeczownik"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/type_0"
+                            android:textSize="12sp"
+                            android:checked="true" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <CheckBox
+                            android:text="czasownik"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/type_1"
-                            android:textSize="12sp" />
-
+                            android:textSize="12sp"
+                            android:checked="true" />
                     </TableRow>
 
                     <TableRow
@@ -243,11 +257,12 @@
                         android:layout_height="match_parent" >
 
                         <CheckBox
-                            android:text="czasowniki"
+                            android:text="przymiotnik"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/type_2"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:checked="true" />
                     </TableRow>
 
                     <TableRow
@@ -255,11 +270,12 @@
                         android:layout_height="match_parent" >
 
                         <CheckBox
-                            android:text="przymiotniki"
+                            android:text="przysłówek"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/type_3"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:checked="true" />
                     </TableRow>
 
                     <TableRow
@@ -267,11 +283,12 @@
                         android:layout_height="match_parent" >
 
                         <CheckBox
-                            android:text="przysłówki"
+                            android:text="przyimek"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/type_4"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:checked="true" />
                     </TableRow>
 
                     <TableRow
@@ -279,23 +296,12 @@
                         android:layout_height="match_parent" >
 
                         <CheckBox
-                            android:text="przyimki"
+                            android:text="wyrażenie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/type_5"
-                            android:textSize="12sp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
-
-                        <CheckBox
-                            android:text="wyrażenia"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/type_6"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:checked="true" />
                     </TableRow>
 
                     <TableRow
@@ -306,8 +312,9 @@
                             android:text="inne"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/type_7"
-                            android:textSize="12sp" />
+                            android:id="@+id/type_6"
+                            android:textSize="12sp"
+                            android:checked="true" />
                     </TableRow>
 
                 </TableLayout>
@@ -344,21 +351,23 @@
 
                         <RadioGroup
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" >
+                            android:layout_height="wrap_content"
+                            android:id="@+id/way_group">
 
                             <RadioButton
                                 android:text="powtarzanie"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/way_1"
+                                android:id="@+id/way_0"
                                 android:layout_weight="1"
-                                android:textSize="12sp" />
+                                android:textSize="12sp"
+                                android:checked="true" />
 
                             <RadioButton
                                 android:text="quiz"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/way_2"
+                                android:id="@+id/way_1"
                                 android:layout_weight="1"
                                 android:textSize="12sp" />
                         </RadioGroup>
@@ -377,8 +386,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/start"
-                    android:background="/#0BDA51"
+                    android:background="#0BDA51"
                     android:textColor="#FFFFFF"
+                    android:textSize="17dp"
                     android:layout_marginTop="20dp"/>
 
             </TableRow>
