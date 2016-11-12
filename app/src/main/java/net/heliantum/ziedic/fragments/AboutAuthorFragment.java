@@ -1,10 +1,16 @@
-package net.heliantum.ziedic;
+package net.heliantum.ziedic.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import net.heliantum.ziedic.R;
+
+/**
+ * Created by Marcin Zielonka on 2016-11-11.
+ */
 
 public class AboutAuthorFragment extends Fragment {
 

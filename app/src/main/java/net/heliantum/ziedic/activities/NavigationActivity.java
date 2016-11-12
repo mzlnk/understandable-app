@@ -1,4 +1,4 @@
-package net.heliantum.ziedic;
+package net.heliantum.ziedic.activities;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import net.heliantum.ziedic.fragments.AboutAuthorFragment;
+import net.heliantum.ziedic.R;
+import net.heliantum.ziedic.fragments.WordsChoiceFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,7 +80,9 @@ public class NavigationActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
         else if(id == R.id.words) {
-            Toast.makeText(getApplicationContext(), "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
+            WordsChoiceFragment fragment = new WordsChoiceFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }
         else if(id == R.id.irregular_verbs) {
             Toast.makeText(getApplicationContext(), "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
