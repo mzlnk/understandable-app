@@ -47,7 +47,6 @@ public class WordsRepetitionFragment extends Fragment {
 
         words = CurrentlyChosenWordsData.chosenWords;
         direction = CurrentlyChosenWordsData.direction;
-        nextWord();
     }
 
     @Override
@@ -61,6 +60,7 @@ public class WordsRepetitionFragment extends Fragment {
         repeat = (Button) rootView.findViewById(R.id.repeat);
         progress = (ProgressBar) rootView.findViewById(R.id.progress);
 
+        nextWord();
         progress.setMax(words.size());
         progress.setProgress(0);
 

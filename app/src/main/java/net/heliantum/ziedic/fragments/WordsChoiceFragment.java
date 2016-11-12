@@ -49,7 +49,6 @@ public class WordsChoiceFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Toast.makeText(getContext(), "onCreate method", Toast.LENGTH_SHORT).show();
         super.onCreate(savedInstanceState);
 
     }
@@ -58,7 +57,6 @@ public class WordsChoiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Toast.makeText(getContext(), "onCreateView method", Toast.LENGTH_SHORT).show();
         View rootView = inflater.inflate(R.layout.fragment_words_choice, container, false);
 
         for(LanguageType t : LanguageType.values()) {
@@ -74,19 +72,16 @@ public class WordsChoiceFragment extends Fragment {
 
     @Override
     public void onPause() {
-        Toast.makeText(getContext(), "onPause method", Toast.LENGTH_SHORT).show();
         super.onPause();
     }
 
     @Override
     public void onStop() {
-        Toast.makeText(getContext(), "onStop method", Toast.LENGTH_SHORT).show();
         super.onStop();
     }
 
     @Override
     public void onDestroy() {
-        Toast.makeText(getContext(), "onDestroy method", Toast.LENGTH_SHORT).show();
         //todo: code here
         super.onDestroy();
     }
@@ -215,14 +210,10 @@ public class WordsChoiceFragment extends Fragment {
                         chosenWords = null;
                         chosenWords = new ArrayList<>();
 
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                chosenWords = DatabaseData.languageEntites.getSpecifiedEntities(chosenCategories, chosenTypes);
-                                pd.dismiss();
-                            }
-                        }).start();
+                        chosenWords = DatabaseData.languageEntites.getSpecifiedEntities(chosenCategories, chosenTypes);
+                        pd.dismiss();
 
+                        Toast.makeText(getContext(), "chosenWords: " + chosenWords.size() + ", chosenCategories: " + chosenCategories.size() + ", chosenTypes: , "+ chosenTypes.size(), Toast.LENGTH_SHORT).show();
                         if(chosenWords.size() > 0) {
 
                             CurrentlyChosenWordsData.chosenWords = chosenWords;
@@ -231,7 +222,7 @@ public class WordsChoiceFragment extends Fragment {
                             switch(learningOption) {
                                 case REPETITION:
                                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
+                                    transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
                                     transaction.commit();
                                     break;
                                 case QUIZ:

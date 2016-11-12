@@ -16,7 +16,7 @@ public class DataHandler extends Application {
 
     private static String DEBUG_TAG = "ZiedicData";
 
-    public static DatabaseRepository dr; //todo: change to 'private'
+    private static DatabaseRepository dr;
 
     @Override
     public void onCreate() {
