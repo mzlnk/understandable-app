@@ -78,8 +78,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.update_database) {
-            DataHandler.dr.execTempStatements();
-            Toast.makeText(getApplicationContext(), "Wykonano tymczasowy update", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Obecnie niedostepne", Toast.LENGTH_SHORT).show();
         }
         else if(id == R.id.words) {
             WordsChoiceFragment fragment = new WordsChoiceFragment();
