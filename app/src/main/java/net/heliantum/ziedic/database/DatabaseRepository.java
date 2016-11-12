@@ -165,4 +165,29 @@ public class DatabaseRepository {
         }
     }
 
+    //todo: temporary->for tests:
+    public void execTempStatements() {
+
+        Scanner sc;
+        List<String> statements = new ArrayList<>();
+
+        InputStream is = null;
+
+        try {
+            is = context.getAssets().open("sql_statements/sql_temp_statements.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        sc = new Scanner(is);
+
+        while(sc.hasNextLine()) {
+            statements.add(sc.nextLine());
+        }
+
+        for(String statement : statements) {
+            db.execSQL(statement);
+        }
+
+    }
 }

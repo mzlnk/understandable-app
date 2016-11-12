@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import net.heliantum.ziedic.database.DataHandler;
 import net.heliantum.ziedic.fragments.AboutAuthorFragment;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.fragments.WordsChoiceFragment;
@@ -77,7 +78,8 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.update_database) {
-            Toast.makeText(getApplicationContext(), "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
+            DataHandler.dr.execTempStatements();
+            Toast.makeText(getApplicationContext(), "Wykonano tymczasowy update", Toast.LENGTH_SHORT).show();
         }
         else if(id == R.id.words) {
             WordsChoiceFragment fragment = new WordsChoiceFragment();
