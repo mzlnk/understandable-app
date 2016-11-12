@@ -1,6 +1,5 @@
 package net.heliantum.ziedic.utils;
 
-import net.heliantum.ziedic.database.entity.LanguageType;
 
 /**
  * Created by Lotos_ on 2016-11-12.
@@ -9,7 +8,7 @@ import net.heliantum.ziedic.database.entity.LanguageType;
 
 public enum LearningOption {
 
-    MEMORY("powtarzanie"),
+    REPETITION("powtarzanie"),
     QUIZ("quiz");
 
     private String name;
@@ -27,7 +26,7 @@ public enum LearningOption {
         for(LearningOption o : LearningOption.values()) {
             if(o.getName().equalsIgnoreCase(name)) return o;
         }
-        return LearningOption.MEMORY;
+        return LearningOption.REPETITION;
     }
 
 }

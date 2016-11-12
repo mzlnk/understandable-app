@@ -1,7 +1,9 @@
 package net.heliantum.ziedic.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +13,12 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
+import net.heliantum.ziedic.database.data.DatabaseData;
 import net.heliantum.ziedic.database.entity.LanguageCategory;
+import net.heliantum.ziedic.database.entity.LanguageEntity;
 import net.heliantum.ziedic.database.entity.LanguageType;
+import net.heliantum.ziedic.utils.CurrentlyChosenWordsData;
+import net.heliantum.ziedic.utils.LanguageLearningDirection;
 import net.heliantum.ziedic.utils.LearningOption;
 
 import java.util.ArrayList;
@@ -26,11 +32,15 @@ public class WordsChoiceFragment extends Fragment {
 
     private List<LanguageCategory> chosenCategories = new ArrayList<>();
     private List<LanguageType> chosenTypes = new ArrayList<>();
-    private LearningOption learningOption = LearningOption.MEMORY;
+    private LearningOption learningOption = LearningOption.REPETITION;
+    private LanguageLearningDirection learningDirection = LanguageLearningDirection.POLISH_TO_ENGLISH;
+
+    private List<LanguageEntity> chosenWords = new ArrayList<>();
 
     private CheckBox[] categories = new CheckBox[17];
     private CheckBox[] types = new CheckBox[7];
-    private RadioButton[] ways = new RadioButton[2];
+    private RadioButton[] modes = new RadioButton[2];
+    private RadioButton[] ways = new RadioButton[3];
     private Button start;
 
     public WordsChoiceFragment() {
@@ -60,6 +70,18 @@ public class WordsChoiceFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    @Override
+    public void onPause() {
+        Toast.makeText(getContext(), "onPause method", Toast.LENGTH_SHORT).show();
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Toast.makeText(getContext(), "onStop method", Toast.LENGTH_SHORT).show();
+        super.onStop();
     }
 
     @Override
@@ -97,8 +119,12 @@ public class WordsChoiceFragment extends Fragment {
         types[5] = (CheckBox) v.findViewById(R.id.type_5);
         types[6] = (CheckBox) v.findViewById(R.id.type_6);
 
+        modes[0] = (RadioButton) v.findViewById(R.id.mode_0);
+        modes[1] = (RadioButton) v.findViewById(R.id.mode_1);
+
         ways[0] = (RadioButton) v.findViewById(R.id.way_0);
         ways[1] = (RadioButton) v.findViewById(R.id.way_1);
+        ways[2] = (RadioButton) v.findViewById(R.id.way_2);
 
         start = (Button) v.findViewById(R.id.start);
     }
@@ -147,12 +173,25 @@ public class WordsChoiceFragment extends Fragment {
         for(int i = 0; i < 2; i++) {
             final int n = i;
 
+            modes[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    LearningOption option = LearningOption.getEnumFromPolish(String.valueOf(modes[n].getText()));
+                    learningOption = option;
+                }
+            });
+        }
+
+        for(int i = 0; i < 3; i++) {
+            final int n = i;
+
             ways[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    LearningOption option = LearningOption.getEnumFromPolish(String.valueOf(ways[n].getText()));
-                    learningOption = option;
+                    LanguageLearningDirection direction = LanguageLearningDirection.getEnumFromPolish(String.valueOf(ways[n].getText()));
+                    learningDirection = direction;
                 }
             });
         }
@@ -164,15 +203,50 @@ public class WordsChoiceFragment extends Fragment {
 
                 if(chosenCategories.size() > 0 ) {
                     if(chosenTypes.size() > 0) {
-                        StringBuilder builder = new StringBuilder();
-                        for(LanguageCategory c : chosenCategories) {
-                            builder.append(c.getName() + ", ");
+
+                        final ProgressDialog pd = new ProgressDialog(getContext());
+                        pd.setCancelable(false);
+                        pd.setMessage("Ładowanie zestawu słów");
+                        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                        pd.setProgress(0);
+                        pd.setMax(100);
+                        pd.show();
+
+                        chosenWords = null;
+                        chosenWords = new ArrayList<>();
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                chosenWords = DatabaseData.languageEntites.getSpecifiedEntities(chosenCategories, chosenTypes);
+                                pd.dismiss();
+                            }
+                        }).start();
+
+                        if(chosenWords.size() > 0) {
+
+                            CurrentlyChosenWordsData.chosenWords = chosenWords;
+                            CurrentlyChosenWordsData.direction = learningDirection;
+
+                            switch(learningOption) {
+                                case REPETITION:
+                                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
+                                    transaction.commit();
+                                    break;
+                                case QUIZ:
+                                    Toast.makeText(getContext(), "Tryb quiz obecnie niedostępny", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+
                         }
-                        for(LanguageType t : chosenTypes) {
-                            builder.append(t.getName() + ", ");
+                        else {
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
+                            transaction.addToBackStack(null);
+                            transaction.commit();
                         }
-                        builder.append(learningOption.getName());
-                        Toast.makeText(getContext(), builder.toString(), Toast.LENGTH_LONG).show();
+
                     }
                     else {
                         Toast.makeText(getContext(), "Brak wybranych rodzajów", Toast.LENGTH_SHORT).show();

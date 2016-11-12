@@ -24,7 +24,7 @@
                     android:text="1. Wybierz kategorie"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/info"
+                    android:id="@+id/info1"
                     android:textSize="25dp"
                     android:textColor="#000000"
                     android:layout_alignParentTop="true"
@@ -40,7 +40,7 @@
                     android:id="@+id/category_table"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/info"
+                    android:layout_below="@+id/info1"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:stretchColumns="*" >
@@ -212,7 +212,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="20dp" />
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/info2" />
             </TableRow>
 
             <TableRow
@@ -333,7 +334,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginTop="20dp" />
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/info3" />
             </TableRow>
 
             <TableRow
@@ -352,10 +354,10 @@
                         <RadioGroup
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/way_group">
+                            android:id="@+id/way_group" >
 
                             <RadioButton
-                                android:text="powtarzanie"
+                                android:text="z polskiego na angielski"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/way_0"
@@ -364,10 +366,75 @@
                                 android:checked="true" />
 
                             <RadioButton
-                                android:text="quiz"
+                                android:text="z angielskiego na polski"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/way_1"
+                                android:layout_weight="1"
+                                android:textSize="12sp" />
+
+                            <RadioButton
+                                android:text="losowo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/way_2"
+                                android:layout_weight="1"
+                                android:textSize="12sp" />
+                        </RadioGroup>
+                    </TableRow>
+
+                </TableLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="4. Wybierz tryb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="#000000"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/info4" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mode_table">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/mode_group">
+
+                            <RadioButton
+                                android:text="powtarzanie"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mode_0"
+                                android:layout_weight="1"
+                                android:textSize="12sp"
+                                android:checked="true" />
+
+                            <RadioButton
+                                android:text="quiz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mode_1"
                                 android:layout_weight="1"
                                 android:textSize="12sp" />
                         </RadioGroup>

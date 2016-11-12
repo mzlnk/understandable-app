@@ -23,15 +23,9 @@ public class LanguageEntites {
         return null;
     }
 
-    public List<LanguageEntity> getSpecifiedEntities(LanguageCategory[] categories, LanguageType[] types) {
+    public List<LanguageEntity> getSpecifiedEntities(List<LanguageCategory> categories, List<LanguageType> types) {
 
         List<LanguageEntity> result = new ArrayList<>();
-
-        if(categories.length == 0 && types.length == 0) {
-            for(LanguageEntity entity : entities) {
-                result.add(entity);
-            }
-        }
 
         for(LanguageCategory category : categories) {
             for(LanguageEntity entity : entities) {
