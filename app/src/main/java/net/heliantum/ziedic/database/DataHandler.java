@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.Log;
 import android.widget.Toast;
 
+import net.heliantum.ziedic.utils.Debug;
+
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;

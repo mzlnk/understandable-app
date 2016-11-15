@@ -73,4 +73,15 @@
         android:id="@+id/version"
         android:textSize="15sp" />
 
+    <Button
+        android:text="DEBUG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/debug"
+        android:background="#1E90FF"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

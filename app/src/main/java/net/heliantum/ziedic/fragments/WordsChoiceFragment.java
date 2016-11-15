@@ -18,6 +18,7 @@ import net.heliantum.ziedic.database.entity.LanguageCategory;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 import net.heliantum.ziedic.database.entity.LanguageType;
 import net.heliantum.ziedic.utils.CurrentlyChosenWordsData;
+import net.heliantum.ziedic.utils.Debug;
 import net.heliantum.ziedic.utils.LanguageLearningDirection;
 import net.heliantum.ziedic.utils.LearningOption;
 
@@ -213,7 +214,7 @@ public class WordsChoiceFragment extends Fragment {
                         chosenWords = DatabaseData.languageEntites.getSpecifiedEntities(chosenCategories, chosenTypes);
                         pd.dismiss();
 
-                        Toast.makeText(getContext(), "chosenWords: " + chosenWords.size() + ", chosenCategories: " + chosenCategories.size() + ", chosenTypes: , "+ chosenTypes.size(), Toast.LENGTH_SHORT).show();
+                        Debug.sendMessage(getContext(), "chosenWords: " + chosenWords.size() + ", chosenCategories: " + chosenCategories.size() + ", chosenTypes: , "+ chosenTypes.size(), Toast.LENGTH_LONG);
                         if(chosenWords.size() > 0) {
 
                             CurrentlyChosenWordsData.chosenWords = chosenWords;
