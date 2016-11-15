@@ -21,7 +21,7 @@
         android:text="Word0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="28dp"
         android:id="@+id/word_repetition_example_1"
         android:gravity="center"
         android:textColor="#000000"
