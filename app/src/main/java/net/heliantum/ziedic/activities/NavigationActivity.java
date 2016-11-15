@@ -16,6 +16,7 @@ import android.widget.Toast;
 import net.heliantum.ziedic.database.DataHandler;
 import net.heliantum.ziedic.fragments.AboutAuthorFragment;
 import net.heliantum.ziedic.R;
+import net.heliantum.ziedic.fragments.DownloadDatabaseFragment;
 import net.heliantum.ziedic.fragments.WordsChoiceFragment;
 
 public class NavigationActivity extends AppCompatActivity
@@ -78,7 +79,9 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.update_database) {
-            Toast.makeText(getApplicationContext(), "Obecnie niedostepne", Toast.LENGTH_SHORT).show();
+            DownloadDatabaseFragment fragment = new DownloadDatabaseFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }
         else if(id == R.id.words) {
             WordsChoiceFragment fragment = new WordsChoiceFragment();

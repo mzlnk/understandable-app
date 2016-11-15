@@ -65,7 +65,7 @@
         android:textSize="16sp" />
 
     <TextView
-        android:text="dev0.0.6"
+        android:text="dev0.1.0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/version_info"

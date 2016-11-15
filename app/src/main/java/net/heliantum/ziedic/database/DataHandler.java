@@ -18,6 +18,10 @@ public class DataHandler extends Application {
 
     private static DatabaseRepository dr;
 
+    public static DatabaseRepository getDatabaseRepository() {
+        return dr;
+    }
+
     @Override
     public void onCreate() {
 

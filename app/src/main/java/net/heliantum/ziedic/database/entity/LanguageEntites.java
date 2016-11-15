@@ -27,19 +27,19 @@ public class LanguageEntites {
 
         List<LanguageEntity> result = new ArrayList<>();
 
-        for(LanguageCategory category : categories) {
-            for(LanguageEntity entity : entities) {
-                if(entity.getCategory().equals(category)) result.add(entity);
-            }
-        }
-
-        for(LanguageType type : types) {
-            for(LanguageEntity entity : entities) {
-                if(entity.getType().equals(type) && !exists(result, entity)) result.add(entity);
+        for(LanguageEntity entity : entities) {
+            for(LanguageCategory category : categories) {
+                for(LanguageType type : types) {
+                    if(entity.getCategory().equals(category) && entity.getType().equals(type)) result.add(entity);
+                }
             }
         }
 
         return result;
+    }
+
+    public int size() {
+        return entities.size();
     }
 
     private static boolean exists(List<LanguageEntity> list, LanguageEntity entity) {

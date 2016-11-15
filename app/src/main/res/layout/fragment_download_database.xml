@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.heliantum.ziedic.fragments.DownloadDatabaseFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="500px"
+        android:layout_height="500px"
+        app:srcCompat="@drawable/download"
+        android:id="@+id/imageView3"
+        android:layout_marginTop="69dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Kliknij, aby zaktualizować\ndotychczasową bazę słówek."
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/update_info" />
+
+    <Button
+        android:text="Aktualizuj"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:id="@+id/update_button"
+        android:textColor="#FFFFFF"
+        android:background="#1E90FF"
+        android:layout_below="@+id/update_info"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
