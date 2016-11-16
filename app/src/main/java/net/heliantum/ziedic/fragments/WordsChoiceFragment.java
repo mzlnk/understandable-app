@@ -222,12 +222,16 @@ public class WordsChoiceFragment extends Fragment {
 
                             switch(learningOption) {
                                 case REPETITION:
-                                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                                    transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
-                                    transaction.commit();
+                                    FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
+                                    transaction1.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
+                                    transaction1.commit();
                                     break;
                                 case QUIZ:
-                                    Toast.makeText(getContext(), "Tryb quiz obecnie niedostępny", Toast.LENGTH_SHORT).show();
+                                    FragmentTransaction transaction2 = getFragmentManager().beginTransaction();
+                                    transaction2.replace(R.id.layout_for_fragments, QuizFragment.newInstance(0, 0));
+                                    transaction2.commit();//todo: put FragmentTransaction object out of switch instruction
+                                    //todo: add if statements (words >= 4)
+                                    //Toast.makeText(getContext(), "Tryb quiz obecnie niedostępny", Toast.LENGTH_SHORT).show();
                                     break;
                             }
 

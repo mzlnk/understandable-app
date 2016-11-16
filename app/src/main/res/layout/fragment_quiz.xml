@@ -1,0 +1,129 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context="net.heliantum.ziedic.fragments.QuizFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="80dp"
+        android:id="@+id/quiz_time" />
+
+    <TableLayout
+        android:id="@+id/quiz_options_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quiz_time"
+        android:layout_marginLeft="40dp"
+        android:stretchColumns="*"
+        android:layout_centerHorizontal="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:text="Opcja 0"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:background="#B0C4DE"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/quiz_option_0" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:text="Opcja 1"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:background="#B0C4DE"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/quiz_option_1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:text="Opcja 2"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:background="#B0C4DE"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/quiz_option_2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:text="Opcja 3"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:background="#B0C4DE"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/quiz_option_3" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:text="Pytanie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        android:id="@+id/quiz_question_word"
+        android:layout_above="@+id/quiz_time"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="53dp" />
+
+    <TextView
+        android:text="Pytanie x/y"
+        android:textColor="#454343"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:id="@+id/question_number"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="WYNIK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#454343"
+        android:textSize="15dp"
+        android:id="@+id/quiz_score_info" />
+
+    <TextView
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quiz_score_info"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#757272"
+        android:textSize="13dp"
+        android:id="@+id/quiz_score" />
+
+</RelativeLayout>
