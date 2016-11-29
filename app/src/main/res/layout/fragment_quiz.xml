@@ -3,127 +3,237 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="*"
-    tools:context="net.heliantum.ziedic.fragments.QuizFragment">
+    tools:context="net.heliantum.ziedic.fragments.QuizFragment"
+    android:id="@+id/fragment_quiz_layout">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="80dp"
-        android:id="@+id/quiz_time" />
-
     <TableLayout
-        android:id="@+id/quiz_options_table"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/quiz_time"
-        android:layout_marginLeft="40dp"
-        android:stretchColumns="*"
-        android:layout_centerHorizontal="true">
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_quiz_table_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:measureWithLargestChild="true" >
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_weight="0.05"
+            android:id="@+id/fragment_quiz_time_row" >
 
-            <Button
-                android:text="Opcja 0"
-                android:textAllCaps="false"
-                android:layout_width="wrap_content"
-                android:background="#B0C4DE"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/quiz_option_0" />
-
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_quiz_time"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_weight="0.05"
+            android:id="@+id/fragment_quiz_scoreinfo_row" >
 
-            <Button
-                android:text="Opcja 1"
-                android:textAllCaps="false"
+            <TextView
+                android:text="WYNIK"
                 android:layout_width="wrap_content"
-                android:background="#B0C4DE"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/quiz_option_1" />
+                android:layout_height="wrap_content"
+                android:textColor="#454343"
+                android:textSize="15dp"
+                android:id="@+id/fragment_quiz_scoreinfo"
+                android:layout_below="@+id/fragment_quiz_time"
+                android:layout_alignLeft="@+id/quiz_options_table"
+                android:layout_alignStart="@+id/quiz_options_table" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_weight="0.05"
+            android:id="@+id/fragment_quiz_score_row" >
 
-            <Button
-                android:text="Opcja 2"
-                android:textAllCaps="false"
+            <TextView
+                android:text="0"
                 android:layout_width="wrap_content"
-                android:background="#B0C4DE"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/quiz_option_2" />
+                android:layout_height="wrap_content"
+                android:textColor="#757272"
+                android:textSize="13dp"
+                android:id="@+id/fragment_quiz_score"
+                android:layout_below="@+id/fragment_quiz_scoreinfo"
+                android:layout_alignLeft="@+id/fragment_quiz_scoreinfo"
+                android:layout_alignStart="@+id/fragment_quiz_scoreinfo" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_weight="0.85"
+            android:id="@+id/fragment_quiz_table_layout_2_row" >
 
-            <Button
-                android:text="Opcja 3"
-                android:textAllCaps="false"
+            <TableLayout
                 android:layout_width="wrap_content"
-                android:background="#B0C4DE"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/quiz_option_3" />
-        </TableRow>
+                android:layout_height="match_parent"
+                android:stretchColumns="*"
+                android:measureWithLargestChild="true"
+                android:id="@+id/fragment_quiz_table_layout_2">
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.125"
+                    android:id="@+id/fragment_quiz_questionnumber_row" >
+
+                    <TextView
+                        android:text="Pytanie x/y"
+                        android:textColor="#454343"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fragment_quiz_questionnumber"
+                        android:layout_marginTop="35dp"
+                        android:layout_below="@+id/fragment_quiz_score"
+                        android:layout_alignRight="@+id/fragment_quiz_question"
+                        android:layout_alignEnd="@+id/fragment_quiz_question" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.375"
+                    android:id="@+id/fragment_quiz_question_row" >
+
+                    <TextView
+                        android:text="Pytanie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="30dp"
+                        android:textColor="#000000"
+                        android:id="@+id/fragment_quiz_question"
+                        android:gravity="center"
+                        android:layout_below="@+id/fragment_quiz_questionnumber"
+                        android:layout_centerHorizontal="true" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.125"
+                    android:id="@+id/fragment_quiz_option0_row" >
+
+                    <Button
+                        android:text="Opcja 0"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/quiz_button_normal"
+                        android:layout_marginBottom="5dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:id="@+id/fragment_quiz_option0" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.125"
+                    android:id="@+id/fragment_quiz_option1_row" >
+
+                    <Button
+                        android:text="Opcja 1"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/quiz_button_normal"
+                        android:layout_marginBottom="5dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:id="@+id/fragment_quiz_option1" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.125"
+                    android:id="@+id/fragment_quiz_option2_row" >
+
+                    <Button
+                        android:text="Opcja 2"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/quiz_button_normal"
+                        android:layout_marginBottom="5dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:id="@+id/fragment_quiz_option2" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.125"
+                    android:id="@+id/fragment_quiz_option3_row">
+
+                    <Button
+                        android:text="Opcja 3"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/quiz_button_normal"
+                        android:layout_marginBottom="5dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:id="@+id/fragment_quiz_option3" />
+
+                </TableRow>
+
+            </TableLayout>
+        </TableRow>
     </TableLayout>
+    <!--
+        <TableLayout
+            android:id="@+id/quiz_options_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:stretchColumns="*"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:measureWithLargestChild="true"
+            android:layout_below="@+id/fragment_quiz_question">
 
-    <TextView
-        android:text="Pytanie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:textColor="#000000"
-        android:id="@+id/quiz_question_word"
-        android:layout_above="@+id/quiz_time"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
 
-    <TextView
-        android:text="Pytanie x/y"
-        android:textColor="#454343"
-        android:textSize="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
-        android:id="@+id/question_number"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+            </TableRow>
 
-    <TextView
-        android:text="WYNIK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#454343"
-        android:textSize="15dp"
-        android:id="@+id/quiz_score_info" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
 
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/quiz_score_info"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#757272"
-        android:textSize="13dp"
-        android:id="@+id/quiz_score" />
+            </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+            </TableRow>
+
+        </TableLayout>
+    -->
 </RelativeLayout>

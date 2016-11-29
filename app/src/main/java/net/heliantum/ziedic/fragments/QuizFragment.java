@@ -1,7 +1,9 @@
 package net.heliantum.ziedic.fragments;
 
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,8 +11,11 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +29,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Handler;
 
 public class QuizFragment extends Fragment {
 
+    private RelativeLayout layout;
     private TextView question, questionNumber;
     private Button[] options = new Button[4];
     private TextView scoreView;
@@ -83,18 +88,35 @@ public class QuizFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_quiz, container, false);
 
-        question = (TextView) rootView.findViewById(R.id.quiz_question_word);
-        questionNumber = (TextView) rootView.findViewById(R.id.question_number);
-        options[0] = (Button) rootView.findViewById(R.id.quiz_option_0);
-        options[1] = (Button) rootView.findViewById(R.id.quiz_option_1);
-        options[2] = (Button) rootView.findViewById(R.id.quiz_option_2);
-        options[3] = (Button) rootView.findViewById(R.id.quiz_option_3);
-        scoreView = (TextView) rootView.findViewById(R.id.quiz_score);
-        time = (ProgressBar) rootView.findViewById(R.id.quiz_time);
+        layout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_layout);
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade);
+        layout.setAnimation(anim);
+
+        String fontPath = "fonts/Montserrat-Regular-PL.ttf";
+        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
+
+        question = (TextView) rootView.findViewById(R.id.fragment_quiz_question);
+        questionNumber = (TextView) rootView.findViewById(R.id.fragment_quiz_questionnumber);
+        options[0] = (Button) rootView.findViewById(R.id.fragment_quiz_option0);
+        options[1] = (Button) rootView.findViewById(R.id.fragment_quiz_option1);
+        options[2] = (Button) rootView.findViewById(R.id.fragment_quiz_option2);
+        options[3] = (Button) rootView.findViewById(R.id.fragment_quiz_option3);
+        scoreView = (TextView) rootView.findViewById(R.id.fragment_quiz_score);
+        time = (ProgressBar) rootView.findViewById(R.id.fragment_quiz_time);
 
         time.setMax(5000);
         scoreView.setText(String.valueOf(score));
         questionNumber.setText(new String("Pytanie " + number));
+
+        //setting font:
+        question.setTypeface(typeFace);
+        questionNumber.setTypeface(typeFace);
+        options[0].setTypeface(typeFace);
+        options[1].setTypeface(typeFace);
+        options[2].setTypeface(typeFace);
+        options[3].setTypeface(typeFace);
+        scoreView.setTypeface(typeFace);
+        time.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 153, 255)));
 
         //setting correct & incorrect words objects:
         correctOption = r.nextInt(4);
@@ -128,7 +150,6 @@ public class QuizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(!timesUp) {
-                    options[0].setBackgroundColor(Color.rgb(255, 246, 143));
                     chosenOption = 0;
                     isAnswered = true;
                     getActivity().runOnUiThread(new ShowAnswerTask());
@@ -140,7 +161,6 @@ public class QuizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(!timesUp) {
-                    options[1].setBackgroundColor(Color.rgb(255, 246, 143));
                     chosenOption = 1;
                     isAnswered = true;
                     getActivity().runOnUiThread(new ShowAnswerTask());
@@ -152,7 +172,6 @@ public class QuizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(!timesUp) {
-                    options[2].setBackgroundColor(Color.rgb(255, 246, 143));
                     chosenOption = 2;
                     isAnswered = true;
                     getActivity().runOnUiThread(new ShowAnswerTask());
@@ -164,7 +183,6 @@ public class QuizFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(!timesUp) {
-                    options[3].setBackgroundColor(Color.rgb(255, 246, 143));
                     chosenOption = 3;
                     isAnswered = true;
                     getActivity().runOnUiThread(new ShowAnswerTask());
@@ -207,38 +225,61 @@ public class QuizFragment extends Fragment {
         @Override
         public void run() {
 
-
-            android.os.Handler handler = new android.os.Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if(isAnswered && chosenOption != -1) {
-                        options[chosenOption].setBackgroundColor(Color.rgb(205, 85, 85));
-                    }
-                    options[correctOption].setBackgroundColor(Color.rgb(113, 198, 113));
-
-                    if(chosenOption == correctOption) {
-                        score += timeLeft;
-                        scoreView.setText(String.valueOf(score));
-                    }
+            if(getActivity() != null) {
+                if (isAnswered && chosenOption != -1) {
+                    options[chosenOption].setBackgroundResource(R.drawable.quiz_button_incorrect);
                 }
-            }, 1500);
-
-            //todo: next fragment
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if(words.size() > 0 && getActivity() != null) {
-                        QuizFragment nextFragment = QuizFragment.newInstance(score, number);
-                        FragmentManager manager = getActivity().getSupportFragmentManager();
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, nextFragment).commit();
-                    }
-                    else if(getActivity() != null){
-                        Toast.makeText(getContext(), "Koniec quizu", Toast.LENGTH_SHORT).show();
-                    }
+                if (chosenOption == correctOption) {
+                    options[correctOption].setBackgroundResource(R.drawable.quiz_button_correct);
                 }
-            }, 3000);
+
+                if (chosenOption == correctOption) {
+                    score += timeLeft;
+                    scoreView.setText(String.valueOf(score));
+
+                    Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade);
+                    scoreView.startAnimation(anim);
+                }
+
+                android.os.Handler handler = new android.os.Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        options[correctOption].setBackgroundResource(R.drawable.quiz_button_correct);
+                    }
+                }, 1000);
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        for (int i = 0; i < 4; i++) {
+                            if (i == correctOption) continue;
+
+                            Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
+                            options[i].startAnimation(anim);
+                        }
+
+                    }
+                }, 1500);
+
+                //todo: next fragment
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (words.size() > 0 && getActivity() != null) {
+                            QuizFragment nextFragment = QuizFragment.newInstance(score, number);
+                            FragmentManager manager = getActivity().getSupportFragmentManager();
+                            manager.beginTransaction().replace(R.id.layout_for_fragments, nextFragment).commit();
+                        } else if (getActivity() != null) {
+                            Toast.makeText(getContext(), "Koniec quizu", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, 3000);
+            }
         }
     }
 
