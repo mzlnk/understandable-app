@@ -130,7 +130,7 @@
                         android:layout_height="match_parent"
                         android:textAllCaps="false"
                         android:layout_width="wrap_content"
-                        android:background="@drawable/quiz_button_normal"
+                        android:background="@drawable/f_quiz_button_option_base"
                         android:layout_marginBottom="5dp"
                         style="?android:attr/borderlessButtonStyle"
                         android:id="@+id/fragment_quiz_option0" />
@@ -148,7 +148,7 @@
                         android:layout_height="match_parent"
                         android:textAllCaps="false"
                         android:layout_width="wrap_content"
-                        android:background="@drawable/quiz_button_normal"
+                        android:background="@drawable/f_quiz_button_option_base"
                         android:layout_marginBottom="5dp"
                         style="?android:attr/borderlessButtonStyle"
                         android:id="@+id/fragment_quiz_option1" />
@@ -166,7 +166,7 @@
                         android:layout_height="match_parent"
                         android:textAllCaps="false"
                         android:layout_width="wrap_content"
-                        android:background="@drawable/quiz_button_normal"
+                        android:background="@drawable/f_quiz_button_option_base"
                         android:layout_marginBottom="5dp"
                         style="?android:attr/borderlessButtonStyle"
                         android:id="@+id/fragment_quiz_option2" />
@@ -184,7 +184,7 @@
                         android:layout_height="match_parent"
                         android:textAllCaps="false"
                         android:layout_width="match_parent"
-                        android:background="@drawable/quiz_button_normal"
+                        android:background="@drawable/f_quiz_button_option_base"
                         android:layout_marginBottom="5dp"
                         style="?android:attr/borderlessButtonStyle"
                         android:id="@+id/fragment_quiz_option3" />

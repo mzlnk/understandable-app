@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ import java.util.TimerTask;
 
 public class QuizFragment extends Fragment {
 
-    private RelativeLayout layout;
+    private TableLayout layout;
     private TextView question, questionNumber;
     private Button[] options = new Button[4];
     private TextView scoreView;
@@ -88,7 +89,7 @@ public class QuizFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_quiz, container, false);
 
-        layout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_layout);
+        layout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade);
         layout.setAnimation(anim);
 
@@ -227,10 +228,10 @@ public class QuizFragment extends Fragment {
 
             if(getActivity() != null) {
                 if (isAnswered && chosenOption != -1) {
-                    options[chosenOption].setBackgroundResource(R.drawable.quiz_button_incorrect);
+                    options[chosenOption].setBackgroundResource(R.drawable.f_quiz_button_incorrect);
                 }
                 if (chosenOption == correctOption) {
-                    options[correctOption].setBackgroundResource(R.drawable.quiz_button_correct);
+                    options[correctOption].setBackgroundResource(R.drawable.f_quiz_button_option_correct);
                 }
 
                 if (chosenOption == correctOption) {
@@ -247,7 +248,7 @@ public class QuizFragment extends Fragment {
                     @Override
                     public void run() {
 
-                        options[correctOption].setBackgroundResource(R.drawable.quiz_button_correct);
+                        options[correctOption].setBackgroundResource(R.drawable.f_quiz_button_option_correct);
                     }
                 }, 1000);
 
