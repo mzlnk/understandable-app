@@ -5,6 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "net.heliantum.ziedic"
         minSdkVersion 16
         targetSdkVersion 24

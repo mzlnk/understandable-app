@@ -1,8 +1,10 @@
 package net.heliantum.ziedic.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 
 import net.heliantum.ziedic.R;
 

@@ -15,7 +15,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -228,10 +227,10 @@ public class QuizFragment extends Fragment {
 
             if(getActivity() != null) {
                 if (isAnswered && chosenOption != -1) {
-                    options[chosenOption].setBackgroundResource(R.drawable.f_quiz_button_incorrect);
+                    options[chosenOption].setBackgroundResource(R.drawable.button_rounded_red);
                 }
                 if (chosenOption == correctOption) {
-                    options[correctOption].setBackgroundResource(R.drawable.f_quiz_button_option_correct);
+                    options[correctOption].setBackgroundResource(R.drawable.button_rounded_green);
                 }
 
                 if (chosenOption == correctOption) {
@@ -248,7 +247,7 @@ public class QuizFragment extends Fragment {
                     @Override
                     public void run() {
 
-                        options[correctOption].setBackgroundResource(R.drawable.f_quiz_button_option_correct);
+                        options[correctOption].setBackgroundResource(R.drawable.button_rounded_green);
                     }
                 }, 1000);
 

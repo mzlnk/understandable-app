@@ -1,0 +1,405 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.heliantum.ziedic.fragments.WordsChoiceCategoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:layout_weight="0.05"
+            android:text="@string/f_words_choice_category_title"
+            android:textSize="@dimen/f_words_choice_title_size"
+            android:textColor="@color/default_black"
+            android:id="@+id/f_words_choice_category_title" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.94"
+            android:layout_below="@+id/f_words_choice_category_title"
+            android:measureWithLargestChild="true"
+            android:stretchColumns="*"
+            android:id="@+id/f_words_choice_category_categories">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView7" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView6" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView5" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView4" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Człowiek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView7" />
+
+                <TextView
+                    android:text="Dom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView6" />
+
+                <TextView
+                    android:text="Szkoła"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView5" />
+
+                <TextView
+                    android:text="Praca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView4" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView9" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView10" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView11" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView12" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Życie\nrodzinne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView8" />
+
+                <TextView
+                    android:text="Życie\ntowarzyskie"
+                    android:textSize="11sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView10" />
+
+                <TextView
+                    android:text="Jedzenie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView12" />
+
+                <TextView
+                    android:text="Zakupy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView11" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView16" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView15" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView14" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView13" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Podróżowanie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView16" />
+
+                <TextView
+                    android:text="Transport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView15" />
+
+                <TextView
+                    android:text="Zwierzęta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView14" />
+
+                <TextView
+                    android:text="Kultura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView13" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView20" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView19" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView18" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView17" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Zdrowie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView20" />
+
+                <TextView
+                    android:text="Sport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView19" />
+
+                <TextView
+                    android:text="Nauka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView18" />
+
+                <TextView
+                    android:text="Środowisko"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView17" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView24" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView23" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
+                    android:id="@+id/imageView22" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Społeczeństwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView24" />
+
+                <TextView
+                    android:text="Kraj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView23" />
+
+                <TextView
+                    android:text="Inne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:id="@+id/textView22" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_below="@+id/f_words_choice_category_categories"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05">
+
+            <Button
+                android:text="@string/f_words_choice_next"
+                android:textSize="@dimen/f_words_choice_text_button_size"
+                android:textAllCaps="false"
+                android:textColor="@color/default_white"
+                android:background="@drawable/button_rounded_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/f_words_choice_category_submit" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

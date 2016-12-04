@@ -6,4 +6,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Dimensions for text in fragment_words_choice -->
+    <dimen name="f_words_choice_title_size">28sp</dimen>
+    <dimen name="f_words_choice_text_button_size">18sp</dimen>
+    <dimen name="f_words_choice_category_titles">10sp</dimen>
+    <dimen name="f_words_choice_icons_margin">5dp</dimen>
 </resources>
