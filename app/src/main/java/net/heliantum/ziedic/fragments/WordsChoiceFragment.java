@@ -19,8 +19,8 @@ import net.heliantum.ziedic.database.entity.LanguageEntity;
 import net.heliantum.ziedic.database.entity.LanguageType;
 import net.heliantum.ziedic.utils.CurrentlyChosenWordsData;
 import net.heliantum.ziedic.utils.Debug;
-import net.heliantum.ziedic.utils.LanguageLearningDirection;
-import net.heliantum.ziedic.utils.LearningOption;
+import net.heliantum.ziedic.utils.LanguageLearningWay;
+import net.heliantum.ziedic.utils.LearningMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +33,8 @@ public class WordsChoiceFragment extends Fragment {
 
     private List<LanguageCategory> chosenCategories = new ArrayList<>();
     private List<LanguageType> chosenTypes = new ArrayList<>();
-    private LearningOption learningOption = LearningOption.REPETITION;
-    private LanguageLearningDirection learningDirection = LanguageLearningDirection.POLISH_TO_ENGLISH;
+    private LearningMode learningMode = LearningMode.REPETITION;
+    private LanguageLearningWay learningDirection = LanguageLearningWay.POLISH_TO_ENGLISH;
 
     private List<LanguageEntity> chosenWords = new ArrayList<>();
 
@@ -173,8 +173,8 @@ public class WordsChoiceFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    LearningOption option = LearningOption.getEnumFromPolish(String.valueOf(modes[n].getText()));
-                    learningOption = option;
+                    LearningMode option = LearningMode.getEnumFromPolish(String.valueOf(modes[n].getText()));
+                    learningMode = option;
                 }
             });
         }
@@ -186,7 +186,7 @@ public class WordsChoiceFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    LanguageLearningDirection direction = LanguageLearningDirection.getEnumFromPolish(String.valueOf(ways[n].getText()));
+                    LanguageLearningWay direction = LanguageLearningWay.getEnumFromPolish(String.valueOf(ways[n].getText()));
                     learningDirection = direction;
                 }
             });
@@ -220,7 +220,7 @@ public class WordsChoiceFragment extends Fragment {
                             CurrentlyChosenWordsData.chosenWords = chosenWords;
                             CurrentlyChosenWordsData.direction = learningDirection;
 
-                            switch(learningOption) {
+                            switch(learningMode) {
                                 case REPETITION:
                                     FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
                                     transaction1.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());

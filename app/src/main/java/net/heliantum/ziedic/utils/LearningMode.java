@@ -6,14 +6,14 @@ package net.heliantum.ziedic.utils;
  */
 
 
-public enum LearningOption {
+public enum LearningMode {
 
     REPETITION("powtarzanie"),
     QUIZ("quiz");
 
     private String name;
 
-    private LearningOption(String name) {
+    private LearningMode(String name) {
         this.name = name;
     }
 
@@ -21,12 +21,12 @@ public enum LearningOption {
         return name;
     }
 
-    public static LearningOption getEnumFromPolish(String name) {
+    public static LearningMode getEnumFromPolish(String name) {
 
-        for(LearningOption o : LearningOption.values()) {
+        for(LearningMode o : LearningMode.values()) {
             if(o.getName().equalsIgnoreCase(name)) return o;
         }
-        return LearningOption.REPETITION;
+        return LearningMode.REPETITION;
     }
 
 }

@@ -5,7 +5,7 @@ package net.heliantum.ziedic.utils;
  */
 
 
-public enum LanguageLearningDirection {
+public enum LanguageLearningWay {
 
     POLISH_TO_ENGLISH(0, "z poskiego na angielski"),
     ENGLISH_TO_POLISH(1, "z angielskiego na polski"),
@@ -14,7 +14,7 @@ public enum LanguageLearningDirection {
     private int id;
     private String name;
 
-    private LanguageLearningDirection(int id, String name) {
+    private LanguageLearningWay(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -27,18 +27,18 @@ public enum LanguageLearningDirection {
         return name;
     }
 
-    public static LanguageLearningDirection getEnumFromPolish(String name) {
-        for(LanguageLearningDirection lld : LanguageLearningDirection.values()) {
+    public static LanguageLearningWay getEnumFromPolish(String name) {
+        for(LanguageLearningWay lld : LanguageLearningWay.values()) {
             if(lld.getName().equalsIgnoreCase(name)) return lld;
         }
-        return LanguageLearningDirection.RANDOM;
+        return LanguageLearningWay.RANDOM;
     }
 
-    public static LanguageLearningDirection getEnumFromPolish(int id) {
-        for(LanguageLearningDirection lld : LanguageLearningDirection.values()) {
+    public static LanguageLearningWay getEnumFromPolish(int id) {
+        for(LanguageLearningWay lld : LanguageLearningWay.values()) {
             if(lld.getId() == id) return lld;
         }
-        return LanguageLearningDirection.RANDOM;
+        return LanguageLearningWay.RANDOM;
     }
 
 

@@ -17,7 +17,7 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 import net.heliantum.ziedic.utils.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.utils.LanguageLearningDirection;
+import net.heliantum.ziedic.utils.LanguageLearningWay;
 
 import java.util.List;
 import java.util.Random;
@@ -26,7 +26,7 @@ public class WordsRepetitionFragment extends Fragment {
 
     private List<LanguageEntity> words;
     private LanguageEntity currentWord;
-    private LanguageLearningDirection direction;
+    private LanguageLearningWay direction;
 
     private Button repeat;
     private ProgressBar progress;
@@ -95,7 +95,7 @@ public class WordsRepetitionFragment extends Fragment {
             return NUMB_WORDS;
         }
 
-        private WordsRepetitionExampleFragment getFragmentByDirection(LanguageLearningDirection direction) {
+        private WordsRepetitionExampleFragment getFragmentByDirection(LanguageLearningWay direction) {
 
             switch(direction) {
                 case POLISH_TO_ENGLISH:

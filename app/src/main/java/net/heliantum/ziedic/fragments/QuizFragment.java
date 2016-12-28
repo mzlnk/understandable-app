@@ -22,7 +22,7 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 import net.heliantum.ziedic.utils.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.utils.LanguageLearningDirection;
+import net.heliantum.ziedic.utils.LanguageLearningWay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class QuizFragment extends Fragment {
     List<LanguageEntity> wordsWithoutCorrectOne;
     LanguageEntity correctWord;
     LanguageEntity[] incorrectWords = new LanguageEntity[3];
-    LanguageLearningDirection direction;
+    LanguageLearningWay direction;
 
     private static Random r = new Random();
     private static final String SCORE_PARAM = "score";

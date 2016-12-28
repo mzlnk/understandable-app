@@ -12,4 +12,5 @@
     <dimen name="f_words_choice_text_button_size">18sp</dimen>
     <dimen name="f_words_choice_category_titles">10sp</dimen>
     <dimen name="f_words_choice_icons_margin">5dp</dimen>
+
 </resources>

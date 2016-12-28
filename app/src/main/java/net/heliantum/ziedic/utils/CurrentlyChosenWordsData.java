@@ -13,6 +13,6 @@ import java.util.List;
 public class CurrentlyChosenWordsData {
 
     public static List<LanguageEntity> chosenWords = new ArrayList<>();
-    public static LanguageLearningDirection direction = LanguageLearningDirection.RANDOM;
+    public static LanguageLearningWay direction = LanguageLearningWay.RANDOM;
 
 }

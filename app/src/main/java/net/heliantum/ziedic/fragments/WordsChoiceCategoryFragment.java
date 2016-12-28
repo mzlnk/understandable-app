@@ -21,6 +21,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.id.)
         return inflater.inflate(R.layout.fragment_words_choice_category, container, false);
     }
 

@@ -43,6 +43,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="0.25"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView7" />
@@ -50,6 +51,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="0.25"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView6" />
@@ -57,6 +59,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="0.25"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView5" />
@@ -64,6 +67,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="0.25"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView4" />
@@ -73,36 +77,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <TextView
-                    android:text="Człowiek"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView7" />
 
-                <TextView
-                    android:text="Dom"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView6" />
 
-                <TextView
-                    android:text="Szkoła"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView5" />
 
-                <TextView
-                    android:text="Praca"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView4" />
             </TableRow>
 
@@ -114,8 +122,8 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView9" />
 
@@ -123,6 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView10" />
 
@@ -130,6 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView11" />
 
@@ -137,6 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView12" />
             </TableRow>
@@ -145,37 +156,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <TextView
-                    android:text="Życie\nrodzinne"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView8" />
 
-                <TextView
-                    android:text="Życie\ntowarzyskie"
-                    android:textSize="11sp"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView10" />
 
-                <TextView
-                    android:text="Jedzenie"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView12" />
 
-                <TextView
-                    android:text="Zakupy"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView11" />
             </TableRow>
 
@@ -188,6 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView16" />
 
@@ -195,6 +210,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView15" />
 
@@ -202,6 +218,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView14" />
 
@@ -209,6 +226,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView13" />
             </TableRow>
@@ -217,36 +235,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <TextView
-                    android:text="Podróżowanie"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView16" />
 
-                <TextView
-                    android:text="Transport"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView15" />
 
-                <TextView
-                    android:text="Zwierzęta"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView14" />
 
-                <TextView
-                    android:text="Kultura"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView13" />
             </TableRow>
 
@@ -259,6 +281,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView20" />
 
@@ -266,6 +289,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView19" />
 
@@ -273,6 +297,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView18" />
 
@@ -280,6 +305,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView17" />
             </TableRow>
@@ -288,36 +314,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <TextView
-                    android:text="Zdrowie"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView20" />
 
-                <TextView
-                    android:text="Sport"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView19" />
 
-                <TextView
-                    android:text="Nauka"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView18" />
 
-                <TextView
-                    android:text="Środowisko"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView17" />
             </TableRow>
 
@@ -330,6 +360,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView24" />
 
@@ -337,6 +368,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
                     app:srcCompat="@drawable/f_words_choice_base_test_unselected"
                     android:id="@+id/imageView23" />
 
@@ -344,8 +376,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/f_words_choice_icons_margin"
-                    app:srcCompat="@drawable/f_words_choice_base_test_unselected"
-                    android:id="@+id/imageView22" />
+                    android:layout_weight="0.25"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/f_words_choice_icons_margin"
+                    android:layout_weight="0.25"
+                    app:srcCompat="@drawable/f_words_choice_base_test_unselected" />
 
             </TableRow>
 
@@ -353,29 +392,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
-                <TextView
-                    android:text="Społeczeństwo"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView24" />
 
-                <TextView
-                    android:text="Kraj"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView23" />
 
-                <TextView
-                    android:text="Inne"
+                <net.heliantum.ziedic.utils.AutoResizeTextView
+                    android:text="@string/f_words_choice_cat_19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center"
+                    android:layout_weight="0.25"
                     android:id="@+id/textView22" />
+
+                <TextView
+                    android:layout_weight="0.25" />
+
             </TableRow>
         </TableLayout>
 
