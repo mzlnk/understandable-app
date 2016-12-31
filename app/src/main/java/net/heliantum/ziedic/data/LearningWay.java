@@ -1,11 +1,11 @@
-package net.heliantum.ziedic.utils;
+package net.heliantum.ziedic.data;
 
 /**
  * Created by Lotos_ on 2016-11-12.
  */
 
 
-public enum LanguageLearningWay {
+public enum LearningWay {
 
     POLISH_TO_ENGLISH(0, "z poskiego na angielski"),
     ENGLISH_TO_POLISH(1, "z angielskiego na polski"),
@@ -14,7 +14,7 @@ public enum LanguageLearningWay {
     private int id;
     private String name;
 
-    private LanguageLearningWay(int id, String name) {
+    private LearningWay(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -27,18 +27,18 @@ public enum LanguageLearningWay {
         return name;
     }
 
-    public static LanguageLearningWay getEnumFromPolish(String name) {
-        for(LanguageLearningWay lld : LanguageLearningWay.values()) {
+    public static LearningWay getEnumFromPolish(String name) {
+        for(LearningWay lld : LearningWay.values()) {
             if(lld.getName().equalsIgnoreCase(name)) return lld;
         }
-        return LanguageLearningWay.RANDOM;
+        return LearningWay.RANDOM;
     }
 
-    public static LanguageLearningWay getEnumFromPolish(int id) {
-        for(LanguageLearningWay lld : LanguageLearningWay.values()) {
+    public static LearningWay getEnumFromPolish(int id) {
+        for(LearningWay lld : LearningWay.values()) {
             if(lld.getId() == id) return lld;
         }
-        return LanguageLearningWay.RANDOM;
+        return LearningWay.RANDOM;
     }
 
 

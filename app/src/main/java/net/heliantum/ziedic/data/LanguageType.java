@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.database.entity;
+package net.heliantum.ziedic.data;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.

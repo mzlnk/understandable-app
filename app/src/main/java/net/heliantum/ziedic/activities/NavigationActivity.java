@@ -17,6 +17,7 @@ import net.heliantum.ziedic.database.DataHandler;
 import net.heliantum.ziedic.fragments.AboutAuthorFragment;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.fragments.DownloadDatabaseFragment;
+import net.heliantum.ziedic.fragments.WordsChoiceCategoryFragment;
 import net.heliantum.ziedic.fragments.WordsChoiceFragment;
 
 public class NavigationActivity extends AppCompatActivity
@@ -84,7 +85,7 @@ public class NavigationActivity extends AppCompatActivity
             manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }
         else if(id == R.id.words) {
-            WordsChoiceFragment fragment = new WordsChoiceFragment();
+            WordsChoiceCategoryFragment fragment = new WordsChoiceCategoryFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }

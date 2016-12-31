@@ -1,5 +1,8 @@
 package net.heliantum.ziedic.database.entity;
 
+import net.heliantum.ziedic.data.LanguageCategory;
+import net.heliantum.ziedic.data.LanguageType;
+
 import java.util.ArrayList;
 import java.util.List;
 

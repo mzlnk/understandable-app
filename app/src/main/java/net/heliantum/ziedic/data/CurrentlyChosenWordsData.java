@@ -1,5 +1,6 @@
-package net.heliantum.ziedic.utils;
+package net.heliantum.ziedic.data;
 
+import net.heliantum.ziedic.data.LearningWay;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 
 import java.util.ArrayList;
@@ -13,6 +14,6 @@ import java.util.List;
 public class CurrentlyChosenWordsData {
 
     public static List<LanguageEntity> chosenWords = new ArrayList<>();
-    public static LanguageLearningWay direction = LanguageLearningWay.RANDOM;
+    public static LearningWay way = LearningWay.RANDOM;
 
 }

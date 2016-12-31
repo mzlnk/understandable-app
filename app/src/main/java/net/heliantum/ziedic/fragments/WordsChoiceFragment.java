@@ -1,26 +1,19 @@
 package net.heliantum.ziedic.fragments;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
-import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.database.data.DatabaseData;
-import net.heliantum.ziedic.database.entity.LanguageCategory;
+import net.heliantum.ziedic.data.LanguageCategory;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.database.entity.LanguageType;
-import net.heliantum.ziedic.utils.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.utils.Debug;
-import net.heliantum.ziedic.utils.LanguageLearningWay;
-import net.heliantum.ziedic.utils.LearningMode;
+import net.heliantum.ziedic.data.LanguageType;
+import net.heliantum.ziedic.data.LearningWay;
+import net.heliantum.ziedic.data.LearningMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +27,7 @@ public class WordsChoiceFragment extends Fragment {
     private List<LanguageCategory> chosenCategories = new ArrayList<>();
     private List<LanguageType> chosenTypes = new ArrayList<>();
     private LearningMode learningMode = LearningMode.REPETITION;
-    private LanguageLearningWay learningDirection = LanguageLearningWay.POLISH_TO_ENGLISH;
+    private LearningWay learningWayDirection = LearningWay.POLISH_TO_ENGLISH;
 
     private List<LanguageEntity> chosenWords = new ArrayList<>();
 
@@ -58,14 +51,14 @@ public class WordsChoiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_words_choice, container, false);
+        View rootView = null; //inflater.inflate(R.layout.fragment_words_choice, container, false);
 
         for(LanguageType t : LanguageType.values()) {
             chosenTypes.add(t);
         }
 
-        registerFields(rootView);
-        registerListeners();
+        //registerFields(rootView);
+        //registerListeners();
 
 
         return rootView;
@@ -87,6 +80,7 @@ public class WordsChoiceFragment extends Fragment {
         super.onDestroy();
     }
 
+    /*
     private void registerFields(View v) {
 
         categories[0] = (CheckBox) v.findViewById(R.id.category_0);
@@ -186,8 +180,8 @@ public class WordsChoiceFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-                    LanguageLearningWay direction = LanguageLearningWay.getEnumFromPolish(String.valueOf(ways[n].getText()));
-                    learningDirection = direction;
+                    LearningWay way = LearningWay.getEnumFromPolish(String.valueOf(ways[n].getText()));
+                    learningWayDirection = way;
                 }
             });
         }
@@ -218,7 +212,7 @@ public class WordsChoiceFragment extends Fragment {
                         if(chosenWords.size() > 0) {
 
                             CurrentlyChosenWordsData.chosenWords = chosenWords;
-                            CurrentlyChosenWordsData.direction = learningDirection;
+                            CurrentlyChosenWordsData.way = learningWayDirection;
 
                             switch(learningMode) {
                                 case REPETITION:
@@ -255,5 +249,6 @@ public class WordsChoiceFragment extends Fragment {
 
         });
     }
+    */
 
 }
