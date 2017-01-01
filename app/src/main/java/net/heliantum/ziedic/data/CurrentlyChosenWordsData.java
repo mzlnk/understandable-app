@@ -20,6 +20,14 @@ public class CurrentlyChosenWordsData {
     private static LearningMode mode = LearningMode.REPETITION;
     private static LearningWay way = LearningWay.RANDOM;
 
+    public static List<LanguageCategory> getCategories() {
+        return CurrentlyChosenWordsData.categories;
+    }
+
+    public static List<LanguageType> getTypes() {
+        return CurrentlyChosenWordsData.types;
+    }
+
     public static LearningMode getMode() {
         return CurrentlyChosenWordsData.mode;
     }

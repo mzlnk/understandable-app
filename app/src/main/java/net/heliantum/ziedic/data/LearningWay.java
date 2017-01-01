@@ -28,15 +28,16 @@ public enum LearningWay {
     }
 
     public static LearningWay getEnumFromPolish(String name) {
-        for(LearningWay lld : LearningWay.values()) {
-            if(lld.getName().equalsIgnoreCase(name)) return lld;
+        for(LearningWay way : LearningWay.values()) {
+            if(way.getName().equalsIgnoreCase(name)) return way;
         }
         return LearningWay.RANDOM;
     }
 
     public static LearningWay getEnumFromPolish(int id) {
-        for(LearningWay lld : LearningWay.values()) {
-            if(lld.getId() == id) return lld;
+        for(LearningWay way
+                : LearningWay.values()) {
+            if(way.getId() == id) return way;
         }
         return LearningWay.RANDOM;
     }

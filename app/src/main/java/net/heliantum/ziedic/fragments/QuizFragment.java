@@ -89,7 +89,7 @@ public class QuizFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_quiz, container, false);
 
         layout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
-        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade);
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
         layout.setAnimation(anim);
 
         String fontPath = "fonts/Montserrat-Regular-PL.ttf";
@@ -237,7 +237,7 @@ public class QuizFragment extends Fragment {
                     score += timeLeft;
                     scoreView.setText(String.valueOf(score));
 
-                    Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade);
+                    Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
                     scoreView.startAnimation(anim);
                 }
 

@@ -12,7 +12,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -25,9 +24,12 @@ import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.data.LanguageCategory;
+import net.heliantum.ziedic.data.LanguageType;
 
-public class WordsChoiceCategoryFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class WordsChoiceTypeFragment extends Fragment {
 
     private Typeface typeface;
 
@@ -35,7 +37,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
     private RelativeLayout mainLayout;
     private TableLayout layout;
 
-    public WordsChoiceCategoryFragment() {
+    public WordsChoiceTypeFragment() {
         // Required empty public constructor
     }
 
@@ -44,29 +46,39 @@ public class WordsChoiceCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_words_choice_category, container, false);
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_category_fragment_layout);
-        layout = (TableLayout) rootView.findViewById(R.id.f_words_choice_category_names_layout);
+        rootView =  inflater.inflate(R.layout.fragment_words_choice_type, container, false);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_type_fragment_layout);
+        layout = (TableLayout) rootView.findViewById(R.id.f_words_choice_type_names_layout);
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
 
         setAnimation();
-        addCategories();
+        addTypes();
 
-        TextView title = (TextView)rootView.findViewById(R.id.f_words_choice_category_title);
-        Button submit = (Button)rootView.findViewById(R.id.f_words_choice_category_submit);
+        TextView title = (TextView) rootView.findViewById(R.id.f_words_choice_type_title);
+        Button submit = (Button) rootView.findViewById(R.id.f_words_choice_type_submit);
+        Button back = (Button) rootView.findViewById(R.id.f_words_choice_type_back);
 
         title.setTypeface(typeface);
         submit.setTypeface(typeface);
+        back.setTypeface(typeface);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager manager = getFragmentManager();
+                manager.popBackStack();
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(CurrentlyChosenWordsData.getCategories().size() > 0) {
-                    WordsChoiceTypeFragment typeFragment = new WordsChoiceTypeFragment();
+                if(CurrentlyChosenWordsData.getTypes().size() > 0) {
+                    WordsChoiceWayFragment modeFragment = new WordsChoiceWayFragment();
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).addToBackStack(null).commit();
                 } else {
-                    Toast.makeText(getContext(), "Wybierz przynajmniej 1 kategorię", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -79,7 +91,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
         mainLayout.setAnimation(anim);
     }
 
-    private void addCategories() {
+    private void addTypes() {
         DisplayMetrics metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
@@ -95,12 +107,12 @@ public class WordsChoiceCategoryFragment extends Fragment {
         TableRow currentImageRow = new TableRow(getContext());
         TableRow currentTextRow = new TableRow(getContext());
 
-        for(final LanguageCategory category : LanguageCategory.values()) {
+        for(final LanguageType type : LanguageType.values()) {
 
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(CurrentlyChosenWordsData.exists(category)) {
+            if(CurrentlyChosenWordsData.exists(type)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);
@@ -111,16 +123,16 @@ public class WordsChoiceCategoryFragment extends Fragment {
                 public void onClick(View view) {
                     if(image.getImageAlpha() == 150) {
                         image.setImageAlpha(255);
-                        CurrentlyChosenWordsData.addCategory(category);
+                        CurrentlyChosenWordsData.addType(type);
                     } else {
                         image.setImageAlpha(150);
-                        CurrentlyChosenWordsData.removeCategory(category);
+                        CurrentlyChosenWordsData.removeType(type);
                     }
                 }
             });
 
             TextView text = new TextView(getContext());
-            text.setText(category.getName());
+            text.setText(type.getName());
             text.setTypeface(typeface);
             text.setTextColor(Color.BLACK);
             text.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
@@ -129,7 +141,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
 
             currentImageRow.addView(image);
             currentTextRow.addView(text);
-            if(pos == 3) {
+            if(pos == 2) {
                 layout.addView(currentImageRow);
                 layout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
