@@ -77,9 +77,9 @@ public class QuizFragment extends Fragment {
             score = getArguments().getInt(SCORE_PARAM);
             number = getArguments().getInt(NUM_PARAM);
         }
-        words = CurrentlyChosenWordsData.chosenWords;
+        words = CurrentlyChosenWordsData.getChosenWords();
         wordsWithoutCorrectOne = new ArrayList<>(words);
-        direction = CurrentlyChosenWordsData.way;
+        direction = CurrentlyChosenWordsData.getWay();
     }
 
     @Override

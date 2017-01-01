@@ -1,6 +1,7 @@
 package net.heliantum.ziedic.fragments;
 
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,17 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
+import net.heliantum.ziedic.data.CurrentlyChosenWordsData;
 import net.heliantum.ziedic.data.LanguageCategory;
-import net.heliantum.ziedic.utils.AutoResizeTextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WordsChoiceCategoryFragment extends Fragment {
 
@@ -63,15 +60,30 @@ public class WordsChoiceCategoryFragment extends Fragment {
         TableRow currentImageRow = new TableRow(getContext());
         TableRow currentTextRow = new TableRow(getContext());
 
-        for(LanguageCategory category : LanguageCategory.values()) {
+        for(final LanguageCategory category : LanguageCategory.values()) {
 
-            ImageView image = new ImageView(getContext());
-            image.setImageResource(R.drawable.f_words_choice_base_test_unselected);
+            final ImageView image = new ImageView(getContext());
+            image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
+            image.setImageAlpha(150);
+            image.setClickable(true);
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(image.getImageAlpha() == 150) {
+                        image.setImageAlpha(255);
+                        CurrentlyChosenWordsData.addCategory(category);
+                    } else {
+                        image.setImageAlpha(150);
+                        CurrentlyChosenWordsData.removeCategory(category);
+                    }
+                }
+            });
 
             TextView text = new TextView(getContext());
             text.setText(category.getName());
             text.setTypeface(font);
+            text.setTextColor(Color.BLACK);
             text.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
             text.setGravity(Gravity.CENTER);
             text.setLayoutParams(textParams);

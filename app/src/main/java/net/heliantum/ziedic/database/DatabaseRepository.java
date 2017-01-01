@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import net.heliantum.ziedic.database.data.DatabaseData;
 import net.heliantum.ziedic.data.LanguageCategory;
+import net.heliantum.ziedic.database.entity.LanguageEntites;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 import net.heliantum.ziedic.data.LanguageType;
 
@@ -156,7 +156,7 @@ public class DatabaseRepository {
 
         if(c.moveToFirst()) {
             do {
-                DatabaseData.languageEntites.addEntity(new LanguageEntity(c.getInt(0),
+                LanguageEntites.addEntity(new LanguageEntity(c.getInt(0),
                                                                           c.getString(1),
                                                                           c.getString(2),
                                                                           LanguageCategory.getEnum(c.getString(3)),

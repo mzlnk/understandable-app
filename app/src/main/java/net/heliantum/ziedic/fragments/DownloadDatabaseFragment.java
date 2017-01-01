@@ -12,7 +12,6 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.database.DataHandler;
 import net.heliantum.ziedic.database.DatabaseRepository;
-import net.heliantum.ziedic.database.data.DatabaseData;
 import net.heliantum.ziedic.database.entity.LanguageEntites;
 
 /**
@@ -42,13 +41,12 @@ public class DownloadDatabaseFragment extends Fragment {
                 DatabaseRepository dr = DataHandler.getDatabaseRepository();
 
                 dr.updateData();
-                int previously = DatabaseData.languageEntites.size();
+                int previously = LanguageEntites.size();
 
-                DatabaseData.languageEntites = null;
-                DatabaseData.languageEntites = new LanguageEntites();
+                LanguageEntites.reset();
                 dr.loadData();
 
-                int now = DatabaseData.languageEntites.size();
+                int now = LanguageEntites.size();
 
                 Toast.makeText(getContext(), "Pomyślnie zaktualizowano bazę słów (+" + (now - previously) + ")", Toast.LENGTH_SHORT).show();
             }

@@ -35,7 +35,7 @@ public class WordsRepetitionFragment extends Fragment {
     private PagerAdapter pagerAdapter;
 
     private static Random r = new Random();
-    private final int NUMB_WORDS = CurrentlyChosenWordsData.chosenWords.size();
+    private final int NUMB_WORDS = CurrentlyChosenWordsData.getChosenWords().size();
 
     public WordsRepetitionFragment() {
         // Required empty public constructor
@@ -45,8 +45,8 @@ public class WordsRepetitionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        words = CurrentlyChosenWordsData.chosenWords;
-        direction = CurrentlyChosenWordsData.way;
+        words = CurrentlyChosenWordsData.getChosenWords();
+        direction = CurrentlyChosenWordsData.getWay();
     }
 
     @Override
