@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_words_choice_length_fragment_layout"
+    tools:context="net.heliantum.ziedic.fragments.WordsChoiceLengthFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:measureWithLargestChild="true" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="0.04">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:text="@string/f_words_choice_length_title"
+                android:textSize="@dimen/f_words_choice_title_size"
+                android:textColor="@color/default_black"
+                android:id="@+id/f_words_choice_length_title" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.91"
+            android:gravity="center" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:text=""
+                    android:textSize="@dimen/f_words_choice_title_size"
+                    android:textColor="@color/default_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/f_words_choice_length_size_info" />
+            </TableRow>
+
+            <TableRow
+                android:measureWithLargestChild="true" >
+
+                <TextView
+                    android:layout_weight="0.2" />
+
+                <SeekBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:id="@+id/f_words_choice_length_size_adjust" />
+
+                <TextView
+                    android:layout_weight="0.2"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:measureWithLargestChild="true"
+            android:gravity="bottom"
+            android:layout_weight="0.05">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:measureWithLargestChild="true" >
+
+                <Button
+                    android:text="@string/f_words_choice_back"
+                    android:textSize="@dimen/f_words_choice_text_button_size"
+                    android:textAllCaps="false"
+                    android:textColor="@color/default_white"
+                    android:background="@drawable/button_rounded_light_blue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:clickable="true"
+                    android:layout_weight="0.47"
+                    android:id="@+id/f_words_choice_length_back" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.06" />
+
+                <Button
+                    android:text="@string/f_words_choice_start"
+                    android:textSize="@dimen/f_words_choice_text_button_size"
+                    android:textAllCaps="false"
+                    android:textColor="@color/default_white"
+                    android:background="@drawable/button_rounded_lime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="0.47"
+                    android:clickable="true"
+                    android:id="@+id/f_words_choice_length_submit" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -78,21 +78,9 @@ public class WordsChoiceModeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                if(CurrentlyChosenWordsData.getChosenWords().size() > 0) {
-                    switch (CurrentlyChosenWordsData.getMode()) {
-                        case REPETITION:
-                            transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
-                            break;
-                        case QUIZ:
-                            transaction.replace(R.id.layout_for_fragments, QuizFragment.newInstance(0, 0));
-                            break;
-                    }
-                } else {
-                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
-                    transaction.addToBackStack(null);
-                }
-                transaction.commit();
+                WordsChoiceLengthFragment typeFragment = new WordsChoiceLengthFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
             }
         });
 

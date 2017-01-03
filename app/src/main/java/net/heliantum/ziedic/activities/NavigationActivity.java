@@ -13,12 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import net.heliantum.ziedic.database.DataHandler;
 import net.heliantum.ziedic.fragments.AboutAuthorFragment;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.fragments.DownloadDatabaseFragment;
 import net.heliantum.ziedic.fragments.WordsChoiceCategoryFragment;
-import net.heliantum.ziedic.fragments.WordsChoiceFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

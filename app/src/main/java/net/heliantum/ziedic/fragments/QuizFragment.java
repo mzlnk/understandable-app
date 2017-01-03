@@ -43,11 +43,11 @@ public class QuizFragment extends Fragment {
     private int chosenOption = -1;
     private boolean isAnswered = false, timesUp = false;
 
-    List<LanguageEntity> words;
-    List<LanguageEntity> wordsWithoutCorrectOne;
-    LanguageEntity correctWord;
-    LanguageEntity[] incorrectWords = new LanguageEntity[3];
-    LearningWay direction;
+    private List<LanguageEntity> words;
+    private List<LanguageEntity> wordsWithoutCorrectOne;
+    private LanguageEntity correctWord;
+    private LanguageEntity[] incorrectWords = new LanguageEntity[3];
+    private LearningWay direction;
 
     private static Random r = new Random();
     private static final String SCORE_PARAM = "score";
@@ -80,6 +80,7 @@ public class QuizFragment extends Fragment {
         words = CurrentlyChosenWordsData.getChosenWords();
         wordsWithoutCorrectOne = new ArrayList<>(words);
         direction = CurrentlyChosenWordsData.getWay();
+        Toast.makeText(getContext(), "onCreate method. Words: " + CurrentlyChosenWordsData.getChosenWords().size(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -87,6 +88,7 @@ public class QuizFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_quiz, container, false);
+        Toast.makeText(getContext(), "onCreateView method", Toast.LENGTH_SHORT).show();
 
         layout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
