@@ -1,0 +1,179 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_quiz_result_fragment_layout"
+    tools:context="net.heliantum.ziedic.fragments.QuizResultFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:measureWithLargestChild="true">
+
+        <TextView
+            android:text="Koniec"
+            android:textColor="@color/default_black"
+            android:textSize="@dimen/f_quiz_result_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.285"
+            android:gravity="center"
+            android:id="@+id/f_quiz_result_title" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.019"
+            android:measureWithLargestChild="true">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="0.33" >
+
+                <TextView
+                    android:text="0"
+                    android:gravity="center"
+                    android:textColor="@color/default_gray"
+                    android:textSize="@dimen/f_quiz_result_answers_amount"
+                    android:id="@+id/f_quiz_result_questions_amount"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="0.67" >
+
+                <TextView
+                    android:text="@string/f_quiz_result_all_questions"
+                    android:textColor="@color/default_black"
+                    android:textSize="@dimen/f_quiz_result_answers_amount_info"
+                    android:id="@+id/f_quiz_result_questions_amount_info"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.475"
+            android:stretchColumns="*"
+            android:measureWithLargestChild="true" >
+
+            <TableRow
+                android:layout_weight="0.3">
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="0.2" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/f_quiz_result_correct_answer"
+                    android:id="@+id/imageView4" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/f_quiz_result_incorrect_answer"
+                    android:id="@+id/imageView5" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_weight="0.3" >
+
+                <TextView
+                    android:text="0"
+                    android:gravity="center"
+                    android:textColor="@color/default_gray"
+                    android:textSize="@dimen/f_quiz_result_answers_amount"
+                    android:id="@+id/f_quiz_result_correct_answers" />
+
+                <TextView
+                    android:text="0"
+                    android:gravity="center"
+                    android:textColor="@color/default_gray"
+                    android:textSize="@dimen/f_quiz_result_answers_amount"
+                    android:id="@+id/f_quiz_result_incorrect_answers" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2" >
+
+                <TextView
+                    android:text="@string/f_quiz_result_correct_answers"
+
+                    android:gravity="center"
+                    android:textColor="@color/default_black"
+                    android:textSize="@dimen/f_quiz_result_answers_amount_info"
+                    android:id="@+id/f_quiz_result_correct_answers_info" />
+
+                <TextView
+                    android:text="@string/f_quiz_result_incorrect_answers"
+                    android:gravity="center"
+                    android:textColor="@color/default_black"
+                    android:textSize="@dimen/f_quiz_result_answers_amount_info"
+                    android:id="@+id/f_quiz_result_incorrect_answers_info" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:measureWithLargestChild="true"
+            android:gravity="bottom"
+            android:layout_weight="0.05">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:measureWithLargestChild="true" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2" />
+
+                <Button
+                    android:text="@string/f_quiz_result_try_again"
+                    android:textSize="@dimen/f_words_choice_text_button_size"
+                    android:textAllCaps="false"
+                    android:textColor="@color/default_white"
+                    android:background="@drawable/button_rounded_light_blue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:clickable="true"
+                    android:layout_weight="0.8"
+                    android:id="@+id/f_quiz_result_try_again" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

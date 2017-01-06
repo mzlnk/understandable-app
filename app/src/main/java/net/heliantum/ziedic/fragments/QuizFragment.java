@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,6 +101,13 @@ public class QuizFragment extends Fragment {
                     if(!timesUp) {
                         chosenOption = option;
                         isAnswered = true;
+
+                        if(chosenOption == correctOption) {
+                            QuizData.addCorrectAnswer();
+                        } else {
+                            QuizData.addIncorrectAnswer();
+                        }
+
                         getActivity().runOnUiThread(new ShowAnswerTask());
                     }
                 }
@@ -191,7 +199,10 @@ public class QuizFragment extends Fragment {
             if(timeLeft <= 0 || isAnswered) {
                 timesUp = true;
 
-                if(!isAnswered) activity.runOnUiThread(new ShowAnswerTask());
+                if(!isAnswered) {
+                    QuizData.addIncorrectAnswer();
+                    activity.runOnUiThread(new ShowAnswerTask());
+                }
                 this.cancel();
             }
         }
@@ -243,12 +254,14 @@ public class QuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+
+                        QuizData.nextQuestion();
+
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         if (QuizData.getChosenWordsLeft().size() > 0 && getActivity() != null) {
-                            QuizFragment nextFragment = new QuizFragment();
-                            FragmentManager manager = getActivity().getSupportFragmentManager();
-                            manager.beginTransaction().replace(R.id.layout_for_fragments, nextFragment).commit();
+                            transaction.replace(R.id.layout_for_fragments, new QuizFragment()).commit();
                         } else if (getActivity() != null) {
-                            Toast.makeText(getContext(), "Koniec quizu", Toast.LENGTH_SHORT).show();
+                            transaction.replace(R.id.layout_for_fragments, new QuizResultFragment()).commit();
                         }
                     }
                 }, 3000);

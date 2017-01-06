@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.QuizData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,9 +75,9 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                System.out.println("Size before: " + ChosenWordsData.getAllChosenWords().size());
                 ChosenWordsData.resizeWordsList();
-                System.out.println("Size after: " + ChosenWordsData.getAllChosenWords().size());
+                QuizData.addChosenWordsToQuizData();
+                QuizData.resetStats();
 
                 if(ChosenWordsData.getAllChosenWords().size() > 0) {
                     switch (ChosenWordsData.getMode()) {

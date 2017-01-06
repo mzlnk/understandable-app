@@ -44,6 +44,7 @@ public class QuizData extends ChosenWordsData {
 
     public static void nextQuestion() {
         currentQuestion++;
+        questions++;
     }
 
     public static void addCorrectAnswer() {
@@ -54,12 +55,15 @@ public class QuizData extends ChosenWordsData {
         incorrectAnswers++;
     }
 
-    public static void setQuestions(int amount) {
-        questions = amount;
+    public static void addChosenWordsToQuizData() {
+        chosenWordsLeft = new ArrayList<>(getAllChosenWords());
     }
 
-    public static void addChosenWordsToQuizData() {
-        chosenWordsLeft = getAllChosenWords();
+    public static void resetStats() {
+        currentQuestion = 1;
+        questions = 0;
+        correctAnswers = 0;
+        incorrectAnswers = 0;
     }
 
 }
