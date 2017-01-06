@@ -74,18 +74,18 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                System.out.println("Size before: " + ChosenWordsData.getChosenWords().size());
+                System.out.println("Size before: " + ChosenWordsData.getAllChosenWords().size());
                 ChosenWordsData.resizeWordsList();
-                System.out.println("Size after: " + ChosenWordsData.getChosenWords().size());
+                System.out.println("Size after: " + ChosenWordsData.getAllChosenWords().size());
 
-                if(ChosenWordsData.getChosenWords().size() > 0) {
+                if(ChosenWordsData.getAllChosenWords().size() > 0) {
                     switch (ChosenWordsData.getMode()) {
                         case REPETITION:
                             transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
                             break;
                         case QUIZ:
-                            if(ChosenWordsData.getChosenWords().size() >= 4) {
-                                transaction.replace(R.id.layout_for_fragments, QuizFragment.newInstance(0, 0));
+                            if(ChosenWordsData.getAllChosenWords().size() >= 4) {
+                                transaction.replace(R.id.layout_for_fragments, new QuizFragment());
                             } else {
                                 transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
                                 transaction.addToBackStack(null);
@@ -115,7 +115,7 @@ public class WordsChoiceLengthFragment extends Fragment {
                 break;
         }
 
-        amountAdjust.setMax(ChosenWordsData.getChosenWords().size() - startPos.getPos());
+        amountAdjust.setMax(ChosenWordsData.getAllChosenWords().size() - startPos.getPos());
         ChosenWordsData.setSize(startPos.getPos());
         amountAdjust.setProgress(ChosenWordsData.getSize() - startPos.getPos());
         amountInfo.setText(String.valueOf(ChosenWordsData.getSize()));

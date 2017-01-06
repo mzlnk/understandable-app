@@ -21,7 +21,7 @@ public class ChosenWordsData {
 
     private static final Random r = new Random();
 
-    private static List<LanguageEntity> chosenWords = new ArrayList<>();
+    private static List<LanguageEntity> allChosenWords = new ArrayList<>();
 
     private static List<LanguageCategory> categories = new ArrayList<>();
     private static List<LanguageType> types = new ArrayList<>(Arrays.asList(LanguageType.values()));
@@ -31,8 +31,8 @@ public class ChosenWordsData {
 
     private static int size = 0;
 
-    public static List<LanguageEntity> getChosenWords() {
-        return ChosenWordsData.chosenWords;
+    public static List<LanguageEntity> getAllChosenWords() {
+        return ChosenWordsData.allChosenWords;
     }
 
     public static List<LanguageCategory> getCategories() {
@@ -106,15 +106,15 @@ public class ChosenWordsData {
     }
 
     public static void generateWordsList() {
-        ChosenWordsData.chosenWords = LanguageEntites.getSpecifiedEntities(categories, types);
+        ChosenWordsData.allChosenWords = LanguageEntites.getSpecifiedEntities(categories, types);
     }
 
     public static void resizeWordsList() {
-        List<LanguageEntity> all = new ArrayList<>(chosenWords);
-        chosenWords.clear();
+        List<LanguageEntity> all = new ArrayList<>(allChosenWords);
+        allChosenWords.clear();
         for(int i = 0; i < size; i++) {
             LanguageEntity item = all.get(r.nextInt(all.size()));
-            chosenWords.add(item);
+            allChosenWords.add(item);
             all.remove(item);
         }
     }
