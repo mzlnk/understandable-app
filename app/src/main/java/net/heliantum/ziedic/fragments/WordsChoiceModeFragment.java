@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -23,8 +22,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.data.LearningMode;
+import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.enums.LearningMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +112,7 @@ public class WordsChoiceModeFragment extends Fragment {
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(CurrentlyChosenWordsData.getMode().equals(mode)) {
+            if(ChosenWordsData.getMode().equals(mode)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);
@@ -125,7 +124,7 @@ public class WordsChoiceModeFragment extends Fragment {
                 public void onClick(View view) {
                     if(image.getImageAlpha() == 150) {
                         image.setImageAlpha(255);
-                        CurrentlyChosenWordsData.setMode(mode);
+                        ChosenWordsData.setMode(mode);
                         for(ImageView mode : modes) {
                             if(mode.equals(image)) continue;
                             mode.setImageAlpha(150);

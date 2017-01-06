@@ -1,5 +1,9 @@
 package net.heliantum.ziedic.data;
 
+import net.heliantum.ziedic.data.enums.LanguageCategory;
+import net.heliantum.ziedic.data.enums.LanguageType;
+import net.heliantum.ziedic.data.enums.LearningMode;
+import net.heliantum.ziedic.data.enums.LearningWay;
 import net.heliantum.ziedic.database.entity.LanguageEntites;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 
@@ -13,7 +17,7 @@ import java.util.Random;
  */
 
 
-public class CurrentlyChosenWordsData {
+public class ChosenWordsData {
 
     private static final Random r = new Random();
 
@@ -28,81 +32,81 @@ public class CurrentlyChosenWordsData {
     private static int size = 0;
 
     public static List<LanguageEntity> getChosenWords() {
-        return CurrentlyChosenWordsData.chosenWords;
+        return ChosenWordsData.chosenWords;
     }
 
     public static List<LanguageCategory> getCategories() {
-        return CurrentlyChosenWordsData.categories;
+        return ChosenWordsData.categories;
     }
 
     public static List<LanguageType> getTypes() {
-        return CurrentlyChosenWordsData.types;
+        return ChosenWordsData.types;
     }
 
     public static LearningMode getMode() {
-        return CurrentlyChosenWordsData.mode;
+        return ChosenWordsData.mode;
     }
 
     public static LearningWay getWay() {
-        return CurrentlyChosenWordsData.way;
+        return ChosenWordsData.way;
     }
 
     public static int getSize() {
-        return CurrentlyChosenWordsData.size;
+        return ChosenWordsData.size;
     }
 
     public static void addCategory(LanguageCategory category) {
         if(!exists(category)) {
-            CurrentlyChosenWordsData.categories.add(category);
+            ChosenWordsData.categories.add(category);
         }
     }
 
     public static void addType(LanguageType type) {
         if(!exists(type)) {
-            CurrentlyChosenWordsData.types.add(type);
+            ChosenWordsData.types.add(type);
         }
     }
 
     public static void removeCategory(LanguageCategory category) {
         if(exists(category)) {
-            CurrentlyChosenWordsData.categories.remove(category);
+            ChosenWordsData.categories.remove(category);
         }
     }
 
     public static void removeType(LanguageType type) {
         if(exists(type)) {
-            CurrentlyChosenWordsData.types.remove(type);
+            ChosenWordsData.types.remove(type);
         }
     }
 
     public static void setMode(LearningMode mode) {
-        CurrentlyChosenWordsData.mode = mode;
+        ChosenWordsData.mode = mode;
     }
 
     public static void setWay(LearningWay way) {
-        CurrentlyChosenWordsData.way = way;
+        ChosenWordsData.way = way;
     }
 
     public static boolean exists(LanguageCategory category) {
-        for(LanguageCategory c : CurrentlyChosenWordsData.categories) {
+        for(LanguageCategory c : ChosenWordsData.categories) {
             if(c.equals(category)) return true;
         }
         return false;
     }
 
     public static boolean exists(LanguageType type) {
-        for(LanguageType t : CurrentlyChosenWordsData.types) {
+        for(LanguageType t : ChosenWordsData.types) {
             if(t.equals(type)) return true;
         }
         return false;
     }
 
     public static void setSize(int size) {
-        CurrentlyChosenWordsData.size = size;
+        ChosenWordsData.size = size;
     }
 
     public static void generateWordsList() {
-        CurrentlyChosenWordsData.chosenWords = LanguageEntites.getSpecifiedEntities(categories, types);
+        ChosenWordsData.chosenWords = LanguageEntites.getSpecifiedEntities(categories, types);
     }
 
     public static void resizeWordsList() {

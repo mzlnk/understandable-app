@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import net.heliantum.ziedic.data.LanguageCategory;
+import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.database.entity.LanguageEntites;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.LanguageType;
+import net.heliantum.ziedic.data.enums.LanguageType;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.data;
+package net.heliantum.ziedic.data.enums;
 
 
 /**
@@ -19,14 +19,6 @@ public enum LearningMode {
 
     public String getName() {
         return name;
-    }
-
-    public static LearningMode getEnumFromPolish(String name) {
-
-        for(LearningMode o : LearningMode.values()) {
-            if(o.getName().equalsIgnoreCase(name)) return o;
-        }
-        return LearningMode.REPETITION;
     }
 
 }

@@ -1,7 +1,7 @@
 package net.heliantum.ziedic.database.entity;
 
-import net.heliantum.ziedic.data.LanguageCategory;
-import net.heliantum.ziedic.data.LanguageType;
+import net.heliantum.ziedic.data.enums.LanguageCategory;
+import net.heliantum.ziedic.data.enums.LanguageType;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.

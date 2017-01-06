@@ -21,8 +21,8 @@ import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.data.LearningWay;
+import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.enums.LearningWay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,10 +77,10 @@ public class QuizFragment extends Fragment {
             score = getArguments().getInt(SCORE_PARAM);
             number = getArguments().getInt(NUM_PARAM);
         }
-        words = CurrentlyChosenWordsData.getChosenWords();
+        words = ChosenWordsData.getChosenWords();
         wordsWithoutCorrectOne = new ArrayList<>(words);
-        direction = CurrentlyChosenWordsData.getWay();
-        Toast.makeText(getContext(), "onCreate method. Words: " + CurrentlyChosenWordsData.getChosenWords().size(), Toast.LENGTH_SHORT).show();
+        direction = ChosenWordsData.getWay();
+        Toast.makeText(getContext(), "onCreate method. Words: " + ChosenWordsData.getChosenWords().size(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

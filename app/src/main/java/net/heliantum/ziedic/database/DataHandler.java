@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 import android.widget.Toast;
 
+import net.heliantum.ziedic.database.user.UserData;
 import net.heliantum.ziedic.utils.Debug;
 
 import java.io.IOException;
@@ -34,6 +35,12 @@ public class DataHandler extends Application {
         dr.open();
         dr.loadData();
         Log.d(DEBUG_TAG, "Data has been loaded");
+
+        System.out.println("====================");
+        System.out.println("");
+        System.out.println("xp: " + UserData.getXp() + ", level: " + UserData.getLevel() + ", xp to next level: " + UserData.getXpToNextLevel());
+        System.out.println("");
+        System.out.println("====================");
     }
 
     public static void onStop() {

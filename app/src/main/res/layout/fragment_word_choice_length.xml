@@ -54,17 +54,11 @@
             <TableRow
                 android:measureWithLargestChild="true" >
 
-                <TextView
-                    android:layout_weight="0.2" />
-
                 <SeekBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.8"
                     android:id="@+id/f_words_choice_length_size_adjust" />
-
-                <TextView
-                    android:layout_weight="0.2"/>
 
             </TableRow>
 

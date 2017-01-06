@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.data;
+package net.heliantum.ziedic.data.enums;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.
@@ -35,14 +35,6 @@ public enum LanguageType {
         }
 
         return result;
-    }
-
-    public static LanguageType getEnumFromPolish(String name) {
-
-        for(LanguageType t : LanguageType.values()) {
-            if(t.getName().equalsIgnoreCase(name)) return t;
-        }
-        return LanguageType.OTHER;
     }
 
 }

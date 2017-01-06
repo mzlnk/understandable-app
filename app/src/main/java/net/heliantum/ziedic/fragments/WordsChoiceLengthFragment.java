@@ -17,8 +17,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.data.LearningMode;
+import net.heliantum.ziedic.data.ChosenWordsData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,7 +48,7 @@ public class WordsChoiceLengthFragment extends Fragment {
         amountInfo = (TextView) rootView.findViewById(R.id.f_words_choice_length_size_info);
         amountAdjust = (SeekBar) rootView.findViewById(R.id.f_words_choice_length_size_adjust);
 
-        CurrentlyChosenWordsData.generateWordsList();
+        ChosenWordsData.generateWordsList();
 
         setAnimation();
         adjustSeekBar();
@@ -75,17 +74,17 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                System.out.println("Size before: " + CurrentlyChosenWordsData.getChosenWords().size());
-                CurrentlyChosenWordsData.resizeWordsList();
-                System.out.println("Size after: " + CurrentlyChosenWordsData.getChosenWords().size());
+                System.out.println("Size before: " + ChosenWordsData.getChosenWords().size());
+                ChosenWordsData.resizeWordsList();
+                System.out.println("Size after: " + ChosenWordsData.getChosenWords().size());
 
-                if(CurrentlyChosenWordsData.getChosenWords().size() > 0) {
-                    switch (CurrentlyChosenWordsData.getMode()) {
+                if(ChosenWordsData.getChosenWords().size() > 0) {
+                    switch (ChosenWordsData.getMode()) {
                         case REPETITION:
                             transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
                             break;
                         case QUIZ:
-                            if(CurrentlyChosenWordsData.getChosenWords().size() >= 4) {
+                            if(ChosenWordsData.getChosenWords().size() >= 4) {
                                 transaction.replace(R.id.layout_for_fragments, QuizFragment.newInstance(0, 0));
                             } else {
                                 transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
@@ -107,7 +106,7 @@ public class WordsChoiceLengthFragment extends Fragment {
 
     private void adjustSeekBar() {
         final StartPosition startPos = new StartPosition();
-        switch (CurrentlyChosenWordsData.getMode()) {
+        switch (ChosenWordsData.getMode()) {
             case REPETITION:
                 startPos.setPos(1);
                 break;
@@ -116,16 +115,16 @@ public class WordsChoiceLengthFragment extends Fragment {
                 break;
         }
 
-        amountAdjust.setMax(CurrentlyChosenWordsData.getChosenWords().size() - startPos.getPos());
-        CurrentlyChosenWordsData.setSize(startPos.getPos());
-        amountAdjust.setProgress(CurrentlyChosenWordsData.getSize() - startPos.getPos());
-        amountInfo.setText(String.valueOf(CurrentlyChosenWordsData.getSize()));
+        amountAdjust.setMax(ChosenWordsData.getChosenWords().size() - startPos.getPos());
+        ChosenWordsData.setSize(startPos.getPos());
+        amountAdjust.setProgress(ChosenWordsData.getSize() - startPos.getPos());
+        amountInfo.setText(String.valueOf(ChosenWordsData.getSize()));
 
         amountAdjust.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 amountInfo.setText(String.valueOf(i + startPos.getPos()));
-                CurrentlyChosenWordsData.setSize(i + startPos.getPos());
+                ChosenWordsData.setSize(i + startPos.getPos());
             }
 
             @Override

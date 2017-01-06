@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.CurrentlyChosenWordsData;
-import net.heliantum.ziedic.data.LearningWay;
+import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.enums.LearningWay;
 
 import java.util.List;
 import java.util.Random;
@@ -35,7 +35,7 @@ public class WordsRepetitionFragment extends Fragment {
     private PagerAdapter pagerAdapter;
 
     private static Random r = new Random();
-    private final int NUMB_WORDS = CurrentlyChosenWordsData.getChosenWords().size();
+    private final int NUMB_WORDS = ChosenWordsData.getChosenWords().size();
 
     public WordsRepetitionFragment() {
         // Required empty public constructor
@@ -45,8 +45,8 @@ public class WordsRepetitionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        words = CurrentlyChosenWordsData.getChosenWords();
-        direction = CurrentlyChosenWordsData.getWay();
+        words = ChosenWordsData.getChosenWords();
+        direction = ChosenWordsData.getWay();
     }
 
     @Override

@@ -71,11 +71,11 @@
                     android:layout_weight="0.06" />
 
                 <Button
-                    android:text="@string/f_words_choice_start"
+                    android:text="@string/f_words_choice_next"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
-                    android:background="@drawable/button_rounded_lime"
+                    android:background="@drawable/button_rounded_light_blue"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
