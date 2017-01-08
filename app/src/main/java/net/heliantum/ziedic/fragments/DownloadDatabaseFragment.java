@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.database.DataHandler;
+import net.heliantum.ziedic.App;
 import net.heliantum.ziedic.database.DatabaseRepository;
+import net.heliantum.ziedic.database.LanguageEntityRepository;
 import net.heliantum.ziedic.database.entity.LanguageEntites;
 
 /**
@@ -38,13 +39,13 @@ public class DownloadDatabaseFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                DatabaseRepository dr = DataHandler.getDatabaseRepository();
+                LanguageEntityRepository lr = App.getLanguageEntityRepositoryRepository();
 
-                dr.updateData();
+                lr.updateData();
                 int previously = LanguageEntites.size();
 
                 LanguageEntites.reset();
-                dr.loadData();
+                lr.loadData();
 
                 int now = LanguageEntites.size();
 

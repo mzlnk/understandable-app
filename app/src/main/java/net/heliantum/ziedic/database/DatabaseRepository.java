@@ -26,14 +26,14 @@ import java.util.Scanner;
 
 public class DatabaseRepository {
 
-    private static final String DEBUG_TAG = "ZiedicDatabase";
+    protected static final String DEBUG_TAG = "ZiedicDatabase";
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "ziedic.db";
 
-    private Context context;
-    protected SQLiteDatabase db;
-    private DBHandler dbHandler;
+    protected Context context;
+    protected static SQLiteDatabase db;
+    private static DBHandler dbHandler;
 
     private static class DBHandler extends SQLiteOpenHelper {
 
@@ -145,54 +145,6 @@ public class DatabaseRepository {
 
     public void close() {
         dbHandler.close();
-    }
-
-    public void loadData() {
-
-        Cursor c;
-
-        //table 'words':
-        c = db.rawQuery("SELECT * FROM 'words'", null);
-
-        if(c.moveToFirst()) {
-            do {
-                LanguageEntites.addEntity(new LanguageEntity(c.getInt(0),
-                                                                          c.getString(1),
-                                                                          c.getString(2),
-                                                                          LanguageCategory.getEnum(c.getString(3)),
-                                                                          LanguageType.getEnum(c.getString(4))));
-            }while(c.moveToNext());
-        }
-    }
-
-    public void updateData() {
-
-        //todo: remove in beta version (it'll have been replaced by MYSQL on VPS)
-
-        Log.d(DEBUG_TAG, "Starting updating local database...");
-
-        Scanner sc;
-        List<String> statements = new ArrayList<>();
-        InputStream is = null;
-
-        try {
-            is = context.getAssets().open("sql_statements/sql_temp_statements.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        sc = new Scanner(is);
-
-        while(sc.hasNextLine()) {
-            statements.add(sc.nextLine());
-        }
-
-        for(String statement : statements) {
-            Log.d(DEBUG_TAG, "Executing statement: " + statement);
-            db.execSQL(statement);
-        }
-
-        Log.d(DEBUG_TAG, "Executing statements has finished");
     }
 
 }
