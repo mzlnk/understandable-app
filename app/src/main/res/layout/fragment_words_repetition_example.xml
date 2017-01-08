@@ -6,27 +6,74 @@
     android:background="#FFFFFF"
     tools:context="net.heliantum.ziedic.fragments.WordsRepetitionExampleFragment">
 
-    <TextView
-        android:text="Word1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:id="@+id/word_repetition_example_2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:measureWithLargestChild="true" >
 
-    <TextView
-        android:text="Word0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="28dp"
-        android:id="@+id/word_repetition_example_1"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:layout_alignBottom="@+id/word_repetition_example_2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:measureWithLargestChild="true"
+            android:id="@+id/f_words_repetition_example_clickable_layout">
+
+            <TableRow
+                android:layout_weight="0.3">
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_weight="0.2" >
+
+                <TextView
+                    android:text="Word0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="28dp"
+                    android:id="@+id/f_words_repetition_example_word_0"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="Word1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:id="@+id/f_words_repetition_example_word_1"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="0.3">
+            </TableRow>
+
+        </TableLayout>
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:gravity="center">
+
+
+        </TableLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -13,10 +13,10 @@
     <dimen name="f_words_choice_category_titles">10sp</dimen>
     <dimen name="f_words_choice_icons_margin">5dp</dimen>
 
-    <dimen name="f_quiz_result_title">45sp</dimen>
-    <dimen name="f_quiz_result_questions_amount">35sp</dimen>
-    <dimen name="f_quiz_result_questions_amount_info">25sp</dimen>
-    <dimen name="f_quiz_result_answers_amount">30sp</dimen>
-    <dimen name="f_quiz_result_answers_amount_info">20sp</dimen>
+    <dimen name="f_quiz_result_title">50sp</dimen>
+    <dimen name="f_quiz_result_questions_amount">45sp</dimen>
+    <dimen name="f_quiz_result_questions_amount_info">23sp</dimen>
+    <dimen name="f_quiz_result_answers_amount">40sp</dimen>
+    <dimen name="f_quiz_result_answers_amount_info">18sp</dimen>
 
 </resources>

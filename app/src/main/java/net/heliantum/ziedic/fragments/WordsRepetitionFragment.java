@@ -1,6 +1,7 @@
 package net.heliantum.ziedic.fragments;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,10 +27,8 @@ public class WordsRepetitionFragment extends Fragment {
 
     private List<LanguageEntity> words;
     private LanguageEntity currentWord;
-    private LearningWay direction;
 
     private Button repeat;
-    private ProgressBar progress;
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -46,7 +45,6 @@ public class WordsRepetitionFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         words = ChosenWordsData.getAllChosenWords();
-        direction = ChosenWordsData.getWay();
     }
 
     @Override
@@ -59,11 +57,7 @@ public class WordsRepetitionFragment extends Fragment {
         pagerAdapter = new ScreenSlidePagerAdapter(this.getFragmentManager());
         pager.setAdapter(pagerAdapter);
 
-        repeat = (Button) rootView.findViewById(R.id.repeat);
-        progress = (ProgressBar) rootView.findViewById(R.id.progress);
-
-        progress.setMax(NUMB_WORDS);
-        progress.setProgress(0);
+        repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
 
         repeat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,10 +66,16 @@ public class WordsRepetitionFragment extends Fragment {
             }
         });
 
-
+        setTypeface();
 
         return rootView;
     }
+
+    private void setTypeface() {
+        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        repeat.setTypeface(typeFace);
+    }
+
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
@@ -86,8 +86,7 @@ public class WordsRepetitionFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
             currentWord = words.get(position);
-            //progress.setProgress(position); todo: fix it
-            return getFragmentByDirection(direction);
+            return getFragmentByDirection();
         }
 
         @Override
@@ -95,9 +94,9 @@ public class WordsRepetitionFragment extends Fragment {
             return NUMB_WORDS;
         }
 
-        private WordsRepetitionExampleFragment getFragmentByDirection(LearningWay direction) {
+        private WordsRepetitionExampleFragment getFragmentByDirection() {
 
-            switch(direction) {
+            switch(ChosenWordsData.getWay()) {
                 case POLISH_TO_ENGLISH:
                     return WordsRepetitionExampleFragment.newInstance(currentWord.getPolishWord(), currentWord.getEnglishWord());
                 case ENGLISH_TO_POLISH:
