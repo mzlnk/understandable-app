@@ -11,8 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
@@ -24,6 +27,9 @@ import java.util.List;
 import java.util.Random;
 
 public class WordsRepetitionFragment extends Fragment {
+
+    private View rootView;
+    private RelativeLayout mainLayout;
 
     private List<LanguageEntity> words;
     private LanguageEntity currentWord;
@@ -51,7 +57,10 @@ public class WordsRepetitionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_words_repetition, container, false);
+        rootView = inflater.inflate(R.layout.fragment_words_repetition, container, false);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_fragment_layout);
+
+        setAnimation();
 
         pager = (ViewPager) rootView.findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(this.getFragmentManager());
@@ -69,6 +78,11 @@ public class WordsRepetitionFragment extends Fragment {
         setTypeface();
 
         return rootView;
+    }
+
+    private void setAnimation() {
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
+        mainLayout.setAnimation(anim);
     }
 
     private void setTypeface() {

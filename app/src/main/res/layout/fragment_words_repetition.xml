@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    android:id="@+id/fragment_words_repetition_fragment_layout"
     tools:context="net.heliantum.ziedic.fragments.WordsRepetitionFragment">
 
     <!-- TODO: Update blank fragment layout -->
