@@ -30,9 +30,20 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-
         super.onCreate();
+        loadData();
+    }
 
+    //todo: fix it
+    public static void onStop() {
+
+        Log.d(DEBUG_TAG, "Closing database connection");
+        dr.close();
+        Log.d(DEBUG_TAG, "Database connection closed");
+
+    }
+
+    private void loadData() {
         Log.d(DEBUG_TAG, "Overriding default font");
         FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
 
@@ -46,15 +57,6 @@ public class App extends Application {
         ir = new IrregularVerbEntityRepository(getApplicationContext());
         //todo: code here
         Log.d(DEBUG_TAG, "Data has been loaded");
-    }
-
-    //todo: fix it
-    public static void onStop() {
-
-        Log.d(DEBUG_TAG, "Closing database connection");
-        dr.close();
-        Log.d(DEBUG_TAG, "Database connection closed");
-
     }
 
 }

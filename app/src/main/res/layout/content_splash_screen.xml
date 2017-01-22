@@ -13,11 +13,11 @@
     tools:showIn="@layout/activity_splash_screen"
     android:background="#002E63">
 
-    <ImageView
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/logo_flower_only"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/f_loading_progress_bar" />
 </RelativeLayout>

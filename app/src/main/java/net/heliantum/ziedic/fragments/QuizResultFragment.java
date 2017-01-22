@@ -5,17 +5,22 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.QuizData;
+
+import static net.heliantum.ziedic.fragments.QuizResultWordsSummaryFragment.CORRECT_WORDS_SUMMARY;
+import static net.heliantum.ziedic.fragments.QuizResultWordsSummaryFragment.INCORRECT_WORDS_SUMMARY;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +35,7 @@ public class QuizResultFragment extends Fragment {
     private TextView correctAnswers, correctAnswersInfo;
     private TextView incorrectAnswers, incorrectAnswersInfo;
     private Button tryAgain;
+    private ImageView correctAnswersImg, incorrectAnswersImg;
 
     public QuizResultFragment() {
         // Required empty public constructor
@@ -51,6 +57,8 @@ public class QuizResultFragment extends Fragment {
         incorrectAnswers = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers);
         incorrectAnswersInfo = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_info);
         tryAgain = (Button) rootView.findViewById(R.id.f_quiz_result_try_again);
+        correctAnswersImg = (ImageView) rootView.findViewById(R.id.f_quiz_result_correct_answers_img);
+        incorrectAnswersImg = (ImageView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_img);
 
         setAnimation();
         setTypeface();
@@ -66,6 +74,28 @@ public class QuizResultFragment extends Fragment {
                 QuizData.resetStats();
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, new QuizFragment()).commit();
+            }
+        });
+
+        correctAnswersImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuizData.setWordsSummaryStatus(CORRECT_WORDS_SUMMARY);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.layout_for_fragments, new QuizResultWordsSummaryFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        incorrectAnswersImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuizData.setWordsSummaryStatus(INCORRECT_WORDS_SUMMARY);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.layout_for_fragments, new QuizResultWordsSummaryFragment());
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 

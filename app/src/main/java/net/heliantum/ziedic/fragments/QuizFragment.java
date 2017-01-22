@@ -104,8 +104,10 @@ public class QuizFragment extends Fragment {
 
                         if(chosenOption == correctOption) {
                             QuizData.addCorrectAnswer();
+                            QuizData.addCorrectWord(correctWord);
                         } else {
                             QuizData.addIncorrectAnswer();
+                            QuizData.addIncorrectWord(correctWord);
                         }
 
                         getActivity().runOnUiThread(new ShowAnswerTask());

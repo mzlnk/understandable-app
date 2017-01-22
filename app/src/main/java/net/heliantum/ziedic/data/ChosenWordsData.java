@@ -25,10 +25,8 @@ public class ChosenWordsData {
 
     private static List<LanguageCategory> categories = new ArrayList<>();
     private static List<LanguageType> types = new ArrayList<>(Arrays.asList(LanguageType.values()));
-
     private static LearningMode mode = LearningMode.REPETITION;
     private static LearningWay way = LearningWay.RANDOM;
-
     private static int size = 0;
 
     public static List<LanguageEntity> getAllChosenWords() {

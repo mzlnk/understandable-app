@@ -83,14 +83,16 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:clickable="true"
                     app:srcCompat="@drawable/f_quiz_result_correct_answer"
-                    android:id="@+id/imageView4" />
+                    android:id="@+id/f_quiz_result_correct_answers_img" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:clickable="true"
                     app:srcCompat="@drawable/f_quiz_result_incorrect_answer"
-                    android:id="@+id/imageView5" />
+                    android:id="@+id/f_quiz_result_incorrect_answers_img" />
 
             </TableRow>
 

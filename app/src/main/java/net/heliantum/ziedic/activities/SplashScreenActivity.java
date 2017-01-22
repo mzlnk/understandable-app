@@ -1,14 +1,17 @@
 package net.heliantum.ziedic.activities;
 
 import android.content.Intent;
-import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import net.heliantum.ziedic.R;
 
+import java.util.TimerTask;
+
 public class SplashScreenActivity extends AppCompatActivity {
+
+    private ProgressBar loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //toolbar.setTitleTextColor(Color.BLACK);
+
+        loadingBar = (ProgressBar) findViewById(R.id.f_loading_progress_bar);
 
         ActivityStarter starter = new ActivityStarter();
         starter.start();
@@ -28,7 +33,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         public void run() {
 
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
