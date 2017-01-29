@@ -23,7 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.BaseWordsData;
 import net.heliantum.ziedic.data.enums.LanguageType;
 
 /**
@@ -73,7 +73,7 @@ public class WordsChoiceTypeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ChosenWordsData.getTypes().size() > 0) {
+                if(BaseWordsData.types.size() > 0) {
                     WordsChoiceWayFragment modeFragment = new WordsChoiceWayFragment();
                     FragmentManager manager = getFragmentManager();
                     manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).addToBackStack(null).commit();
@@ -112,7 +112,7 @@ public class WordsChoiceTypeFragment extends Fragment {
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(ChosenWordsData.exists(type)) {
+            if(BaseWordsData.exists(type)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);
@@ -123,10 +123,10 @@ public class WordsChoiceTypeFragment extends Fragment {
                 public void onClick(View view) {
                     if(image.getImageAlpha() == 150) {
                         image.setImageAlpha(255);
-                        ChosenWordsData.addType(type);
+                        BaseWordsData.addType(type);
                     } else {
                         image.setImageAlpha(150);
-                        ChosenWordsData.removeType(type);
+                        BaseWordsData.removeType(type);
                     }
                 }
             });

@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +17,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.QuizData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.ChosenWordsData;
-import net.heliantum.ziedic.data.enums.LearningWay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +55,7 @@ public class QuizFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        wordsWithoutCorrectOne = new ArrayList<>(QuizData.getAllChosenWords());
+        wordsWithoutCorrectOne = new ArrayList<>(QuizData.allChosenWords);
     }
 
     @Override
@@ -79,7 +75,7 @@ public class QuizFragment extends Fragment {
 
         time.setMax(5000);
         time.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 153, 255)));
-        questionNumber.setText(new String("Pytanie " + QuizData.getCurrentQuestion()));
+        questionNumber.setText(new String("Pytanie " + QuizData.currentQuestion));
 
         setAnimation();
         setTypeface();
@@ -119,7 +115,7 @@ public class QuizFragment extends Fragment {
 
     private void setAnswers() {
         correctOption = r.nextInt(4);
-        correctWord = QuizData.getChosenWordsLeft().get(r.nextInt(QuizData.getChosenWordsLeft().size()));
+        correctWord = QuizData.chosenWordsLeft.get(r.nextInt(QuizData.chosenWordsLeft.size()));
         QuizData.removeWord(correctWord);
         wordsWithoutCorrectOne.remove(correctWord);
         for(int i = 0; i < 3; i++) {
@@ -129,7 +125,7 @@ public class QuizFragment extends Fragment {
         }
         wordsWithoutCorrectOne.clear();
 
-        switch(QuizData.getWay()) {
+        switch(QuizData.way) {
             case POLISH_TO_ENGLISH:
                 setQuestionsPolishToEnglish();
                 break;
@@ -260,7 +256,7 @@ public class QuizFragment extends Fragment {
                         QuizData.nextQuestion();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        if (QuizData.getChosenWordsLeft().size() > 0 && getActivity() != null) {
+                        if (QuizData.chosenWordsLeft.size() > 0 && getActivity() != null) {
                             transaction.replace(R.id.layout_for_fragments, new QuizFragment()).commit();
                         } else if (getActivity() != null) {
                             transaction.replace(R.id.layout_for_fragments, new QuizResultFragment()).commit();

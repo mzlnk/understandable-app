@@ -7,4 +7,6 @@
     <color name="default_black">#000000</color>
     <color name="default_white">#FFFFFF</color>
     <color name="default_gray">	#515151</color>
+    <color name="default_light_gray">#A0A0A0</color>
+
 </resources>

@@ -12,14 +12,14 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
+import net.heliantum.ziedic.data.BaseWordsData;
+import net.heliantum.ziedic.data.RepetitionData;
+
+import java.util.Random;
 
 public class WordsRepetitionExampleFragment extends Fragment {
 
-    private static final String WORD_0_PARAM = "word0Param";
-    private static final String WORD_1_PARAM = "word1Param";
-
-    private String word0;
-    private String word1;
+    private View rootView;
 
     private TextView word0View, word1View;
     private TableLayout layout;
@@ -28,40 +28,23 @@ public class WordsRepetitionExampleFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static WordsRepetitionExampleFragment newInstance(String word1, String word2) {
-        WordsRepetitionExampleFragment fragment = new WordsRepetitionExampleFragment();
-        Bundle args = new Bundle();
-        args.putString(WORD_0_PARAM, word1);
-        args.putString(WORD_1_PARAM, word2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            word0 = getArguments().getString(WORD_0_PARAM);
-            word1 = getArguments().getString(WORD_1_PARAM);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_words_repetition_example, container, false);
+
+        rootView = inflater.inflate(R.layout.fragment_words_repetition_example, container, false);
 
         word0View = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_0);
         word1View = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_1);
         layout = (TableLayout) rootView.findViewById(R.id.f_words_repetition_example_clickable_layout);
 
-        word0View.setText(word0);
-        word1View.setText(word1);
-
-        word0View.setTextColor(Color.BLACK);
-        word1View.setTextColor(Color.WHITE);
-
+        setWords();
         setTypeface();
 
         layout.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +62,29 @@ public class WordsRepetitionExampleFragment extends Fragment {
         Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         word0View.setTypeface(typeFace);
         word1View.setTypeface(typeFace);
+    }
+
+    private void setWords() {
+        switch(RepetitionData.way) {
+            case POLISH_TO_ENGLISH:
+                word0View.setText(RepetitionData.currentWord.getPolishWord());
+                word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                break;
+            case ENGLISH_TO_POLISH:
+                word0View.setText(RepetitionData.currentWord.getPolishWord());
+                word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                break;
+            case RANDOM:
+                if(new Random().nextBoolean()) {
+                    word0View.setText(RepetitionData.currentWord.getPolishWord());
+                    word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                } else {
+                    word0View.setText(RepetitionData.currentWord.getPolishWord());
+                    word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                }
+        }
+        word0View.setTextColor(Color.BLACK);
+        word1View.setTextColor(Color.WHITE);
     }
 
 }

@@ -22,7 +22,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.BaseWordsData;
 import net.heliantum.ziedic.data.enums.LearningMode;
 
 import java.util.ArrayList;
@@ -112,7 +112,7 @@ public class WordsChoiceModeFragment extends Fragment {
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(ChosenWordsData.getMode().equals(mode)) {
+            if(BaseWordsData.mode.equals(mode)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);
@@ -124,7 +124,7 @@ public class WordsChoiceModeFragment extends Fragment {
                 public void onClick(View view) {
                     if(image.getImageAlpha() == 150) {
                         image.setImageAlpha(255);
-                        ChosenWordsData.setMode(mode);
+                        BaseWordsData.setMode(mode);
                         for(ImageView mode : modes) {
                             if(mode.equals(image)) continue;
                             mode.setImageAlpha(150);

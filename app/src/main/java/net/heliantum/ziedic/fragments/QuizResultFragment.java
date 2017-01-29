@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
@@ -35,7 +36,7 @@ public class QuizResultFragment extends Fragment {
     private TextView correctAnswers, correctAnswersInfo;
     private TextView incorrectAnswers, incorrectAnswersInfo;
     private Button tryAgain;
-    private ImageView correctAnswersImg, incorrectAnswersImg;
+    private TableLayout correctAnswersField, incorrectAnswersField;
 
     public QuizResultFragment() {
         // Required empty public constructor
@@ -57,15 +58,15 @@ public class QuizResultFragment extends Fragment {
         incorrectAnswers = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers);
         incorrectAnswersInfo = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_info);
         tryAgain = (Button) rootView.findViewById(R.id.f_quiz_result_try_again);
-        correctAnswersImg = (ImageView) rootView.findViewById(R.id.f_quiz_result_correct_answers_img);
-        incorrectAnswersImg = (ImageView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_img);
+        correctAnswersField = (TableLayout) rootView.findViewById(R.id.f_quiz_result_correct_answers_field);
+        incorrectAnswersField = (TableLayout) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_field);
 
         setAnimation();
         setTypeface();
 
-        questionAmount.setText(String.valueOf(QuizData.getAllChosenWords().size()));
-        correctAnswers.setText(String.valueOf(QuizData.getCorrectAnswers()));
-        incorrectAnswers.setText(String.valueOf(QuizData.getIncorrectAnswers()));
+        questionAmount.setText(String.valueOf(QuizData.allChosenWords.size()));
+        correctAnswers.setText(String.valueOf(QuizData.correctAnswers));
+        incorrectAnswers.setText(String.valueOf(QuizData.incorrectAnswers));
 
         tryAgain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +78,7 @@ public class QuizResultFragment extends Fragment {
             }
         });
 
-        correctAnswersImg.setOnClickListener(new View.OnClickListener() {
+        correctAnswersField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 QuizData.setWordsSummaryStatus(CORRECT_WORDS_SUMMARY);
@@ -88,7 +89,7 @@ public class QuizResultFragment extends Fragment {
             }
         });
 
-        incorrectAnswersImg.setOnClickListener(new View.OnClickListener() {
+        incorrectAnswersField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 QuizData.setWordsSummaryStatus(INCORRECT_WORDS_SUMMARY);

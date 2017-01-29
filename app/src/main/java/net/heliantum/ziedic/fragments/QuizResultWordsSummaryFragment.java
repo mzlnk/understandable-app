@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.QuizData;
@@ -23,6 +22,8 @@ import net.heliantum.ziedic.database.entity.LanguageEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class QuizResultWordsSummaryFragment extends Fragment {
 
@@ -87,9 +88,9 @@ public class QuizResultWordsSummaryFragment extends Fragment {
     private void addWords() {
         List<LanguageEntity> words = new ArrayList<>();
         if(QuizData.wordsSummaryStatus) {
-            words.addAll(QuizData.getCorrectWords());
+            words.addAll(QuizData.correctWords);
         } else {
-            words.addAll(QuizData.getIncorrectWords());
+            words.addAll(QuizData.incorrectWords);
         }
 
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
@@ -102,9 +103,11 @@ public class QuizResultWordsSummaryFragment extends Fragment {
             t1.setText(word.getPolishWord());
             t1.setTextColor(Color.BLACK);
             t1.setTypeface(typeface);
+            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.4F));
             t2.setText(word.getEnglishWord());
             t2.setTextColor(Color.BLACK);
             t2.setTypeface(typeface);
+            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.4F));
 
             if(color) {
                 row.setBackgroundColor(Color.rgb(224, 224, 244));
@@ -116,7 +119,9 @@ public class QuizResultWordsSummaryFragment extends Fragment {
             TextView space = new TextView(getContext());
             space.setText("     ");
             space.setTextColor(Color.WHITE);
+            space.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.1F));
 
+            row.setMeasureWithLargestChildEnabled(true);
             row.addView(t1);
             row.addView(space);
             row.addView(t2);

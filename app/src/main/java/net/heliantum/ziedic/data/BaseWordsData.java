@@ -17,94 +17,70 @@ import java.util.Random;
  */
 
 
-public class ChosenWordsData {
+public class BaseWordsData {
 
     private static final Random r = new Random();
 
-    private static List<LanguageEntity> allChosenWords = new ArrayList<>();
+    public static List<LanguageEntity> allChosenWords = new ArrayList<>();
 
-    private static List<LanguageCategory> categories = new ArrayList<>();
-    private static List<LanguageType> types = new ArrayList<>(Arrays.asList(LanguageType.values()));
-    private static LearningMode mode = LearningMode.REPETITION;
-    private static LearningWay way = LearningWay.RANDOM;
-    private static int size = 0;
-
-    public static List<LanguageEntity> getAllChosenWords() {
-        return ChosenWordsData.allChosenWords;
-    }
-
-    public static List<LanguageCategory> getCategories() {
-        return ChosenWordsData.categories;
-    }
-
-    public static List<LanguageType> getTypes() {
-        return ChosenWordsData.types;
-    }
-
-    public static LearningMode getMode() {
-        return ChosenWordsData.mode;
-    }
-
-    public static LearningWay getWay() {
-        return ChosenWordsData.way;
-    }
-
-    public static int getSize() {
-        return ChosenWordsData.size;
-    }
+    public static List<LanguageCategory> categories = new ArrayList<>();
+    public static List<LanguageType> types = new ArrayList<>(Arrays.asList(LanguageType.values()));
+    public static LearningMode mode = LearningMode.REPETITION;
+    public static LearningWay way = LearningWay.RANDOM;
+    public static int size = 0;
 
     public static void addCategory(LanguageCategory category) {
         if(!exists(category)) {
-            ChosenWordsData.categories.add(category);
+            BaseWordsData.categories.add(category);
         }
     }
 
     public static void addType(LanguageType type) {
         if(!exists(type)) {
-            ChosenWordsData.types.add(type);
+            BaseWordsData.types.add(type);
         }
     }
 
     public static void removeCategory(LanguageCategory category) {
         if(exists(category)) {
-            ChosenWordsData.categories.remove(category);
+            BaseWordsData.categories.remove(category);
         }
     }
 
     public static void removeType(LanguageType type) {
         if(exists(type)) {
-            ChosenWordsData.types.remove(type);
+            BaseWordsData.types.remove(type);
         }
     }
 
     public static void setMode(LearningMode mode) {
-        ChosenWordsData.mode = mode;
+        BaseWordsData.mode = mode;
     }
 
     public static void setWay(LearningWay way) {
-        ChosenWordsData.way = way;
+        BaseWordsData.way = way;
     }
 
     public static boolean exists(LanguageCategory category) {
-        for(LanguageCategory c : ChosenWordsData.categories) {
+        for(LanguageCategory c : BaseWordsData.categories) {
             if(c.equals(category)) return true;
         }
         return false;
     }
 
     public static boolean exists(LanguageType type) {
-        for(LanguageType t : ChosenWordsData.types) {
+        for(LanguageType t : BaseWordsData.types) {
             if(t.equals(type)) return true;
         }
         return false;
     }
 
     public static void setSize(int size) {
-        ChosenWordsData.size = size;
+        BaseWordsData.size = size;
     }
 
     public static void generateWordsList() {
-        ChosenWordsData.allChosenWords = LanguageEntites.getSpecifiedEntities(categories, types);
+        BaseWordsData.allChosenWords = LanguageEntites.getSpecifiedEntities(categories, types);
     }
 
     public static void resizeWordsList() {

@@ -28,9 +28,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
+            android:measureWithLargestChild="true"
             android:gravity="center">
 
             <TableRow
+                android:layout_weight="0.4"
+                android:gravity="center"
                 android:measureWithLargestChild="true" >
 
                 <TextView
@@ -38,12 +41,37 @@
                     android:layout_weight="0.4" />
 
                 <Button
-                    android:text="powtórz"
+                  android:text="@string/f_words_repetition_example_repeat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:id="@+id/f_words_repetition_repeat"
                     android:background="@drawable/button_rounded_light_blue"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:measureWithLargestChild="true" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4" />
+
+                <Button
+                    android:text="@string/f_words_repetition_example_finish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:id="@+id/f_words_repetition_finish"
+                    android:background="@drawable/button_rounded_red"
                     android:textColor="#FFFFFF"
                     android:textAllCaps="false" />
 

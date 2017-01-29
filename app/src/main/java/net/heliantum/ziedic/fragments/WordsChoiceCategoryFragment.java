@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.ChosenWordsData;
+import net.heliantum.ziedic.data.BaseWordsData;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
 
 public class WordsChoiceCategoryFragment extends Fragment {
@@ -61,7 +61,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ChosenWordsData.getCategories().size() > 0) {
+                if(BaseWordsData.categories.size() > 0) {
                     WordsChoiceTypeFragment typeFragment = new WordsChoiceTypeFragment();
                     FragmentManager manager = getFragmentManager();
                     manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
@@ -100,7 +100,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(ChosenWordsData.exists(category)) {
+            if(BaseWordsData.exists(category)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);
@@ -111,10 +111,10 @@ public class WordsChoiceCategoryFragment extends Fragment {
                 public void onClick(View view) {
                     if(image.getImageAlpha() == 150) {
                         image.setImageAlpha(255);
-                        ChosenWordsData.addCategory(category);
+                        BaseWordsData.addCategory(category);
                     } else {
                         image.setImageAlpha(150);
-                        ChosenWordsData.removeCategory(category);
+                        BaseWordsData.removeCategory(category);
                     }
                 }
             });

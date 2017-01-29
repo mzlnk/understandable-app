@@ -14,17 +14,16 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
+import net.heliantum.ziedic.data.RepetitionData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.ChosenWordsData;
-import net.heliantum.ziedic.data.enums.LearningWay;
+import net.heliantum.ziedic.data.BaseWordsData;
+import net.heliantum.ziedic.utils.ToastUtil;
 
 import java.util.List;
-import java.util.Random;
 
 public class WordsRepetitionFragment extends Fragment {
 
@@ -35,12 +34,12 @@ public class WordsRepetitionFragment extends Fragment {
     private LanguageEntity currentWord;
 
     private Button repeat;
+    private Button finish;
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
 
-    private static Random r = new Random();
-    private final int NUMB_WORDS = ChosenWordsData.getAllChosenWords().size();
+    private final int NUMB_WORDS = BaseWordsData.allChosenWords.size();
 
     public WordsRepetitionFragment() {
         // Required empty public constructor
@@ -49,8 +48,7 @@ public class WordsRepetitionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        words = ChosenWordsData.getAllChosenWords();
+        words = BaseWordsData.allChosenWords;
     }
 
     @Override
@@ -67,11 +65,25 @@ public class WordsRepetitionFragment extends Fragment {
         pager.setAdapter(pagerAdapter);
 
         repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
+        finish = (Button) rootView.findViewById(R.id.f_words_repetition_finish);
 
         repeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Dodano do powtórzenia", Toast.LENGTH_SHORT).show();
+                if(RepetitionData.existsInToRepeatWords(RepetitionData.currentWord)) {
+                    RepetitionData.removeCurrentWordFromRepeat();
+                    ToastUtil.showToastMessage(getContext(), "Usunieto z powtórzenia", 800);
+                } else {
+                    RepetitionData.addCurrentWordToRepeat();
+                    ToastUtil.showToastMessage(getContext(), "Dodano do powtórzenia", 800);
+                }
+            }
+        });
+
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Obecnie niedostepne", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -88,6 +100,7 @@ public class WordsRepetitionFragment extends Fragment {
     private void setTypeface() {
         Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         repeat.setTypeface(typeFace);
+        finish.setTypeface(typeFace);
     }
 
 
@@ -100,6 +113,8 @@ public class WordsRepetitionFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
             currentWord = words.get(position);
+            RepetitionData.setCurrentWord(currentWord);
+            RepetitionData.addCurrentWordToSeen();
             return getFragmentByDirection();
         }
 
@@ -109,18 +124,7 @@ public class WordsRepetitionFragment extends Fragment {
         }
 
         private WordsRepetitionExampleFragment getFragmentByDirection() {
-
-            switch(ChosenWordsData.getWay()) {
-                case POLISH_TO_ENGLISH:
-                    return WordsRepetitionExampleFragment.newInstance(currentWord.getPolishWord(), currentWord.getEnglishWord());
-                case ENGLISH_TO_POLISH:
-                    return WordsRepetitionExampleFragment.newInstance(currentWord.getEnglishWord(), currentWord.getPolishWord());
-                default:
-                    if(r.nextBoolean())
-                        return WordsRepetitionExampleFragment.newInstance(currentWord.getPolishWord(), currentWord.getEnglishWord());
-                    else
-                        return WordsRepetitionExampleFragment.newInstance(currentWord.getEnglishWord(), currentWord.getPolishWord());
-            }
+            return new WordsRepetitionExampleFragment();
         }
     }
 }
