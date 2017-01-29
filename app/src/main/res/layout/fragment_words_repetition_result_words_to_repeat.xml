@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_words_repetition_result_words_to_repeat_fragment_layout"
+    tools:context="net.heliantum.ziedic.fragments.WordsRepetitionResultWordsToRepeatFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:measureWithLargestChild="true">
+
+        <TextView
+            android:text="@string/f_words_repetition_result_words_to_repeat_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:textColor="@color/default_black"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:id="@+id/f_words_repetition_result_words_to_repeat_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.85">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*"
+                android:id="@+id/f_words_repetition_result_words_to_repeat_table">
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05">
+
+            <Button
+                android:text="@string/f_quiz_result_words_summary_back"
+                android:textSize="@dimen/f_words_choice_text_button_size"
+                android:textAllCaps="false"
+                android:textColor="@color/default_white"
+                android:background="@drawable/button_rounded_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:clickable="true"
+                android:id="@+id/f_words_repetition_result_words_to_repeat_back" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

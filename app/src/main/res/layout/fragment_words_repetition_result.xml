@@ -23,7 +23,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:id="@+id/f_quiz_result_title" />
+            android:id="@+id/f_words_repetition_result_title" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -43,18 +43,18 @@
                     android:text="0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
-                    android:textSize="40sp"
+                    android:textSize="36sp"
                     android:layout_weight="0.5"
-                    android:id="@+id/f_quiz_result_words_seen"/>
+                    android:id="@+id/f_words_repetition_result_words_seen"/>
 
                 <TextView
                     android:gravity="center"
                     android:text="0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
-                    android:textSize="40sp"
+                    android:textSize="36sp"
                     android:layout_weight="0.5"
-                    android:id="@+id/f_quiz_result_words_to_repeat"/>
+                    android:id="@+id/f_words_repetition_result_words_to_repeat"/>
 
             </TableRow>
 
@@ -97,17 +97,23 @@
             android:gravity="center"
             android:text="Słówka do powtórzenia"
             android:textColor="@color/default_black"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:id="@+id/f_words_repetition_result_words_to_repeat_title"/>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.35">
+            android:layout_weight="0.35"
+            android:clickable="true"
+            android:id="@+id/f_words_repetition_result_words_to_repeat_field">
 
-            <LinearLayout
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:layout_height="match_parent"
+                android:shrinkColumns="*"
+                android:id="@+id/f_words_repetition_result_words_to_repeat_table">
+            </TableLayout>
+
         </ScrollView>
 
         <TableLayout
@@ -138,7 +144,7 @@
                     android:layout_gravity="bottom"
                     android:clickable="true"
                     android:layout_weight="0.8"
-                    android:id="@+id/f_quiz_result_try_again" />
+                    android:id="@+id/f_words_repetition_result_try_again" />
 
                 <TextView
                     android:layout_width="0dp"

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.BaseWordsData;
 import net.heliantum.ziedic.data.QuizData;
+import net.heliantum.ziedic.data.RepetitionData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,6 +79,7 @@ public class WordsChoiceLengthFragment extends Fragment {
                 BaseWordsData.resizeWordsList();
                 QuizData.addChosenWordsToQuizData();
                 QuizData.resetStats();
+                RepetitionData.resetStats();
 
                 if(BaseWordsData.allChosenWords.size() > 0) {
                     switch (BaseWordsData.mode) {

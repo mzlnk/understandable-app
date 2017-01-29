@@ -83,7 +83,9 @@ public class WordsRepetitionFragment extends Fragment {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Obecnie niedostepne", Toast.LENGTH_SHORT).show();
+                WordsRepetitionResultFragment wordsRepetitionResultFragment = new WordsRepetitionResultFragment();
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionResultFragment).commit();
             }
         });
 

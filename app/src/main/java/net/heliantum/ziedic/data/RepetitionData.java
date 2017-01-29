@@ -39,4 +39,10 @@ public class RepetitionData extends BaseWordsData {
         currentWord = word;
     }
 
+    public static void resetStats() {
+        currentWord = null;
+        wordsSeen.clear();
+        wordsToRepeat.clear();
+    }
+
 }

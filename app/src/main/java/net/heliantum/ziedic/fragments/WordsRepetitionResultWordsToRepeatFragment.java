@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.QuizData;
+import net.heliantum.ziedic.data.RepetitionData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 
 import java.util.ArrayList;
@@ -25,10 +26,7 @@ import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-public class QuizResultWordsSummaryFragment extends Fragment {
-
-    public static final boolean CORRECT_WORDS_SUMMARY = true;
-    public static final boolean INCORRECT_WORDS_SUMMARY = false;
+public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
 
     private View rootView;
     private RelativeLayout layout;
@@ -37,22 +35,24 @@ public class QuizResultWordsSummaryFragment extends Fragment {
     private TableLayout wordsTable;
     private Button back;
 
-    public QuizResultWordsSummaryFragment() {
+    public WordsRepetitionResultWordsToRepeatFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_quiz_result_words_summary, container, false);
-        layout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_result_words_summary_fragment_layout);
-        title = (TextView) rootView.findViewById(R.id.f_quiz_result_words_summary_title);
-        wordsTable = (TableLayout) rootView.findViewById(R.id.f_quiz_result_words_summary_table);
-        back = (Button) rootView.findViewById(R.id.f_quiz_result_words_summary_back);
+        // Inflate the layout for this fragment
+        rootView =  inflater.inflate(R.layout.fragment_words_repetition_result_words_to_repeat, container, false);
+
+        layout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_result_words_to_repeat_fragment_layout);
+        title = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_title);
+        wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_table);
+        back = (Button) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_back);
 
         setAnimation();
         setTypeface();
-        setTitle();
         addWords();
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -76,27 +76,11 @@ public class QuizResultWordsSummaryFragment extends Fragment {
         back.setTypeface(typeFace);
     }
 
-    private void setTitle() {
-        if(QuizData.wordsSummaryStatus) {
-            title.setText("Odpowiedzi poprawne");
-        } else {
-            title.setText("Odpowiedzi błędne");
-        }
-        title.setTextColor(Color.BLACK);
-    }
-
     private void addWords() {
-        List<LanguageEntity> words = new ArrayList<>();
-        if(QuizData.wordsSummaryStatus) {
-            words.addAll(QuizData.correctWords);
-        } else {
-            words.addAll(QuizData.incorrectWords);
-        }
-
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         boolean color = true;
 
-        for(LanguageEntity word : words) {
+        for(LanguageEntity word : RepetitionData.wordsToRepeat) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
@@ -112,11 +96,10 @@ public class QuizResultWordsSummaryFragment extends Fragment {
             if(color) {
                 row.setBackgroundColor(Color.rgb(224, 224, 244));
             }
-
             color = !color;
 
             TextView space = new TextView(getContext());
-            space.setText("     ");
+            space.setText("");
             space.setTextColor(Color.WHITE);
             space.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.1F));
 
