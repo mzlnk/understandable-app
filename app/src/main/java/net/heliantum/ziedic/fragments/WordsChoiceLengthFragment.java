@@ -80,6 +80,8 @@ public class WordsChoiceLengthFragment extends Fragment {
                 QuizData.addChosenWordsToQuizData();
                 QuizData.resetStats();
                 RepetitionData.resetStats();
+                RepetitionData.setCurrentWord(RepetitionData.allChosenWords.get(0));
+                RepetitionData.addCurrentWordToSeen();
 
                 if(BaseWordsData.allChosenWords.size() > 0) {
                     switch (BaseWordsData.mode) {

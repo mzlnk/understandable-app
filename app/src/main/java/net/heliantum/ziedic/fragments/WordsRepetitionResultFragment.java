@@ -113,7 +113,7 @@ public class WordsRepetitionResultFragment extends Fragment {
     }
 
     private void setStats() {
-        wordsSeen.setText(String.valueOf(RepetitionData.wordsSeen.size() - 2) + "/" + String.valueOf(RepetitionData.allChosenWords.size())); //todo: why x - 2? check it
+        wordsSeen.setText(String.valueOf(RepetitionData.wordsSeen.size()) + "/" + String.valueOf(RepetitionData.allChosenWords.size()));
         wordsToRepeat.setText(String.valueOf(RepetitionData.wordsToRepeat.size()));
     }
 

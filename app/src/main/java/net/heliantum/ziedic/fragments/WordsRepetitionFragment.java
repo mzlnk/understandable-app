@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -64,6 +65,26 @@ public class WordsRepetitionFragment extends Fragment {
         pagerAdapter = new ScreenSlidePagerAdapter(this.getFragmentManager());
         pager.setAdapter(pagerAdapter);
 
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                currentWord = words.get(position);
+                RepetitionData.setCurrentWord(currentWord);
+                RepetitionData.addCurrentWordToSeen();
+                ToastUtil.showToastMessage(getContext(), "pos:" + position, 500);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
         finish = (Button) rootView.findViewById(R.id.f_words_repetition_finish);
 
@@ -114,19 +135,12 @@ public class WordsRepetitionFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            currentWord = words.get(position);
-            RepetitionData.setCurrentWord(currentWord);
-            RepetitionData.addCurrentWordToSeen();
-            return getFragmentByDirection();
+            return WordsRepetitionExampleFragment.newInstance(position);
         }
 
         @Override
         public int getCount() {
             return NUMB_WORDS;
-        }
-
-        private WordsRepetitionExampleFragment getFragmentByDirection() {
-            return new WordsRepetitionExampleFragment();
         }
     }
 }

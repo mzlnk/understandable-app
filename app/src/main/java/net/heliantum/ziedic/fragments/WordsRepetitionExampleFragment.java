@@ -12,7 +12,6 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.BaseWordsData;
 import net.heliantum.ziedic.data.RepetitionData;
 
 import java.util.Random;
@@ -24,13 +23,28 @@ public class WordsRepetitionExampleFragment extends Fragment {
     private TextView word0View, word1View;
     private TableLayout layout;
 
+    public int position;
+
+    public static final String POSITION_PARAM = "position";
+
     public WordsRepetitionExampleFragment() {
         // Required empty public constructor
+    }
+
+    public static WordsRepetitionExampleFragment newInstance(int position) {
+        WordsRepetitionExampleFragment fragment = new WordsRepetitionExampleFragment();
+        Bundle args = new Bundle();
+        args.putInt(POSITION_PARAM, position);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getArguments() != null) {
+            position = getArguments().getInt(POSITION_PARAM);
+        }
     }
 
     @Override
@@ -67,20 +81,20 @@ public class WordsRepetitionExampleFragment extends Fragment {
     private void setWords() {
         switch(RepetitionData.way) {
             case POLISH_TO_ENGLISH:
-                word0View.setText(RepetitionData.currentWord.getPolishWord());
-                word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                word0View.setText(RepetitionData.allChosenWords.get(position).getPolishWord());
+                word1View.setText(RepetitionData.allChosenWords.get(position).getEnglishWord());
                 break;
             case ENGLISH_TO_POLISH:
-                word0View.setText(RepetitionData.currentWord.getPolishWord());
-                word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                word0View.setText(RepetitionData.allChosenWords.get(position).getPolishWord());
+                word1View.setText(RepetitionData.allChosenWords.get(position).getEnglishWord());
                 break;
             case RANDOM:
                 if(new Random().nextBoolean()) {
-                    word0View.setText(RepetitionData.currentWord.getPolishWord());
-                    word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                    word0View.setText(RepetitionData.allChosenWords.get(position).getPolishWord());
+                    word1View.setText(RepetitionData.allChosenWords.get(position).getEnglishWord());
                 } else {
-                    word0View.setText(RepetitionData.currentWord.getPolishWord());
-                    word1View.setText(RepetitionData.currentWord.getEnglishWord());
+                    word0View.setText(RepetitionData.allChosenWords.get(position).getPolishWord());
+                    word1View.setText(RepetitionData.allChosenWords.get(position).getEnglishWord());
                 }
         }
         word0View.setTextColor(Color.BLACK);
