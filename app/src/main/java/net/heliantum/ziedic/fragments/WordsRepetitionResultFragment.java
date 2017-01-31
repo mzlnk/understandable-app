@@ -128,11 +128,9 @@ public class WordsRepetitionResultFragment extends Fragment {
             t1.setText(word.getPolishWord());
             t1.setTextColor(Color.BLACK);
             t1.setTypeface(typeface);
-            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.4F));
             t2.setText(word.getEnglishWord());
             t2.setTextColor(Color.BLACK);
             t2.setTypeface(typeface);
-            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.4F));
 
             if(color) {
                 row.setBackgroundColor(Color.rgb(224, 224, 244));
@@ -140,14 +138,10 @@ public class WordsRepetitionResultFragment extends Fragment {
 
             color = !color;
 
-            TextView space = new TextView(getContext());
-            space.setText("");
-            space.setTextColor(Color.WHITE);
-            space.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.1F));
+            //todo: remove TextView spaces in others
 
             row.setMeasureWithLargestChildEnabled(true);
             row.addView(t1);
-            row.addView(space);
             row.addView(t2);
             wordsToRepeatTable.addView(row);
         }

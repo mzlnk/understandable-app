@@ -87,11 +87,11 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
             t1.setText(word.getPolishWord());
             t1.setTextColor(Color.BLACK);
             t1.setTypeface(typeface);
-            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.4F));
+            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.35F));
             t2.setText(word.getEnglishWord());
             t2.setTextColor(Color.BLACK);
             t2.setTypeface(typeface);
-            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.4F));
+            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.35F));
 
             if(color) {
                 row.setBackgroundColor(Color.rgb(224, 224, 244));
@@ -100,7 +100,6 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
 
             TextView space = new TextView(getContext());
             space.setText("");
-            space.setTextColor(Color.WHITE);
             space.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.1F));
 
             row.setMeasureWithLargestChildEnabled(true);
