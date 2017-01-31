@@ -88,6 +88,9 @@ public class WordsChoiceLengthFragment extends Fragment {
                         case REPETITION:
                             transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
                             break;
+                        case LIST:
+                            transaction.replace(R.id.layout_for_fragments, new WordsListFragment());
+                            break;
                         case QUIZ:
                             if(BaseWordsData.allChosenWords.size() >= 4) {
                                 transaction.replace(R.id.layout_for_fragments, new QuizFragment());
@@ -112,12 +115,11 @@ public class WordsChoiceLengthFragment extends Fragment {
     private void adjustSeekBar() {
         final StartPosition startPos = new StartPosition();
         switch (BaseWordsData.mode) {
-            case REPETITION:
-                startPos.setPos(1);
-                break;
             case QUIZ:
                 startPos.setPos(4);
                 break;
+            default:
+                startPos.setPos(1);
         }
 
         amountAdjust.setMax(BaseWordsData.allChosenWords.size() - startPos.getPos());

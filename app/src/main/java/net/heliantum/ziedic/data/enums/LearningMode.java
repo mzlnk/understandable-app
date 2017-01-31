@@ -9,7 +9,8 @@ package net.heliantum.ziedic.data.enums;
 public enum LearningMode {
 
     REPETITION("powtarzanie"),
-    QUIZ("quiz");
+    QUIZ("quiz"),
+    LIST("lista");
 
     private String name;
 
