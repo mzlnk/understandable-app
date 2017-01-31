@@ -31,16 +31,16 @@ public class WordsRepetitionResultFragment extends Fragment {
     private View rootView;
     private RelativeLayout mainLayout;
 
-    private TableLayout wordsToRepeatTable;
-    private ScrollView wordsToRepeatField;
+    //private TableLayout wordsToRepeatTable;
+    //private ScrollView wordsToRepeatField;
     private TextView wordsSeen, wordsToRepeat;
     private TextView wordsSeenInfo, wordsToRepeatInfo;
     private TextView mainTitle, wordsToRepeatTitle;
 
-    private Button tryAgain;
+    private Button tryAgain, viewWordsToRepeat;
 
-    private long firstTapTime = 0;
-    private static final long DOUBLE_TAP_PERIOD = 500;
+    //private long firstTapTime = 0;
+    //private static final long DOUBLE_TAP_PERIOD = 500;
 
     public WordsRepetitionResultFragment() {
         // Required empty public constructor
@@ -52,7 +52,7 @@ public class WordsRepetitionResultFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_words_repetition_result, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_result_fragment_layout);
-        wordsToRepeatTable = (TableLayout) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_table);
+        //wordsToRepeatTable = (TableLayout) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_table);
         wordsSeen = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_seen);
         wordsToRepeat = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat);
         wordsSeenInfo = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_seen_info);
@@ -60,13 +60,15 @@ public class WordsRepetitionResultFragment extends Fragment {
         mainTitle = (TextView) rootView.findViewById(R.id.f_words_repetition_result_title);
         wordsToRepeatTitle = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_title);
         tryAgain = (Button) rootView.findViewById(R.id.f_words_repetition_result_try_again);
-        wordsToRepeatField = (ScrollView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_field);
+        //wordsToRepeatField = (ScrollView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_field);
+        viewWordsToRepeat = (Button) rootView.findViewById(R.id.f_words_repetition_result_view_words_to_repeat);
 
         setAnimation();
         setTypeface();
         setStats();
-        addWordsToRepeatToTable();
+        //addWordsToRepeatToTable();
 
+        /*
         wordsToRepeatTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +82,18 @@ public class WordsRepetitionResultFragment extends Fragment {
                 } else {
                     firstTapTime = timeNow;
                 }
+            }
+        });
+        */
+
+        viewWordsToRepeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                WordsRepetitionResultWordsToRepeatFragment fragment = new WordsRepetitionResultWordsToRepeatFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
@@ -109,6 +123,7 @@ public class WordsRepetitionResultFragment extends Fragment {
         wordsToRepeatInfo.setTypeface(typeface);
         mainTitle.setTypeface(typeface);
         wordsToRepeatTitle.setTypeface(typeface);
+        viewWordsToRepeat.setTypeface(typeface);
         tryAgain.setTypeface(typeface);
     }
 
@@ -117,6 +132,7 @@ public class WordsRepetitionResultFragment extends Fragment {
         wordsToRepeat.setText(String.valueOf(RepetitionData.wordsToRepeat.size()));
     }
 
+    /*
     private void addWordsToRepeatToTable() {
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         boolean color = true;
@@ -146,5 +162,5 @@ public class WordsRepetitionResultFragment extends Fragment {
             wordsToRepeatTable.addView(row);
         }
     }
-
+    */
 }

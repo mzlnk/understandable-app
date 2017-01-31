@@ -93,7 +93,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.15"
 
             android:gravity="center"
             android:text="Słówka do powtórzenia"
@@ -102,7 +102,40 @@
             android:id="@+id/f_words_repetition_result_words_to_repeat_title"/>
 
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:gravity="top">
 
+            <TableRow
+                android:gravity="top"
+                android:measureWithLargestChild="true" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4" />
+
+                <!--todo: put in strings.xml -->
+                <Button
+                    android:text="zobacz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:id="@+id/f_words_repetition_result_view_words_to_repeat"
+                    android:background="@drawable/button_rounded_light_blue"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4" />
+
+            </TableRow>
+        </TableLayout>
+
+        <!--
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -126,7 +159,7 @@
             </ScrollView>
 
         </RelativeLayout>
-
+        -->
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
