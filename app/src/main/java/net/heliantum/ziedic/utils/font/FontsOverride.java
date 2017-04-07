@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.utils;
+package net.heliantum.ziedic.utils.font;
 
 import android.content.Context;
 import android.graphics.Typeface;

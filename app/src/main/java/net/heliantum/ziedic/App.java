@@ -1,12 +1,17 @@
 package net.heliantum.ziedic;
 
 import android.app.Application;
+import android.content.Context;
+import android.graphics.Point;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 
 import net.heliantum.ziedic.database.DatabaseRepository;
 import net.heliantum.ziedic.database.IrregularVerbEntityRepository;
 import net.heliantum.ziedic.database.LanguageEntityRepository;
-import net.heliantum.ziedic.utils.FontsOverride;
+import net.heliantum.ziedic.utils.ScreenUtil;
+import net.heliantum.ziedic.utils.font.FontsOverride;
 
 /**
  * Created by Lotos_ on 2016-11-11.
@@ -32,6 +37,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         loadData();
+        loadScreenUtil();
     }
 
     //todo: fix it
@@ -57,6 +63,14 @@ public class App extends Application {
         ir = new IrregularVerbEntityRepository(getApplicationContext());
         //todo: code here
         Log.d(DEBUG_TAG, "Data has been loaded");
+    }
+
+    private void loadScreenUtil() {
+        WindowManager windowManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        ScreenUtil.init(size.x, size.y);
     }
 
 }
