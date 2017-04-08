@@ -62,18 +62,7 @@ public class WordsChoiceCategoryFragment extends Fragment implements Fragmentabl
         initCategories();
         addCategoriesToTable();
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (BaseWordsData.categories.size() > 0) {
-                    WordsChoiceTypeFragment typeFragment = new WordsChoiceTypeFragment();
-                    FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
-                } else {
-                    Toast.makeText(getContext(), "Wybierz przynajmniej 1 kategorię", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        addButtonListeners();
 
         return rootView;
     }
@@ -131,6 +120,21 @@ public class WordsChoiceCategoryFragment extends Fragment implements Fragmentabl
             categoriesLayout.addView(currentImageRow);
             categoriesLayout.addView(currentTextRow);
         }
+    }
+
+    private void addButtonListeners() {
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (BaseWordsData.categories.size() > 0) {
+                    WordsChoiceTypeFragment typeFragment = new WordsChoiceTypeFragment();
+                    FragmentManager manager = getFragmentManager();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
+                } else {
+                    Toast.makeText(getContext(), "Wybierz przynajmniej 1 kategorię", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }
