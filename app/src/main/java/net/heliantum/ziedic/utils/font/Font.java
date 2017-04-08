@@ -1,5 +1,6 @@
 package net.heliantum.ziedic.utils.font;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
@@ -9,9 +10,15 @@ import android.graphics.Typeface;
 
 public class Font {
 
+    public static Typeface TYPEFACE_MONTSERRAT;
+
     private Typeface typeface;
     private float size;
     private int color = Color.BLACK;
+
+    public static void loadBuiltInTypefaces(Context context) {
+        TYPEFACE_MONTSERRAT = Typeface.createFromAsset(context.getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+    }
 
     public Font(Typeface typeface, float size, int color) {
         this.typeface = typeface;

@@ -2,13 +2,9 @@ package net.heliantum.ziedic.fragments;
 
 
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -26,14 +21,24 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.BaseWordsData;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
+import net.heliantum.ziedic.fragments.interfaces.Fragmentable;
+import net.heliantum.ziedic.fragments.utils.wordschoicecategory.CategoryButton;
+import net.heliantum.ziedic.utils.font.Font;
+import net.heliantum.ziedic.utils.font.FontUtil;
 
-public class WordsChoiceCategoryFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    private Typeface typeface;
+public class WordsChoiceCategoryFragment extends Fragment implements Fragmentable {
 
     private View rootView;
     private RelativeLayout mainLayout;
-    private TableLayout layout;
+
+    private TableLayout categoriesLayout;
+    private TextView title;
+    private Button submit;
+
+    private List<CategoryButton> categories = new ArrayList<>();
 
     public WordsChoiceCategoryFragment() {
         // Required empty public constructor
@@ -41,27 +46,26 @@ public class WordsChoiceCategoryFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the categoriesLayout for this fragment
         rootView = inflater.inflate(R.layout.fragment_words_choice_category, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_category_fragment_layout);
-        layout = (TableLayout) rootView.findViewById(R.id.f_words_choice_category_names_layout);
-        typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        categoriesLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_category_names_layout);
+        title = (TextView) rootView.findViewById(R.id.f_words_choice_category_title);
+        submit = (Button) rootView.findViewById(R.id.f_words_choice_category_submit);
 
         setAnimation();
-        addCategories();
+        setSize();
+        setFonts();
+        setTheme();
 
-        TextView title = (TextView)rootView.findViewById(R.id.f_words_choice_category_title);
-        Button submit = (Button)rootView.findViewById(R.id.f_words_choice_category_submit);
-
-        title.setTypeface(typeface);
-        submit.setTypeface(typeface);
+        initCategories();
+        addCategoriesToTable();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(BaseWordsData.categories.size() > 0) {
+                if (BaseWordsData.categories.size() > 0) {
                     WordsChoiceTypeFragment typeFragment = new WordsChoiceTypeFragment();
                     FragmentManager manager = getFragmentManager();
                     manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
@@ -74,74 +78,58 @@ public class WordsChoiceCategoryFragment extends Fragment {
         return rootView;
     }
 
-    private void setAnimation() {
+    @Override
+    public void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
         mainLayout.setAnimation(anim);
     }
 
-    private void addCategories() {
-        DisplayMetrics metrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+    @Override
+    public void setSize() {
+        //todo: code here
+    }
 
-        int width = metrics.widthPixels;
-        int imageSize = (int)(width * 0.2);
-        int textSize = (int)(width * 0.08);
-        int fontSize = (int)(width / 45D);
+    @Override
+    public void setFonts() {
+        Font titleFont = new Font(Font.TYPEFACE_MONTSERRAT, 26.0F, Color.BLACK);
+        Font submitFont = new Font(Font.TYPEFACE_MONTSERRAT, 18.0F, Color.WHITE);
+        FontUtil.setFont(title, titleFont);
+        FontUtil.setFont(submit, submitFont);
+    }
 
-        TableRow.LayoutParams imageParams = new TableRow.LayoutParams(imageSize, imageSize);
-        TableRow.LayoutParams textParams = new TableRow.LayoutParams(textSize, (textSize / 2));
-        int pos = 0;
+    @Override
+    public void setTheme() {
+        //todo: code here
+    }
 
+    private void initCategories() {
+        for(LanguageCategory category : LanguageCategory.values()) {
+            categories.add(new CategoryButton(getContext(), category));
+        }
+    }
+
+    private void addCategoriesToTable() {
         TableRow currentImageRow = new TableRow(getContext());
         TableRow currentTextRow = new TableRow(getContext());
 
-        for(final LanguageCategory category : LanguageCategory.values()) {
+        int x = 0;
+        for (CategoryButton categoryButton : categories) {
 
-            final ImageView image = new ImageView(getContext());
-            image.setImageResource(R.drawable.f_words_choice_base_test_selected);
-            image.setLayoutParams(imageParams);
-            if(BaseWordsData.exists(category)) {
-                image.setImageAlpha(255);
-            } else {
-                image.setImageAlpha(150);
-            }
-            image.setClickable(true);
-            image.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(image.getImageAlpha() == 150) {
-                        image.setImageAlpha(255);
-                        BaseWordsData.addCategory(category);
-                    } else {
-                        image.setImageAlpha(150);
-                        BaseWordsData.removeCategory(category);
-                    }
-                }
-            });
-
-            TextView text = new TextView(getContext());
-            text.setText(category.getName());
-            text.setTypeface(typeface);
-            text.setTextColor(Color.BLACK);
-            text.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize);
-            text.setGravity(Gravity.CENTER);
-            text.setLayoutParams(textParams);
-
-            currentImageRow.addView(image);
-            currentTextRow.addView(text);
-            if(pos == 3) {
-                layout.addView(currentImageRow);
-                layout.addView(currentTextRow);
+            currentImageRow.addView(categoryButton.getImage());
+            currentTextRow.addView(categoryButton.getText());
+            if (x == 3) {
+                categoriesLayout.addView(currentImageRow);
+                categoriesLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
                 currentTextRow = new TableRow(getContext());
-                pos = 0;
+                x = 0;
             } else {
-                pos++;
+                x++;
             }
         }
-        if(pos != 0) {
-            layout.addView(currentImageRow);
-            layout.addView(currentTextRow);
+        if (x != 0) {
+            categoriesLayout.addView(currentImageRow);
+            categoriesLayout.addView(currentTextRow);
         }
     }
 

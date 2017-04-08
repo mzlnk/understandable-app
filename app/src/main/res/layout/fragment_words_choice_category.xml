@@ -28,11 +28,8 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
                 android:text="@string/f_words_choice_category_title"
-                android:textSize="@dimen/f_words_choice_title_size"
-                android:textColor="@color/default_black"
                 android:id="@+id/f_words_choice_category_title" />
         </LinearLayout>
-
 
         <LinearLayout
             android:orientation="horizontal"
@@ -65,7 +62,6 @@
                 android:text="@string/f_words_choice_next"
                 android:textSize="@dimen/f_words_choice_text_button_size"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
                 android:background="@drawable/button_rounded_light_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

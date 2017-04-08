@@ -30,25 +30,25 @@ public class BaseWordsData {
     public static int size = 0;
 
     public static void addCategory(LanguageCategory category) {
-        if(!exists(category)) {
+        if(!isChosen(category)) {
             BaseWordsData.categories.add(category);
         }
     }
 
     public static void addType(LanguageType type) {
-        if(!exists(type)) {
+        if(!isChosen(type)) {
             BaseWordsData.types.add(type);
         }
     }
 
     public static void removeCategory(LanguageCategory category) {
-        if(exists(category)) {
+        if(isChosen(category)) {
             BaseWordsData.categories.remove(category);
         }
     }
 
     public static void removeType(LanguageType type) {
-        if(exists(type)) {
+        if(isChosen(type)) {
             BaseWordsData.types.remove(type);
         }
     }
@@ -61,14 +61,14 @@ public class BaseWordsData {
         BaseWordsData.way = way;
     }
 
-    public static boolean exists(LanguageCategory category) {
+    public static boolean isChosen(LanguageCategory category) {
         for(LanguageCategory c : BaseWordsData.categories) {
             if(c.equals(category)) return true;
         }
         return false;
     }
 
-    public static boolean exists(LanguageType type) {
+    public static boolean isChosen(LanguageType type) {
         for(LanguageType t : BaseWordsData.types) {
             if(t.equals(type)) return true;
         }

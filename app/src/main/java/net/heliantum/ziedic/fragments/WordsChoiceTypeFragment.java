@@ -65,8 +65,9 @@ public class WordsChoiceTypeFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                WordsChoiceCategoryFragment categoryFragment = new WordsChoiceCategoryFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.popBackStack();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment).commit();
             }
         });
 
@@ -112,7 +113,7 @@ public class WordsChoiceTypeFragment extends Fragment {
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(BaseWordsData.exists(type)) {
+            if(BaseWordsData.isChosen(type)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);

@@ -11,6 +11,7 @@ import net.heliantum.ziedic.database.DatabaseRepository;
 import net.heliantum.ziedic.database.IrregularVerbEntityRepository;
 import net.heliantum.ziedic.database.LanguageEntityRepository;
 import net.heliantum.ziedic.utils.ScreenUtil;
+import net.heliantum.ziedic.utils.font.Font;
 import net.heliantum.ziedic.utils.font.FontsOverride;
 
 /**
@@ -38,6 +39,7 @@ public class App extends Application {
         super.onCreate();
         loadData();
         loadScreenUtil();
+        Font.loadBuiltInTypefaces(getApplicationContext());
     }
 
     //todo: fix it
@@ -71,6 +73,7 @@ public class App extends Application {
         Point size = new Point();
         display.getSize(size);
         ScreenUtil.init(size.x, size.y);
+        System.out.println("Width: " + ScreenUtil.getScreen().width + ", Height: " + ScreenUtil.getScreen().height);
     }
 
 }
