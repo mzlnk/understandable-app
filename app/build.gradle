@@ -22,9 +22,9 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files ('libs/jxl.jar')
-    compile files ('libs/gson-2.8.0.jar')
-    compile files ('libs/commons-lang-2.3.jar')
+    compile files('libs/jxl.jar')
+    compile files('libs/gson-2.8.0.jar')
+    compile files('libs/commons-lang-2.3.jar')
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.android.support:design:24.1.1'

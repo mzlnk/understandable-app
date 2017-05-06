@@ -24,12 +24,17 @@ import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.corrupted.data.BaseWordsData;
+import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LanguageType;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class WordsChoiceTypeFragment extends Fragment {
+
+    private static final String DATA_PARAM = "type.dataParam";
+
+    private DataParams dataParams;
 
     private Typeface typeface;
 
@@ -41,12 +46,30 @@ public class WordsChoiceTypeFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static WordsChoiceTypeFragment newInstance(String param) {
+        WordsChoiceTypeFragment fragment = new WordsChoiceTypeFragment();
+        Bundle args = new Bundle();
+        args.putString(DATA_PARAM, param);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null) {
+            dataParams = DataParams.fromString(DATA_PARAM);
+        }
+        if(dataParams == null) {
+            dataParams = new DataParams();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView =  inflater.inflate(R.layout.fragment_words_choice_type, container, false);
+        rootView =  inflater.inflate(R.layout.f_words_choice_type, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_type_fragment_layout);
         layout = (TableLayout) rootView.findViewById(R.id.f_words_choice_type_names_layout);
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
@@ -65,7 +88,7 @@ public class WordsChoiceTypeFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WordsChoiceCategoryFragment categoryFragment = new WordsChoiceCategoryFragment();
+                WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment).commit();
             }
@@ -74,10 +97,10 @@ public class WordsChoiceTypeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(BaseWordsData.types.size() > 0) {
+                if(dataParams.types.size() > 0) {
                     WordsChoiceWayFragment modeFragment = new WordsChoiceWayFragment();
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).addToBackStack(null).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }
@@ -113,7 +136,7 @@ public class WordsChoiceTypeFragment extends Fragment {
             final ImageView image = new ImageView(getContext());
             image.setImageResource(R.drawable.f_words_choice_base_test_selected);
             image.setLayoutParams(imageParams);
-            if(BaseWordsData.isChosen(type)) {
+            if(dataParams.isChosen(type)) {
                 image.setImageAlpha(255);
             } else {
                 image.setImageAlpha(150);
@@ -124,10 +147,10 @@ public class WordsChoiceTypeFragment extends Fragment {
                 public void onClick(View view) {
                     if(image.getImageAlpha() == 150) {
                         image.setImageAlpha(255);
-                        BaseWordsData.addType(type);
+                        dataParams.addType(type);
                     } else {
                         image.setImageAlpha(150);
-                        BaseWordsData.removeType(type);
+                        dataParams.removeType(type);
                     }
                 }
             });

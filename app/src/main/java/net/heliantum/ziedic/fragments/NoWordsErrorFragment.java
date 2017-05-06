@@ -32,7 +32,7 @@ public class NoWordsErrorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView =  inflater.inflate(R.layout.fragment_no_words_error, container, false);
+        rootView =  inflater.inflate(R.layout.f_no_words_error, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_no_words_error_fragment_layout);
         back = (Button) rootView.findViewById(R.id.back);
 

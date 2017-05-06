@@ -50,7 +50,7 @@ public class WordsChoiceModeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_words_choice_mode, container, false);
+        rootView = inflater.inflate(R.layout.f_words_choice_mode, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_mode_fragment_layout);
         layout = (TableLayout) rootView.findViewById(R.id.f_words_choice_mode_names_layout);
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular-PL.ttf");

@@ -40,7 +40,7 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView =  inflater.inflate(R.layout.fragment_words_repetition_result_words_to_repeat, container, false);
+        rootView =  inflater.inflate(R.layout.f_words_repetition_result_words_to_repeat, container, false);
 
         layout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_result_words_to_repeat_fragment_layout);
         title = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_title);

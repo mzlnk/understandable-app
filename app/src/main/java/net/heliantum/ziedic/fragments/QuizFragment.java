@@ -62,7 +62,7 @@ public class QuizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_quiz, container, false);
+        rootView = inflater.inflate(R.layout.f_quiz, container, false);
         layout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
 
         question = (TextView) rootView.findViewById(R.id.fragment_quiz_question);

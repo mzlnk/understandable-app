@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.corrupted.data.BaseWordsData;
+import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.utils.SizeUtil;
 import net.heliantum.ziedic.utils.font.Font;
@@ -26,9 +27,11 @@ public class CategoryButton {
     private TextView text;
 
     private LanguageCategory category;
+    private DataParams params;
 
-    public CategoryButton(Context context, LanguageCategory category) {
+    public CategoryButton(Context context, LanguageCategory category, DataParams params) {
         this.category = category;
+        this.params = params;
         this.image = new ImageView(context);
         this.text = new TextView(context);
         prepare();
@@ -72,7 +75,7 @@ public class CategoryButton {
     }
 
     private void setChoiceState() {
-        if(BaseWordsData.isChosen(category)) {
+        if(params.isChosen(category)) {
             image.setImageAlpha(255);
         } else {
             image.setImageAlpha(150);
@@ -85,10 +88,10 @@ public class CategoryButton {
             public void onClick(View view) {
                 if(image.getImageAlpha() == 150) {
                     image.setImageAlpha(255);
-                    BaseWordsData.addCategory(category);
+                    params.addCategory(category);
                 } else {
                     image.setImageAlpha(150);
-                    BaseWordsData.removeCategory(category);
+                    params.removeCategory(category);
                 }
             }
         });

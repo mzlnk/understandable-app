@@ -46,7 +46,7 @@ public class QuizResultFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_quiz_result, container, false);
+        rootView = inflater.inflate(R.layout.f_quiz_result, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_result_fragment_layout);
 
         title = (TextView) rootView.findViewById(R.id.f_quiz_result_title);

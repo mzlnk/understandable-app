@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import net.heliantum.ziedic.fragments.AboutAuthorFragment;
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.fragments.DownloadDatabaseFragment;
 import net.heliantum.ziedic.fragments.WordsChoiceCategoryFragment;
 
 public class NavigationActivity extends AppCompatActivity
@@ -77,12 +76,7 @@ public class NavigationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.update_database) {
-            DownloadDatabaseFragment fragment = new DownloadDatabaseFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
-        }
-        else if(id == R.id.words) {
+        if(id == R.id.words) {
             WordsChoiceCategoryFragment fragment = new WordsChoiceCategoryFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();

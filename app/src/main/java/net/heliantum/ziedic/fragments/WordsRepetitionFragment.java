@@ -54,7 +54,7 @@ public class WordsRepetitionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_words_repetition, container, false);
+        rootView = inflater.inflate(R.layout.f_words_repetition, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_fragment_layout);
 
         setAnimation();

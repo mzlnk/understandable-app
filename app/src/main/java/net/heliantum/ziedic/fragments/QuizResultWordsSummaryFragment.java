@@ -44,7 +44,7 @@ public class QuizResultWordsSummaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_quiz_result_words_summary, container, false);
+        rootView = inflater.inflate(R.layout.f_quiz_result_words_summary, container, false);
         layout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_result_words_summary_fragment_layout);
         title = (TextView) rootView.findViewById(R.id.f_quiz_result_words_summary_title);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_quiz_result_words_summary_table);

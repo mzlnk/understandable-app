@@ -43,7 +43,7 @@ public class WordsChoiceLengthFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_word_choice_length, container, false);
+        rootView = inflater.inflate(R.layout.f_word_choice_length, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_length_fragment_layout);
         typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
 

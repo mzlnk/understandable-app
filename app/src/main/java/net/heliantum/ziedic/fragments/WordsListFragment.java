@@ -34,7 +34,7 @@ public class WordsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_words_list, container, false);
+        rootView = inflater.inflate(R.layout.f_words_list, container, false);
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_list_fragment_layout);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_list_words_table);
 

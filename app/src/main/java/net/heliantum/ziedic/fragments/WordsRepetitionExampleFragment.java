@@ -52,7 +52,7 @@ public class WordsRepetitionExampleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        rootView = inflater.inflate(R.layout.fragment_words_repetition_example, container, false);
+        rootView = inflater.inflate(R.layout.f_words_repetition_example, container, false);
 
         word0View = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_0);
         word1View = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_1);

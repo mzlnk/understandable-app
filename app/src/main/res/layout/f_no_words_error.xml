@@ -20,15 +20,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp" />
 
-    <ImageView
-        android:layout_width="500px"
-        android:layout_height="500px"
-        app:srcCompat="@drawable/error"
-        android:id="@+id/imageView2"
-        android:layout_marginTop="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:text="Brak fiszek!"
         android:layout_width="wrap_content"
@@ -50,4 +41,13 @@
         android:layout_marginTop="29dp"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="500px"
+        android:layout_height="500px"
+        app:srcCompat="@drawable/error"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/textView3" />
 </RelativeLayout>
