@@ -1,16 +1,10 @@
-package net.heliantum.ziedic.database;
+package net.heliantum.ziedic.database.handlers;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import net.heliantum.ziedic.data.enums.LanguageCategory;
-import net.heliantum.ziedic.database.entity.LanguageEntites;
-import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.enums.LanguageType;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,7 +18,7 @@ import java.util.Scanner;
  * Created by Marcin Zielonka on 2016-11-11.
  */
 
-public class DatabaseRepository {
+public class BaseDBHandler {
 
     protected static final String DEBUG_TAG = "ZiedicDatabase";
 
@@ -126,11 +120,11 @@ public class DatabaseRepository {
 
     }
 
-    public DatabaseRepository(Context context) {
+    public BaseDBHandler(Context context) {
         this.context = context;
     }
 
-    public DatabaseRepository open() {
+    public BaseDBHandler open() {
 
         dbHandler = new DBHandler(context, DATABASE_NAME, null, DATABASE_VERSION);
 

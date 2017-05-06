@@ -1,46 +1,44 @@
-package net.heliantum.ziedic.database;
+package net.heliantum.ziedic.database.handlers;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 
 import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.data.enums.LanguageType;
-import net.heliantum.ziedic.database.entity.LanguageEntites;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Marcin on 2017-01-08.
  */
 
-public class LanguageEntityRepository extends DatabaseRepository {
+public class LanguageEntityDBHandler extends BaseDBHandler {
 
-    public LanguageEntityRepository(Context context) {
+    public LanguageEntityDBHandler(Context context) {
         super(context);
     }
 
-    public void loadData() {
+    public List<LanguageEntity> getData() {
         Cursor c;
         //table 'words':
         c = db.rawQuery("SELECT * FROM 'words'", null);
 
+        List<LanguageEntity> result = new ArrayList<>();
         if(c.moveToFirst()) {
             do {
-                LanguageEntites.addEntity(new LanguageEntity(c.getInt(0),
+                result.add(new LanguageEntity(c.getInt(0),
                         c.getString(1),
                         c.getString(2),
                         LanguageCategory.getEnum(c.getString(3)),
                         LanguageType.getEnum(c.getString(4))));
             }while(c.moveToNext());
         }
+        return result;
     }
 
+    /*
     public void updateData() {
 
         //todo: remove in beta version (it'll have been replaced by MYSQL on VPS)
@@ -70,5 +68,6 @@ public class LanguageEntityRepository extends DatabaseRepository {
 
         Log.d(DEBUG_TAG, "Executing statements has finished");
     }
+    */
 
 }

@@ -4,7 +4,6 @@ import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.data.enums.LanguageType;
 import net.heliantum.ziedic.data.enums.LearningMode;
 import net.heliantum.ziedic.data.enums.LearningWay;
-import net.heliantum.ziedic.database.entity.LanguageEntites;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 
 import java.util.ArrayList;

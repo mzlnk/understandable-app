@@ -8,9 +8,8 @@ import net.heliantum.ziedic.data.enums.LanguageType;
  */
 
 
-public class LanguageEntity {
+public class LanguageEntity extends BaseEntity {
 
-    private int id;
     private String polish;
     private String english;
     private LanguageCategory category;
@@ -22,10 +21,6 @@ public class LanguageEntity {
         this.english = english;
         this.category = category;
         this.type = type;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getPolishWord() {

@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
-import net.heliantum.ziedic.database.DatabaseRepository;
-import net.heliantum.ziedic.database.IrregularVerbEntityRepository;
-import net.heliantum.ziedic.database.LanguageEntityRepository;
+import net.heliantum.ziedic.database.handlers.BaseDBHandler;
+import net.heliantum.ziedic.database.handlers.IrregularVerbEntityDBHandler;
+import net.heliantum.ziedic.database.handlers.LanguageEntityDBHandler;
+import net.heliantum.ziedic.database.repositories.IrregularVerbEntityRepository;
+import net.heliantum.ziedic.database.repositories.LanguageEntityRepository;
 import net.heliantum.ziedic.utils.ScreenUtil;
 import net.heliantum.ziedic.utils.font.Font;
 import net.heliantum.ziedic.utils.font.FontsOverride;
@@ -20,25 +22,14 @@ import net.heliantum.ziedic.utils.font.FontsOverride;
 
 public class App extends Application {
 
-    private static String DEBUG_TAG = "ZiedicData";
+    private static final String DEBUG_TAG = "ZiedicData";
 
-    private static DatabaseRepository dr;
-    private static LanguageEntityRepository lr;
-    private static IrregularVerbEntityRepository ir;
-
-    public static LanguageEntityRepository getLanguageEntityRepositoryRepository() {
-        return lr;
-    }
-
-    public static IrregularVerbEntityRepository getIrregularVerbEntityRepository() {
-        return ir;
-    }
+    private static BaseDBHandler dr;
 
     @Override
     public void onCreate() {
         super.onCreate();
         loadData();
-        loadScreenUtil();
         Font.loadBuiltInTypefaces(getApplicationContext());
     }
 
@@ -56,17 +47,15 @@ public class App extends Application {
         FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
 
         Log.d(DEBUG_TAG, "Creating connection with internal database");
-        dr = new DatabaseRepository(getApplicationContext()).open();
+        dr = new BaseDBHandler(getApplicationContext()).open();
 
-        Log.d(DEBUG_TAG, "Loading data: LanguageEntities");
-        lr = new LanguageEntityRepository(getApplicationContext());
-        lr.loadData();
-        Log.d(DEBUG_TAG, "Loading data: IrregularVerbEntities");
-        ir = new IrregularVerbEntityRepository(getApplicationContext());
-        //todo: code here
+        Log.d(DEBUG_TAG, "Loading Entities");
+        LanguageEntityRepository.init(getApplicationContext());
+        IrregularVerbEntityRepository.init(getApplicationContext());
         Log.d(DEBUG_TAG, "Data has been loaded");
     }
 
+    /* todo: remove it
     private void loadScreenUtil() {
         WindowManager windowManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
         Display display = windowManager.getDefaultDisplay();
@@ -75,5 +64,6 @@ public class App extends Application {
         ScreenUtil.init(size.x, size.y);
         System.out.println("Width: " + ScreenUtil.getScreen().width + ", Height: " + ScreenUtil.getScreen().height);
     }
+    */
 
 }
