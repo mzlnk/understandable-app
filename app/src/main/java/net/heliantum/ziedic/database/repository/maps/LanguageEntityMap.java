@@ -1,11 +1,8 @@
-package net.heliantum.ziedic.database.repositories;
-
-import android.content.Context;
+package net.heliantum.ziedic.database.repository.maps;
 
 import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.data.enums.LanguageType;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.database.handlers.LanguageEntityDBHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,25 +11,9 @@ import java.util.List;
  * Created by Marcin on 2017-05-06.
  */
 
-public class LanguageEntityRepository extends BaseEntityRepository {
+public class LanguageEntityMap {
 
     private List<LanguageEntity> languageEntities = new ArrayList<>();
-
-    private static LanguageEntityRepository repository;
-
-    public static void init(Context context) {
-        repository = new LanguageEntityRepository();
-        repository.loadEntitiesFromDatabase(context);
-    }
-
-    public static void reload(Context context) {
-        repository.languageEntities.clear();
-        init(context);
-    }
-
-    public static LanguageEntityRepository getRepository() {
-        return repository;
-    }
 
     public List<LanguageEntity> getAllEntities() {
         return new ArrayList<>(languageEntities);
@@ -50,11 +31,6 @@ public class LanguageEntityRepository extends BaseEntityRepository {
             }
         }
         return result;
-    }
-
-    private void loadEntitiesFromDatabase(Context context) {
-        LanguageEntityDBHandler handler = new LanguageEntityDBHandler(context);
-        languageEntities = handler.getData();
     }
 
 }

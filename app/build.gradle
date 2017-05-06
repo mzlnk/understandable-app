@@ -7,7 +7,7 @@ android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
         applicationId "net.heliantum.ziedic"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files ('libs/jxl.jar')
+    compile files ('libs/gson-2.8.0.jar')
+    compile files ('libs/commons-lang-2.3.jar')
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.android.support:design:24.1.1'
     compile 'com.android.support:support-v4:24.1.1'

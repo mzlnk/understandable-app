@@ -19,7 +19,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.QuizData;
+import net.heliantum.ziedic.corrupted.data.QuizData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
 
 import java.util.ArrayList;

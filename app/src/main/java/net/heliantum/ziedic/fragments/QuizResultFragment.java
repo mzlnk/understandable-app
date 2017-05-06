@@ -12,13 +12,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.QuizData;
+import net.heliantum.ziedic.corrupted.data.QuizData;
 
 import static net.heliantum.ziedic.fragments.QuizResultWordsSummaryFragment.CORRECT_WORDS_SUMMARY;
 import static net.heliantum.ziedic.fragments.QuizResultWordsSummaryFragment.INCORRECT_WORDS_SUMMARY;

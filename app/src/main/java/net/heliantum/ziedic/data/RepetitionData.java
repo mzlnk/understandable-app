@@ -6,44 +6,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Marcin Zielonka on 2017-01-29.
+ * Created by Marcin on 2017-05-06.
  */
 
-public class RepetitionData extends BaseWordsData {
+public class RepetitionData extends BaseData {
 
-    public static List<LanguageEntity> wordsToRepeat = new ArrayList<>();
-    public static List<LanguageEntity> wordsSeen = new ArrayList<>();
-    public static LanguageEntity currentWord;
+    public List<LanguageEntity> wordsToRepeat = new ArrayList<>();
+    public List<LanguageEntity> wordsSeen = new ArrayList<>();
+    public LanguageEntity currentWord;
 
-    public static boolean existsInToRepeatWords(LanguageEntity word) {
+    public RepetitionData(DataParams params) {
+        super(params);
+    }
+
+    public boolean existsInToRepeatWords(LanguageEntity word) {
         return wordsToRepeat.contains(word);
     }
 
-    public static void addCurrentWordToRepeat() {
+    public void addCurrentWordToRepeat() {
         if(!wordsToRepeat.contains(currentWord)) {
             wordsToRepeat.add(currentWord);
         }
     }
 
-    public static void addCurrentWordToSeen() {
+    public void addCurrentWordToSeen() {
         if(!wordsSeen.contains(currentWord)) {
             wordsSeen.add(currentWord);
         }
     }
 
-    public static void removeCurrentWordFromRepeat() {
+    public void removeCurrentWordFromRepeat() {
         wordsToRepeat.remove(currentWord);
     }
 
-    public static void setCurrentWord(LanguageEntity word) {
+    public void setCurrentWord(LanguageEntity word) {
         currentWord = word;
     }
 
-    public static void resetStats() {
-        currentWord = allChosenWords.get(0);
-        wordsSeen.clear();
-        addCurrentWordToSeen();
-        wordsToRepeat.clear();
+    public RepetitionData resetStats() {
+       return new RepetitionData(params);
     }
 
 }

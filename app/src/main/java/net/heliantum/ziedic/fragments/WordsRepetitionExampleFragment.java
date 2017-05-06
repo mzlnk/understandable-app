@@ -12,7 +12,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.corrupted.data.RepetitionData;
 
 import java.util.Random;
 

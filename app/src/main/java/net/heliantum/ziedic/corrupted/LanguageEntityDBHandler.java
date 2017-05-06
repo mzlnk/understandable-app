@@ -1,14 +1,4 @@
-package net.heliantum.ziedic.database.handlers;
-
-import android.content.Context;
-import android.database.Cursor;
-
-import net.heliantum.ziedic.data.enums.LanguageCategory;
-import net.heliantum.ziedic.data.enums.LanguageType;
-import net.heliantum.ziedic.database.entity.LanguageEntity;
-
-import java.util.ArrayList;
-import java.util.List;
+package net.heliantum.ziedic.corrupted;
 
 /**
  * Created by Marcin on 2017-01-08.
@@ -16,6 +6,7 @@ import java.util.List;
 
 public class LanguageEntityDBHandler extends BaseDBHandler {
 
+    /*todo: remove it
     public LanguageEntityDBHandler(Context context) {
         super(context);
     }
@@ -38,7 +29,6 @@ public class LanguageEntityDBHandler extends BaseDBHandler {
         return result;
     }
 
-    /*
     public void updateData() {
 
         //todo: remove in beta version (it'll have been replaced by MYSQL on VPS)

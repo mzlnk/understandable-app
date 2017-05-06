@@ -17,9 +17,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.BaseWordsData;
-import net.heliantum.ziedic.data.QuizData;
-import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.corrupted.data.BaseWordsData;
+import net.heliantum.ziedic.corrupted.data.QuizData;
+import net.heliantum.ziedic.corrupted.data.RepetitionData;
 
 /**
  * A simple {@link Fragment} subclass.

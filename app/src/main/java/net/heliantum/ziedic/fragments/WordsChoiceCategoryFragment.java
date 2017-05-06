@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.BaseWordsData;
+import net.heliantum.ziedic.corrupted.data.BaseWordsData;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.fragments.interfaces.Fragmentable;
 import net.heliantum.ziedic.fragments.utils.wordschoicecategory.CategoryButton;

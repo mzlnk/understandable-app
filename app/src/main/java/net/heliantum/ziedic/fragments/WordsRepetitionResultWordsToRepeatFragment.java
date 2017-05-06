@@ -17,12 +17,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.QuizData;
-import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.corrupted.data.RepetitionData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 

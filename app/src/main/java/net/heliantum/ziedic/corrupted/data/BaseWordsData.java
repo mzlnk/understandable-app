@@ -1,15 +1,4 @@
-package net.heliantum.ziedic.data;
-
-import net.heliantum.ziedic.data.enums.LanguageCategory;
-import net.heliantum.ziedic.data.enums.LanguageType;
-import net.heliantum.ziedic.data.enums.LearningMode;
-import net.heliantum.ziedic.data.enums.LearningWay;
-import net.heliantum.ziedic.database.entity.LanguageEntity;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+package net.heliantum.ziedic.corrupted.data;
 
 /**
  * Created by Lotos_ on 2016-11-12.
@@ -18,6 +7,7 @@ import java.util.Random;
 
 public class BaseWordsData {
 
+    /*todo: remove it
     private static final Random r = new Random();
 
     public static List<LanguageEntity> allChosenWords = new ArrayList<>();
@@ -91,5 +81,6 @@ public class BaseWordsData {
             all.remove(item);
         }
     }
+    */
 
 }

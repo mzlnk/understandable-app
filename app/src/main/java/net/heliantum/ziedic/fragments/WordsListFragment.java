@@ -16,11 +16,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.BaseWordsData;
-import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.corrupted.data.BaseWordsData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class WordsListFragment extends Fragment {
 

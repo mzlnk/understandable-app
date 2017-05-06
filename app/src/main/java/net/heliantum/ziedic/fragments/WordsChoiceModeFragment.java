@@ -22,7 +22,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.BaseWordsData;
+import net.heliantum.ziedic.corrupted.data.BaseWordsData;
 import net.heliantum.ziedic.data.enums.LearningMode;
 
 import java.util.ArrayList;

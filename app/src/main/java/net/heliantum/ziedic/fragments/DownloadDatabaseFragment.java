@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.App;
-import net.heliantum.ziedic.database.handlers.LanguageEntityDBHandler;
+import net.heliantum.ziedic.corrupted.LanguageEntityDBHandler;
 
 /**
  * A simple {@link Fragment} subclass.

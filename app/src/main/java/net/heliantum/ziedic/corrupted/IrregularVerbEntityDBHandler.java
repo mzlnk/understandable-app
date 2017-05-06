@@ -1,12 +1,4 @@
-package net.heliantum.ziedic.database.handlers;
-
-import android.content.Context;
-import android.database.Cursor;
-
-import net.heliantum.ziedic.database.entity.IrregularVerbEntity;
-
-import java.util.ArrayList;
-import java.util.List;
+package net.heliantum.ziedic.corrupted;
 
 /**
  * Created by Marcin on 2017-01-08.
@@ -14,6 +6,7 @@ import java.util.List;
 
 public class IrregularVerbEntityDBHandler extends BaseDBHandler {
 
+    /*todo: remove it
     public IrregularVerbEntityDBHandler(Context context) {
         super(context);
     }
@@ -34,5 +27,6 @@ public class IrregularVerbEntityDBHandler extends BaseDBHandler {
         }
         return result;
     }
+    */
 
 }

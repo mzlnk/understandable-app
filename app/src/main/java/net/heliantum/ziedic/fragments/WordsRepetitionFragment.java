@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -16,12 +15,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.corrupted.data.RepetitionData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.data.BaseWordsData;
+import net.heliantum.ziedic.corrupted.data.BaseWordsData;
 import net.heliantum.ziedic.utils.ToastUtil;
 
 import java.util.List;

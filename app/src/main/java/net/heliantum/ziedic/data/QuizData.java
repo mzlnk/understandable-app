@@ -6,62 +6,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-01-06.
+ * Created by Marcin on 2017-05-06.
  */
 
-public class QuizData extends BaseWordsData {
+public class QuizData extends BaseData {
 
-    public static List<LanguageEntity> chosenWordsLeft = new ArrayList<>();
-    public static List<LanguageEntity> correctWords = new ArrayList<>();
-    public static List<LanguageEntity> incorrectWords = new ArrayList<>();
+    public List<LanguageEntity> wordsLeft = new ArrayList<>();
+    public List<LanguageEntity> correctAnswers = new ArrayList<>();
+    public List<LanguageEntity> incorrectAnswers = new ArrayList<>();
+    public LanguageEntity currentWord;
+    public int currentQuestion = 1;
 
-    public static int currentQuestion = 1;
-    public static int questions = 0;
-    public static int correctAnswers = 0;
-    public static int incorrectAnswers = 0;
-
-    public static boolean wordsSummaryStatus = false;
-
-    public static void removeWord(LanguageEntity entity) {
-        chosenWordsLeft.remove(entity);
+    public QuizData(DataParams params) {
+        super(params);
+        wordsLeft = new ArrayList<>(words);
     }
 
-    public static void nextQuestion() {
+    public void nextQuestion() {
         currentQuestion++;
-        questions++;
+        wordsLeft.remove(currentWord);
+        currentWord = wordsLeft.get(r.nextInt(wordsLeft.size()));
     }
 
-    public static void setWordsSummaryStatus(boolean status) {
-        wordsSummaryStatus = status;
+    public LanguageEntity[] getRandomIncorrectAnswers() {
+        LanguageEntity[] incorrectAnswers = new LanguageEntity[3];
+        LanguageEntity word;
+        boolean check1, check2, check3, check4;
+        for(int i = 0; i < 3; i++) {
+            do {
+                word = words.get(r.nextInt(words.size()));
+                check1 = word.equals(currentWord);
+                check2 = (incorrectAnswers[0] != null) && word.equals(incorrectAnswers[0]);
+                check3 = (incorrectAnswers[1] != null) && word.equals(incorrectAnswers[1]);
+                check4 = (incorrectAnswers[2] != null) && word.equals(incorrectAnswers[2]);
+            } while(check1 || check2 || check3 || check4);
+            incorrectAnswers[i] = word;
+        }
+        return incorrectAnswers;
     }
 
-    public static void addCorrectAnswer() {
-        correctAnswers++;
+    public void correctAnswer() {
+        correctAnswers.add(currentWord);
     }
 
-    public static void addIncorrectAnswer() {
-        incorrectAnswers++;
+    public void incorrectAnswer() {
+        incorrectAnswers.add(currentWord);
     }
 
-    public static void addCorrectWord(LanguageEntity word) {
-        correctWords.add(word);
-    }
-
-    public static void addIncorrectWord(LanguageEntity word) {
-        incorrectWords.add(word);
-    }
-
-    public static void addChosenWordsToQuizData() {
-        chosenWordsLeft = new ArrayList<>(BaseWordsData.allChosenWords);
-    }
-
-    public static void resetStats() {
-        currentQuestion = 1;
-        questions = 0;
-        correctAnswers = 0;
-        incorrectAnswers = 0;
-        correctWords.clear();
-        incorrectWords.clear();
+    public QuizData resetStats() {
+        return new QuizData(params);
     }
 
 }

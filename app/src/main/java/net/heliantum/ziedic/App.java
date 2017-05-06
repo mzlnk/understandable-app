@@ -1,18 +1,13 @@
 package net.heliantum.ziedic;
 
 import android.app.Application;
-import android.content.Context;
-import android.graphics.Point;
 import android.util.Log;
-import android.view.Display;
-import android.view.WindowManager;
 
-import net.heliantum.ziedic.database.handlers.BaseDBHandler;
-import net.heliantum.ziedic.database.handlers.IrregularVerbEntityDBHandler;
-import net.heliantum.ziedic.database.handlers.LanguageEntityDBHandler;
-import net.heliantum.ziedic.database.repositories.IrregularVerbEntityRepository;
-import net.heliantum.ziedic.database.repositories.LanguageEntityRepository;
-import net.heliantum.ziedic.utils.ScreenUtil;
+import net.heliantum.ziedic.corrupted.BaseDBHandler;
+import net.heliantum.ziedic.database.repository.IrregularVerbEntityRepository;
+import net.heliantum.ziedic.database.repository.LanguageEntityRepository;
+import net.heliantum.ziedic.database.repository.maps.IrregularVerbEntityMap;
+import net.heliantum.ziedic.database.repository.maps.LanguageEntityMap;
 import net.heliantum.ziedic.utils.font.Font;
 import net.heliantum.ziedic.utils.font.FontsOverride;
 
@@ -35,11 +30,9 @@ public class App extends Application {
 
     //todo: fix it
     public static void onStop() {
-
         Log.d(DEBUG_TAG, "Closing database connection");
         dr.close();
         Log.d(DEBUG_TAG, "Database connection closed");
-
     }
 
     private void loadData() {

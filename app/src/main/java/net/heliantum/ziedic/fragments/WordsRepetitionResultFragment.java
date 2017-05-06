@@ -1,7 +1,6 @@
 package net.heliantum.ziedic.fragments;
 
 
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,17 +13,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.data.RepetitionData;
-import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.utils.ToastUtil;
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import net.heliantum.ziedic.corrupted.data.RepetitionData;
 
 public class WordsRepetitionResultFragment extends Fragment {
 

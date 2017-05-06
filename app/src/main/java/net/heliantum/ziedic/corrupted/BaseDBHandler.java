@@ -1,18 +1,4 @@
-package net.heliantum.ziedic.database.handlers;
-
-import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+package net.heliantum.ziedic.corrupted;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.
@@ -20,6 +6,7 @@ import java.util.Scanner;
 
 public class BaseDBHandler {
 
+    /*todo: remove it
     protected static final String DEBUG_TAG = "ZiedicDatabase";
 
     private static final int DATABASE_VERSION = 1;
@@ -29,32 +16,13 @@ public class BaseDBHandler {
     protected static SQLiteDatabase db;
     private static DBHandler dbHandler;
 
-    private static class DBHandler extends SQLiteOpenHelper {
+    private static class DBHandler extends SQLiteAssetHelper {
 
         private Context context;
 
         public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
             super(context, name, factory, version);
             this.context = context;
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-
-            Log.d(DEBUG_TAG, "Creating database");
-
-            try {
-                Log.d(DEBUG_TAG, Arrays.toString(context.getAssets().list(".")));
-            } catch (IOException e) {
-                Log.d(DEBUG_TAG, e.getLocalizedMessage(), e);
-            }
-
-            for (String statement : getStatements()) {
-
-                db.execSQL(statement);
-                Log.d(DEBUG_TAG, "Executing statement: " + statement);
-            }
-
         }
 
         @Override
@@ -140,5 +108,6 @@ public class BaseDBHandler {
     public void close() {
         dbHandler.close();
     }
+    */
 
 }
