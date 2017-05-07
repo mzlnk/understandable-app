@@ -1,7 +1,6 @@
 package net.heliantum.ziedic.fragments;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,7 +22,6 @@ import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
 import net.heliantum.ziedic.fragments.utils.wordschoicecategory.CategoryButton;
 import net.heliantum.ziedic.utils.font.Font;
-import net.heliantum.ziedic.utils.font.FontUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,16 +30,13 @@ public class WordsChoiceCategoryFragment extends Fragment {
 
     private static final String DATA_PARAM = "category.dataParam";
 
-    private DataParams dataParams;
-
-    private View rootView;
     private RelativeLayout mainLayout;
-
     private TableLayout categoriesLayout;
     private TextView title;
     private Button submit;
 
     private List<CategoryButton> categories = new ArrayList<>();
+    private DataParams dataParams;
 
     public WordsChoiceCategoryFragment() {
         // Required empty public constructor
@@ -69,21 +64,25 @@ public class WordsChoiceCategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the categoriesLayout for this fragment
-        rootView = inflater.inflate(R.layout.f_words_choice_category, container, false);
+        View rootView = inflater.inflate(R.layout.f_words_choice_category, container, false);
+        loadViewsFromXml(rootView);
+        prepareLayout();
+        addListeners();
+        return rootView;
+    }
+
+    private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_category_fragment_layout);
         categoriesLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_category_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_words_choice_category_title);
         submit = (Button) rootView.findViewById(R.id.f_words_choice_category_submit);
+    }
 
+    private void prepareLayout() {
         setAnimation();
         setFonts();
-
-        initCategories();
-        addCategoriesToTable();
-
-        addButtonListeners();
-
-        return rootView;
+        initCategoriesButtons();
+        addCategoryButtonsToTable();
     }
 
     public void setAnimation() {
@@ -92,25 +91,22 @@ public class WordsChoiceCategoryFragment extends Fragment {
     }
 
     public void setFonts() {
-        Font titleFont = new Font(Font.TYPEFACE_MONTSERRAT, 26.0F, Color.BLACK);
-        Font submitFont = new Font(Font.TYPEFACE_MONTSERRAT, 18.0F, Color.WHITE);
-        FontUtil.setFont(title, titleFont);
-        FontUtil.setFont(submit, submitFont);
+        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
-    private void initCategories() {
+    private void initCategoriesButtons() {
         for(LanguageCategory category : LanguageCategory.values()) {
             categories.add(new CategoryButton(getContext(), category, dataParams));
         }
     }
 
-    private void addCategoriesToTable() {
+    private void addCategoryButtonsToTable() {
         TableRow currentImageRow = new TableRow(getContext());
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
         for (CategoryButton categoryButton : categories) {
-
             currentImageRow.addView(categoryButton.getImage());
             currentTextRow.addView(categoryButton.getText());
             if (x == 3) {
@@ -129,7 +125,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
         }
     }
 
-    private void addButtonListeners() {
+    private void addListeners() {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,7 +16,7 @@
             <intent-filter>
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <type android:name="android.intent.type.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -26,7 +26,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <type android:name="android.intent.type.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

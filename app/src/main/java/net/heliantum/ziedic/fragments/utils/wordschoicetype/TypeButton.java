@@ -1,34 +1,30 @@
-package net.heliantum.ziedic.fragments.utils.wordschoicecategory;
+package net.heliantum.ziedic.fragments.utils.wordschoicetype;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Point;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.DataParams;
-import net.heliantum.ziedic.data.enums.LanguageCategory;
-import net.heliantum.ziedic.utils.SizeUtil;
+import net.heliantum.ziedic.data.enums.LanguageType;
 import net.heliantum.ziedic.utils.font.Font;
 
 /**
- * Created by Marcin on 2017-04-08.
+ * Created by Marcin on 2017-05-07.
  */
 
-public class CategoryButton {
+public class TypeButton {
 
     private ImageView image;
     private TextView text;
 
-    private LanguageCategory category;
+    private LanguageType type;
     private DataParams params;
 
-    public CategoryButton(Context context, LanguageCategory category, DataParams params) {
-        this.category = category;
+    public TypeButton(Context context, LanguageType type, DataParams params) {
+        this.type = type;
         this.params = params;
         this.image = new ImageView(context);
         this.text = new TextView(context);
@@ -56,13 +52,13 @@ public class CategoryButton {
     }
 
     private void prepareText() {
-        text.setText(category.getName());
+        text.setText(type.getName());
         text.setGravity(Gravity.CENTER);
         text.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void setChoiceState() {
-        if(params.isChosen(category)) {
+        if(params.isChosen(type)) {
             image.setImageAlpha(255);
         } else {
             image.setImageAlpha(150);
@@ -75,10 +71,10 @@ public class CategoryButton {
             public void onClick(View view) {
                 if(image.getImageAlpha() == 150) {
                     image.setImageAlpha(255);
-                    params.addCategory(category);
+                    params.addType(type);
                 } else {
                     image.setImageAlpha(150);
-                    params.removeCategory(category);
+                    params.removeType(type);
                 }
             }
         });

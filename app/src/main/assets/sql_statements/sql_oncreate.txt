@@ -1,1 +1,1 @@
-CREATE TABLE 'words' ('id' INTEGER PRIMARY KEY,'polish' TEXT,'english' TEXT,'category' TEXT,'type' TEXT);
+CREATE TABLE 'words' ('id' INTEGER PRIMARY KEY,'polish' TEXT,'english' TEXT,'type' TEXT,'type' TEXT);
