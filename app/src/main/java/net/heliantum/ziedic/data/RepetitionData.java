@@ -27,6 +27,8 @@ public class RepetitionData extends BaseData {
 
     public RepetitionData(DataParams params) {
         super(params);
+        setCurrentWord(words.get(0));
+        addCurrentWordToSeen();
     }
 
     public boolean existsInToRepeatWords(LanguageEntity word) {

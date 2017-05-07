@@ -20,7 +20,7 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
-import net.heliantum.ziedic.fragments.utils.wordschoicecategory.CategoryButton;
+import net.heliantum.ziedic.fragments.utils.wordschoice.CategoryButton;
 import net.heliantum.ziedic.utils.font.Font;
 
 import java.util.ArrayList;
@@ -97,7 +97,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
 
     private void initCategoriesButtons() {
         for(LanguageCategory category : LanguageCategory.values()) {
-            categories.add(new CategoryButton(getContext(), category, dataParams));
+            categories.add(new CategoryButton(getContext(), dataParams, category));
         }
     }
 

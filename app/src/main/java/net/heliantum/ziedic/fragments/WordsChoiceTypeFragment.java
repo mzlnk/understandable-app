@@ -18,7 +18,7 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LanguageType;
-import net.heliantum.ziedic.fragments.utils.wordschoicetype.TypeButton;
+import net.heliantum.ziedic.fragments.utils.wordschoice.TypeButton;
 import net.heliantum.ziedic.utils.font.Font;
 
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class WordsChoiceTypeFragment extends Fragment {
 
     private void initTypeButtons() {
         for(LanguageType type : LanguageType.values()) {
-            types.add(new TypeButton(getContext(), type, dataParams));
+            types.add(new TypeButton(getContext(), dataParams, type));
         }
     }
 

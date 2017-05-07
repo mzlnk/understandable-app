@@ -1,30 +1,24 @@
 package net.heliantum.ziedic.fragments;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.corrupted.data.BaseWordsData;
 import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LearningMode;
-import net.heliantum.ziedic.fragments.utils.wordschoicemode.ModeButton;
+import net.heliantum.ziedic.fragments.utils.wordschoice.ModeButton;
 import net.heliantum.ziedic.utils.font.Font;
 
 import java.util.ArrayList;
@@ -108,7 +102,7 @@ public class WordsChoiceModeFragment extends Fragment {
 
     private void initModeButtons() {
         for(LearningMode mode : LearningMode.values()) {
-            modes.add(new ModeButton(getContext(), mode, modes, dataParams));
+            modes.add(new ModeButton(getContext(), dataParams, mode, modes));
         }
     }
 

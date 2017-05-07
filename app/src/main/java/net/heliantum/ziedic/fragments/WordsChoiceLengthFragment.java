@@ -17,52 +17,120 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.corrupted.data.BaseWordsData;
-import net.heliantum.ziedic.corrupted.data.QuizData;
-import net.heliantum.ziedic.corrupted.data.RepetitionData;
+import net.heliantum.ziedic.data.DataParams;
+import net.heliantum.ziedic.data.ListData;
+import net.heliantum.ziedic.data.QuizData;
+import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.utils.font.Font;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class WordsChoiceLengthFragment extends Fragment {
 
-    private Typeface typeface;
+    private static final String DATA_PARAM = "category.dataParam";
 
-    private View rootView;
     private RelativeLayout mainLayout;
-
-    private TextView amountInfo;
+    private TextView title, amountInfo;
+    private Button submit, back;
     private SeekBar amountAdjust;
+
+    private DataParams dataParams;
 
     public WordsChoiceLengthFragment() {
         // Required empty public constructor
     }
 
+    public static WordsChoiceLengthFragment newInstance(String param) {
+        WordsChoiceLengthFragment fragment = new WordsChoiceLengthFragment();
+        Bundle args = new Bundle();
+        args.putString(DATA_PARAM, param);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null) {
+            dataParams = DataParams.fromString(DATA_PARAM);
+        }
+        if(dataParams == null) {
+            dataParams = new DataParams();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.f_word_choice_length, container, false);
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_length_fragment_layout);
-        typeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        View rootView = inflater.inflate(R.layout.f_word_choice_length, container, false);
+        loadViewsFromXml(rootView);
+        prepareLayout();
+        addListeners();
 
+        return rootView;
+    }
+
+    private void loadViewsFromXml(View rootView) {
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_length_fragment_layout);
         amountInfo = (TextView) rootView.findViewById(R.id.f_words_choice_length_size_info);
         amountAdjust = (SeekBar) rootView.findViewById(R.id.f_words_choice_length_size_adjust);
+        title = (TextView) rootView.findViewById(R.id.f_words_choice_length_title);
+        back = (Button) rootView.findViewById(R.id.f_words_choice_length_back);
+        submit = (Button) rootView.findViewById(R.id.f_words_choice_length_submit);
+    }
 
-        BaseWordsData.generateWordsList();
-
+    private void prepareLayout() {
         setAnimation();
-        adjustSeekBar();
+        setFonts();
+        prepareSeekBar();
+    }
 
-        TextView title = (TextView) rootView.findViewById(R.id.f_words_choice_length_title);
-        Button back = (Button) rootView.findViewById(R.id.f_words_choice_length_back);
-        Button submit = (Button) rootView.findViewById(R.id.f_words_choice_length_submit);
+    private void setAnimation() {
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
+        mainLayout.setAnimation(anim);
+    }
 
-        title.setTypeface(typeface);
-        back.setTypeface(typeface);
-        submit.setTypeface(typeface);
+    private void setFonts() {
+        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
 
+    private void prepareSeekBar() {
+        final StartPosition startPos = new StartPosition();
+        switch (dataParams.mode) {
+            case QUIZ:
+                startPos.setPos(4);
+                break;
+            default:
+                startPos.setPos(1);
+        }
+
+        amountAdjust.setMax(dataParams.getMaximumAvailableWordsAmount() - startPos.getPos());
+        dataParams.setSize(startPos.getPos());
+        amountAdjust.setProgress(dataParams.size - startPos.getPos());
+        amountInfo.setText(String.valueOf(dataParams.size));
+
+        amountAdjust.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                amountInfo.setText(String.valueOf(i + startPos.getPos()));
+                dataParams.setSize(i + startPos.getPos());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+    }
+
+    private void addListeners() {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,23 +144,19 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                BaseWordsData.resizeWordsList();
-                QuizData.addChosenWordsToQuizData();
-                QuizData.resetStats();
-                RepetitionData.resetStats();
-                RepetitionData.setCurrentWord(RepetitionData.allChosenWords.get(0));
-                RepetitionData.addCurrentWordToSeen();
-
-                if(BaseWordsData.allChosenWords.size() > 0) {
-                    switch (BaseWordsData.mode) {
+                if(dataParams.getMaximumAvailableWordsAmount() > 0) {
+                    switch (dataParams.mode) {
                         case REPETITION:
+                            RepetitionData.createRepetitionDataFromParams(dataParams);
                             transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
                             break;
                         case LIST:
+                            ListData.createListDataFromParams(dataParams);
                             transaction.replace(R.id.layout_for_fragments, new WordsListFragment());
                             break;
                         case QUIZ:
-                            if(BaseWordsData.allChosenWords.size() >= 4) {
+                            if(dataParams.getMaximumAvailableWordsAmount() >= 4) {
+                                QuizData.createQuizDataFromParams(dataParams);
                                 transaction.replace(R.id.layout_for_fragments, new QuizFragment());
                             } else {
                                 transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
@@ -104,49 +168,9 @@ public class WordsChoiceLengthFragment extends Fragment {
                     transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
                     transaction.addToBackStack(null);
                 }
-
                 transaction.commit();
             }
         });
-
-        return rootView;
-    }
-
-    private void adjustSeekBar() {
-        final StartPosition startPos = new StartPosition();
-        switch (BaseWordsData.mode) {
-            case QUIZ:
-                startPos.setPos(4);
-                break;
-            default:
-                startPos.setPos(1);
-        }
-
-        amountAdjust.setMax(BaseWordsData.allChosenWords.size() - startPos.getPos());
-        BaseWordsData.setSize(startPos.getPos());
-        amountAdjust.setProgress(BaseWordsData.size - startPos.getPos());
-        amountInfo.setText(String.valueOf(BaseWordsData.size));
-
-        amountAdjust.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                amountInfo.setText(String.valueOf(i + startPos.getPos()));
-                BaseWordsData.setSize(i + startPos.getPos());
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-    }
-
-    private void setAnimation() {
-        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
-        mainLayout.setAnimation(anim);
     }
 
     private class StartPosition {

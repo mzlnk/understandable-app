@@ -6,7 +6,7 @@ package net.heliantum.ziedic.data.enums;
  */
 
 
-public enum LearningMode {
+public enum LearningMode implements Nameable {
 
     REPETITION("powtarzanie"),
     QUIZ("quiz"),
@@ -18,6 +18,7 @@ public enum LearningMode {
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return name;
     }

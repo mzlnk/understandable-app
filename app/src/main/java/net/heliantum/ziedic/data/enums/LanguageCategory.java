@@ -5,7 +5,7 @@ package net.heliantum.ziedic.data.enums;
  */
 
 
-public enum LanguageCategory {
+public enum LanguageCategory implements Nameable{
 
     HUMAN("człowiek"),
     HOUSE("dom"),
@@ -31,6 +31,7 @@ public enum LanguageCategory {
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return name;
     }

@@ -5,7 +5,7 @@ package net.heliantum.ziedic.data.enums;
  */
 
 
-public enum LanguageType {
+public enum LanguageType implements Nameable {
 
     VERB("czasownik"),
     NOUN("rzeczownik"),
@@ -21,6 +21,7 @@ public enum LanguageType {
         this.name = name;
     }
 
+    @Override
     public String getName() {
         return name;
     }

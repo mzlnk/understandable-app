@@ -5,7 +5,7 @@ package net.heliantum.ziedic.data.enums;
  */
 
 
-public enum LearningWay {
+public enum LearningWay implements Nameable {
 
     POLISH_TO_ENGLISH(0, "z poskiego na angielski"),
     ENGLISH_TO_POLISH(1, "z angielskiego na polski"),
@@ -23,6 +23,7 @@ public enum LearningWay {
         return id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
