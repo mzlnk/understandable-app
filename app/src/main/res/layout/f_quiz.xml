@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="*"
-    tools:context="net.heliantum.ziedic.fragments.QuizFragment"
+    tools:context="net.heliantum.ziedic.fragments.quiz.QuizFragment"
     android:id="@+id/fragment_quiz_layout">
 
     <!-- TODO: Update blank fragment layout -->

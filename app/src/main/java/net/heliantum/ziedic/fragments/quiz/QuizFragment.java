@@ -1,9 +1,9 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.quiz;
 
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,34 +19,33 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.corrupted.data.QuizData;
+import net.heliantum.ziedic.data.QuizData;
 import net.heliantum.ziedic.database.entity.LanguageEntity;
+import net.heliantum.ziedic.utils.font.Font;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class QuizFragment extends Fragment {
 
-    private View rootView;
-    private TableLayout layout;
+    private static final int QUESTION_ANSWER_TIME_IN_MILLIS = 5000;
+    private static final Random r = new Random();
 
+    private QuizData quizData;
+
+    private TableLayout questionLayout;
     private TextView question, questionNumber;
     private Button[] answers = new Button[4];
     private ProgressBar time;
 
-    private int timeLeft = 5000;
+    private int timeLeft = QUESTION_ANSWER_TIME_IN_MILLIS;
     private int correctOption;
     private int chosenOption = -1;
     private boolean isAnswered = false, timesUp = false;
 
-    private List<LanguageEntity> wordsWithoutCorrectOne;
     private LanguageEntity correctWord;
     private LanguageEntity[] incorrectWords = new LanguageEntity[3];
-
-    private static Random r = new Random();
 
     public QuizFragment() {
         // Required empty public constructor
@@ -55,16 +54,22 @@ public class QuizFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        wordsWithoutCorrectOne = new ArrayList<>(QuizData.allChosenWords);
+        quizData = QuizData.getQuizData();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.f_quiz, container, false);
+        loadViewsFromXml(rootView);
+        prepareLayout();
+        addListeners();
+        initTimer();
 
-        rootView = inflater.inflate(R.layout.f_quiz, container, false);
-        layout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
+        return rootView;
+    }
 
+    private void loadViewsFromXml(View rootView) {
+        questionLayout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
         question = (TextView) rootView.findViewById(R.id.fragment_quiz_question);
         questionNumber = (TextView) rootView.findViewById(R.id.fragment_quiz_questionnumber);
         answers[0] = (Button) rootView.findViewById(R.id.fragment_quiz_option0);
@@ -72,20 +77,26 @@ public class QuizFragment extends Fragment {
         answers[2] = (Button) rootView.findViewById(R.id.fragment_quiz_option2);
         answers[3] = (Button) rootView.findViewById(R.id.fragment_quiz_option3);
         time = (ProgressBar) rootView.findViewById(R.id.fragment_quiz_time);
+    }
 
-        time.setMax(5000);
-        time.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 153, 255)));
-        questionNumber.setText(new String("Pytanie " + QuizData.currentQuestion));
-
-        setAnimation();
-        setTypeface();
-        setAnswers();
-        addListeners();
-
+    private void initTimer() {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new QuizTask(getActivity()), 0, 1);
+    }
 
-        return rootView;
+    private void prepareLayout() {
+        setAnimation();
+        setFonts();
+        prepareViews();
+        setAnswers();
+    }
+
+    private void prepareViews() {
+        questionNumber.setText(new String("Pytanie " + QuizData.getQuizData().currentQuestion));
+        time.setMax(QUESTION_ANSWER_TIME_IN_MILLIS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            time.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 153, 255)));
+        }
     }
 
     private void addListeners() {
@@ -99,13 +110,10 @@ public class QuizFragment extends Fragment {
                         isAnswered = true;
 
                         if(chosenOption == correctOption) {
-                            QuizData.addCorrectAnswer();
-                            QuizData.addCorrectWord(correctWord);
+                            quizData.correctAnswer();
                         } else {
-                            QuizData.addIncorrectAnswer();
-                            QuizData.addIncorrectWord(correctWord);
+                            quizData.incorrectAnswer();
                         }
-
                         getActivity().runOnUiThread(new ShowAnswerTask());
                     }
                 }
@@ -114,18 +122,11 @@ public class QuizFragment extends Fragment {
     }
 
     private void setAnswers() {
-        correctOption = r.nextInt(4);
-        correctWord = QuizData.chosenWordsLeft.get(r.nextInt(QuizData.chosenWordsLeft.size()));
-        QuizData.removeWord(correctWord);
-        wordsWithoutCorrectOne.remove(correctWord);
-        for(int i = 0; i < 3; i++) {
-            int pos = r.nextInt(wordsWithoutCorrectOne.size());
-            incorrectWords[i] = wordsWithoutCorrectOne.get(pos);
-            wordsWithoutCorrectOne.remove(pos);
-        }
-        wordsWithoutCorrectOne.clear();
+        correctOption = QuizData.Util.getRandomCorrectOption();
+        correctWord = quizData.currentWord;
+        incorrectWords = quizData.getRandomIncorrectAnswers();
 
-        switch(QuizData.way) {
+        switch(quizData.getParams().way) {
             case POLISH_TO_ENGLISH:
                 setQuestionsPolishToEnglish();
                 break;
@@ -166,17 +167,16 @@ public class QuizFragment extends Fragment {
 
     private void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
-        layout.setAnimation(anim);
+        questionLayout.setAnimation(anim);
     }
 
-    private void setTypeface() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
-        question.setTypeface(typeFace);
-        questionNumber.setTypeface(typeFace);
-        answers[0].setTypeface(typeFace);
-        answers[1].setTypeface(typeFace);
-        answers[2].setTypeface(typeFace);
-        answers[3].setTypeface(typeFace);
+    private void setFonts() {
+        question.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        questionNumber.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        answers[0].setTypeface(Font.TYPEFACE_MONTSERRAT);
+        answers[1].setTypeface(Font.TYPEFACE_MONTSERRAT);
+        answers[2].setTypeface(Font.TYPEFACE_MONTSERRAT);
+        answers[3].setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private class QuizTask extends TimerTask {
@@ -189,16 +189,14 @@ public class QuizFragment extends Fragment {
 
         @Override
         public void run() {
-
             if(timeLeft > 0) {
                 timeLeft--;
                 time.setProgress(timeLeft);
             }
             if(timeLeft <= 0 || isAnswered) {
                 timesUp = true;
-
                 if(!isAnswered) {
-                    QuizData.addIncorrectAnswer();
+                    quizData.incorrectAnswer();
                     activity.runOnUiThread(new ShowAnswerTask());
                 }
                 this.cancel();
@@ -212,7 +210,6 @@ public class QuizFragment extends Fragment {
         public void run() {
 
             if(getActivity() != null) {
-
                 int showCorrectOptionDelay = 1000;
                 int hideIncorrectOptionsDelay = 1500;
 
@@ -238,8 +235,9 @@ public class QuizFragment extends Fragment {
                     @Override
                     public void run() {
                         for (int i = 0; i < 4; i++) {
-                            if (i == correctOption) continue;
-
+                            if (i == correctOption) {
+                                continue;
+                            }
                             Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
                             answers[i].startAnimation(anim);
                         }
@@ -252,11 +250,9 @@ public class QuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
-                        QuizData.nextQuestion();
-
+                        QuizData.getQuizData().nextQuestion();
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        if (QuizData.chosenWordsLeft.size() > 0 && getActivity() != null) {
+                        if (quizData.wordsLeft.size() > 0 && getActivity() != null) {
                             transaction.replace(R.id.layout_for_fragments, new QuizFragment()).commit();
                         } else if (getActivity() != null) {
                             transaction.replace(R.id.layout_for_fragments, new QuizResultFragment()).commit();

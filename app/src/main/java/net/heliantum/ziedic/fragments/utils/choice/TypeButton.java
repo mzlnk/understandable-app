@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments.utils.wordschoice;
+package net.heliantum.ziedic.fragments.utils.choice;
 
 import android.content.Context;
 import android.view.View;

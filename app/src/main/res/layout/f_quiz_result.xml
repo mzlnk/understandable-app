@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_quiz_result_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.QuizResultFragment">
+    tools:context="net.heliantum.ziedic.fragments.quiz.QuizResultFragment">
 
     <LinearLayout
         android:orientation="vertical"

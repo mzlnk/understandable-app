@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.choice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LearningWay;
-import net.heliantum.ziedic.fragments.utils.wordschoice.WayButton;
+import net.heliantum.ziedic.fragments.utils.choice.WayButton;
 import net.heliantum.ziedic.utils.font.Font;
 
 import java.util.ArrayList;

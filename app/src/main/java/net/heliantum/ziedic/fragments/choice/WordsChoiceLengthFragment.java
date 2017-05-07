@@ -1,7 +1,6 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.choice;
 
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,11 +20,16 @@ import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.ListData;
 import net.heliantum.ziedic.data.QuizData;
 import net.heliantum.ziedic.data.RepetitionData;
+import net.heliantum.ziedic.fragments.error.NoWordsErrorFragment;
+import net.heliantum.ziedic.fragments.quiz.QuizFragment;
+import net.heliantum.ziedic.fragments.list.WordsListFragment;
+import net.heliantum.ziedic.fragments.repetition.WordsRepetitionFragment;
 import net.heliantum.ziedic.utils.font.Font;
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class WordsChoiceLengthFragment extends Fragment {
 
     private static final String DATA_PARAM = "category.dataParam";

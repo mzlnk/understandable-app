@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.repetition;
 
 
 import android.graphics.Typeface;
@@ -16,29 +16,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.corrupted.data.RepetitionData;
-import net.heliantum.ziedic.database.entity.LanguageEntity;
-import net.heliantum.ziedic.corrupted.data.BaseWordsData;
+import net.heliantum.ziedic.R;;
+import net.heliantum.ziedic.data.RepetitionData;
 import net.heliantum.ziedic.utils.ToastUtil;
-
-import java.util.List;
 
 public class WordsRepetitionFragment extends Fragment {
 
-    private View rootView;
+    private final int NUMB_WORDS = RepetitionData.getRepetitionData().getWords().size();
+
+    private RepetitionData repetitionData;
+
     private RelativeLayout mainLayout;
-
-    private List<LanguageEntity> words;
-    private LanguageEntity currentWord;
-
-    private Button repeat;
-    private Button finish;
-
+    private Button repeat, finish;
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
-
-    private final int NUMB_WORDS = BaseWordsData.allChosenWords.size();
 
     public WordsRepetitionFragment() {
         // Required empty public constructor
@@ -47,22 +38,50 @@ public class WordsRepetitionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        words = BaseWordsData.allChosenWords;
+        repetitionData = RepetitionData.getRepetitionData();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.f_words_repetition, container, false);
+        View rootView = inflater.inflate(R.layout.f_words_repetition, container, false);
+        loadViewFromXml(rootView);
+        prepareLayout();
+        addListeners();
+
+        return rootView;
+    }
+
+    private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_fragment_layout);
-
-        setAnimation();
-
         pager = (ViewPager) rootView.findViewById(R.id.pager);
+        repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
+        finish = (Button) rootView.findViewById(R.id.f_words_repetition_finish);
+    }
+
+    private void prepareLayout() {
+        setAnimation();
+        setFonts();
+        prepareAdapter();
+    }
+
+    private void prepareAdapter() {
         pagerAdapter = new ScreenSlidePagerAdapter(this.getFragmentManager());
         pager.setAdapter(pagerAdapter);
+    }
 
+    private void setAnimation() {
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
+        mainLayout.setAnimation(anim);
+    }
+
+    private void setFonts() {
+        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        repeat.setTypeface(typeFace);
+        finish.setTypeface(typeFace);
+    }
+
+    private void addListeners() {
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -71,9 +90,8 @@ public class WordsRepetitionFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                currentWord = words.get(position);
-                RepetitionData.setCurrentWord(currentWord);
-                RepetitionData.addCurrentWordToSeen();
+                repetitionData.setCurrentWord(repetitionData.getWords().get(position));
+                repetitionData.addCurrentWordToSeen();
                 ToastUtil.showToastMessage(getContext(), "pos:" + position, 500);
             }
 
@@ -83,17 +101,14 @@ public class WordsRepetitionFragment extends Fragment {
             }
         });
 
-        repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
-        finish = (Button) rootView.findViewById(R.id.f_words_repetition_finish);
-
         repeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(RepetitionData.existsInToRepeatWords(RepetitionData.currentWord)) {
-                    RepetitionData.removeCurrentWordFromRepeat();
+                if(repetitionData.existsInToRepeatWords(repetitionData.currentWord)) {
+                    repetitionData.removeCurrentWordFromRepeat();
                     ToastUtil.showToastMessage(getContext(), "Usunieto z powtórzenia", 800);
                 } else {
-                    RepetitionData.addCurrentWordToRepeat();
+                    repetitionData.addCurrentWordToRepeat();
                     ToastUtil.showToastMessage(getContext(), "Dodano do powtórzenia", 800);
                 }
             }
@@ -107,23 +122,7 @@ public class WordsRepetitionFragment extends Fragment {
                 manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionResultFragment).commit();
             }
         });
-
-        setTypeface();
-
-        return rootView;
     }
-
-    private void setAnimation() {
-        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
-        mainLayout.setAnimation(anim);
-    }
-
-    private void setTypeface() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
-        repeat.setTypeface(typeFace);
-        finish.setTypeface(typeFace);
-    }
-
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 

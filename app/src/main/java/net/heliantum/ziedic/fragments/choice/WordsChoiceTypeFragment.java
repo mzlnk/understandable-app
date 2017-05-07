@@ -1,5 +1,4 @@
-package net.heliantum.ziedic.fragments;
-
+package net.heliantum.ziedic.fragments.choice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,11 +13,12 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.DataParams;
-import net.heliantum.ziedic.data.enums.LearningMode;
-import net.heliantum.ziedic.fragments.utils.wordschoice.ModeButton;
+import net.heliantum.ziedic.data.enums.LanguageType;
+import net.heliantum.ziedic.fragments.utils.choice.TypeButton;
 import net.heliantum.ziedic.utils.font.Font;
 
 import java.util.ArrayList;
@@ -27,24 +27,24 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WordsChoiceModeFragment extends Fragment {
+public class WordsChoiceTypeFragment extends Fragment {
 
-    private static final String DATA_PARAM = "mode.dataParam";
+    private static final String DATA_PARAM = "type.dataParam";
 
     private RelativeLayout mainLayout;
-    private TableLayout modesLayout;
+    private TableLayout typesLayout;
     private TextView title;
     private Button submit, back;
 
-    private List<ModeButton> modes = new ArrayList<>();
+    private List<TypeButton> types = new ArrayList<>();
     private DataParams dataParams;
 
-    public WordsChoiceModeFragment() {
+    public WordsChoiceTypeFragment() {
         // Required empty public constructor
     }
 
-    public static WordsChoiceModeFragment newInstance(String param) {
-        WordsChoiceModeFragment fragment = new WordsChoiceModeFragment();
+    public static WordsChoiceTypeFragment newInstance(String param) {
+        WordsChoiceTypeFragment fragment = new WordsChoiceTypeFragment();
         Bundle args = new Bundle();
         args.putString(DATA_PARAM, param);
         fragment.setArguments(args);
@@ -65,8 +65,8 @@ public class WordsChoiceModeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the modesLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_words_choice_mode, container, false);
+        // Inflate the typesLayout for this fragment
+        View rootView =  inflater.inflate(R.layout.f_words_choice_type, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -75,18 +75,18 @@ public class WordsChoiceModeFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_mode_fragment_layout);
-        modesLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_mode_names_layout);
-        title = (TextView) rootView.findViewById(R.id.f_words_choice_mode_title);
-        submit = (Button) rootView.findViewById(R.id.f_words_choice_mode_submit);
-        back = (Button) rootView.findViewById(R.id.f_words_choice_mode_back);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_type_fragment_layout);
+        typesLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_type_names_layout);
+        title = (TextView) rootView.findViewById(R.id.f_words_choice_type_title);
+        submit = (Button) rootView.findViewById(R.id.f_words_choice_type_submit);
+        back = (Button) rootView.findViewById(R.id.f_words_choice_type_back);
     }
 
     private void prepareLayout() {
         setAnimation();
         setFonts();
-        initModeButtons();
-        addModeButtonsToTable();
+        initTypeButtons();
+        addTypeButtonsToTable();
     }
 
     private void setAnimation() {
@@ -100,23 +100,23 @@ public class WordsChoiceModeFragment extends Fragment {
         back.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
-    private void initModeButtons() {
-        for(LearningMode mode : LearningMode.values()) {
-            modes.add(new ModeButton(getContext(), dataParams, mode, modes));
+    private void initTypeButtons() {
+        for(LanguageType type : LanguageType.values()) {
+            types.add(new TypeButton(getContext(), dataParams, type));
         }
     }
 
-    private void addModeButtonsToTable() {
+    private void addTypeButtonsToTable() {
         TableRow currentImageRow = new TableRow(getContext());
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (ModeButton modeButton : modes) {
-            currentImageRow.addView(modeButton.getImage());
-            currentTextRow.addView(modeButton.getText());
+        for (TypeButton typeButton : types) {
+            currentImageRow.addView(typeButton.getImage());
+            currentTextRow.addView(typeButton.getText());
             if (x == 3) {
-                modesLayout.addView(currentImageRow);
-                modesLayout.addView(currentTextRow);
+                typesLayout.addView(currentImageRow);
+                typesLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
                 currentTextRow = new TableRow(getContext());
                 x = 0;
@@ -125,8 +125,8 @@ public class WordsChoiceModeFragment extends Fragment {
             }
         }
         if (x != 0) {
-            modesLayout.addView(currentImageRow);
-            modesLayout.addView(currentTextRow);
+            typesLayout.addView(currentImageRow);
+            typesLayout.addView(currentTextRow);
         }
     }
 
@@ -134,17 +134,22 @@ public class WordsChoiceModeFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.popBackStack();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment).commit();
             }
         });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WordsChoiceLengthFragment typeFragment = new WordsChoiceLengthFragment();
-                FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
+                if(dataParams.types.size() > 0) {
+                    WordsChoiceWayFragment modeFragment = new WordsChoiceWayFragment();
+                    FragmentManager manager = getFragmentManager();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
+                } else {
+                    Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

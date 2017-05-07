@@ -67,4 +67,12 @@ public class QuizData extends BaseData {
         return new QuizData(params);
     }
 
+    public static class Util {
+
+        public static int getRandomCorrectOption() {
+            return r.nextInt(4);
+        }
+
+    }
+
 }

@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments.utils.wordschoice;
+package net.heliantum.ziedic.fragments.utils.choice;
 
 import android.content.Context;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.heliantum.ziedic.data.DataParams;
-import net.heliantum.ziedic.data.enums.LearningWay;
+import net.heliantum.ziedic.data.enums.LearningMode;
 
 import java.util.List;
 
@@ -14,15 +14,15 @@ import java.util.List;
  * Created by Marcin on 2017-05-07.
  */
 
-public class WayButton extends BaseButton {
+public class ModeButton extends BaseButton {
 
-    private List<WayButton> allWays;
-    private LearningWay way;
+    private List<ModeButton> allModes;
+    private LearningMode mode;
 
-    public WayButton(Context context, DataParams dataParams, LearningWay way, List<WayButton> allWays) {
-        super(context, dataParams, way);
-        this.way = way;
-        this.allWays = allWays;
+    public ModeButton(Context context, DataParams dataParams, LearningMode mode, List<ModeButton> allModes) {
+        super(context, dataParams, mode);
+        this.mode = mode;
+        this.allModes = allModes;
         prepare();
     }
 
@@ -34,13 +34,13 @@ public class WayButton extends BaseButton {
         return text;
     }
 
-    private LearningWay getWay() {
-        return way;
+    private LearningMode getMode() {
+        return mode;
     }
 
     @Override
     protected void setChoiceState() {
-        if(dataParams.isChosen(way)) {
+        if(dataParams.isChosen(mode)) {
             image.setImageAlpha(ITEM_CHOSEN);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
@@ -54,12 +54,12 @@ public class WayButton extends BaseButton {
             public void onClick(View view) {
                 if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
                     image.setImageAlpha(ITEM_CHOSEN);
-                    dataParams.setWay(way);
-                    for(WayButton w : allWays) {
-                        if(w.getWay().equals(way)) {
+                    dataParams.setMode(mode);
+                    for(ModeButton m : allModes) {
+                        if(m.getMode().equals(mode)) {
                             continue;
                         }
-                        w.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        m.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
                     }
                 }
             }

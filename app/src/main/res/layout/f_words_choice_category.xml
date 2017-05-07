@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/f_words_choice_category_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.WordsChoiceCategoryFragment">
+    tools:context="net.heliantum.ziedic.fragments.choice.WordsChoiceCategoryFragment">
 
     <LinearLayout
         android:orientation="vertical"

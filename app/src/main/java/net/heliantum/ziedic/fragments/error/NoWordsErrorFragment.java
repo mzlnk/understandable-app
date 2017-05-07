@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.error;
 
 
 import android.os.Bundle;

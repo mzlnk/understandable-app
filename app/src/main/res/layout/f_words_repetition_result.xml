@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_words_repetition_result_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.WordsRepetitionResultFragment">
+    tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionResultFragment">
 
     <LinearLayout
         android:orientation="vertical"

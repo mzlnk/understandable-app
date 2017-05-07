@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.other;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

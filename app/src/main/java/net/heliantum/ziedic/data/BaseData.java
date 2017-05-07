@@ -27,6 +27,10 @@ public abstract class BaseData {
         return words;
     }
 
+    public DataParams getParams() {
+        return params;
+    }
+
     public void generateWords() {
         words = LanguageEntityRepository.getSpecifiedEntities(params.categories, params.types);
         resize();

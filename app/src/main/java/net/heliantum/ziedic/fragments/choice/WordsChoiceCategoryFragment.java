@@ -1,4 +1,4 @@
-package net.heliantum.ziedic.fragments;
+package net.heliantum.ziedic.fragments.choice;
 
 
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import android.widget.Toast;
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.DataParams;
 import net.heliantum.ziedic.data.enums.LanguageCategory;
-import net.heliantum.ziedic.fragments.utils.wordschoice.CategoryButton;
+import net.heliantum.ziedic.fragments.utils.choice.CategoryButton;
 import net.heliantum.ziedic.utils.font.Font;
 
 import java.util.ArrayList;

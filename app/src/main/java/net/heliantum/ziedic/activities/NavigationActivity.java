@@ -13,9 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import net.heliantum.ziedic.fragments.AboutAuthorFragment;
+import net.heliantum.ziedic.fragments.other.AboutAuthorFragment;
 import net.heliantum.ziedic.R;
-import net.heliantum.ziedic.fragments.WordsChoiceCategoryFragment;
+import net.heliantum.ziedic.fragments.choice.WordsChoiceCategoryFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
