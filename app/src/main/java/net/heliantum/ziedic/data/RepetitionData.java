@@ -11,6 +11,16 @@ import java.util.List;
 
 public class RepetitionData extends BaseData {
 
+    private static RepetitionData repetitionData;
+
+    public static RepetitionData getRepetitionData() {
+        return repetitionData;
+    }
+
+    public static void createRepetitionDataFromParams(DataParams params) {
+        repetitionData = new RepetitionData(params);
+    }
+
     public List<LanguageEntity> wordsToRepeat = new ArrayList<>();
     public List<LanguageEntity> wordsSeen = new ArrayList<>();
     public LanguageEntity currentWord;

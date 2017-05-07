@@ -11,6 +11,16 @@ import java.util.List;
 
 public class QuizData extends BaseData {
 
+    private static QuizData quizData;
+
+    public static QuizData getQuizData() {
+        return quizData;
+    }
+
+    public static void createQuizDataFromParams(DataParams params) {
+        quizData = new QuizData(params);
+    }
+
     public List<LanguageEntity> wordsLeft = new ArrayList<>();
     public List<LanguageEntity> correctAnswers = new ArrayList<>();
     public List<LanguageEntity> incorrectAnswers = new ArrayList<>();
