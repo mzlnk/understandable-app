@@ -16,8 +16,6 @@ import android.widget.TextView;
 
 import net.heliantum.ziedic.R;
 import net.heliantum.ziedic.data.QuizData;
-import net.heliantum.ziedic.fragments.quiz.QuizFragment;
-import net.heliantum.ziedic.fragments.quiz.QuizResultCorrectWordsSummaryFragment;
 import net.heliantum.ziedic.utils.font.Font;
 
 /**
@@ -57,7 +55,7 @@ public class QuizResultFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_result_fragment_layout);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_quiz_result);
         title = (TextView) rootView.findViewById(R.id.f_quiz_result_title);
         questionAmount = (TextView) rootView.findViewById(R.id.f_quiz_result_questions_amount);
         questionAmountInfo = (TextView) rootView.findViewById(R.id.f_quiz_result_questions_amount_info);

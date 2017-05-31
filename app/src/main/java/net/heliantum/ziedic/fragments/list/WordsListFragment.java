@@ -40,7 +40,7 @@ public class WordsListFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_list_fragment_layout);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_list);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_list_words_table);
     }
 

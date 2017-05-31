@@ -69,14 +69,14 @@ public class QuizFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        questionLayout = (TableLayout) rootView.findViewById(R.id.fragment_quiz_table_layout_2);
+        questionLayout = (TableLayout) rootView.findViewById(R.id.f_quiz_question_table);
         question = (TextView) rootView.findViewById(R.id.fragment_quiz_question);
-        questionNumber = (TextView) rootView.findViewById(R.id.fragment_quiz_questionnumber);
-        answers[0] = (Button) rootView.findViewById(R.id.fragment_quiz_option0);
-        answers[1] = (Button) rootView.findViewById(R.id.fragment_quiz_option1);
-        answers[2] = (Button) rootView.findViewById(R.id.fragment_quiz_option2);
-        answers[3] = (Button) rootView.findViewById(R.id.fragment_quiz_option3);
-        time = (ProgressBar) rootView.findViewById(R.id.fragment_quiz_time);
+        questionNumber = (TextView) rootView.findViewById(R.id.f_quiz_question_number);
+        answers[0] = (Button) rootView.findViewById(R.id.f_quiz_option_0);
+        answers[1] = (Button) rootView.findViewById(R.id.f_quiz_option_1);
+        answers[2] = (Button) rootView.findViewById(R.id.f_quiz_option_2);
+        answers[3] = (Button) rootView.findViewById(R.id.f_quiz_option_3);
+        time = (ProgressBar) rootView.findViewById(R.id.f_quiz_time);
     }
 
     private void initTimer() {

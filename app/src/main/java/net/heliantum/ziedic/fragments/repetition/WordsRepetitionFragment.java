@@ -53,8 +53,8 @@ public class WordsRepetitionFragment extends Fragment {
     }
 
     private void loadViewFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_fragment_layout);
-        pager = (ViewPager) rootView.findViewById(R.id.pager);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_repetition);
+        pager = (ViewPager) rootView.findViewById(R.id.f_words_repetition_view_pager);
         repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
         finish = (Button) rootView.findViewById(R.id.f_words_repetition_finish);
     }

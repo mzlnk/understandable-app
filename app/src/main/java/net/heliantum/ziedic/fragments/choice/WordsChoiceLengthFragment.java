@@ -77,7 +77,7 @@ public class WordsChoiceLengthFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_length_fragment_layout);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_length);
         amountInfo = (TextView) rootView.findViewById(R.id.f_words_choice_length_size_info);
         amountAdjust = (SeekBar) rootView.findViewById(R.id.f_words_choice_length_size_adjust);
         title = (TextView) rootView.findViewById(R.id.f_words_choice_length_title);

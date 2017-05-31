@@ -2,51 +2,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_words_choice_way_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.choice.WordsChoiceWayFragment">
+    tools:context="net.heliantum.ziedic.fragments.choice.WordsChoiceWayFragment"
+    android:id="@+id/f_words_choice_way" >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:measureWithLargestChild="true" >
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.04"
             android:gravity="center"
-            android:layout_weight="0.04">
+            android:orientation="horizontal" >
 
             <TextView
+                android:id="@+id/f_words_choice_way_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
                 android:text="@string/f_words_choice_way_title"
                 android:textSize="@dimen/f_words_choice_title_size"
-                android:textColor="@color/default_black"
-                android:id="@+id/f_words_choice_way_title" />
+                android:textColor="@color/default_black" />
+
         </LinearLayout>
 
-
         <TableLayout
-            android:orientation="horizontal"
+            android:id="@+id/f_words_choice_way_names_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.91"
-            android:stretchColumns="*"
-            android:id="@+id/f_words_choice_way_names_layout">
+            android:orientation="horizontal"
+            android:stretchColumns="*" >
 
         </TableLayout>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="*"
-            android:measureWithLargestChild="true"
+            android:layout_weight="0.05"
             android:gravity="bottom"
-            android:layout_weight="0.05">
+            android:stretchColumns="*"
+            android:measureWithLargestChild="true" >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -54,38 +54,36 @@
                 android:measureWithLargestChild="true" >
 
                 <Button
+                    android:id="@+id/f_words_choice_way_back"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="0.47"
                     android:text="@string/f_words_choice_back"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
                     android:background="@drawable/button_rounded_light_blue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:clickable="true"
-                    android:layout_weight="0.47"
-                    android:id="@+id/f_words_choice_way_back" />
+                    android:clickable="true" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="0.06" />
 
                 <Button
+                    android:id="@+id/f_words_choice_way_submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="0.47"
                     android:text="@string/f_words_choice_next"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
                     android:background="@drawable/button_rounded_light_blue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_weight="0.47"
-                    android:clickable="true"
-                    android:id="@+id/f_words_choice_way_submit" />
+                    android:clickable="true" />
+
             </TableRow>
-
         </TableLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

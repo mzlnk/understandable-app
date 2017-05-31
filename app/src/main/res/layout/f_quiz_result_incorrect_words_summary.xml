@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_quiz_result_incorrect_words_summary_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.quiz.QuizResultIncorrectWordsSummaryFragment">
+    tools:context="net.heliantum.ziedic.fragments.quiz.QuizResultIncorrectWordsSummaryFragment"
+    android:id="@+id/f_quiz_result_incorrect_words_summary" >
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,14 +12,14 @@
         android:measureWithLargestChild="true">
 
         <TextView
+            android:id="@+id/f_quiz_result_incorrect_words_summary_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_weight="0.1"
             android:textColor="@color/default_black"
             android:textSize="25dp"
-            android:text="Odpowiedzi błędne"
-            android:gravity="center"
-            android:id="@+id/f_quiz_result_incorrect_words_summary_title" />
+            android:text="Odpowiedzi błędne" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -27,31 +27,32 @@
             android:layout_weight="0.85">
 
             <TableLayout
+                android:id="@+id/f_quiz_result_incorrect_words_summary_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:shrinkColumns="*"
-                android:id="@+id/f_quiz_result_incorrect_words_summary_table">
+                android:shrinkColumns="*" >
+
             </TableLayout>
         </ScrollView>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05">
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:orientation="horizontal" >
 
             <Button
+                android:id="@+id/f_quiz_result_incorrect_words_summary_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:text="@string/f_quiz_result_words_summary_back"
                 android:textSize="@dimen/f_words_choice_text_button_size"
                 android:textAllCaps="false"
                 android:textColor="@color/default_white"
                 android:background="@drawable/button_rounded_light_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:clickable="true"
-                android:id="@+id/f_quiz_result_incorrect_words_summary_back" />
+                android:clickable="true" />
 
         </LinearLayout>
     </LinearLayout>

@@ -2,19 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_words_list_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.list.WordsListFragment">
+    tools:context="net.heliantum.ziedic.fragments.list.WordsListFragment"
+    android:id="@+id/f_words_list" >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
         <TableLayout
+            android:id="@+id/f_words_list_words_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:shrinkColumns="*"
-            android:id="@+id/f_words_list_words_table">
-        </TableLayout>
-    </ScrollView>
+            android:shrinkColumns="*" >
 
+        </TableLayout>
+
+    </ScrollView>
 </RelativeLayout>

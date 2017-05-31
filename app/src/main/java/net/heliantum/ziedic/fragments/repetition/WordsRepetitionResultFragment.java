@@ -42,7 +42,7 @@ public class WordsRepetitionResultFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_result_fragment_layout);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_repetition_result);
         wordsSeen = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_seen);
         wordsToRepeat = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat);
         wordsSeenInfo = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_seen_info);

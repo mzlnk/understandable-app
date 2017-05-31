@@ -2,7 +2,6 @@ package net.heliantum.ziedic.fragments.repetition;
 
 
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -49,7 +48,7 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     }
 
     private void loadViewFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_repetition_result_words_to_repeat_fragment_layout);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat);
         title = (TextView) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_title);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_table);
         back = (Button) rootView.findViewById(R.id.f_words_repetition_result_words_to_repeat_back);

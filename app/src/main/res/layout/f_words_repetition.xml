@@ -3,33 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:id="@+id/fragment_words_repetition_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionFragment"
+    android:id="@+id/f_words_repetition" >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:measureWithLargestChild="true" >
 
         <android.support.v4.view.ViewPager
-            android:id="@+id/pager"
-            android:layout_weight="0.7"
+            android:id="@+id/f_words_repetition_view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_below="@+id/progress"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/repeat" />
+            android:layout_weight="0.7" />
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:measureWithLargestChild="true"
-            android:gravity="center">
+            android:gravity="center"
+            android:measureWithLargestChild="true" >
 
             <TableRow
                 android:layout_weight="0.4"
@@ -41,14 +35,14 @@
                     android:layout_weight="0.4" />
 
                 <Button
-                  android:text="@string/f_words_repetition_example_repeat"
+                    android:id="@+id/f_words_repetition_repeat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
-                    android:id="@+id/f_words_repetition_repeat"
-                    android:background="@drawable/button_rounded_light_blue"
+                    android:text="@string/f_words_repetition_example_repeat"
                     android:textColor="#FFFFFF"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_rounded_light_blue" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -66,23 +60,20 @@
                     android:layout_weight="0.4" />
 
                 <Button
-                    android:text="@string/f_words_repetition_example_finish"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:id="@+id/f_words_repetition_finish"
-                    android:background="@drawable/button_rounded_red"
+                    android:text="@string/f_words_repetition_example_finish"
                     android:textColor="#FFFFFF"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_rounded_red" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="0.4" />
 
             </TableRow>
-
         </TableLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

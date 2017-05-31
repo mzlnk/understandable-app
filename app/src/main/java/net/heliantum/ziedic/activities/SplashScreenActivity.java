@@ -7,8 +7,6 @@ import android.widget.ProgressBar;
 
 import net.heliantum.ziedic.R;
 
-import java.util.TimerTask;
-
 public class SplashScreenActivity extends AppCompatActivity {
 
     private ProgressBar loadingBar;
@@ -16,7 +14,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.f_activity_start_screen);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //toolbar.setTitleTextColor(Color.BLACK);

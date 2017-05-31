@@ -3,71 +3,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/f_words_choice_category_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.choice.WordsChoiceCategoryFragment">
+    tools:context="net.heliantum.ziedic.fragments.choice.WordsChoiceCategoryFragment"
+    android:id="@+id/f_words_choice_category" >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:measureWithLargestChild="true">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.04"
             android:gravity="center"
-            android:layout_weight="0.04">
+            android:orientation="horizontal" >
 
             <TextView
+                android:id="@+id/f_words_choice_category_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
-                android:text="@string/f_words_choice_category_title"
-                android:id="@+id/f_words_choice_category_title" />
+                android:text="@string/f_words_choice_category_title" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.91">
+            android:layout_weight="0.91"
+            android:orientation="horizontal" >
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
                 <TableLayout
+                    android:id="@+id/f_words_choice_category_names_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="*"
-                    android:id="@+id/f_words_choice_category_names_layout" >
+                    android:stretchColumns="*" >
 
                 </TableLayout>
+
             </ScrollView>
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05">
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:orientation="horizontal" >
 
             <Button
-                android:text="@string/f_words_choice_next"
-                android:textSize="@dimen/f_words_choice_text_button_size"
-                android:textAllCaps="false"
-                android:background="@drawable/button_rounded_light_blue"
+                android:id="@+id/f_words_choice_category_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:clickable="true"
-                android:id="@+id/f_words_choice_category_submit" />
+                android:text="@string/f_words_choice_next"
+                android:textSize="@dimen/f_words_choice_text_button_size"
+                android:textAllCaps="false"
+                android:textColor="@color/default_white"
+                android:background="@drawable/button_rounded_light_blue"
+                android:clickable="true" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

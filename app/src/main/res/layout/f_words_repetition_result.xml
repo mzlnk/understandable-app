@@ -2,87 +2,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fragment_words_repetition_result_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionResultFragment">
+    tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionResultFragment"
+    android:id="@+id/f_words_repetition_result" >
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:measureWithLargestChild="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
 
         <TextView
-            android:text="Koniec"
-            android:textColor="@color/default_black"
-            android:textSize="@dimen/f_quiz_result_title"
+            android:id="@+id/f_words_repetition_result_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:id="@+id/f_words_repetition_result_title" />
+            android:text="Koniec"
+            android:textColor="@color/default_black"
+            android:textSize="@dimen/f_quiz_result_title" />
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
-            android:measureWithLargestChild="true">
+            android:measureWithLargestChild="true" >
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="0.33"
-                android:measureWithLargestChild="true">
+                android:measureWithLargestChild="true" >
 
                 <TextView
+                    android:id="@+id/f_words_repetition_result_words_seen"
+                    android:layout_weight="0.5"
                     android:gravity="center"
                     android:text="0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
-                    android:textSize="36sp"
-                    android:layout_weight="0.5"
-                    android:id="@+id/f_words_repetition_result_words_seen"/>
+                    android:textSize="36sp" />
 
                 <TextView
+                    android:id="@+id/f_words_repetition_result_words_to_repeat"
+                    android:layout_weight="0.5"
                     android:gravity="center"
                     android:text="0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
-                    android:textSize="36sp"
-                    android:layout_weight="0.5"
-                    android:id="@+id/f_words_repetition_result_words_to_repeat"/>
+                    android:textSize="36sp" />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_weight="0.67"
+                android:gravity="center"
                 android:measureWithLargestChild="true">
 
                 <TextView
+                    android:id="@+id/f_words_repetition_result_words_seen_info"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
                     android:text="@string/f_words_repetition_result_words_seen_info"
                     android:textColor="@color/default_black"
-                    android:textSize="15sp"
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:id="@+id/f_words_repetition_result_words_seen_info"/>
+                    android:textSize="15sp" />
 
                 <TextView
-                    android:text="@string/f_words_repetition_result_words_to_repeat"
-                    android:textColor="@color/default_black"
-                    android:textSize="15sp"
+                    android:id="@+id/f_words_repetition_result_words_to_repeat_info"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:id="@+id/f_words_repetition_result_words_to_repeat_info"/>
+                    android:text="@string/f_words_repetition_result_words_to_repeat"
+                    android:textColor="@color/default_black"
+                    android:textSize="15sp" />
 
             </TableRow>
-
         </TableLayout>
 
         <TextView
@@ -91,22 +86,21 @@
             android:layout_weight="0.05" />
 
         <TextView
+            android:id="@+id/f_words_repetition_result_words_to_repeat_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.15"
-
             android:gravity="center"
             android:text="Słówka do powtórzenia"
             android:textColor="@color/default_black"
-            android:textSize="20sp"
-            android:id="@+id/f_words_repetition_result_words_to_repeat_title"/>
+            android:textSize="20sp" />
 
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.25"
-            android:gravity="top">
+            android:gravity="top" >
 
             <TableRow
                 android:gravity="top"
@@ -116,17 +110,16 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.4" />
 
-                <!--todo: put in strings.xml -->
                 <Button
-                    android:text="zobacz"
+                    android:id="@+id/f_words_repetition_result_view_words_to_repeat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
-                    android:id="@+id/f_words_repetition_result_view_words_to_repeat"
-                    android:background="@drawable/button_rounded_light_blue"
+                    android:text="zobacz"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_rounded_light_blue" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -135,38 +128,13 @@
             </TableRow>
         </TableLayout>
 
-        <!--
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:foreground="@drawable/table_rounded_black"
-            android:layout_weight="0.3">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.35"
-                android:clickable="true"
-                android:id="@+id/f_words_repetition_result_words_to_repeat_field">
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:shrinkColumns="*"
-                    android:id="@+id/f_words_repetition_result_words_to_repeat_table">
-                </TableLayout>
-
-            </ScrollView>
-
-        </RelativeLayout>
-        -->
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:stretchColumns="*"
-            android:measureWithLargestChild="true"
+            android:layout_weight="0.15"
             android:gravity="bottom"
-            android:layout_weight="0.15">
+            android:stretchColumns="*"
+            android:measureWithLargestChild="true" >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -178,26 +146,23 @@
                     android:layout_weight="0.2" />
 
                 <Button
+                    android:id="@+id/f_words_repetition_result_try_again"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="0.8"
                     android:text="@string/f_quiz_result_try_again"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
                     android:background="@drawable/button_rounded_light_blue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:clickable="true"
-                    android:layout_weight="0.8"
-                    android:id="@+id/f_words_repetition_result_try_again" />
+                    android:clickable="true" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="0.2" />
 
             </TableRow>
-
         </TableLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

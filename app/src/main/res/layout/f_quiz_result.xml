@@ -3,27 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_quiz_result_fragment_layout"
-    tools:context="net.heliantum.ziedic.fragments.quiz.QuizResultFragment">
+    tools:context="net.heliantum.ziedic.fragments.quiz.QuizResultFragment"
+    android:id="@+id/f_quiz_result" >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:measureWithLargestChild="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:measureWithLargestChild="true" >
 
         <TextView
-            android:text="Koniec"
-            android:textColor="@color/default_black"
-            android:textSize="@dimen/f_quiz_result_title"
+            android:id="@+id/f_quiz_result_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:id="@+id/f_quiz_result_title" />
+            android:text="Koniec"
+            android:textColor="@color/default_black"
+            android:textSize="@dimen/f_quiz_result_title" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -34,33 +31,32 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_weight="0.33" >
+                android:layout_weight="0.33"
+                android:gravity="center" >
 
                 <TextView
+                    android:id="@+id/f_quiz_result_questions_amount"
+                    android:gravity="center"
                     android:text="0"
                     android:textStyle="bold"
-                    android:gravity="center"
                     android:textColor="@color/default_gray"
-                    android:textSize="@dimen/f_quiz_result_questions_amount"
-                    android:id="@+id/f_quiz_result_questions_amount"/>
+                    android:textSize="@dimen/f_quiz_result_questions_amount" />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_weight="0.67" >
+                android:layout_weight="0.67"
+                android:gravity="center" >
 
                 <TextView
+                    android:id="@+id/f_quiz_result_questions_amount_info"
                     android:text="@string/f_quiz_result_all_questions"
                     android:textColor="@color/default_black"
-                    android:textSize="@dimen/f_quiz_result_answers_amount_info"
-                    android:id="@+id/f_quiz_result_questions_amount_info"/>
+                    android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
             </TableRow>
-
         </TableLayout>
 
         <TextView
@@ -73,43 +69,45 @@
             android:layout_height="0dp"
             android:layout_weight="0.4"
             android:stretchColumns="*"
-            android:measureWithLargestChild="true">
+            android:measureWithLargestChild="true" >
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:measureWithLargestChild="true">
+                android:measureWithLargestChild="true" >
 
                 <TextView
-                    android:layout_weight="0.03"/>
+                    android:layout_weight="0.03" />
 
                 <TableLayout
+                    android:id="@+id/f_quiz_result_correct_answers_field"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
                     android:background="@drawable/table_rounded_black"
                     android:measureWithLargestChild="true"
-                    android:clickable="true"
-                    android:id="@+id/f_quiz_result_correct_answers_field">
+                    android:clickable="true" >
 
                     <TableRow
-                        android:layout_height="0dp"
-                        android:layout_weight="0.125">
+                        android:layout_weight="0.125"
+                        android:layout_height="0dp" >
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.25"
-                        android:gravity="center">
+                        android:gravity="center" >
 
                         <ImageView
+                            android:id="@+id/f_quiz_result_correct_answers_img"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:clickable="true"
-                            app:srcCompat="@drawable/f_quiz_result_correct_answer"
-                            android:id="@+id/f_quiz_result_correct_answers_img" />
+                            app:srcCompat="@drawable/f_quiz_result_correct_answer" />
+
                     </TableRow>
 
                     <TableRow
@@ -119,117 +117,121 @@
                         android:gravity="center">
 
                         <TextView
-                            android:text="0"
+                            android:id="@+id/f_quiz_result_correct_answers"
                             android:gravity="center"
+                            android:text="0"
                             android:textStyle="bold"
                             android:textColor="@color/default_gray"
-                            android:textSize="@dimen/f_quiz_result_answers_amount"
-                            android:id="@+id/f_quiz_result_correct_answers" />
+                            android:textSize="@dimen/f_quiz_result_answers_amount" />
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.25"
-                        android:gravity="center">
+                        android:gravity="center" >
 
                         <TextView
-                            android:text="@string/f_quiz_result_correct_answers"
-
+                            android:id="@+id/f_quiz_result_correct_answers_info"
                             android:gravity="center"
+                            android:text="@string/f_quiz_result_correct_answers"
                             android:textColor="@color/default_black"
-                            android:textSize="@dimen/f_quiz_result_answers_amount_info"
-                            android:id="@+id/f_quiz_result_correct_answers_info" />
+                            android:textSize="@dimen/f_quiz_result_answers_amount_info" />
+
                     </TableRow>
 
                     <TableRow
                         android:layout_height="0dp"
-                        android:layout_weight="0.125">
-                    </TableRow>
+                        android:layout_weight="0.125" >
 
+                    </TableRow>
                 </TableLayout>
 
                 <TextView
-                    android:layout_weight="0.03"/>
+                    android:layout_weight="0.03" />
 
                 <TableLayout
+                    android:id="@+id/f_quiz_result_incorrect_answers_field"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
                     android:background="@drawable/table_rounded_black"
                     android:measureWithLargestChild="true"
-                    android:clickable="true"
-                    android:id="@+id/f_quiz_result_incorrect_answers_field">
+                    android:clickable="true" >
 
                     <TableRow
                         android:layout_height="0dp"
                         android:layout_weight="0.125" >
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_weight="0.25">
+                        android:layout_weight="0.25"
+                        android:gravity="center" >
 
                         <ImageView
+                            android:id="@+id/f_quiz_result_incorrect_answers_img"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:clickable="true"
-                            app:srcCompat="@drawable/f_quiz_result_incorrect_answer"
-                            android:id="@+id/f_quiz_result_incorrect_answers_img" />
+                            app:srcCompat="@drawable/f_quiz_result_incorrect_answer" />
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_weight="0.25">
+                        android:layout_weight="0.25"
+                        android:gravity="center" >
 
                         <TextView
+                            android:id="@+id/f_quiz_result_incorrect_answers"
+                            android:gravity="center"
                             android:text="0"
                             android:textStyle="bold"
-                            android:gravity="center"
                             android:textColor="@color/default_gray"
-                            android:textSize="@dimen/f_quiz_result_answers_amount"
-                            android:id="@+id/f_quiz_result_incorrect_answers" />
+                            android:textSize="@dimen/f_quiz_result_answers_amount" />
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_weight="0.25">
+                        android:layout_weight="0.25"
+                        android:gravity="center" >
 
                         <TextView
-                            android:text="@string/f_quiz_result_incorrect_answers"
+                            android:id="@+id/f_quiz_result_incorrect_answers_info"
                             android:gravity="center"
+                            android:text="@string/f_quiz_result_incorrect_answers"
                             android:textColor="@color/default_black"
-                            android:textSize="@dimen/f_quiz_result_answers_amount_info"
-                            android:id="@+id/f_quiz_result_incorrect_answers_info" />
+                            android:textSize="@dimen/f_quiz_result_answers_amount_info" />
+
                     </TableRow>
 
                     <TableRow
                         android:layout_height="0dp"
                         android:layout_weight="0.125" >
-                    </TableRow>
 
+                    </TableRow>
                 </TableLayout>
 
                 <TextView
                     android:layout_weight="0.03"/>
 
             </TableRow>
-
         </TableLayout>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:stretchColumns="*"
-            android:measureWithLargestChild="true"
+            android:layout_weight="0.15"
             android:gravity="bottom"
-            android:layout_weight="0.15">
+            android:stretchColumns="*"
+            android:measureWithLargestChild="true" >
 
             <TableRow
                 android:layout_width="match_parent"
@@ -241,26 +243,23 @@
                     android:layout_weight="0.2" />
 
                 <Button
+                    android:id="@+id/f_quiz_result_try_again"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:layout_gravity="bottom"
                     android:text="@string/f_quiz_result_try_again"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
                     android:background="@drawable/button_rounded_light_blue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:clickable="true"
-                    android:layout_weight="0.8"
-                    android:id="@+id/f_quiz_result_try_again" />
+                    android:clickable="true" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="0.2" />
 
             </TableRow>
-
         </TableLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

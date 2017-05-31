@@ -82,7 +82,7 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     private void loadViewFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_words_choice_way_fragment_layout);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_way);
         waysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_way_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_words_choice_way_title);
         submit = (Button) rootView.findViewById(R.id.f_words_choice_way_submit);

@@ -4,202 +4,144 @@
     android:layout_height="match_parent"
     android:stretchColumns="*"
     tools:context="net.heliantum.ziedic.fragments.quiz.QuizFragment"
-    android:id="@+id/fragment_quiz_layout">
+    android:id="@+id/f_quiz">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TableLayout
+        android:id="@+id/f_quiz_main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_quiz_table_layout"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:measureWithLargestChild="true" >
 
         <TableRow
+            android:id="@+id/f_quiz_time_row"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.05"
-            android:id="@+id/fragment_quiz_time_row" >
+            android:layout_weight="0.05" >
 
             <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
+                android:id="@+id/f_quiz_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fragment_quiz_time"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                style="?android:attr/progressBarStyleHorizontal" />
+
         </TableRow>
-
-
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.95"
-            android:id="@+id/fragment_quiz_table_layout_2_row" >
+            android:layout_weight="0.95" >
 
             <TableLayout
+                android:id="@+id/f_quiz_question_table"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:stretchColumns="*"
-                android:measureWithLargestChild="true"
-                android:id="@+id/fragment_quiz_table_layout_2">
+                android:measureWithLargestChild="true" >
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.125"
-                    android:id="@+id/fragment_quiz_questionnumber_row" >
+                    android:layout_weight="0.125" >
 
                     <TextView
+                        android:id="@+id/f_quiz_question_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Pytanie x/y"
                         android:textColor="#454343"
-                        android:textSize="20dp"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/fragment_quiz_questionnumber"
-                        android:layout_marginTop="35dp"
-                        android:layout_below="@+id/fragment_quiz_score"
-                        android:layout_alignRight="@+id/fragment_quiz_question"
-                        android:layout_alignEnd="@+id/fragment_quiz_question" />
+                        android:textSize="20dp" />
+
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.375"
-                    android:id="@+id/fragment_quiz_question_row" >
+                    android:layout_weight="0.375" >
 
                     <TextView
-                        android:text="Pytanie"
+                        android:id="@+id/fragment_quiz_question"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="30dp"
-                        android:textColor="#000000"
-                        android:id="@+id/fragment_quiz_question"
                         android:gravity="center"
-                        android:layout_below="@+id/fragment_quiz_questionnumber"
-                        android:layout_centerHorizontal="true" />
+                        android:text="Pytanie"
+                        android:textSize="30dp"
+                        android:textColor="#000000" />
+
                 </TableRow>
 
                 <TableRow
+                    android:id="@+id/fragment_quiz_option0_row"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.125"
-                    android:id="@+id/fragment_quiz_option0_row" >
+                    android:layout_weight="0.125" >
 
                     <Button
+                        android:id="@+id/f_quiz_option_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Opcja 0"
-                        android:layout_height="match_parent"
                         android:textAllCaps="false"
-                        android:layout_width="wrap_content"
                         android:background="@drawable/button_rounded_light_gray"
                         android:layout_marginBottom="5dp"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:id="@+id/fragment_quiz_option0" />
+                        style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.125"
-                    android:id="@+id/fragment_quiz_option1_row" >
+                    android:layout_weight="0.125">
 
                     <Button
+                        android:id="@+id/f_quiz_option_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
                         android:text="Opcja 1"
-                        android:layout_height="match_parent"
                         android:textAllCaps="false"
-                        android:layout_width="wrap_content"
                         android:background="@drawable/button_rounded_light_gray"
-                        android:layout_marginBottom="5dp"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:id="@+id/fragment_quiz_option1" />
+                        style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.125"
-                    android:id="@+id/fragment_quiz_option2_row" >
+                    android:layout_weight="0.125">
 
                     <Button
+                        android:id="@+id/f_quiz_option_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
                         android:text="Opcja 2"
-                        android:layout_height="match_parent"
                         android:textAllCaps="false"
-                        android:layout_width="wrap_content"
                         android:background="@drawable/button_rounded_light_gray"
-                        android:layout_marginBottom="5dp"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:id="@+id/fragment_quiz_option2" />
+                        style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.125"
-                    android:id="@+id/fragment_quiz_option3_row">
+                    android:layout_weight="0.125">
 
                     <Button
-                        android:text="Opcja 3"
-                        android:layout_height="match_parent"
-                        android:textAllCaps="false"
+                        android:id="@+id/f_quiz_option_3"
                         android:layout_width="match_parent"
-                        android:background="@drawable/button_rounded_light_gray"
+                        android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:id="@+id/fragment_quiz_option3" />
+                        android:text="Opcja 3"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_rounded_light_gray"
+                        style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
 
             </TableLayout>
         </TableRow>
     </TableLayout>
-    <!--
-        <TableLayout
-            android:id="@+id/quiz_options_table"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:stretchColumns="*"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:measureWithLargestChild="true"
-            android:layout_below="@+id/fragment_quiz_question">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-
-            </TableRow>
-
-        </TableLayout>
-    -->
 </RelativeLayout>
