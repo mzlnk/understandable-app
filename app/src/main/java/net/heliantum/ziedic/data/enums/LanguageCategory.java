@@ -4,8 +4,7 @@ package net.heliantum.ziedic.data.enums;
  * Created by Marcin Zielonka on 2016-11-11.
  */
 
-
-public enum LanguageCategory implements Nameable{
+public enum LanguageCategory implements Nameable {
 
     HUMAN("człowiek"),
     HOUSE("dom"),

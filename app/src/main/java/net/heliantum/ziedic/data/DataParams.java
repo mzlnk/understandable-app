@@ -107,10 +107,12 @@ public class DataParams {
         sb.append(mode.name()).append(";");
         sb.append(way.name()).append(";");
         sb.append(size).append(";");
+        System.out.println("dataParams: output: " + sb.toString());
         return sb.toString();
     }
 
     public static DataParams fromString(String input) {
+        System.out.println("dataParams: input: " + input);
         DataParams dataParams = new DataParams();
         int i = 0;
         String str = "";
@@ -119,9 +121,10 @@ public class DataParams {
             if(c == ';') {
                 dataParams.addCategory(LanguageCategory.valueOf(str));
                 str = "";
+                i++;
                 break;
             }
-            if(c != ',') {
+            if(c == ',') {
                 dataParams.addCategory(LanguageCategory.valueOf(str));
                 str = "";
             } else {
@@ -133,6 +136,7 @@ public class DataParams {
             if(c == ';') {
                 dataParams.addType(LanguageType.valueOf(str));
                 str = "";
+                i++;
                 break;
             }
             if(c == ',') {
@@ -147,6 +151,7 @@ public class DataParams {
             if(c == ';') {
                 dataParams.setMode(LearningMode.valueOf(str));
                 str = "";
+                i++;
                 break;
             } else {
                 str += c;
@@ -157,6 +162,7 @@ public class DataParams {
             if(c == ';') {
                 dataParams.setWay(LearningWay.valueOf(str));
                 str = "";
+                i++;
                 break;
             } else {
                 str += c;
@@ -166,6 +172,7 @@ public class DataParams {
             char c = input.charAt(i);
             if(c == ';') {
                 dataParams.setSize(NumberUtils.toInt(str, 1));
+                i++;
                 break;
             } else {
                 str += c;

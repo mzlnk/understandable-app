@@ -55,7 +55,7 @@ public class WordsChoiceModeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = DataParams.fromString(DATA_PARAM);
+            dataParams = DataParams.fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new DataParams();
@@ -134,17 +134,18 @@ public class WordsChoiceModeFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.popBackStack();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
             }
         });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WordsChoiceLengthFragment typeFragment = new WordsChoiceLengthFragment();
+                WordsChoiceLengthFragment lengthFragment = WordsChoiceLengthFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, lengthFragment).commit();
             }
         });
     }

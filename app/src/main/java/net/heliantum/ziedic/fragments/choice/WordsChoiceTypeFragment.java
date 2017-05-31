@@ -55,7 +55,7 @@ public class WordsChoiceTypeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = DataParams.fromString(DATA_PARAM);
+            dataParams = DataParams.fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new DataParams();
@@ -144,9 +144,9 @@ public class WordsChoiceTypeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(dataParams.types.size() > 0) {
-                    WordsChoiceWayFragment modeFragment = new WordsChoiceWayFragment();
+                    WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }

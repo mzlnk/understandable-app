@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import net.heliantum.ziedic.corrupted.BaseDBHandler;
+import net.heliantum.ziedic.database.entity.IrregularVerbEntity;
 import net.heliantum.ziedic.database.repository.IrregularVerbEntityRepository;
 import net.heliantum.ziedic.database.repository.LanguageEntityRepository;
 import net.heliantum.ziedic.database.repository.maps.IrregularVerbEntityMap;
@@ -31,16 +32,13 @@ public class App extends Application {
     //todo: fix it
     public static void onStop() {
         Log.d(DEBUG_TAG, "Closing database connection");
-        dr.close();
+        //dr.close();
         Log.d(DEBUG_TAG, "Database connection closed");
     }
 
     private void loadData() {
         Log.d(DEBUG_TAG, "Overriding default font");
         FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
-
-        Log.d(DEBUG_TAG, "Creating connection with internal database");
-        dr = new BaseDBHandler(getApplicationContext()).open();
 
         Log.d(DEBUG_TAG, "Loading Entities");
         LanguageEntityRepository.init(getApplicationContext());

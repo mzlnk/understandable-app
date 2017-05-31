@@ -29,6 +29,7 @@ public abstract class BaseButton {
         this.dataParams = dataParams;
         this.image = new ImageView(context);
         this.text = new TextView(context);
+        this.enumType = enumType;
     }
 
     public ImageView getImage() {

@@ -54,7 +54,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = DataParams.fromString(DATA_PARAM);
+            dataParams = DataParams.fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new DataParams();

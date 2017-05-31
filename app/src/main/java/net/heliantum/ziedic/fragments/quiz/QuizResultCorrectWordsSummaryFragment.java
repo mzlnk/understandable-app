@@ -44,10 +44,10 @@ public class QuizResultCorrectWordsSummaryFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_quiz_result_words_summary_fragment_layout);
-        title = (TextView) rootView.findViewById(R.id.f_quiz_result_words_summary_title);
-        wordsTable = (TableLayout) rootView.findViewById(R.id.f_quiz_result_words_summary_table);
-        back = (Button) rootView.findViewById(R.id.f_quiz_result_words_summary_back);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_quiz_result_correct_words_summary);
+        title = (TextView) rootView.findViewById(R.id.f_quiz_result_correct_words_summary_title);
+        wordsTable = (TableLayout) rootView.findViewById(R.id.f_quiz_result_correct_words_summary_table);
+        back = (Button) rootView.findViewById(R.id.f_quiz_result_correct_words_summary_back);
     }
 
     private void prepareLayout() {
