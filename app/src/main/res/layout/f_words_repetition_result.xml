@@ -38,7 +38,7 @@
                     android:id="@+id/f_words_repetition_result_words_seen"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
                     android:textSize="36sp" />
@@ -47,7 +47,7 @@
                     android:id="@+id/f_words_repetition_result_words_to_repeat"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
                     android:textSize="36sp" />
@@ -91,7 +91,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.15"
             android:gravity="center"
-            android:text="Słówka do powtórzenia"
+            android:text="@string/f_words_repetition_result_words_to_repeat_title"
             android:textColor="@color/default_black"
             android:textSize="20sp" />
 
@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
-                    android:text="zobacz"
+                    android:text="@string/f_words_repetition_result_view_words_to_repeat"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textAllCaps="false"
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_weight="0.8"
-                    android:text="@string/f_quiz_result_try_again"
+                    android:text="@string/button_try_again"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"

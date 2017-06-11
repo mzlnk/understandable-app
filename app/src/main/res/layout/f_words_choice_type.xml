@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_weight="0.47"
-                    android:text="@string/f_words_choice_next"
+                    android:text="@string/button_next"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"

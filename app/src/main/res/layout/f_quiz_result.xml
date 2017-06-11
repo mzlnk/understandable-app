@@ -18,7 +18,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:text="Koniec"
+            android:text="@string/f_quiz_result_title"
             android:textColor="@color/default_black"
             android:textSize="@dimen/f_quiz_result_title" />
 
@@ -37,7 +37,7 @@
                 <TextView
                     android:id="@+id/f_quiz_result_questions_amount"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="@color/default_gray"
                     android:textSize="@dimen/f_quiz_result_questions_amount" />
@@ -52,7 +52,7 @@
 
                 <TextView
                     android:id="@+id/f_quiz_result_questions_amount_info"
-                    android:text="@string/f_quiz_result_all_questions"
+                    android:text="@string/f_quiz_result_questions_amount_info"
                     android:textColor="@color/default_black"
                     android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
@@ -119,7 +119,7 @@
                         <TextView
                             android:id="@+id/f_quiz_result_correct_answers"
                             android:gravity="center"
-                            android:text="0"
+                            android:text="@string/number_0"
                             android:textStyle="bold"
                             android:textColor="@color/default_gray"
                             android:textSize="@dimen/f_quiz_result_answers_amount" />
@@ -135,7 +135,7 @@
                         <TextView
                             android:id="@+id/f_quiz_result_correct_answers_info"
                             android:gravity="center"
-                            android:text="@string/f_quiz_result_correct_answers"
+                            android:text="@string/f_quiz_result_correct_answers_info"
                             android:textColor="@color/default_black"
                             android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
@@ -190,7 +190,7 @@
                         <TextView
                             android:id="@+id/f_quiz_result_incorrect_answers"
                             android:gravity="center"
-                            android:text="0"
+                            android:text="@string/number_0"
                             android:textStyle="bold"
                             android:textColor="@color/default_gray"
                             android:textSize="@dimen/f_quiz_result_answers_amount" />
@@ -206,7 +206,7 @@
                         <TextView
                             android:id="@+id/f_quiz_result_incorrect_answers_info"
                             android:gravity="center"
-                            android:text="@string/f_quiz_result_incorrect_answers"
+                            android:text="@string/f_quiz_result_incorrect_answers_info"
                             android:textColor="@color/default_black"
                             android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
@@ -248,7 +248,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.8"
                     android:layout_gravity="bottom"
-                    android:text="@string/f_quiz_result_try_again"
+                    android:text="@string/button_try_again"
                     android:textSize="@dimen/f_words_choice_text_button_size"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"

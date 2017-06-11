@@ -19,7 +19,7 @@
             android:gravity="center"
             android:textColor="@color/default_black"
             android:textSize="25dp"
-            android:text="Odpowiedzi poprawne" />
+            android:text="@string/f_quiz_result_correct_words_summary_title" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="@string/f_quiz_result_words_summary_back"
+                android:text="@string/button_back"
                 android:textSize="@dimen/f_words_choice_text_button_size"
                 android:textAllCaps="false"
                 android:textColor="@color/default_white"
