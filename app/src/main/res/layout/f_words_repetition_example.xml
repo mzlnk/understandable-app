@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Word0"
-                    android:textSize="28dp" />
+                    android:textSize="@dimen/f_words_repetition_example_word_0" />
 
             </TableRow>
 
@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Word1"
-                    android:textSize="20dp" />
+                    android:textSize="@dimen/f_words_repetition_example_word_1" />
 
             </TableRow>
 

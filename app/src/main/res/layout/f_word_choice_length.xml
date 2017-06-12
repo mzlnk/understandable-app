@@ -22,10 +22,10 @@
                 android:id="@+id/f_words_choice_length_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="@string/f_words_choice_length_title"
-                android:textSize="@dimen/f_words_choice_title_size"
+                android:textSize="@dimen/f_words_choice_length_title"
                 android:textColor="@color/default_black" />
 
         </LinearLayout>
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textSize="@dimen/f_words_choice_title_size"
+                    android:textSize="@dimen/f_words_choice_length_title"
                     android:textColor="@color/default_black" />
 
             </TableRow>
@@ -85,7 +85,7 @@
                     android:layout_gravity="bottom"
                     android:layout_weight="0.47"
                     android:text="@string/button_next"
-                    android:textSize="@dimen/f_words_choice_text_button_size"
+                    android:textSize="@dimen/button_back"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
                     android:background="@drawable/button_rounded_light_blue"
@@ -102,7 +102,7 @@
                     android:layout_gravity="bottom"
                     android:layout_weight="0.47"
                     android:text="@string/button_start"
-                    android:textSize="@dimen/f_words_choice_text_button_size"
+                    android:textSize="@dimen/button_start"
                     android:textAllCaps="false"
                     android:textColor="@color/default_white"
                     android:background="@drawable/button_rounded_lime"

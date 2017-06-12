@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionResultWordsToRepeatFragment"
-    android:id="@+id/f_words_repetition_result_words_to_repeat" >
+    android:id="@+id/f_words_repetition_result_words_to_repeat_amount" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true">
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/f_words_repetition_result_words_to_repeat_title"
@@ -19,7 +21,7 @@
             android:gravity="center"
             android:text="@string/f_words_repetition_result_words_to_repeat_title"
             android:textColor="@color/default_black"
-            android:textSize="25dp" />
+            android:textSize="@dimen/f_words_repetition_result_words_to_repeat_title" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -49,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:text="@string/button_back"
-                android:textSize="@dimen/f_words_choice_text_button_size"
+                android:textSize="@dimen/button_back"
                 android:textAllCaps="false"
                 android:textColor="@color/default_white"
                 android:background="@drawable/button_rounded_light_blue"

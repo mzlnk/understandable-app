@@ -52,7 +52,7 @@
                         android:gravity="center"
                         android:text="@string/f_quiz_question_number"
                         android:textColor="#454343"
-                        android:textSize="20dp" />
+                        android:textSize="@dimen/f_quiz_question_number" />
 
                 </TableRow>
 
@@ -62,12 +62,12 @@
                     android:layout_weight="0.375" >
 
                     <TextView
-                        android:id="@+id/fragment_quiz_question"
+                        android:id="@+id/f_quiz_question"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/f_quiz_question"
-                        android:textSize="30dp"
+                        android:textSize="@dimen/f_quiz_question"
                         android:textColor="#000000" />
 
                 </TableRow>
@@ -82,9 +82,10 @@
                         android:id="@+id/f_quiz_option_0"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:textAllCaps="false"
-                        android:background="@drawable/button_rounded_light_gray"
                         android:layout_marginBottom="5dp"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/f_quiz_option"
+                        android:background="@drawable/button_rounded_light_gray"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -100,6 +101,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
                         android:textAllCaps="false"
+                        android:textSize="@dimen/f_quiz_option"
                         android:background="@drawable/button_rounded_light_gray"
                         style="?android:attr/borderlessButtonStyle" />
 
@@ -116,6 +118,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
                         android:textAllCaps="false"
+                        android:textSize="@dimen/f_quiz_option"
                         android:background="@drawable/button_rounded_light_gray"
                         style="?android:attr/borderlessButtonStyle" />
 
@@ -132,6 +135,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
                         android:textAllCaps="false"
+                        android:textSize="@dimen/f_quiz_option"
                         android:background="@drawable/button_rounded_light_gray"
                         style="?android:attr/borderlessButtonStyle" />
 
