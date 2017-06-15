@@ -8,6 +8,13 @@
     <dimen name="activity_vertical_margin">16sp</dimen>
     <dimen name="fab_margin">16sp</dimen>
 
+    <dimen name="button_small_width">10dp</dimen>
+    <dimen name="button_small_height">10dp</dimen>
+    <dimen name="button_medium_width">10dp</dimen>
+    <dimen name="button_medium_height">10dp</dimen>
+    <dimen name="button_large_width">10dp</dimen>
+    <dimen name="button_large_height">10dp</dimen>
+
     <dimen name="button_try_again">18sp</dimen>
     <dimen name="button_back">18sp</dimen>
     <dimen name="button_start">18sp</dimen>

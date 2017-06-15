@@ -59,9 +59,9 @@ public class QuizResultFragment extends Fragment {
         title = (TextView) rootView.findViewById(R.id.f_quiz_result_title);
         questionAmount = (TextView) rootView.findViewById(R.id.f_quiz_result_questions_amount);
         questionAmountInfo = (TextView) rootView.findViewById(R.id.f_quiz_result_questions_amount_info);
-        correctAnswers = (TextView) rootView.findViewById(R.id.f_quiz_result_correct_answers);
+        correctAnswers = (TextView) rootView.findViewById(R.id.f_quiz_result_correct_answers_amount);
         correctAnswersInfo = (TextView) rootView.findViewById(R.id.f_quiz_result_correct_answers_info);
-        incorrectAnswers = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers);
+        incorrectAnswers = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_amount);
         incorrectAnswersInfo = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_answers_info);
         tryAgain = (Button) rootView.findViewById(R.id.f_quiz_result_try_again);
         correctAnswersField = (TableLayout) rootView.findViewById(R.id.f_quiz_result_correct_answers_field);

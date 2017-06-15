@@ -70,7 +70,7 @@ public class QuizFragment extends Fragment {
 
     private void loadViewsFromXml(View rootView) {
         questionLayout = (TableLayout) rootView.findViewById(R.id.f_quiz_question_table);
-        question = (TextView) rootView.findViewById(R.id.fragment_quiz_question);
+        question = (TextView) rootView.findViewById(R.id.f_quiz_question);
         questionNumber = (TextView) rootView.findViewById(R.id.f_quiz_question_number);
         answers[0] = (Button) rootView.findViewById(R.id.f_quiz_option_0);
         answers[1] = (Button) rootView.findViewById(R.id.f_quiz_option_1);

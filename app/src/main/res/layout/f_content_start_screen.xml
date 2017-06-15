@@ -9,15 +9,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="net.heliantum.ziedic.activities.SplashScreenActivity"
+    tools:context="net.heliantum.ziedic.activities.StartActivity"
     tools:showIn="@layout/f_activity_start_screen"
-    android:background="#002E63">
+    android:background="#202020">
 
-    <ProgressBar
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+
+    <ImageView
+        android:id="@+id/f_content_start_screen_icon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/f_loading_progress_bar" />
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_start_icon" />
+
 </RelativeLayout>
