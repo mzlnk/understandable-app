@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
@@ -7,6 +8,13 @@
     <dimen name="activity_horizontal_margin">16sp</dimen>
     <dimen name="activity_vertical_margin">16sp</dimen>
     <dimen name="fab_margin">16sp</dimen>
+
+    <dimen name="button_small_width">10dp</dimen>
+    <dimen name="button_small_height">10dp</dimen>
+    <dimen name="button_medium_width">10dp</dimen>
+    <dimen name="button_medium_height">10dp</dimen>
+    <dimen name="button_large_width">10dp</dimen>
+    <dimen name="button_large_height">10dp</dimen>
 
     <dimen name="button_try_again">18sp</dimen>
     <dimen name="button_back">18sp</dimen>
@@ -41,12 +49,12 @@
     <dimen name="f_words_repetition_example_word_0">20sp</dimen>
     <dimen name="f_words_repetition_example_word_1">20sp</dimen>
 
-    <dimen name="f_words_repetition_result_title">60sp</dimen>
+    <dimen name="f_words_repetition_result_title">6sp</dimen>
     <dimen name="f_words_repetition_result_words_seen_amount">36sp</dimen>
     <dimen name="f_words_repetition_result_words_to_repeat_amount">36sp</dimen>
     <dimen name="f_words_repetition_result_words_seen_info">15sp</dimen>
     <dimen name="f_words_repetition_result_words_to_repeat_info">15sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_subtitle">25sp</dimen>
+    <dimen name="f_words_repetition_result_words_to_repeat_subtitle">20sp</dimen>
 
     <dimen name="f_words_repetition_result_words_to_repeat_title">25sp</dimen>
 
