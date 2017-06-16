@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.ziedic.fragments.quiz.QuizResultCorrectWordsSummaryFragment"
+    tools:context="net.heliantum.understandable.fragments.quiz.QuizResultCorrectWordsSummaryFragment"
     android:id="@+id/f_quiz_result_correct_words_summary" >
 
     <LinearLayout

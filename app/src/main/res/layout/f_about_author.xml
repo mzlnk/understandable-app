@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.ziedic.fragments.other.AboutAuthorFragment">
+    tools:context="net.heliantum.understandable.fragments.other.AboutAuthorFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

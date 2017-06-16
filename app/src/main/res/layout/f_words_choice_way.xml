@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.ziedic.fragments.choice.WordsChoiceWayFragment"
+    tools:context="net.heliantum.understandable.fragments.choice.WordsChoiceWayFragment"
     android:id="@+id/f_words_choice_way" >
 
     <LinearLayout

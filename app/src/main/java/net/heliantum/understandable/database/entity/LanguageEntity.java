@@ -1,0 +1,42 @@
+package net.heliantum.understandable.database.entity;
+
+import net.heliantum.understandable.data.enums.LanguageCategory;
+import net.heliantum.understandable.data.enums.LanguageType;
+
+/**
+ * Created by Marcin Zielonka on 2016-11-11.
+ */
+
+
+public class LanguageEntity extends BaseEntity {
+
+    private String polish;
+    private String english;
+    private LanguageCategory category;
+    private LanguageType type;
+
+    public LanguageEntity(int id, String polish, String english, LanguageCategory category, LanguageType type) {
+        this.id = id;
+        this.polish = polish;
+        this.english = english;
+        this.category = category;
+        this.type = type;
+    }
+
+    public String getPolishWord() {
+        return polish;
+    }
+
+    public String getEnglishWord() {
+        return english;
+    }
+
+    public LanguageCategory getCategory() {
+        return category;
+    }
+
+    public LanguageType getType() {
+        return type;
+    }
+
+}

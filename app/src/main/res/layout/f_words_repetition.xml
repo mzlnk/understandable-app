@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="net.heliantum.ziedic.fragments.repetition.WordsRepetitionFragment"
+    tools:context="net.heliantum.understandable.fragments.repetition.WordsRepetitionFragment"
     android:id="@+id/f_words_repetition" >
 
     <LinearLayout

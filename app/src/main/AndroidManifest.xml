@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.heliantum.ziedic">
+    package="net.heliantum.understandable">
 
     <application
         android:allowBackup="true"
@@ -8,20 +8,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".App">
+        android:name="net.heliantum.understandable.App">
         <activity
-            android:name=".activities.NavigationActivity"
+            android:name="net.heliantum.understandable.activities.NavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".activities.StartActivity"
-            android:label="[nazwa aplikacji]"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.type.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.heliantum.understandable.activities.StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
