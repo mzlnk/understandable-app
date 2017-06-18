@@ -61,5 +61,8 @@
 
     <dimen name="f_content_start_screen_icon">120dp</dimen>
 
+    <dimen name="f_words_choice_category_icon_size">70dp</dimen>
+    <dimen name="f_words_choice_category_icon_text">2.5sp</dimen>
+
 
 </resources>

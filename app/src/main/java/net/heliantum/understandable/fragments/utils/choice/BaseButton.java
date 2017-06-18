@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.DataParams;
-import net.heliantum.understandable.data.enums.Nameable;
+import net.heliantum.understandable.data.enums.Identifiable;
 import net.heliantum.understandable.utils.font.Font;
 
 /**
@@ -19,13 +19,15 @@ public abstract class BaseButton {
     protected static final int ITEM_CHOSEN = 255;
     protected static final int ITEM_NOT_CHOSEN = 150;
 
+    protected Context context;
     protected ImageView image;
     protected TextView text;
 
     protected DataParams dataParams;
-    protected Nameable enumType;
+    protected Identifiable enumType;
 
-    public BaseButton(Context context, DataParams dataParams, Nameable enumType) {
+    public BaseButton(Context context, DataParams dataParams, Identifiable enumType) {
+        this.context = context;
         this.dataParams = dataParams;
         this.image = new ImageView(context);
         this.text = new TextView(context);
@@ -46,7 +48,7 @@ public abstract class BaseButton {
     }
 
     private void prepareImage() {
-        image.setImageResource(R.drawable.f_words_choice_base_test_selected);
+        image.setImageResource(R.drawable.f_words_choice_base);
         image.setClickable(true);
         setChoiceState();
         setOnClickListener();

@@ -20,6 +20,6 @@
         android:layout_height="@dimen/f_content_start_screen_icon"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/ic_start_icon" />
+        app:srcCompat="@drawable/f_start_screen_icon" />
 
 </RelativeLayout>

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitStart"
-        app:srcCompat="@drawable/ic_nav_icon"
+        app:srcCompat="@drawable/nav_header_navigation_background_icon"
         android:layout_alignParentStart="true"
         android:layout_marginTop="@*android:dimen/status_bar_height" />
 

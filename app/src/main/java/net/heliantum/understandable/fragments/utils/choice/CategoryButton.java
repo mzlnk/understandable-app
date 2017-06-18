@@ -1,8 +1,11 @@
 package net.heliantum.understandable.fragments.utils.choice;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.TableRow;
 
+import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.DataParams;
 import net.heliantum.understandable.data.enums.LanguageCategory;
 
@@ -18,6 +21,8 @@ public class CategoryButton extends BaseButton {
         super(context, dataParams, category);
         this.category = category;
         prepare();
+        setSize();
+        setImage();
     }
 
     @Override
@@ -43,6 +48,18 @@ public class CategoryButton extends BaseButton {
                 }
             }
         });
+    }
+
+    private void setSize() {
+        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_category_icon_size);
+        int textSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_category_icon_text);
+        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
+        super.image.setLayoutParams(layoutParams);
+        super.text.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+    }
+
+    private void setImage() {
+        super.image.setImageResource(category.getResId());
     }
 
 }
