@@ -24,7 +24,6 @@
         android:id="@+id/app_name"
         android:textSize="21sp"
         android:layout_marginBottom="53dp"
-        android:layout_alignBottom="@+id/info1"
         android:layout_centerHorizontal="true" />
 
     <TextView
