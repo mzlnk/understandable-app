@@ -54,4 +54,7 @@
 
     <dimen name="f_content_start_screen_icon">170dp</dimen>
 
+    <dimen name="f_words_choice_category_icon_size">85dp</dimen>
+    <dimen name="f_words_choice_category_icon_text">3sp</dimen>
+
 </resources>
