@@ -92,7 +92,6 @@ public class WordsRepetitionFragment extends Fragment {
             public void onPageSelected(int position) {
                 repetitionData.setCurrentWord(repetitionData.getWords().get(position));
                 repetitionData.addCurrentWordToSeen();
-                ToastUtil.showToastMessage(getContext(), "pos:" + position, 500);
             }
 
             @Override

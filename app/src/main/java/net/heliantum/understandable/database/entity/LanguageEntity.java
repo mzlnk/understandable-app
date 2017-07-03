@@ -12,10 +12,10 @@ public class LanguageEntity extends BaseEntity {
 
     private String polish;
     private String english;
-    private LanguageCategory category;
-    private LanguageType type;
+    private String category;
+    private String type;
 
-    public LanguageEntity(int id, String polish, String english, LanguageCategory category, LanguageType type) {
+    public LanguageEntity(int id, String polish, String english, String category, String type) {
         this.id = id;
         this.polish = polish;
         this.english = english;
@@ -32,11 +32,11 @@ public class LanguageEntity extends BaseEntity {
     }
 
     public LanguageCategory getCategory() {
-        return category;
+        return LanguageCategory.getEnum(category);
     }
 
     public LanguageType getType() {
-        return type;
+        return LanguageType.getEnum(type);
     }
 
 }

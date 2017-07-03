@@ -7,13 +7,13 @@
     android:id="@+id/f_words_repetition_example" >
 
     <LinearLayout
+        android:id="@+id/f_words_repetition_example_clickable_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:measureWithLargestChild="true" >
 
         <TableLayout
-            android:id="@+id/f_words_repetition_example_clickable_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.7"

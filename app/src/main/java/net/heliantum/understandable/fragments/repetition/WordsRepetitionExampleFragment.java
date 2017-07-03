@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -22,7 +23,7 @@ public class WordsRepetitionExampleFragment extends Fragment {
 
     private RepetitionData repetitionData;
 
-    private TableLayout wordLayout;
+    private LinearLayout wordLayout;
     private TextView word0, word1;
 
     public int position;
@@ -62,7 +63,7 @@ public class WordsRepetitionExampleFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         word0 = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_0);
         word1 = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_1);
-        wordLayout = (TableLayout) rootView.findViewById(R.id.f_words_repetition_example_clickable_layout);
+        wordLayout = (LinearLayout) rootView.findViewById(R.id.f_words_repetition_example_clickable_layout);
     }
 
     private void prepareLayout() {

@@ -1,0 +1,74 @@
+{
+  "languageEntities": [
+    {
+      "polish": "czerwony",
+      "english": "red",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 1
+    },
+    {
+      "polish": "zielony",
+      "english": "green",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 2
+    },
+    {
+      "polish": "niebieski",
+      "english": "blue",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 3
+    },
+    {
+      "polish": "żółty",
+      "english": "yellow",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 4
+    },
+    {
+      "polish": "pomarańczowy",
+      "english": "orange",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 5
+    },
+    {
+      "polish": "szary",
+      "english": "gray",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 6
+    },
+    {
+      "polish": "biały",
+      "english": "white",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 7
+    },
+    {
+      "polish": "czarny",
+      "english": "black",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 8
+    },
+    {
+      "polish": "fioletowy",
+      "english": "purple",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 9
+    },
+    {
+      "polish": "różowy",
+      "english": "pink",
+      "category": "OTHER",
+      "type": "ADJECTIVE",
+      "id": 10
+    }
+  ]
+}
