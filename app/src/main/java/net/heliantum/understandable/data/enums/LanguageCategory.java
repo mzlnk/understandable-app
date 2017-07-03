@@ -24,7 +24,7 @@ public enum LanguageCategory implements Identifiable {
     ENVIRONMENT("środowisko", R.drawable.f_words_choice_category_environment),
     SOCIETY("społeczeństwo", R.drawable.f_words_choice_category_society),
     NATION("kraj", R.drawable.f_words_choice_category_nation),
-    OTHER("inne", R.drawable.f_words_choice_category_other);
+    OTHER("inne", R.drawable.f_words_choice_other);
 
     private String name;
     private int resId;

@@ -10,9 +10,9 @@ import net.heliantum.understandable.R;
 
 public enum LearningMode implements Identifiable {
 
-    REPETITION("powtarzanie", R.drawable.f_words_choice_base),
-    QUIZ("quiz", R.drawable.f_words_choice_base),
-    LIST("lista", R.drawable.f_words_choice_base);
+    REPETITION("powtarzanie", R.drawable.f_words_choice_mode_repetition),
+    QUIZ("quiz", R.drawable.f_words_choice_mode_quiz),
+    LIST("lista", R.drawable.f_words_choice_mode_list);
 
     private String name;
     private int resId;

@@ -9,13 +9,14 @@ import net.heliantum.understandable.R;
 
 public enum LanguageType implements Identifiable {
 
-    VERB("czasownik", R.drawable.f_words_choice_base),
-    NOUN("rzeczownik", R.drawable.f_words_choice_base),
-    ADJECTIVE("przymiotnik", R.drawable.f_words_choice_base),
-    ADVERB("przysłówek", R.drawable.f_words_choice_base),
-    PREPOSITION("przyimek", R.drawable.f_words_choice_base),
-    EXPRESSION("wyrażenie", R.drawable.f_words_choice_base),
-    OTHER("inne", R.drawable.f_words_choice_base);
+    VERB("czasownik", R.drawable.f_words_choice_type_verb),
+    NOUN("rzeczownik", R.drawable.f_words_choice_type_noun),
+    ADJECTIVE("przymiotnik", R.drawable.f_words_choice_type_adjective),
+    ADVERB("przysłówek", R.drawable.f_words_choice_type_adverb),
+    PREPOSITION("przyimek", R.drawable.f_words_choice_type_preposition),
+    IDIOM("idiom", R.drawable.f_words_choice_type_idiom),
+    PHRASAL_VERB("frazal", R.drawable.f_words_choice_type_phrasal_verb),
+    OTHER("inne", R.drawable.f_words_choice_other);
 
     private String name;
     private int resId;
