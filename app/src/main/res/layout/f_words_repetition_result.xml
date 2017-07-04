@@ -9,7 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true" >
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/f_words_repetition_result_title"
@@ -83,7 +85,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="0.05" />
+            android:layout_weight="0.1" />
 
         <TextView
             android:id="@+id/f_words_repetition_result_words_to_repeat_title"
@@ -99,70 +101,43 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25"
-            android:gravity="top" >
+            android:layout_weight="0.20"
+            android:gravity="top">
 
             <TableRow
-                android:gravity="top"
-                android:measureWithLargestChild="true" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.4" />
+                android:gravity="center"
+                android:measureWithLargestChild="true">
 
                 <Button
                     android:id="@+id/f_words_repetition_result_view_words_to_repeat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_width="@dimen/button_small_width"
+                    android:layout_height="@dimen/button_small_height"
+                    android:background="@drawable/button_rounded_light_blue"
                     android:text="@string/f_words_repetition_result_view_words_to_repeat"
-                    android:textColor="#FFFFFF"
-                    android:textSize="@dimen/button_show"
                     android:textAllCaps="false"
-                    android:background="@drawable/button_rounded_light_blue" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.4" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/button_show" />
 
             </TableRow>
         </TableLayout>
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.15"
-            android:gravity="bottom"
-            android:stretchColumns="*"
-            android:measureWithLargestChild="true" >
+            android:gravity="center" >
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:measureWithLargestChild="true" >
+            <Button
+                android:id="@+id/f_words_repetition_result_try_again"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:text="@string/button_try_again"
+                android:textSize="@dimen/button_try_again"
+                android:textAllCaps="false"
+                android:textColor="@color/default_white"
+                android:background="@drawable/button_rounded_light_blue"
+                android:clickable="true" />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.2" />
-
-                <Button
-                    android:id="@+id/f_words_repetition_result_try_again"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_weight="0.8"
-                    android:text="@string/button_try_again"
-                    android:textSize="@dimen/button_try_again"
-                    android:textAllCaps="false"
-                    android:textColor="@color/default_white"
-                    android:background="@drawable/button_rounded_light_blue"
-                    android:clickable="true" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.2" />
-
-            </TableRow>
-        </TableLayout>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

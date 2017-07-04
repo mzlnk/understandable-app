@@ -57,12 +57,7 @@
             </TableRow>
 
             <TableRow
-                android:layout_weight="0.1" >
-
-            </TableRow>
-
-            <TableRow
-                android:layout_weight="0.2">
+                android:layout_weight="0.3" >
 
             </TableRow>
 

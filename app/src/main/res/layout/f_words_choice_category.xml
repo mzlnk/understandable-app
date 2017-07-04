@@ -10,60 +10,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true">
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/f_words_choice_category_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.04"
+            android:layout_gravity="center"
+            android:layout_weight="0.05"
             android:gravity="center"
-            android:orientation="horizontal" >
+            android:text="@string/f_words_choice_category_title"
+            android:textSize="@dimen/f_words_choice_category_title"
+            android:textColor="@color/default_black" />
 
-            <TextView
-                android:id="@+id/f_words_choice_category_title"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8">
+
+            <TableLayout
+                android:id="@+id/f_words_choice_category_names_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/f_words_choice_category_title"
-                android:textSize="@dimen/f_words_choice_category_title"
-                android:textColor="@color/default_black" />
+                android:stretchColumns="*" >
 
-        </LinearLayout>
+            </TableLayout>
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.91"
-            android:orientation="horizontal" >
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TableLayout
-                    android:id="@+id/f_words_choice_category_names_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:stretchColumns="*" >
-
-                </TableLayout>
-
-            </ScrollView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.05"
+            android:layout_weight="0.15"
             android:gravity="center"
             android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/f_words_choice_category_submit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:layout_gravity="center"
                 android:text="@string/button_next"
                 android:textSize="@dimen/button_next"
                 android:textAllCaps="false"

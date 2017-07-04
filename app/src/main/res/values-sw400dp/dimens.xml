@@ -8,52 +8,56 @@
     <dimen name="activity_vertical_margin">16sp</dimen>
     <dimen name="fab_margin">16sp</dimen>
 
-    <dimen name="button_small_width">10dp</dimen>
-    <dimen name="button_small_height">10dp</dimen>
+    <dimen name="button_small_width">170dp</dimen>
+    <dimen name="button_small_height">50dp</dimen>
     <dimen name="button_medium_width">180dp</dimen>
-    <dimen name="button_medium_height">65dp</dimen>
+    <dimen name="button_medium_height">50dp</dimen>
     <dimen name="button_large_width">10dp</dimen>
     <dimen name="button_large_height">10dp</dimen>
 
     <dimen name="button_try_again">19sp</dimen>
     <dimen name="button_back">19sp</dimen>
-    <dimen name="button_start">189sp</dimen>
+    <dimen name="button_start">19sp</dimen>
     <dimen name="button_next">19sp</dimen>
     <dimen name="button_repeat">19sp</dimen>
     <dimen name="button_finish">19sp</dimen>
     <dimen name="button_show">19sp</dimen>
 
-    <dimen name="f_quiz_question_number">20sp</dimen>
-    <dimen name="f_quiz_question">30sp</dimen>
+    <dimen name="f_quiz_question_number">22sp</dimen>
+    <dimen name="f_quiz_question">33sp</dimen>
     <dimen name="f_quiz_option">18sp</dimen>
+    <dimen name="f_quiz_margin">5dp</dimen>
 
-    <dimen name="f_quiz_result_title">50sp</dimen>
-    <dimen name="f_quiz_result_questions_amount">40sp</dimen>
-    <dimen name="f_quiz_result_answers_amount_info">25sp</dimen>
-    <dimen name="f_quiz_result_correct_answers_amount">30sp</dimen>
-    <dimen name="f_quiz_result_incorrect_answers_amount">30sp</dimen>
-    <dimen name="f_quiz_result_correct_answers_amount_info">20sp</dimen>
-    <dimen name="f_quiz_result_incorrect_answers_amount_info">20sp</dimen>
+    <dimen name="f_quiz_result_title">52sp</dimen>
+    <dimen name="f_quiz_result_questions_amount">42sp</dimen>
+    <dimen name="f_quiz_result_answers_amount_info">27sp</dimen>
+    <dimen name="f_quiz_result_image_width">53dp</dimen>
+    <dimen name="f_quiz_result_image_height">53dp</dimen>
+    <dimen name="f_quiz_result_correct_answers_amount">32sp</dimen>
+    <dimen name="f_quiz_result_incorrect_answers_amount">32sp</dimen>
+    <dimen name="f_quiz_result_correct_answers_amount_info">22sp</dimen>
+    <dimen name="f_quiz_result_incorrect_answers_amount_info">22sp</dimen>
 
-    <dimen name="f_quiz_result_correct_words_summary_title">25sp</dimen>
-
-    <dimen name="f_quiz_result_incorrect_words_summary_title">25sp</dimen>
+    <dimen name="f_quiz_result_correct_words_summary_title">27sp</dimen>
+    <dimen name="f_quiz_result_incorrect_words_summary_title">27sp</dimen>
 
     <dimen name="f_words_choice_length_title">30sp</dimen>
     <dimen name="f_words_choice_category_title">30sp</dimen>
     <dimen name="f_words_choice_mode_title">30sp</dimen>
     <dimen name="f_words_choice_type_title">30sp</dimen>
     <dimen name="f_words_choice_way_title">30sp</dimen>
+    <dimen name="f_words_choice_length_words_amount">47sp</dimen>
+    <dimen name="f_words_choice_button_margin">8dp</dimen>
 
-    <dimen name="f_words_repetition_example_word_0">20sp</dimen>
-    <dimen name="f_words_repetition_example_word_1">20sp</dimen>
+    <dimen name="f_words_repetition_example_word_0">29sp</dimen>
+    <dimen name="f_words_repetition_example_word_1">24sp</dimen>
 
-    <dimen name="f_words_repetition_result_title">60sp</dimen>
-    <dimen name="f_words_repetition_result_words_seen_amount">36sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_amount">36sp</dimen>
-    <dimen name="f_words_repetition_result_words_seen_info">15sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_info">15sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_subtitle">25sp</dimen>
+    <dimen name="f_words_repetition_result_title">53sp</dimen>
+    <dimen name="f_words_repetition_result_words_seen_amount">45sp</dimen>
+    <dimen name="f_words_repetition_result_words_to_repeat_amount">45sp</dimen>
+    <dimen name="f_words_repetition_result_words_seen_info">20sp</dimen>
+    <dimen name="f_words_repetition_result_words_to_repeat_info">20sp</dimen>
+    <dimen name="f_words_repetition_result_words_to_repeat_subtitle">23sp</dimen>
 
     <dimen name="f_words_repetition_result_words_to_repeat_title">25sp</dimen>
 

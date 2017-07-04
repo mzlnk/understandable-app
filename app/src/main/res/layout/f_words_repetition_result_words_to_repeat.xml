@@ -17,7 +17,7 @@
             android:id="@+id/f_words_repetition_result_words_to_repeat_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.15"
             android:gravity="center"
             android:text="@string/f_words_repetition_result_words_to_repeat_title"
             android:textColor="@color/default_black"
@@ -26,7 +26,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.85" >
+            android:layout_weight="0.8" >
 
             <TableLayout
                 android:id="@+id/f_words_repetition_result_words_to_repeat_table"
@@ -35,7 +35,6 @@
                 android:shrinkColumns="*" >
 
             </TableLayout>
-
         </ScrollView>
 
         <LinearLayout
@@ -47,9 +46,8 @@
 
             <Button
                 android:id="@+id/f_words_repetition_result_words_to_repeat_back"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
                 android:text="@string/button_back"
                 android:textSize="@dimen/button_back"
                 android:textAllCaps="false"

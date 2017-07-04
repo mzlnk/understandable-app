@@ -30,24 +30,15 @@
                 android:gravity="center"
                 android:measureWithLargestChild="true" >
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.4" />
-
                 <Button
                     android:id="@+id/f_words_repetition_repeat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_width="@dimen/button_small_width"
+                    android:layout_height="@dimen/button_small_height"
                     android:text="@string/f_words_repetition_example_repeat"
                     android:textColor="#FFFFFF"
                     android:textAllCaps="false"
                     android:textSize="@dimen/button_repeat"
                     android:background="@drawable/button_rounded_light_blue" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.4" />
 
             </TableRow>
 
@@ -56,24 +47,15 @@
                 android:gravity="center"
                 android:measureWithLargestChild="true" >
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.4" />
-
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
+                    android:layout_width="@dimen/button_small_width"
+                    android:layout_height="@dimen/button_small_height"
                     android:id="@+id/f_words_repetition_finish"
                     android:text="@string/f_words_repetition_example_finish"
                     android:textColor="#FFFFFF"
                     android:textAllCaps="false"
                     android:textSize="@dimen/button_finish"
                     android:background="@drawable/button_rounded_red" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="0.4" />
 
             </TableRow>
         </TableLayout>
