@@ -8,13 +8,20 @@
     <dimen name="activity_vertical_margin">16sp</dimen>
     <dimen name="fab_margin">16sp</dimen>
 
-    <dimen name="button_try_again">18sp</dimen>
-    <dimen name="button_back">18sp</dimen>
-    <dimen name="button_start">18sp</dimen>
-    <dimen name="button_next">18sp</dimen>
-    <dimen name="button_repeat">18sp</dimen>
-    <dimen name="button_finish">18sp</dimen>
-    <dimen name="button_show">18sp</dimen>
+    <dimen name="button_small_width">10dp</dimen>
+    <dimen name="button_small_height">10dp</dimen>
+    <dimen name="button_medium_width">290dp</dimen>
+    <dimen name="button_medium_height">85dp</dimen>
+    <dimen name="button_large_width">10dp</dimen>
+    <dimen name="button_large_height">10dp</dimen>
+
+    <dimen name="button_try_again">24sp</dimen>
+    <dimen name="button_back">24sp</dimen>
+    <dimen name="button_start">24sp</dimen>
+    <dimen name="button_next">24sp</dimen>
+    <dimen name="button_repeat">24sp</dimen>
+    <dimen name="button_finish">24sp</dimen>
+    <dimen name="button_show">24sp</dimen>
 
     <dimen name="f_quiz_question_number">20sp</dimen>
     <dimen name="f_quiz_question">30sp</dimen>

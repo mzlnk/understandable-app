@@ -11,18 +11,18 @@
 
     <dimen name="button_small_width">10dp</dimen>
     <dimen name="button_small_height">10dp</dimen>
-    <dimen name="button_medium_width">10dp</dimen>
-    <dimen name="button_medium_height">10dp</dimen>
+    <dimen name="button_medium_width">250dp</dimen>
+    <dimen name="button_medium_height">70dp</dimen>
     <dimen name="button_large_width">10dp</dimen>
     <dimen name="button_large_height">10dp</dimen>
 
-    <dimen name="button_try_again">18sp</dimen>
-    <dimen name="button_back">18sp</dimen>
-    <dimen name="button_start">18sp</dimen>
-    <dimen name="button_next">18sp</dimen>
-    <dimen name="button_repeat">18sp</dimen>
-    <dimen name="button_finish">18sp</dimen>
-    <dimen name="button_show">18sp</dimen>
+    <dimen name="button_try_again">21sp</dimen>
+    <dimen name="button_back">21sp</dimen>
+    <dimen name="button_start">21sp</dimen>
+    <dimen name="button_next">21sp</dimen>
+    <dimen name="button_repeat">21sp</dimen>
+    <dimen name="button_finish">21sp</dimen>
+    <dimen name="button_show">21sp</dimen>
 
     <dimen name="f_quiz_question_number">20sp</dimen>
     <dimen name="f_quiz_question">30sp</dimen>

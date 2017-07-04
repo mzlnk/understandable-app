@@ -5,17 +5,17 @@
     tools:context="net.heliantum.understandable.fragments.list.WordsListFragment"
     android:id="@+id/f_words_list" >
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
+        android:layout_height="match_parent"
+        android:layout_weight="0.8" >
         <TableLayout
             android:id="@+id/f_words_list_words_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:shrinkColumns="*" >
-
         </TableLayout>
-
     </ScrollView>
+
 </RelativeLayout>

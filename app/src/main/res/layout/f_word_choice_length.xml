@@ -80,10 +80,9 @@
 
                 <Button
                     android:id="@+id/f_words_choice_length_back"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/button_medium_width"
+                    android:layout_height="@dimen/button_medium_height"
                     android:layout_gravity="bottom"
-                    android:layout_weight="0.47"
                     android:text="@string/button_next"
                     android:textSize="@dimen/button_back"
                     android:textAllCaps="false"
@@ -97,8 +96,8 @@
 
                 <Button
                     android:id="@+id/f_words_choice_length_submit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/button_medium_width"
+                    android:layout_height="@dimen/button_medium_height"
                     android:layout_gravity="bottom"
                     android:layout_weight="0.47"
                     android:text="@string/button_start"

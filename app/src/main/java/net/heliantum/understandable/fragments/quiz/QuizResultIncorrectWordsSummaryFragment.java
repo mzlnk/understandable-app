@@ -42,6 +42,7 @@ public class QuizResultIncorrectWordsSummaryFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.f_quiz_result_incorrect_words_summary, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
+        addListeners();
 
         return rootView;
     }

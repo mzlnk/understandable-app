@@ -122,6 +122,7 @@ public class QuizFragment extends Fragment {
     }
 
     private void setAnswers() {
+        QuizData.getQuizData().nextQuestion();
         correctOption = QuizData.Util.getRandomCorrectOption();
         correctWord = quizData.currentWord;
         incorrectWords = quizData.getRandomIncorrectAnswers();
@@ -250,9 +251,8 @@ public class QuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        QuizData.getQuizData().nextQuestion();
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        if (quizData.wordsLeft.size() > 0 && getActivity() != null) {
+                        if (quizData.wordsLeft.size() > 1 && getActivity() != null) {
                             transaction.replace(R.id.layout_for_fragments, new QuizFragment()).commit();
                         } else if (getActivity() != null) {
                             transaction.replace(R.id.layout_for_fragments, new QuizResultFragment()).commit();

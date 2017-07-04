@@ -11,8 +11,8 @@
 
     <dimen name="button_small_width">10dp</dimen>
     <dimen name="button_small_height">10dp</dimen>
-    <dimen name="button_medium_width">10dp</dimen>
-    <dimen name="button_medium_height">10dp</dimen>
+    <dimen name="button_medium_width">180dp</dimen>
+    <dimen name="button_medium_height">60dp</dimen>
     <dimen name="button_large_width">10dp</dimen>
     <dimen name="button_large_height">10dp</dimen>
 
