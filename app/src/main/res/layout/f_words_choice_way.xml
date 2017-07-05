@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.understandable.fragments.choice.WordsChoiceWayFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_words_choice_way" >
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:gravity="center"
             android:text="@string/f_words_choice_way_title"
             android:textSize="@dimen/f_words_choice_way_title"
-            android:textColor="@color/default_black" />
+            android:textColor="?attr/text_1_color" />
 
         <TableLayout
             android:id="@+id/f_words_choice_way_names_layout"
@@ -47,8 +48,8 @@
                 android:text="@string/button_back"
                 android:textSize="@dimen/button_back"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
             <Button
@@ -59,8 +60,8 @@
                 android:text="@string/button_next"
                 android:textSize="@dimen/button_next"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
         </LinearLayout>

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:stretchColumns="*"
     tools:context="net.heliantum.understandable.fragments.quiz.QuizFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_quiz">
 
     <!-- TODO: Update blank fragment layout -->
@@ -51,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/f_quiz_question_number"
-                        android:textColor="#454343"
+                        android:textColor="?attr/text_2_color"
                         android:textSize="@dimen/f_quiz_question_number" />
 
                 </TableRow>
@@ -68,7 +69,7 @@
                         android:gravity="center"
                         android:text="@string/f_quiz_question"
                         android:textSize="@dimen/f_quiz_question"
-                        android:textColor="#000000" />
+                        android:textColor="?attr/text_1_color" />
 
                 </TableRow>
 
@@ -85,7 +86,7 @@
                         android:layout_marginBottom="@dimen/f_quiz_margin"
                         android:textAllCaps="false"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_rounded_light_gray"
+                        android:background="@drawable/button_quiz_option"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -101,8 +102,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/f_quiz_margin"
                         android:textAllCaps="false"
+                        android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_rounded_light_gray"
+                        android:background="@drawable/button_quiz_option"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -118,8 +120,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/f_quiz_margin"
                         android:textAllCaps="false"
+                        android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_rounded_light_gray"
+                        android:background="@drawable/button_quiz_option"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -135,8 +138,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/f_quiz_margin"
                         android:textAllCaps="false"
+                        android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_rounded_light_gray"
+                        android:background="@drawable/button_quiz_option"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>

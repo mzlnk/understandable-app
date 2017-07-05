@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.understandable.fragments.choice.WordsChoiceLengthFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_words_choice_length" >
 
     <LinearLayout
@@ -21,7 +22,7 @@
             android:gravity="center"
             android:text="@string/f_words_choice_length_title"
             android:textSize="@dimen/f_words_choice_length_title"
-            android:textColor="@color/default_black" />
+            android:textColor="?attr/text_1_color" />
 
         <TextView
             android:id="@+id/f_words_choice_length_size_info"
@@ -31,7 +32,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="0"
-            android:textColor="@color/default_black"
+            android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_words_choice_length_words_amount"
             />
 
@@ -64,8 +65,8 @@
                 android:text="@string/button_back"
                 android:textSize="@dimen/button_back"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
             <Button
@@ -73,11 +74,11 @@
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
                 android:layout_marginLeft="@dimen/f_words_choice_button_margin"
-                android:background="@drawable/button_rounded_lime"
+                android:background="@drawable/button_2"
                 android:clickable="true"
                 android:text="@string/button_start"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
+                android:textColor="?attr/text_button_color"
                 android:textSize="@dimen/button_start" />
 
         </LinearLayout>

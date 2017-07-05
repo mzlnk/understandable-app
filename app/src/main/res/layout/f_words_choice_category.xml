@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.understandable.fragments.choice.WordsChoiceCategoryFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_words_choice_category" >
 
     <LinearLayout
@@ -23,7 +24,7 @@
             android:gravity="center"
             android:text="@string/f_words_choice_category_title"
             android:textSize="@dimen/f_words_choice_category_title"
-            android:textColor="@color/default_black" />
+            android:textColor="?attr/text_1_color" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -54,8 +55,8 @@
                 android:text="@string/button_next"
                 android:textSize="@dimen/button_next"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
         </LinearLayout>

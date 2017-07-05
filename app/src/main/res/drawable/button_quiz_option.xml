@@ -4,7 +4,7 @@
         android:radius="10dp"
         />
     <solid
-        android:color="#FFFF99"
+        android:color="?attr/button_quiz_option_color"
         />
     <padding
         android:left="0dp"

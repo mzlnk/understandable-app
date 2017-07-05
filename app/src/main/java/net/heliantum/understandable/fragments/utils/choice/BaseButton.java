@@ -1,6 +1,9 @@
 package net.heliantum.understandable.fragments.utils.choice;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.support.annotation.ColorInt;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +45,10 @@ public abstract class BaseButton {
         return text;
     }
 
+    public void updateTextColor() {
+        setTextColor();
+    }
+
     protected void prepare() {
         prepareImage();
         prepareText();
@@ -56,8 +63,21 @@ public abstract class BaseButton {
 
     private void prepareText() {
         text.setText(enumType.getName());
+        setTextColor();
         text.setGravity(Gravity.CENTER);
         text.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void setTextColor() {
+        text.setTextColor(getColor(R.attr.text_1_color));
+    }
+
+    protected int getColor(int attrResId) {
+        TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = context.getTheme();
+        theme.resolveAttribute(attrResId, typedValue, true);
+        @ColorInt int color = typedValue.data;
+        return color;
     }
 
     protected abstract void setChoiceState();

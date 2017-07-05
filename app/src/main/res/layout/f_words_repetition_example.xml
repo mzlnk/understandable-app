@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context="net.heliantum.understandable.fragments.repetition.WordsRepetitionExampleFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_words_repetition_example" >
 
     <LinearLayout
@@ -36,6 +36,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Word0"
+                    android:textColor="?attr/background_color"
                     android:textSize="@dimen/f_words_repetition_example_word_0" />
 
             </TableRow>
@@ -52,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Word1"
+                    android:textColor="?attr/background_color"
                     android:textSize="@dimen/f_words_repetition_example_word_1" />
 
             </TableRow>

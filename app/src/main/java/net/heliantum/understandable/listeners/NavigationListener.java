@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.fragments.choice.WordsChoiceCategoryFragment;
-import net.heliantum.understandable.fragments.other.AboutAuthorFragment;
+import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
 
 /**
  * Created by Marcin on 2017-06-15.
@@ -57,8 +57,8 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         else if(id == R.id.your_words) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
-        else if(id == R.id.about_app) {
-            AboutAuthorFragment fragment = new AboutAuthorFragment();
+        else if(id == R.id.themes) {
+            ThemeChoiceFragment fragment = new ThemeChoiceFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }
 

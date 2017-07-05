@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.understandable.fragments.quiz.QuizResultFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_quiz_result" >
 
     <LinearLayout
@@ -21,7 +22,7 @@
             android:layout_weight="0.2"
             android:gravity="center"
             android:text="@string/f_quiz_result_title"
-            android:textColor="@color/default_black"
+            android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_quiz_result_title" />
 
         <TableLayout
@@ -41,7 +42,7 @@
                     android:gravity="center"
                     android:text="@string/number_0"
                     android:textStyle="bold"
-                    android:textColor="@color/default_gray"
+                    android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_quiz_result_questions_amount" />
 
             </TableRow>
@@ -55,7 +56,7 @@
                 <TextView
                     android:id="@+id/f_quiz_result_questions_amount_info"
                     android:text="@string/f_quiz_result_questions_amount_info"
-                    android:textColor="@color/default_black"
+                    android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
             </TableRow>
@@ -87,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
-                    android:background="@drawable/table_rounded_black"
+                    android:background="@drawable/table_rounded"
                     android:measureWithLargestChild="true"
                     android:clickable="true" >
 
@@ -123,7 +124,7 @@
                             android:gravity="center"
                             android:text="@string/number_0"
                             android:textStyle="bold"
-                            android:textColor="@color/default_gray"
+                            android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_correct_answers_amount" />
 
                     </TableRow>
@@ -138,7 +139,7 @@
                             android:id="@+id/f_quiz_result_correct_answers_info"
                             android:gravity="center"
                             android:text="@string/f_quiz_result_correct_answers_info"
-                            android:textColor="@color/default_black"
+                            android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_correct_answers_amount_info" />
 
                     </TableRow>
@@ -158,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
-                    android:background="@drawable/table_rounded_black"
+                    android:background="@drawable/table_rounded"
                     android:measureWithLargestChild="true"
                     android:clickable="true" >
 
@@ -194,7 +195,7 @@
                             android:gravity="center"
                             android:text="@string/number_0"
                             android:textStyle="bold"
-                            android:textColor="@color/default_gray"
+                            android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_incorrect_answers_amount" />
 
                     </TableRow>
@@ -209,7 +210,7 @@
                             android:id="@+id/f_quiz_result_incorrect_answers_info"
                             android:gravity="center"
                             android:text="@string/f_quiz_result_incorrect_answers_info"
-                            android:textColor="@color/default_black"
+                            android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_incorrect_answers_amount_info" />
 
                     </TableRow>
@@ -241,8 +242,8 @@
                 android:text="@string/button_try_again"
                 android:textSize="@dimen/button_try_again"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
         </LinearLayout>

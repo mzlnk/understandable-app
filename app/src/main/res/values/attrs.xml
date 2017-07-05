@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomImageButton">
+        <attr name="background_color" format="color"/>
+        <attr name="text_1_color" format="color"/>
+        <attr name="text_2_color" format="color"/>
+        <attr name="text_button_color" format="color"/>
+        <attr name="button_1_color" format="color"/>
+        <attr name="button_2_color" format="color"/>
+        <attr name="button_quiz_option_color" format="color"/>
+        <attr name="list_1_color" format="color"/>
+        <attr name="list_2_color" format="color"/>
+        <attr name="accent_color" format="color"/>
+        <attr name="table_border_color" format="color"/>
+    </declare-styleable>
+
+</resources>

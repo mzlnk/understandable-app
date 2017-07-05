@@ -215,10 +215,10 @@ public class QuizFragment extends Fragment {
                 int hideIncorrectOptionsDelay = 1500;
 
                 if (isAnswered && chosenOption != -1) {
-                    answers[chosenOption].setBackgroundResource(R.drawable.button_rounded_red);
+                    answers[chosenOption].setBackgroundResource(R.drawable.button_red);
                 }
                 if (chosenOption == correctOption) {
-                    answers[chosenOption].setBackgroundResource(R.drawable.button_rounded_green);
+                    answers[chosenOption].setBackgroundResource(R.drawable.button_green);
                     showCorrectOptionDelay = 0;
                     hideIncorrectOptionsDelay = 500;
                 }
@@ -228,7 +228,7 @@ public class QuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        answers[correctOption].setBackgroundResource(R.drawable.button_rounded_green);
+                        answers[correctOption].setBackgroundResource(R.drawable.button_green);
                     }
                 }, showCorrectOptionDelay);
 

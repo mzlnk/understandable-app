@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="?attr/background_color"
     tools:context="net.heliantum.understandable.activities.NavigationActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -16,9 +17,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#202020"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
+            android:background="?attr/accent_color"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:subtitleTextColor="?attr/text_button_color"/>
 
     </android.support.design.widget.AppBarLayout>
 

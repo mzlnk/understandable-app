@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.heliantum.understandable.fragments.theme.ThemeChoiceFragment"
+    android:background="?attr/background_color"
+    android:id="@+id/f_theme_choice" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
+
+        <TextView
+            android:id="@+id/f_theme_choice_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:text="@string/f_theme_choice_title"
+            android:textSize="@dimen/f_words_choice_mode_title"
+            android:textColor="?attr/text_1_color"
+            android:background="?attr/background_color"/>
+
+        <TableLayout
+            android:id="@+id/f_theme_choice_theme_names_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.95"
+            android:orientation="horizontal"
+            android:stretchColumns="*" >
+
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

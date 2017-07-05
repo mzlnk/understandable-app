@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.understandable.fragments.repetition.WordsRepetitionResultWordsToRepeatFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_words_repetition_result_words_to_repeat" >
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_weight="0.15"
             android:gravity="center"
             android:text="@string/f_words_repetition_result_words_to_repeat_title"
-            android:textColor="@color/default_black"
+            android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_words_repetition_result_words_to_repeat_title" />
 
         <ScrollView
@@ -51,8 +52,8 @@
                 android:text="@string/button_back"
                 android:textSize="@dimen/button_back"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
         </LinearLayout>

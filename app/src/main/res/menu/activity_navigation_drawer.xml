@@ -8,7 +8,9 @@
         android:id="@+id/update_database"
         android:title="Aktualizuj bazę słów" />
 
-    <item android:title="Rozpocznij naukę">
+    <item
+        android:id="@+id/navigation_title_1"
+        android:title="Rozpocznij naukę">
         <menu>
             <item
                 android:id="@+id/words"
@@ -19,7 +21,9 @@
         </menu>
     </item>
 
-    <item android:title="Gramatyka">
+    <item
+        android:id="@+id/navigation_title_2"
+        android:title="Gramatyka">
         <menu>
             <item
                 android:id="@+id/tenses"
@@ -33,7 +37,9 @@
         </menu>
     </item>
 
-    <item android:title="Twoje fiszki">
+    <item
+        android:id="@+id/navigation_title_3"
+        android:title="Twoje fiszki">
         <menu>
             <item
                 android:id="@+id/download_your_words"
@@ -44,11 +50,13 @@
         </menu>
     </item>
 
-    <item android:title="Inne">
+    <item
+        android:id="@+id/navigation_title_4"
+        android:title="Inne">
         <menu>
             <item
-                android:id="@+id/about_app"
-                android:title="O aplikacji"
+                android:id="@+id/themes"
+                android:title="Zmień motyw"
                 android:checkable="false" />
         </menu>
     </item>

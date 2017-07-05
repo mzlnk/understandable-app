@@ -7,14 +7,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/BlueTheme"
         android:name="net.heliantum.understandable.App">
         <activity
             android:name="net.heliantum.understandable.activities.NavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-    android:label="@string/app_name"
-    android:theme="@style/AppTheme.NoActionBar" >
-    </activity>
+            android:label=""
+            android:theme="@style/BlueTheme" >
+        </activity>
 
         <activity
             android:name="net.heliantum.understandable.activities.StartActivity"

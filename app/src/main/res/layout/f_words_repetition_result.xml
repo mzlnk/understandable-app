@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.heliantum.understandable.fragments.repetition.WordsRepetitionResultFragment"
+    android:background="?attr/background_color"
     android:id="@+id/f_words_repetition_result" >
 
     <LinearLayout
@@ -20,7 +21,7 @@
             android:layout_weight="0.2"
             android:gravity="center"
             android:text="Koniec"
-            android:textColor="@color/default_black"
+            android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_words_repetition_result_title" />
 
         <TableLayout
@@ -42,7 +43,7 @@
                     android:gravity="center"
                     android:text="@string/number_0"
                     android:textStyle="bold"
-                    android:textColor="@color/default_gray"
+                    android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_words_repetition_result_words_seen_amount" />
 
                 <TextView
@@ -51,7 +52,7 @@
                     android:gravity="center"
                     android:text="@string/number_0"
                     android:textStyle="bold"
-                    android:textColor="@color/default_gray"
+                    android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_words_repetition_result_words_to_repeat_amount" />
 
             </TableRow>
@@ -68,7 +69,7 @@
                     android:layout_weight="0.5"
                     android:gravity="center"
                     android:text="@string/f_words_repetition_result_words_seen_info"
-                    android:textColor="@color/default_black"
+                    android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_words_repetition_result_words_seen_info" />
 
                 <TextView
@@ -76,7 +77,7 @@
                     android:layout_weight="0.5"
                     android:gravity="center"
                     android:text="@string/f_words_repetition_result_words_to_repeat"
-                    android:textColor="@color/default_black"
+                    android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_words_repetition_result_words_to_repeat_info" />
 
             </TableRow>
@@ -94,7 +95,7 @@
             android:layout_weight="0.15"
             android:gravity="center"
             android:text="@string/f_words_repetition_result_words_to_repeat_title"
-            android:textColor="@color/default_black"
+            android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_words_repetition_result_words_to_repeat_subtitle" />
 
 
@@ -112,10 +113,10 @@
                     android:id="@+id/f_words_repetition_result_view_words_to_repeat"
                     android:layout_width="@dimen/button_small_width"
                     android:layout_height="@dimen/button_small_height"
-                    android:background="@drawable/button_rounded_light_blue"
+                    android:background="@drawable/button_1"
                     android:text="@string/f_words_repetition_result_view_words_to_repeat"
                     android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?attr/text_button_color"
                     android:textSize="@dimen/button_show" />
 
             </TableRow>
@@ -134,8 +135,8 @@
                 android:text="@string/button_try_again"
                 android:textSize="@dimen/button_try_again"
                 android:textAllCaps="false"
-                android:textColor="@color/default_white"
-                android:background="@drawable/button_rounded_light_blue"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
                 android:clickable="true" />
 
         </LinearLayout>
