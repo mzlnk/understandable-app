@@ -1,64 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/navigation_group_1">
+        <item
+            android:id="@+id/navigation_words"
+            android:title="Słówka" />
+        <item
+            android:id="@+id/navigation_irregular_verbs"
+            android:title="Czasowniki nieregularne" />
+        <item
+            android:id="@+id/navigation_grammar"
+            android:title="Gramatyka" />
+    </group>
+
+    <group android:id="@+id/navigation_group_2" >
+        <item
+            android:id="@+id/navigation_download_your_cards"
+            android:title="Pobierz fiszki" />
+        <item
+            android:id="@+id/navigation_your_words"
+            android:title="Lista twoich fiszek" />
     </group>
 
     <item
-        android:id="@+id/update_database"
-        android:title="Aktualizuj bazę słów" />
-
-    <item
-        android:id="@+id/navigation_title_1"
-        android:title="Rozpocznij naukę">
-        <menu>
-            <item
-                android:id="@+id/words"
-                android:title="Słówka" />
-            <item
-                android:id="@+id/irregular_verbs"
-                android:title="Czasowniki nieregularne" />
-        </menu>
-    </item>
-
-    <item
-        android:id="@+id/navigation_title_2"
-        android:title="Gramatyka">
-        <menu>
-            <item
-                android:id="@+id/tenses"
-                android:title="Czasy" />
-            <item
-                android:id="@+id/reported_speech"
-                android:title="Mowa zależna" />
-            <item
-                android:id="@+id/passive_voice"
-                android:title="Strona bierna" />
-        </menu>
-    </item>
-
-    <item
-        android:id="@+id/navigation_title_3"
-        android:title="Twoje fiszki">
-        <menu>
-            <item
-                android:id="@+id/download_your_words"
-                android:title="Pobierz fiszki" />
-            <item
-                android:id="@+id/your_words"
-                android:title="Lista twoich fiszek" />
-        </menu>
-    </item>
-
-    <item
-        android:id="@+id/navigation_title_4"
-        android:title="Inne">
-        <menu>
-            <item
-                android:id="@+id/themes"
-                android:title="Zmień motyw"
-                android:checkable="false" />
-        </menu>
-    </item>
+        android:id="@+id/navigation_themes"
+        android:title="Zmień motyw"
+        android:checkable="false" />
 
 </menu>

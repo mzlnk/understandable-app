@@ -1,7 +1,6 @@
 package net.heliantum.understandable.fragments.repetition;
 
 
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.RepetitionData;
+import net.heliantum.understandable.utils.ColorUtil;
 
 import java.util.Random;
 
@@ -22,6 +21,8 @@ public class WordsRepetitionExampleFragment extends Fragment {
     public static final String POSITION_PARAM = "positionParam";
 
     private RepetitionData repetitionData;
+
+    private int word1Color, word2Color, hiddenWordColor;
 
     private LinearLayout wordLayout;
     private TextView word0, word1;
@@ -53,6 +54,7 @@ public class WordsRepetitionExampleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the wordLayout for this fragment
         View rootView = inflater.inflate(R.layout.f_words_repetition_example, container, false);
+        initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -92,8 +94,8 @@ public class WordsRepetitionExampleFragment extends Fragment {
                     setWordsEnglishToPolish();
                 }
         }
-        word0.setTextColor(Color.BLACK);
-        word1.setTextColor(Color.WHITE);
+        word0.setTextColor(word1Color);
+        word1.setTextColor(hiddenWordColor);
     }
 
     private void setWordsPolishToEnglish() {
@@ -110,10 +112,17 @@ public class WordsRepetitionExampleFragment extends Fragment {
         wordLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(word1.getCurrentTextColor() == Color.rgb(75, 71, 71)) word1.setTextColor(Color.WHITE);
-                else word1.setTextColor(Color.rgb(75, 71, 71));
+                if(word1.getCurrentTextColor() == hiddenWordColor) word1.setTextColor(word2Color);
+                else word1.setTextColor(hiddenWordColor);
             }
         });
+    }
+
+    private void initColors() {
+        ColorUtil colorUtil = new ColorUtil(getContext());
+        word1Color = colorUtil.getColor(R.attr.text_1_color);
+        word2Color = colorUtil.getColor(R.attr.text_2_color);
+        hiddenWordColor = colorUtil.getColor(R.attr.background_color);
     }
 
 }

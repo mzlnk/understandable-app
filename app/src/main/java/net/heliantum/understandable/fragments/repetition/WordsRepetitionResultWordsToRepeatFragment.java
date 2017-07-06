@@ -18,6 +18,7 @@ import android.widget.TextView;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.RepetitionData;
 import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -25,6 +26,8 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
 
     private RepetitionData repetitionData = RepetitionData.getRepetitionData();
+
+    private int list1Color, list2Color, textColor;
 
     private RelativeLayout mainLayout;
     private TextView title;
@@ -40,6 +43,7 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the mainLayout for this fragment
         View rootView =  inflater.inflate(R.layout.f_words_repetition_result_words_to_repeat, container, false);
+        initColors();
         loadViewFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -78,16 +82,18 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
             t1.setText(word.getPolishWord());
-            t1.setTextColor(Color.BLACK);
+            t1.setTextColor(textColor);
             t1.setTypeface(Font.TYPEFACE_MONTSERRAT);
-            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.35F));
+            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
             t2.setText(word.getEnglishWord());
-            t2.setTextColor(Color.BLACK);
+            t2.setTextColor(textColor);
             t2.setTypeface(Font.TYPEFACE_MONTSERRAT);
-            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.35F));
+            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
 
             if(color) {
-                row.setBackgroundColor(Color.rgb(224, 224, 244));
+                row.setBackgroundColor(list1Color);
+            } else {
+                row.setBackgroundColor(list2Color);
             }
             color = !color;
 
@@ -105,6 +111,13 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
+    }
+
+    private void initColors() {
+        ColorUtil colorUtil = new ColorUtil(getContext());
+        list1Color = colorUtil.getColor(R.attr.list_1_color);
+        list2Color = colorUtil.getColor(R.attr.list_2_color);
+        textColor = colorUtil.getColor(R.attr.text_1_color);
     }
 
 }

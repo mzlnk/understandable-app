@@ -104,15 +104,30 @@ public class ThemeButton extends BaseButton {
 
     private void refreshCurrentComponents() {
         Activity activity = (Activity) context;
-        activity.findViewById(R.id.toolbar).setBackgroundColor(getColor(R.attr.accent_color));
-        activity.findViewById(R.id.f_theme_choice_theme_names_layout).setBackgroundColor(getColor(R.attr.background_color));
-        activity.findViewById(R.id.nav_view).setBackgroundColor(getColor(R.attr.background_color));
-        ((NavigationView)activity.findViewById(R.id.nav_view)).setItemTextColor(ColorStateList.valueOf(getColor(R.attr.text_1_color)));
-        ((TextView)activity.findViewById(R.id.f_theme_choice_title)).setTextColor(getColor(R.attr.text_1_color));
-        ((TextView)activity.findViewById(R.id.f_theme_choice_title)).setBackgroundColor(getColor(R.attr.background_color));
+        changeBackgroundColor(activity, R.id.toolbar, R.attr.accent_color);
+        changeBackgroundColor(activity, R.id.f_theme_choice_theme_names_layout, R.attr.background_color);
+        changeBackgroundColor(activity, R.id.nav_view, R.attr.background_color);
+        changeBackgroundColor(activity, R.id.f_theme_choice_title, R.attr.background_color);
+        changeTextColor(activity, R.id.f_theme_choice_title, R.attr.text_1_color);
+        changeComponentsInNavigationDrawer(activity);
         for(ThemeButton themeButton : allThemes) {
             themeButton.updateTextColor();
         }
+    }
+
+    private void changeBackgroundColor(Activity activity, int id, int attrColor) {
+        activity.findViewById(id).setBackgroundColor(getColor(attrColor));
+    }
+
+    private void changeTextColor(Activity activity, int id, int attrColor) {
+        ((TextView)activity.findViewById(id)).setTextColor(getColor(attrColor));
+    }
+
+    private void changeComponentsInNavigationDrawer(Activity activity) {
+        NavigationView navigationView = (NavigationView)activity.findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        navigationView.setItemTextColor(ColorStateList.valueOf(getColor(R.attr.text_1_color)));
+        headerView.findViewById(R.id.nav_header_view).setBackgroundColor(getColor(R.attr.accent_color));
     }
 
 }

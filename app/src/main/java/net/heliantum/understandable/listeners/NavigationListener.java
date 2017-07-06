@@ -35,29 +35,23 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id == R.id.words) {
+        if(id == R.id.navigation_words) {
             WordsChoiceCategoryFragment fragment = new WordsChoiceCategoryFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }
-        else if(id == R.id.irregular_verbs) {
+        else if(id == R.id.navigation_irregular_verbs) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
-        else if(id == R.id.tenses) {
+        else if(id == R.id.navigation_grammar) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
-        else if(id == R.id.reported_speech) {
+        else if(id == R.id.navigation_download_your_cards) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
-        else if(id == R.id.passive_voice) {
+        else if(id == R.id.navigation_your_words) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
-        else if(id == R.id.download_your_words) {
-            Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
-        }
-        else if(id == R.id.your_words) {
-            Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
-        }
-        else if(id == R.id.themes) {
+        else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
         }
