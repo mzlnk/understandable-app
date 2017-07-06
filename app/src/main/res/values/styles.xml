@@ -29,7 +29,7 @@
         <item name="button_1_color">@color/gray</item>
         <item name="button_2_color">@color/light_gray</item>
         <item name="button_quiz_option_color">@color/gray</item>
-        <item name="button_choice_background_color">@color/white</item>
+        <item name="button_choice_background_color">@color/light_gray</item>
         <item name="button_choice_symbol_color">@color/dark_gray</item>
         <item name="list_1_color">@color/gray</item>
         <item name="list_2_color">@color/light_gray</item>

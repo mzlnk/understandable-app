@@ -7,241 +7,129 @@
         android:pathData="M2.957,0L21.043,0A2.957,2.957 0,0 1,24 2.957L24,21.043A2.957,2.957 0,0 1,21.043 24L2.957,24A2.957,2.957 0,0 1,0 21.043L0,2.957A2.957,2.957 0,0 1,2.957 0z"
         android:strokeLineCap="square"
         android:fillAlpha="1"
-        android:strokeColor="#224277"
-        android:fillColor="#224277"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_background_color"
         android:strokeWidth="0"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m8.384,11.056 l1.929,1.999"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m8.814,10.072 l2.545,2.604"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m9.382,9.276 l2.948,2.932"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m10.163,8.651 l2.771,2.764"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m11.082,8.215 l2.256,2.227"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m12.303,8.157 l1.053,1.077"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m13.645,6.797 l1.211,1.234"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m13.761,5.745 l1.931,1.894"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m14.134,4.864 l2.469,2.323"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m7.506,13.086 l1.215,1.185"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m6.463,13.479 l1.969,1.848"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m5.673,14.105 l2.408,2.251"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="0.5"
+        android:strokeWidth="0.4"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m3.829,15.293c1.901,-1.906 3.316,-2.552 4.878,-2.396 1.415,0.141 2.683,0.228 3.835,-0.943 1.018,-1.035 0.939,-2.249 0.937,-3.833 -0.003,-1.858 0.067,-3.22 1.811,-4.964"
         android:strokeLineCap="round"
-        android:strokeColor="#e94a19"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="1.20000005"
+        android:strokeWidth="0.8"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m6.989,17.72c1.653,-1.657 2.27,-3.514 1.7,-4.645 -0.577,-1.144 -0.521,-2.582 0.91,-4.015 1.268,-1.27 2.658,-0.937 4.163,-0.971 1.703,-0.039 2.984,-0.842 4.478,-2.362"
         android:strokeLineCap="round"
-        android:strokeColor="#e94a19"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
-        android:strokeWidth="1.20000005"
-        android:strokeLineJoin="round"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-19.929,2.306 l1.692,1.972"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-19.475,1.41 l2.234,2.571"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-18.9,0.698 l2.592,2.899"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-18.137,0.158 l2.436,2.733"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-17.255,-0.2 l1.985,2.203"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-16.112,-0.187 l0.925,1.064"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-14.784,-1.383 l1.063,1.218"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-14.618,-2.359 l1.7,1.874"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-14.222,-3.161 l2.178,2.304"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-20.861,4.153 l1.07,1.173"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-21.856,4.463 l1.738,1.833"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-22.628,5.004 l2.125,2.234"
-        android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
-        android:strokeWidth="0.5"
-        android:strokeLineJoin="miter"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-24.415,6.013c1.879,-1.676 3.236,-2.201 4.686,-1.971 1.314,0.209 2.493,0.36 3.633,-0.671 1.008,-0.911 1,-2.049 1.085,-3.528 0.099,-1.735 0.239,-3.003 1.963,-4.537"
-        android:strokeLineCap="round"
-        android:strokeColor="#cfdc03"
-        android:fillColor="#00000000"
-        android:strokeWidth="1.20000005"
-        android:strokeLineJoin="round"
-        android:strokeAlpha="1"/>
-    <path
-        android:pathData="m-21.597,8.453c1.635,-1.457 2.312,-3.157 1.842,-4.245 -0.476,-1.1 -0.345,-2.44 1.069,-3.699 1.254,-1.116 2.533,-0.73 3.941,-0.679 1.592,0.057 2.833,-0.623 4.311,-1.96"
-        android:strokeLineCap="round"
-        android:strokeColor="#cfdc03"
-        android:fillColor="#00000000"
-        android:strokeWidth="1.20000005"
+        android:strokeWidth="0.8"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m18.122,14.937c0,0 2.133,6.079 1.707,6.078 -3.754,-0.018 -2.145,-0.021 -5.899,-0.025 -0.427,0.001 2.067,-6.078 2.067,-6.078l0,-3.903 -0.432,0c0.866,-0.002 2.164,-0.004 3.03,-0.005l-0.473,-0.004z"
         android:strokeLineCap="round"
         android:fillAlpha="1"
-        android:strokeColor="#caeaf8"
-        android:fillColor="#caeaf8"
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_background_color"
         android:strokeWidth="0.60022813"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
@@ -249,8 +137,8 @@
         android:pathData="m18.442,15.866c0.578,1.702 1.708,5.15 1.387,5.149 -3.754,-0.018 -2.145,-0.021 -5.899,-0.025 -0.319,0 0.995,-3.398 1.678,-5.113 0.626,0.439 0.903,0.135 1.347,0.351 0.667,0.324 0.967,-0.115 1.487,-0.362z"
         android:strokeLineCap="round"
         android:fillAlpha="1"
-        android:strokeColor="#caeaf8"
-        android:fillColor="#17b587"
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"
         android:strokeWidth="0.60000002"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>

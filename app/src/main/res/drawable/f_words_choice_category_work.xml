@@ -7,8 +7,8 @@
         android:pathData="M2.957,0L21.043,0A2.957,2.957 0,0 1,24 2.957L24,21.043A2.957,2.957 0,0 1,21.043 24L2.957,24A2.957,2.957 0,0 1,0 21.043L0,2.957A2.957,2.957 0,0 1,2.957 0z"
         android:strokeLineCap="square"
         android:fillAlpha="1"
-        android:strokeColor="#224277"
-        android:fillColor="#224277"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_background_color"
         android:strokeWidth="0"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
@@ -17,14 +17,14 @@
         android:strokeLineCap="round"
         android:fillAlpha="1"
         android:strokeColor="#00000000"
-        android:fillColor="#4a3224"
+        android:fillColor="?attr/button_choice_symbol_color"
         android:strokeWidth="0"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m9.743,9.162 l0,-1.61 4.514,0 0,1.705"
         android:strokeLineCap="butt"
-        android:strokeColor="#232323"
+        android:strokeColor="?attr/button_choice_symbol_color"
         android:fillColor="#00000000"
         android:strokeWidth="1"
         android:strokeLineJoin="round"
@@ -33,18 +33,18 @@
         android:pathData="M6.742,8.862L17.258,8.862A0.708,0.708 0,0 1,17.966 9.57L17.966,12.36A0.708,0.708 0,0 1,17.258 13.068L6.742,13.068A0.708,0.708 0,0 1,6.034 12.36L6.034,9.57A0.708,0.708 0,0 1,6.742 8.862z"
         android:strokeLineCap="round"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#6b452a"
-        android:strokeWidth="0"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_symbol_color"
+        android:strokeWidth="0.271"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
     <path
         android:pathData="M11.357,12.335L12.559,12.335A0.186,0.186 0,0 1,12.746 12.521L12.746,13.704A0.186,0.186 0,0 1,12.559 13.89L11.357,13.89A0.186,0.186 0,0 1,11.17 13.704L11.17,12.521A0.186,0.186 0,0 1,11.357 12.335z"
         android:strokeLineCap="round"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#f5f2e5"
-        android:strokeWidth="0"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_symbol_color"
+        android:strokeWidth="0.271"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
 </vector>
