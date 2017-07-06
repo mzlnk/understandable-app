@@ -1,5 +1,7 @@
 package net.heliantum.understandable.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -12,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import net.heliantum.understandable.R;
+import net.heliantum.understandable.data.enums.ThemeType;
 import net.heliantum.understandable.listeners.NavigationListener;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -19,11 +22,11 @@ public class NavigationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme();
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.rgb(32, 32, 32));
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -61,6 +64,14 @@ public class NavigationActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setTheme() {
+        String sharedPrefFileName = getString(R.string.sp_preferences_file_key);
+        String sharedPrefThemeKey = getString(R.string.sp_theme_key);
+        SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefFileName, Context.MODE_PRIVATE);
+        int themeId = sharedPreferences.getInt(sharedPrefThemeKey, ThemeType.THEME_3.getThemeId());
+        setTheme(themeId);
     }
 
 }

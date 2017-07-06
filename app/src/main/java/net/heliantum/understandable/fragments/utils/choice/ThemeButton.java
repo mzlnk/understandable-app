@@ -2,16 +2,14 @@ package net.heliantum.understandable.fragments.utils.choice;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.content.res.Resources;
-import android.support.annotation.ColorInt;
 import android.support.design.widget.NavigationView;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.support.v7.widget.Toolbar;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.enums.ThemeType;
@@ -67,6 +65,7 @@ public class ThemeButton extends BaseButton {
                     image.setImageAlpha(ITEM_CHOSEN);
                     context.setTheme(theme.getThemeId());
                     refreshCurrentComponents();
+                    setCurrentThemeInSharedPreferences(theme.getThemeId());
                     for(ThemeButton t : allThemes) {
                         if(t.getTheme().equals(theme)) {
                             continue;
@@ -128,6 +127,15 @@ public class ThemeButton extends BaseButton {
         View headerView = navigationView.getHeaderView(0);
         navigationView.setItemTextColor(ColorStateList.valueOf(getColor(R.attr.text_1_color)));
         headerView.findViewById(R.id.nav_header_view).setBackgroundColor(getColor(R.attr.accent_color));
+    }
+
+    private void setCurrentThemeInSharedPreferences(int themeId) {
+        String sharedPrefFileName = context.getResources().getString(R.string.sp_preferences_file_key);
+        String sharedPrefThemeKey = context.getResources().getString(R.string.sp_theme_key);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(sharedPrefFileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(sharedPrefThemeKey, themeId);
+        editor.commit();
     }
 
 }

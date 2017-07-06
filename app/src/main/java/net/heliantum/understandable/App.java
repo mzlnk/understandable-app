@@ -1,9 +1,12 @@
 package net.heliantum.understandable;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import net.heliantum.understandable.corrupted.BaseDBHandler;
+import net.heliantum.understandable.data.enums.ThemeType;
 import net.heliantum.understandable.database.repository.IrregularVerbEntityRepository;
 import net.heliantum.understandable.database.repository.LanguageEntityRepository;
 import net.heliantum.understandable.utils.font.Font;
@@ -44,16 +47,5 @@ public class App extends Application {
         int n = LanguageEntityRepository.getAllEntities().size();
         Log.d(DEBUG_TAG, "Loaded: " + n + " entities");
     }
-
-    /* todo: remove it
-    private void loadScreenUtil() {
-        WindowManager windowManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
-        Display display = windowManager.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        ScreenUtil.init(size.x, size.y);
-        System.out.println("Width: " + ScreenUtil.getScreen().width + ", Height: " + ScreenUtil.getScreen().height);
-    }
-    */
 
 }
