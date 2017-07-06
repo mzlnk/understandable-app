@@ -7,14 +7,14 @@
         android:pathData="M2.957,0L21.043,0A2.957,2.957 0,0 1,24 2.957L24,21.043A2.957,2.957 0,0 1,21.043 24L2.957,24A2.957,2.957 0,0 1,0 21.043L0,2.957A2.957,2.957 0,0 1,2.957 0z"
         android:strokeLineCap="square"
         android:fillAlpha="1"
-        android:strokeColor="#224277"
-        android:fillColor="#224277"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_background_color"
         android:strokeWidth="0"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m8.286,12 l0,4.863 0.613,0 0.613,0 0.007,-4.331 0.012,-4.335 2.278,4.323 2.278,4.323 0.816,0.012 0.812,0.007 0,-4.863 0,-4.863 -0.613,0 -0.613,0 -0.007,3.952 -0.012,3.956 -2.083,-3.956 -2.083,-3.952 -1.007,0 -1.011,0 0,4.863z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"/>
 </vector>

@@ -29,6 +29,8 @@
         <item name="button_1_color">@color/gray</item>
         <item name="button_2_color">@color/light_gray</item>
         <item name="button_quiz_option_color">@color/gray</item>
+        <item name="button_choice_background_color">@color/white</item>
+        <item name="button_choice_symbol_color">@color/dark_gray</item>
         <item name="list_1_color">@color/gray</item>
         <item name="list_2_color">@color/light_gray</item>
         <item name="accent_color">@color/black</item>
@@ -43,6 +45,8 @@
         <item name="button_1_color">@color/blue</item>
         <item name="button_2_color">@color/light_blue</item>
         <item name="button_quiz_option_color">@color/light_light_gray</item>
+        <item name="button_choice_background_color">@color/dark_blue</item>
+        <item name="button_choice_symbol_color">@color/white</item>
         <item name="list_1_color">@color/blue</item>
         <item name="list_2_color">@color/light_blue</item>
         <item name="accent_color">@color/dark_blue</item>
@@ -57,6 +61,8 @@
         <item name="button_1_color">@color/green</item>
         <item name="button_2_color">@color/light_green</item>
         <item name="button_quiz_option_color">@color/light_light_gray</item>
+        <item name="button_choice_background_color">@color/dark_green</item>
+        <item name="button_choice_symbol_color">@color/white</item>
         <item name="list_1_color">@color/green</item>
         <item name="list_2_color">@color/light_green</item>
         <item name="accent_color">@color/dark_green</item>
@@ -71,6 +77,8 @@
         <item name="button_1_color">@color/orange</item>
         <item name="button_2_color">@color/light_orange</item>
         <item name="button_quiz_option_color">@color/light_light_gray</item>
+        <item name="button_choice_background_color">@color/dark_orange</item>
+        <item name="button_choice_symbol_color">@color/white</item>
         <item name="list_1_color">@color/orange</item>
         <item name="list_2_color">@color/light_orange</item>
         <item name="accent_color">@color/dark_orange</item>
@@ -86,6 +94,8 @@
         <item name="button_1_color">@color/red</item>
         <item name="button_2_color">@color/light_red</item>
         <item name="button_quiz_option_color">@color/light_light_gray</item>
+        <item name="button_choice_background_color">@color/dark_red</item>
+        <item name="button_choice_symbol_color">@color/white</item>
         <item name="list_1_color">@color/red</item>
         <item name="list_2_color">@color/light_red</item>
         <item name="accent_color">@color/dark_red</item>
@@ -100,6 +110,8 @@
         <item name="button_1_color">@color/gray</item>
         <item name="button_2_color">@color/light_gray</item>
         <item name="button_quiz_option_color">@color/light_light_gray</item>
+        <item name="button_choice_background_color">@color/dark_gray</item>
+        <item name="button_choice_symbol_color">@color/white</item>
         <item name="list_1_color">@color/gray</item>
         <item name="list_2_color">@color/light_gray</item>
         <item name="accent_color">@color/dark_gray</item>

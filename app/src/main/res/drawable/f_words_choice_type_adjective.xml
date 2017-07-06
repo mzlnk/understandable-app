@@ -7,29 +7,29 @@
         android:pathData="M2.957,0L21.043,0A2.957,2.957 0,0 1,24 2.957L24,21.043A2.957,2.957 0,0 1,21.043 24L2.957,24A2.957,2.957 0,0 1,0 21.043L0,2.957A2.957,2.957 0,0 1,2.957 0z"
         android:strokeLineCap="square"
         android:fillAlpha="1"
-        android:strokeColor="#224277"
-        android:fillColor="#224277"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_background_color"
         android:strokeWidth="0"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m15.359,9.031c0,0.644 -0.011,1.177 -0.022,1.177 -0.011,0 -0.196,-0.067 -0.403,-0.146 -0.23,-0.09 -0.555,-0.157 -0.807,-0.174 -1.653,-0.118 -2.768,1.227 -2.672,3.205 0.045,0.868 0.258,1.501 0.667,1.966 0.712,0.807 2.05,0.84 3.02,0.073l0.218,-0.174 0,0.286 0,0.286 0.476,0 0.476,0 0,-3.838 0,-3.838 -0.476,0 -0.476,0 0,1.177zM14.72,10.795c0.19,0.045 0.409,0.112 0.493,0.146l0.146,0.067 0,1.585 0,1.585 -0.162,0.118c-0.308,0.218 -0.896,0.454 -1.199,0.487 -0.706,0.073 -1.199,-0.218 -1.44,-0.852 -0.112,-0.291 -0.134,-0.437 -0.134,-1.092 0,-0.667 0.017,-0.796 0.129,-1.092 0.342,-0.857 1.126,-1.199 2.168,-0.952z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"/>
     <path
         android:pathData="M6.781,8.342C6.68,8.61 4.372,14.924 4.26,15.238l-0.101,0.297 0.51,-0.017 0.504,-0.017 0.347,-0.98 0.347,-0.98 1.619,0 1.619,0 0.347,0.98 0.342,0.98 0.51,0.017 0.515,0.017 -0.168,-0.465c-0.095,-0.258 -0.695,-1.899 -1.333,-3.658l-1.171,-3.193 -0.65,-0.017 -0.655,-0.017 -0.062,0.157zM8.154,10.885 L8.787,12.644 8.154,12.661c-0.347,0.006 -0.936,0.006 -1.3,0l-0.667,-0.017 0.409,-1.149c0.751,-2.079 0.874,-2.415 0.902,-2.392 0.011,0.011 0.308,0.818 0.655,1.782z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"/>
     <path
         android:pathData="m18.776,8.667 l0,0.476 0.532,0 0.532,0 0,-0.476 0,-0.476 -0.532,0 -0.532,0 0,0.476z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"/>
     <path
         android:pathData="m17.712,10.431 l0,0.392 0.56,0 0.566,0 -0.017,2.616c-0.017,2.493 -0.022,2.633 -0.129,2.84 -0.062,0.123 -0.179,0.269 -0.258,0.325 -0.258,0.19 -0.796,0.196 -1.406,0.011 -0.09,-0.028 -0.101,0.017 -0.101,0.42l0,0.448 0.269,0.045c0.146,0.022 0.504,0.045 0.796,0.045 0.471,0 0.571,-0.017 0.852,-0.157 0.37,-0.185 0.667,-0.499 0.812,-0.874 0.09,-0.235 0.101,-0.543 0.118,-3.384l0.017,-3.121 -1.042,0 -1.036,0 0,0.392z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"/>
 </vector>

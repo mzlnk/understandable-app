@@ -9,6 +9,8 @@
         <attr name="button_1_color" format="color"/>
         <attr name="button_2_color" format="color"/>
         <attr name="button_quiz_option_color" format="color"/>
+        <attr name="button_choice_background_color" format="color" />
+        <attr name="button_choice_symbol_color" format="color" />
         <attr name="list_1_color" format="color"/>
         <attr name="list_2_color" format="color"/>
         <attr name="accent_color" format="color"/>

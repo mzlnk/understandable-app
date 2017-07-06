@@ -7,48 +7,48 @@
         android:pathData="M2.989,-0.031L21.074,-0.031A2.957,2.957 0,0 1,24.031 2.926L24.031,21.011A2.957,2.957 0,0 1,21.074 23.969L2.989,23.969A2.957,2.957 0,0 1,0.031 21.011L0.031,2.926A2.957,2.957 0,0 1,2.989 -0.031z"
         android:strokeLineCap="square"
         android:fillAlpha="1"
-        android:strokeColor="#224277"
-        android:fillColor="#224277"
+        android:strokeColor="?attr/button_choice_background_color"
+        android:fillColor="?attr/button_choice_background_color"
         android:strokeWidth="0"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m10.1,8.545 l7.349,0"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"
         android:strokeWidth="1.5"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m10.1,12.035 l7.349,0"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"
         android:strokeWidth="1.5"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m10.1,15.455 l7.349,0"
         android:strokeLineCap="round"
-        android:strokeColor="#ffffff"
-        android:fillColor="#00000000"
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"
         android:strokeWidth="1.5"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
         android:pathData="m6.987,7.326c-0.006,0.018 -0.195,0.532 -0.421,1.144 -0.225,0.611 -0.427,1.161 -0.448,1.219l-0.039,0.106 0.325,0 0.323,0 0.086,-0.252 0.086,-0.252 0.459,0 0.459,0 0.085,0.252 0.086,0.252 0.336,0 0.336,0 -0.039,-0.107c-0.022,-0.057 -0.212,-0.578 -0.425,-1.155 -0.212,-0.577 -0.401,-1.092 -0.421,-1.144l-0.034,-0.094 -0.37,0 -0.37,0 -0.011,0.031zM7.471,8.283c0.06,0.173 0.126,0.367 0.149,0.431l0.04,0.118 -0.303,0 -0.303,0 0.136,-0.399c0.164,-0.481 0.162,-0.475 0.167,-0.469 0.003,0.002 0.054,0.146 0.112,0.319z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color"/>
     <path
         android:pathData="m6.303,12.035 l0,1.25 0.608,0c0.343,0 0.657,-0.006 0.72,-0.011 0.358,-0.039 0.617,-0.195 0.737,-0.445 0.097,-0.202 0.087,-0.472 -0.025,-0.647 -0.072,-0.112 -0.231,-0.218 -0.375,-0.251 -0.033,-0.008 -0.06,-0.017 -0.06,-0.021 0,-0.003 0.03,-0.022 0.067,-0.041 0.08,-0.042 0.192,-0.153 0.234,-0.231 0.039,-0.071 0.067,-0.183 0.067,-0.271 0,-0.218 -0.104,-0.386 -0.3,-0.479 -0.197,-0.094 -0.292,-0.103 -1.078,-0.103l-0.594,0 0,1.25zM7.451,11.266c0.102,0.032 0.159,0.104 0.169,0.212 0.01,0.127 -0.044,0.217 -0.156,0.26 -0.057,0.022 -0.095,0.025 -0.291,0.031l-0.227,0.006 0,-0.267 0,-0.266 0.233,0.006c0.127,0.002 0.25,0.01 0.273,0.018zM7.496,12.22c0.151,0.024 0.231,0.079 0.26,0.181 0.039,0.135 -0.002,0.282 -0.097,0.345 -0.097,0.064 -0.142,0.072 -0.44,0.078l-0.273,0.005 0,-0.311 0,-0.311 0.239,0c0.131,0 0.271,0.006 0.312,0.013z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color" />
     <path
         android:pathData="m7.357,14.212c-0.545,0.075 -0.892,0.4 -1.004,0.94 -0.032,0.151 -0.029,0.486 0.006,0.644 0.089,0.418 0.34,0.712 0.709,0.835 0.187,0.062 0.266,0.074 0.509,0.074 0.19,0 0.236,-0.003 0.334,-0.025 0.131,-0.03 0.293,-0.084 0.414,-0.139l0.084,-0.039 0,-0.286 0,-0.287 -0.031,0c-0.021,0 -0.054,0.018 -0.101,0.056 -0.152,0.122 -0.27,0.188 -0.407,0.231 -0.098,0.031 -0.296,0.036 -0.396,0.011 -0.24,-0.058 -0.413,-0.239 -0.48,-0.502 -0.031,-0.117 -0.028,-0.429 0.004,-0.548 0.074,-0.27 0.251,-0.446 0.5,-0.497 0.252,-0.052 0.492,0.024 0.763,0.24 0.058,0.046 0.086,0.062 0.113,0.062l0.035,0 0,-0.292 0,-0.292 -0.074,-0.034c-0.116,-0.053 -0.317,-0.117 -0.433,-0.137 -0.124,-0.021 -0.437,-0.031 -0.544,-0.015z"
         android:fillAlpha="1"
-        android:strokeColor="#00000000"
-        android:fillColor="#ffffff"/>
+        android:strokeColor="?attr/button_choice_symbol_color"
+        android:fillColor="?attr/button_choice_symbol_color" />
 </vector>
