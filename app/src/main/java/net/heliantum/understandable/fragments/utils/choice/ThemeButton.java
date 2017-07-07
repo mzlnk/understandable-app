@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +16,8 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.enums.ThemeType;
+import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
+import net.heliantum.understandable.utils.FragmentUtil;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -78,8 +83,8 @@ public class ThemeButton extends BaseButton {
     }
 
     private void setSize() {
-        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_mode_icon_size);
-        int textSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_mode_icon_text);
+        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_theme_choice_icon_size);
+        int textSize = (int) super.context.getResources().getDimension(R.dimen.f_theme_choice_icon_text);
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
         super.image.setLayoutParams(layoutParams);
         super.text.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
@@ -104,29 +109,22 @@ public class ThemeButton extends BaseButton {
     private void refreshCurrentComponents() {
         Activity activity = (Activity) context;
         changeBackgroundColor(activity, R.id.toolbar, R.attr.accent_color);
-        changeBackgroundColor(activity, R.id.f_theme_choice_theme_names_layout, R.attr.background_color);
         changeBackgroundColor(activity, R.id.nav_view, R.attr.background_color);
-        changeBackgroundColor(activity, R.id.f_theme_choice_title, R.attr.background_color);
-        changeTextColor(activity, R.id.f_theme_choice_title, R.attr.text_1_color);
+        changeBackgroundColor(activity, R.id.layout_for_fragments, R.attr.background_color);
+        ThemeChoiceFragment newFragment = new ThemeChoiceFragment();
+        ((AppCompatActivity)activity).getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, newFragment).commit();
         changeComponentsInNavigationDrawer(activity);
-        for(ThemeButton themeButton : allThemes) {
-            themeButton.updateTextColor();
-        }
     }
 
     private void changeBackgroundColor(Activity activity, int id, int attrColor) {
-        activity.findViewById(id).setBackgroundColor(getColor(attrColor));
-    }
-
-    private void changeTextColor(Activity activity, int id, int attrColor) {
-        ((TextView)activity.findViewById(id)).setTextColor(getColor(attrColor));
+        activity.findViewById(id).setBackgroundColor(colorUtil.getColor(attrColor));
     }
 
     private void changeComponentsInNavigationDrawer(Activity activity) {
         NavigationView navigationView = (NavigationView)activity.findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        navigationView.setItemTextColor(ColorStateList.valueOf(getColor(R.attr.text_1_color)));
-        headerView.findViewById(R.id.nav_header_view).setBackgroundColor(getColor(R.attr.accent_color));
+        navigationView.setItemTextColor(ColorStateList.valueOf(colorUtil.getColor(R.attr.text_1_color)));
+        headerView.findViewById(R.id.nav_header_view).setBackgroundColor(colorUtil.getColor(R.attr.accent_color));
     }
 
     private void setCurrentThemeInSharedPreferences(int themeId) {

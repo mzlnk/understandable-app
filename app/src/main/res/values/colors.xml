@@ -22,12 +22,12 @@
     <color name="light_light_red">#f7bfb5</color>
     <color name="light_red">#ff785d</color>
     <color name="red">#ea472a</color>
-    <color name="dark_red">#ba432e</color>
+    <color name="dark_red">#cf4229</color>
     <color name="yellow">#fff475</color>
     <color name="light_light_orange">#ffe8af</color>
     <color name="light_orange">#FFC125</color>
     <color name="orange">#FFA500</color>
-    <color name="dark_orange">#dc8e00</color>
+    <color name="dark_orange">#f9a40d</color>
 
 
 </resources>

@@ -73,5 +73,8 @@
     <dimen name="f_words_choice_way_icon_size">70dp</dimen>
     <dimen name="f_words_choice_way_icon_text">2.5sp</dimen>
 
+    <dimen name="f_theme_choice_icon_size">70dp</dimen>
+    <dimen name="f_theme_choice_icon_text">2.5sp</dimen>
+
 
 </resources>

@@ -82,7 +82,7 @@ public class ThemeChoiceFragment extends Fragment {
         for (ThemeButton theme : themes) {
             currentImageRow.addView(theme.getImage());
             currentTextRow.addView(theme.getText());
-            if (x == 3) {
+            if (x == 2) {
                 themesLayout.addView(currentImageRow);
                 themesLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());

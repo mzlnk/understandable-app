@@ -11,6 +11,7 @@ import android.widget.TextView;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.DataParams;
 import net.heliantum.understandable.data.enums.Identifiable;
+import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 /**
@@ -20,7 +21,9 @@ import net.heliantum.understandable.utils.font.Font;
 public abstract class BaseButton {
 
     protected static final int ITEM_CHOSEN = 255;
-    protected static final int ITEM_NOT_CHOSEN = 150;
+    protected static final int ITEM_NOT_CHOSEN = 110;
+
+    protected ColorUtil colorUtil;
 
     protected Context context;
     protected ImageView image;
@@ -35,6 +38,7 @@ public abstract class BaseButton {
         this.image = new ImageView(context);
         this.text = new TextView(context);
         this.enumType = enumType;
+        this.colorUtil = new ColorUtil(context);
     }
 
     public ImageView getImage() {
@@ -43,10 +47,6 @@ public abstract class BaseButton {
 
     public TextView getText() {
         return text;
-    }
-
-    public void updateTextColor() {
-        setTextColor();
     }
 
     protected void prepare() {
@@ -69,15 +69,7 @@ public abstract class BaseButton {
     }
 
     private void setTextColor() {
-        text.setTextColor(getColor(R.attr.text_1_color));
-    }
-
-    protected int getColor(int attrResId) {
-        TypedValue typedValue = new TypedValue();
-        Resources.Theme theme = context.getTheme();
-        theme.resolveAttribute(attrResId, typedValue, true);
-        @ColorInt int color = typedValue.data;
-        return color;
+        text.setTextColor(colorUtil.getColor(R.attr.text_1_color));
     }
 
     protected abstract void setChoiceState();
