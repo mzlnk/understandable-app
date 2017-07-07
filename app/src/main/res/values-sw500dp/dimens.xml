@@ -61,6 +61,8 @@
 
     <dimen name="f_words_repetition_result_words_to_repeat_title">32sp</dimen>
 
+    <dimen name="f_start_title">31sp</dimen>
+
     <!-- *************************************************************************************** -->
 
     <dimen name="f_content_start_screen_icon">160dp</dimen>

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,11 +16,16 @@ import android.view.MenuItem;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.enums.ThemeType;
+import net.heliantum.understandable.fragments.start.StartFragment;
+import net.heliantum.understandable.listeners.BackButtonListener;
 import net.heliantum.understandable.listeners.NavigationListener;
+import net.heliantum.understandable.utils.FragmentUtil;
 
 public class NavigationActivity extends AppCompatActivity {
 
     public static NavigationActivity activity;
+
+    public DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +37,16 @@ public class NavigationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(Color.rgb(32, 32, 32));
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationListener(this));
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment(), FragmentUtil.F_START).commit();
     }
 
     @Override
@@ -49,6 +58,7 @@ public class NavigationActivity extends AppCompatActivity {
             super.onBackPressed();
         }*/
         //super.onBackPressed();
+        new BackButtonListener(getSupportFragmentManager()).onBackPressed();
     }
 
     @Override

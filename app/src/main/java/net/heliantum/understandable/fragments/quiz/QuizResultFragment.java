@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.QuizData;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 /**
@@ -102,7 +103,7 @@ public class QuizResultFragment extends Fragment {
             public void onClick(View view) {
                 QuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new QuizFragment()).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new QuizFragment(), FragmentUtil.F_QUIZ).commit();
             }
         });
 
@@ -110,7 +111,7 @@ public class QuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new QuizResultCorrectWordsSummaryFragment());
+                transaction.replace(R.id.layout_for_fragments, new QuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_QUIZ_RESULT_CORRECT_WORDS_SUMMARY);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -120,7 +121,7 @@ public class QuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new QuizResultCorrectWordsSummaryFragment());
+                transaction.replace(R.id.layout_for_fragments, new QuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

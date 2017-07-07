@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.RepetitionData;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 public class WordsRepetitionResultFragment extends Fragment {
@@ -86,7 +87,7 @@ public class WordsRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 WordsRepetitionResultWordsToRepeatFragment fragment = new WordsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_WORDS_REPETITION_RESULT_WORDS_TO_REPEAT);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -98,7 +99,7 @@ public class WordsRepetitionResultFragment extends Fragment {
                 repetitionData.resetStats();
                 WordsRepetitionFragment wordsRepetitionFragment = new WordsRepetitionFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, FragmentUtil.F_WORDS_REPETITION).commit();
             }
         });
     }

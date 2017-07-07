@@ -19,6 +19,7 @@ import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.DataParams;
 import net.heliantum.understandable.data.enums.LanguageType;
 import net.heliantum.understandable.fragments.utils.choice.TypeButton;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 import java.util.ArrayList;
@@ -136,7 +137,7 @@ public class WordsChoiceTypeFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, FragmentUtil.F_WORDS_CHOICE_CATEGORY).commit();
             }
         });
 
@@ -146,7 +147,7 @@ public class WordsChoiceTypeFragment extends Fragment {
                 if(dataParams.types.size() > 0) {
                     WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, FragmentUtil.F_WORDS_CHOICE_WAY).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }

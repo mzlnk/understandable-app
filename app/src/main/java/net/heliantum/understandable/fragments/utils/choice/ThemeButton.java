@@ -112,7 +112,7 @@ public class ThemeButton extends BaseButton {
         changeBackgroundColor(activity, R.id.nav_view, R.attr.background_color);
         changeBackgroundColor(activity, R.id.layout_for_fragments, R.attr.background_color);
         ThemeChoiceFragment newFragment = new ThemeChoiceFragment();
-        ((AppCompatActivity)activity).getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, newFragment).commit();
+        ((AppCompatActivity)activity).getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, newFragment, FragmentUtil.F_THEME_CHOICE).commit();
         changeComponentsInNavigationDrawer(activity);
     }
 

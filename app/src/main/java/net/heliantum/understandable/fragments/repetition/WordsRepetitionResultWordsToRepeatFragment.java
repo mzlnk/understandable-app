@@ -78,6 +78,7 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
         boolean color = true;
 
         for(LanguageEntity word : repetitionData.wordsToRepeat) {
+            //todo: add setSize method & values in dimens.xml
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());

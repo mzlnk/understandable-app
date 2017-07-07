@@ -24,6 +24,7 @@ import net.heliantum.understandable.fragments.error.NoWordsErrorFragment;
 import net.heliantum.understandable.fragments.quiz.QuizFragment;
 import net.heliantum.understandable.fragments.list.WordsListFragment;
 import net.heliantum.understandable.fragments.repetition.WordsRepetitionFragment;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 /**
@@ -140,7 +141,7 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceModeFragment modeFragment = WordsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_WORDS_CHOICE_MODE).commit();
             }
         });
 
@@ -153,24 +154,24 @@ public class WordsChoiceLengthFragment extends Fragment {
                     switch (dataParams.mode) {
                         case REPETITION:
                             RepetitionData.createRepetitionDataFromParams(dataParams);
-                            transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
+                            transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment(), FragmentUtil.F_WORDS_REPETITION);
                             break;
                         case LIST:
                             ListData.createListDataFromParams(dataParams);
-                            transaction.replace(R.id.layout_for_fragments, new WordsListFragment());
+                            transaction.replace(R.id.layout_for_fragments, new WordsListFragment(), FragmentUtil.F_WORDS_LIST);
                             break;
                         case QUIZ:
                             if(dataParams.getMaximumAvailableWordsAmount() >= 4) {
                                 QuizData.createQuizDataFromParams(dataParams);
-                                transaction.replace(R.id.layout_for_fragments, new QuizFragment());
+                                transaction.replace(R.id.layout_for_fragments, new QuizFragment(), FragmentUtil.F_QUIZ);
                             } else {
-                                transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
+                                transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment(), FragmentUtil.F_NO_WORDS_ERROR);
                                 transaction.addToBackStack(null);
                             }
                             break;
                     }
                 } else {
-                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment());
+                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment(), FragmentUtil.F_NO_WORDS_ERROR);
                     transaction.addToBackStack(null);
                 }
                 transaction.commit();

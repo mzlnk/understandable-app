@@ -18,6 +18,7 @@ import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.DataParams;
 import net.heliantum.understandable.data.enums.LearningWay;
 import net.heliantum.understandable.fragments.utils.choice.WayButton;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 import java.util.ArrayList;
@@ -136,7 +137,7 @@ public class WordsChoiceWayFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment, FragmentUtil.F_WORDS_CHOICE_TYPE).commit();
             }
         });
 
@@ -145,7 +146,7 @@ public class WordsChoiceWayFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceModeFragment modeFragment = WordsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_WORDS_CHOICE_MODE).commit();
             }
         });
     }

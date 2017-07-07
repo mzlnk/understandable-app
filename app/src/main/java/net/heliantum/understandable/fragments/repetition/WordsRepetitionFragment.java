@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 
 import net.heliantum.understandable.R;;
 import net.heliantum.understandable.data.RepetitionData;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.ToastUtil;
 
 public class WordsRepetitionFragment extends Fragment {
@@ -118,7 +119,7 @@ public class WordsRepetitionFragment extends Fragment {
             public void onClick(View view) {
                 WordsRepetitionResultFragment wordsRepetitionResultFragment = new WordsRepetitionResultFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionResultFragment).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionResultFragment, FragmentUtil.F_WORDS_REPETITION_RESULT).commit();
             }
         });
     }

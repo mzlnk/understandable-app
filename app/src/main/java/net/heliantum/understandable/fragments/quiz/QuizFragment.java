@@ -21,6 +21,7 @@ import android.widget.TextView;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.QuizData;
 import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 import java.util.Random;
@@ -246,16 +247,14 @@ public class QuizFragment extends Fragment {
                     }
                 }, hideIncorrectOptionsDelay);
 
-                //todo: next fragment
-
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         if (quizData.wordsLeft.size() > 1 && getActivity() != null) {
-                            transaction.replace(R.id.layout_for_fragments, new QuizFragment()).commit();
+                            transaction.replace(R.id.layout_for_fragments, new QuizFragment(), FragmentUtil.F_QUIZ).commit();
                         } else if (getActivity() != null) {
-                            transaction.replace(R.id.layout_for_fragments, new QuizResultFragment()).commit();
+                            transaction.replace(R.id.layout_for_fragments, new QuizResultFragment(), FragmentUtil.F_QUIZ_RESULT).commit();
                         }
                     }
                 }, 3000);

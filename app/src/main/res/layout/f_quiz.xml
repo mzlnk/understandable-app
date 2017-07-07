@@ -85,6 +85,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/f_quiz_margin"
                         android:textAllCaps="false"
+                        android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
                         android:background="@drawable/button_quiz_option"
                         style="?android:attr/borderlessButtonStyle" />

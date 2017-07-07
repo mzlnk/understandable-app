@@ -12,6 +12,7 @@ import android.widget.Toast;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.fragments.choice.WordsChoiceCategoryFragment;
 import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
+import net.heliantum.understandable.utils.FragmentUtil;
 
 /**
  * Created by Marcin on 2017-06-15.
@@ -37,7 +38,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
 
         if(id == R.id.navigation_words) {
             WordsChoiceCategoryFragment fragment = new WordsChoiceCategoryFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_WORDS_CHOICE_CATEGORY).commit();
         }
         else if(id == R.id.navigation_irregular_verbs) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
@@ -53,7 +54,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         }
         else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_THEME_CHOICE).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
