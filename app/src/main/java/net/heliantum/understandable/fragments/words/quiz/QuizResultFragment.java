@@ -121,7 +121,7 @@ public class QuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new QuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new QuizResultIncorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

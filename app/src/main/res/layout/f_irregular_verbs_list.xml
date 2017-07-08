@@ -1,13 +1,21 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.irregular_verbs.list.IrregularVerbsListFragment">
+    android:background="?attr/background_color"
+    tools:context="net.heliantum.understandable.fragments.irregular_verbs.list.IrregularVerbsListFragment"
+    android:id="@+id/f_irregular_verbs_list" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" >
 
-</FrameLayout>
+        <TableLayout
+            android:id="@+id/f_irregular_verbs_list_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*" >
+
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>

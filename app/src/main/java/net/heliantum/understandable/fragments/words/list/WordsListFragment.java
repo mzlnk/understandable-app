@@ -43,7 +43,7 @@ public class WordsListFragment extends Fragment {
 
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_list);
-        wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_list_words_table);
+        wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_list_table);
     }
 
     private void prepareLayout() {

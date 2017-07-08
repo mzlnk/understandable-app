@@ -2,107 +2,137 @@
   "irregularVerbEntities": [
     {
       "polish": "być",
-      "english": "be",
-      "category": "was/were",
-      "type": "been",
+      "english": [
+        "be",
+        "was/were",
+        "been"
+      ],
       "id": 1
     },
     {
       "polish": "stawać się",
-      "english": "become",
-      "category": "became",
-      "type": "become",
+      "english": [
+        "become",
+        "became",
+        "become"
+      ],
       "id": 2
     },
     {
       "polish": "zaczynać",
-      "english": "begin",
-      "category": "began",
-      "type": "begun",
+      "english": [
+        "begin",
+        "began",
+        "begun"
+      ],
       "id": 3
     },
     {
       "polish": "zepsuć, złamać",
-      "english": "break",
-      "category": "broke",
-      "type": "broken",
+      "english": [
+        "break",
+        "broke",
+        "broken"
+      ],
       "id": 4
     },
     {
       "polish": "przynosić",
-      "english": "bring",
-      "category": "brought",
-      "type": "brought",
+      "english": [
+        "bring",
+        "brought",
+        "brought"
+      ],
       "id": 5
     },
     {
       "polish": "budować",
-      "english": "build",
-      "category": "built",
-      "type": "built",
+      "english": [
+        "build",
+        "built",
+        "built"
+      ],
       "id": 6
     },
     {
       "polish": "kupować",
-      "english": "buy",
-      "category": "bought",
-      "type": "bought",
+      "english": [
+        "buy",
+        "bought",
+        "bought"
+      ],
       "id": 7
     },
     {
       "polish": "łapać",
-      "english": "catch",
-      "category": "caught",
-      "type": "caught",
+      "english": [
+        "catch",
+        "caught",
+        "caught"
+      ],
       "id": 8
     },
     {
       "polish": "wybierać",
-      "english": "choose",
-      "category": "chose",
-      "type": "chosen",
+      "english": [
+        "choose",
+        "chose",
+        "chosen"
+      ],
       "id": 9
     },
     {
       "polish": "przyjść",
-      "english": "come",
-      "category": "came",
-      "type": "come",
+      "english": [
+        "come",
+        "came",
+        "come"
+      ],
       "id": 10
     },
     {
       "polish": "kosztować",
-      "english": "cost",
-      "category": "cost",
-      "type": "cost",
+      "english": [
+        "cost",
+        "cost",
+        "cost"
+      ],
       "id": 11
     },
     {
       "polish": "ciąć",
-      "english": "cut",
-      "category": "cut",
-      "type": "cut",
+      "english": [
+        "cut",
+        "cut",
+        "cut"
+      ],
       "id": 12
     },
     {
       "polish": "robić",
-      "english": "do",
-      "category": "did",
-      "type": "done",
+      "english": [
+        "do",
+        "did",
+        "done"
+      ],
       "id": 13
     },
     {
       "polish": "rysować",
-      "english": "draw",
-      "category": "drew",
-      "type": "drawn",
+      "english": [
+        "draw",
+        "drew",
+        "drawn"
+      ],
       "id": 14
     },
     {
       "polish": "marzyć",
-      "english": "dream",
-      "category": "dreamed/dreamt",
-      "type": "dreamed/dreamt",
+      "english": [
+        "dream",
+        "dreamed/dreamt",
+        "dreamed/dreamt"
+      ],
       "id": 15
     }
   ]

@@ -67,6 +67,15 @@
     <dimen name="f_irregular_verbs_choice_length_words_amount">35sp</dimen>
     <dimen name="f_irregular_verbs_choice_button_margin">5dp</dimen>
 
+    <dimen name="f_irregular_verbs_repetition_result_title">36sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_result_words_seen_amount">31sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_amount">31sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_result_words_seen_info">13sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_info">13sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_subtitle">16sp</dimen>
+
+    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_title">18sp</dimen>
+
     <!-- *************************************************************************************** -->
 
     <dimen name="f_content_start_screen_icon">95dp</dimen>

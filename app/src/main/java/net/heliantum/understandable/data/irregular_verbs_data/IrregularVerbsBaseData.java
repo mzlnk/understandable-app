@@ -25,7 +25,7 @@ public class IrregularVerbsBaseData {
         generateWords();
     }
 
-    public List<IrregularVerbEntity> getWords() {
+    public List<IrregularVerbEntity> getIrregularVerbs() {
         return words;
     }
 

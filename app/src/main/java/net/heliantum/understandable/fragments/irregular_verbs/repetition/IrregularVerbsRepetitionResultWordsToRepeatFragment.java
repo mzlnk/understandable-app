@@ -1,109 +1,132 @@
 package net.heliantum.understandable.fragments.irregular_verbs.repetition;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import net.heliantum.understandable.R;
+import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import net.heliantum.understandable.data.words_data.WordsRepetitionData;
+import net.heliantum.understandable.database.entity.IrregularVerbEntity;
+import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.database.entity.enums.IrregularVerbEnum;
+import net.heliantum.understandable.utils.ColorUtil;
+import net.heliantum.understandable.utils.font.Font;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link IrregularVerbsRepetitionResultWordsToRepeatFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link IrregularVerbsRepetitionResultWordsToRepeatFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 public class IrregularVerbsRepetitionResultWordsToRepeatFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private IrregularVerbsRepetitionData repetitionData = IrregularVerbsRepetitionData.getRepetitionData();
 
-    private OnFragmentInteractionListener mListener;
+    private int list1Color, list2Color, textColor;
+
+    private RelativeLayout mainLayout;
+    private TextView title;
+    private TableLayout wordsTable;
+    private Button back;
 
     public IrregularVerbsRepetitionResultWordsToRepeatFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment IrregularVerbsRepetitionResultWordsToRepeatFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static IrregularVerbsRepetitionResultWordsToRepeatFragment newInstance(String param1, String param2) {
-        IrregularVerbsRepetitionResultWordsToRepeatFragment fragment = new IrregularVerbsRepetitionResultWordsToRepeatFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the mainLayout for this fragment
+        View rootView =  inflater.inflate(R.layout.f_irregular_verbs_repetition_result_words_to_repeat, container, false);
+        initColors();
+        loadViewFromXml(rootView);
+        prepareLayout();
+        addListeners();
+
+        return rootView;
+    }
+
+    private void loadViewFromXml(View rootView) {
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_irregular_verbs_repetition_result_words_to_repeat);
+        title = (TextView) rootView.findViewById(R.id.f_irregular_verbs_repetition_result_words_to_repeat_title);
+        wordsTable = (TableLayout) rootView.findViewById(R.id.f_irregular_verbs_repetition_result_words_to_repeat_table);
+        back = (Button) rootView.findViewById(R.id.f_irregular_verbs_repetition_result_words_to_repeat_back);
+    }
+
+    private void prepareLayout() {
+        setAnimation();
+        setFonts();
+        addWords();
+    }
+
+    private void setAnimation() {
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
+        mainLayout.setAnimation(anim);
+    }
+
+    private void setFonts() {
+        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void addWords() {
+        boolean color = true;
+
+        for(IrregularVerbEntity word : repetitionData.wordsToRepeat) {
+            //todo: add setSize method & values in dimens.xml
+            TableRow row = new TableRow(getContext());
+            TextView t1 = new TextView(getContext());
+            TextView t2 = new TextView(getContext());
+            TextView t3 = new TextView(getContext());
+            TextView t4 = new TextView(getContext());
+            prepareCell(t1, word.getPolishWord());
+            prepareCell(t2, word.getEnglishWord(IrregularVerbEnum.INFINITVE));
+            prepareCell(t3, word.getEnglishWord(IrregularVerbEnum.SIMPLE_PAST));
+            prepareCell(t4, word.getEnglishWord(IrregularVerbEnum.PAST_PARTICIPLE));
+
+            if(color) {
+                row.setBackgroundColor(list1Color);
+            } else {
+                row.setBackgroundColor(list2Color);
+            }
+            color = !color;
+
+            row.setMeasureWithLargestChildEnabled(true);
+            row.addView(t1);
+            row.addView(t2);
+            row.addView(t3);
+            row.addView(t4);
+            wordsTable.addView(row);
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.f_irregular_verbs_repetition_result_words_to_repeat, container, false);
+    private void prepareCell(TextView textView, String content) {
+        textView.setText(content);
+        textView.setTextColor(textColor);
+        textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        textView.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.25F));
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    private void addListeners() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().popBackStack();
+            }
+        });
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    private void initColors() {
+        ColorUtil colorUtil = new ColorUtil(getContext());
+        list1Color = colorUtil.getColor(R.attr.list_1_color);
+        list2Color = colorUtil.getColor(R.attr.list_2_color);
+        textColor = colorUtil.getColor(R.attr.text_1_color);
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

@@ -39,6 +39,8 @@
         <item name="start_icon_stroke_1_color">@color/dark_dark_gray</item>
         <item name="start_icon_stroke_2_color">@color/dark_dark_gray</item>
         <item name="start_icon_background_color">@color/gray</item>
+        <item name="irregular_verbs_repetition_example_field_1_color">@color/light_gray</item>
+        <item name="irregular_verbs_repetition_example_field_2_color">@color/gray</item>
     </style>
 
     <style name="BlueTheme" parent="AppTheme">
@@ -58,6 +60,8 @@
         <item name="start_icon_stroke_1_color">@color/dark_blue</item>
         <item name="start_icon_stroke_2_color">@color/black</item>
         <item name="start_icon_background_color">@color/light_blue</item>
+        <item name="irregular_verbs_repetition_example_field_1_color">@color/light_blue</item>
+        <item name="irregular_verbs_repetition_example_field_2_color">@color/light_light_blue</item>
     </style>
 
     <style name="GreenTheme" parent="AppTheme">
@@ -77,6 +81,8 @@
         <item name="start_icon_stroke_1_color">@color/dark_green</item>
         <item name="start_icon_stroke_2_color">@color/black</item>
         <item name="start_icon_background_color">@color/light_green</item>
+        <item name="irregular_verbs_repetition_example_field_1_color">@color/light_green</item>
+        <item name="irregular_verbs_repetition_example_field_2_color">@color/light_light_green</item>
     </style>
 
     <style name="OrangeTheme" parent="AppTheme">
@@ -96,6 +102,8 @@
         <item name="start_icon_stroke_1_color">@color/dark_orange</item>
         <item name="start_icon_stroke_2_color">@color/black</item>
         <item name="start_icon_background_color">@color/light_orange</item>
+        <item name="irregular_verbs_repetition_example_field_1_color">@color/light_orange</item>
+        <item name="irregular_verbs_repetition_example_field_2_color">@color/light_light_orange</item>
     </style>
 
     <style name="RedTheme" parent="AppTheme">
@@ -115,6 +123,8 @@
         <item name="start_icon_stroke_1_color">@color/dark_red</item>
         <item name="start_icon_stroke_2_color">@color/black</item>
         <item name="start_icon_background_color">@color/light_red</item>
+        <item name="irregular_verbs_repetition_example_field_1_color">@color/light_red</item>
+        <item name="irregular_verbs_repetition_example_field_2_color">@color/light_light_red</item>
     </style>
 
     <style name="GrayTheme" parent="AppTheme">
@@ -134,6 +144,8 @@
         <item name="start_icon_stroke_1_color">@color/dark_gray</item>
         <item name="start_icon_stroke_2_color">@color/black</item>
         <item name="start_icon_background_color">@color/light_gray</item>
+        <item name="irregular_verbs_repetition_example_field_1_color">@color/light_gray</item>
+        <item name="irregular_verbs_repetition_example_field_2_color">@color/light_light_gray</item>
     </style>
 
 </resources>

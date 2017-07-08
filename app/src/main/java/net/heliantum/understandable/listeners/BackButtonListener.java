@@ -35,6 +35,10 @@ public class BackButtonListener {
             case F_THEME_CHOICE:
             case F_WORDS_REPETITION_RESULT:
             case F_WORDS_QUIZ_RESULT:
+            case F_WORDS_LIST:
+            case F_IRREGULAR_VERBS_CHOICE_MODE:
+            case F_IRREGULAR_VERBS_REPETITION_RESULT:
+            case F_IRREGULAR_VERBS_LIST:
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment(), F_START).commit();
                 break;
         }

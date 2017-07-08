@@ -1,13 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionResultWordsToRepeatFragment">
+    android:background="?attr/background_color"
+    tools:context="net.heliantum.understandable.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionResultWordsToRepeatFragment"
+    android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="@string/f_irregular_verbs_repetition_result_words_to_repeat_title"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_irregular_verbs_repetition_result_words_to_repeat_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8" >
+
+            <TableLayout
+                android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*" >
+
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_back"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:text="@string/button_back"
+                android:textSize="@dimen/button_back"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

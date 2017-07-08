@@ -1,13 +1,114 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionExampleFragment">
+    android:background="?attr/background_color"
+    tools:context="net.heliantum.understandable.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionExampleFragment"
+    android:id="@+id/f_irregular_verbs_repetition_example" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
 
-</FrameLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:measureWithLargestChild="true"
+            android:stretchColumns="*"
+            android:clickable="true" >
+
+            <TableRow
+                android:layout_weight="0.1">
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.15" >
+
+                <Button
+                    android:id="@+id/f_irregular_verbs_repetition_example_field_polish"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/f_irregular_verbs_repetition_example_field_1"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/f_quiz_option" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="0.1">
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.15" >
+
+                <Button
+                    android:id="@+id/f_irregular_verbs_repetition_example_field_english_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/f_quiz_margin"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/f_quiz_option"
+                    android:background="@drawable/f_irregular_verbs_repetition_example_field_2"
+                    style="?android:attr/borderlessButtonStyle" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.15" >
+
+                <Button
+                    android:id="@+id/f_irregular_verbs_repetition_example_field_english_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/f_quiz_margin"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/f_quiz_option"
+                    android:background="@drawable/f_irregular_verbs_repetition_example_field_2"
+                    style="?android:attr/borderlessButtonStyle" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.15" >
+
+                <Button
+                    android:id="@+id/f_irregular_verbs_repetition_example_field_english_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/f_quiz_margin"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/f_quiz_option"
+                    android:background="@drawable/f_irregular_verbs_repetition_example_field_2"
+                    style="?android:attr/borderlessButtonStyle" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="0.2">
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:gravity="center" >
+
+        </TableLayout>
+
+    </LinearLayout>
+</RelativeLayout>

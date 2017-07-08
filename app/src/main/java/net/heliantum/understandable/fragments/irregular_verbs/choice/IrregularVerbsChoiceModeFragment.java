@@ -72,7 +72,7 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the modesLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_words_choice_mode, container, false);
+        View rootView = inflater.inflate(R.layout.f_irregular_verbs_choice_mode, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();

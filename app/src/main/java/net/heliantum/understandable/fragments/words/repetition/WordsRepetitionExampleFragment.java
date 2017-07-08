@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class WordsRepetitionExampleFragment extends Fragment {
 
-    public static final String POSITION_PARAM = "positionParam";
+    public static final String POSITION_PARAM = "words.repetiton.example.positionParam";
 
     private WordsRepetitionData repetitionData;
 

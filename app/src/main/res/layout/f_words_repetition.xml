@@ -48,9 +48,9 @@
                 android:measureWithLargestChild="true" >
 
                 <Button
+                    android:id="@+id/f_words_repetition_finish"
                     android:layout_width="@dimen/button_small_width"
                     android:layout_height="@dimen/button_small_height"
-                    android:id="@+id/f_words_repetition_finish"
                     android:text="@string/f_words_repetition_example_finish"
                     android:textColor="?attr/text_button_color"
                     android:textAllCaps="false"

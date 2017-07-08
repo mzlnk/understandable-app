@@ -140,4 +140,5 @@ public class WordsRepetitionFragment extends Fragment {
             return NUMB_WORDS;
         }
     }
+
 }
