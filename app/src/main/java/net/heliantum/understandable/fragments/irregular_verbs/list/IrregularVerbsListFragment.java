@@ -3,6 +3,7 @@ package net.heliantum.understandable.fragments.irregular_verbs.list;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +95,7 @@ public class IrregularVerbsListFragment extends Fragment {
         textView.setText(content);
         textView.setTextColor(textColor);
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        //textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getContext().getResources().getDimension(R.dimen.f_irregular_verbs_list_text)); todo: fix it
         textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.25F));
     }
 

@@ -3,6 +3,7 @@ package net.heliantum.understandable.fragments.words.repetition;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,18 +78,11 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
         boolean color = true;
 
         for(LanguageEntity word : repetitionData.wordsToRepeat) {
-            //todo: add setSize method & values in dimens.xml
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            t1.setText(word.getPolishWord());
-            t1.setTextColor(textColor);
-            t1.setTypeface(Font.TYPEFACE_MONTSERRAT);
-            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
-            t2.setText(word.getEnglishWord());
-            t2.setTextColor(textColor);
-            t2.setTypeface(Font.TYPEFACE_MONTSERRAT);
-            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
+            prepareCell(t1, word.getPolishWord());
+            prepareCell(t2, word.getEnglishWord());
 
             if(color) {
                 row.setBackgroundColor(list1Color);
@@ -102,6 +96,14 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
             row.addView(t2);
             wordsTable.addView(row);
         }
+    }
+
+    private void prepareCell(TextView textView, String content) {
+        textView.setText(content);
+        textView.setTextColor(textColor);
+        textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        //textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, getContext().getResources().getDimension(R.dimen.f_words_repetition_result_words_to_repeat_text)); todo: fix it
+        textView.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
     }
 
     private void addListeners() {

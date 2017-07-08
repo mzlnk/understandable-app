@@ -60,6 +60,10 @@
     <dimen name="f_words_repetition_result_words_to_repeat_subtitle">30sp</dimen>
 
     <dimen name="f_words_repetition_result_words_to_repeat_title">32sp</dimen>
+    <dimen name="f_words_repetition_result_words_to_repeat_text">4.9sp</dimen>
+
+    <dimen name="f_words_list_title">40sp</dimen>
+    <dimen name="f_words_list_text">4.9sp</dimen>
 
     <dimen name="f_start_title">31sp</dimen>
 
@@ -76,6 +80,10 @@
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_subtitle">30sp</dimen>
 
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_title">32sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_text">4.2sp</dimen>
+
+    <dimen name="f_irregular_verbs_list_title">40sp</dimen>
+    <dimen name="f_irregular_verbs_list_text">4.2sp</dimen>
 
     <!-- *************************************************************************************** -->
 
