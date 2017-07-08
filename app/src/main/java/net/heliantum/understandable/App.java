@@ -43,9 +43,6 @@ public class App extends Application {
         Log.d(DEBUG_TAG, "Loading Entities");
         LanguageEntityRepository.init(getApplicationContext());
         IrregularVerbEntityRepository.init(getApplicationContext());
-        Log.d(DEBUG_TAG, "Data has been loaded");
-        int n = LanguageEntityRepository.getAllEntities().size();
-        Log.d(DEBUG_TAG, "Loaded: " + n + " entities");
     }
 
 }

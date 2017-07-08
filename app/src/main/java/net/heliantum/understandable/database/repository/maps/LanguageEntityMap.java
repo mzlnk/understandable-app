@@ -1,7 +1,7 @@
 package net.heliantum.understandable.database.repository.maps;
 
-import net.heliantum.understandable.data.enums.LanguageCategory;
-import net.heliantum.understandable.data.enums.LanguageType;
+import net.heliantum.understandable.data.enums.words.WordsLanguageCategory;
+import net.heliantum.understandable.data.enums.words.WordsLanguageType;
 import net.heliantum.understandable.database.entity.LanguageEntity;
 
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ public class LanguageEntityMap {
         return new ArrayList<>(languageEntities);
     }
 
-    public List<LanguageEntity> getSpecifiedEntities(List<LanguageCategory> categories, List<LanguageType> types) {
+    public List<LanguageEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLanguageType> types) {
         List<LanguageEntity> result = new ArrayList<>();
         for(LanguageEntity entity : languageEntities) {
-            for(LanguageCategory category : categories) {
-                for(LanguageType type : types) {
+            for(WordsLanguageCategory category : categories) {
+                for(WordsLanguageType type : types) {
                     if(entity.getCategory().equals(category) && entity.getType().equals(type)) {
                         result.add(entity);
                     }

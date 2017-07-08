@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -14,7 +12,7 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.enums.ThemeType;
-import net.heliantum.understandable.fragments.utils.choice.ThemeButton;
+import net.heliantum.understandable.fragments.words.utils.choice.WordsThemeButton;
 import net.heliantum.understandable.utils.font.Font;
 
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class ThemeChoiceFragment extends Fragment {
     private TableLayout themesLayout;
     private TextView title;
 
-    private List<ThemeButton> themes = new ArrayList<>();
+    private List<WordsThemeButton> themes = new ArrayList<>();
 
     public ThemeChoiceFragment() {
         // Required empty public constructor
@@ -53,15 +51,9 @@ public class ThemeChoiceFragment extends Fragment {
     }
 
     private void prepareLayout() {
-        setAnimation();
         setFonts();
         initCategoriesButtons();
         addCategoryButtonsToTable();
-    }
-
-    public void setAnimation() {
-        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
-        mainLayout.setAnimation(anim);
     }
 
     public void setFonts() {
@@ -70,7 +62,7 @@ public class ThemeChoiceFragment extends Fragment {
 
     private void initCategoriesButtons() {
         for(ThemeType theme : ThemeType.values()) {
-            themes.add(new ThemeButton(getContext(), theme, themes));
+            themes.add(new WordsThemeButton(getContext(), theme, themes));
         }
     }
 
@@ -79,7 +71,7 @@ public class ThemeChoiceFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (ThemeButton theme : themes) {
+        for (WordsThemeButton theme : themes) {
             currentImageRow.addView(theme.getImage());
             currentTextRow.addView(theme.getText());
             if (x == 2) {

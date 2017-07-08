@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="*"
-    tools:context="net.heliantum.understandable.fragments.quiz.QuizFragment"
+    tools:context=".fragments.words.quiz.QuizFragment"
     android:background="?attr/background_color"
     android:id="@+id/f_quiz">
 

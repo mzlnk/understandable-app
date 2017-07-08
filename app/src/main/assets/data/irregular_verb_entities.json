@@ -1,0 +1,109 @@
+{
+  "irregularVerbEntities": [
+    {
+      "polish": "być",
+      "english": "be",
+      "category": "was/were",
+      "type": "been",
+      "id": 1
+    },
+    {
+      "polish": "stawać się",
+      "english": "become",
+      "category": "became",
+      "type": "become",
+      "id": 2
+    },
+    {
+      "polish": "zaczynać",
+      "english": "begin",
+      "category": "began",
+      "type": "begun",
+      "id": 3
+    },
+    {
+      "polish": "zepsuć, złamać",
+      "english": "break",
+      "category": "broke",
+      "type": "broken",
+      "id": 4
+    },
+    {
+      "polish": "przynosić",
+      "english": "bring",
+      "category": "brought",
+      "type": "brought",
+      "id": 5
+    },
+    {
+      "polish": "budować",
+      "english": "build",
+      "category": "built",
+      "type": "built",
+      "id": 6
+    },
+    {
+      "polish": "kupować",
+      "english": "buy",
+      "category": "bought",
+      "type": "bought",
+      "id": 7
+    },
+    {
+      "polish": "łapać",
+      "english": "catch",
+      "category": "caught",
+      "type": "caught",
+      "id": 8
+    },
+    {
+      "polish": "wybierać",
+      "english": "choose",
+      "category": "chose",
+      "type": "chosen",
+      "id": 9
+    },
+    {
+      "polish": "przyjść",
+      "english": "come",
+      "category": "came",
+      "type": "come",
+      "id": 10
+    },
+    {
+      "polish": "kosztować",
+      "english": "cost",
+      "category": "cost",
+      "type": "cost",
+      "id": 11
+    },
+    {
+      "polish": "ciąć",
+      "english": "cut",
+      "category": "cut",
+      "type": "cut",
+      "id": 12
+    },
+    {
+      "polish": "robić",
+      "english": "do",
+      "category": "did",
+      "type": "done",
+      "id": 13
+    },
+    {
+      "polish": "rysować",
+      "english": "draw",
+      "category": "drew",
+      "type": "drawn",
+      "id": 14
+    },
+    {
+      "polish": "marzyć",
+      "english": "dream",
+      "category": "dreamed/dreamt",
+      "type": "dreamed/dreamt",
+      "id": 15
+    }
+  ]
+}

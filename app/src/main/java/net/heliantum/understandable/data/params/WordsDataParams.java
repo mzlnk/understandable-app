@@ -1,0 +1,184 @@
+package net.heliantum.understandable.data.params;
+
+import net.heliantum.understandable.data.enums.words.WordsLanguageCategory;
+import net.heliantum.understandable.data.enums.words.WordsLanguageType;
+import net.heliantum.understandable.data.enums.words.WordsLearningMode;
+import net.heliantum.understandable.data.enums.words.WordsLearningWay;
+import net.heliantum.understandable.database.repository.LanguageEntityRepository;
+
+import org.apache.commons.lang.math.NumberUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by Marcin on 2017-05-06.
+ */
+
+public class WordsDataParams {
+
+    public List<WordsLanguageCategory> categories = new ArrayList<>();
+    public List<WordsLanguageType> types = new ArrayList<>(Arrays.asList(WordsLanguageType.values()));
+    public WordsLearningMode mode = WordsLearningMode.REPETITION;
+    public WordsLearningWay way = WordsLearningWay.RANDOM;
+    public int size = 1;
+
+    public void setCategories(List<WordsLanguageCategory> categories) {
+        this.categories = categories;
+    }
+
+    public void addCategory(WordsLanguageCategory category) {
+        if(!categories.contains(category)) {
+            categories.add(category);
+        }
+    }
+
+    public void removeCategory(WordsLanguageCategory category) {
+        if(categories.contains(category)) {
+            categories.remove(category);
+        }
+    }
+
+    public void setTypes(List<WordsLanguageType> types) {
+        this.types = types;
+    }
+
+    public void addType(WordsLanguageType type) {
+        if(!types.contains(type)) {
+            types.add(type);
+        }
+    }
+
+    public void removeType(WordsLanguageType type) {
+        if(types.contains(type)) {
+            types.remove(type);
+        }
+    }
+
+    public void setMode(WordsLearningMode mode) {
+        this.mode = mode;
+    }
+
+    public void setWay(WordsLearningWay way) {
+        this.way = way;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public boolean isChosen(WordsLanguageCategory category) {
+        return categories.contains(category);
+    }
+
+    public boolean isChosen(WordsLanguageType type) {
+        return types.contains(type);
+    }
+
+    public boolean isChosen(WordsLearningWay way) {
+        return this.way.equals(way);
+    }
+
+    public boolean isChosen(WordsLearningMode mode) {
+        return this.mode.equals(mode);
+    }
+
+    public int getMaximumAvailableWordsAmount() {
+        return LanguageEntityRepository.getSpecifiedEntities(categories, types).size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for(WordsLanguageCategory category : categories) {
+            sb.append(category.name()).append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(";");
+
+        for(WordsLanguageType type : types) {
+            sb.append(type.name()).append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(";");
+
+        sb.append(mode.name()).append(";");
+        sb.append(way.name()).append(";");
+        sb.append(size).append(";");
+        System.out.println("dataParams: output: " + sb.toString());
+        return sb.toString();
+    }
+
+    public static WordsDataParams fromString(String input) {
+        System.out.println("dataParams: input: " + input);
+        WordsDataParams dataParams = new WordsDataParams();
+        int i = 0;
+        String str = "";
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                dataParams.addCategory(WordsLanguageCategory.valueOf(str));
+                str = "";
+                i++;
+                break;
+            }
+            if(c == ',') {
+                dataParams.addCategory(WordsLanguageCategory.valueOf(str));
+                str = "";
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                dataParams.addType(WordsLanguageType.valueOf(str));
+                str = "";
+                i++;
+                break;
+            }
+            if(c == ',') {
+                dataParams.addType(WordsLanguageType.valueOf(str));
+                str = "";
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                dataParams.setMode(WordsLearningMode.valueOf(str));
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                dataParams.setWay(WordsLearningWay.valueOf(str));
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                dataParams.setSize(NumberUtils.toInt(str, 1));
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        return dataParams;
+    }
+
+}

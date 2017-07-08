@@ -34,7 +34,7 @@ public class BackButtonListener {
             case F_WORDS_CHOICE_CATEGORY:
             case F_THEME_CHOICE:
             case F_WORDS_REPETITION_RESULT:
-            case F_QUIZ_RESULT:
+            case F_WORDS_QUIZ_RESULT:
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment(), F_START).commit();
                 break;
         }

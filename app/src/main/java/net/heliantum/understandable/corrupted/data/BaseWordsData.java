@@ -12,53 +12,53 @@ public class BaseWordsData {
 
     public static List<LanguageEntity> allChosenWords = new ArrayList<>();
 
-    public static List<LanguageCategory> categories = new ArrayList<>();
-    public static List<LanguageType> types = new ArrayList<>(Arrays.asList(LanguageType.values()));
-    public static LearningMode mode = LearningMode.REPETITION;
-    public static LearningWay way = LearningWay.RANDOM;
+    public static List<WordsLanguageCategory> categories = new ArrayList<>();
+    public static List<WordsLanguageType> types = new ArrayList<>(Arrays.asList(WordsLanguageType.values()));
+    public static WordsLearningMode mode = WordsLearningMode.REPETITION;
+    public static WordsLearningWay way = WordsLearningWay.RANDOM;
     public static int size = 0;
 
-    public static void addCategory(LanguageCategory category) {
+    public static void addCategory(WordsLanguageCategory category) {
         if(!isChosen(category)) {
             BaseWordsData.categories.add(category);
         }
     }
 
-    public static void addType(LanguageType type) {
+    public static void addType(WordsLanguageType type) {
         if(!isChosen(type)) {
             BaseWordsData.types.add(type);
         }
     }
 
-    public static void removeCategory(LanguageCategory category) {
+    public static void removeCategory(WordsLanguageCategory category) {
         if(isChosen(category)) {
             BaseWordsData.categories.remove(category);
         }
     }
 
-    public static void removeType(LanguageType type) {
+    public static void removeType(WordsLanguageType type) {
         if(isChosen(type)) {
             BaseWordsData.types.remove(type);
         }
     }
 
-    public static void setMode(LearningMode mode) {
+    public static void setMode(WordsLearningMode mode) {
         BaseWordsData.mode = mode;
     }
 
-    public static void setWay(LearningWay way) {
+    public static void setWay(WordsLearningWay way) {
         BaseWordsData.way = way;
     }
 
-    public static boolean isChosen(LanguageCategory category) {
-        for(LanguageCategory c : BaseWordsData.categories) {
+    public static boolean isChosen(WordsLanguageCategory category) {
+        for(WordsLanguageCategory c : BaseWordsData.categories) {
             if(c.equals(category)) return true;
         }
         return false;
     }
 
-    public static boolean isChosen(LanguageType type) {
-        for(LanguageType t : BaseWordsData.types) {
+    public static boolean isChosen(WordsLanguageType type) {
+        for(WordsLanguageType t : BaseWordsData.types) {
             if(t.equals(type)) return true;
         }
         return false;

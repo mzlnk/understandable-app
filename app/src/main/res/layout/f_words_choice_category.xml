@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.choice.WordsChoiceCategoryFragment"
+    tools:context=".fragments.words.choice.WordsChoiceCategoryFragment"
     android:background="?attr/background_color"
     android:id="@+id/f_words_choice_category" >
 

@@ -64,6 +64,11 @@
 
     <dimen name="f_start_title">22sp</dimen>
 
+    <dimen name="f_irregular_verbs_choice_length_title">26sp</dimen>
+    <dimen name="f_irregular_verbs_choice_mode_title">26sp</dimen>
+    <dimen name="f_irregular_verbs_choice_length_words_amount">42sp</dimen>
+    <dimen name="f_irregular_verbs_choice_button_margin">5dp</dimen>
+
     <!-- *************************************************************************************** -->
 
     <dimen name="f_content_start_screen_icon">120dp</dimen>

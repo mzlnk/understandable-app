@@ -1,7 +1,7 @@
 package net.heliantum.understandable.database.entity;
 
-import net.heliantum.understandable.data.enums.LanguageCategory;
-import net.heliantum.understandable.data.enums.LanguageType;
+import net.heliantum.understandable.data.enums.words.WordsLanguageCategory;
+import net.heliantum.understandable.data.enums.words.WordsLanguageType;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.
@@ -31,12 +31,12 @@ public class LanguageEntity extends BaseEntity {
         return english;
     }
 
-    public LanguageCategory getCategory() {
-        return LanguageCategory.getEnum(category);
+    public WordsLanguageCategory getCategory() {
+        return WordsLanguageCategory.getEnum(category);
     }
 
-    public LanguageType getType() {
-        return LanguageType.getEnum(type);
+    public WordsLanguageType getType() {
+        return WordsLanguageType.getEnum(type);
     }
 
 }

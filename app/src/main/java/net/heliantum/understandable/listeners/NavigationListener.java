@@ -4,13 +4,14 @@ import android.content.Context;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.fragments.choice.WordsChoiceCategoryFragment;
+import net.heliantum.understandable.fragments.words.choice.WordsChoiceCategoryFragment;
 import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
 import net.heliantum.understandable.utils.FragmentUtil;
 
@@ -54,7 +55,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         }
         else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_THEME_CHOICE).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_THEME_CHOICE).setCustomAnimations(R.anim.fade01, FragmentTransaction.TRANSIT_NONE).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);

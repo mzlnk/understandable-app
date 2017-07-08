@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
-import net.heliantum.understandable.data.enums.LanguageCategory;
-import net.heliantum.understandable.data.enums.LanguageType;
+import net.heliantum.understandable.data.enums.words.WordsLanguageCategory;
+import net.heliantum.understandable.data.enums.words.WordsLanguageType;
 import net.heliantum.understandable.database.entity.LanguageEntity;
 import net.heliantum.understandable.database.repository.maps.LanguageEntityMap;
 
@@ -47,7 +47,7 @@ public class LanguageEntityRepository {
         return languageEntityMap.getAllEntities();
     }
 
-    public static List<LanguageEntity> getSpecifiedEntities(List<LanguageCategory> categories, List<LanguageType> types) {
+    public static List<LanguageEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLanguageType> types) {
         return languageEntityMap.getSpecifiedEntities(categories, types);
     }
 

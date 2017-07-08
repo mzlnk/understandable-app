@@ -20,14 +20,21 @@ public class FragmentUtil {
     public static final String F_WORDS_CHOICE_WAY = "f_words_choice_way";
     public static final String F_NO_WORDS_ERROR = "f_no_words_error";
     public static final String F_WORDS_LIST = "f_words_list";
-    public static final String F_QUIZ = "f_quiz";
-    public static final String F_QUIZ_RESULT = "f_quiz_result";
-    public static final String F_QUIZ_RESULT_CORRECT_WORDS_SUMMARY = "f_quiz_result_correct_words_summary";
-    public static final String F_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY = "f_quiz_result_incorrect_words_summary";
+    public static final String F_WORDS_QUIZ = "f_quiz";
+    public static final String F_WORDS_QUIZ_RESULT = "f_quiz_result";
+    public static final String F_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY = "f_quiz_result_correct_words_summary";
+    public static final String F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY = "f_quiz_result_incorrect_words_summary";
     public static final String F_WORDS_REPETITION = "f_words_repetition";
     public static final String F_WORDS_REPETITION_EXAMPLE = "f_words_repetition_example";
     public static final String F_WORDS_REPETITION_RESULT = "f_words_repetition_result";
     public static final String F_WORDS_REPETITION_RESULT_WORDS_TO_REPEAT = "f_words_repetition_result_words_to_repeat";
+    public static final String F_IRREGULAR_VERBS_CHOICE_MODE = "f_irregular_verbs_choice_mode";
+    public static final String F_IRREGULAR_VERBS_CHOICE_LENGTH = "f_irregular_verbs_choice_length";
+    public static final String F_IRREGULAR_VERBS_LIST = "f_irregular_verbs_list";
+    public static final String F_IRREGULAR_VERBS_REPETITION = "f_irregular_verbs_repetition";
+    public static final String F_IRREGULAR_VERBS_REPETITION_EXAMPLE = "f_irregular_verbs_repetition_example";
+    public static final String F_IRREGULAR_VERBS_REPETITION_RESULT = "f_irregular_verbs_repetition_result";
+    public static final String F_IRREGULAR_VERBS_REPETITION_RESULT_WORDS_TO_REPEAT = "f_irregular_verbs_repetition_result_words_to_repeat";
     public static final String F_START = "f_start";
     public static final String F_THEME_CHOICE = "f_theme_choice";
 
