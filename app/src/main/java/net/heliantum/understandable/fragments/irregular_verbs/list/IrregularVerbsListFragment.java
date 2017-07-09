@@ -32,6 +32,7 @@ public class IrregularVerbsListFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private TableLayout wordsTable;
+    private TextView title;
 
     public IrregularVerbsListFragment() {
         // Required empty public constructor
@@ -50,16 +51,22 @@ public class IrregularVerbsListFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_irregular_verbs_list);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_irregular_verbs_list_table);
+        title = (TextView) rootView.findViewById(R.id.f_irregular_verbs_list_title);
     }
 
     private void prepareLayout() {
         setAnimation();
+        setFonts();
         addWordsToList();
     }
 
     private void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
         mainLayout.setAnimation(anim);
+    }
+
+    private void setFonts() {
+        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void addWordsToList() {
@@ -95,7 +102,7 @@ public class IrregularVerbsListFragment extends Fragment {
         textView.setText(content);
         textView.setTextColor(textColor);
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        //textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, getContext().getResources().getDimension(R.dimen.f_irregular_verbs_list_text)); todo: fix it
+        textView.setTextSize(getContext().getResources().getDimension(R.dimen.f_irregular_verbs_list_text)); //todo: fix it
         textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.25F));
     }
 

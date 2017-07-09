@@ -27,6 +27,7 @@ public class WordsListFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private TableLayout wordsTable;
+    private TextView title;
 
     public WordsListFragment() {
         // Required empty public constructor
@@ -45,16 +46,22 @@ public class WordsListFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_list);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_list_table);
+        title = (TextView) rootView.findViewById(R.id.f_words_list_title);
     }
 
     private void prepareLayout() {
         setAnimation();
+        setFonts();
         addWordsToList();
     }
 
     private void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
         mainLayout.setAnimation(anim);
+    }
+
+    private void setFonts() {
+        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void addWordsToList() {
