@@ -59,12 +59,10 @@
     <dimen name="f_words_repetition_result_words_to_repeat_subtitle">16sp</dimen>
 
     <dimen name="f_words_repetition_result_words_to_repeat_title">18sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_text">6sp</dimen>
 
     <dimen name="f_words_list_title">23sp</dimen>
-    <dimen name="f_words_list_text">6sp</dimen>
 
-    <dimen name="f_start_title">19sp</dimen>
+    <dimen name="f_start_title">17sp</dimen>
 
     <dimen name="f_irregular_verbs_choice_length_title">23sp</dimen>
     <dimen name="f_irregular_verbs_choice_mode_title">23sp</dimen>
@@ -79,28 +77,20 @@
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_subtitle">16sp</dimen>
 
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_title">18sp</dimen>
-    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_text">5sp</dimen>
 
     <dimen name="f_irregular_verbs_list_title">23sp</dimen>
-    <dimen name="f_irregular_verbs_list_text">5sp</dimen>
 
     <!-- *************************************************************************************** -->
 
     <dimen name="f_content_start_screen_icon">95dp</dimen>
 
-    <dimen name="f_words_choice_category_icon_size">60dp</dimen>
-    <dimen name="f_words_choice_category_icon_text">3sp</dimen>
-
-    <dimen name="f_words_choice_type_icon_size">60dp</dimen>
-    <dimen name="f_words_choice_type_icon_text">3sp</dimen>
-
-    <dimen name="f_words_choice_mode_icon_size">60dp</dimen>
-    <dimen name="f_words_choice_mode_icon_text">3sp</dimen>
-
-    <dimen name="f_words_choice_way_icon_size">60dp</dimen>
-    <dimen name="f_words_choice_way_icon_text">3sp</dimen>
-
+    <dimen name="f_words_choice_category_icon_size">70dp</dimen>
+    <dimen name="f_words_choice_type_icon_size">70dp</dimen>
+    <dimen name="f_words_choice_mode_icon_size">70dp</dimen>
+    <dimen name="f_words_choice_way_icon_size">70dp</dimen>
     <dimen name="f_theme_choice_icon_size">85dp</dimen>
-    <dimen name="f_theme_choice_icon_text">6sp</dimen>
+
+    <item name="f_list_text_factor" format="float" type="dimen">1.0</item>
+    <item name="f_choice_icon_text_factor" format="float" type="dimen">0.5</item>
 
 </resources>

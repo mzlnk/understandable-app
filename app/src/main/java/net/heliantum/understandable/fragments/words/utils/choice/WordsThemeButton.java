@@ -82,10 +82,13 @@ public class WordsThemeButton extends WordsBaseButton {
 
     private void setSize() {
         int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_theme_choice_icon_size);
-        int textSize = (int) super.context.getResources().getDimension(R.dimen.f_theme_choice_icon_text);
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
         super.image.setLayoutParams(layoutParams);
-        super.text.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        TypedValue outValue = new TypedValue();
+        context.getResources().getValue(R.dimen.f_choice_icon_text_factor, outValue, true);
+        float factor = outValue.getFloat();
+        float textSizeInPixels = super.text.getTextSize() * factor;
+        super.text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
     }
 
     private void setImage() {

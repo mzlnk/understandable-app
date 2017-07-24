@@ -90,19 +90,22 @@
 
     <dimen name="f_content_start_screen_icon">145dp</dimen>
 
-    <dimen name="f_words_choice_category_icon_size">90dp</dimen>
+    <dimen name="f_words_choice_category_icon_size">100dp</dimen>
     <dimen name="f_words_choice_category_icon_text">3sp</dimen>
 
-    <dimen name="f_words_choice_type_icon_size">90dp</dimen>
+    <dimen name="f_words_choice_type_icon_size">100dp</dimen>
     <dimen name="f_words_choice_type_icon_text">3sp</dimen>
 
-    <dimen name="f_words_choice_mode_icon_size">90dp</dimen>
+    <dimen name="f_words_choice_mode_icon_size">100dp</dimen>
     <dimen name="f_words_choice_mode_icon_text">3sp</dimen>
 
-    <dimen name="f_words_choice_way_icon_size">90dp</dimen>
+    <dimen name="f_words_choice_way_icon_size">100dp</dimen>
     <dimen name="f_words_choice_way_icon_text">3sp</dimen>
 
     <dimen name="f_theme_choice_icon_size">130dp</dimen>
     <dimen name="f_theme_choice_icon_text">5sp</dimen>
+
+    <item name="f_list_text_factor" format="float" type="dimen">1</item>
+    <item name="f_choice_icon_text_factor" format="float" type="dimen">0.7</item>
 
 </resources>
