@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import net.heliantum.understandable.R;
+import net.heliantum.understandable.fragments.custom_words.DownloadWordsSet;
 import net.heliantum.understandable.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import net.heliantum.understandable.fragments.words.choice.WordsChoiceCategoryFragment;
 import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
@@ -50,7 +51,8 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
         else if(id == R.id.navigation_download_your_cards) {
-            Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
+            DownloadWordsSet fragment = new DownloadWordsSet();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_MODE).commit();
         }
         else if(id == R.id.navigation_your_words) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();

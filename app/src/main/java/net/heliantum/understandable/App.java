@@ -1,16 +1,16 @@
 package net.heliantum.understandable;
 
 import android.app.Application;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import net.heliantum.understandable.corrupted.BaseDBHandler;
-import net.heliantum.understandable.data.enums.ThemeType;
 import net.heliantum.understandable.database.repository.IrregularVerbEntityRepository;
 import net.heliantum.understandable.database.repository.LanguageEntityRepository;
 import net.heliantum.understandable.utils.font.Font;
 import net.heliantum.understandable.utils.font.FontsOverride;
+import net.heliantum.understandable.webservice.WebService;
+
+import java.io.File;
 
 /**
  * Created by Lotos_ on 2016-11-11.
@@ -26,6 +26,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         loadData();
+        prepareCustomWordsSetsDirectory();
         Font.loadBuiltInTypefaces(getApplicationContext());
     }
 
@@ -45,4 +46,14 @@ public class App extends Application {
         IrregularVerbEntityRepository.init(getApplicationContext());
     }
 
+    private void prepareCustomWordsSetsDirectory() {
+        File customWordsSetsDirectory = new File(getFilesDir(), "/words_sets/");
+        File customWordsSetsTempDirectory = new File(getFilesDir(), "/words_sets/tmp");
+        if(!customWordsSetsDirectory.exists()) {
+            customWordsSetsDirectory.mkdir();
+        }
+        if(!customWordsSetsTempDirectory.exists()) {
+            customWordsSetsTempDirectory.mkdir();
+        }
+    }
 }
