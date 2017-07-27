@@ -6,6 +6,7 @@ import android.util.Log;
 import net.heliantum.understandable.corrupted.BaseDBHandler;
 import net.heliantum.understandable.database.repository.IrregularVerbEntityRepository;
 import net.heliantum.understandable.database.repository.LanguageEntityRepository;
+import net.heliantum.understandable.database.repository.WordsSetsRepository;
 import net.heliantum.understandable.utils.font.Font;
 import net.heliantum.understandable.utils.font.FontsOverride;
 import net.heliantum.understandable.webservice.WebService;
@@ -44,16 +45,17 @@ public class App extends Application {
         Log.d(DEBUG_TAG, "Loading Entities");
         LanguageEntityRepository.init(getApplicationContext());
         IrregularVerbEntityRepository.init(getApplicationContext());
+        WordsSetsRepository.init(getApplicationContext());
     }
 
     private void prepareCustomWordsSetsDirectory() {
         File customWordsSetsDirectory = new File(getFilesDir(), "/words_sets/");
-        File customWordsSetsTempDirectory = new File(getFilesDir(), "/words_sets/tmp");
+        File customWordsSetsInfoDirectory = new File(getFilesDir(), "/words_sets/info/");
         if(!customWordsSetsDirectory.exists()) {
             customWordsSetsDirectory.mkdir();
         }
-        if(!customWordsSetsTempDirectory.exists()) {
-            customWordsSetsTempDirectory.mkdir();
+        if(!customWordsSetsInfoDirectory.exists()) {
+            customWordsSetsInfoDirectory.mkdir();
         }
     }
 }

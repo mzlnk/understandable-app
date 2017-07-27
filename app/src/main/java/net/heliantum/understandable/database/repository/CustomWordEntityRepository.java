@@ -25,7 +25,7 @@ public class CustomWordEntityRepository {
 
     private static InputStream dataFile;
 
-    public static void init(Context context, String wordSetId) {
+    public static void create(Context context, String wordSetId) {
         clearData();
         try {
             File directory = new File(context.getFilesDir(), "/words_sets/");
