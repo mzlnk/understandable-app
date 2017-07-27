@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/background_color"
-    tools:context="net.heliantum.understandable.fragments.custom_words.DownloadWordsSet"
+    tools:context="net.heliantum.understandable.fragments.custom_words.DownloadCustomWordsSetFragment"
     android:id="@+id/f_download_words_set">
 
 

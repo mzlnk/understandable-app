@@ -3,6 +3,9 @@ package net.heliantum.understandable.webservice;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
+import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -14,14 +17,12 @@ import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Scanner;
 
 /**
  * Created by Marcin on 2017-07-25.
@@ -46,6 +47,15 @@ public class WebService {
             if(!downloadFile(id)) {
                 return 2;
             }
+            if(!downloadWordsSetData(id)) {
+                return 3;
+            }
+
+            System.out.println("TEST");
+            System.out.println("Files:");
+            for(File f : new File(context.getFilesDir(), "/words_sets/").listFiles()) {
+                System.out.println(f.getName());
+            }
 
             return 0;
         }
@@ -62,6 +72,13 @@ public class WebService {
                     System.out.println("==============================");
                     System.out.println("");
                     System.out.println("File not downloaded");
+                    System.out.println("");
+                    System.out.println("==============================");
+                    break;
+                case 3:
+                    System.out.println("==============================");
+                    System.out.println("");
+                    System.out.println("File data not downloaded/saved");
                     System.out.println("");
                     System.out.println("==============================");
                     break;
@@ -160,21 +177,22 @@ public class WebService {
                 }
                 result = result.replaceAll("\"", "\\\"");
                 JSONObject jsonObject = new JSONObject(result);
-                jsonObject.
+                String name = jsonObject.getString("name");
+                String description = jsonObject.getString("description");
+                System.out.println("Name: " + name);
+                System.out.println("Description: " + description);
+                CustomWordsSetsRepository.addEntity(new CustomWordsSetEntity(id, name, description));
+                return true;
             } catch (URISyntaxException e) {
                 e.printStackTrace();
-                return false;
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
-                return false;
             } catch (IOException e) {
                 e.printStackTrace();
-                return false;
             } catch (JSONException e) {
                 e.printStackTrace();
-                return false;
             }
-            return true;
+            return false;
         }
 
     }

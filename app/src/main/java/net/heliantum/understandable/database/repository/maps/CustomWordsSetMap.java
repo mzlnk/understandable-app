@@ -1,6 +1,6 @@
 package net.heliantum.understandable.database.repository.maps;
 
-import net.heliantum.understandable.database.entity.WordsSetEntity;
+import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,19 +11,19 @@ import java.util.Map;
  * Created by Marcin on 2017-07-27.
  */
 
-public class WordsSetMap {
+public class CustomWordsSetMap {
 
-    private Map<String, WordsSetEntity> wordsSetEntities = new HashMap<>();
+    private Map<String, CustomWordsSetEntity> wordsSetEntities = new HashMap<>();
 
-    public WordsSetEntity getEntity(String id) {
+    public CustomWordsSetEntity getEntity(String id) {
         return wordsSetEntities.get(id);
     }
 
-    public List<WordsSetEntity> getAllEntities() {
+    public List<CustomWordsSetEntity> getAllEntities() {
         return new ArrayList<>(wordsSetEntities.values());
     }
 
-    public void addEntity(WordsSetEntity entity) {
+    public void addEntity(CustomWordsSetEntity entity) {
         wordsSetEntities.put(entity.getId(), entity);
     }
 

@@ -12,11 +12,11 @@ import android.widget.EditText;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.webservice.WebService;
 
-public class DownloadWordsSet extends Fragment {
+public class DownloadCustomWordsSetFragment extends Fragment {
 
     private EditText codeField;
 
-    public DownloadWordsSet() {
+    public DownloadCustomWordsSetFragment() {
         // Required empty public constructor
     }
 

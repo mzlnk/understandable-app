@@ -6,10 +6,9 @@ import android.util.Log;
 import net.heliantum.understandable.corrupted.BaseDBHandler;
 import net.heliantum.understandable.database.repository.IrregularVerbEntityRepository;
 import net.heliantum.understandable.database.repository.LanguageEntityRepository;
-import net.heliantum.understandable.database.repository.WordsSetsRepository;
+import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
 import net.heliantum.understandable.utils.font.Font;
 import net.heliantum.understandable.utils.font.FontsOverride;
-import net.heliantum.understandable.webservice.WebService;
 
 import java.io.File;
 
@@ -45,7 +44,7 @@ public class App extends Application {
         Log.d(DEBUG_TAG, "Loading Entities");
         LanguageEntityRepository.init(getApplicationContext());
         IrregularVerbEntityRepository.init(getApplicationContext());
-        WordsSetsRepository.init(getApplicationContext());
+        CustomWordsSetsRepository.init(getApplicationContext());
     }
 
     private void prepareCustomWordsSetsDirectory() {

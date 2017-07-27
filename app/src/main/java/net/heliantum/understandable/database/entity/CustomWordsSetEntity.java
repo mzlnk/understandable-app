@@ -4,13 +4,13 @@ package net.heliantum.understandable.database.entity;
  * Created by Marcin on 2017-07-27.
  */
 
-public class WordsSetEntity {
+public class CustomWordsSetEntity {
 
     private String id;
     private String name;
     private String description;
 
-    public WordsSetEntity(String id, String name, String description) {
+    public CustomWordsSetEntity(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
