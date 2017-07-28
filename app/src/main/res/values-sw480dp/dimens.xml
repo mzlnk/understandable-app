@@ -39,31 +39,19 @@
     <dimen name="f_quiz_result_correct_answers_amount_info">26sp</dimen>
     <dimen name="f_quiz_result_incorrect_answers_amount_info">26sp</dimen>
 
-    <dimen name="f_words_choice_length_words_amount">55sp</dimen>
-    <dimen name="f_words_choice_button_margin">10dp</dimen>
+    <dimen name="f_choice_length_amount">55sp</dimen>
+    <dimen name="f_choice_button_margin">10dp</dimen>
 
     <dimen name="f_words_repetition_example_word_0">33sp</dimen>
     <dimen name="f_words_repetition_example_word_1">28sp</dimen>
 
-    <dimen name="f_words_repetition_result_words_seen_amount">50sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_amount">50sp</dimen>
-    <dimen name="f_words_repetition_result_words_seen_info">22sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_info">22sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_subtitle">27sp</dimen>
+    <dimen name="f_repetition_result_words_seen_amount">50sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_amount">50sp</dimen>
+    <dimen name="f_repetition_result_words_seen_info">22sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_info">22sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_subtitle">27sp</dimen>
 
     <dimen name="f_start_title">28sp</dimen>
-
-    <dimen name="f_irregular_verbs_choice_length_words_amount">55sp</dimen>
-    <dimen name="f_irregular_verbs_choice_button_margin">10dp</dimen>
-
-    <dimen name="f_irregular_verbs_repetition_result_words_seen_amount">50sp</dimen>
-    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_amount">50sp</dimen>
-    <dimen name="f_irregular_verbs_repetition_result_words_seen_info">22sp</dimen>
-    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_info">22sp</dimen>
-    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_subtitle">27sp</dimen>
-
-    <!-- *************************************************************************************** -->
-
     <dimen name="f_content_start_screen_icon">145dp</dimen>
 
     <dimen name="f_words_choice_category_icon_size">100dp</dimen>

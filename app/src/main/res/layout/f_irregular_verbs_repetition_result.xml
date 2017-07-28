@@ -44,7 +44,7 @@
                     android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
-                    android:textSize="@dimen/f_irregular_verbs_repetition_result_words_seen_amount" />
+                    android:textSize="@dimen/f_repetition_result_words_seen_amount" />
 
                 <TextView
                     android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_amount"
@@ -53,7 +53,7 @@
                     android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
-                    android:textSize="@dimen/f_irregular_verbs_repetition_result_words_to_repeat_amount" />
+                    android:textSize="@dimen/f_repetition_result_words_to_repeat_amount" />
 
             </TableRow>
 
@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:text="@string/f_irregular_verbs_repetition_result_words_seen_info"
                     android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_irregular_verbs_repetition_result_words_seen_info" />
+                    android:textSize="@dimen/f_repetition_result_words_seen_info" />
 
                 <TextView
                     android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_info"
@@ -78,7 +78,7 @@
                     android:gravity="center"
                     android:text="@string/f_irregular_verbs_repetition_result_words_to_repeat"
                     android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_irregular_verbs_repetition_result_words_to_repeat_info" />
+                    android:textSize="@dimen/f_repetition_result_words_to_repeat_info" />
 
             </TableRow>
         </TableLayout>
@@ -96,7 +96,7 @@
             android:gravity="center"
             android:text="@string/f_irregular_verbs_repetition_result_words_to_repeat_title"
             android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_irregular_verbs_repetition_result_words_to_repeat_subtitle" />
+            android:textSize="@dimen/f_repetition_result_words_to_repeat_subtitle" />
 
 
         <TableLayout

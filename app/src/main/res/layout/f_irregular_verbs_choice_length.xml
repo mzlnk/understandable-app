@@ -33,7 +33,7 @@
             android:gravity="center"
             android:text="0"
             android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_irregular_verbs_choice_length_words_amount"
+            android:textSize="@dimen/f_choice_length_amount"
             />
 
         <LinearLayout
@@ -60,7 +60,7 @@
                 android:id="@+id/f_irregular_verbs_choice_length_back"
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
-                android:layout_marginRight="@dimen/f_irregular_verbs_choice_button_margin"
+                android:layout_marginRight="@dimen/f_choice_button_margin"
                 android:text="@string/button_back"
                 android:textSize="@dimen/button_back"
                 android:textAllCaps="false"
@@ -72,7 +72,7 @@
                 android:id="@+id/f_irregular_verbs_choice_length_submit"
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
-                android:layout_marginLeft="@dimen/f_irregular_verbs_choice_button_margin"
+                android:layout_marginLeft="@dimen/f_choice_button_margin"
                 android:background="@drawable/button_2"
                 android:clickable="true"
                 android:text="@string/button_start"
