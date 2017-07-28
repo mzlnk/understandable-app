@@ -23,7 +23,7 @@
             android:gravity="center"
             android:text="@string/f_quiz_result_title"
             android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_quiz_result_title" />
+            android:textSize="@dimen/f_text_title_large" />
 
         <TableLayout
             android:layout_width="match_parent"

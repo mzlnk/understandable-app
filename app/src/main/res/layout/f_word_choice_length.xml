@@ -21,7 +21,7 @@
             android:layout_weight="0.05"
             android:gravity="center"
             android:text="@string/f_words_choice_length_title"
-            android:textSize="@dimen/f_words_choice_length_title"
+            android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color" />
 
         <TextView

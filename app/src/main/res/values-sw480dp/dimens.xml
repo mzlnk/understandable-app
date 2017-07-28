@@ -13,8 +13,6 @@
     <dimen name="button_small_height">60dp</dimen>
     <dimen name="button_medium_width">250dp</dimen>
     <dimen name="button_medium_height">60dp</dimen>
-    <dimen name="button_large_width">10dp</dimen>
-    <dimen name="button_large_height">10dp</dimen>
 
     <dimen name="button_try_again">21sp</dimen>
     <dimen name="button_back">21sp</dimen>
@@ -24,12 +22,14 @@
     <dimen name="button_finish">21sp</dimen>
     <dimen name="button_show">21sp</dimen>
 
+    <dimen name="f_text_title_large">56sp</dimen>
+    <dimen name="f_text_title_medium">35sp</dimen>
+
     <dimen name="f_quiz_question_number">26sp</dimen>
     <dimen name="f_quiz_question">38sp</dimen>
     <dimen name="f_quiz_option">18sp</dimen>
     <dimen name="f_quiz_margin">6dp</dimen>
 
-    <dimen name="f_quiz_result_title">56sp</dimen>
     <dimen name="f_quiz_result_questions_amount">46sp</dimen>
     <dimen name="f_quiz_result_answers_amount_info">31sp</dimen>
     <dimen name="f_quiz_result_image_width">65dp</dimen>
@@ -39,70 +39,38 @@
     <dimen name="f_quiz_result_correct_answers_amount_info">26sp</dimen>
     <dimen name="f_quiz_result_incorrect_answers_amount_info">26sp</dimen>
 
-    <dimen name="f_quiz_result_correct_words_summary_title">30sp</dimen>
-    <dimen name="f_quiz_result_incorrect_words_summary_title">30sp</dimen>
-
-    <dimen name="f_words_choice_length_title">35sp</dimen>
-    <dimen name="f_words_choice_category_title">35sp</dimen>
-    <dimen name="f_words_choice_mode_title">35sp</dimen>
-    <dimen name="f_words_choice_type_title">35sp</dimen>
-    <dimen name="f_words_choice_way_title">35sp</dimen>
     <dimen name="f_words_choice_length_words_amount">55sp</dimen>
     <dimen name="f_words_choice_button_margin">10dp</dimen>
 
     <dimen name="f_words_repetition_example_word_0">33sp</dimen>
     <dimen name="f_words_repetition_example_word_1">28sp</dimen>
 
-    <dimen name="f_words_repetition_result_title">65sp</dimen>
     <dimen name="f_words_repetition_result_words_seen_amount">50sp</dimen>
     <dimen name="f_words_repetition_result_words_to_repeat_amount">50sp</dimen>
     <dimen name="f_words_repetition_result_words_seen_info">22sp</dimen>
     <dimen name="f_words_repetition_result_words_to_repeat_info">22sp</dimen>
     <dimen name="f_words_repetition_result_words_to_repeat_subtitle">27sp</dimen>
 
-    <dimen name="f_words_repetition_result_words_to_repeat_title">28sp</dimen>
-    <dimen name="f_words_repetition_result_words_to_repeat_text">5.4sp</dimen>
-
-    <dimen name="f_words_list_title">35sp</dimen>
-
     <dimen name="f_start_title">28sp</dimen>
 
-    <dimen name="f_irregular_verbs_choice_length_title">35sp</dimen>
-    <dimen name="f_irregular_verbs_choice_mode_title">35sp</dimen>
     <dimen name="f_irregular_verbs_choice_length_words_amount">55sp</dimen>
     <dimen name="f_irregular_verbs_choice_button_margin">10dp</dimen>
 
-    <dimen name="f_irregular_verbs_repetition_result_title">65sp</dimen>
     <dimen name="f_irregular_verbs_repetition_result_words_seen_amount">50sp</dimen>
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_amount">50sp</dimen>
     <dimen name="f_irregular_verbs_repetition_result_words_seen_info">22sp</dimen>
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_info">22sp</dimen>
     <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_subtitle">27sp</dimen>
 
-    <dimen name="f_irregular_verbs_repetition_result_words_to_repeat_title">28sp</dimen>
-
-    <dimen name="f_irregular_verbs_list_title">35sp</dimen>
-
-    <dimen name="f_custom_words_sets_list_title">23sp</dimen>
-
     <!-- *************************************************************************************** -->
 
     <dimen name="f_content_start_screen_icon">145dp</dimen>
 
     <dimen name="f_words_choice_category_icon_size">100dp</dimen>
-    <dimen name="f_words_choice_category_icon_text">3sp</dimen>
-
     <dimen name="f_words_choice_type_icon_size">100dp</dimen>
-    <dimen name="f_words_choice_type_icon_text">3sp</dimen>
-
     <dimen name="f_words_choice_mode_icon_size">100dp</dimen>
-    <dimen name="f_words_choice_mode_icon_text">3sp</dimen>
-
     <dimen name="f_words_choice_way_icon_size">100dp</dimen>
-    <dimen name="f_words_choice_way_icon_text">3sp</dimen>
-
     <dimen name="f_theme_choice_icon_size">130dp</dimen>
-    <dimen name="f_theme_choice_icon_text">5sp</dimen>
 
     <item name="f_list_text_factor" format="float" type="dimen">1</item>
     <item name="f_choice_icon_text_factor" format="float" type="dimen">0.7</item>
