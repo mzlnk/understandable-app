@@ -1,13 +1,123 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.custom_words.CustomWordsSetPreviewFragment">
+    android:background="?attr/background_color"
+    tools:context="net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetPreviewFragment"
+    android:id="@+id/f_custom_words_set_preview" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/f_custom_words_set_preview_words_set_name_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/f_custom_words_set_preview_words_set_name_info"
+            android:textSize="@dimen/f_custom_words_set_preview_words_set_name_info"
+            android:textColor="?attr/text_1_color" />
+
+        <TextView
+            android:id="@+id/f_custom_words_set_preview_words_set_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:textAlignment="center"
+            android:gravity="top"
+            android:text=""
+            android:textSize="@dimen/f_custom_words_set_preview_words_set_name"
+            android:textColor="?attr/text_1_color" />
+
+        <TextView
+            android:id="@+id/f_custom_words_set_preview_words_set_id_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/f_custom_words_set_preview_words_set_id_info"
+            android:textSize="@dimen/f_custom_words_set_preview_words_set_id_info"
+            android:textColor="?attr/text_1_color" />
+
+        <TextView
+            android:id="@+id/f_custom_words_set_preview_words_set_id"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:textAlignment="center"
+            android:gravity="top"
+            android:text=""
+            android:textSize="@dimen/f_custom_words_set_preview_words_set_id"
+            android:textColor="?attr/text_1_color" />
+
+        <TextView
+            android:id="@+id/f_custom_words_set_preview_words_set_description_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/f_custom_words_set_preview_words_set_description_info"
+            android:textSize="@dimen/f_custom_words_set_preview_words_set_description_info"
+            android:textColor="?attr/text_1_color" />
+
+        <TextView
+            android:id="@+id/f_custom_words_set_preview_words_set_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:textAlignment="center"
+            android:gravity="top"
+            android:text=""
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_custom_words_set_preview_words_set_description" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f_custom_words_set_preview_button_delete"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_1"
+                android:clickable="true"
+                android:text="@string/button_delete"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_next" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/f_custom_words_set_preview_button_start_learning"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_gravity="center"
+                android:text="@string/button_start_learning"
+                android:textSize="@dimen/button_next"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_2"
+                android:clickable="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

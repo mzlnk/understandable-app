@@ -28,8 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.85"
-            android:layout_marginLeft="@dimen/f_border_margin"
-            android:layout_marginRight="@dimen/f_border_margin" >
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium" >
 
             <TableLayout
                 android:id="@+id/f_quiz_result_correct_words_summary_table"

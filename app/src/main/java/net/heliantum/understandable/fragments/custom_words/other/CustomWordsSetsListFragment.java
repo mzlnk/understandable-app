@@ -1,7 +1,8 @@
-package net.heliantum.understandable.fragments.custom_words;
+package net.heliantum.understandable.fragments.custom_words.other;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,7 +18,9 @@ import android.widget.TextView;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
 import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
+import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import net.heliantum.understandable.utils.ColorUtil;
+import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -82,10 +85,21 @@ public class CustomWordsSetsListFragment extends Fragment {
             row.setLayoutParams(layoutParams);
 
             row.setMinimumHeight(getContext().getResources().getDimensionPixelSize(R.dimen.f_custom_words_sets_list_row_height));
-            row.setGravity(Gravity.CENTER);
             row.setMeasureWithLargestChildEnabled(true);
             row.addView(t1);
             row.addView(t2);
+
+            final String id = wordsSet.getId();
+
+            row.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    CustomWordsSetPreviewFragment fragment = CustomWordsSetPreviewFragment.newInstance(id);
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW).commit();
+                }
+            });
+
             wordsTable.addView(row);
         }
     }
@@ -101,7 +115,7 @@ public class CustomWordsSetsListFragment extends Fragment {
         float factor = outValue.getFloat();
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-        textView.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, weight));
+        textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, weight));
     }
 
     private void initColors() {

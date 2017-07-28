@@ -25,7 +25,7 @@
     <dimen name="f_text_title_large">38sp</dimen>
     <dimen name="f_text_title_medium">23sp</dimen>
 
-    <dimen name="f_border_margin">10dp</dimen>
+    <dimen name="f_border_margin_medium">10dp</dimen>
 
     <dimen name="f_quiz_question_number">15sp</dimen>
     <dimen name="f_quiz_question">25sp</dimen>
@@ -58,6 +58,13 @@
 
     <dimen name="f_custom_words_sets_list_row_height">40dp</dimen>
     <dimen name="f_custom_words_sets_list_row_margin">4dp</dimen>
+
+    <dimen name="f_custom_words_set_preview_words_set_id_info">17sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_id">20sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_name_info">17sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_name">20sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_description_info">17sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_description">15sp</dimen>
 
     <dimen name="f_words_choice_category_icon_size">70dp</dimen>
     <dimen name="f_words_choice_type_icon_size">70dp</dimen>

@@ -15,10 +15,10 @@
 
     <group android:id="@+id/navigation_group_2" >
         <item
-            android:id="@+id/navigation_download_your_cards"
+            android:id="@+id/navigation_download_custom_words_set"
             android:title="Pobierz fiszki" />
         <item
-            android:id="@+id/navigation_your_words"
+            android:id="@+id/navigation_custom_words_sets"
             android:title="Lista twoich fiszek" />
     </group>
 

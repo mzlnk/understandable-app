@@ -25,8 +25,10 @@ public class CustomWordsSetsRepository {
 
     private static final String FILE_PATH = "words_sets/info/words_sets_info.json";
     private static File dataFile;
+    private static Context context;
 
     public static void init(Context context) {
+        CustomWordsSetsRepository.context = context;
         dataFile = new File(context.getFilesDir(), FILE_PATH);
         loadData();
     }
@@ -64,6 +66,7 @@ public class CustomWordsSetsRepository {
     public static void removeEntity(String id) {
         customWordsSetMap.removeEntity(id);
         saveData();
+        removeFile(id);
     }
 
     public static void setName(String id, String name) {
@@ -80,5 +83,10 @@ public class CustomWordsSetsRepository {
             entity.setDescription(description);
             saveData();
         }
+    }
+
+    private static void removeFile(String id) {
+        File file = new File(context.getFilesDir(), "/words_sets/" + id + ".json");
+        file.delete();
     }
 }

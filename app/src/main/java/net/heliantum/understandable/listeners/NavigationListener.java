@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.fragments.custom_words.CustomWordsSetsListFragment;
-import net.heliantum.understandable.fragments.custom_words.DownloadCustomWordsSetFragment;
+import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetsListFragment;
+import net.heliantum.understandable.fragments.custom_words.other.DownloadCustomWordsSetFragment;
 import net.heliantum.understandable.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import net.heliantum.understandable.fragments.words.choice.WordsChoiceCategoryFragment;
 import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
@@ -51,13 +51,13 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         else if(id == R.id.navigation_grammar) {
             Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
         }
-        else if(id == R.id.navigation_download_your_cards) {
+        else if(id == R.id.navigation_download_custom_words_set) {
             DownloadCustomWordsSetFragment fragment = new DownloadCustomWordsSetFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_MODE).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET).commit();
         }
-        else if(id == R.id.navigation_your_words) {
+        else if(id == R.id.navigation_custom_words_sets) {
             CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_MODE).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
         }
         else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();

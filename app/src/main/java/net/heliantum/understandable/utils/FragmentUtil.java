@@ -37,6 +37,11 @@ public class FragmentUtil {
     public static final String F_IRREGULAR_VERBS_REPETITION_RESULT_WORDS_TO_REPEAT = "f_irregular_verbs_repetition_result_words_to_repeat";
     public static final String F_START = "f_start";
     public static final String F_THEME_CHOICE = "f_theme_choice";
+    public static final String F_DOWNLOAD_CUSTOM_WORDS_SET = "f_download_custom_words_set";
+    public static final String F_CUSTOM_WORDS_SETS_LIST = "f_custom_words_sets_list";
+    public static final String F_CUSTOM_WORDS_SET_PREVIEW = "f_custom_words_set_preview";
+    public static final String F_CUSTOM_WORDS_SET_PREVIEW_EDIT = "f_custom_words_set_preview_edit";
+
 
     public static Fragment getVisibleFragment() {
         FragmentManager fragmentManager = NavigationActivity.activity.getSupportFragmentManager();
