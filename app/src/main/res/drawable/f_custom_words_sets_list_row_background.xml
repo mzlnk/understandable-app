@@ -12,8 +12,4 @@
         android:right="0dp"
         android:bottom="0dp"
         />
-    <stroke
-        android:color="?attr/background_color"
-        android:width="3dp"
-        />
 </shape>

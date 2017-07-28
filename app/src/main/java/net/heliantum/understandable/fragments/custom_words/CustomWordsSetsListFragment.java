@@ -15,9 +15,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.words_data.WordsListData;
 import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
-import net.heliantum.understandable.database.entity.LanguageEntity;
 import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
 import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.font.Font;
@@ -76,9 +74,14 @@ public class CustomWordsSetsListFragment extends Fragment {
             prepareCell(t1, wordsSet.getId(), 0.3F);
             prepareCell(t2, wordsSet.getName(), 0.7F);
 
-            row.setBackgroundResource(R.drawable.f_custom_words_sets_list_divider);
+            row.setBackgroundResource(R.drawable.f_custom_words_sets_list_row_background);
 
-            row.setMinimumHeight(180);
+            TableLayout.LayoutParams layoutParams = new TableLayout.LayoutParams();
+            int marginInPixels = getContext().getResources().getDimensionPixelSize(R.dimen.f_custom_words_sets_list_row_margin);
+            layoutParams.setMargins(0, 0, 0, marginInPixels);
+            row.setLayoutParams(layoutParams);
+
+            row.setMinimumHeight(getContext().getResources().getDimensionPixelSize(R.dimen.f_custom_words_sets_list_row_height));
             row.setGravity(Gravity.CENTER);
             row.setMeasureWithLargestChildEnabled(true);
             row.addView(t1);
