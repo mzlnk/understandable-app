@@ -2,9 +2,14 @@ package net.heliantum.understandable.webservice;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentManager;
+import android.widget.Toast;
 
+import net.heliantum.understandable.R;
 import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
 import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
+import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetsListFragment;
+import net.heliantum.understandable.utils.FragmentUtil;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -33,9 +38,11 @@ public class WebService {
     public static class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
         private Context context;
+        private FragmentManager fragmentManager;
 
-        public DownloadWordsSetTask(Context context) {
+        public DownloadWordsSetTask(Context context, FragmentManager fragmentManager) {
             this.context = context;
+            this.fragmentManager = fragmentManager;
         }
 
         @Override
@@ -67,6 +74,7 @@ public class WebService {
                     System.out.println("==============================");
                     System.out.println("Code does not exist in database");
                     System.out.println("==============================");
+                    Toast.makeText(context, "Podany kod nie istnieje", Toast.LENGTH_LONG).show();
                     break;
                 case 2:
                     System.out.println("==============================");
@@ -74,6 +82,7 @@ public class WebService {
                     System.out.println("File not downloaded");
                     System.out.println("");
                     System.out.println("==============================");
+                    Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_LONG).show();
                     break;
                 case 3:
                     System.out.println("==============================");
@@ -81,6 +90,7 @@ public class WebService {
                     System.out.println("File data not downloaded/saved");
                     System.out.println("");
                     System.out.println("==============================");
+                    Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_LONG).show();
                     break;
                 case 0:
                     System.out.println("==============================");
@@ -88,6 +98,9 @@ public class WebService {
                     System.out.println("File downloaded and JSON file created");
                     System.out.println("");
                     System.out.println("==============================");
+                    CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
+                    Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_LONG).show();
                     break;
             }
         }

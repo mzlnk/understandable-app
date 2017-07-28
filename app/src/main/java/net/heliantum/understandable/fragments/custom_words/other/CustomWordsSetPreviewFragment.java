@@ -97,6 +97,8 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         wordsSetId.setTypeface(typeFace);
         wordsSetDescriptionInfo.setTypeface(typeFace);
         wordsSetDescription.setTypeface(typeFace);
+        delete.setTypeface(typeFace);
+        start.setTypeface(typeFace);
     }
 
     private void setWordsSetData() {

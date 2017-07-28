@@ -6,27 +6,60 @@
     tools:context="net.heliantum.understandable.fragments.custom_words.other.DownloadCustomWordsSetFragment"
     android:id="@+id/f_download_words_set">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true">
 
-    <EditText
-        android:id="@+id/f_download_words_set_code_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:text="code" />
+        <TextView
+            android:id="@+id/f_download_words_set_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="@string/f_download_words_set_title"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_text_title_medium" />
 
-    <Button
-        android:id="@+id/f_download_words_set_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="127dp"
-        android:text="Pobierz" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.35"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/f_download_words_set_code_field"
+                android:layout_width="@dimen/f_download_custom_words_set_code_field_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:inputType="textCapCharacters"
+                android:textColor="?attr/text_1_color"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_download_words_set_button_download"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_gravity="center"
+                android:background="@drawable/button_1"
+                android:clickable="true"
+                android:text="@string/button_download"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_next" />
+
+        </LinearLayout>
 
 
+
+    </LinearLayout>
 </RelativeLayout>
