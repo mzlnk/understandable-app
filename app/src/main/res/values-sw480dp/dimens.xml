@@ -25,6 +25,8 @@
     <dimen name="f_text_title_large">56sp</dimen>
     <dimen name="f_text_title_medium">35sp</dimen>
 
+    <dimen name="f_border_margin">10dp</dimen>
+
     <dimen name="f_quiz_question_number">26sp</dimen>
     <dimen name="f_quiz_question">38sp</dimen>
     <dimen name="f_quiz_option">18sp</dimen>
