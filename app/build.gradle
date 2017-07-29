@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.1'
 
     defaultConfig {
-        applicationId "net.heliantum.understandable"
+        applicationId "pl.understandable.understandable_app"
         vectorDrawables.useSupportLibrary = true
         applicationId "net.heliantum.understandable"
         minSdkVersion 21
