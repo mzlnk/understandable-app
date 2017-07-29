@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.words.utils.choice;
+package pl.understandable.understandable_app.utils.buttons.themes;
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,13 +25,13 @@ import java.util.List;
  * Created by Marcin on 2017-07-05.
  */
 
-public class WordsThemeButton extends WordsBaseButton {
+public class WordsThemeButton extends ThemeBaseButton {
 
     private List<WordsThemeButton> allThemes;
     private ThemeType theme;
 
     public WordsThemeButton(Context context, ThemeType theme, List<WordsThemeButton> allThemes) {
-        super(context, null, theme);
+        super(context, theme);
         this.theme = theme;
         this.allThemes = allThemes;
         prepare();

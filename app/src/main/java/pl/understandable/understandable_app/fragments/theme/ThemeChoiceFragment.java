@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
-import pl.understandable.understandable_app.fragments.words.utils.choice.WordsThemeButton;
+import pl.understandable.understandable_app.utils.buttons.themes.WordsThemeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import java.util.ArrayList;
