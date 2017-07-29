@@ -5,7 +5,7 @@ import android.util.Log;
 
 import net.heliantum.understandable.corrupted.BaseDBHandler;
 import net.heliantum.understandable.database.repository.IrregularVerbEntityRepository;
-import net.heliantum.understandable.database.repository.LanguageEntityRepository;
+import net.heliantum.understandable.database.repository.WordEntityRepository;
 import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
 import net.heliantum.understandable.utils.font.Font;
 import net.heliantum.understandable.utils.font.FontsOverride;
@@ -42,7 +42,7 @@ public class App extends Application {
         FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
 
         Log.d(DEBUG_TAG, "Loading Entities");
-        LanguageEntityRepository.init(getApplicationContext());
+        WordEntityRepository.init(getApplicationContext());
         IrregularVerbEntityRepository.init(getApplicationContext());
         CustomWordsSetsRepository.init(getApplicationContext());
     }

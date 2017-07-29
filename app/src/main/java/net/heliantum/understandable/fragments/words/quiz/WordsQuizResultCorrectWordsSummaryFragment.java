@@ -15,8 +15,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.words_data.WordsQuizData;
-import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.data.entities_data.words_data.WordsQuizData;
+import net.heliantum.understandable.database.entity.WordEntity;
 import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.font.Font;
 
@@ -71,7 +71,7 @@ public class WordsQuizResultCorrectWordsSummaryFragment extends Fragment {
 
     private void addWords() {
         boolean color = true;
-        for(LanguageEntity word : WordsQuizData.getQuizData().correctAnswers) {
+        for(WordEntity word : WordsQuizData.getQuizData().correctAnswers) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());

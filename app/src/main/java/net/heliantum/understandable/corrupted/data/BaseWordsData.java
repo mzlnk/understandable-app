@@ -10,7 +10,7 @@ public class BaseWordsData {
     /*todo: remove it
     private static final Random r = new Random();
 
-    public static List<LanguageEntity> allChosenWords = new ArrayList<>();
+    public static List<WordEntity> allChosenWords = new ArrayList<>();
 
     public static List<WordsLanguageCategory> categories = new ArrayList<>();
     public static List<WordsLanguageType> types = new ArrayList<>(Arrays.asList(WordsLanguageType.values()));
@@ -73,10 +73,10 @@ public class BaseWordsData {
     }
 
     public static void resizeWordsList() {
-        List<LanguageEntity> all = new ArrayList<>(allChosenWords);
+        List<WordEntity> all = new ArrayList<>(allChosenWords);
         allChosenWords.clear();
         for(int i = 0; i < size; i++) {
-            LanguageEntity item = all.get(r.nextInt(all.size()));
+            WordEntity item = all.get(r.nextInt(all.size()));
             allChosenWords.add(item);
             all.remove(item);
         }

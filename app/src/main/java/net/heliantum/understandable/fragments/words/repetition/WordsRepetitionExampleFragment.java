@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.words_data.WordsRepetitionData;
+import net.heliantum.understandable.data.entities_data.words_data.WordsRepetitionData;
 import net.heliantum.understandable.utils.ColorUtil;
 
 import java.util.Random;
@@ -99,13 +99,13 @@ public class WordsRepetitionExampleFragment extends Fragment {
     }
 
     private void setWordsPolishToEnglish() {
-        word0.setText(repetitionData.getWords().get(position).getPolishWord());
-        word1.setText(repetitionData.getWords().get(position).getEnglishWord());
+        word0.setText(repetitionData.getEntities().get(position).getPolishWord());
+        word1.setText(repetitionData.getEntities().get(position).getEnglishWord());
     }
 
     private void setWordsEnglishToPolish() {
-        word0.setText(repetitionData.getWords().get(position).getEnglishWord());
-        word1.setText(repetitionData.getWords().get(position).getPolishWord());
+        word0.setText(repetitionData.getEntities().get(position).getEnglishWord());
+        word1.setText(repetitionData.getEntities().get(position).getPolishWord());
     }
 
     private void addListeners() {

@@ -1,4 +1,4 @@
-package net.heliantum.understandable.data.words_data;
+package net.heliantum.understandable.data.entities_data.words_data;
 
 import net.heliantum.understandable.data.params.WordsDataParams;
 

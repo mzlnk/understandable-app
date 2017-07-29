@@ -15,10 +15,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsRepetitionData;
-import net.heliantum.understandable.data.words_data.WordsRepetitionData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import net.heliantum.understandable.database.entity.IrregularVerbEntity;
-import net.heliantum.understandable.database.entity.LanguageEntity;
 import net.heliantum.understandable.database.entity.enums.IrregularVerbEnum;
 import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.font.Font;

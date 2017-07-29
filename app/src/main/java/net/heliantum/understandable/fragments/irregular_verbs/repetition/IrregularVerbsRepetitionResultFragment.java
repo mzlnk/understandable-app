@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
@@ -81,7 +81,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
     }
 
     private void setStats() {
-        wordsSeen.setText(String.valueOf(repetitionData.wordsSeen.size()) + "/" + String.valueOf(repetitionData.getIrregularVerbs().size()));
+        wordsSeen.setText(String.valueOf(repetitionData.wordsSeen.size()) + "/" + String.valueOf(repetitionData.getEntities().size()));
         wordsToRepeat.setText(String.valueOf(repetitionData.wordsToRepeat.size()));
     }
 

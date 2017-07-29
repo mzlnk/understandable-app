@@ -16,8 +16,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsListData;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import net.heliantum.understandable.data.params.IrregularVerbsDataParams;
 import net.heliantum.understandable.fragments.error.NoWordsErrorFragment;
 import net.heliantum.understandable.fragments.irregular_verbs.list.IrregularVerbsListFragment;

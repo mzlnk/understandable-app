@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.ToastUtil;
 
@@ -26,7 +26,7 @@ import net.heliantum.understandable.utils.ToastUtil;
 
 public class IrregularVerbsRepetitionFragment extends Fragment {
 
-    private final int NUMB_WORDS = IrregularVerbsRepetitionData.getRepetitionData().getIrregularVerbs().size();
+    private final int NUMB_WORDS = IrregularVerbsRepetitionData.getRepetitionData().getEntities().size();
 
     private IrregularVerbsRepetitionData repetitionData;
 
@@ -94,7 +94,7 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                repetitionData.setCurrentWord(repetitionData.getIrregularVerbs().get(position));
+                repetitionData.setCurrentWord(repetitionData.getEntities().get(position));
                 repetitionData.addCurrentWordToSeen();
             }
 

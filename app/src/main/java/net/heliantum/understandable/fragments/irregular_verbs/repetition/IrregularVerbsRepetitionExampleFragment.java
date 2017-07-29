@@ -8,15 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import net.heliantum.understandable.database.entity.enums.IrregularVerbEnum;
 import net.heliantum.understandable.utils.ColorUtil;
-
-import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.

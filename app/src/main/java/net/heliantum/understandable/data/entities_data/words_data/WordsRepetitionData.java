@@ -1,7 +1,7 @@
-package net.heliantum.understandable.data.words_data;
+package net.heliantum.understandable.data.entities_data.words_data;
 
 import net.heliantum.understandable.data.params.WordsDataParams;
-import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.database.entity.WordEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ public class WordsRepetitionData extends WordsBaseData {
         repetitionData = new WordsRepetitionData(params);
     }
 
-    public List<LanguageEntity> wordsToRepeat = new ArrayList<>();
-    public List<LanguageEntity> wordsSeen = new ArrayList<>();
-    public LanguageEntity currentWord;
+    public List<WordEntity> wordsToRepeat = new ArrayList<>();
+    public List<WordEntity> wordsSeen = new ArrayList<>();
+    public WordEntity currentWord;
 
     public WordsRepetitionData(WordsDataParams params) {
         super(params);
@@ -32,7 +32,7 @@ public class WordsRepetitionData extends WordsBaseData {
         addCurrentWordToSeen();
     }
 
-    public boolean existsInToRepeatWords(LanguageEntity word) {
+    public boolean existsInToRepeatWords(WordEntity word) {
         return wordsToRepeat.contains(word);
     }
 
@@ -52,7 +52,7 @@ public class WordsRepetitionData extends WordsBaseData {
         wordsToRepeat.remove(currentWord);
     }
 
-    public void setCurrentWord(LanguageEntity word) {
+    public void setCurrentWord(WordEntity word) {
         currentWord = word;
     }
 

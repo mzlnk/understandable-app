@@ -1,7 +1,7 @@
-package net.heliantum.understandable.data.words_data;
+package net.heliantum.understandable.data.entities_data.words_data;
 
 import net.heliantum.understandable.data.params.WordsDataParams;
-import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.database.entity.WordEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,10 @@ public class WordsQuizData extends WordsBaseData {
         quizData = new WordsQuizData(params);
     }
 
-    public List<LanguageEntity> wordsLeft = new ArrayList<>();
-    public List<LanguageEntity> correctAnswers = new ArrayList<>();
-    public List<LanguageEntity> incorrectAnswers = new ArrayList<>();
-    public LanguageEntity currentWord;
+    public List<WordEntity> wordsLeft = new ArrayList<>();
+    public List<WordEntity> correctAnswers = new ArrayList<>();
+    public List<WordEntity> incorrectAnswers = new ArrayList<>();
+    public WordEntity currentWord;
     public int currentQuestion = 1;
 
     public WordsQuizData(WordsDataParams params) {
@@ -39,9 +39,9 @@ public class WordsQuizData extends WordsBaseData {
         currentWord = wordsLeft.get(r.nextInt(wordsLeft.size()));
     }
 
-    public LanguageEntity[] getRandomIncorrectAnswers() {
-        LanguageEntity[] incorrectAnswers = new LanguageEntity[3];
-        LanguageEntity word;
+    public WordEntity[] getRandomIncorrectAnswers() {
+        WordEntity[] incorrectAnswers = new WordEntity[3];
+        WordEntity word;
         boolean check1, check2, check3, check4;
         for(int i = 0; i < 3; i++) {
             do {

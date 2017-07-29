@@ -7,11 +7,11 @@ package net.heliantum.understandable.corrupted.data;
 public class RepetitionData extends BaseWordsData {
 
     /*todo: remove it
-    public static List<LanguageEntity> wordsToRepeat = new ArrayList<>();
-    public static List<LanguageEntity> wordsSeen = new ArrayList<>();
-    public static LanguageEntity currentWord;
+    public static List<WordEntity> wordsToRepeat = new ArrayList<>();
+    public static List<WordEntity> wordsSeen = new ArrayList<>();
+    public static WordEntity currentWord;
 
-    public static boolean existsInToRepeatWords(LanguageEntity word) {
+    public static boolean existsInToRepeatWords(WordEntity word) {
         return wordsToRepeat.contains(word);
     }
 
@@ -31,7 +31,7 @@ public class RepetitionData extends BaseWordsData {
         wordsToRepeat.remove(currentWord);
     }
 
-    public static void setCurrentWord(LanguageEntity word) {
+    public static void setCurrentWord(WordEntity word) {
         currentWord = word;
     }
 

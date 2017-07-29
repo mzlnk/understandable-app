@@ -7,9 +7,9 @@ package net.heliantum.understandable.corrupted.data;
 public class QuizData extends BaseWordsData {
 
     /*todo: remove it
-    public static List<LanguageEntity> chosenWordsLeft = new ArrayList<>();
-    public static List<LanguageEntity> correctWords = new ArrayList<>();
-    public static List<LanguageEntity> incorrectWords = new ArrayList<>();
+    public static List<WordEntity> chosenWordsLeft = new ArrayList<>();
+    public static List<WordEntity> correctWords = new ArrayList<>();
+    public static List<WordEntity> incorrectWords = new ArrayList<>();
 
     public static int currentQuestion = 1;
     public static int questions = 0;
@@ -18,7 +18,7 @@ public class QuizData extends BaseWordsData {
 
     public static boolean wordsSummaryStatus = false;
 
-    public static void removeWord(LanguageEntity entity) {
+    public static void removeWord(WordEntity entity) {
         chosenWordsLeft.remove(entity);
     }
 
@@ -39,11 +39,11 @@ public class QuizData extends BaseWordsData {
         incorrectAnswers++;
     }
 
-    public static void addCorrectWord(LanguageEntity word) {
+    public static void addCorrectWord(WordEntity word) {
         correctWords.add(word);
     }
 
-    public static void addIncorrectWord(LanguageEntity word) {
+    public static void addIncorrectWord(WordEntity word) {
         incorrectWords.add(word);
     }
 

@@ -16,8 +16,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.words_data.WordsRepetitionData;
-import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.data.entities_data.words_data.WordsRepetitionData;
+import net.heliantum.understandable.database.entity.WordEntity;
 import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.font.Font;
 
@@ -77,7 +77,7 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     private void addWords() {
         boolean color = true;
 
-        for(LanguageEntity word : repetitionData.wordsToRepeat) {
+        for(WordEntity word : repetitionData.wordsToRepeat) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());

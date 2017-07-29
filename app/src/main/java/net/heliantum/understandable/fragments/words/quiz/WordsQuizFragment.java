@@ -19,8 +19,8 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.words_data.WordsQuizData;
-import net.heliantum.understandable.database.entity.LanguageEntity;
+import net.heliantum.understandable.data.entities_data.words_data.WordsQuizData;
+import net.heliantum.understandable.database.entity.WordEntity;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
@@ -45,8 +45,8 @@ public class WordsQuizFragment extends Fragment {
     private int chosenOption = -1;
     private boolean isAnswered = false, timesUp = false;
 
-    private LanguageEntity correctWord;
-    private LanguageEntity[] incorrectWords = new LanguageEntity[3];
+    private WordEntity correctWord;
+    private WordEntity[] incorrectWords = new WordEntity[3];
 
     public WordsQuizFragment() {
         // Required empty public constructor

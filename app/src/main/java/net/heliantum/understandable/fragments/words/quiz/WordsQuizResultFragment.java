@@ -15,7 +15,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.words_data.WordsQuizData;
+import net.heliantum.understandable.data.entities_data.words_data.WordsQuizData;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
@@ -76,7 +76,7 @@ public class WordsQuizResultFragment extends Fragment {
     }
 
     private void prepareViews() {
-        questionAmount.setText(String.valueOf(quizData.getWords().size()));
+        questionAmount.setText(String.valueOf(quizData.getEntities().size()));
         correctAnswers.setText(String.valueOf(quizData.correctAnswers.size()));
         incorrectAnswers.setText(String.valueOf(quizData.incorrectAnswers.size()));
     }

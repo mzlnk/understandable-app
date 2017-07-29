@@ -1,4 +1,4 @@
-package net.heliantum.understandable.data.irregular_verbs_data;
+package net.heliantum.understandable.data.entities_data.irregular_verbs_data;
 
 import net.heliantum.understandable.data.params.IrregularVerbsDataParams;
 import net.heliantum.understandable.database.entity.IrregularVerbEntity;

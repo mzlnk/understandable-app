@@ -4,7 +4,7 @@ import net.heliantum.understandable.data.enums.words.WordsLearningMode;
 import net.heliantum.understandable.data.enums.words.WordsLanguageCategory;
 import net.heliantum.understandable.data.enums.words.WordsLanguageType;
 import net.heliantum.understandable.data.enums.words.WordsLearningWay;
-import net.heliantum.understandable.database.repository.LanguageEntityRepository;
+import net.heliantum.understandable.database.repository.WordEntityRepository;
 
 import org.apache.commons.lang.math.NumberUtils;
 
@@ -85,7 +85,7 @@ public class WordsDataParams extends BaseDataParams {
     }
 
     public int getMaximumAvailableWordsAmount() {
-        return LanguageEntityRepository.getSpecifiedEntities(categories, types).size();
+        return WordEntityRepository.getSpecifiedEntities(categories, types).size();
     }
 
     @Override

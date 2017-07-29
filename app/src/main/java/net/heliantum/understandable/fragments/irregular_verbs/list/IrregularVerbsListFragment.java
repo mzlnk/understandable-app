@@ -15,7 +15,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.irregular_verbs_data.IrregularVerbsListData;
+import net.heliantum.understandable.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import net.heliantum.understandable.database.entity.IrregularVerbEntity;
 import net.heliantum.understandable.database.entity.enums.IrregularVerbEnum;
 import net.heliantum.understandable.utils.ColorUtil;
@@ -71,7 +71,7 @@ public class IrregularVerbsListFragment extends Fragment {
 
     private void addWordsToList() {
         boolean color = true;
-        for(IrregularVerbEntity word : IrregularVerbsListData.getListData().getIrregularVerbs()) {
+        for(IrregularVerbEntity word : IrregularVerbsListData.getListData().getEntities()) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());

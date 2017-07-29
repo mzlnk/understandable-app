@@ -11,15 +11,15 @@ public class LanguageEntityDBHandler extends BaseDBHandler {
         super(context);
     }
 
-    public List<LanguageEntity> getData() {
+    public List<WordEntity> getData() {
         Cursor c;
         //table 'words':
         c = db.rawQuery("SELECT * FROM 'words'", null);
 
-        List<LanguageEntity> result = new ArrayList<>();
+        List<WordEntity> result = new ArrayList<>();
         if(c.moveToFirst()) {
             do {
-                result.add(new LanguageEntity(c.getInt(0),
+                result.add(new WordEntity(c.getInt(0),
                         c.getString(1),
                         c.getString(2),
                         LanguageCategory.getEnum(c.getString(3)),

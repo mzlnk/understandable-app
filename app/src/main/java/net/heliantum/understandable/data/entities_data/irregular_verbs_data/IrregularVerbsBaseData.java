@@ -1,8 +1,8 @@
-package net.heliantum.understandable.data.irregular_verbs_data;
+package net.heliantum.understandable.data.entities_data.irregular_verbs_data;
 
+import net.heliantum.understandable.data.entities_data.BaseData;
 import net.heliantum.understandable.data.params.IrregularVerbsDataParams;
 import net.heliantum.understandable.database.entity.IrregularVerbEntity;
-import net.heliantum.understandable.database.entity.LanguageEntity;
 import net.heliantum.understandable.database.repository.IrregularVerbEntityRepository;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Random;
  * Created by Marcin on 2017-07-08.
  */
 
-public class IrregularVerbsBaseData {
+public abstract class IrregularVerbsBaseData implements BaseData<IrregularVerbEntity, IrregularVerbsDataParams> {
 
     protected static final Random r = new Random();
 
@@ -25,14 +25,17 @@ public class IrregularVerbsBaseData {
         generateWords();
     }
 
-    public List<IrregularVerbEntity> getIrregularVerbs() {
+    @Override
+    public List<IrregularVerbEntity> getEntities() {
         return words;
     }
 
+    @Override
     public IrregularVerbsDataParams getParams() {
         return params;
     }
 
+    @Override
     public void generateWords() {
         words = IrregularVerbEntityRepository.getAllEntities();
         resize();

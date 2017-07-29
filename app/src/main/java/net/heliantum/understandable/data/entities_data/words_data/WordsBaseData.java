@@ -1,8 +1,9 @@
-package net.heliantum.understandable.data.words_data;
+package net.heliantum.understandable.data.entities_data.words_data;
 
+import net.heliantum.understandable.data.entities_data.BaseData;
 import net.heliantum.understandable.data.params.WordsDataParams;
-import net.heliantum.understandable.database.entity.LanguageEntity;
-import net.heliantum.understandable.database.repository.LanguageEntityRepository;
+import net.heliantum.understandable.database.entity.WordEntity;
+import net.heliantum.understandable.database.repository.WordEntityRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,36 +13,39 @@ import java.util.Random;
  * Created by Marcin on 2017-05-06.
  */
 
-public abstract class WordsBaseData {
+public abstract class WordsBaseData implements BaseData<WordEntity, WordsDataParams> {
 
     protected static final Random r = new Random();
 
     protected WordsDataParams params;
-    protected List<LanguageEntity> words = new ArrayList<>();
+    protected List<WordEntity> words = new ArrayList<>();
 
     public WordsBaseData(WordsDataParams params) {
         this.params = params;
         generateWords();
     }
 
-    public List<LanguageEntity> getWords() {
+    @Override
+    public List<WordEntity> getEntities() {
         return words;
     }
 
+    @Override
     public WordsDataParams getParams() {
         return params;
     }
 
+    @Override
     public void generateWords() {
-        words = LanguageEntityRepository.getSpecifiedEntities(params.categories, params.types);
+        words = WordEntityRepository.getSpecifiedEntities(params.categories, params.types);
         resize();
     }
 
     private void resize() {
-        List<LanguageEntity> all = new ArrayList<>(words);
+        List<WordEntity> all = new ArrayList<>(words);
         words.clear();
         for(int i = 0; i < params.size; i++) {
-            LanguageEntity item = all.get(r.nextInt(all.size()));
+            WordEntity item = all.get(r.nextInt(all.size()));
             words.add(item);
             all.remove(item);
         }

@@ -17,13 +17,13 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import net.heliantum.understandable.R;;
-import net.heliantum.understandable.data.words_data.WordsRepetitionData;
+import net.heliantum.understandable.data.entities_data.words_data.WordsRepetitionData;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.ToastUtil;
 
 public class WordsRepetitionFragment extends Fragment {
 
-    private final int NUMB_WORDS = WordsRepetitionData.getRepetitionData().getWords().size();
+    private final int NUMB_WORDS = WordsRepetitionData.getRepetitionData().getEntities().size();
 
     private WordsRepetitionData repetitionData;
 
@@ -91,7 +91,7 @@ public class WordsRepetitionFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                repetitionData.setCurrentWord(repetitionData.getWords().get(position));
+                repetitionData.setCurrentWord(repetitionData.getEntities().get(position));
                 repetitionData.addCurrentWordToSeen();
             }
 

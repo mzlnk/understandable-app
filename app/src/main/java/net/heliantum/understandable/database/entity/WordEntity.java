@@ -8,14 +8,14 @@ import net.heliantum.understandable.data.enums.words.WordsLanguageType;
  */
 
 
-public class LanguageEntity extends BaseEntity {
+public class WordEntity extends BaseEntity {
 
     private String polish;
     private String english;
     private String category;
     private String type;
 
-    public LanguageEntity(int id, String polish, String english, String category, String type) {
+    public WordEntity(int id, String polish, String english, String category, String type) {
         this.id = id;
         this.polish = polish;
         this.english = english;

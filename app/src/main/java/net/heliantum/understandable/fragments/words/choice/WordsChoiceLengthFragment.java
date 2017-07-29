@@ -17,9 +17,9 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.params.WordsDataParams;
-import net.heliantum.understandable.data.words_data.WordsListData;
-import net.heliantum.understandable.data.words_data.WordsQuizData;
-import net.heliantum.understandable.data.words_data.WordsRepetitionData;
+import net.heliantum.understandable.data.entities_data.words_data.WordsListData;
+import net.heliantum.understandable.data.entities_data.words_data.WordsQuizData;
+import net.heliantum.understandable.data.entities_data.words_data.WordsRepetitionData;
 import net.heliantum.understandable.fragments.error.NoWordsErrorFragment;
 import net.heliantum.understandable.fragments.words.quiz.WordsQuizFragment;
 import net.heliantum.understandable.fragments.words.list.WordsListFragment;
