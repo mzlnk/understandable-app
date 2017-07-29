@@ -7,7 +7,6 @@ android {
     defaultConfig {
         applicationId "pl.understandable.understandable_app"
         vectorDrawables.useSupportLibrary = true
-        applicationId "net.heliantum.understandable"
         minSdkVersion 21
         targetSdkVersion 24
         versionCode 1
