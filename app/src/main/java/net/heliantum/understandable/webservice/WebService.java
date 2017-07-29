@@ -8,7 +8,7 @@ import android.widget.Toast;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
 import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
-import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetsListFragment;
+import net.heliantum.understandable.fragments.custom_words.CustomWordsSetsListFragment;
 import net.heliantum.understandable.utils.FragmentUtil;
 
 import org.apache.http.HttpResponse;

@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.enums.ThemeType;
+import net.heliantum.understandable.data.enums.themes.ThemeType;
 import net.heliantum.understandable.fragments.start.StartFragment;
 import net.heliantum.understandable.listeners.BackButtonListener;
 import net.heliantum.understandable.listeners.NavigationListener;
@@ -84,7 +83,7 @@ public class NavigationActivity extends AppCompatActivity {
         String sharedPrefFileName = getString(R.string.sp_preferences_file_key);
         String sharedPrefThemeKey = getString(R.string.sp_theme_key);
         SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefFileName, Context.MODE_PRIVATE);
-        int themeId = sharedPreferences.getInt(sharedPrefThemeKey, ThemeType.THEME_3.getThemeId());
+        int themeId = sharedPreferences.getInt(sharedPrefThemeKey, ThemeType.THEME_1.getThemeId());
         setTheme(themeId);
     }
 

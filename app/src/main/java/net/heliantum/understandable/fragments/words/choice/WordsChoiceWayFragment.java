@@ -15,8 +15,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.params.WordsDataParams;
 import net.heliantum.understandable.data.enums.words.WordsLearningWay;
+import net.heliantum.understandable.data.params.WordsDataParams;
 import net.heliantum.understandable.fragments.words.utils.choice.WordsWayButton;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
@@ -56,7 +56,7 @@ public class WordsChoiceWayFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = WordsDataParams.fromString(getArguments().getString(DATA_PARAM));
+            dataParams = new WordsDataParams().fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new WordsDataParams();

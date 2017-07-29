@@ -55,7 +55,7 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = IrregularVerbsDataParams.fromString(getArguments().getString(DATA_PARAM));
+            dataParams = new IrregularVerbsDataParams().fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new IrregularVerbsDataParams();

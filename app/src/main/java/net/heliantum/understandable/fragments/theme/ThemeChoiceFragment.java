@@ -11,7 +11,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.enums.ThemeType;
+import net.heliantum.understandable.data.enums.themes.ThemeType;
 import net.heliantum.understandable.fragments.words.utils.choice.WordsThemeButton;
 import net.heliantum.understandable.utils.font.Font;
 

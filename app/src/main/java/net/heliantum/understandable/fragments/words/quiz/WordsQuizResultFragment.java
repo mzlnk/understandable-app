@@ -23,7 +23,7 @@ import net.heliantum.understandable.utils.font.Font;
  * A simple {@link Fragment} subclass.
  */
 
-public class QuizResultFragment extends Fragment {
+public class WordsQuizResultFragment extends Fragment {
 
     private WordsQuizData quizData;
 
@@ -35,7 +35,7 @@ public class QuizResultFragment extends Fragment {
     private Button tryAgain;
     private TableLayout correctAnswersField, incorrectAnswersField;
 
-    public QuizResultFragment() {
+    public WordsQuizResultFragment() {
         // Required empty public constructor
     }
 
@@ -47,7 +47,7 @@ public class QuizResultFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.f_quiz_result, container, false);
+        View rootView = inflater.inflate(R.layout.f_words_quiz_result, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -103,7 +103,7 @@ public class QuizResultFragment extends Fragment {
             public void onClick(View view) {
                 WordsQuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new QuizFragment(), FragmentUtil.F_WORDS_QUIZ).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ).commit();
             }
         });
 
@@ -111,7 +111,7 @@ public class QuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new QuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new WordsQuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -121,7 +121,7 @@ public class QuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new QuizResultIncorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new WordsQuizResultIncorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

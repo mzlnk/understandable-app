@@ -17,14 +17,8 @@ import android.widget.TextView;
 
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.data.enums.irregular_verbs.IrregularVerbsLearningMode;
-import net.heliantum.understandable.data.enums.words.WordsLearningMode;
 import net.heliantum.understandable.data.params.IrregularVerbsDataParams;
-import net.heliantum.understandable.data.params.WordsDataParams;
 import net.heliantum.understandable.fragments.irregular_verbs.utils.choice.IrregularVerbsModeButton;
-import net.heliantum.understandable.fragments.words.choice.WordsChoiceLengthFragment;
-import net.heliantum.understandable.fragments.words.choice.WordsChoiceModeFragment;
-import net.heliantum.understandable.fragments.words.choice.WordsChoiceWayFragment;
-import net.heliantum.understandable.fragments.words.utils.choice.WordsModeButton;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;
 
@@ -62,7 +56,7 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = IrregularVerbsDataParams.fromString(getArguments().getString(DATA_PARAM));
+            dataParams = new IrregularVerbsDataParams().fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new IrregularVerbsDataParams();

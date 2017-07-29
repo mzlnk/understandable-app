@@ -9,7 +9,7 @@ import org.apache.commons.lang.math.NumberUtils;
  * Created by Marcin on 2017-07-08.
  */
 
-public class IrregularVerbsDataParams {
+public class IrregularVerbsDataParams extends BaseDataParams {
 
     public IrregularVerbsLearningMode mode = IrregularVerbsLearningMode.REPETITION;
     public int size = 1;
@@ -17,7 +17,6 @@ public class IrregularVerbsDataParams {
     public void setMode(IrregularVerbsLearningMode mode) {
         this.mode = mode;
     }
-
 
     public void setSize(int size) {
         this.size = size;
@@ -41,15 +40,15 @@ public class IrregularVerbsDataParams {
         return sb.toString();
     }
 
-    public static IrregularVerbsDataParams fromString(String input) {
+    @Override
+    public IrregularVerbsDataParams fromString(String input) {
         System.out.println("dataParams: input: " + input);
-        IrregularVerbsDataParams dataParams = new IrregularVerbsDataParams();
         int i = 0;
         String str = "";
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                dataParams.setMode(IrregularVerbsLearningMode.valueOf(str));
+                this.setMode(IrregularVerbsLearningMode.valueOf(str));
                 str = "";
                 i++;
                 break;
@@ -60,14 +59,14 @@ public class IrregularVerbsDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                dataParams.setSize(NumberUtils.toInt(str, 1));
+                this.setSize(NumberUtils.toInt(str, 1));
                 i++;
                 break;
             } else {
                 str += c;
             }
         }
-        return dataParams;
+        return this;
     }
 
 }

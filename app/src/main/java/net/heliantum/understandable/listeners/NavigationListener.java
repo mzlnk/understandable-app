@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetsListFragment;
-import net.heliantum.understandable.fragments.custom_words.other.DownloadCustomWordsSetFragment;
+import net.heliantum.understandable.fragments.custom_words.CustomWordsSetsListFragment;
+import net.heliantum.understandable.fragments.custom_words.DownloadCustomWordsSetFragment;
 import net.heliantum.understandable.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import net.heliantum.understandable.fragments.words.choice.WordsChoiceCategoryFragment;
 import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;

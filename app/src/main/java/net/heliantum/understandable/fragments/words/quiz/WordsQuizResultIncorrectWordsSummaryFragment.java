@@ -22,7 +22,11 @@ import net.heliantum.understandable.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-public class QuizResultCorrectWordsSummaryFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+
+public class WordsQuizResultIncorrectWordsSummaryFragment extends Fragment {
 
     private int list1Color, list2Color, textColor;
 
@@ -31,13 +35,13 @@ public class QuizResultCorrectWordsSummaryFragment extends Fragment {
     private TableLayout wordsTable;
     private Button back;
 
-    public QuizResultCorrectWordsSummaryFragment() {
+    public WordsQuizResultIncorrectWordsSummaryFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.f_quiz_result_correct_words_summary, container, false);
+        View rootView = inflater.inflate(R.layout.f_words_quiz_result_incorrect_words_summary, container, false);
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
@@ -47,10 +51,10 @@ public class QuizResultCorrectWordsSummaryFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_quiz_result_correct_words_summary);
-        title = (TextView) rootView.findViewById(R.id.f_quiz_result_correct_words_summary_title);
-        wordsTable = (TableLayout) rootView.findViewById(R.id.f_quiz_result_correct_words_summary_table);
-        back = (Button) rootView.findViewById(R.id.f_quiz_result_correct_words_summary_back);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_quiz_result_incorrect_words_summary);
+        title = (TextView) rootView.findViewById(R.id.f_quiz_result_incorrect_words_summary_title);
+        wordsTable = (TableLayout) rootView.findViewById(R.id.f_quiz_result_incorrect_words_summary_table);
+        back = (Button) rootView.findViewById(R.id.f_quiz_result_incorrect_words_summary_back);
     }
 
     private void prepareLayout() {
@@ -71,7 +75,7 @@ public class QuizResultCorrectWordsSummaryFragment extends Fragment {
 
     private void addWords() {
         boolean color = true;
-        for(LanguageEntity word : WordsQuizData.getQuizData().correctAnswers) {
+        for(LanguageEntity word : WordsQuizData.getQuizData().incorrectAnswers) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());

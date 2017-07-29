@@ -1,8 +1,8 @@
 package net.heliantum.understandable.data.params;
 
+import net.heliantum.understandable.data.enums.words.WordsLearningMode;
 import net.heliantum.understandable.data.enums.words.WordsLanguageCategory;
 import net.heliantum.understandable.data.enums.words.WordsLanguageType;
-import net.heliantum.understandable.data.enums.words.WordsLearningMode;
 import net.heliantum.understandable.data.enums.words.WordsLearningWay;
 import net.heliantum.understandable.database.repository.LanguageEntityRepository;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Marcin on 2017-05-06.
  */
 
-public class WordsDataParams {
+public class WordsDataParams extends BaseDataParams {
 
     public List<WordsLanguageCategory> categories = new ArrayList<>();
     public List<WordsLanguageType> types = new ArrayList<>(Arrays.asList(WordsLanguageType.values()));
@@ -111,21 +111,21 @@ public class WordsDataParams {
         return sb.toString();
     }
 
-    public static WordsDataParams fromString(String input) {
+    @Override
+    public WordsDataParams fromString(String input) {
         System.out.println("dataParams: input: " + input);
-        WordsDataParams dataParams = new WordsDataParams();
         int i = 0;
         String str = "";
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                dataParams.addCategory(WordsLanguageCategory.valueOf(str));
+                this.addCategory(WordsLanguageCategory.valueOf(str));
                 str = "";
                 i++;
                 break;
             }
             if(c == ',') {
-                dataParams.addCategory(WordsLanguageCategory.valueOf(str));
+                this.addCategory(WordsLanguageCategory.valueOf(str));
                 str = "";
             } else {
                 str += c;
@@ -134,13 +134,13 @@ public class WordsDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                dataParams.addType(WordsLanguageType.valueOf(str));
+                this.addType(WordsLanguageType.valueOf(str));
                 str = "";
                 i++;
                 break;
             }
             if(c == ',') {
-                dataParams.addType(WordsLanguageType.valueOf(str));
+                this.addType(WordsLanguageType.valueOf(str));
                 str = "";
             } else {
                 str += c;
@@ -149,18 +149,7 @@ public class WordsDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                dataParams.setMode(WordsLearningMode.valueOf(str));
-                str = "";
-                i++;
-                break;
-            } else {
-                str += c;
-            }
-        }
-        for(; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if(c == ';') {
-                dataParams.setWay(WordsLearningWay.valueOf(str));
+                this.setMode(WordsLearningMode.valueOf(str));
                 str = "";
                 i++;
                 break;
@@ -171,14 +160,25 @@ public class WordsDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                dataParams.setSize(NumberUtils.toInt(str, 1));
+                this.setWay(WordsLearningWay.valueOf(str));
+                str = "";
                 i++;
                 break;
             } else {
                 str += c;
             }
         }
-        return dataParams;
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                this.setSize(NumberUtils.toInt(str, 1));
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        return this;
     }
 
 }

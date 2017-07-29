@@ -8,13 +8,13 @@
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/BlueTheme"
+        android:theme="@style/NightTheme"
         android:name="net.heliantum.understandable.App">
         <activity
             android:name="net.heliantum.understandable.activities.NavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label=""
-            android:theme="@style/BlueTheme" >
+            android:theme="@style/NightTheme" >
         </activity>
 
         <activity

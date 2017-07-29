@@ -21,7 +21,7 @@ import net.heliantum.understandable.data.words_data.WordsListData;
 import net.heliantum.understandable.data.words_data.WordsQuizData;
 import net.heliantum.understandable.data.words_data.WordsRepetitionData;
 import net.heliantum.understandable.fragments.error.NoWordsErrorFragment;
-import net.heliantum.understandable.fragments.words.quiz.QuizFragment;
+import net.heliantum.understandable.fragments.words.quiz.WordsQuizFragment;
 import net.heliantum.understandable.fragments.words.list.WordsListFragment;
 import net.heliantum.understandable.fragments.words.repetition.WordsRepetitionFragment;
 import net.heliantum.understandable.utils.FragmentUtil;
@@ -58,7 +58,7 @@ public class WordsChoiceLengthFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = WordsDataParams.fromString(getArguments().getString(DATA_PARAM));
+            dataParams = new WordsDataParams().fromString(getArguments().getString(DATA_PARAM));
         }
         if(dataParams == null) {
             dataParams = new WordsDataParams();
@@ -163,7 +163,7 @@ public class WordsChoiceLengthFragment extends Fragment {
                         case QUIZ:
                             if(dataParams.getMaximumAvailableWordsAmount() >= 4) {
                                 WordsQuizData.createQuizDataFromParams(dataParams);
-                                transaction.replace(R.id.layout_for_fragments, new QuizFragment(), FragmentUtil.F_WORDS_QUIZ);
+                                transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ);
                             } else {
                                 transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment(), FragmentUtil.F_NO_WORDS_ERROR);
                                 transaction.addToBackStack(null);

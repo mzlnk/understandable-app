@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetsListFragment;
+import net.heliantum.understandable.fragments.custom_words.CustomWordsSetsListFragment;
 import net.heliantum.understandable.fragments.start.StartFragment;
 import net.heliantum.understandable.utils.FragmentUtil;
 

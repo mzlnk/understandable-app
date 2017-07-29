@@ -28,7 +28,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class QuizFragment extends Fragment {
+public class WordsQuizFragment extends Fragment {
 
     private static final int QUESTION_ANSWER_TIME_IN_MILLIS = 5000;
     private static final Random r = new Random();
@@ -48,7 +48,7 @@ public class QuizFragment extends Fragment {
     private LanguageEntity correctWord;
     private LanguageEntity[] incorrectWords = new LanguageEntity[3];
 
-    public QuizFragment() {
+    public WordsQuizFragment() {
         // Required empty public constructor
     }
 
@@ -60,7 +60,7 @@ public class QuizFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.f_quiz, container, false);
+        View rootView = inflater.inflate(R.layout.f_words_quiz, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -252,9 +252,9 @@ public class QuizFragment extends Fragment {
                     public void run() {
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         if (quizData.wordsLeft.size() > 1 && getActivity() != null) {
-                            transaction.replace(R.id.layout_for_fragments, new QuizFragment(), FragmentUtil.F_WORDS_QUIZ).commit();
+                            transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ).commit();
                         } else if (getActivity() != null) {
-                            transaction.replace(R.id.layout_for_fragments, new QuizResultFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT).commit();
+                            transaction.replace(R.id.layout_for_fragments, new WordsQuizResultFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT).commit();
                         }
                     }
                 }, 3000);

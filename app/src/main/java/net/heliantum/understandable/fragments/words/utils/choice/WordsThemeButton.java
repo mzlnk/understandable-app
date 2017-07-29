@@ -13,7 +13,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.enums.ThemeType;
+import net.heliantum.understandable.data.enums.themes.ThemeType;
 import net.heliantum.understandable.fragments.theme.ThemeChoiceFragment;
 import net.heliantum.understandable.utils.FragmentUtil;
 

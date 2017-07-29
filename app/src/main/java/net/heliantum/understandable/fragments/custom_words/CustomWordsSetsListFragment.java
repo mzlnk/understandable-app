@@ -1,4 +1,4 @@
-package net.heliantum.understandable.fragments.custom_words.other;
+package net.heliantum.understandable.fragments.custom_words;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,7 +18,6 @@ import android.widget.TextView;
 import net.heliantum.understandable.R;
 import net.heliantum.understandable.database.entity.CustomWordsSetEntity;
 import net.heliantum.understandable.database.repository.CustomWordsSetsRepository;
-import net.heliantum.understandable.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import net.heliantum.understandable.utils.ColorUtil;
 import net.heliantum.understandable.utils.FragmentUtil;
 import net.heliantum.understandable.utils.font.Font;

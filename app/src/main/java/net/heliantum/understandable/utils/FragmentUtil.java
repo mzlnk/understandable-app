@@ -20,10 +20,10 @@ public class FragmentUtil {
     public static final String F_WORDS_CHOICE_WAY = "f_words_choice_way";
     public static final String F_NO_WORDS_ERROR = "f_no_words_error";
     public static final String F_WORDS_LIST = "f_words_list";
-    public static final String F_WORDS_QUIZ = "f_quiz";
-    public static final String F_WORDS_QUIZ_RESULT = "f_quiz_result";
-    public static final String F_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY = "f_quiz_result_correct_words_summary";
-    public static final String F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY = "f_quiz_result_incorrect_words_summary";
+    public static final String F_WORDS_QUIZ = "f_words_quiz";
+    public static final String F_WORDS_QUIZ_RESULT = "f_words_quiz_result";
+    public static final String F_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY = "f_words_quiz_result_correct_words_summary";
+    public static final String F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY = "f_words_quiz_result_incorrect_words_summary";
     public static final String F_WORDS_REPETITION = "f_words_repetition";
     public static final String F_WORDS_REPETITION_EXAMPLE = "f_words_repetition_example";
     public static final String F_WORDS_REPETITION_RESULT = "f_words_repetition_result";

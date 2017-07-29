@@ -1,4 +1,4 @@
-package net.heliantum.understandable.fragments.custom_words.other;
+package net.heliantum.understandable.fragments.custom_words;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

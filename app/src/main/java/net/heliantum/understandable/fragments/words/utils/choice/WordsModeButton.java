@@ -8,8 +8,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import net.heliantum.understandable.R;
-import net.heliantum.understandable.data.params.WordsDataParams;
 import net.heliantum.understandable.data.enums.words.WordsLearningMode;
+import net.heliantum.understandable.data.params.WordsDataParams;
 
 import java.util.List;
 
