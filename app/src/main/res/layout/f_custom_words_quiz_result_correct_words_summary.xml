@@ -2,25 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.words.quiz.WordsQuizResultIncorrectWordsSummaryFragment"
     android:background="?attr/background_color"
-    android:id="@+id/f_quiz_result_incorrect_words_summary" >
+    tools:context="pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizResultCorrectWordsSummary"
+    android:id="@+id/f_custom_words_quiz_result_correect_words_summary">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:measureWithLargestChild="true">
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TextView
-            android:id="@+id/f_words_quiz_result_incorrect_words_summary_title"
+            android:id="@+id/f_custom_words_quiz_result_correct_words_summary_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_weight="0.1"
+            android:gravity="center"
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_text_title_medium"
-            android:text="Odpowiedzi błędne" />
+            android:text="@string/f_quiz_result_correct_words_summary_title" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -30,7 +32,7 @@
             android:layout_marginRight="@dimen/f_border_margin_medium" >
 
             <TableLayout
-                android:id="@+id/f_words_quiz_result_incorrect_words_summary_table"
+                android:id="@+id/f_custom_words_quiz_result_correct_words_summary_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:shrinkColumns="*" >
@@ -46,7 +48,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/f_words_quiz_result_incorrect_words_summary_back"
+                android:id="@+id/f_custom_words_quiz_result_correct_words_summary_back"
                 android:layout_width="@dimen/button_medium_width"
                 android:layout_height="@dimen/button_medium_height"
                 android:layout_gravity="center"

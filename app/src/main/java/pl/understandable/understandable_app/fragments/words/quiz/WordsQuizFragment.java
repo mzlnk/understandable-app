@@ -70,14 +70,14 @@ public class WordsQuizFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        questionLayout = (TableLayout) rootView.findViewById(R.id.f_quiz_question_table);
-        question = (TextView) rootView.findViewById(R.id.f_quiz_question);
-        questionNumber = (TextView) rootView.findViewById(R.id.f_quiz_question_number);
-        answers[0] = (Button) rootView.findViewById(R.id.f_quiz_option_0);
-        answers[1] = (Button) rootView.findViewById(R.id.f_quiz_option_1);
-        answers[2] = (Button) rootView.findViewById(R.id.f_quiz_option_2);
-        answers[3] = (Button) rootView.findViewById(R.id.f_quiz_option_3);
-        time = (ProgressBar) rootView.findViewById(R.id.f_quiz_time);
+        questionLayout = (TableLayout) rootView.findViewById(R.id.f_words_quiz_question_table);
+        question = (TextView) rootView.findViewById(R.id.f_words_quiz_question);
+        questionNumber = (TextView) rootView.findViewById(R.id.f_words_quiz_question_number);
+        answers[0] = (Button) rootView.findViewById(R.id.f_words_quiz_option_0);
+        answers[1] = (Button) rootView.findViewById(R.id.f_words_quiz_option_1);
+        answers[2] = (Button) rootView.findViewById(R.id.f_words_quiz_option_2);
+        answers[3] = (Button) rootView.findViewById(R.id.f_words_quiz_option_3);
+        time = (ProgressBar) rootView.findViewById(R.id.f_words_quiz_time);
     }
 
     private void initTimer() {

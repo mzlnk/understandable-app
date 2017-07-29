@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="*"
-    tools:context=".fragments.words.quiz.WordsQuizFragment"
+    tools:context=".fragments.custom_words.quiz.CustomWordsQuizFragment"
     android:background="?attr/background_color"
-    android:id="@+id/f_words_quiz">
+    android:id="@+id/f_custom_words_quiz">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TableLayout
-        android:id="@+id/f_words_quiz_main_layout"
+        android:id="@+id/f_custom_words_quiz_main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:measureWithLargestChild="true"
@@ -18,13 +18,13 @@
         android:layout_alignParentStart="true">
 
         <TableRow
-            android:id="@+id/f_words_quiz_time_row"
+            android:id="@+id/f_custom_words_quiz_time_row"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.05" >
 
             <ProgressBar
-                android:id="@+id/f_words_quiz_time"
+                android:id="@+id/f_custom_words_quiz_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="?android:attr/progressBarStyleHorizontal" />
@@ -37,7 +37,7 @@
             android:layout_weight="0.95" >
 
             <TableLayout
-                android:id="@+id/f_words_quiz_question_table"
+                android:id="@+id/f_custom_words_quiz_question_table"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
 
@@ -50,7 +50,7 @@
                     android:layout_weight="0.125" >
 
                     <TextView
-                        android:id="@+id/f_words_quiz_question_number"
+                        android:id="@+id/f_custom_words_quiz_question_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -66,7 +66,7 @@
                     android:layout_weight="0.375">
 
                     <TextView
-                        android:id="@+id/f_words_quiz_question"
+                        android:id="@+id/f_custom_words_quiz_question"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -82,7 +82,7 @@
                     android:layout_weight="0.125" >
 
                     <Button
-                        android:id="@+id/f_words_quiz_option_0"
+                        android:id="@+id/f_custom_words_quiz_option_0"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/f_border_margin_medium"
@@ -102,7 +102,7 @@
                     android:layout_weight="0.125">
 
                     <Button
-                        android:id="@+id/f_words_quiz_option_1"
+                        android:id="@+id/f_custom_words_quiz_option_1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/f_border_margin_medium"
@@ -122,7 +122,7 @@
                     android:layout_weight="0.125">
 
                     <Button
-                        android:id="@+id/f_words_quiz_option_2"
+                        android:id="@+id/f_custom_words_quiz_option_2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/f_border_margin_medium"
@@ -142,7 +142,7 @@
                     android:layout_weight="0.125">
 
                     <Button
-                        android:id="@+id/f_words_quiz_option_3"
+                        android:id="@+id/f_custom_words_quiz_option_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/f_border_margin_medium"
