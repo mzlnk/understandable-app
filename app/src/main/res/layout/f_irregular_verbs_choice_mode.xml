@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment"
+    tools:context="pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment"
     android:id="@+id/f_irregular_verbs_choice_mode" >
 
     <LinearLayout

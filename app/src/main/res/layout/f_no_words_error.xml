@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_no_words_error_fragment_layout"
-    tools:context="net.heliantum.understandable.fragments.error.NoWordsErrorFragment">
+    tools:context="pl.understandable.understandable_app.fragments.error.NoWordsErrorFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

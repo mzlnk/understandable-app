@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.heliantum.understandable.fragments.start.StartFragment"
+    tools:context="pl.understandable.understandable_app.fragments.start.StartFragment"
     android:id="@+id/f_start" >
 
     <TableLayout
