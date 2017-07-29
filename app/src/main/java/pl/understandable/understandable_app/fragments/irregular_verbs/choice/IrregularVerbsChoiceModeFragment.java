@@ -18,7 +18,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningMode;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
-import pl.understandable.understandable_app.fragments.irregular_verbs.utils.choice.IrregularVerbsModeButton;
+import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsModeButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.fragments.words.utils.choice.WordsModeButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsModeButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 

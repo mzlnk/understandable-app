@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.irregular_verbs.utils.choice;
+package pl.understandable.understandable_app.utils.buttons.custom_words;
 
 import android.content.Context;
 import android.util.TypedValue;
@@ -7,25 +7,25 @@ import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningMode;
-import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
-
 import java.util.List;
 
+import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
+import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
+
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin on 2017-07-29.
  */
 
-public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
+public class CustomWordsWayButton extends CustomWordsBaseButton {
 
-    private List<IrregularVerbsModeButton> allModes;
-    private IrregularVerbsLearningMode mode;
+    private List<CustomWordsWayButton> allWays;
+    private CustomWordsLearningWay way;
 
-    public IrregularVerbsModeButton(Context context, IrregularVerbsDataParams dataParams, IrregularVerbsLearningMode mode, List<IrregularVerbsModeButton> allModes) {
-        super(context, dataParams, mode);
-        this.mode = mode;
-        this.allModes = allModes;
+    public CustomWordsWayButton(Context context, CustomWordsDataParams dataParams, CustomWordsLearningWay way, List<CustomWordsWayButton> allWays) {
+        super(context, dataParams, way);
+        this.way = way;
+        this.allWays = allWays;
         prepare();
         setSize();
         setImage();
@@ -39,13 +39,13 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
         return text;
     }
 
-    private IrregularVerbsLearningMode getMode() {
-        return mode;
+    private CustomWordsLearningWay getWay() {
+        return way;
     }
 
     @Override
     protected void setChoiceState() {
-        if(dataParams.isChosen(mode)) {
+        if(dataParams.isChosen(way)) {
             image.setImageAlpha(ITEM_CHOSEN);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
@@ -59,12 +59,12 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
             public void onClick(View view) {
                 if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
                     image.setImageAlpha(ITEM_CHOSEN);
-                    dataParams.setMode(mode);
-                    for(IrregularVerbsModeButton m : allModes) {
-                        if(m.getMode().equals(mode)) {
+                    dataParams.setWay(way);
+                    for(CustomWordsWayButton w : allWays) {
+                        if(w.getWay().equals(way)) {
                             continue;
                         }
-                        m.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        w.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
     }
 
     private void setSize() {
-        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_mode_icon_size);
+        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_type_icon_size);
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
         super.image.setLayoutParams(layoutParams);
         TypedValue outValue = new TypedValue();
@@ -83,6 +83,7 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
     }
 
     private void setImage() {
-        super.image.setImageResource(mode.getResId());
+        super.image.setImageResource(way.getResId());
     }
+
 }

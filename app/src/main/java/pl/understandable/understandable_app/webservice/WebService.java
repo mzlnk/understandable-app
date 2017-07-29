@@ -8,7 +8,7 @@ import android.widget.Toast;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
-import pl.understandable.understandable_app.fragments.custom_words.CustomWordsSetsListFragment;
+import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
 import org.apache.http.HttpResponse;

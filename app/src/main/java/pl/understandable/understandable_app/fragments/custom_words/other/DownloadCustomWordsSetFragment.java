@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.custom_words;
+package pl.understandable.understandable_app.fragments.custom_words.other;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

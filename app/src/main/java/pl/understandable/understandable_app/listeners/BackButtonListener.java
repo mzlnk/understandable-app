@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.fragments.custom_words.CustomWordsSetsListFragment;
+import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 

@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.words.utils.choice;
+package pl.understandable.understandable_app.utils.buttons.words;
 
 import android.content.Context;
 import android.util.TypedValue;

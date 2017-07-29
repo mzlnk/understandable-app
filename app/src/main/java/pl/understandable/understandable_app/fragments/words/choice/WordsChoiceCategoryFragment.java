@@ -20,7 +20,7 @@ import android.widget.Toast;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
-import pl.understandable.understandable_app.fragments.words.utils.choice.WordsCategoryButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsCategoryButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 

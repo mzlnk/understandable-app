@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.irregular_verbs.utils.choice;
+package pl.understandable.understandable_app.utils.buttons;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -7,15 +7,15 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
-import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
+import pl.understandable.understandable_app.data.params.BaseDataParams;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin on 2017-07-29.
  */
 
-public abstract class IrregularVerbsBaseButton {
+public abstract class BaseButton<P extends BaseDataParams> {
 
     protected static final int ITEM_CHOSEN = 255;
     protected static final int ITEM_NOT_CHOSEN = 110;
@@ -26,10 +26,10 @@ public abstract class IrregularVerbsBaseButton {
     protected ImageView image;
     protected TextView text;
 
-    protected IrregularVerbsDataParams dataParams;
+    protected P dataParams;
     protected Identifiable enumType;
 
-    public IrregularVerbsBaseButton(Context context, IrregularVerbsDataParams dataParams, Identifiable enumType) {
+    public BaseButton(Context context, P dataParams, Identifiable enumType) {
         this.context = context;
         this.dataParams = dataParams;
         this.image = new ImageView(context);

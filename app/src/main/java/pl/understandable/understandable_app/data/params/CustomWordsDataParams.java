@@ -1,7 +1,7 @@
 package pl.understandable.understandable_app.data.params;
 
-import pl.understandable.understandable_app.data.enums.words.WordsLearningMode;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
 
 /**
  * Created by Marcin on 2017-07-29.
@@ -9,22 +9,22 @@ import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
 
 public class CustomWordsDataParams extends BaseDataParams {
 
-    public WordsLearningMode mode = WordsLearningMode.REPETITION;
-    public WordsLearningWay way = WordsLearningWay.RANDOM;
+    public CustomWordsLearningMode mode = CustomWordsLearningMode.REPETITION;
+    public CustomWordsLearningWay way = CustomWordsLearningWay.RANDOM;
 
-    public void setMode(WordsLearningMode mode) {
+    public void setMode(CustomWordsLearningMode mode) {
         this.mode = mode;
     }
 
-    public void setWay(WordsLearningWay way) {
+    public void setWay(CustomWordsLearningWay way) {
         this.way = way;
     }
 
-    public boolean isChosen(WordsLearningWay way) {
+    public boolean isChosen(CustomWordsLearningWay way) {
         return this.way.equals(way);
     }
 
-    public boolean isChosen(WordsLearningMode mode) {
+    public boolean isChosen(CustomWordsLearningMode mode) {
         return this.mode.equals(mode);
     }
 
@@ -46,7 +46,7 @@ public class CustomWordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.setMode(WordsLearningMode.valueOf(str));
+                this.setMode(CustomWordsLearningMode.valueOf(str));
                 str = "";
                 i++;
                 break;
@@ -57,7 +57,7 @@ public class CustomWordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.setWay(WordsLearningWay.valueOf(str));
+                this.setWay(CustomWordsLearningWay.valueOf(str));
                 str = "";
                 i++;
                 break;

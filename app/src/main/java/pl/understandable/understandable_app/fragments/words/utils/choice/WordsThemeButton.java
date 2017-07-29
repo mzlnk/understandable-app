@@ -16,6 +16,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.buttons.words.WordsBaseButton;
 
 import java.lang.reflect.Method;
 import java.util.List;

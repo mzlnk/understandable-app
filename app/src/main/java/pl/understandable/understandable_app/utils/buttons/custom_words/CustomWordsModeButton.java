@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.words.utils.choice;
+package pl.understandable.understandable_app.utils.buttons.custom_words;
 
 import android.content.Context;
 import android.util.TypedValue;
@@ -7,25 +7,25 @@ import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
-import pl.understandable.understandable_app.data.params.WordsDataParams;
-
 import java.util.List;
 
+import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
+import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
+
 /**
- * Created by Marcin on 2017-05-07.
+ * Created by Marcin on 2017-07-29.
  */
 
-public class WordsWayButton extends WordsBaseButton {
+public class CustomWordsModeButton extends CustomWordsBaseButton {
 
-    private List<WordsWayButton> allWays;
-    private WordsLearningWay way;
+    private List<CustomWordsModeButton> allModes;
+    private CustomWordsLearningMode mode;
 
-    public WordsWayButton(Context context, WordsDataParams dataParams, WordsLearningWay way, List<WordsWayButton> allWays) {
-        super(context, dataParams, way);
-        this.way = way;
-        this.allWays = allWays;
+    public CustomWordsModeButton(Context context, CustomWordsDataParams dataParams, CustomWordsLearningMode mode, List<CustomWordsModeButton> allModes) {
+        super(context, dataParams, mode);
+        this.mode = mode;
+        this.allModes = allModes;
         prepare();
         setSize();
         setImage();
@@ -39,13 +39,13 @@ public class WordsWayButton extends WordsBaseButton {
         return text;
     }
 
-    private WordsLearningWay getWay() {
-        return way;
+    private CustomWordsLearningMode getMode() {
+        return mode;
     }
 
     @Override
     protected void setChoiceState() {
-        if(dataParams.isChosen(way)) {
+        if(dataParams.isChosen(mode)) {
             image.setImageAlpha(ITEM_CHOSEN);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
@@ -59,12 +59,12 @@ public class WordsWayButton extends WordsBaseButton {
             public void onClick(View view) {
                 if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
                     image.setImageAlpha(ITEM_CHOSEN);
-                    dataParams.setWay(way);
-                    for(WordsWayButton w : allWays) {
-                        if(w.getWay().equals(way)) {
+                    dataParams.setMode(mode);
+                    for(CustomWordsModeButton m : allModes) {
+                        if(m.getMode().equals(mode)) {
                             continue;
                         }
-                        w.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        m.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class WordsWayButton extends WordsBaseButton {
     }
 
     private void setSize() {
-        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_type_icon_size);
+        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_words_choice_mode_icon_size);
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
         super.image.setLayoutParams(layoutParams);
         TypedValue outValue = new TypedValue();
@@ -83,7 +83,7 @@ public class WordsWayButton extends WordsBaseButton {
     }
 
     private void setImage() {
-        super.image.setImageResource(way.getResId());
+        super.image.setImageResource(mode.getResId());
     }
 
 }
