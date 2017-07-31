@@ -28,6 +28,9 @@
     <color name="light_orange">#FFC125</color>
     <color name="orange">#FFA500</color>
     <color name="dark_orange">#f9a40d</color>
-
+    <color name="light_light_pink">#ffd4e2</color>
+    <color name="light_pink">#ffb3cc</color>
+    <color name="pink">#f78aae</color>
+    <color name="dark_pink">#e16b92</color>
 
 </resources>
