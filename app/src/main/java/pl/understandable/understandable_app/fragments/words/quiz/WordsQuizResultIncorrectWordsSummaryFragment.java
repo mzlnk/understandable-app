@@ -51,7 +51,7 @@ public class WordsQuizResultIncorrectWordsSummaryFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_quiz_result_incorrect_words_summary);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_quiz_result_incorrect_words_summary);
         title = (TextView) rootView.findViewById(R.id.f_words_quiz_result_incorrect_words_summary_title);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_words_quiz_result_incorrect_words_summary_table);
         back = (Button) rootView.findViewById(R.id.f_words_quiz_result_incorrect_words_summary_back);

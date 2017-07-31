@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/background_color"
     tools:context="pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizResultFragment"
-    android:id="@+id/f_custom_words_quiz_result" >
+    android:id="@+id/f_custom_words_quiz_result">
 
     <LinearLayout
         android:orientation="vertical"

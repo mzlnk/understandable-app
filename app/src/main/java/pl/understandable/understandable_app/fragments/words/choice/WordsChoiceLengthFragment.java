@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.words.choice;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,10 +25,6 @@ import pl.understandable.understandable_app.fragments.words.list.WordsListFragme
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
-
-/**
- * A simple {@link Fragment} subclass.
- */
 
 public class WordsChoiceLengthFragment extends Fragment {
 
@@ -150,29 +145,19 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                if(dataParams.getMaximumAvailableWordsAmount() > 0) {
-                    switch (dataParams.mode) {
-                        case REPETITION:
-                            WordsRepetitionData.createRepetitionDataFromParams(dataParams);
-                            transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment(), FragmentUtil.F_WORDS_REPETITION);
-                            break;
-                        case LIST:
-                            WordsListData.createListDataFromParams(dataParams);
-                            transaction.replace(R.id.layout_for_fragments, new WordsListFragment(), FragmentUtil.F_WORDS_LIST);
-                            break;
-                        case QUIZ:
-                            if(dataParams.getMaximumAvailableWordsAmount() >= 4) {
-                                WordsQuizData.createQuizDataFromParams(dataParams);
-                                transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ);
-                            } else {
-                                transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment(), FragmentUtil.F_NO_WORDS_ERROR);
-                                transaction.addToBackStack(null);
-                            }
-                            break;
-                    }
-                } else {
-                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment(), FragmentUtil.F_NO_WORDS_ERROR);
-                    transaction.addToBackStack(null);
+                switch (dataParams.mode) {
+                    case REPETITION:
+                        WordsRepetitionData.createRepetitionDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment(), FragmentUtil.F_WORDS_REPETITION);
+                        break;
+                    case LIST:
+                        WordsListData.createListDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new WordsListFragment(), FragmentUtil.F_WORDS_LIST);
+                        break;
+                    case QUIZ:
+                        WordsQuizData.createQuizDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ);
+                        break;
                 }
                 transaction.commit();
             }

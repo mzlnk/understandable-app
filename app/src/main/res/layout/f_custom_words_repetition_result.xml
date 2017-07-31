@@ -1,13 +1,144 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionResultFragment">
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionResultFragment"
+    android:id="@+id/f_custom_words_repetition_result" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/f_custom_words_repetition_result_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:text="Koniec"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_text_title_large" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:measureWithLargestChild="true" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.33"
+                android:measureWithLargestChild="true" >
+
+                <TextView
+                    android:id="@+id/f_custom_words_repetition_result_words_seen_amount"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/number_0"
+                    android:textStyle="bold"
+                    android:textColor="?attr/text_2_color"
+                    android:textSize="@dimen/f_repetition_result_words_seen_amount" />
+
+                <TextView
+                    android:id="@+id/f_custom_words_repetition_result_words_to_repeat_amount"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/number_0"
+                    android:textStyle="bold"
+                    android:textColor="?attr/text_2_color"
+                    android:textSize="@dimen/f_repetition_result_words_to_repeat_amount" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.67"
+                android:gravity="center"
+                android:measureWithLargestChild="true">
+
+                <TextView
+                    android:id="@+id/f_custom_words_repetition_result_words_seen_info"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/f_repetition_result_words_seen_info"
+                    android:textColor="?attr/text_1_color"
+                    android:textSize="@dimen/f_repetition_result_words_seen_info" />
+
+                <TextView
+                    android:id="@+id/f_custom_words_repetition_result_words_to_repeat_info"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/f_repetition_result_words_to_repeat"
+                    android:textColor="?attr/text_1_color"
+                    android:textSize="@dimen/f_repetition_result_words_to_repeat_info" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+
+        <TextView
+            android:id="@+id/f_custom_words_repetition_result_words_to_repeat_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="@string/f_repetition_result_words_to_repeat_title"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_repetition_result_words_to_repeat_subtitle" />
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.20"
+            android:gravity="top">
+
+            <TableRow
+                android:gravity="center"
+                android:measureWithLargestChild="true">
+
+                <Button
+                    android:id="@+id/f_custom_words_repetition_result_view_words_to_repeat"
+                    android:layout_width="@dimen/button_small_width"
+                    android:layout_height="@dimen/button_small_height"
+                    android:background="@drawable/button_1"
+                    android:text="@string/button_show"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/text_button_color"
+                    android:textSize="@dimen/button_show" />
+
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/f_custom_words_repetition_result_try_again"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:text="@string/button_try_again"
+                android:textSize="@dimen/button_try_again"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

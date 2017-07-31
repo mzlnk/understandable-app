@@ -1,13 +1,57 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment">
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment"
+    android:id="@+id/f_custom_words_choice_way" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/f_custom_words_choice_way_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:text="@string/f_choice_way_title"
+            android:textSize="@dimen/f_text_title_medium"
+            android:textColor="?attr/text_1_color" />
+
+        <TableLayout
+            android:id="@+id/f_custom_words_choice_way_names_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:orientation="horizontal"
+            android:stretchColumns="*" >
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/f_custom_words_choice_way_submit"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:layout_gravity="center"
+                android:text="@string/button_next"
+                android:textSize="@dimen/button_next"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_1"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

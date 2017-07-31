@@ -1,8 +1,7 @@
-package pl.understandable.understandable_app.fragments.custom_words.repetition;
+package pl.understandable.understandable_app.fragments.custom_words.quiz;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
+import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
+import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.utils.ColorUtil;
@@ -24,9 +23,7 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-public class CustomWordsRepetitionResultWordsToRepeatFragment extends Fragment {
-
-    private CustomWordsRepetitionData repetitionData = CustomWordsRepetitionData.getRepetitionData();
+public class CustomWordsQuizResultCorrectWordsSummaryFragment extends Fragment {
 
     private int list1Color, list2Color, textColor;
 
@@ -35,28 +32,26 @@ public class CustomWordsRepetitionResultWordsToRepeatFragment extends Fragment {
     private TableLayout wordsTable;
     private Button back;
 
-    public CustomWordsRepetitionResultWordsToRepeatFragment() {
+    public CustomWordsQuizResultCorrectWordsSummaryFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the mainLayout for this fragment
-        View rootView =  inflater.inflate(R.layout.f_custom_words_repetition_result_words_to_repeat, container, false);
+        View rootView = inflater.inflate(R.layout.f_custom_words_quiz_result_correct_words_summary, container, false);
         initColors();
-        loadViewFromXml(rootView);
+        loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
 
         return rootView;
     }
 
-    private void loadViewFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_custom_words_repetition_result_words_to_repeat);
-        title = (TextView) rootView.findViewById(R.id.f_custom_words_repetition_result_words_to_repeat_title);
-        wordsTable = (TableLayout) rootView.findViewById(R.id.f_custom_words_repetition_result_words_to_repeat_table);
-        back = (Button) rootView.findViewById(R.id.f_custom_words_repetition_result_words_to_repeat_back);
+    private void loadViewsFromXml(View rootView) {
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_custom_words_quiz_result_correct_words_summary);
+        title = (TextView) rootView.findViewById(R.id.f_custom_words_quiz_result_correct_words_summary_title);
+        wordsTable = (TableLayout) rootView.findViewById(R.id.f_custom_words_quiz_result_correct_words_summary_table);
+        back = (Button) rootView.findViewById(R.id.f_custom_words_quiz_result_correct_words_summary_back);
     }
 
     private void prepareLayout() {
@@ -77,13 +72,18 @@ public class CustomWordsRepetitionResultWordsToRepeatFragment extends Fragment {
 
     private void addWords() {
         boolean color = true;
-
-        for(CustomWordEntity word : repetitionData.wordsToRepeat) {
+        for(CustomWordEntity word : CustomWordsQuizData.getQuizData().correctAnswers) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            prepareCell(t1, word.getPolishWord());
-            prepareCell(t2, word.getEnglishWord());
+            t1.setText(word.getPolishWord());
+            t1.setTextColor(textColor);
+            t1.setTypeface(Font.TYPEFACE_MONTSERRAT);
+            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
+            t2.setText(word.getEnglishWord());
+            t2.setTextColor(textColor);
+            t2.setTypeface(Font.TYPEFACE_MONTSERRAT);
+            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
 
             if(color) {
                 row.setBackgroundColor(list1Color);
@@ -97,19 +97,6 @@ public class CustomWordsRepetitionResultWordsToRepeatFragment extends Fragment {
             row.addView(t2);
             wordsTable.addView(row);
         }
-    }
-
-    private void prepareCell(TextView textView, String content) {
-        textView.setText(content);
-        textView.setTextColor(textColor);
-        textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
-
-        TypedValue outValue = new TypedValue();
-        getContext().getResources().getValue(R.dimen.f_list_text_factor, outValue, true);
-        float factor = outValue.getFloat();
-        float textSizeInPixels = textView.getTextSize() * factor;
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-        textView.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
     }
 
     private void addListeners() {

@@ -16,6 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.7"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium"
             android:gravity="center"
             android:measureWithLargestChild="true"
             android:stretchColumns="*"

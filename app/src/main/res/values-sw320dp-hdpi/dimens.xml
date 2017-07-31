@@ -44,8 +44,8 @@
     <dimen name="f_choice_length_amount">35sp</dimen>
     <dimen name="f_choice_button_margin">5dp</dimen>
 
-    <dimen name="f_words_repetition_example_word_0">24sp</dimen>
-    <dimen name="f_words_repetition_example_word_1">19sp</dimen>
+    <dimen name="f_repetition_example_word_0">24sp</dimen>
+    <dimen name="f_repetition_example_word_1">19sp</dimen>
 
     <dimen name="f_repetition_result_words_seen_amount">31sp</dimen>
     <dimen name="f_repetition_result_words_to_repeat_amount">31sp</dimen>

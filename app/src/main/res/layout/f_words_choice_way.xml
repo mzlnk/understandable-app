@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:layout_weight="0.05"
             android:gravity="center"
-            android:text="@string/f_words_choice_way_title"
+            android:text="@string/f_choice_way_title"
             android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color" />
 

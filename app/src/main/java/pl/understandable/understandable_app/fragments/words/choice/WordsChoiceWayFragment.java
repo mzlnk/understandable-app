@@ -24,10 +24,6 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-
 public class WordsChoiceWayFragment extends Fragment {
 
     private static final String DATA_PARAM = "words.way.dataParam";

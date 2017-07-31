@@ -12,7 +12,7 @@
         android:measureWithLargestChild="true" >
 
         <TableRow
-            android:layout_weight="0.3" >
+            android:layout_weight="0.2" >
 
         </TableRow>
 
@@ -22,13 +22,16 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="@dimen/f_content_start_screen_icon"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/f_content_start_screen_icon"
+                android:layout_gravity="bottom"
                 android:alpha="0.5"
                 app:srcCompat="@drawable/f_start_icon" />
 
         </TableRow>
 
         <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="0.1"
             android:gravity="center">
 
@@ -36,16 +39,16 @@
                 android:id="@+id/f_start_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/f_start_title"
-                android:textSize="@dimen/f_start_title"
-                android:textColor="?attr/text_2_color" />
+                android:textColor="?attr/text_2_color"
+                android:textSize="@dimen/f_start_title" />
 
         </TableRow>
 
         <TableRow
-            android:layout_weight="0.3" >
+            android:layout_weight="0.4" >
         </TableRow>
 
     </TableLayout>

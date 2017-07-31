@@ -14,8 +14,10 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.utils.buttons.words.WordsModeButton;
@@ -145,6 +147,15 @@ public class WordsChoiceModeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(dataParams.getMaximumAvailableWordsAmount() <= 0) {
+                    Toast.makeText(getContext(), "Zbyt mała ilość fiszek, aby rozpocząć naukę w tym trybie", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(dataParams.mode.equals(CustomWordsLearningMode.QUIZ) && dataParams.getMaximumAvailableWordsAmount() < 4) {
+                    Toast.makeText(getContext(), "Zbyt mała ilość fiszek, aby rozpocząć naukę w tym trybie", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 WordsChoiceLengthFragment lengthFragment = WordsChoiceLengthFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, lengthFragment, FragmentUtil.F_WORDS_CHOICE_LENGTH).commit();

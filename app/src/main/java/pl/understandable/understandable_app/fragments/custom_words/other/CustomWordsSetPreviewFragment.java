@@ -20,7 +20,9 @@ import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
+import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
+import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
 public class CustomWordsSetPreviewFragment extends Fragment {
@@ -129,6 +131,15 @@ public class CustomWordsSetPreviewFragment extends Fragment {
                         })
                         .setNegativeButton("Nie", null)
                         .show();
+            }
+        });
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomWordEntityRepository.create(getContext(), id);
+                CustomWordsChoiceWayFragment fragment = new CustomWordsChoiceWayFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_CHOICE_WAY).commit();
             }
         });
         wordsSetName.setOnLongClickListener(new View.OnLongClickListener() {
