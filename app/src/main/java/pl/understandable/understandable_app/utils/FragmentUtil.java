@@ -52,6 +52,8 @@ public class FragmentUtil {
     public static final String F_CUSTOM_WORDS_REPETITION_EXAMPLE = "f_custom_words_repetition_example";
     public static final String F_CUSTOM_WORDS_REPETITION_RESULT = "f_custom_words_repetition_result";
     public static final String F_CUSTOM_WORDS_REPETITION_RESULT_WORDS_TO_REPEAT = "f_custom_words_repetition_result_words_to_repeat";
+    public static final String F_GRAMMAR_SETS_LIST = "f_grammar_sets_list";
+    public static final String F_GRAMMAR_SET_PREVIEW = "f_grammar_set_preview";
 
     public static Fragment getVisibleFragment() {
         FragmentManager fragmentManager = NavigationActivity.activity.getSupportFragmentManager();

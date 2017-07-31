@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.grammar.GrammarSetPreviewFragment"
+    android:id="@+id/f_grammar_set_preview" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
+
+        <TextView
+            android:id="@+id/f_grammar_set_preview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_text_title_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.85"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium" >
+
+            <WebView
+                android:id="@+id/f_grammar_set_preview_webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_marginRight="@dimen/f_border_margin_medium"
+                android:layout_marginTop="@dimen/f_border_margin_medium" >
+
+            </WebView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/f_grammar_set_preview_button_start_learning"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_gravity="center"
+                android:text="@string/button_start_learning"
+                android:textSize="@dimen/button_next"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:background="@drawable/button_2"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

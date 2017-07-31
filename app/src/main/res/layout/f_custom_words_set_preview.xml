@@ -117,7 +117,5 @@
                 android:clickable="true" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </RelativeLayout>

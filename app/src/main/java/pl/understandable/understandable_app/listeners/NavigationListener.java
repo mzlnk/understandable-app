@@ -13,6 +13,7 @@ import android.widget.Toast;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
+import pl.understandable.understandable_app.fragments.grammar.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
@@ -49,7 +50,8 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_MODE).commit();
         }
         else if(id == R.id.navigation_grammar) {
-            Toast.makeText(context, "Obecnie niedostępne", Toast.LENGTH_SHORT).show();
+            GrammarSetsListFragment fragment = new GrammarSetsListFragment();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_GRAMMAR_SETS_LIST).commit();
         }
         else if(id == R.id.navigation_download_custom_words_set) {
             DownloadCustomWordsSetFragment fragment = new DownloadCustomWordsSetFragment();
