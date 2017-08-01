@@ -111,7 +111,7 @@
                     android:id="@+id/f_irregular_verbs_repetition_result_view_words_to_repeat"
                     android:layout_width="@dimen/button_small_width"
                     android:layout_height="@dimen/button_small_height"
-                    android:background="@drawable/button_1"
+                    android:background="@drawable/button_1_default"
                     android:text="@string/button_show"
                     android:textAllCaps="false"
                     android:textColor="?attr/text_button_color"
@@ -134,7 +134,7 @@
                 android:textSize="@dimen/button_try_again"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
-                android:background="@drawable/button_1"
+                android:background="@drawable/button_1_default"
                 android:clickable="true" />
 
         </LinearLayout>

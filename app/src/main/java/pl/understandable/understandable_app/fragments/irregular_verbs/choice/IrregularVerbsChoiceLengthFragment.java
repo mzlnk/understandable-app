@@ -23,6 +23,7 @@ import pl.understandable.understandable_app.fragments.error.NoWordsErrorFragment
 import pl.understandable.understandable_app.fragments.irregular_verbs.list.IrregularVerbsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -86,6 +87,7 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         prepareSeekBar();
     }
 
@@ -98,6 +100,17 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         back.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
+            submit.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
+            submit.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void prepareSeekBar() {

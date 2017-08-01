@@ -38,7 +38,7 @@
                     android:textColor="?attr/text_button_color"
                     android:textAllCaps="false"
                     android:textSize="@dimen/button_repeat"
-                    android:background="@drawable/button_1" />
+                    android:background="@drawable/button_1_default" />
 
             </TableRow>
 
@@ -55,7 +55,7 @@
                     android:textColor="?attr/text_button_color"
                     android:textAllCaps="false"
                     android:textSize="@dimen/button_finish"
-                    android:background="@drawable/button_2" />
+                    android:background="@drawable/button_2_default" />
 
             </TableRow>
         </TableLayout>

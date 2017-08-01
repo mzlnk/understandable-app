@@ -26,6 +26,7 @@ import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceMo
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceTypeFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsWayButton;
 import pl.understandable.understandable_app.utils.buttons.words.WordsWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -79,6 +80,7 @@ public class CustomWordsChoiceWayFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         initWayButtons();
         addWayButtonsToTable();
     }
@@ -98,6 +100,15 @@ public class CustomWordsChoiceWayFragment extends Fragment {
     private void setFonts() {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            submit.setBackgroundResource(R.drawable.field_rounded_pink);
+        } else {
+            submit.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void initWayButtons() {

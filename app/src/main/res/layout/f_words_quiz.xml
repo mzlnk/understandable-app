@@ -91,7 +91,7 @@
                         android:textAllCaps="false"
                         android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_quiz_option"
+                        android:background="@drawable/button_quiz_option_default"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -111,7 +111,7 @@
                         android:textAllCaps="false"
                         android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_quiz_option"
+                        android:background="@drawable/button_quiz_option_default"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -131,7 +131,7 @@
                         android:textAllCaps="false"
                         android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_quiz_option"
+                        android:background="@drawable/button_quiz_option_default"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>
@@ -151,7 +151,7 @@
                         android:textAllCaps="false"
                         android:textColor="?attr/text_1_color"
                         android:textSize="@dimen/f_quiz_option"
-                        android:background="@drawable/button_quiz_option"
+                        android:background="@drawable/button_quiz_option_default"
                         style="?android:attr/borderlessButtonStyle" />
 
                 </TableRow>

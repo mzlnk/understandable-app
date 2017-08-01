@@ -13,6 +13,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,6 +73,7 @@ public class IrregularVerbsRepetitionExampleFragment extends Fragment {
 
     private void prepareLayout() {
         setFonts();
+        prepareButtons();
         setWords();
     }
 
@@ -81,6 +83,21 @@ public class IrregularVerbsRepetitionExampleFragment extends Fragment {
         wordEnglish1.setTypeface(typeFace);
         wordEnglish2.setTypeface(typeFace);
         wordEnglish3.setTypeface(typeFace);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            wordPolish.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            wordEnglish1.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
+            wordEnglish2.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
+            wordEnglish3.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
+        } else {
+            wordPolish.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            wordEnglish1.setBackgroundResource(R.drawable.field_rounded_gray);
+            wordEnglish2.setBackgroundResource(R.drawable.field_rounded_gray);
+            wordEnglish3.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void setWords() {

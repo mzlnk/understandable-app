@@ -24,12 +24,9 @@ import java.util.TimerTask;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
-import pl.understandable.understandable_app.database.entity.WordEntity;
-import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizFragment;
-import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizResultFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -95,6 +92,7 @@ public class CustomWordsQuizFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         prepareViews();
         setAnswers();
     }
@@ -188,6 +186,19 @@ public class CustomWordsQuizFragment extends Fragment {
         answers[3].setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            for(Button answer : answers) {
+                answer.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
+            }
+        } else {
+            for(Button answer : answers) {
+                answer.setBackgroundResource(R.drawable.field_rounded_gray);
+            }
+        }
+    }
+
     private class QuizTask extends TimerTask {
 
         private FragmentActivity activity;
@@ -223,10 +234,10 @@ public class CustomWordsQuizFragment extends Fragment {
                 int hideIncorrectOptionsDelay = 1500;
 
                 if (isAnswered && chosenOption != -1) {
-                    answers[chosenOption].setBackgroundResource(R.drawable.button_red);
+                    answers[chosenOption].setBackgroundResource(R.drawable.field_rounded_red);
                 }
                 if (chosenOption == correctOption) {
-                    answers[chosenOption].setBackgroundResource(R.drawable.button_green);
+                    answers[chosenOption].setBackgroundResource(R.drawable.field_rounded_green);
                     showCorrectOptionDelay = 0;
                     hideIncorrectOptionsDelay = 500;
                 }
@@ -236,7 +247,7 @@ public class CustomWordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        answers[correctOption].setBackgroundResource(R.drawable.button_green);
+                        answers[correctOption].setBackgroundResource(R.drawable.field_rounded_green);
                     }
                 }, showCorrectOptionDelay);
 

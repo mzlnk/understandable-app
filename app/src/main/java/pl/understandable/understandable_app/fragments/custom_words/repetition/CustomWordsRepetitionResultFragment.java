@@ -19,6 +19,7 @@ import pl.understandable.understandable_app.data.entities_data.words_data.WordsR
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionResultWordsToRepeatFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 public class CustomWordsRepetitionResultFragment extends Fragment {
@@ -77,6 +78,17 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
         wordsToRepeatTitle.setTypeface(Font.TYPEFACE_MONTSERRAT);
         viewWordsToRepeat.setTypeface(Font.TYPEFACE_MONTSERRAT);
         tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            viewWordsToRepeat.setBackgroundResource(R.drawable.field_rounded_pink);
+            tryAgain.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            viewWordsToRepeat.setBackgroundResource(R.drawable.field_rounded_gray);
+            tryAgain.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void setStats() {

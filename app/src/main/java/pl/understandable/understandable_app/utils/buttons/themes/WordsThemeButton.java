@@ -16,6 +16,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsBaseButton;
 
 import java.lang.reflect.Method;
@@ -53,7 +54,7 @@ public class WordsThemeButton extends ThemeBaseButton {
 
     @Override
     protected void setChoiceState() {
-        if(theme.getThemeId() == getCurrentThemeId()) {
+        if(theme.getThemeId() == new ThemeUtil(context).getCurrentThemeId()) {
             image.setImageAlpha(ITEM_CHOSEN);
             this.setChecked(true);
         } else {
@@ -98,18 +99,6 @@ public class WordsThemeButton extends ThemeBaseButton {
 
     private void setImage() {
         super.image.setImageResource(theme.getResId());
-    }
-
-    private int getCurrentThemeId() {
-        try {
-            Class<?> wrapper = Context.class;
-            Method method = wrapper.getMethod("getThemeResId");
-            method.setAccessible(true);
-            return (Integer) method.invoke(context);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
     }
 
     private void refreshCurrentComponents() {

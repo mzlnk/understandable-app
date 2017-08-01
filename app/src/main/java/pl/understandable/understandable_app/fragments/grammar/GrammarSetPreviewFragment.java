@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 
 public class GrammarSetPreviewFragment extends Fragment {
 
@@ -79,6 +80,7 @@ public class GrammarSetPreviewFragment extends Fragment {
 
     private void prepareLayout() {
         setFonts();
+        prepareButtons();
         setTitle();
         prepareWebView();
     }
@@ -87,6 +89,15 @@ public class GrammarSetPreviewFragment extends Fragment {
         Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         title.setTypeface(typeFace);
         start.setTypeface(typeFace);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            start.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            start.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void setTitle() {

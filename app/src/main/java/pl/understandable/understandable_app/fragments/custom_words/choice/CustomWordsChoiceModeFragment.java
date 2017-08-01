@@ -41,6 +41,7 @@ import pl.understandable.understandable_app.fragments.words.list.WordsListFragme
 import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizFragment;
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsModeButton;
 import pl.understandable.understandable_app.utils.buttons.words.WordsModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -102,6 +103,7 @@ public class CustomWordsChoiceModeFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         initModeButtons();
         addModeButtonsToTable();
     }
@@ -115,6 +117,17 @@ public class CustomWordsChoiceModeFragment extends Fragment {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
         back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
+            submit.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
+            submit.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void initModeButtons() {

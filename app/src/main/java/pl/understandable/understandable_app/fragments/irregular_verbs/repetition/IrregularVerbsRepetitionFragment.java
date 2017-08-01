@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.ToastUtil;
 
 /**
@@ -83,6 +84,17 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
         Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         repeat.setTypeface(typeFace);
         finish.setTypeface(typeFace);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            repeat.setBackgroundResource(R.drawable.field_rounded_pink);
+            finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            repeat.setBackgroundResource(R.drawable.field_rounded_gray);
+            finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void addListeners() {

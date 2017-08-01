@@ -24,6 +24,7 @@ import pl.understandable.understandable_app.database.repository.CustomWordEntity
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 
 public class CustomWordsSetPreviewFragment extends Fragment {
 
@@ -88,6 +89,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
 
     private void prepareLayout() {
         setFonts();
+        prepareButtons();
         setWordsSetData();
     }
 
@@ -101,6 +103,17 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         wordsSetDescription.setTypeface(typeFace);
         delete.setTypeface(typeFace);
         start.setTypeface(typeFace);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            delete.setBackgroundResource(R.drawable.field_rounded_pink);
+            start.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            delete.setBackgroundResource(R.drawable.field_rounded_gray);
+            start.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void setWordsSetData() {

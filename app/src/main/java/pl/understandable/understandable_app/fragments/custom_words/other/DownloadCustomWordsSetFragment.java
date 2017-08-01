@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.WebService;
 
@@ -52,6 +53,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
     }
 
     private void setAnimation() {
@@ -63,6 +65,15 @@ public class DownloadCustomWordsSetFragment extends Fragment {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         download.setTypeface(typeface);
         title.setTypeface(typeface);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            download.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            download.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void addListeners() {

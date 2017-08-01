@@ -18,6 +18,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningMode;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsModeButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -84,6 +85,7 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         initModeButtons();
         addModeButtonsToTable();
     }
@@ -96,6 +98,15 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     private void setFonts() {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            submit.setBackgroundResource(R.drawable.field_rounded_pink);
+        } else {
+            submit.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void initModeButtons() {
