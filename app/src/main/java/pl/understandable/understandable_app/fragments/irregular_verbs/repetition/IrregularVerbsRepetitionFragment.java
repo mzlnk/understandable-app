@@ -67,6 +67,7 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         prepareAdapter();
     }
 

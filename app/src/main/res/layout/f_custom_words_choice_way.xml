@@ -49,7 +49,6 @@
                 android:textSize="@dimen/button_next"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
-                android:background="@drawable/button_1_default"
                 android:clickable="true" />
 
         </LinearLayout>

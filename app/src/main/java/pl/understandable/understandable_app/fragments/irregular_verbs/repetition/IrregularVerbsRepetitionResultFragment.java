@@ -16,6 +16,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -61,6 +62,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         setStats();
     }
 
@@ -78,6 +80,17 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
         wordsToRepeatTitle.setTypeface(Font.TYPEFACE_MONTSERRAT);
         viewWordsToRepeat.setTypeface(Font.TYPEFACE_MONTSERRAT);
         tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            viewWordsToRepeat.setBackgroundResource(R.drawable.field_rounded_pink);
+            tryAgain.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            viewWordsToRepeat.setBackgroundResource(R.drawable.field_rounded_gray);
+            tryAgain.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void setStats() {

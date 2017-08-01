@@ -20,6 +20,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsModeButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -89,6 +90,7 @@ public class WordsChoiceModeFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         initModeButtons();
         addModeButtonsToTable();
     }
@@ -102,6 +104,17 @@ public class WordsChoiceModeFragment extends Fragment {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
         back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
+            submit.setBackgroundResource(R.drawable.field_rounded_pink);
+        } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
+            submit.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void initModeButtons() {

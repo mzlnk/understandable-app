@@ -88,7 +88,6 @@
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
                 android:layout_gravity="bottom"
-                android:background="@drawable/button_1_default"
                 android:clickable="true"
                 android:text="@string/button_delete"
                 android:textAllCaps="false"
@@ -113,7 +112,6 @@
                 android:textSize="@dimen/button_next"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
-                android:background="@drawable/button_2_default"
                 android:clickable="true" />
 
         </LinearLayout>

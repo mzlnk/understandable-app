@@ -20,6 +20,7 @@ import android.widget.Toast;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsCategoryButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -82,6 +83,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         initCategoriesButtons();
         addCategoryButtonsToTable();
     }
@@ -94,6 +96,15 @@ public class WordsChoiceCategoryFragment extends Fragment {
     public void setFonts() {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            submit.setBackgroundResource(R.drawable.field_rounded_pink);
+        } else {
+            submit.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void initCategoriesButtons() {

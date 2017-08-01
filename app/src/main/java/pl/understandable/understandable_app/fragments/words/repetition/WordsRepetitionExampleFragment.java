@@ -13,6 +13,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 
 import java.util.Random;
 

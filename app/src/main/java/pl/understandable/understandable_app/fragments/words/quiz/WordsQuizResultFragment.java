@@ -17,6 +17,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -72,6 +73,7 @@ public class WordsQuizResultFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         prepareViews();
     }
 
@@ -95,6 +97,15 @@ public class WordsQuizResultFragment extends Fragment {
         incorrectAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
         incorrectAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
         tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            tryAgain.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            tryAgain.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void addListeners() {

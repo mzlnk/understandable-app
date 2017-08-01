@@ -17,6 +17,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsWayButton;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -74,6 +75,7 @@ public class WordsChoiceWayFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         initWayButtons();
         addWayButtonsToTable();
     }
@@ -95,6 +97,17 @@ public class WordsChoiceWayFragment extends Fragment {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
         back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
+            submit.setBackgroundResource(R.drawable.field_rounded_pink);
+        } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
+            submit.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void initWayButtons() {

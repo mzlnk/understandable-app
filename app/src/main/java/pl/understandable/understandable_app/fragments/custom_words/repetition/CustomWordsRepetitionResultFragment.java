@@ -61,6 +61,7 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         setStats();
     }
 

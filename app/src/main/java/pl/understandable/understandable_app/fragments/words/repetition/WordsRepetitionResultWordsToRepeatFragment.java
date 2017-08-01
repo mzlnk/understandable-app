@@ -19,6 +19,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -61,6 +62,7 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         addWords();
     }
 
@@ -72,6 +74,15 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     private void setFonts() {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
+        } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
+        }
     }
 
     private void addWords() {

@@ -37,8 +37,7 @@
                     android:text="@string/f_irregular_verbs_repetition_example_repeat"
                     android:textColor="?attr/text_button_color"
                     android:textAllCaps="false"
-                    android:textSize="@dimen/button_repeat"
-                    android:background="@drawable/button_1_default" />
+                    android:textSize="@dimen/button_repeat" />
 
             </TableRow>
 
@@ -54,8 +53,7 @@
                     android:text="@string/f_irregular_verbs_repetition_example_finish"
                     android:textColor="?attr/text_button_color"
                     android:textAllCaps="false"
-                    android:textSize="@dimen/button_finish"
-                    android:background="@drawable/button_2_default" />
+                    android:textSize="@dimen/button_finish" />
 
             </TableRow>
         </TableLayout>

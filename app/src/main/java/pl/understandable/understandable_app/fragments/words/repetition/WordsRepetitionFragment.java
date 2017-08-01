@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import pl.understandable.understandable_app.R;;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.ToastUtil;
 
 public class WordsRepetitionFragment extends Fragment {
@@ -63,6 +64,7 @@ public class WordsRepetitionFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         prepareAdapter();
     }
 
@@ -80,6 +82,17 @@ public class WordsRepetitionFragment extends Fragment {
         Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
         repeat.setTypeface(typeFace);
         finish.setTypeface(typeFace);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            repeat.setBackgroundResource(R.drawable.field_rounded_pink);
+            finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            repeat.setBackgroundResource(R.drawable.field_rounded_gray);
+            finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void addListeners() {

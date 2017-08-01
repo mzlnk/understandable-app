@@ -22,6 +22,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import java.util.Random;
@@ -88,6 +89,7 @@ public class WordsQuizFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         prepareViews();
         setAnswers();
     }
@@ -179,6 +181,19 @@ public class WordsQuizFragment extends Fragment {
         answers[1].setTypeface(Font.TYPEFACE_MONTSERRAT);
         answers[2].setTypeface(Font.TYPEFACE_MONTSERRAT);
         answers[3].setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            for(Button answer : answers) {
+                answer.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
+            }
+        } else {
+            for(Button answer : answers) {
+                answer.setBackgroundResource(R.drawable.field_rounded_gray);
+            }
+        }
     }
 
     private class QuizTask extends TimerTask {
