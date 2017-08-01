@@ -109,7 +109,10 @@ public class GrammarSetPreviewFragment extends Fragment {
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
 
-        String url = "http://dl.understandable.pl?id=" + id;
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        String theme = themeUtil.isDefaultTheme() ? "default" : "night";
+
+        String url = "http://dl.understandable.pl?id=" + id + "&theme=" + theme;
         webView.loadUrl(url);
 
     }

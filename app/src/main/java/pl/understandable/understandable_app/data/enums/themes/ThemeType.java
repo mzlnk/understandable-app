@@ -9,8 +9,8 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
 
 public enum ThemeType implements Identifiable {
 
-    THEME_1("Canus", "GrayTheme", R.drawable.f_words_choice_base, R.style.DefaultTheme),
-    THEME_2("Nox Atra", "NightTheme", R.drawable.f_theme_choice_night_theme, R.style.NightTheme);
+    THEME_1("Dzień", "GrayTheme", R.drawable.f_theme_choice_default, R.style.DefaultTheme),
+    THEME_2("Noc", "NightTheme", R.drawable.f_theme_choice_night, R.style.NightTheme);
 
     private String name;
     private String resName;

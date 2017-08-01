@@ -63,7 +63,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
     }
 
     private void prepareImage() {
-        image.setImageResource(R.drawable.f_words_choice_base);
+        image.setImageResource(R.drawable.f_words_choice_unchecked);
         image.setClickable(true);
         setChoiceState();
         setOnClickListener();
