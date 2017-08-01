@@ -12,8 +12,8 @@ import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 public abstract class CustomWordsBaseButton extends BaseButton<CustomWordsDataParams> {
 
-    public CustomWordsBaseButton(Context context, CustomWordsDataParams dataParams, Identifiable enumType) {
-        super(context, dataParams, enumType);
+    public CustomWordsBaseButton(Context context, CustomWordsDataParams dataParams, Identifiable enumType, boolean checked) {
+        super(context, dataParams, enumType, checked);
     }
 
 }

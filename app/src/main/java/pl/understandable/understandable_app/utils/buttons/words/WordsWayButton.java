@@ -24,7 +24,7 @@ public class WordsWayButton extends WordsBaseButton {
     private WordsLearningWay way;
 
     public WordsWayButton(Context context, WordsDataParams dataParams, WordsLearningWay way, List<WordsWayButton> allWays) {
-        super(context, dataParams, way);
+        super(context, dataParams, way, false);
         this.way = way;
         this.allWays = allWays;
         prepare();
@@ -48,8 +48,10 @@ public class WordsWayButton extends WordsBaseButton {
     protected void setChoiceState() {
         if(dataParams.isChosen(way)) {
             image.setImageAlpha(ITEM_CHOSEN);
+            this.setChecked(true);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
+            this.setChecked(false);
         }
     }
 
@@ -58,14 +60,16 @@ public class WordsWayButton extends WordsBaseButton {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
+                if(!isChecked()) {
                     image.setImageAlpha(ITEM_CHOSEN);
+                    setChecked(true);
                     dataParams.setWay(way);
                     for(WordsWayButton w : allWays) {
                         if(w.getWay().equals(way)) {
                             continue;
                         }
                         w.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        w.setChecked(false);
                     }
                 }
             }

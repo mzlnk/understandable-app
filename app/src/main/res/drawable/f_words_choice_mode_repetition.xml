@@ -4,29 +4,29 @@
         android:viewportWidth="24.0"
         android:viewportHeight="24.0">
     <path
-        android:pathData="M2.957,0L21.043,0A2.957,2.957 0,0 1,24 2.957L24,21.043A2.957,2.957 0,0 1,21.043 24L2.957,24A2.957,2.957 0,0 1,0 21.043L0,2.957A2.957,2.957 0,0 1,2.957 0z"
+        android:pathData="M3.106,0.197L20.894,0.197A2.909,2.909 97.84,0 1,23.803 3.106L23.803,20.894A2.909,2.909 97.746,0 1,20.894 23.803L3.106,23.803A2.909,2.909 97.077,0 1,0.197 20.894L0.197,3.106A2.909,2.909 97.153,0 1,3.106 0.197z"
         android:strokeLineCap="square"
         android:fillAlpha="1"
-        android:strokeColor="?attr/button_choice_background_color"
-        android:fillColor="?attr/button_choice_background_color"
-        android:strokeWidth="0"
+        android:strokeColor="#ffffff"
+        android:fillColor="#1b1b1b"
+        android:strokeWidth="0.40000001"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
-        android:pathData="m5.877,10.405c0,0 2.755,-2.077 4.116,-2.077 1.112,0 3.526,-0.056 3.526,-0.056l1.426,0 0,-1.092 3.177,1.829 -3.177,1.829 0,-1.092 -1.358,0c0,0 -2.269,0.011 -3.404,0.012 -1.364,0 -3.352,1.695 -3.352,1.695z"
+        android:pathData="m5.977,10.431c0,0 2.71,-2.043 4.049,-2.043 1.094,0 3.469,-0.055 3.469,-0.055l1.403,0 0,-1.074 3.125,1.799 -3.125,1.799 0,-1.074 -1.336,0c0,0 -2.232,0.011 -3.348,0.012 -1.342,0 -3.297,1.667 -3.297,1.667z"
         android:strokeLineCap="butt"
         android:fillAlpha="1"
-        android:strokeColor="?attr/button_choice_symbol_color"
-        android:fillColor="?attr/button_choice_symbol_color"
+        android:strokeColor="#00000000"
+        android:fillColor="#ffffff"
         android:strokeWidth="0.12437179"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
     <path
-        android:pathData="m18.123,13.595c0,0 -2.755,2.077 -4.116,2.077 -1.112,0 -3.526,0.056 -3.526,0.056l-1.426,0 0,1.092 -3.177,-1.829 3.177,-1.829 0,1.092 1.358,0c0,0 2.269,-0.011 3.404,-0.012 1.364,0 3.352,-1.695 3.352,-1.695z"
+        android:pathData="m18.023,13.569c0,0 -2.71,2.043 -4.049,2.043 -1.094,0 -3.469,0.055 -3.469,0.055l-1.403,0 0,1.074 -3.125,-1.799 3.125,-1.799 0,1.074 1.336,0c0,0 2.232,-0.011 3.348,-0.012 1.342,0 3.297,-1.667 3.297,-1.667z"
         android:strokeLineCap="butt"
         android:fillAlpha="1"
-        android:strokeColor="?attr/button_choice_symbol_color"
-        android:fillColor="?attr/button_choice_symbol_color"
+        android:strokeColor="#00000000"
+        android:fillColor="#ffb3cc"
         android:strokeWidth="0.12437179"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>

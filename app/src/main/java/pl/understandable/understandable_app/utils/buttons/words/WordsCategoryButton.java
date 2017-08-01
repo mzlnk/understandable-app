@@ -18,7 +18,7 @@ public class WordsCategoryButton extends WordsBaseButton {
     private WordsLanguageCategory category;
 
     public WordsCategoryButton(Context context, WordsDataParams dataParams, WordsLanguageCategory category) {
-        super(context, dataParams, category);
+        super(context, dataParams, category, false);
         this.category = category;
         prepare();
         setSize();
@@ -29,8 +29,10 @@ public class WordsCategoryButton extends WordsBaseButton {
     protected void setChoiceState() {
         if(dataParams.isChosen(category)) {
             image.setImageAlpha(ITEM_CHOSEN);
+            this.setChecked(true);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
+            this.setChecked(false);
         }
     }
 
@@ -39,11 +41,13 @@ public class WordsCategoryButton extends WordsBaseButton {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
+                if(!isChecked()) {
                     image.setImageAlpha(ITEM_CHOSEN);
+                    setChecked(true);
                     dataParams.addCategory(category);
                 } else {
                     image.setImageAlpha(ITEM_NOT_CHOSEN);
+                    setChecked(false);
                     dataParams.removeCategory(category);
                 }
             }

@@ -14,7 +14,7 @@ public enum WordsLanguageCategory implements Identifiable {
     SCHOOL("szkoła", R.drawable.f_words_choice_category_school),
     WORK("praca", R.drawable.f_words_choice_category_work),
     FAMILY("życie rodzinne", R.drawable.f_words_choice_category_family),
-    SOCIAL_LIFE("życie towarzyskie", R.drawable.f_words_choice_category_social_life),
+    SOCIAL_LIFE("życie towarzyskie", R.drawable.f_words_choice_category_society),
     FOOD("jedzenie", R.drawable.f_words_choice_category_food),
     SHOPPING("zakupy", R.drawable.f_words_choice_category_shopping),
     TRAVELLING("podróżowanie", R.drawable.f_words_choice_category_travelling),

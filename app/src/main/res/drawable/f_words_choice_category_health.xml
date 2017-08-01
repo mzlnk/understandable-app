@@ -26,7 +26,7 @@
         android:strokeLineCap="butt"
         android:fillAlpha="1"
         android:strokeColor="#1b1b1b"
-        android:fillColor="#ffd4e2"
+        android:fillColor="#ffb3cc"
         android:strokeWidth="0.7584188"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
@@ -34,7 +34,7 @@
         android:pathData="m10.367,11.292 l-1.833,1.455c-1.312,1.041 -0.72,1.862 0.683,0.747l1.778,-1.414z"
         android:strokeLineCap="butt"
         android:fillAlpha="1"
-        android:strokeColor="#ffd4e2"
+        android:strokeColor="#ffb3cc"
         android:fillColor="#ffffff"
         android:strokeWidth="0.22853313"
         android:strokeLineJoin="miter"

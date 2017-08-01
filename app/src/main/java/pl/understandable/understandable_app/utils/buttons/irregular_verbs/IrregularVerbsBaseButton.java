@@ -12,8 +12,8 @@ import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 public abstract class IrregularVerbsBaseButton extends BaseButton<IrregularVerbsDataParams> {
 
-    public IrregularVerbsBaseButton(Context context, IrregularVerbsDataParams dataParams, Identifiable enumType) {
-        super(context, dataParams, enumType);
+    public IrregularVerbsBaseButton(Context context, IrregularVerbsDataParams dataParams, Identifiable enumType, boolean checked) {
+        super(context, dataParams, enumType, checked);
     }
 
 }

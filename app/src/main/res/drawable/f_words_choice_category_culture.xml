@@ -9,7 +9,7 @@
         android:fillAlpha="1"
         android:strokeColor="#ffffff"
         android:fillColor="#1b1b1b"
-        android:strokeWidth="0.40000001"
+        android:strokeWidth="0.39954984"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
@@ -233,7 +233,7 @@
         android:strokeLineCap="round"
         android:fillAlpha="1"
         android:strokeColor="#00000000"
-        android:fillColor="#ffd4e2"
+        android:fillColor="#ffb3cc"
         android:strokeWidth="0.00111607"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>
@@ -242,7 +242,7 @@
         android:strokeLineCap="round"
         android:fillAlpha="1"
         android:strokeColor="#00000000"
-        android:fillColor="#ffd4e2"
+        android:fillColor="#ffb3cc"
         android:strokeWidth="0.00110485"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>

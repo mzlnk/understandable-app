@@ -18,7 +18,7 @@ public class WordsTypeButton extends WordsBaseButton {
     private WordsLanguageType type;
 
     public WordsTypeButton(Context context, WordsDataParams dataParams, WordsLanguageType type) {
-        super(context, dataParams, type);
+        super(context, dataParams, type, true);
         this.type = type;
         prepare();
         setSize();
@@ -28,9 +28,13 @@ public class WordsTypeButton extends WordsBaseButton {
     @Override
     protected void setChoiceState() {
         if(dataParams.isChosen(type)) {
-            image.setImageAlpha(255);
+            image.setImageAlpha(ITEM_CHOSEN);
+            image.setImageResource(R.drawable.f_words_choice_checked);
+            this.setChecked(true);
         } else {
-            image.setImageAlpha(150);
+            image.setImageAlpha(ITEM_NOT_CHOSEN);
+            image.setImageResource(R.drawable.f_words_choice_unchecked);
+            this.setChecked(false);
         }
     }
 
@@ -39,11 +43,15 @@ public class WordsTypeButton extends WordsBaseButton {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(image.getImageAlpha() == 150) {
-                    image.setImageAlpha(255);
+                if(!isChecked()) {
+                    image.setImageAlpha(ITEM_CHOSEN);
+                    image.setImageResource(R.drawable.f_words_choice_checked);
+                    setChecked(true);
                     dataParams.addType(type);
                 } else {
-                    image.setImageAlpha(150);
+                    image.setImageAlpha(ITEM_NOT_CHOSEN);
+                    image.setImageResource(R.drawable.f_words_choice_unchecked);
+                    setChecked(false);
                     dataParams.removeType(type);
                 }
             }

@@ -29,13 +29,16 @@ public abstract class BaseButton<P extends BaseDataParams> {
     protected P dataParams;
     protected Identifiable enumType;
 
-    public BaseButton(Context context, P dataParams, Identifiable enumType) {
+    protected boolean checked;
+
+    public BaseButton(Context context, P dataParams, Identifiable enumType, boolean checked) {
         this.context = context;
         this.dataParams = dataParams;
         this.image = new ImageView(context);
         this.text = new TextView(context);
         this.enumType = enumType;
         this.colorUtil = new ColorUtil(context);
+        this.checked = checked;
     }
 
     public ImageView getImage() {
@@ -44,6 +47,14 @@ public abstract class BaseButton<P extends BaseDataParams> {
 
     public TextView getText() {
         return text;
+    }
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 
     protected void prepare() {

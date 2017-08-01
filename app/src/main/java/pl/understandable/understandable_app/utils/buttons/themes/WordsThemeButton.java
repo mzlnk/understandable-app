@@ -31,7 +31,7 @@ public class WordsThemeButton extends ThemeBaseButton {
     private ThemeType theme;
 
     public WordsThemeButton(Context context, ThemeType theme, List<WordsThemeButton> allThemes) {
-        super(context, theme);
+        super(context, theme, false);
         this.theme = theme;
         this.allThemes = allThemes;
         prepare();
@@ -55,8 +55,10 @@ public class WordsThemeButton extends ThemeBaseButton {
     protected void setChoiceState() {
         if(theme.getThemeId() == getCurrentThemeId()) {
             image.setImageAlpha(ITEM_CHOSEN);
+            this.setChecked(true);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
+            this.setChecked(false);
         }
     }
 
@@ -65,8 +67,9 @@ public class WordsThemeButton extends ThemeBaseButton {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
+                if(!isChecked()) {
                     image.setImageAlpha(ITEM_CHOSEN);
+                    setChecked(true);
                     context.setTheme(theme.getThemeId());
                     refreshCurrentComponents();
                     setCurrentThemeInSharedPreferences(theme.getThemeId());
@@ -75,6 +78,7 @@ public class WordsThemeButton extends ThemeBaseButton {
                             continue;
                         }
                         t.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        t.setChecked(false);
                     }
                 }
             }

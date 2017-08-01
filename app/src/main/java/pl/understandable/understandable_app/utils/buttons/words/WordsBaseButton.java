@@ -12,8 +12,8 @@ import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 public abstract class WordsBaseButton extends BaseButton<WordsDataParams> {
 
-    public WordsBaseButton(Context context, WordsDataParams dataParams, Identifiable enumType) {
-        super(context, dataParams, enumType);
+    public WordsBaseButton(Context context, WordsDataParams dataParams, Identifiable enumType, boolean checked) {
+        super(context, dataParams, enumType, checked);
     }
 
 }

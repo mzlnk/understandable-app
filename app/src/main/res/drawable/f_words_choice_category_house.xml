@@ -26,7 +26,7 @@
         android:strokeLineCap="round"
         android:fillAlpha="1"
         android:strokeColor="#1b1b1b"
-        android:fillColor="#ffd4e2"
+        android:fillColor="#ffb3cc"
         android:strokeWidth="0.59565836"
         android:strokeLineJoin="round"
         android:strokeAlpha="1"/>

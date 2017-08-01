@@ -23,7 +23,7 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
     private IrregularVerbsLearningMode mode;
 
     public IrregularVerbsModeButton(Context context, IrregularVerbsDataParams dataParams, IrregularVerbsLearningMode mode, List<IrregularVerbsModeButton> allModes) {
-        super(context, dataParams, mode);
+        super(context, dataParams, mode, false);
         this.mode = mode;
         this.allModes = allModes;
         prepare();
@@ -47,8 +47,10 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
     protected void setChoiceState() {
         if(dataParams.isChosen(mode)) {
             image.setImageAlpha(ITEM_CHOSEN);
+            this.setChecked(true);
         } else {
             image.setImageAlpha(ITEM_NOT_CHOSEN);
+            this.setChecked(false);
         }
     }
 
@@ -57,14 +59,16 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(image.getImageAlpha() == ITEM_NOT_CHOSEN) {
+                if(!isChecked()) {
                     image.setImageAlpha(ITEM_CHOSEN);
+                    setChecked(true);
                     dataParams.setMode(mode);
                     for(IrregularVerbsModeButton m : allModes) {
                         if(m.getMode().equals(mode)) {
                             continue;
                         }
                         m.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        m.setChecked(false);
                     }
                 }
             }

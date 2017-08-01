@@ -44,7 +44,7 @@
         android:strokeLineCap="butt"
         android:fillAlpha="1"
         android:strokeColor="#1b1b1b"
-        android:fillColor="#ffd4e2"
+        android:fillColor="#ffb3cc"
         android:strokeWidth="0.2517767"
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>

@@ -10,14 +10,14 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
 
 public enum WordsLanguageType implements Identifiable {
 
-    VERB("czasownik", R.drawable.f_words_choice_type_verb),
-    NOUN("rzeczownik", R.drawable.f_words_choice_type_noun),
-    ADJECTIVE("przymiotnik", R.drawable.f_words_choice_type_adjective),
-    ADVERB("przysłówek", R.drawable.f_words_choice_type_adverb),
-    PREPOSITION("przyimek", R.drawable.f_words_choice_type_preposition),
-    IDIOM("idiom", R.drawable.f_words_choice_type_idiom),
-    PHRASAL_VERB("frazal", R.drawable.f_words_choice_type_phrasal_verb),
-    OTHER("inne", R.drawable.f_words_choice_other);
+    VERB("czasownik", R.drawable.f_words_choice_checked),
+    NOUN("rzeczownik", R.drawable.f_words_choice_checked),
+    ADJECTIVE("przymiotnik", R.drawable.f_words_choice_checked),
+    ADVERB("przysłówek", R.drawable.f_words_choice_checked),
+    PREPOSITION("przyimek", R.drawable.f_words_choice_checked),
+    IDIOM("idiom", R.drawable.f_words_choice_checked),
+    PHRASAL_VERB("frazal", R.drawable.f_words_choice_checked),
+    OTHER("inne", R.drawable.f_words_choice_checked);
 
     private String name;
     private int resId;
