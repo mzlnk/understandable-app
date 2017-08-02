@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import pl.understandable.understandable_app.corrupted.BaseDBHandler;
@@ -28,6 +29,7 @@ public class App extends Application {
         loadData();
         prepareCustomWordsSetsDirectory();
         Font.loadBuiltInTypefaces(getApplicationContext());
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
     //todo: fix it

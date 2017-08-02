@@ -36,7 +36,6 @@
                     android:id="@+id/f_irregular_verbs_repetition_example_field_polish"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@drawable/f_irregular_verbs_repetition_example_field_1"
                     android:textAllCaps="false"
                     android:textSize="@dimen/f_quiz_option"
                     style="?android:attr/borderlessButtonStyle" />
@@ -59,7 +58,6 @@
                     android:layout_marginBottom="@dimen/f_quiz_margin"
                     android:textAllCaps="false"
                     android:textSize="@dimen/f_quiz_option"
-                    android:background="@drawable/f_irregular_verbs_repetition_example_field_2"
                     style="?android:attr/borderlessButtonStyle" />
 
             </TableRow>
@@ -76,7 +74,6 @@
                     android:layout_marginBottom="@dimen/f_quiz_margin"
                     android:textAllCaps="false"
                     android:textSize="@dimen/f_quiz_option"
-                    android:background="@drawable/f_irregular_verbs_repetition_example_field_2"
                     style="?android:attr/borderlessButtonStyle" />
 
             </TableRow>
@@ -93,7 +90,6 @@
                     android:layout_marginBottom="@dimen/f_quiz_margin"
                     android:textAllCaps="false"
                     android:textSize="@dimen/f_quiz_option"
-                    android:background="@drawable/f_irregular_verbs_repetition_example_field_2"
                     style="?android:attr/borderlessButtonStyle" />
 
             </TableRow>

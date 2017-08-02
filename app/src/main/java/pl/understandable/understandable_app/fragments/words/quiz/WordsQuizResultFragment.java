@@ -103,8 +103,13 @@ public class WordsQuizResultFragment extends Fragment {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
             tryAgain.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            correctAnswersField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+            incorrectAnswersField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
         } else {
             tryAgain.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            correctAnswersField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            incorrectAnswersField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+
         }
     }
 

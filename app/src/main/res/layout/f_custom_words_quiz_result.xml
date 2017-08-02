@@ -88,7 +88,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
-                    android:background="@drawable/table_rounded"
                     android:measureWithLargestChild="true"
                     android:clickable="true" >
 
@@ -159,7 +158,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
-                    android:background="@drawable/table_rounded"
                     android:measureWithLargestChild="true"
                     android:clickable="true" >
 
