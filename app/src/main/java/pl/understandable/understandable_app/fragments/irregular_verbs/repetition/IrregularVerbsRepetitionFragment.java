@@ -107,6 +107,7 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
+                System.out.println("pos 2: " + position);
                 repetitionData.setCurrentWord(repetitionData.getEntities().get(position));
                 repetitionData.addCurrentWordToSeen();
             }
@@ -148,6 +149,7 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
+            System.out.println("pos 1: " + position);
             return IrregularVerbsRepetitionExampleFragment.newInstance(position);
         }
 

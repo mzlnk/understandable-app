@@ -53,7 +53,7 @@
         <item name="button_quiz_option_color">@color/light_light_gray</item>
         <item name="button_choice_background_color">@color/dark_gray</item>
         <item name="button_choice_symbol_color">@color/white</item>
-        <item name="list_1_color">@color/light_light_pink</item>
+        <item name="list_1_color">@color/light_light_light_pink</item>
         <item name="list_2_color">@color/white</item>
         <item name="accent_color">@color/dark_dark_gray</item>
         <item name="table_border_color">@color/light_gray</item>

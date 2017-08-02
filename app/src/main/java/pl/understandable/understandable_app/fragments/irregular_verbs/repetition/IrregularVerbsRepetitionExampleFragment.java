@@ -101,10 +101,10 @@ public class IrregularVerbsRepetitionExampleFragment extends Fragment {
     }
 
     private void setWords() {
-        wordPolish.setText(repetitionData.currentWord.getPolishWord());
-        wordEnglish1.setText(repetitionData.currentWord.getEnglishWord(IrregularVerbEnum.INFINITVE));
-        wordEnglish2.setText(repetitionData.currentWord.getEnglishWord(IrregularVerbEnum.SIMPLE_PAST));
-        wordEnglish3.setText(repetitionData.currentWord.getEnglishWord(IrregularVerbEnum.PAST_PARTICIPLE));
+        wordPolish.setText(repetitionData.getEntities().get(position).getPolishWord());
+        wordEnglish1.setText(repetitionData.getEntities().get(position).getEnglishWord(IrregularVerbEnum.INFINITVE));
+        wordEnglish2.setText(repetitionData.getEntities().get(position).getEnglishWord(IrregularVerbEnum.SIMPLE_PAST));
+        wordEnglish3.setText(repetitionData.getEntities().get(position).getEnglishWord(IrregularVerbEnum.PAST_PARTICIPLE));
         wordPolish.setTextColor(wordPolishHiddenColor);
         wordEnglish1.setTextColor(wordEnglishHiddenColor);
         wordEnglish2.setTextColor(wordEnglishHiddenColor);
