@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.grammar.GrammarSet;
@@ -22,6 +23,7 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.NetworkUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -70,7 +72,6 @@ public class GrammarSetsListFragment extends Fragment {
     }
 
     private void addWordsToList() {
-        boolean color = true;
         for(GrammarSet grammarSet : GrammarSet.values()) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
@@ -93,6 +94,11 @@ public class GrammarSetsListFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    NetworkUtil networkUtil = new NetworkUtil(getContext());
+                    if(!networkUtil.isNetworkAvailable()) {
+                        Toast.makeText(getContext(), "Aby wyświetlić zawartość, wymagane jest połączenie z Internetem", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     FragmentManager fragmentManager = getFragmentManager();
                     GrammarSetPreviewFragment fragment = GrammarSetPreviewFragment.newInstance(id, name);
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_GRAMMAR_SET_PREVIEW).commit();

@@ -29,7 +29,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void setAnimation() {
-        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.pulse);
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.start);
         icon.startAnimation(anim);
     }
 

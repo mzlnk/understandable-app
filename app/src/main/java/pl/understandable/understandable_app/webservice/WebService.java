@@ -10,6 +10,7 @@ import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.NetworkUtil;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -48,6 +49,10 @@ public class WebService {
         @Override
         protected Integer doInBackground(String... ids) {
             String id = ids[0].toUpperCase();
+            NetworkUtil networkUtil = new NetworkUtil(context);
+            if(!networkUtil.isNetworkAvailable()) {
+                return 4;
+            }
             if(!idExists(id)) {
                 return 1;
             }
@@ -74,7 +79,7 @@ public class WebService {
                     System.out.println("==============================");
                     System.out.println("Code does not exist in database");
                     System.out.println("==============================");
-                    Toast.makeText(context, "Podany kod nie istnieje", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Podany kod nie istnieje", Toast.LENGTH_SHORT).show();
                     break;
                 case 2:
                     System.out.println("==============================");
@@ -82,7 +87,7 @@ public class WebService {
                     System.out.println("File not downloaded");
                     System.out.println("");
                     System.out.println("==============================");
-                    Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_SHORT).show();
                     break;
                 case 3:
                     System.out.println("==============================");
@@ -90,7 +95,15 @@ public class WebService {
                     System.out.println("File data not downloaded/saved");
                     System.out.println("");
                     System.out.println("==============================");
-                    Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_SHORT).show();
+                    break;
+                case 4:
+                    System.out.println("==============================");
+                    System.out.println("");
+                    System.out.println("No Internet connection");
+                    System.out.println("");
+                    System.out.println("==============================");
+                    Toast.makeText(context, "Brak połączenia z Internetem", Toast.LENGTH_SHORT).show();
                     break;
                 case 0:
                     System.out.println("==============================");
@@ -100,7 +113,7 @@ public class WebService {
                     System.out.println("==============================");
                     CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
-                    Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
