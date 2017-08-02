@@ -99,7 +99,7 @@ public class CustomWordsListFragment extends Fragment {
         float factor = outValue.getFloat();
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-        textView.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
+        textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.5F));
     }
 
     private void initColors() {

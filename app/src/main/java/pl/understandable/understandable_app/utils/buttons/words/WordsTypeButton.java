@@ -18,11 +18,10 @@ public class WordsTypeButton extends WordsBaseButton {
     private WordsLanguageType type;
 
     public WordsTypeButton(Context context, WordsDataParams dataParams, WordsLanguageType type) {
-        super(context, dataParams, type, true);
+        super(context, dataParams, type, false);
         this.type = type;
         prepare();
         setSize();
-        setImage();
     }
 
     @Override
@@ -67,10 +66,6 @@ public class WordsTypeButton extends WordsBaseButton {
         float factor = outValue.getFloat();
         float textSizeInPixels = super.text.getTextSize() * factor;
         super.text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-    }
-
-    private void setImage() {
-        super.image.setImageResource(type.getResId());
     }
 
 }

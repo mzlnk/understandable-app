@@ -19,7 +19,7 @@ import java.util.List;
 public class WordsDataParams extends BaseDataParams {
 
     public List<WordsLanguageCategory> categories = new ArrayList<>();
-    public List<WordsLanguageType> types = new ArrayList<>(Arrays.asList(WordsLanguageType.values()));
+    public List<WordsLanguageType> types = new ArrayList<>();
     public WordsLearningMode mode = WordsLearningMode.REPETITION;
     public WordsLearningWay way = WordsLearningWay.RANDOM;
     public int size = 1;
@@ -101,6 +101,9 @@ public class WordsDataParams extends BaseDataParams {
         for(WordsLanguageType type : types) {
             sb.append(type.name()).append(",");
         }
+        if(types.size() == 0) {
+            sb.append(";");
+        }
         sb.deleteCharAt(sb.length() - 1);
         sb.append(";");
 
@@ -119,13 +122,17 @@ public class WordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.addCategory(WordsLanguageCategory.valueOf(str));
+                if(!str.isEmpty()) {
+                    this.addCategory(WordsLanguageCategory.valueOf(str));
+                }
                 str = "";
                 i++;
                 break;
             }
             if(c == ',') {
-                this.addCategory(WordsLanguageCategory.valueOf(str));
+                if(!str.isEmpty()) {
+                    this.addCategory(WordsLanguageCategory.valueOf(str));
+                }
                 str = "";
             } else {
                 str += c;
@@ -134,13 +141,17 @@ public class WordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.addType(WordsLanguageType.valueOf(str));
+                if(!str.isEmpty()) {
+                    this.addType(WordsLanguageType.valueOf(str));
+                }
                 str = "";
                 i++;
                 break;
             }
             if(c == ',') {
-                this.addType(WordsLanguageType.valueOf(str));
+                if(!str.isEmpty()) {
+                    this.addType(WordsLanguageType.valueOf(str));
+                }
                 str = "";
             } else {
                 str += c;
@@ -149,18 +160,9 @@ public class WordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.setMode(WordsLearningMode.valueOf(str));
-                str = "";
-                i++;
-                break;
-            } else {
-                str += c;
-            }
-        }
-        for(; i < input.length(); i++) {
-            char c = input.charAt(i);
-            if(c == ';') {
-                this.setWay(WordsLearningWay.valueOf(str));
+                if(!str.isEmpty()) {
+                    this.setMode(WordsLearningMode.valueOf(str));
+                }
                 str = "";
                 i++;
                 break;
@@ -171,7 +173,22 @@ public class WordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.setSize(NumberUtils.toInt(str, 1));
+                if(!str.isEmpty()) {
+                    this.setWay(WordsLearningWay.valueOf(str));
+                }
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                if(!str.isEmpty()) {
+                    this.setSize(NumberUtils.toInt(str, 1));
+                }
                 i++;
                 break;
             } else {

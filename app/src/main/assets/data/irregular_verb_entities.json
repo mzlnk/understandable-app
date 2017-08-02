@@ -134,6 +134,141 @@
         "dreamed/dreamt"
       ],
       "id": 15
+    },
+    {
+      "polish": "pić",
+      "english": [
+        "drink",
+        "drank",
+        "drunk"
+      ],
+      "id": 16
+    },
+    {
+      "polish": "prowadzić samochód",
+      "english": [
+        "drive",
+        "drove",
+        "driven"
+      ],
+      "id": 17
+    },
+    {
+      "polish": "jeść",
+      "english": [
+        "eat",
+        "ate",
+        "eaten"
+      ],
+      "id": 18
+    },
+    {
+      "polish": "upaść",
+      "english": [
+        "fall",
+        "fell",
+        "fallen"
+      ],
+      "id": 19
+    },
+    {
+      "polish": "karmić",
+      "english": [
+        "feed",
+        "fed",
+        "fed"
+      ],
+      "id": 20
+    },
+    {
+      "polish": "czuć",
+      "english": [
+        "feel",
+        "felt",
+        "felt"
+      ],
+      "id": 21
+    },
+    {
+      "polish": "walczyć",
+      "english": [
+        "fight",
+        "fought",
+        "fought"
+      ],
+      "id": 22
+    },
+    {
+      "polish": "znaleźć",
+      "english": [
+        "find",
+        "found",
+        "found"
+      ],
+      "id": 23
+    },
+    {
+      "polish": "lecieć",
+      "english": [
+        "fly",
+        "flew",
+        "flown"
+      ],
+      "id": 24
+    },
+    {
+      "polish": "zapomnieć",
+      "english": [
+        "forget",
+        "forgot",
+        "forgotten"
+      ],
+      "id": 25
+    },
+    {
+      "polish": "wybaczyć",
+      "english": [
+        "forgive",
+        "forgave",
+        "forgiven"
+      ],
+      "id": 26
+    },
+    {
+      "polish": "dostać",
+      "english": [
+        "get",
+        "got",
+        "got"
+      ],
+      "id": 27
+    },
+    {
+      "polish": "dać",
+      "english": [
+        "give",
+        "gave",
+        "given"
+      ],
+      "id": 28
+    },
+    {
+      "polish": "iść",
+      "english": [
+        "go",
+        "went",
+        "gone"
+      ],
+      "id": 29
+    },
+    {
+      "polish": "rosnąć",
+      "english": [
+        "grow",
+        "grew",
+        "grown"
+      ],
+      "id": 30
     }
   ]
 }

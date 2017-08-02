@@ -1,74 +1,949 @@
 {
   "wordEntities": [
     {
-      "polish": "czerwony",
-      "english": "red",
-      "category": "OTHER",
+      "polish": "roztargniony",
+      "english": "absent-minded",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 1
     },
     {
-      "polish": "zielony",
-      "english": "green",
-      "category": "OTHER",
+      "polish": "kłótliwy",
+      "english": "argumentative",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 2
     },
     {
-      "polish": "niebieski",
-      "english": "blue",
-      "category": "OTHER",
+      "polish": "arogancki",
+      "english": "arrogant",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 3
     },
     {
-      "polish": "żółty",
-      "english": "yellow",
-      "category": "OTHER",
+      "polish": "nieśmiały",
+      "english": "shy",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 4
     },
     {
-      "polish": "pomarańczowy",
-      "english": "orange",
-      "category": "OTHER",
+      "polish": "rozgarnięty",
+      "english": "bright",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 5
     },
     {
-      "polish": "szary",
-      "english": "gray",
-      "category": "OTHER",
+      "polish": "dominujący, apodyktyczny",
+      "english": "bossy",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 6
     },
     {
-      "polish": "biały",
-      "english": "white",
-      "category": "OTHER",
+      "polish": "o szerokich horyzontach",
+      "english": "broad-minded",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 7
     },
     {
-      "polish": "czarny",
-      "english": "black",
-      "category": "OTHER",
-      "type": "ADJECTIVE",
+      "polish": "osoba wścibska",
+      "english": "busybody",
+      "category": "HUMAN",
+      "type": "NOUN",
       "id": 8
     },
     {
-      "polish": "fioletowy",
-      "english": "purple",
-      "category": "OTHER",
+      "polish": "troskliwy",
+      "english": "caring",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 9
     },
     {
-      "polish": "różowy",
-      "english": "pink",
-      "category": "OTHER",
+      "polish": "zarozumiały",
+      "english": "conceited",
+      "category": "HUMAN",
       "type": "ADJECTIVE",
       "id": 10
+    },
+    {
+      "polish": "sumienny",
+      "english": "conscientious",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 11
+    },
+    {
+      "polish": "cyniczny",
+      "english": "cynical",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 12
+    },
+    {
+      "polish": "uczciwy",
+      "english": "honest",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 13
+    },
+    {
+      "polish": "nieuczciwy",
+      "english": "dishonest",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 14
+    },
+    {
+      "polish": "lojalny",
+      "english": "loyal",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 15
+    },
+    {
+      "polish": "nielojalny",
+      "english": "disloyal",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 16
+    },
+    {
+      "polish": "zorganizowany",
+      "english": "organised",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 17
+    },
+    {
+      "polish": "nudny",
+      "english": "dull",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 18
+    },
+    {
+      "polish": "elastyczny",
+      "english": "flexible",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 19
+    },
+    {
+      "polish": "hojny",
+      "english": "generous",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 20
+    },
+    {
+      "polish": "łatwowierny",
+      "english": "gullible",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 21
+    },
+    {
+      "polish": "skąpy",
+      "english": "mean",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 22
+    },
+    {
+      "polish": "buntowniczy",
+      "english": "rebellious",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 23
+    },
+    {
+      "polish": "romantyczny",
+      "english": "romantic",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 24
+    },
+    {
+      "polish": "uparty",
+      "english": "stubborn",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 25
+    },
+    {
+      "polish": "uczucie, sympatia",
+      "english": "affection",
+      "category": "HUMAN",
+      "type": "NOUN",
+      "id": 26
+    },
+    {
+      "polish": "zdziwiony",
+      "english": "astonished",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 27
+    },
+    {
+      "polish": "zły",
+      "english": "angry",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 28
+    },
+    {
+      "polish": "irytować",
+      "english": "annoy",
+      "category": "HUMAN",
+      "type": "VERB",
+      "id": 29
+    },
+    {
+      "polish": "niepokój",
+      "english": "anxiety",
+      "category": "HUMAN",
+      "type": "NOUN",
+      "id": 30
+    },
+    {
+      "polish": "niespokojny",
+      "english": "anxious",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 31
+    },
+    {
+      "polish": "zirytowany",
+      "english": "in a bad temper",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 32
+    },
+    {
+      "polish": "obojętny na",
+      "english": "indifferent to",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 33
+    },
+    {
+      "polish": "tęsknić za czymś/kimś",
+      "english": "long for sth/sb",
+      "category": "HUMAN",
+      "type": "PHRASAL_VERB",
+      "id": 34
+    },
+    {
+      "polish": "zestresowany",
+      "english": "stressed out",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 35
+    },
+    {
+      "polish": "mieć chandrę, być bardzo smutny",
+      "english": "be down in the dumps",
+      "category": "HUMAN",
+      "type": "IDIOM",
+      "id": 36
+    },
+    {
+      "polish": "nie posiadać się ze szczęścia",
+      "english": "be over the moon",
+      "category": "HUMAN",
+      "type": "IDIOM",
+      "id": 37
+    },
+    {
+      "polish": "mieć tremę",
+      "english": "get butterflies in your stomach",
+      "category": "HUMAN",
+      "type": "IDIOM",
+      "id": 38
+    },
+    {
+      "polish": "obudzić się zlany zimnym potem",
+      "english": "wake up in a cold sweat",
+      "category": "HUMAN",
+      "type": "IDIOM",
+      "id": 39
+    },
+    {
+      "polish": "zadowolony z",
+      "english": "content with",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 40
+    },
+    {
+      "polish": "przekonany o",
+      "english": "convinced of",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 41
+    },
+    {
+      "polish": "skoncentrowany na",
+      "english": "focused on",
+      "category": "HUMAN",
+      "type": "ADJECTIVE",
+      "id": 42
+    },
+    {
+      "polish": "spróbować coś zrobić",
+      "english": "have a go at sth",
+      "category": "HUMAN",
+      "type": "PHRASAL_VERB",
+      "id": 43
+    },
+    {
+      "polish": "uderzyć do głowy",
+      "english": "go to one\u0027s head",
+      "category": "HUMAN",
+      "type": "PHRASAL_VERB",
+      "id": 44
+    },
+    {
+      "polish": "zdecydować się",
+      "english": "make up your mind",
+      "category": "HUMAN",
+      "type": "PHRASAL_VERB",
+      "id": 45
+    },
+    {
+      "polish": "mieszkanie w suterenie",
+      "english": "basement flat",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 46
+    },
+    {
+      "polish": "wynajęty pokój, kawalerka",
+      "english": "bedsit",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 47
+    },
+    {
+      "polish": "dom parterowy",
+      "english": "bungalow",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 48
+    },
+    {
+      "polish": "domek letniskowy",
+      "english": "chalet",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 49
+    },
+    {
+      "polish": "zaadaptowane poddasze",
+      "english": "converted loft",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 50
+    },
+    {
+      "polish": "dom na wsi",
+      "english": "cottage",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 51
+    },
+    {
+      "polish": "okazały dom na wsi, dwór",
+      "english": "country house",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 52
+    },
+    {
+      "polish": "dom wolnostojący",
+      "english": "detached house",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 53
+    },
+    {
+      "polish": "dom bliźniak",
+      "english": "semi-detached house",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 54
+    },
+    {
+      "polish": "szeregowiec",
+      "english": "terraced house",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 55
+    },
+    {
+      "polish": "drapacz chmur",
+      "english": "sky scraper",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 56
+    },
+    {
+      "polish": "kamienica",
+      "english": "townhouse",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 57
+    },
+    {
+      "polish": "przestronny",
+      "english": "airy/spacious",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 58
+    },
+    {
+      "polish": "artystyczny, wysmakowany",
+      "english": "arty",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 59
+    },
+    {
+      "polish": "pusty",
+      "english": "bare",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 60
+    },
+    {
+      "polish": "jasny",
+      "english": "bright",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 61
+    },
+    {
+      "polish": "zagracony",
+      "english": "cluttered",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 62
+    },
+    {
+      "polish": "przytulny",
+      "english": "cosy",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 63
+    },
+    {
+      "polish": "ciasny",
+      "english": "cramped",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 64
+    },
+    {
+      "polish": "wilgotny",
+      "english": "damp",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 65
+    },
+    {
+      "polish": "zaprojektowany przez",
+      "english": "designed by",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 66
+    },
+    {
+      "polish": "w opłakanym stanie",
+      "english": "dilapidated",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 67
+    },
+    {
+      "polish": "z łazienką",
+      "english": "en suite",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 68
+    },
+    {
+      "polish": "niechlujny, zabałaganiony",
+      "english": "messy",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 69
+    },
+    {
+      "polish": "robiący wrażenie, imponujący",
+      "english": "impressive",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 70
+    },
+    {
+      "polish": "schludny, czysty",
+      "english": "neat and tidy",
+      "category": "HOUSE",
+      "type": "ADJECTIVE",
+      "id": 71
+    },
+    {
+      "polish": "podłączyć prąd",
+      "english": "connect electricity",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 72
+    },
+    {
+      "polish": "demontować",
+      "english": "dismantle",
+      "category": "HOUSE",
+      "type": "VERB",
+      "id": 73
+    },
+    {
+      "polish": "ścierać kurze z mebli",
+      "english": "dust the furniture",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 74
+    },
+    {
+      "polish": "przymocować",
+      "english": "fasten",
+      "category": "HOUSE",
+      "type": "VERB",
+      "id": 75
+    },
+    {
+      "polish": "naprawy domowe",
+      "english": "household repairs",
+      "category": "HOUSE",
+      "type": "NOUN",
+      "id": 76
+    },
+    {
+      "polish": "naoliwić zawiasy",
+      "english": "oil the hinges",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 77
+    },
+    {
+      "polish": "dokręcić śrubę",
+      "english": "tighten a screw",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 78
+    },
+    {
+      "polish": "polakierować",
+      "english": "varnish",
+      "category": "HOUSE",
+      "type": "VERB",
+      "id": 79
+    },
+    {
+      "polish": "wytrzeć, przetrzeć",
+      "english": "wipe",
+      "category": "HOUSE",
+      "type": "VERB",
+      "id": 80
+    },
+    {
+      "polish": "wieszać (półki)",
+      "english": "put up (shelves)",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 81
+    },
+    {
+      "polish": "wpaść do kogoś",
+      "english": "drop in on sb",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 82
+    },
+    {
+      "polish": "włączać/wyłączać",
+      "english": "switch on/off",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 83
+    },
+    {
+      "polish": "wyrzucać śmieci",
+      "english": "throw out rubbish",
+      "category": "HOUSE",
+      "type": "PHRASAL_VERB",
+      "id": 84
+    },
+    {
+      "polish": "miejsce, gdzie człowiek czuje się jak u siebie w domu",
+      "english": "(a real) home from home",
+      "category": "HOUSE",
+      "type": "IDIOM",
+      "id": 85
+    },
+    {
+      "polish": "(zawalić się) jak domek z kart",
+      "english": "(collapse) like a house of cards",
+      "category": "HOUSE",
+      "type": "IDIOM",
+      "id": 86
+    },
+    {
+      "polish": "prowadzić dom",
+      "english": "keep house",
+      "category": "HOUSE",
+      "type": "IDIOM",
+      "id": 87
+    },
+    {
+      "polish": "dom otwarty",
+      "english": "open house",
+      "category": "HOUSE",
+      "type": "IDIOM",
+      "id": 88
+    },
+    {
+      "polish": "przeprowadzać się",
+      "english": "move house",
+      "category": "HOUSE",
+      "type": "IDIOM",
+      "id": 89
+    },
+    {
+      "polish": "z miejsca się zaprzyjaźnić",
+      "english": "get on like a house on fire",
+      "category": "HOUSE",
+      "type": "IDIOM",
+      "id": 90
+    },
+    {
+      "polish": "szkoła z internatem",
+      "english": "boarding school",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 91
+    },
+    {
+      "polish": "szkoła pomaturalna, kolegium(BrE)/ uniwersytet(AmE)",
+      "english": "college",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 92
+    },
+    {
+      "polish": "szkoła niepubliczna",
+      "english": "independent school",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 93
+    },
+    {
+      "polish": "przedszkole",
+      "english": "nursery school(BrE)/ kindergarten(AmE)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 94
+    },
+    {
+      "polish": "szkoła podstawowa",
+      "english": "primary school",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 95
+    },
+    {
+      "polish": "szkoła prywatna",
+      "english": "public school(BrE)/private school(AmE)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 96
+    },
+    {
+      "polish": "gimnazjum/szkoła średnia",
+      "english": "secondary school(BrE)/ junior high school/ middle school/ (senior) high school (AmE)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 97
+    },
+    {
+      "polish": "szkoła publiczna",
+      "english": "state school (BrE)/ public school (AmE)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 98
+    },
+    {
+      "polish": "szkoła zawodowa",
+      "english": "vocational school",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 99
+    },
+    {
+      "polish": "rok akademicki",
+      "english": "academic year",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 100
+    },
+    {
+      "polish": "ubiegać się o przyjęcie na uniwersytet",
+      "english": "apply to university",
+      "category": "SCHOOL",
+      "type": "PHRASAL_VERB",
+      "id": 101
+    },
+    {
+      "polish": "uczęszczać na wykłady",
+      "english": "attend lectures",
+      "category": "SCHOOL",
+      "type": "PHRASAL_VERB",
+      "id": 102
+    },
+    {
+      "polish": "praca licencjacka",
+      "english": "(BA) dissertation",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 103
+    },
+    {
+      "polish": "publikacja naukowa",
+      "english": "research paper",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 104
+    },
+    {
+      "polish": "urlop naukowy",
+      "english": "sabbatical (leave)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 105
+    },
+    {
+      "polish": "seminarium naukowe",
+      "english": "seminar",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 106
+    },
+    {
+      "polish": "praca semestralna",
+      "english": "term paper",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 107
+    },
+    {
+      "polish": "praca magisterksa/doktorska",
+      "english": "thesis",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 108
+    },
+    {
+      "polish": "czesne",
+      "english": "tuition/unversity fees",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 109
+    },
+    {
+      "polish": "konsultacje, seminarium",
+      "english": "tutorial",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 110
+    },
+    {
+      "polish": "warsztaty, zajęcia praktyczne",
+      "english": "workshop",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 111
+    },
+    {
+      "polish": "certyfikat, świadectwo",
+      "english": "certificate",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 112
+    },
+    {
+      "polish": "obowiązkowy",
+      "english": "compulsory",
+      "category": "SCHOOL",
+      "type": "ADJECTIVE",
+      "id": 113
+    },
+    {
+      "polish": "wicedyrektor/wicedyrektorka",
+      "english": "deputy head (BrE)/ assistant principal (AmE)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 114
+    },
+    {
+      "polish": "zapisac się na kurs",
+      "english": "enroll on a course",
+      "category": "SCHOOL",
+      "type": "PHRASAL_VERB",
+      "id": 115
+    },
+    {
+      "polish": "zajęcia dodatkowe, zajęcia pozalekcyjne",
+      "english": "extracurricular activities",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 116
+    },
+    {
+      "polish": "realizowac program nauczania",
+      "english": "follow the curriculum",
+      "category": "SCHOOL",
+      "type": "PHRASAL_VERB",
+      "id": 117
+    },
+    {
+      "polish": "wychowawca/wychowawczyni",
+      "english": "form teacher",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 118
+    },
+    {
+      "polish": "dyrektor/dyrektorka",
+      "english": "head teacher/ headmaster/ headmistress (BrE)/ principal (AmE)",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 119
+    },
+    {
+      "polish": "nieobowiązkowy",
+      "english": "optional",
+      "category": "SCHOOL",
+      "type": "ADJECTIVE",
+      "id": 120
+    },
+    {
+      "polish": "uczeń/uczennica",
+      "english": "schoolchild",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 121
+    },
+    {
+      "polish": "czesne",
+      "english": "school fees",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 122
+    },
+    {
+      "polish": "rok szkolny",
+      "english": "school year",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 123
+    },
+    {
+      "polish": "szkolnictwo publiczne",
+      "english": "state education",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 124
+    },
+    {
+      "polish": "program nauczania",
+      "english": "syllabus/curriculum",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 125
+    },
+    {
+      "polish": "grono pedagogiczne",
+      "english": "teaching staff",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 126
+    },
+    {
+      "polish": "semestr",
+      "english": "term",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 127
+    },
+    {
+      "polish": "plan lekcji",
+      "english": "timetable",
+      "category": "SCHOOL",
+      "type": "NOUN",
+      "id": 128
+    },
+    {
+      "polish": "analizować",
+      "english": "analyse",
+      "category": "SCHOOL",
+      "type": "VERB",
+      "id": 129
+    },
+    {
+      "polish": "łatwizna, pestka",
+      "english": "a piece of cake",
+      "category": "SCHOOL",
+      "type": "IDIOM",
+      "id": 130
+    },
+    {
+      "polish": "pracować do późna w nocy",
+      "english": "burn the midnight oil",
+      "category": "SCHOOL",
+      "type": "IDIOM",
+      "id": 131
+    },
+    {
+      "polish": "całkowicie się pogubić",
+      "english": "feel out of your depth",
+      "category": "SCHOOL",
+      "type": "IDIOM",
+      "id": 132
+    },
+    {
+      "polish": "znać coś na wylot",
+      "english": "know inside out",
+      "category": "SCHOOL",
+      "type": "IDIOM",
+      "id": 133
+    },
+    {
+      "polish": "zdać (egzamin) śpiewająco",
+      "english": "pass (an exam) with flying colours",
+      "category": "SCHOOL",
+      "type": "IDIOM",
+      "id": 134
+    },
+    {
+      "polish": "mieć zaległości w nauce",
+      "english": "fall behind with school work",
+      "category": "SCHOOL",
+      "type": "PHRASAL_VERB",
+      "id": 135
     }
   ]
 }
