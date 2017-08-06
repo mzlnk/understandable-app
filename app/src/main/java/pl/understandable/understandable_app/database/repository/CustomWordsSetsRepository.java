@@ -34,17 +34,21 @@ public class CustomWordsSetsRepository {
     }
 
     private static void loadData() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)))) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(dataFile)));
             customWordsSetMap = new Gson().fromJson(br, CustomWordsSetMap.class);
+            br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private static void saveData() {
-        try (FileWriter writer = new FileWriter(dataFile)) {
+        try {
+            FileWriter writer = new FileWriter(dataFile);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             writer.write(gson.toJson(customWordsSetMap));
+            writer.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

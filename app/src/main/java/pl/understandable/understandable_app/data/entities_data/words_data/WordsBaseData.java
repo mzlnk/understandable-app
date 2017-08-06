@@ -37,7 +37,7 @@ public abstract class WordsBaseData implements BaseData<WordEntity, WordsDataPar
 
     @Override
     public void generateWords() {
-        words = WordEntityRepository.getSpecifiedEntities(params.categories, params.types);
+        words = WordEntityRepository.getSpecifiedEntities(params.categories, params.types, params.levels);
         resize();
     }
 

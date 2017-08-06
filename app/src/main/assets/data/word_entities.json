@@ -5,6 +5,7 @@
       "english": "absent-minded",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "english": "argumentative",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 2
     },
     {
@@ -19,6 +21,7 @@
       "english": "arrogant",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 3
     },
     {
@@ -26,6 +29,7 @@
       "english": "shy",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 4
     },
     {
@@ -33,6 +37,7 @@
       "english": "bright",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 5
     },
     {
@@ -40,6 +45,7 @@
       "english": "bossy",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 6
     },
     {
@@ -47,6 +53,7 @@
       "english": "broad-minded",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 7
     },
     {
@@ -54,6 +61,7 @@
       "english": "busybody",
       "category": "HUMAN",
       "type": "NOUN",
+      "level": "B1",
       "id": 8
     },
     {
@@ -61,6 +69,7 @@
       "english": "caring",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 9
     },
     {
@@ -68,6 +77,7 @@
       "english": "conceited",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 10
     },
     {
@@ -75,6 +85,7 @@
       "english": "conscientious",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 11
     },
     {
@@ -82,6 +93,7 @@
       "english": "cynical",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 12
     },
     {
@@ -89,6 +101,7 @@
       "english": "honest",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 13
     },
     {
@@ -96,6 +109,7 @@
       "english": "dishonest",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 14
     },
     {
@@ -103,6 +117,7 @@
       "english": "loyal",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 15
     },
     {
@@ -110,6 +125,7 @@
       "english": "disloyal",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 16
     },
     {
@@ -117,6 +133,7 @@
       "english": "organised",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 17
     },
     {
@@ -124,6 +141,7 @@
       "english": "dull",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 18
     },
     {
@@ -131,6 +149,7 @@
       "english": "flexible",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 19
     },
     {
@@ -138,6 +157,7 @@
       "english": "generous",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 20
     },
     {
@@ -145,6 +165,7 @@
       "english": "gullible",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 21
     },
     {
@@ -152,6 +173,7 @@
       "english": "mean",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 22
     },
     {
@@ -159,6 +181,7 @@
       "english": "rebellious",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 23
     },
     {
@@ -166,6 +189,7 @@
       "english": "romantic",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 24
     },
     {
@@ -173,6 +197,7 @@
       "english": "stubborn",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 25
     },
     {
@@ -180,6 +205,7 @@
       "english": "affection",
       "category": "HUMAN",
       "type": "NOUN",
+      "level": "B1",
       "id": 26
     },
     {
@@ -187,6 +213,7 @@
       "english": "astonished",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 27
     },
     {
@@ -194,6 +221,7 @@
       "english": "angry",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 28
     },
     {
@@ -201,6 +229,7 @@
       "english": "annoy",
       "category": "HUMAN",
       "type": "VERB",
+      "level": "B1",
       "id": 29
     },
     {
@@ -208,6 +237,7 @@
       "english": "anxiety",
       "category": "HUMAN",
       "type": "NOUN",
+      "level": "B1",
       "id": 30
     },
     {
@@ -215,6 +245,7 @@
       "english": "anxious",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 31
     },
     {
@@ -222,6 +253,7 @@
       "english": "in a bad temper",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 32
     },
     {
@@ -229,6 +261,7 @@
       "english": "indifferent to",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 33
     },
     {
@@ -236,6 +269,7 @@
       "english": "long for sth/sb",
       "category": "HUMAN",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 34
     },
     {
@@ -243,6 +277,7 @@
       "english": "stressed out",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 35
     },
     {
@@ -250,6 +285,7 @@
       "english": "be down in the dumps",
       "category": "HUMAN",
       "type": "IDIOM",
+      "level": "B1",
       "id": 36
     },
     {
@@ -257,6 +293,7 @@
       "english": "be over the moon",
       "category": "HUMAN",
       "type": "IDIOM",
+      "level": "B1",
       "id": 37
     },
     {
@@ -264,6 +301,7 @@
       "english": "get butterflies in your stomach",
       "category": "HUMAN",
       "type": "IDIOM",
+      "level": "B1",
       "id": 38
     },
     {
@@ -271,6 +309,7 @@
       "english": "wake up in a cold sweat",
       "category": "HUMAN",
       "type": "IDIOM",
+      "level": "B1",
       "id": 39
     },
     {
@@ -278,6 +317,7 @@
       "english": "content with",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 40
     },
     {
@@ -285,6 +325,7 @@
       "english": "convinced of",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 41
     },
     {
@@ -292,6 +333,7 @@
       "english": "focused on",
       "category": "HUMAN",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 42
     },
     {
@@ -299,6 +341,7 @@
       "english": "have a go at sth",
       "category": "HUMAN",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 43
     },
     {
@@ -306,6 +349,7 @@
       "english": "go to one\u0027s head",
       "category": "HUMAN",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 44
     },
     {
@@ -313,6 +357,7 @@
       "english": "make up your mind",
       "category": "HUMAN",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 45
     },
     {
@@ -320,6 +365,7 @@
       "english": "basement flat",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 46
     },
     {
@@ -327,6 +373,7 @@
       "english": "bedsit",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 47
     },
     {
@@ -334,6 +381,7 @@
       "english": "bungalow",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 48
     },
     {
@@ -341,6 +389,7 @@
       "english": "chalet",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 49
     },
     {
@@ -348,6 +397,7 @@
       "english": "converted loft",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 50
     },
     {
@@ -355,6 +405,7 @@
       "english": "cottage",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 51
     },
     {
@@ -362,6 +413,7 @@
       "english": "country house",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 52
     },
     {
@@ -369,6 +421,7 @@
       "english": "detached house",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 53
     },
     {
@@ -376,6 +429,7 @@
       "english": "semi-detached house",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 54
     },
     {
@@ -383,6 +437,7 @@
       "english": "terraced house",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 55
     },
     {
@@ -390,6 +445,7 @@
       "english": "sky scraper",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 56
     },
     {
@@ -397,6 +453,7 @@
       "english": "townhouse",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 57
     },
     {
@@ -404,6 +461,7 @@
       "english": "airy/spacious",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 58
     },
     {
@@ -411,6 +469,7 @@
       "english": "arty",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 59
     },
     {
@@ -418,6 +477,7 @@
       "english": "bare",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 60
     },
     {
@@ -425,6 +485,7 @@
       "english": "bright",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 61
     },
     {
@@ -432,6 +493,7 @@
       "english": "cluttered",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 62
     },
     {
@@ -439,6 +501,7 @@
       "english": "cosy",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 63
     },
     {
@@ -446,6 +509,7 @@
       "english": "cramped",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 64
     },
     {
@@ -453,6 +517,7 @@
       "english": "damp",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 65
     },
     {
@@ -460,6 +525,7 @@
       "english": "designed by",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 66
     },
     {
@@ -467,6 +533,7 @@
       "english": "dilapidated",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 67
     },
     {
@@ -474,6 +541,7 @@
       "english": "en suite",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 68
     },
     {
@@ -481,6 +549,7 @@
       "english": "messy",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 69
     },
     {
@@ -488,6 +557,7 @@
       "english": "impressive",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 70
     },
     {
@@ -495,6 +565,7 @@
       "english": "neat and tidy",
       "category": "HOUSE",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 71
     },
     {
@@ -502,6 +573,7 @@
       "english": "connect electricity",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 72
     },
     {
@@ -509,6 +581,7 @@
       "english": "dismantle",
       "category": "HOUSE",
       "type": "VERB",
+      "level": "B1",
       "id": 73
     },
     {
@@ -516,6 +589,7 @@
       "english": "dust the furniture",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 74
     },
     {
@@ -523,6 +597,7 @@
       "english": "fasten",
       "category": "HOUSE",
       "type": "VERB",
+      "level": "B1",
       "id": 75
     },
     {
@@ -530,6 +605,7 @@
       "english": "household repairs",
       "category": "HOUSE",
       "type": "NOUN",
+      "level": "B1",
       "id": 76
     },
     {
@@ -537,6 +613,7 @@
       "english": "oil the hinges",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 77
     },
     {
@@ -544,6 +621,7 @@
       "english": "tighten a screw",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 78
     },
     {
@@ -551,6 +629,7 @@
       "english": "varnish",
       "category": "HOUSE",
       "type": "VERB",
+      "level": "B1",
       "id": 79
     },
     {
@@ -558,6 +637,7 @@
       "english": "wipe",
       "category": "HOUSE",
       "type": "VERB",
+      "level": "B1",
       "id": 80
     },
     {
@@ -565,6 +645,7 @@
       "english": "put up (shelves)",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 81
     },
     {
@@ -572,6 +653,7 @@
       "english": "drop in on sb",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 82
     },
     {
@@ -579,6 +661,7 @@
       "english": "switch on/off",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 83
     },
     {
@@ -586,6 +669,7 @@
       "english": "throw out rubbish",
       "category": "HOUSE",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 84
     },
     {
@@ -593,6 +677,7 @@
       "english": "(a real) home from home",
       "category": "HOUSE",
       "type": "IDIOM",
+      "level": "B1",
       "id": 85
     },
     {
@@ -600,6 +685,7 @@
       "english": "(collapse) like a house of cards",
       "category": "HOUSE",
       "type": "IDIOM",
+      "level": "B1",
       "id": 86
     },
     {
@@ -607,6 +693,7 @@
       "english": "keep house",
       "category": "HOUSE",
       "type": "IDIOM",
+      "level": "B1",
       "id": 87
     },
     {
@@ -614,6 +701,7 @@
       "english": "open house",
       "category": "HOUSE",
       "type": "IDIOM",
+      "level": "B1",
       "id": 88
     },
     {
@@ -621,6 +709,7 @@
       "english": "move house",
       "category": "HOUSE",
       "type": "IDIOM",
+      "level": "B1",
       "id": 89
     },
     {
@@ -628,6 +717,7 @@
       "english": "get on like a house on fire",
       "category": "HOUSE",
       "type": "IDIOM",
+      "level": "B1",
       "id": 90
     },
     {
@@ -635,6 +725,7 @@
       "english": "boarding school",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 91
     },
     {
@@ -642,6 +733,7 @@
       "english": "college",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 92
     },
     {
@@ -649,6 +741,7 @@
       "english": "independent school",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 93
     },
     {
@@ -656,6 +749,7 @@
       "english": "nursery school(BrE)/ kindergarten(AmE)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 94
     },
     {
@@ -663,6 +757,7 @@
       "english": "primary school",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 95
     },
     {
@@ -670,6 +765,7 @@
       "english": "public school(BrE)/private school(AmE)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 96
     },
     {
@@ -677,6 +773,7 @@
       "english": "secondary school(BrE)/ junior high school/ middle school/ (senior) high school (AmE)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 97
     },
     {
@@ -684,6 +781,7 @@
       "english": "state school (BrE)/ public school (AmE)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 98
     },
     {
@@ -691,6 +789,7 @@
       "english": "vocational school",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 99
     },
     {
@@ -698,6 +797,7 @@
       "english": "academic year",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 100
     },
     {
@@ -705,6 +805,7 @@
       "english": "apply to university",
       "category": "SCHOOL",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 101
     },
     {
@@ -712,6 +813,7 @@
       "english": "attend lectures",
       "category": "SCHOOL",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 102
     },
     {
@@ -719,6 +821,7 @@
       "english": "(BA) dissertation",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 103
     },
     {
@@ -726,6 +829,7 @@
       "english": "research paper",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 104
     },
     {
@@ -733,6 +837,7 @@
       "english": "sabbatical (leave)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 105
     },
     {
@@ -740,6 +845,7 @@
       "english": "seminar",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 106
     },
     {
@@ -747,6 +853,7 @@
       "english": "term paper",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 107
     },
     {
@@ -754,6 +861,7 @@
       "english": "thesis",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 108
     },
     {
@@ -761,6 +869,7 @@
       "english": "tuition/unversity fees",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 109
     },
     {
@@ -768,6 +877,7 @@
       "english": "tutorial",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 110
     },
     {
@@ -775,6 +885,7 @@
       "english": "workshop",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 111
     },
     {
@@ -782,6 +893,7 @@
       "english": "certificate",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 112
     },
     {
@@ -789,6 +901,7 @@
       "english": "compulsory",
       "category": "SCHOOL",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 113
     },
     {
@@ -796,6 +909,7 @@
       "english": "deputy head (BrE)/ assistant principal (AmE)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 114
     },
     {
@@ -803,6 +917,7 @@
       "english": "enroll on a course",
       "category": "SCHOOL",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 115
     },
     {
@@ -810,6 +925,7 @@
       "english": "extracurricular activities",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 116
     },
     {
@@ -817,6 +933,7 @@
       "english": "follow the curriculum",
       "category": "SCHOOL",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 117
     },
     {
@@ -824,6 +941,7 @@
       "english": "form teacher",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 118
     },
     {
@@ -831,6 +949,7 @@
       "english": "head teacher/ headmaster/ headmistress (BrE)/ principal (AmE)",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 119
     },
     {
@@ -838,6 +957,7 @@
       "english": "optional",
       "category": "SCHOOL",
       "type": "ADJECTIVE",
+      "level": "B1",
       "id": 120
     },
     {
@@ -845,6 +965,7 @@
       "english": "schoolchild",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 121
     },
     {
@@ -852,6 +973,7 @@
       "english": "school fees",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 122
     },
     {
@@ -859,6 +981,7 @@
       "english": "school year",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 123
     },
     {
@@ -866,6 +989,7 @@
       "english": "state education",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 124
     },
     {
@@ -873,6 +997,7 @@
       "english": "syllabus/curriculum",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 125
     },
     {
@@ -880,6 +1005,7 @@
       "english": "teaching staff",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 126
     },
     {
@@ -887,6 +1013,7 @@
       "english": "term",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 127
     },
     {
@@ -894,6 +1021,7 @@
       "english": "timetable",
       "category": "SCHOOL",
       "type": "NOUN",
+      "level": "B1",
       "id": 128
     },
     {
@@ -901,6 +1029,7 @@
       "english": "analyse",
       "category": "SCHOOL",
       "type": "VERB",
+      "level": "B1",
       "id": 129
     },
     {
@@ -908,6 +1037,7 @@
       "english": "a piece of cake",
       "category": "SCHOOL",
       "type": "IDIOM",
+      "level": "B1",
       "id": 130
     },
     {
@@ -915,6 +1045,7 @@
       "english": "burn the midnight oil",
       "category": "SCHOOL",
       "type": "IDIOM",
+      "level": "B1",
       "id": 131
     },
     {
@@ -922,6 +1053,7 @@
       "english": "feel out of your depth",
       "category": "SCHOOL",
       "type": "IDIOM",
+      "level": "B1",
       "id": 132
     },
     {
@@ -929,6 +1061,7 @@
       "english": "know inside out",
       "category": "SCHOOL",
       "type": "IDIOM",
+      "level": "B1",
       "id": 133
     },
     {
@@ -936,6 +1069,7 @@
       "english": "pass (an exam) with flying colours",
       "category": "SCHOOL",
       "type": "IDIOM",
+      "level": "B1",
       "id": 134
     },
     {
@@ -943,6 +1077,7 @@
       "english": "fall behind with school work",
       "category": "SCHOOL",
       "type": "PHRASAL_VERB",
+      "level": "B1",
       "id": 135
     }
   ]

@@ -4,7 +4,6 @@ import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
-import pl.understandable.understandable_app.corrupted.BaseDBHandler;
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
@@ -19,9 +18,7 @@ import java.io.File;
 
 public class App extends Application {
 
-    private static final String DEBUG_TAG = "ZiedicData";
-
-    private static BaseDBHandler dr;
+    private static final String DEBUG_TAG = "Understandable";
 
     @Override
     public void onCreate() {
@@ -35,7 +32,6 @@ public class App extends Application {
     //todo: fix it
     public static void onStop() {
         Log.d(DEBUG_TAG, "Closing database connection");
-        //dr.close();
         Log.d(DEBUG_TAG, "Database connection closed");
     }
 
@@ -59,4 +55,5 @@ public class App extends Application {
             customWordsSetsInfoDirectory.mkdir();
         }
     }
+
 }

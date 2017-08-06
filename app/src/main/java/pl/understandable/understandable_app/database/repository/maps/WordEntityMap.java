@@ -2,6 +2,7 @@ package pl.understandable.understandable_app.database.repository.maps;
 
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningLevel;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
 import java.util.ArrayList;
@@ -19,13 +20,15 @@ public class WordEntityMap {
         return new ArrayList<>(wordEntities);
     }
 
-    public List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLanguageType> types) {
+    public List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLanguageType> types, List<WordsLearningLevel> levels) {
         List<WordEntity> result = new ArrayList<>();
         for(WordEntity entity : wordEntities) {
             for(WordsLanguageCategory category : categories) {
                 for(WordsLanguageType type : types) {
-                    if(entity.getCategory().equals(category) && entity.getType().equals(type)) {
-                        result.add(entity);
+                    for(WordsLearningLevel level : levels) {
+                        if (entity.getCategory().equals(category) && entity.getType().equals(type) && entity.getLevel().equals(level)) {
+                            result.add(entity);
+                        }
                     }
                 }
             }

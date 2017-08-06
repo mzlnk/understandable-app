@@ -158,9 +158,9 @@ public class WordsChoiceTypeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(dataParams.types.size() > 0) {
-                    WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
+                    WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, FragmentUtil.F_WORDS_CHOICE_WAY).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment, FragmentUtil.F_WORDS_CHOICE_LEVEL).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }

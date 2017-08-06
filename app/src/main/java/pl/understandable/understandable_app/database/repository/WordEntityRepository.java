@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningLevel;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.database.repository.maps.WordEntityMap;
 
@@ -36,8 +37,10 @@ public class WordEntityRepository {
     }
 
     private static void loadData() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(dataFile))) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(dataFile));
             wordEntityMap = new Gson().fromJson(br, WordEntityMap.class);
+            br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,8 +50,8 @@ public class WordEntityRepository {
         return wordEntityMap.getAllEntities();
     }
 
-    public static List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLanguageType> types) {
-        return wordEntityMap.getSpecifiedEntities(categories, types);
+    public static List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLanguageType> types, List<WordsLearningLevel> levels) {
+        return wordEntityMap.getSpecifiedEntities(categories, types, levels);
     }
 
 }

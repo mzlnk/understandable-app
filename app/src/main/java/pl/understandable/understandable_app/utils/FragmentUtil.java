@@ -18,6 +18,7 @@ public class FragmentUtil {
     public static final String F_WORDS_CHOICE_MODE = "f_words_choice_mode";
     public static final String F_WORDS_CHOICE_TYPE = "f_words_choice_type";
     public static final String F_WORDS_CHOICE_WAY = "f_words_choice_way";
+    public static final String F_WORDS_CHOICE_LEVEL = "f_words_choice_level";
     public static final String F_NO_WORDS_ERROR = "f_no_words_error";
     public static final String F_WORDS_LIST = "f_words_list";
     public static final String F_WORDS_QUIZ = "f_words_quiz";

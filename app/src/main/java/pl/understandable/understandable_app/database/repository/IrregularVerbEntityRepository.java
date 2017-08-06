@@ -34,8 +34,10 @@ public class IrregularVerbEntityRepository {
     }
 
     private static void loadData() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(dataFile))) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(dataFile));
             irregularVerbEntityMap = new Gson().fromJson(br, IrregularVerbEntityMap.class);
+            br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

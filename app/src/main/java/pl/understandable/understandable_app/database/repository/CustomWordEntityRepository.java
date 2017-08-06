@@ -37,8 +37,10 @@ public class CustomWordEntityRepository {
     }
 
     private static void loadData() {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(dataFile))) {
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(dataFile));
             customWordEntityMap = new Gson().fromJson(br, CustomWordEntityMap.class);
+            br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
