@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.words.repetition.WordsRepetitionResultWordsToRepeatFragment"
     android:background="?attr/background_color"
-    android:id="@+id/f_words_repetition_result_words_to_repeat" >
+    tools:context="pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingResultCorrectWordsSummaryFragment"
+    android:id="@+id/f_words_spelling_result_correct_words_summary" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,27 +13,27 @@
         android:measureWithLargestChild="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentLeft="true" >
 
         <TextView
-            android:id="@+id/f_words_repetition_result_words_to_repeat_title"
+            android:id="@+id/f_words_spelling_result_correct_words_summary_title"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.15"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
             android:gravity="center"
-            android:text="@string/f_repetition_result_words_to_repeat_title"
             android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_text_title_medium" />
+            android:textSize="@dimen/f_text_title_medium"
+            android:text="@string/f_spelling_result_correct_words_summary_title" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
             android:layout_marginLeft="@dimen/f_border_margin_medium"
             android:layout_marginRight="@dimen/f_border_margin_medium" >
 
             <TableLayout
-                android:id="@+id/f_words_repetition_result_words_to_repeat_table"
+                android:id="@+id/f_words_spelling_result_correct_words_summary_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:shrinkColumns="*" >
@@ -49,9 +49,10 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/f_words_repetition_result_words_to_repeat_back"
+                android:id="@+id/f_words_spelling_result_correct_words_summary_back"
                 android:layout_width="@dimen/button_medium_width"
                 android:layout_height="@dimen/button_medium_height"
+                android:layout_gravity="center"
                 android:text="@string/button_back"
                 android:textSize="@dimen/button_back"
                 android:textAllCaps="false"

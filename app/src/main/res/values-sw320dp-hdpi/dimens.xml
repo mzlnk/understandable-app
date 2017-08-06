@@ -66,6 +66,8 @@
     <dimen name="f_custom_words_set_preview_words_set_description_info">17sp</dimen>
     <dimen name="f_custom_words_set_preview_words_set_description">15sp</dimen>
 
+    <dimen name="f_download_custom_words_set_code_field_width">150dp</dimen>
+
     <dimen name="f_words_choice_category_icon_size">60dp</dimen>
     <dimen name="f_words_choice_type_icon_size">60dp</dimen>
     <dimen name="f_words_choice_mode_icon_size">60dp</dimen>

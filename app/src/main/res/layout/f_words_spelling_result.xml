@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.words.quiz.WordsQuizResultFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/background_color"
-    android:id="@+id/f_words_quiz_result" >
+    tools:context="pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingResultFragment"
+    android:id="@+id/f_words_spelling_result">
 
     <LinearLayout
         android:orientation="vertical"
@@ -13,15 +13,16 @@
         android:layout_height="match_parent"
         android:measureWithLargestChild="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" >
 
         <TextView
-            android:id="@+id/f_words_quiz_result_title"
+            android:id="@+id/f_words_spelling_result_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:gravity="center"
-            android:text="@string/f_quiz_result_title"
+            android:text="@string/f_spelling_result_title"
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_text_title_large" />
 
@@ -38,9 +39,9 @@
                 android:gravity="center" >
 
                 <TextView
-                    android:id="@+id/f_words_quiz_result_questions_amount"
+                    android:id="@+id/f_words_spelling_result_words_seen_amount"
                     android:gravity="center"
-                    android:text="@string/number_0"
+                    android:text="0/0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_quiz_result_questions_amount" />
@@ -54,8 +55,9 @@
                 android:gravity="center" >
 
                 <TextView
-                    android:id="@+id/f_words_quiz_result_questions_amount_info"
-                    android:text="@string/f_quiz_result_questions_amount_info"
+                    android:id="@+id/f_words_spelling_result_words_seen_amount_info"
+                    android:text="@string/f_spelling_result_words_seen_amount_info"
+                    android:textAlignment="center"
                     android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
@@ -84,7 +86,7 @@
                     android:layout_weight="0.03" />
 
                 <TableLayout
-                    android:id="@+id/f_words_quiz_result_correct_answers_field"
+                    android:id="@+id/f_words_spelling_result_correct_answers_field"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
@@ -104,7 +106,7 @@
                         android:gravity="center" >
 
                         <ImageView
-                            android:id="@+id/f_words_quiz_result_correct_answers_img"
+                            android:id="@+id/f_words_spelling_result_correct_answers_img"
                             android:layout_width="@dimen/f_quiz_result_image_width"
                             android:layout_height="@dimen/f_quiz_result_image_height"
                             android:clickable="true"
@@ -119,7 +121,7 @@
                         android:gravity="center">
 
                         <TextView
-                            android:id="@+id/f_words_quiz_result_correct_answers_amount"
+                            android:id="@+id/f_words_spelling_result_correct_answers_amount"
                             android:gravity="center"
                             android:text="@string/number_0"
                             android:textStyle="bold"
@@ -135,9 +137,9 @@
                         android:gravity="center" >
 
                         <TextView
-                            android:id="@+id/f_words_quiz_result_correct_answers_info"
+                            android:id="@+id/f_words_spelling_result_correct_answers_info"
                             android:gravity="center"
-                            android:text="@string/f_quiz_result_correct_answers_info"
+                            android:text="@string/f_spelling_result_correct_answers_info"
                             android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_correct_answers_amount_info" />
 
@@ -154,7 +156,7 @@
                     android:layout_weight="0.03" />
 
                 <TableLayout
-                    android:id="@+id/f_words_quiz_result_incorrect_answers_field"
+                    android:id="@+id/f_words_spelling_result_incorrect_answers_field"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.45"
@@ -174,7 +176,7 @@
                         android:gravity="center" >
 
                         <ImageView
-                            android:id="@+id/f_words_quiz_result_incorrect_answers_img"
+                            android:id="@+id/f_words_spelling_result_incorrect_answers_img"
                             android:layout_width="@dimen/f_quiz_result_image_width"
                             android:layout_height="@dimen/f_quiz_result_image_height"
                             android:clickable="true"
@@ -189,7 +191,7 @@
                         android:gravity="center" >
 
                         <TextView
-                            android:id="@+id/f_words_quiz_result_incorrect_answers_amount"
+                            android:id="@+id/f_words_spelling_result_incorrect_answers_amount"
                             android:gravity="center"
                             android:text="@string/number_0"
                             android:textStyle="bold"
@@ -205,9 +207,9 @@
                         android:gravity="center" >
 
                         <TextView
-                            android:id="@+id/f_words_quiz_result_incorrect_answers_info"
+                            android:id="@+id/f_words_spelling_result_incorrect_answers_info"
                             android:gravity="center"
-                            android:text="@string/f_quiz_result_incorrect_answers_info"
+                            android:text="@string/f_spelling_result_incorrect_answers_info"
                             android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_incorrect_answers_amount_info" />
 
@@ -233,7 +235,7 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/f_words_quiz_result_try_again"
+                android:id="@+id/f_words_spelling_result_try_again"
                 android:layout_width="@dimen/button_medium_width"
                 android:layout_height="@dimen/button_medium_height"
                 android:layout_gravity="center"
