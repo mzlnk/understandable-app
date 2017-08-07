@@ -7,17 +7,17 @@ package pl.understandable.understandable_app.corrupted.data;
 public class RepetitionData extends BaseWordsData {
 
     /*todo: remove it
-    public static List<WordEntity> wordsToRepeat = new ArrayList<>();
+    public static List<WordEntity> correctAnswers = new ArrayList<>();
     public static List<WordEntity> wordsSeen = new ArrayList<>();
     public static WordEntity currentWord;
 
     public static boolean existsInToRepeatWords(WordEntity word) {
-        return wordsToRepeat.contains(word);
+        return correctAnswers.contains(word);
     }
 
     public static void addCurrentWordToRepeat() {
-        if(!wordsToRepeat.contains(currentWord)) {
-            wordsToRepeat.add(currentWord);
+        if(!correctAnswers.contains(currentWord)) {
+            correctAnswers.add(currentWord);
         }
     }
 
@@ -28,7 +28,7 @@ public class RepetitionData extends BaseWordsData {
     }
 
     public static void removeCurrentWordFromRepeat() {
-        wordsToRepeat.remove(currentWord);
+        correctAnswers.remove(currentWord);
     }
 
     public static void setCurrentWord(WordEntity word) {
@@ -39,7 +39,7 @@ public class RepetitionData extends BaseWordsData {
         currentWord = allChosenWords.get(0);
         wordsSeen.clear();
         addCurrentWordToSeen();
-        wordsToRepeat.clear();
+        correctAnswers.clear();
     }
     */
 

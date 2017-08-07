@@ -113,8 +113,11 @@ public class WordsRepetitionExampleFragment extends Fragment {
         wordLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(word1.getCurrentTextColor() == hiddenWordColor) word1.setTextColor(word2Color);
-                else word1.setTextColor(hiddenWordColor);
+                if(word1.getCurrentTextColor() == hiddenWordColor) {
+                    word1.setTextColor(word2Color);
+                } else {
+                    word1.setTextColor(hiddenWordColor);
+                }
             }
         });
     }

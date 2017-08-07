@@ -64,8 +64,8 @@ public class WordsQuizData extends WordsBaseData {
         incorrectAnswers.add(currentWord);
     }
 
-    public WordsQuizData resetStats() {
-        return new WordsQuizData(params);
+    public void resetStats() {
+        quizData = new WordsQuizData(params);
     }
 
     public static class Util {

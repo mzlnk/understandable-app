@@ -29,6 +29,11 @@ public class FragmentUtil {
     public static final String F_WORDS_REPETITION_EXAMPLE = "f_words_repetition_example";
     public static final String F_WORDS_REPETITION_RESULT = "f_words_repetition_result";
     public static final String F_WORDS_REPETITION_RESULT_WORDS_TO_REPEAT = "f_words_repetition_result_words_to_repeat";
+    public static final String F_WORDS_SPELLING = "f_words_spelling";
+    public static final String F_WORDS_SPELLING_EXAMPLE = "f_words_spelling_example";
+    public static final String F_WORDS_SPELLING_RESULT = "f_words_spelling_result";
+    public static final String F_WORDS_SPELLING_RESULT_CORRECT_WORDS_SUMMARY = "f_words_spelling_correct_words_summary";
+    public static final String F_WORDS_SPELLING_RESULT_INCORRECT_WORDS_SUMMARY = "f_words_spelling_incorrect_words_summary";
     public static final String F_IRREGULAR_VERBS_CHOICE_MODE = "f_irregular_verbs_choice_mode";
     public static final String F_IRREGULAR_VERBS_CHOICE_LENGTH = "f_irregular_verbs_choice_length";
     public static final String F_IRREGULAR_VERBS_LIST = "f_irregular_verbs_list";

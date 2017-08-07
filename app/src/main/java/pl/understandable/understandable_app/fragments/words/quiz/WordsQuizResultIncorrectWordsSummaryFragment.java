@@ -93,11 +93,11 @@ public class WordsQuizResultIncorrectWordsSummaryFragment extends Fragment {
             t1.setText(word.getPolishWord());
             t1.setTextColor(textColor);
             t1.setTypeface(Font.TYPEFACE_MONTSERRAT);
-            t1.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
+            t1.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.5F));
             t2.setText(word.getEnglishWord());
             t2.setTextColor(textColor);
             t2.setTypeface(Font.TYPEFACE_MONTSERRAT);
-            t2.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.5F));
+            t2.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.5F));
 
             if(color) {
                 row.setBackgroundColor(list1Color);

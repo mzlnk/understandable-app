@@ -7,70 +7,70 @@
     android:id="@+id/f_words_repetition_example" >
 
     <LinearLayout
-        android:id="@+id/f_words_repetition_example_clickable_layout"
+    android:id="@+id/f_words_repetition_example_clickable_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true" >
+
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:measureWithLargestChild="true" >
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:gravity="center"
+        android:measureWithLargestChild="true"
+        android:clickable="true" >
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
-            android:gravity="center"
-            android:measureWithLargestChild="true"
-            android:clickable="true" >
+        <TableRow
+            android:layout_weight="0.3">
 
-            <TableRow
-                android:layout_weight="0.3">
+        </TableRow>
 
-            </TableRow>
-
-            <TableRow
-                android:layout_weight="0.2"
-                android:gravity="center" >
-
-                <TextView
-                    android:id="@+id/f_words_repetition_example_word_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Word0"
-                    android:textColor="?attr/background_color"
-                    android:textSize="@dimen/f_repetition_example_word_0" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:gravity="center" >
-
-                <TextView
-                    android:id="@+id/f_words_repetition_example_word_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Word1"
-                    android:textColor="?attr/background_color"
-                    android:textSize="@dimen/f_repetition_example_word_1" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_weight="0.3" >
-
-            </TableRow>
-
-        </TableLayout>
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
+        <TableRow
+            android:layout_weight="0.2"
             android:gravity="center" >
 
-        </TableLayout>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/f_words_repetition_example_word_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Word0"
+                android:textColor="?attr/background_color"
+                android:textSize="@dimen/f_repetition_example_word_0" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/f_words_repetition_example_word_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Word1"
+                android:textColor="?attr/background_color"
+                android:textSize="@dimen/f_repetition_example_word_1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="0.3" >
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:gravity="center">
+
+    </TableLayout>
+</LinearLayout>
 </RelativeLayout>

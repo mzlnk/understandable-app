@@ -22,35 +22,49 @@ public class WordsSpellingData extends WordsBaseData {
         spellingData = new WordsSpellingData(params);
     }
 
-    public List<WordEntity> wordsToRepeat = new ArrayList<>();
+    public List<WordEntity> wordsSeen = new ArrayList<>();
+    public List<WordEntity> correctAnswers = new ArrayList<>();
+    public List<WordEntity> incorrectAnswers = new ArrayList<>();
 
     public WordEntity currentWord;
+    public int currentWordPosition = 0;
 
     public WordsSpellingData(WordsDataParams params) {
         super(params);
         setCurrentWord(words.get(0));
     }
 
-    public boolean existsInToRepeatWords(WordEntity word) {
-        return wordsToRepeat.contains(word);
-    }
-
-    public void addCurrentWordToRepeat() {
-        if(!wordsToRepeat.contains(currentWord)) {
-            wordsToRepeat.add(currentWord);
+    public void addCurrentWordToSeen() {
+        if(!wordsSeen.contains(currentWord)) {
+            wordsSeen.add(currentWord);
         }
     }
 
-    public void removeCurrentWordFromRepeat() {
-        wordsToRepeat.remove(currentWord);
+    public void addToCorrectAnswers() {
+        if(!correctAnswers.contains(currentWord)) {
+            correctAnswers.add(currentWord);
+        }
+        if(incorrectAnswers.contains(currentWord)) {
+            incorrectAnswers.remove(currentWord);
+        }
+    }
+
+    public void addToIncorrectAnswers() {
+        if(!incorrectAnswers.contains(currentWord)) {
+            incorrectAnswers.add(currentWord);
+        }
     }
 
     public void setCurrentWord(WordEntity word) {
         currentWord = word;
     }
 
-    public WordsRepetitionData resetStats() {
-        return new WordsRepetitionData(params);
+    public void setCurrentWordPosition(int position) {
+        currentWordPosition = position;
+    }
+
+    public void resetStats() {
+        spellingData = new WordsSpellingData(params);
     }
 
 }

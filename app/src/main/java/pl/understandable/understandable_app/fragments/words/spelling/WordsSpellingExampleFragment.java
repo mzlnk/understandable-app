@@ -6,25 +6,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
-import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionExampleFragment;
+import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
 import pl.understandable.understandable_app.utils.ColorUtil;
 
 public class WordsSpellingExampleFragment extends Fragment {
 
     public static final String POSITION_PARAM = "words.spelling.example.positionParam";
+    public static Map<Integer, TextView> answers = new HashMap<>();
+    public static int word1Color, word2Color, hiddenWordColor;
 
-    private WordsRepetitionData repetitionData;
+    private WordsSpellingData spellingData;
 
-    private int word1Color, word2Color, hiddenWordColor;
-
-    private LinearLayout wordLayout;
     private TextView word0, word1;
 
     public int position;
@@ -33,8 +33,8 @@ public class WordsSpellingExampleFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static WordsRepetitionExampleFragment newInstance(int position) {
-        WordsRepetitionExampleFragment fragment = new WordsRepetitionExampleFragment();
+    public static WordsSpellingExampleFragment newInstance(int position) {
+        WordsSpellingExampleFragment fragment = new WordsSpellingExampleFragment();
         Bundle args = new Bundle();
         args.putInt(POSITION_PARAM, position);
         fragment.setArguments(args);
@@ -47,25 +47,31 @@ public class WordsSpellingExampleFragment extends Fragment {
         if(getArguments() != null) {
             position = getArguments().getInt(POSITION_PARAM);
         }
-        repetitionData = WordsRepetitionData.getRepetitionData();
+        spellingData = WordsSpellingData.getSpellingData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the wordLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_words_repetition_example, container, false);
+        View rootView = inflater.inflate(R.layout.f_words_spelling_example, container, false);
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
-        addListeners();
 
         return rootView;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(getContext(), "onDestroy()", Toast.LENGTH_SHORT).show();
+        answers.remove(position);
+    }
+
     private void loadViewsFromXml(View rootView) {
-        word0 = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_0);
-        word1 = (TextView) rootView.findViewById(R.id.f_words_repetition_example_word_1);
-        wordLayout = (LinearLayout) rootView.findViewById(R.id.f_words_repetition_example_clickable_layout);
+        word0 = (TextView) rootView.findViewById(R.id.f_words_spelling_example_word_0);
+        word1 = (TextView) rootView.findViewById(R.id.f_words_spelling_example_word_1);
+        answers.put(position, word1);
     }
 
     private void prepareLayout() {
@@ -80,7 +86,7 @@ public class WordsSpellingExampleFragment extends Fragment {
     }
 
     private void setWords() {
-        switch(repetitionData.getParams().way) {
+        switch(spellingData.getParams().way) {
             case POLISH_TO_ENGLISH:
                 setWordsPolishToEnglish();
                 break;
@@ -99,23 +105,13 @@ public class WordsSpellingExampleFragment extends Fragment {
     }
 
     private void setWordsPolishToEnglish() {
-        word0.setText(repetitionData.getEntities().get(position).getPolishWord());
-        word1.setText(repetitionData.getEntities().get(position).getEnglishWord());
+        word0.setText(spellingData.getEntities().get(position).getPolishWord());
+        word1.setText(spellingData.getEntities().get(position).getEnglishWord());
     }
 
     private void setWordsEnglishToPolish() {
-        word0.setText(repetitionData.getEntities().get(position).getEnglishWord());
-        word1.setText(repetitionData.getEntities().get(position).getPolishWord());
-    }
-
-    private void addListeners() {
-        wordLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(word1.getCurrentTextColor() == hiddenWordColor) word1.setTextColor(word2Color);
-                else word1.setTextColor(hiddenWordColor);
-            }
-        });
+        word0.setText(spellingData.getEntities().get(position).getEnglishWord());
+        word1.setText(spellingData.getEntities().get(position).getPolishWord());
     }
 
     private void initColors() {

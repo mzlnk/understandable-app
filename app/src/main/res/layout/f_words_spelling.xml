@@ -10,13 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true" >
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/f_words_spelling_view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5" />
+            android:layout_weight="0.4" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,6 +31,7 @@
                 android:id="@+id/f_words_spelling_answer_field"
                 android:layout_width="@dimen/f_words_spelling_answer_field_width"
                 android:layout_height="wrap_content"
+                android:layout_gravity="top"
                 android:inputType="textCapCharacters"
                 android:textColor="?attr/text_1_color"
                 android:textAlignment="center" />
@@ -85,6 +89,11 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
 
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

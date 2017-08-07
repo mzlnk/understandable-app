@@ -56,8 +56,8 @@ public class WordsRepetitionData extends WordsBaseData {
         currentWord = word;
     }
 
-    public WordsRepetitionData resetStats() {
-       return new WordsRepetitionData(params);
+    public void resetStats() {
+       repetitionData = new WordsRepetitionData(params);
     }
 
 }

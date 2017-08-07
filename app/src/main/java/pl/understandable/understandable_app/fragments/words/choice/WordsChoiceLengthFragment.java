@@ -15,6 +15,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
@@ -23,6 +24,7 @@ import pl.understandable.understandable_app.fragments.error.NoWordsErrorFragment
 import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizFragment;
 import pl.understandable.understandable_app.fragments.words.list.WordsListFragment;
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
+import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -170,6 +172,10 @@ public class WordsChoiceLengthFragment extends Fragment {
                     case QUIZ:
                         WordsQuizData.createQuizDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ);
+                        break;
+                    case SPELLING:
+                        WordsSpellingData.createRepetitionDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment(), FragmentUtil.F_WORDS_SPELLING);
                         break;
                 }
                 transaction.commit();

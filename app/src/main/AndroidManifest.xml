@@ -15,6 +15,7 @@
         <activity
             android:name="pl.understandable.understandable_app.activities.NavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustNothing"
             android:label=""
             android:theme="@style/NightTheme" >
         </activity>
