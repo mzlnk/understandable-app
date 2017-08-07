@@ -7,12 +7,11 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
  * Created by Lotos_ on 2016-11-12.
  */
 
-
 public enum WordsLearningMode implements Identifiable {
 
     REPETITION("powtarzanie", R.drawable.f_words_choice_mode_repetition),
     QUIZ("quiz", R.drawable.f_words_choice_mode_quiz),
-    SPELLING("...", R.drawable.f_words_choice_unchecked),
+    SPELLING("pisownia", R.drawable.f_words_choice_mode_spelling),
     LIST("lista", R.drawable.f_words_choice_mode_list);
 
     private String name;
