@@ -58,6 +58,11 @@ public class FragmentUtil {
     public static final String F_CUSTOM_WORDS_REPETITION_EXAMPLE = "f_custom_words_repetition_example";
     public static final String F_CUSTOM_WORDS_REPETITION_RESULT = "f_custom_words_repetition_result";
     public static final String F_CUSTOM_WORDS_REPETITION_RESULT_WORDS_TO_REPEAT = "f_custom_words_repetition_result_words_to_repeat";
+    public static final String F_CUSTOM_WORDS_SPELLING = "f_custom_words_spelling";
+    public static final String F_CUSTOM_WORDS_SPELLING_EXAMPLE = "f_custom_words_spelling_example";
+    public static final String F_CUSTOM_WORDS_SPELLING_RESULT = "f_custom_words_spelling_result";
+    public static final String F_CUSTOM_WORDS_SPELLING_RESULT_CORRECT_WORDS_SUMMARY = "f_custom_words_spelling_correct_words_summary";
+    public static final String F_CUSTOM_WORDS_SPELLING_RESULT_INCORRECT_WORDS_SUMMARY = "f_custom_words_spelling_incorrect_words_summary";
     public static final String F_GRAMMAR_SETS_LIST = "f_grammar_sets_list";
     public static final String F_GRAMMAR_SET_PREVIEW = "f_grammar_set_preview";
 

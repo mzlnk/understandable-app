@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.words.spelling;
+package pl.understandable.understandable_app.fragments.custom_words.spelling;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -16,26 +16,27 @@ import java.util.Random;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
+import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingExampleFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 
-public class WordsSpellingExampleFragment extends Fragment {
+public class CustomWordsSpellingExampleFragment extends Fragment {
 
-    public static final String POSITION_PARAM = "words.spelling.example.positionParam";
+    public static final String POSITION_PARAM = "custom.words.spelling.example.positionParam";
     public static Map<Integer, TextView> answers = new HashMap<>();
     public static int word1Color, word2Color, hiddenWordColor;
 
-    private WordsSpellingData spellingData;
+    private CustomWordsSpellingData spellingData;
 
     private TextView word0, word1;
 
     public int position;
 
-    public WordsSpellingExampleFragment() {
+    public CustomWordsSpellingExampleFragment() {
         // Required empty public constructor
     }
 
-    public static WordsSpellingExampleFragment newInstance(int position) {
-        WordsSpellingExampleFragment fragment = new WordsSpellingExampleFragment();
+    public static CustomWordsSpellingExampleFragment newInstance(int position) {
+        CustomWordsSpellingExampleFragment fragment = new CustomWordsSpellingExampleFragment();
         Bundle args = new Bundle();
         args.putInt(POSITION_PARAM, position);
         fragment.setArguments(args);
@@ -48,13 +49,13 @@ public class WordsSpellingExampleFragment extends Fragment {
         if(getArguments() != null) {
             position = getArguments().getInt(POSITION_PARAM);
         }
-        spellingData = WordsSpellingData.getSpellingData();
+        spellingData = CustomWordsSpellingData.getSpellingData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the wordLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_words_spelling_example, container, false);
+        View rootView = inflater.inflate(R.layout.f_custom_words_spelling_example, container, false);
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
@@ -69,8 +70,8 @@ public class WordsSpellingExampleFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        word0 = (TextView) rootView.findViewById(R.id.f_words_spelling_example_word_0);
-        word1 = (TextView) rootView.findViewById(R.id.f_words_spelling_example_word_1);
+        word0 = (TextView) rootView.findViewById(R.id.f_custom_words_spelling_example_word_0);
+        word1 = (TextView) rootView.findViewById(R.id.f_custom_words_spelling_example_word_1);
         answers.put(position, word1);
     }
 

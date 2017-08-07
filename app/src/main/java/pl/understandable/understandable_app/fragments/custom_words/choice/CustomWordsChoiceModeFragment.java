@@ -23,27 +23,16 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsListData;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
+import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
-import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.fragments.custom_words.list.CustomWordsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizFragment;
 import pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionFragment;
-import pl.understandable.understandable_app.fragments.error.NoWordsErrorFragment;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceLengthFragment;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceModeFragment;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceWayFragment;
-import pl.understandable.understandable_app.fragments.words.list.WordsListFragment;
-import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizFragment;
-import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
+import pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsModeButton;
-import pl.understandable.understandable_app.utils.buttons.words.WordsModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 public class CustomWordsChoiceModeFragment extends Fragment {
@@ -195,6 +184,10 @@ public class CustomWordsChoiceModeFragment extends Fragment {
                     case QUIZ:
                         CustomWordsQuizData.createQuizDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ);
+                        break;
+                    case SPELLING:
+                        CustomWordsSpellingData.createSpellingDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment(), FragmentUtil.F_CUSTOM_WORDS_SPELLING);
                         break;
                 }
                 transaction.commit();

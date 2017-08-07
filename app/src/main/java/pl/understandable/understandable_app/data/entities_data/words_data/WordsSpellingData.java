@@ -32,6 +32,8 @@ public class WordsSpellingData extends WordsBaseData {
     public WordsSpellingData(WordsDataParams params) {
         super(params);
         setCurrentWord(words.get(0));
+        addCurrentWordToSeen();
+        addToIncorrectAnswers();
     }
 
     public void addCurrentWordToSeen() {

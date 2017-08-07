@@ -11,6 +11,7 @@ public enum CustomWordsLearningMode implements Identifiable {
 
     REPETITION("powtarzanie",R.drawable.f_words_choice_mode_repetition),
     QUIZ("quiz", R.drawable.f_words_choice_mode_quiz),
+    SPELLING("...", R.drawable.f_words_choice_unchecked),
     LIST("lista", R.drawable.f_words_choice_mode_list);
 
     private String name;

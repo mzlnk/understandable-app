@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingFragment"
+    android:id="@+id/f_custom_words_spelling" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/f_custom_words_spelling_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/f_custom_words_spelling_answer_field"
+                android:layout_width="@dimen/f_words_spelling_answer_field_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:inputType="textCapCharacters"
+                android:textColor="?attr/text_1_color"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_custom_words_spelling_check"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_check"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_custom_words_spelling_show_answer"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_show_answer"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_custom_words_spelling_finish"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_finish"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

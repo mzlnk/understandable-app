@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingExampleFragment"
+    android:id="@+id/f_custom_words_spelling_example" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:measureWithLargestChild="true"
+            android:clickable="true" >
+
+            <TableRow
+                android:layout_weight="0.3">
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="0.2"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/f_custom_words_spelling_example_word_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Word0"
+                    android:textColor="?attr/background_color"
+                    android:textSize="@dimen/f_repetition_example_word_0" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/f_custom_words_spelling_example_word_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Word1"
+                    android:textColor="?attr/background_color"
+                    android:textSize="@dimen/f_repetition_example_word_1" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_weight="0.3" >
+
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>
