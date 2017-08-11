@@ -1,13 +1,43 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment">
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment"
+    android:id="@+id/f_phrases_choice_category" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:measureWithLargestChild="true"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/f_phrases_choice_category_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="@string/f_phrases_choice_category_title"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_text_title_medium" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium"
+            android:layout_weight="0.85">
+
+            <TableLayout
+                android:id="@+id/f_phrases_choice_category_categories_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*">
+
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

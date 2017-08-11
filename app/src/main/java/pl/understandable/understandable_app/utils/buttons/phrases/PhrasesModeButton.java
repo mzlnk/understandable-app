@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.utils.buttons.irregular_verbs;
+package pl.understandable.understandable_app.utils.buttons.phrases;
 
 import android.content.Context;
 import android.util.TypedValue;
@@ -7,22 +7,22 @@ import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningMode;
-import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
-
 import java.util.List;
 
+import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningMode;
+import pl.understandable.understandable_app.data.params.PhrasesDataParams;
+
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin on 2017-08-11.
  */
 
-public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
+public class PhrasesModeButton extends PhrasesBaseButton {
 
-    private List<IrregularVerbsModeButton> allModes;
-    private IrregularVerbsLearningMode mode;
+    private List<PhrasesModeButton> allModes;
+    private PhrasesLearningMode mode;
 
-    public IrregularVerbsModeButton(Context context, IrregularVerbsDataParams dataParams, IrregularVerbsLearningMode mode, List<IrregularVerbsModeButton> allModes) {
+    public PhrasesModeButton(Context context, PhrasesDataParams dataParams, PhrasesLearningMode mode, List<PhrasesModeButton> allModes) {
         super(context, dataParams, mode, false);
         this.mode = mode;
         this.allModes = allModes;
@@ -39,7 +39,7 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
         return text;
     }
 
-    private IrregularVerbsLearningMode getMode() {
+    private PhrasesLearningMode getMode() {
         return mode;
     }
 
@@ -63,7 +63,7 @@ public class IrregularVerbsModeButton extends IrregularVerbsBaseButton {
                     image.setImageAlpha(ITEM_CHOSEN);
                     setChecked(true);
                     dataParams.setMode(mode);
-                    for(IrregularVerbsModeButton m : allModes) {
+                    for(PhrasesModeButton m : allModes) {
                         if(m.getMode().equals(mode)) {
                             continue;
                         }

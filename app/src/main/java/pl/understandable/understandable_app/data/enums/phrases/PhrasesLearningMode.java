@@ -10,6 +10,7 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
 public enum PhrasesLearningMode implements Identifiable {
 
     REPETITION("powtarzanie", R.drawable.f_words_choice_mode_repetition),
+    QUIZ("quiz", R.drawable.f_words_choice_mode_quiz),
     LIST("lista",R.drawable.f_words_choice_mode_list);
 
     private String name;

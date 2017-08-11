@@ -65,6 +65,9 @@ public class FragmentUtil {
     public static final String F_CUSTOM_WORDS_SPELLING_RESULT_INCORRECT_WORDS_SUMMARY = "f_custom_words_spelling_incorrect_words_summary";
     public static final String F_GRAMMAR_SETS_LIST = "f_grammar_sets_list";
     public static final String F_GRAMMAR_SET_PREVIEW = "f_grammar_set_preview";
+    public static final String F_PHRASES_CHOICE_CATEGORY = "f_phrases_choice_category";
+    public static final String F_PHRASES_CHOICE_WAY = "f_phrases_choice_way";
+    public static final String F_PHRASES_CHOICE_MODE = "f_phrases_choice_mode";
 
     public static Fragment getVisibleFragment() {
         FragmentManager fragmentManager = NavigationActivity.activity.getSupportFragmentManager();
