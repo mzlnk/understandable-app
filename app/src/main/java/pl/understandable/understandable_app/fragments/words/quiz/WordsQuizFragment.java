@@ -286,10 +286,13 @@ public class WordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(getActivity() == null) {
+                            return;
+                        }
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        if (quizData.wordsLeft.size() > 1 && getActivity() != null) {
+                        if (quizData.wordsLeft.size() > 1) {
                             transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ).commit();
-                        } else if (getActivity() != null) {
+                        } else {
                             transaction.replace(R.id.layout_for_fragments, new WordsQuizResultFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT).commit();
                         }
                     }

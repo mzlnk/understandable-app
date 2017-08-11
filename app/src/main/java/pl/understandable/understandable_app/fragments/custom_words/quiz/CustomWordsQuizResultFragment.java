@@ -82,7 +82,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
     }
 
     private void prepareViews() {
-        questionAmount.setText(String.valueOf(quizData.getEntities().size()));
+        questionAmount.setText(String.valueOf(quizData.wordsSeen) + "/" + String.valueOf(quizData.getEntities().size()));
         correctAnswers.setText(String.valueOf(quizData.correctAnswers.size()));
         incorrectAnswers.setText(String.valueOf(quizData.incorrectAnswers.size()));
     }

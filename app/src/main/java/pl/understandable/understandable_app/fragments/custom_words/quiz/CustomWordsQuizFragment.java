@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.custom_words.quiz;
 
-
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -15,8 +14,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -30,9 +29,6 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CustomWordsQuizFragment extends Fragment {
 
     private static final int QUESTION_ANSWER_TIME_IN_MILLIS = 5000;
@@ -40,7 +36,7 @@ public class CustomWordsQuizFragment extends Fragment {
 
     private CustomWordsQuizData quizData;
 
-    private TableLayout questionLayout;
+    private LinearLayout questionArea;
     private TextView question, questionNumber;
     private Button[] answers = new Button[4];
     private ProgressBar time;
@@ -76,7 +72,7 @@ public class CustomWordsQuizFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        questionLayout = (TableLayout) rootView.findViewById(R.id.f_custom_words_quiz_question_table);
+        questionArea = (LinearLayout) rootView.findViewById(R.id.f_custom_words_quiz_question_area);
         question = (TextView) rootView.findViewById(R.id.f_custom_words_quiz_question);
         questionNumber = (TextView) rootView.findViewById(R.id.f_custom_words_quiz_question_number);
         answers[0] = (Button) rootView.findViewById(R.id.f_custom_words_quiz_option_0);
@@ -185,7 +181,7 @@ public class CustomWordsQuizFragment extends Fragment {
 
     private void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
-        questionLayout.setAnimation(anim);
+        questionArea.setAnimation(anim);
     }
 
     private void setFonts() {
@@ -288,10 +284,13 @@ public class CustomWordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(getActivity() == null) {
+                            return;
+                        }
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        if (quizData.wordsLeft.size() > 1 && getActivity() != null) {
+                        if (quizData.wordsLeft.size() > 1) {
                             transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ).commit();
-                        } else if (getActivity() != null) {
+                        } else {
                             transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT).commit();
                         }
                     }

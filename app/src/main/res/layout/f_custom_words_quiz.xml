@@ -24,7 +24,7 @@
             android:layout_weight="0.05" >
 
             <ProgressBar
-                android:id="@+id/f_words_quiz_time"
+                android:id="@+id/f_custom_words_quiz_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="?android:attr/progressBarStyleHorizontal" />

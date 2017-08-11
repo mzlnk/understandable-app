@@ -26,7 +26,9 @@ public class CustomWordsQuizData extends CustomWordsBaseData {
     public List<CustomWordEntity> correctAnswers = new ArrayList<>();
     public List<CustomWordEntity> incorrectAnswers = new ArrayList<>();
     public CustomWordEntity currentWord;
+
     public int currentQuestion = 1;
+    public int wordsSeen = 0;
 
     public CustomWordsQuizData(CustomWordsDataParams params) {
         super(params);
@@ -34,6 +36,7 @@ public class CustomWordsQuizData extends CustomWordsBaseData {
     }
 
     public void nextQuestion() {
+        wordsSeen++;
         currentQuestion++;
         wordsLeft.remove(currentWord);
         currentWord = wordsLeft.get(r.nextInt(wordsLeft.size()));
@@ -64,8 +67,8 @@ public class CustomWordsQuizData extends CustomWordsBaseData {
         incorrectAnswers.add(currentWord);
     }
 
-    public CustomWordsQuizData resetStats() {
-        return new CustomWordsQuizData(params);
+    public void resetStats() {
+        quizData = new CustomWordsQuizData(params);
     }
 
     public static class Util {

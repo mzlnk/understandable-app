@@ -56,8 +56,8 @@ public class CustomWordsRepetitionData extends CustomWordsBaseData {
         currentWord = word;
     }
 
-    public CustomWordsRepetitionData resetStats() {
-        return new CustomWordsRepetitionData(params);
+    public void resetStats() {
+        repetitionData = new CustomWordsRepetitionData(params);
     }
 
 }
