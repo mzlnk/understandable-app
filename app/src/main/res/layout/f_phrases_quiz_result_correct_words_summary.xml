@@ -1,13 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizResultCorrectWordsSummary">
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizResultCorrectWordsSummaryFragment"
+    android:id="@+id/f_phrases_quiz_result_correct_words_summary" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true" >
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/f_phrases_quiz_result_correct_words_summary_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_text_title_medium"
+            android:text="@string/f_quiz_result_correct_words_summary_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.85"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium" >
+
+            <TableLayout
+                android:id="@+id/f_phrases_quiz_result_correct_words_summary_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*" >
+
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/f_phrases_quiz_result_correct_words_summary_back"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:layout_gravity="center"
+                android:text="@string/button_back"
+                android:textSize="@dimen/button_back"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,13 +1,131 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizFragment">
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizFragment"
+    android:id="@+id/f_phrases_quiz" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/f_phrases_quiz_main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:measureWithLargestChild="true"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/f_phrases_quiz_time_row"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05" >
+
+            <ProgressBar
+                android:id="@+id/f_phrases_quiz_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleHorizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/f_phrases_quiz_question_area"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.95"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/f_phrases_quiz_question_number"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.12"
+                android:gravity="center"
+                android:text="@string/f_quiz_question_number"
+                android:textColor="?attr/text_2_color"
+                android:textSize="@dimen/f_quiz_question_number" />
+
+            <TextView
+                android:id="@+id/f_phrases_quiz_question"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.36"
+                android:gravity="center"
+                android:text="@string/f_quiz_question"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_quiz_question" />
+
+            <Button
+                android:id="@+id/f_phrases_quiz_option_0"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.12"
+                android:layout_marginRight="@dimen/f_border_margin_medium"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_marginBottom="@dimen/f_quiz_margin"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_quiz_option"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/f_phrases_quiz_option_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.12"
+                android:layout_marginRight="@dimen/f_border_margin_medium"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_marginBottom="@dimen/f_quiz_margin"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_quiz_option"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/f_phrases_quiz_option_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.12"
+                android:layout_marginRight="@dimen/f_border_margin_medium"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_marginBottom="@dimen/f_quiz_margin"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_quiz_option"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/f_phrases_quiz_option_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.12"
+                android:layout_marginRight="@dimen/f_border_margin_medium"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_marginBottom="@dimen/f_border_margin_medium"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_quiz_option"
+                style="?android:attr/borderlessButtonStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_phrases_quiz_finish"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_finish"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
