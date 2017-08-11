@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -36,9 +38,10 @@ public class WordsQuizFragment extends Fragment {
 
     private WordsQuizData quizData;
 
-    private TableLayout questionLayout;
+    private LinearLayout questionArea;
     private TextView question, questionNumber;
     private Button[] answers = new Button[4];
+    private Button finish;
     private ProgressBar time;
 
     private int timeLeft = QUESTION_ANSWER_TIME_IN_MILLIS;
@@ -71,7 +74,7 @@ public class WordsQuizFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        questionLayout = (TableLayout) rootView.findViewById(R.id.f_words_quiz_question_table);
+        questionArea = (LinearLayout) rootView.findViewById(R.id.f_words_quiz_question_area);
         question = (TextView) rootView.findViewById(R.id.f_words_quiz_question);
         questionNumber = (TextView) rootView.findViewById(R.id.f_words_quiz_question_number);
         answers[0] = (Button) rootView.findViewById(R.id.f_words_quiz_option_0);
@@ -79,6 +82,7 @@ public class WordsQuizFragment extends Fragment {
         answers[2] = (Button) rootView.findViewById(R.id.f_words_quiz_option_2);
         answers[3] = (Button) rootView.findViewById(R.id.f_words_quiz_option_3);
         time = (ProgressBar) rootView.findViewById(R.id.f_words_quiz_time);
+        finish = (Button) rootView.findViewById(R.id.f_words_quiz_finish);
     }
 
     private void initTimer() {
@@ -122,6 +126,14 @@ public class WordsQuizFragment extends Fragment {
                 }
             });
         }
+
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new WordsQuizResultFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT).commit();
+            }
+        });
     }
 
     private void setAnswers() {
@@ -146,32 +158,32 @@ public class WordsQuizFragment extends Fragment {
     }
 
     private void setQuestionsPolishToEnglish() {
-        question.setText(correctWord.getPolishWord());
+        question.setText(correctWord.getPolish());
         for(int i = 0, j = 0; i < 4; i++) {
             if(i == correctOption) {
-                answers[i].setText(correctWord.getEnglishWord());
+                answers[i].setText(correctWord.getEnglish());
                 continue;
             }
-            answers[i].setText(incorrectWords[j].getEnglishWord());
+            answers[i].setText(incorrectWords[j].getEnglish());
             j++;
         }
     }
 
     private void setQuestionsEnglishToPolish() {
-        question.setText(correctWord.getEnglishWord());
+        question.setText(correctWord.getEnglish());
         for(int i = 0, j = 0; i < 4; i++) {
             if(i == correctOption) {
-                answers[i].setText(correctWord.getPolishWord());
+                answers[i].setText(correctWord.getPolish());
                 continue;
             }
-            answers[i].setText(incorrectWords[j].getPolishWord());
+            answers[i].setText(incorrectWords[j].getPolish());
             j++;
         }
     }
 
     private void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade00);
-        questionLayout.setAnimation(anim);
+        questionArea.setAnimation(anim);
     }
 
     private void setFonts() {
@@ -181,6 +193,7 @@ public class WordsQuizFragment extends Fragment {
         answers[1].setTypeface(Font.TYPEFACE_MONTSERRAT);
         answers[2].setTypeface(Font.TYPEFACE_MONTSERRAT);
         answers[3].setTypeface(Font.TYPEFACE_MONTSERRAT);
+        finish.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void prepareButtons() {
@@ -189,10 +202,12 @@ public class WordsQuizFragment extends Fragment {
             for(Button answer : answers) {
                 answer.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
             }
+            finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
             for(Button answer : answers) {
                 answer.setBackgroundResource(R.drawable.field_rounded_gray);
             }
+            finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
 
@@ -244,6 +259,9 @@ public class WordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(getContext() == null) {
+                            return;
+                        }
                         answers[correctOption].setBackgroundResource(R.drawable.field_rounded_green);
                     }
                 }, showCorrectOptionDelay);
@@ -251,6 +269,9 @@ public class WordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(getContext() == null) {
+                            return;
+                        }
                         for (int i = 0; i < 4; i++) {
                             if (i == correctOption) {
                                 continue;

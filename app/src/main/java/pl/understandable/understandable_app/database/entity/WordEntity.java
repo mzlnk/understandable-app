@@ -26,11 +26,11 @@ public class WordEntity extends BaseEntity {
         this.level = level;
     }
 
-    public String getPolishWord() {
+    public String getPolish() {
         return polish;
     }
 
-    public String getEnglishWord() {
+    public String getEnglish() {
         return english;
     }
 

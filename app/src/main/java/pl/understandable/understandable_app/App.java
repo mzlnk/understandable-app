@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
+import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -43,6 +44,7 @@ public class App extends Application {
         WordEntityRepository.init(getApplicationContext());
         IrregularVerbEntityRepository.init(getApplicationContext());
         CustomWordsSetsRepository.init(getApplicationContext());
+        PhraseEntityRepository.init(getApplicationContext());
     }
 
     private void prepareCustomWordsSetsDirectory() {

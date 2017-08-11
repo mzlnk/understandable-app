@@ -22,24 +22,21 @@ public class WordsSpellingData extends WordsBaseData {
         spellingData = new WordsSpellingData(params);
     }
 
-    public List<WordEntity> wordsSeen = new ArrayList<>();
     public List<WordEntity> correctAnswers = new ArrayList<>();
     public List<WordEntity> incorrectAnswers = new ArrayList<>();
 
     public WordEntity currentWord;
     public int currentWordPosition = 0;
+    public int wordsSeen = 1;
 
     public WordsSpellingData(WordsDataParams params) {
         super(params);
         setCurrentWord(words.get(0));
-        addCurrentWordToSeen();
         addToIncorrectAnswers();
     }
 
     public void addCurrentWordToSeen() {
-        if(!wordsSeen.contains(currentWord)) {
-            wordsSeen.add(currentWord);
-        }
+        wordsSeen++;
     }
 
     public void addToCorrectAnswers() {

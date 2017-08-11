@@ -55,7 +55,7 @@
 
                 <TextView
                     android:id="@+id/f_custom_words_quiz_result_questions_amount_info"
-                    android:text="@string/f_quiz_result_questions_amount_info"
+                    android:text="@string/f_quiz_result_questions_seen_info"
                     android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 

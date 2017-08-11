@@ -15,11 +15,11 @@ public class CustomWordEntity extends BaseEntity {
         this.english = english;
     }
 
-    public String getPolishWord() {
+    public String getPolish() {
         return polish;
     }
 
-    public String getEnglishWord() {
+    public String getEnglish() {
         return english;
     }
 

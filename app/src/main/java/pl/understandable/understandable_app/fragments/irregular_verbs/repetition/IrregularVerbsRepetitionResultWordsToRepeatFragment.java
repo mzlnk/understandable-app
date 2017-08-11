@@ -95,10 +95,10 @@ public class IrregularVerbsRepetitionResultWordsToRepeatFragment extends Fragmen
             TextView t2 = new TextView(getContext());
             TextView t3 = new TextView(getContext());
             TextView t4 = new TextView(getContext());
-            prepareCell(t1, word.getPolishWord());
-            prepareCell(t2, word.getEnglishWord(IrregularVerbEnum.INFINITVE));
-            prepareCell(t3, word.getEnglishWord(IrregularVerbEnum.SIMPLE_PAST));
-            prepareCell(t4, word.getEnglishWord(IrregularVerbEnum.PAST_PARTICIPLE));
+            prepareCell(t1, word.getPolish());
+            prepareCell(t2, word.getEnglish(IrregularVerbEnum.INFINITVE));
+            prepareCell(t3, word.getEnglish(IrregularVerbEnum.SIMPLE_PAST));
+            prepareCell(t4, word.getEnglish(IrregularVerbEnum.PAST_PARTICIPLE));
 
             if(color) {
                 row.setBackgroundColor(list1Color);

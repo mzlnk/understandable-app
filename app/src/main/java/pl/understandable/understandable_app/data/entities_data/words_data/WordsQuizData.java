@@ -27,6 +27,7 @@ public class WordsQuizData extends WordsBaseData {
     public List<WordEntity> incorrectAnswers = new ArrayList<>();
     public WordEntity currentWord;
     public int currentQuestion = 1;
+    public int wordsSeen = 0;
 
     public WordsQuizData(WordsDataParams params) {
         super(params);
@@ -34,6 +35,7 @@ public class WordsQuizData extends WordsBaseData {
     }
 
     public void nextQuestion() {
+        wordsSeen++;
         currentQuestion++;
         wordsLeft.remove(currentWord);
         currentWord = wordsLeft.get(r.nextInt(wordsLeft.size()));

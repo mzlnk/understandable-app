@@ -13,8 +13,6 @@ import java.util.Random;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
-import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionExampleFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 
 public class CustomWordsRepetitionExampleFragment extends Fragment {
@@ -100,13 +98,13 @@ public class CustomWordsRepetitionExampleFragment extends Fragment {
     }
 
     private void setWordsPolishToEnglish() {
-        word0.setText(repetitionData.getEntities().get(position).getPolishWord());
-        word1.setText(repetitionData.getEntities().get(position).getEnglishWord());
+        word0.setText(repetitionData.getEntities().get(position).getPolish());
+        word1.setText(repetitionData.getEntities().get(position).getEnglish());
     }
 
     private void setWordsEnglishToPolish() {
-        word0.setText(repetitionData.getEntities().get(position).getEnglishWord());
-        word1.setText(repetitionData.getEntities().get(position).getPolishWord());
+        word0.setText(repetitionData.getEntities().get(position).getEnglish());
+        word1.setText(repetitionData.getEntities().get(position).getPolish());
     }
 
     private void addListeners() {

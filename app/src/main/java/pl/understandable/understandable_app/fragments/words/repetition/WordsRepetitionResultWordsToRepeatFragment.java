@@ -92,8 +92,8 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            prepareCell(t1, word.getPolishWord());
-            prepareCell(t2, word.getEnglishWord());
+            prepareCell(t1, word.getPolish());
+            prepareCell(t2, word.getEnglish());
 
             if(color) {
                 row.setBackgroundColor(list1Color);

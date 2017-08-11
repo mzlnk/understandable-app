@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,7 @@ public class CustomWordsQuizFragment extends Fragment {
     private TextView question, questionNumber;
     private Button[] answers = new Button[4];
     private ProgressBar time;
+    private Button finish;
 
     private int timeLeft = QUESTION_ANSWER_TIME_IN_MILLIS;
     private int correctOption;
@@ -82,6 +84,7 @@ public class CustomWordsQuizFragment extends Fragment {
         answers[2] = (Button) rootView.findViewById(R.id.f_custom_words_quiz_option_2);
         answers[3] = (Button) rootView.findViewById(R.id.f_custom_words_quiz_option_3);
         time = (ProgressBar) rootView.findViewById(R.id.f_custom_words_quiz_time);
+        finish = (Button) rootView.findViewById(R.id.f_custom_words_quiz_finish);
     }
 
     private void initTimer() {
@@ -125,6 +128,14 @@ public class CustomWordsQuizFragment extends Fragment {
                 }
             });
         }
+
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT).commit();
+            }
+        });
     }
 
     private void setAnswers() {
@@ -149,25 +160,25 @@ public class CustomWordsQuizFragment extends Fragment {
     }
 
     private void setQuestionsPolishToEnglish() {
-        question.setText(correctWord.getPolishWord());
+        question.setText(correctWord.getPolish());
         for(int i = 0, j = 0; i < 4; i++) {
             if(i == correctOption) {
-                answers[i].setText(correctWord.getEnglishWord());
+                answers[i].setText(correctWord.getEnglish());
                 continue;
             }
-            answers[i].setText(incorrectWords[j].getEnglishWord());
+            answers[i].setText(incorrectWords[j].getEnglish());
             j++;
         }
     }
 
     private void setQuestionsEnglishToPolish() {
-        question.setText(correctWord.getEnglishWord());
+        question.setText(correctWord.getEnglish());
         for(int i = 0, j = 0; i < 4; i++) {
             if(i == correctOption) {
-                answers[i].setText(correctWord.getPolishWord());
+                answers[i].setText(correctWord.getPolish());
                 continue;
             }
-            answers[i].setText(incorrectWords[j].getPolishWord());
+            answers[i].setText(incorrectWords[j].getPolish());
             j++;
         }
     }
@@ -184,6 +195,7 @@ public class CustomWordsQuizFragment extends Fragment {
         answers[1].setTypeface(Font.TYPEFACE_MONTSERRAT);
         answers[2].setTypeface(Font.TYPEFACE_MONTSERRAT);
         answers[3].setTypeface(Font.TYPEFACE_MONTSERRAT);
+        finish.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void prepareButtons() {
@@ -192,10 +204,12 @@ public class CustomWordsQuizFragment extends Fragment {
             for(Button answer : answers) {
                 answer.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
             }
+            finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
             for(Button answer : answers) {
                 answer.setBackgroundResource(R.drawable.field_rounded_gray);
             }
+            finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
 
@@ -247,6 +261,9 @@ public class CustomWordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(getContext() == null) {
+                            return;
+                        }
                         answers[correctOption].setBackgroundResource(R.drawable.field_rounded_green);
                     }
                 }, showCorrectOptionDelay);
@@ -254,6 +271,9 @@ public class CustomWordsQuizFragment extends Fragment {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if(getContext() == null) {
+                            return;
+                        }
                         for (int i = 0; i < 4; i++) {
                             if (i == correctOption) {
                                 continue;

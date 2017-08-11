@@ -100,13 +100,13 @@ public class WordsRepetitionExampleFragment extends Fragment {
     }
 
     private void setWordsPolishToEnglish() {
-        word0.setText(repetitionData.getEntities().get(position).getPolishWord());
-        word1.setText(repetitionData.getEntities().get(position).getEnglishWord());
+        word0.setText(repetitionData.getEntities().get(position).getPolish());
+        word1.setText(repetitionData.getEntities().get(position).getEnglish());
     }
 
     private void setWordsEnglishToPolish() {
-        word0.setText(repetitionData.getEntities().get(position).getEnglishWord());
-        word1.setText(repetitionData.getEntities().get(position).getPolishWord());
+        word0.setText(repetitionData.getEntities().get(position).getEnglish());
+        word1.setText(repetitionData.getEntities().get(position).getPolish());
     }
 
     private void addListeners() {

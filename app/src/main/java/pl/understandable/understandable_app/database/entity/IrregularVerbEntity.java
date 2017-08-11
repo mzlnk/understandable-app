@@ -17,11 +17,11 @@ public class IrregularVerbEntity extends BaseEntity {
         this.english = english;
     }
 
-    public String getPolishWord() {
+    public String getPolish() {
         return polish;
     }
 
-    public String getEnglishWord(IrregularVerbEnum form) {
+    public String getEnglish(IrregularVerbEnum form) {
         return english[form.getPos()];
     }
 
