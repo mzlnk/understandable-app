@@ -1,6 +1,10 @@
 package pl.understandable.understandable_app.fragments.custom_words.other;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -54,6 +58,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
         setAnimation();
         setFonts();
         prepareButtons();
+        prepareCodeField();
     }
 
     private void setAnimation() {
@@ -73,6 +78,19 @@ public class DownloadCustomWordsSetFragment extends Fragment {
             download.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
             download.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
+    }
+
+    private void prepareCodeField() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isNightTheme()) {
+            Drawable bottomLine = codeField.getBackground();
+            bottomLine.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+            if(Build.VERSION.SDK_INT > 16) {
+                codeField.setBackground(bottomLine);
+            } else {
+                codeField.setBackgroundDrawable(bottomLine);
+            }
         }
     }
 

@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningMode;
@@ -143,6 +144,11 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(dataParams.getMaximumAvailableWordsAmount() <= 0) {
+                    Toast.makeText(getContext(), "Zbyt mała ilość fiszek, aby rozpocząć naukę w tym trybie", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 IrregularVerbsChoiceLengthFragment lengthFragment = IrregularVerbsChoiceLengthFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, lengthFragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_LENGTH).commit();

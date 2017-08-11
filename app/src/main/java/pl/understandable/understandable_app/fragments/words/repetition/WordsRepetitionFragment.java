@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.words.repetition;
 
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

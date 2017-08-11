@@ -1,5 +1,9 @@
 package pl.understandable.understandable_app.fragments.words.choice;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +24,6 @@ import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
-import pl.understandable.understandable_app.fragments.error.NoWordsErrorFragment;
 import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizFragment;
 import pl.understandable.understandable_app.fragments.words.list.WordsListFragment;
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;

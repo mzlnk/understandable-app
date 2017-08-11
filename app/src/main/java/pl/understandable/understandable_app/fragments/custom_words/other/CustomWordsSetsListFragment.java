@@ -21,6 +21,7 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.FragmentUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -77,7 +78,12 @@ public class CustomWordsSetsListFragment extends Fragment {
             prepareCell(t1, wordsSet.getId(), 0.3F);
             prepareCell(t2, wordsSet.getName(), 0.7F);
 
-            row.setBackgroundResource(R.drawable.f_custom_words_sets_list_row_background);
+            ThemeUtil themeUtil = new ThemeUtil(getContext());
+            if(themeUtil.isDefaultTheme()) {
+                row.setBackgroundResource(R.drawable.field_rounded_light_light_gray);
+            } else {
+                row.setBackgroundResource(R.drawable.field_rounded_gray);
+            }
 
             TableLayout.LayoutParams layoutParams = new TableLayout.LayoutParams();
             int marginInPixels = getContext().getResources().getDimensionPixelSize(R.dimen.f_custom_words_sets_list_row_margin);

@@ -29,7 +29,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:textAlignment="center"
-            android:gravity="top"
+            android:gravity="center"
             android:text=""
             android:textSize="@dimen/f_custom_words_set_preview_words_set_name"
             android:textColor="?attr/text_1_color" />
@@ -50,7 +50,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:textAlignment="center"
-            android:gravity="top"
+            android:gravity="center"
             android:text=""
             android:textSize="@dimen/f_custom_words_set_preview_words_set_id"
             android:textColor="?attr/text_1_color" />
@@ -71,7 +71,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.2"
             android:textAlignment="center"
-            android:gravity="top"
+            android:gravity="center"
             android:text=""
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_custom_words_set_preview_words_set_description" />

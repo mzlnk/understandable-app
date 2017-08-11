@@ -19,7 +19,6 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
-import pl.understandable.understandable_app.fragments.error.NoWordsErrorFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.list.IrregularVerbsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
@@ -152,21 +151,15 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                if(dataParams.getMaximumAvailableWordsAmount() > 0) {
-                    switch (dataParams.mode) {
-                        case REPETITION:
-                            IrregularVerbsRepetitionData.createRepetitionDataFromParams(dataParams);
-                            transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment(), FragmentUtil.F_IRREGULAR_VERBS_REPETITION);
-                            break;
-                        case LIST:
-                            IrregularVerbsListData.createListDataFromParams(dataParams);
-                            transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment(), FragmentUtil.F_IRREGULAR_VERBS_LIST);
-                            break;
-                    }
-                } else {
-                    transaction.replace(R.id.layout_for_fragments, new NoWordsErrorFragment(), FragmentUtil.F_NO_WORDS_ERROR);
-                    transaction.addToBackStack(null);
+                switch (dataParams.mode) {
+                    case REPETITION:
+                        IrregularVerbsRepetitionData.createRepetitionDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment(), FragmentUtil.F_IRREGULAR_VERBS_REPETITION);
+                        break;
+                    case LIST:
+                        IrregularVerbsListData.createListDataFromParams(dataParams);
+                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment(), FragmentUtil.F_IRREGULAR_VERBS_LIST);
+                        break;
                 }
                 transaction.commit();
             }

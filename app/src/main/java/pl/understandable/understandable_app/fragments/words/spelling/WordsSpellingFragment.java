@@ -1,6 +1,10 @@
 package pl.understandable.understandable_app.fragments.words.spelling;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -69,6 +74,7 @@ public class WordsSpellingFragment extends Fragment {
         setAnimation();
         setFonts();
         prepareButtons();
+        prepareAnswerField();
         prepareAdapter();
     }
 
@@ -103,6 +109,19 @@ public class WordsSpellingFragment extends Fragment {
         }
     }
 
+    private void prepareAnswerField() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isNightTheme()) {
+            Drawable bottomLine = answerField.getBackground();
+            bottomLine.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+            if(Build.VERSION.SDK_INT > 16) {
+                answerField.setBackground(bottomLine);
+            } else {
+                answerField.setBackgroundDrawable(bottomLine);
+            }
+        }
+    }
+
     private void addListeners() {
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -116,6 +135,7 @@ public class WordsSpellingFragment extends Fragment {
                 spellingData.setCurrentWordPosition(position);
                 spellingData.addCurrentWordToSeen();
                 spellingData.addToIncorrectAnswers();
+                answerField.setText("");
             }
 
             @Override
