@@ -18,15 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWay;
-import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
-import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceModeFragment;
-import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsWayButton;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -37,7 +32,7 @@ public class PhrasesChoiceWayFragment extends Fragment {
     private RelativeLayout mainLayout;
     private TableLayout waysLayout;
     private TextView title;
-    private Button submit;
+    private Button back, submit;
 
     private List<PhrasesWayButton> ways = new ArrayList<>();
     private PhrasesDataParams dataParams;
@@ -88,6 +83,7 @@ public class PhrasesChoiceWayFragment extends Fragment {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_phrases_choice_way);
         waysLayout = (TableLayout) rootView.findViewById(R.id.f_phrases_choice_way_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_phrases_choice_way_title);
+        back = (Button) rootView.findViewById(R.id.f_phrases_choice_way_back);
         submit = (Button) rootView.findViewById(R.id.f_phrases_choice_way_submit);
     }
 
@@ -99,13 +95,16 @@ public class PhrasesChoiceWayFragment extends Fragment {
     private void setFonts() {
         title.setTypeface(Font.TYPEFACE_MONTSERRAT);
         submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
             submit.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
@@ -141,12 +140,21 @@ public class PhrasesChoiceWayFragment extends Fragment {
     }
 
     private void addListeners() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PhrasesChoiceCategoryFragment categoryFragment = PhrasesChoiceCategoryFragment.newInstance(dataParams.toString());
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, FragmentUtil.F_PHRASES_CHOICE_CATEGORY).commit();
+            }
+        });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomWordsChoiceModeFragment modeFragment = CustomWordsChoiceModeFragment.newInstance(dataParams.toString());
+                PhrasesChoiceModeFragment modeFragment = PhrasesChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_CUSTOM_WORDS_CHOICE_MODE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_PHRASES_CHOICE_MODE).commit();
             }
         });
     }

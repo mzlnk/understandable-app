@@ -10,7 +10,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesCategory;
+import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
+import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningLevel;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
+import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.database.repository.maps.PhraseEntityMap;
 
 /**
@@ -45,6 +50,10 @@ public class PhraseEntityRepository {
 
     public static List<PhraseEntity> getAllEntities() {
         return phraseEntityMap.getAllEntities();
+    }
+
+    public static List<PhraseEntity> getSpecifiedEntities(PhrasesCategory category) {
+        return phraseEntityMap.getSpecifiedEntities(category);
     }
 
 }

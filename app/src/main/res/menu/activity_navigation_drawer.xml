@@ -9,6 +9,9 @@
             android:id="@+id/navigation_irregular_verbs"
             android:title="Czasowniki nieregularne" />
         <item
+            android:id="@+id/navigation_phrases"
+            android:title="Przydatne zwroty" />
+        <item
             android:id="@+id/navigation_grammar"
             android:title="Gramatyka" />
     </group>

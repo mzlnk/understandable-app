@@ -14,31 +14,25 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsListData;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesListData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQuizData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
-import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
-import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningMode;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
-import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceModeFragment;
-import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.fragments.custom_words.list.CustomWordsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizFragment;
 import pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionFragment;
-import pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingFragment;
+import pl.understandable.understandable_app.fragments.phrases.list.PhrasesListFragment;
+import pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizFragment;
+import pl.understandable.understandable_app.fragments.phrases.repetition.PhrasesRepetitionFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsModeButton;
+import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 public class PhrasesChoiceModeFragment extends Fragment {
@@ -79,7 +73,7 @@ public class PhrasesChoiceModeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the modesLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_custom_words_choice_mode, container, false);
+        View rootView = inflater.inflate(R.layout.f_phrases_choice_mode, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -126,7 +120,7 @@ public class PhrasesChoiceModeFragment extends Fragment {
     }
 
     private void initModeButtons() {
-        for(CustomWordsLearningMode mode : CustomWordsLearningMode.values()) {
+        for(PhrasesLearningMode mode : PhrasesLearningMode.values()) {
             modes.add(new PhrasesModeButton(getContext(), dataParams, mode, modes));
         }
     }
@@ -172,15 +166,15 @@ public class PhrasesChoiceModeFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         PhrasesRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsRepetitionFragment(), FragmentUtil.F_PHRASES_REPETITION);
+                        transaction.replace(R.id.layout_for_fragments, new PhrasesRepetitionFragment(), FragmentUtil.F_PHRASES_REPETITION);
                         break;
                     case LIST:
                         PhrasesListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsListFragment(), FragmentUtil.F_PHRASES_LIST);
+                        transaction.replace(R.id.layout_for_fragments, new PhrasesListFragment(), FragmentUtil.F_PHRASES_LIST);
                         break;
                     case QUIZ:
                         PhrasesQuizData.createQuizDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), FragmentUtil.F_PHRASES_QUIZ);
+                        transaction.replace(R.id.layout_for_fragments, new PhrasesQuizFragment(), FragmentUtil.F_PHRASES_QUIZ);
                         break;
                 }
                 transaction.commit();

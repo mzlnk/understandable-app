@@ -18,9 +18,6 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesCategory;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
-import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
-import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
-import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
@@ -29,6 +26,9 @@ import pl.understandable.understandable_app.utils.font.Font;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class PhrasesChoiceCategoryFragment extends Fragment {
+
+    private static final String DATA_PARAM = "phrases.category.dataParam";
+
 
     private int textColor;
 
@@ -42,10 +42,24 @@ public class PhrasesChoiceCategoryFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static PhrasesChoiceCategoryFragment newInstance(String param) {
+        PhrasesChoiceCategoryFragment fragment = new PhrasesChoiceCategoryFragment();
+        Bundle args = new Bundle();
+        args.putString(DATA_PARAM, param);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataParams = new PhrasesDataParams();
+        if(getArguments() != null) {
+            dataParams = new PhrasesDataParams().fromString(getArguments().getString(DATA_PARAM));
+        }
+        if(dataParams == null) {
+            dataParams = new PhrasesDataParams();
+        }
     }
 
     @Override

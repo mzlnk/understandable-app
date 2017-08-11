@@ -37,7 +37,7 @@ public class PhrasesBaseData implements BaseData<PhraseEntity, PhrasesDataParams
 
     @Override
     public void generateWords() {
-        words = PhraseEntityRepository.getAllEntities();
+        words = PhraseEntityRepository.getSpecifiedEntities(params.category);
     }
 
 }

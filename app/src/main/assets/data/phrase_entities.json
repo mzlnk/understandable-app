@@ -1,0 +1,64 @@
+{
+  "phraseEntities": [
+    {
+      "polish": "1",
+      "english": "one",
+      "category": "CONVERSATION",
+      "id": 1
+    },
+    {
+      "polish": "2",
+      "english": "two",
+      "category": "CONVERSATION",
+      "id": 2
+    },
+    {
+      "polish": "3",
+      "english": "three",
+      "category": "CONVERSATION",
+      "id": 3
+    },
+    {
+      "polish": "4",
+      "english": "four",
+      "category": "CONVERSATION",
+      "id": 4
+    },
+    {
+      "polish": "5",
+      "english": "five",
+      "category": "CONVERSATION",
+      "id": 5
+    },
+    {
+      "polish": "6",
+      "english": "six",
+      "category": "CONVERSATION",
+      "id": 6
+    },
+    {
+      "polish": "7",
+      "english": "seven",
+      "category": "CONVERSATION",
+      "id": 7
+    },
+    {
+      "polish": "8",
+      "english": "eight",
+      "category": "CONVERSATION",
+      "id": 8
+    },
+    {
+      "polish": "9",
+      "english": "nine",
+      "category": "CONVERSATION",
+      "id": 9
+    },
+    {
+      "polish": "10",
+      "english": "ten",
+      "category": "CONVERSATION",
+      "id": 10
+    }
+  ]
+}

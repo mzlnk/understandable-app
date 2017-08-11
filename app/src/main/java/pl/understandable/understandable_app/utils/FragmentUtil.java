@@ -19,7 +19,6 @@ public class FragmentUtil {
     public static final String F_WORDS_CHOICE_TYPE = "f_words_choice_type";
     public static final String F_WORDS_CHOICE_WAY = "f_words_choice_way";
     public static final String F_WORDS_CHOICE_LEVEL = "f_words_choice_level";
-    public static final String F_NO_WORDS_ERROR = "f_no_words_error";
     public static final String F_WORDS_LIST = "f_words_list";
     public static final String F_WORDS_QUIZ = "f_words_quiz";
     public static final String F_WORDS_QUIZ_RESULT = "f_words_quiz_result";
@@ -68,6 +67,16 @@ public class FragmentUtil {
     public static final String F_PHRASES_CHOICE_CATEGORY = "f_phrases_choice_category";
     public static final String F_PHRASES_CHOICE_WAY = "f_phrases_choice_way";
     public static final String F_PHRASES_CHOICE_MODE = "f_phrases_choice_mode";
+    public static final String F_PHRASES_LIST = "f_phrases_list";
+    public static final String F_PHRASES_QUIZ = "f_phrases_quiz";
+    public static final String F_PHRASES_QUIZ_RESULT = "f_phrases_quiz_result";
+    public static final String F_PHRASES_QUIZ_RESULT_CORRECT_WORDS_SUMMARY = "f_phrases_quiz_result_correct_words_summary";
+    public static final String F_PHRASES_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY = "f_phrases_quiz_result_incorrect_words_summary";
+    public static final String F_PHRASES_REPETITION = "f_phrases_repetition";
+    public static final String F_PHRASES_REPETITION_EXAMPLE = "f_phrases_repetition_example";
+    public static final String F_PHRASES_REPETITION_RESULT = "f_phrases_repetition_result";
+    public static final String F_PHRASES_REPETITION_RESULT_WORDS_TO_REPEAT = "f_phrases_repetition_result_words_to_repeat";
+
 
     public static Fragment getVisibleFragment() {
         FragmentManager fragmentManager = NavigationActivity.activity.getSupportFragmentManager();
