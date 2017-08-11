@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
     private TextView wordsSetNameInfo, wordsSetName;
     private TextView wordsSetIdInfo, wordsSetId;
     private TextView wordsSetDescriptionInfo, wordsSetDescription;
+    private LinearLayout nameField, idField, descriptionField;
     private Button delete, start;
 
     private String id;
@@ -80,6 +82,9 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         wordsSetDescription = (TextView) rootView.findViewById(R.id.f_custom_words_set_preview_words_set_description);
         delete = (Button) rootView.findViewById(R.id.f_custom_words_set_preview_button_delete);
         start = (Button) rootView.findViewById(R.id.f_custom_words_set_preview_button_start_learning);
+        nameField = (LinearLayout) rootView.findViewById(R.id.f_custom_words_set_preview_name_field);
+        idField = (LinearLayout) rootView.findViewById(R.id.f_custom_words_set_preview_id_field);
+        descriptionField = (LinearLayout) rootView.findViewById(R.id.f_custom_words_set_preview_description_field);
     }
 
     private void setAnimation() {
@@ -90,6 +95,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
     private void prepareLayout() {
         setFonts();
         prepareButtons();
+        prepareFields();
         setWordsSetData();
     }
 
@@ -123,6 +129,18 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         wordsSetDescription.setText(wordsSet.getDescription());
     }
 
+    private void prepareFields() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            nameField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+            idField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+            descriptionField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+        } else {
+            nameField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            idField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            descriptionField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+        }
+    }
 
     private void addListeners() {
         delete.setOnClickListener(new View.OnClickListener() {
@@ -155,7 +173,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_CHOICE_WAY).commit();
             }
         });
-        wordsSetName.setOnLongClickListener(new View.OnLongClickListener() {
+        nameField.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 final EditText edit = new EditText(getContext());
@@ -187,7 +205,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
                 return false;
             }
         });
-        wordsSetDescription.setOnLongClickListener(new View.OnLongClickListener() {
+        descriptionField.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 final EditText edit = new EditText(getContext());
