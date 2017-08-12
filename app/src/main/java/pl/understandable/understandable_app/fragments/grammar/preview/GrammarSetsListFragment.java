@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.grammar;
+package pl.understandable.understandable_app.fragments.grammar.preview;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.fragments.grammar;
+package pl.understandable.understandable_app.fragments.grammar.preview;
 
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
