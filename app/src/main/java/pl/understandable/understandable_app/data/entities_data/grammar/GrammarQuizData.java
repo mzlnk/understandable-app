@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
@@ -25,7 +26,12 @@ public class GrammarQuizData extends GrammarBaseData<GrammarQuizEntity> {
     }
 
     public static void createQuizDataFromParams(GrammarDataParams params) {
+        DataUtil.clearAllData();
         quizData = new GrammarQuizData(params);
+    }
+
+    public static void clearData() {
+       quizData = null;
     }
 
     public List<GrammarQuizEntity> wordsLeft = new ArrayList<>();

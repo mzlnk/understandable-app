@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.custom_words_data;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 
@@ -19,7 +20,12 @@ public class CustomWordsQuizData extends CustomWordsBaseData {
     }
 
     public static void createQuizDataFromParams(CustomWordsDataParams params) {
+        DataUtil.clearAllData();
         quizData = new CustomWordsQuizData(params);
+    }
+
+    public static void clearData() {
+        quizData = null;
     }
 
     public List<CustomWordEntity> wordsLeft = new ArrayList<>();

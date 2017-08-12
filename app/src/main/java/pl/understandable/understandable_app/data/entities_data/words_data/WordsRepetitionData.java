@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.words_data;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
@@ -19,7 +20,12 @@ public class WordsRepetitionData extends WordsBaseData {
     }
 
     public static void createRepetitionDataFromParams(WordsDataParams params) {
+        DataUtil.clearAllData();
         repetitionData = new WordsRepetitionData(params);
+    }
+
+    public static void clearData() {
+        repetitionData = null;
     }
 
     public List<WordEntity> wordsToRepeat = new ArrayList<>();

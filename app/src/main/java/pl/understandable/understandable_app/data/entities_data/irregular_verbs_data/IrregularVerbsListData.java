@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.irregular_verbs_data;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 
 /**
@@ -15,7 +16,12 @@ public class IrregularVerbsListData extends IrregularVerbsBaseData {
     }
 
     public static void createListDataFromParams(IrregularVerbsDataParams params) {
+        DataUtil.clearAllData();
         listData = new IrregularVerbsListData(params);
+    }
+
+    public static void clearData() {
+        listData = null;
     }
 
     public IrregularVerbsListData(IrregularVerbsDataParams params) {

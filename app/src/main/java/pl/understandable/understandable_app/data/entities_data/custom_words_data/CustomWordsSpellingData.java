@@ -3,6 +3,7 @@ package pl.understandable.understandable_app.data.entities_data.custom_words_dat
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 
@@ -19,7 +20,12 @@ public class CustomWordsSpellingData extends CustomWordsBaseData {
     }
 
     public static void createSpellingDataFromParams(CustomWordsDataParams params) {
+        DataUtil.clearAllData();
         spellingData = new CustomWordsSpellingData(params);
+    }
+
+    public static void clearData() {
+        spellingData = null;
     }
 
     public List<CustomWordEntity> wordsSeen = new ArrayList<>();

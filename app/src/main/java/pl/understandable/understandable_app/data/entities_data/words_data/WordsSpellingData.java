@@ -3,6 +3,7 @@ package pl.understandable.understandable_app.data.entities_data.words_data;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
@@ -19,7 +20,12 @@ public class WordsSpellingData extends WordsBaseData {
     }
 
     public static void createRepetitionDataFromParams(WordsDataParams params) {
+        DataUtil.clearAllData();
         spellingData = new WordsSpellingData(params);
+    }
+
+    public static void clearData() {
+        spellingData = null;
     }
 
     public List<WordEntity> correctAnswers = new ArrayList<>();

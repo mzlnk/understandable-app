@@ -1,7 +1,7 @@
 package pl.understandable.understandable_app.data.entities_data.grammar;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
-import pl.understandable.understandable_app.database.entity.GrammarFillGapEntity;
 import pl.understandable.understandable_app.database.entity.GrammarSentenceEntity;
 
 /**
@@ -10,14 +10,19 @@ import pl.understandable.understandable_app.database.entity.GrammarSentenceEntit
 
 public class GrammarSentenceData extends GrammarBaseData<GrammarSentenceEntity> {
 
-    private static GrammarSentenceData grammarSentenceData;
+    private static GrammarSentenceData sentenceData;
 
-    public static GrammarSentenceData getGrammarSentenceData() {
-        return grammarSentenceData;
+    public static GrammarSentenceData getSentenceData() {
+        return sentenceData;
     }
 
     public static void createSentenceDataFromParams(GrammarDataParams params) {
-        grammarSentenceData = new GrammarSentenceData(params);
+        DataUtil.clearAllData();
+        sentenceData = new GrammarSentenceData(params);
+    }
+
+    public static void clearData() {
+        sentenceData = null;
     }
 
     public GrammarSentenceEntity currentWord;
@@ -54,7 +59,7 @@ public class GrammarSentenceData extends GrammarBaseData<GrammarSentenceEntity> 
     }
 
     public void resetStats() {
-        grammarSentenceData = new GrammarSentenceData(params);
+        sentenceData = new GrammarSentenceData(params);
     }
 
 }

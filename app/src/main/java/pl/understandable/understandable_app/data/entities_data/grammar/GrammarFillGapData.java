@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.grammar;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
 import pl.understandable.understandable_app.database.entity.GrammarFillGapEntity;
 
@@ -9,14 +10,19 @@ import pl.understandable.understandable_app.database.entity.GrammarFillGapEntity
 
 public class GrammarFillGapData extends GrammarBaseData<GrammarFillGapEntity> {
 
-    private static GrammarFillGapData grammarFillGapData;
+    private static GrammarFillGapData fillGapData;
 
-    public static GrammarFillGapData getGrammarFillGapData() {
-        return grammarFillGapData;
+    public static GrammarFillGapData getFillGapData() {
+        return fillGapData;
     }
 
     public static void createRepetitionDataFromParams(GrammarDataParams params) {
-        grammarFillGapData = new GrammarFillGapData(params);
+        DataUtil.clearAllData();
+        fillGapData = new GrammarFillGapData(params);
+    }
+
+    public static void clearData() {
+        fillGapData = null;
     }
 
     public GrammarFillGapEntity currentWord;
@@ -53,7 +59,7 @@ public class GrammarFillGapData extends GrammarBaseData<GrammarFillGapEntity> {
     }
 
     public void resetStats() {
-        grammarFillGapData = new GrammarFillGapData(params);
+        fillGapData = new GrammarFillGapData(params);
     }
 
 }

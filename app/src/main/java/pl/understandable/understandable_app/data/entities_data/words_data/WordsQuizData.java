@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.words_data;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
@@ -19,7 +20,12 @@ public class WordsQuizData extends WordsBaseData {
     }
 
     public static void createQuizDataFromParams(WordsDataParams params) {
+        DataUtil.clearAllData();
         quizData = new WordsQuizData(params);
+    }
+
+    public static void clearData() {
+        quizData = null;
     }
 
     public List<WordEntity> wordsLeft = new ArrayList<>();

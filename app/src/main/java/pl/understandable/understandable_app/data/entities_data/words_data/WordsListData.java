@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.words_data;
 
+import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 /**
@@ -15,7 +16,12 @@ public class WordsListData extends WordsBaseData {
     }
 
     public static void createListDataFromParams(WordsDataParams params) {
+        DataUtil.clearAllData();
         listData = new WordsListData(params);
+    }
+
+    public static void clearData() {
+        listData = null;
     }
 
     public WordsListData(WordsDataParams params) {
