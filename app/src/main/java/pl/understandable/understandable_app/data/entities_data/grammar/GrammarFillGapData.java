@@ -1,5 +1,8 @@
 package pl.understandable.understandable_app.data.entities_data.grammar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
 import pl.understandable.understandable_app.database.entity.GrammarFillGapEntity;
@@ -25,11 +28,12 @@ public class GrammarFillGapData extends GrammarBaseData<GrammarFillGapEntity> {
         fillGapData = null;
     }
 
+    public List<GrammarFillGapEntity> wordsSeen = new ArrayList<>();
+    public List<GrammarFillGapEntity> correctAnswers = new ArrayList<>();
+    public List<GrammarFillGapEntity> incorrectAnswers = new ArrayList<>();
+
     public GrammarFillGapEntity currentWord;
     public int currentWordPosition = 0;
-    public int wordsSeen = 1;
-    public int correctAnswers = 0;
-    public int incorrectAnswers = 0;
 
     public GrammarFillGapData(GrammarDataParams params) {
         super(params);
@@ -38,16 +42,24 @@ public class GrammarFillGapData extends GrammarBaseData<GrammarFillGapEntity> {
     }
 
     public void addCurrentWordToSeen() {
-        wordsSeen++;
+        if(!wordsSeen.contains(currentWord)) {
+            wordsSeen.add(currentWord);
+        }
     }
 
     public void addToCorrectAnswers() {
-        correctAnswers++;
-        incorrectAnswers--;
+        if(!correctAnswers.contains(currentWord)) {
+            correctAnswers.add(currentWord);
+        }
+        if(incorrectAnswers.contains(currentWord)) {
+            incorrectAnswers.remove(currentWord);
+        }
     }
 
     public void addToIncorrectAnswers() {
-        incorrectAnswers++;
+        if(!incorrectAnswers.contains(currentWord)) {
+            incorrectAnswers.add(currentWord);
+        }
     }
 
     public void setCurrentWord(GrammarFillGapEntity word) {

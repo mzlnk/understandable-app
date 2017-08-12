@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:gravity="center"
+                android:maxLines="1"
                 android:textColor="?attr/text_1_color"
                 android:textAlignment="center" />
 

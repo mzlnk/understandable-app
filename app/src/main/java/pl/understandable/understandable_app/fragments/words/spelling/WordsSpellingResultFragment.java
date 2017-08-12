@@ -78,7 +78,7 @@ public class WordsSpellingResultFragment extends Fragment {
     }
 
     private void prepareViews() {
-        String wordsSeenInfo = String.valueOf(spellingData.wordsSeen) + "/" + String.valueOf(spellingData.getEntities().size());
+        String wordsSeenInfo = String.valueOf(spellingData.wordsSeen.size()) + "/" + String.valueOf(spellingData.getEntities().size());
         wordsSeenAmount.setText(wordsSeenInfo);
         correctAnswers.setText(String.valueOf(spellingData.correctAnswers.size()));
         incorrectAnswers.setText(String.valueOf(spellingData.incorrectAnswers.size()));

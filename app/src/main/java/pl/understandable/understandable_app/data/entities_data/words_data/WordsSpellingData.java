@@ -28,21 +28,24 @@ public class WordsSpellingData extends WordsBaseData {
         spellingData = null;
     }
 
+    public List<WordEntity> wordsSeen = new ArrayList<>();
     public List<WordEntity> correctAnswers = new ArrayList<>();
     public List<WordEntity> incorrectAnswers = new ArrayList<>();
 
     public WordEntity currentWord;
     public int currentWordPosition = 0;
-    public int wordsSeen = 1;
 
     public WordsSpellingData(WordsDataParams params) {
         super(params);
         setCurrentWord(words.get(0));
         addToIncorrectAnswers();
+        addCurrentWordToSeen();
     }
 
     public void addCurrentWordToSeen() {
-        wordsSeen++;
+        if(!wordsSeen.contains(currentWord)) {
+            wordsSeen.add(currentWord);
+        }
     }
 
     public void addToCorrectAnswers() {

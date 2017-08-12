@@ -112,7 +112,7 @@ public class GrammarQuizResultFragment extends Fragment {
         tryAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PhrasesQuizData.getQuizData().resetStats();
+                GrammarQuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizFragment(), FragmentUtil.F_PHRASES_QUIZ).commit();
             }

@@ -1,13 +1,100 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapFragment">
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapFragment"
+    android:id="@+id/f_grammar_fill_gap" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-</FrameLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/f_grammar_fill_gap_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/f_grammar_fill_gap_answer_field"
+                android:layout_width="@dimen/f_words_spelling_answer_field_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="?attr/text_1_color"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_grammar_fill_gap_check"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_check"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_grammar_fill_gap_show_answer"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_show_answer"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_grammar_fill_gap_finish"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_finish"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_finish" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1">
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
