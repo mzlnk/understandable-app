@@ -4,7 +4,7 @@ package pl.understandable.understandable_app.database.entity;
  * Created by Marcin on 2017-08-12.
  */
 
-public class GrammarSentenceEntity extends BaseEntity {
+public class GrammarSentenceEntity extends GrammarBaseEntity {
 
     private String polish;
     private String english;

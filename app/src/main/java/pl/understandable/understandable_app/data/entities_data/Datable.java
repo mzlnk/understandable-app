@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Marcin on 2017-07-29.
  */
 
-public abstract interface BaseData<E extends BaseEntity, P extends BaseDataParams> {
+public abstract interface Datable<E extends BaseEntity, P extends BaseDataParams> {
 
     public List<E> getEntities();
     public P getParams();

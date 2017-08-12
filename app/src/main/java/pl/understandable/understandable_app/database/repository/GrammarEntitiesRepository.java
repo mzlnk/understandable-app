@@ -8,8 +8,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
+import pl.understandable.understandable_app.data.enums.grammar.GrammarLearningMode;
+import pl.understandable.understandable_app.database.entity.GrammarBaseEntity;
 import pl.understandable.understandable_app.database.entity.GrammarFillGapEntity;
 import pl.understandable.understandable_app.database.entity.GrammarQuizEntity;
 import pl.understandable.understandable_app.database.entity.GrammarSentenceEntity;
@@ -45,17 +48,16 @@ public class GrammarEntitiesRepository {
         }
     }
 
-    public static List<GrammarQuizEntity> getGrammarQuizEntities() {
-        return grammarEntitiesMap.getGrammarQuizEntities();
+    public static List<?extends GrammarBaseEntity> getGrammarEntities(GrammarLearningMode mode) {
+        switch(mode) {
+            case QUIZ:
+                return grammarEntitiesMap.getGrammarQuizEntities();
+            case FILL_GAPS:
+                return grammarEntitiesMap.getGrammarFillGapEntities();
+            case SENTENCE:
+                return grammarEntitiesMap.getGrammarSentenceEntities();
+        }
+        return new ArrayList<>();
     }
-
-    public static List<GrammarFillGapEntity> getGrammarFillGapEntities() {
-        return grammarEntitiesMap.getGrammarFillGapEntities();
-    }
-
-    public static List<GrammarSentenceEntity> getGrammarSentenceEntities() {
-        return grammarEntitiesMap.getGrammarSentenceEntities();
-    }
-
 
 }

@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.custom_words_data;
 
-import pl.understandable.understandable_app.data.entities_data.BaseData;
+import pl.understandable.understandable_app.data.entities_data.Datable;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
@@ -13,7 +13,7 @@ import java.util.Random;
  * Created by Marcin on 2017-07-29.
  */
 
-public abstract class CustomWordsBaseData implements BaseData<CustomWordEntity, CustomWordsDataParams> {
+public abstract class CustomWordsBaseData implements Datable<CustomWordEntity, CustomWordsDataParams> {
 
     protected static final Random r = new Random();
 

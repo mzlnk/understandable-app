@@ -4,7 +4,7 @@ package pl.understandable.understandable_app.database.entity;
  * Created by Marcin on 2017-08-12.
  */
 
-public class GrammarFillGapEntity extends BaseEntity {
+public class GrammarFillGapEntity extends GrammarBaseEntity {
 
     private String sentence;
     private String gap;

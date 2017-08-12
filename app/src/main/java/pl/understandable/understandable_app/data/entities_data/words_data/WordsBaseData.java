@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.words_data;
 
-import pl.understandable.understandable_app.data.entities_data.BaseData;
+import pl.understandable.understandable_app.data.entities_data.Datable;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
@@ -13,7 +13,7 @@ import java.util.Random;
  * Created by Marcin on 2017-05-06.
  */
 
-public abstract class WordsBaseData implements BaseData<WordEntity, WordsDataParams> {
+public abstract class WordsBaseData implements Datable<WordEntity, WordsDataParams> {
 
     protected static final Random r = new Random();
 
