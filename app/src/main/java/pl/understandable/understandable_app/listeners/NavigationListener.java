@@ -13,7 +13,7 @@ import android.widget.Toast;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
-import pl.understandable.understandable_app.fragments.grammar.GrammarSetsListFragment;
+import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;

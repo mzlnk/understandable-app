@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.database.repository.GrammarEntitiesRepository;
+import pl.understandable.understandable_app.fragments.grammar.choice.GrammarChoiceModeFragment;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 
 public class GrammarSetPreviewFragment extends Fragment {
@@ -121,7 +124,10 @@ public class GrammarSetPreviewFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Obecnie niedostępne", Toast.LENGTH_LONG).show();
+                GrammarEntitiesRepository.create(getContext(), id);
+                GrammarChoiceModeFragment grammarChoiceModeFragment = GrammarChoiceModeFragment.newInstance(id, name);
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, grammarChoiceModeFragment).commit();
             }
         });
     }

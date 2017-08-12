@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,6 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 public class GrammarChoiceModeFragment extends Fragment {
 
-    private static final String DATA_PARAM = "grammar.mode.dataParam";
     private static final String ID_PARAM = "grammar.mode.idParam";
     private static final String NAME_PARAM = "grammar.mode.nameParam";
 
@@ -56,7 +56,7 @@ public class GrammarChoiceModeFragment extends Fragment {
     private Button submit, back;
 
     private List<GrammarModeButton> modes = new ArrayList<>();
-    private GrammarDataParams dataParams;
+    private GrammarDataParams dataParams = new GrammarDataParams();
     private String id;
     private String name;
 
@@ -64,10 +64,9 @@ public class GrammarChoiceModeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static GrammarChoiceModeFragment newInstance(String param, String id, String name) {
+    public static GrammarChoiceModeFragment newInstance(String id, String name) {
         GrammarChoiceModeFragment fragment = new GrammarChoiceModeFragment();
         Bundle args = new Bundle();
-        args.putString(DATA_PARAM, param);
         args.putString(ID_PARAM, id);
         args.putString(NAME_PARAM, name);
         fragment.setArguments(args);
@@ -78,7 +77,6 @@ public class GrammarChoiceModeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = new GrammarDataParams().fromString(getArguments().getString(DATA_PARAM));
             id = getArguments().getString(ID_PARAM);
             name = getArguments().getString(NAME_PARAM);
         }
@@ -179,6 +177,15 @@ public class GrammarChoiceModeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(dataParams.getMaximumAvailableWordsAmount() <= 0) {
+                    Toast.makeText(getContext(), "Ten tryb jest niedostępny w tym dziale", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(dataParams.mode.equals(GrammarLearningMode.QUIZ) && dataParams.getMaximumAvailableWordsAmount() < 4) {
+                    Toast.makeText(getContext(), "Ten tryb jest niedostępny w tym dziale", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {
                     case QUIZ:
