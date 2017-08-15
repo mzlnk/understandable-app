@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.custom_words.choice;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -35,9 +36,13 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class CustomWordsChoiceModeFragment extends Fragment {
 
-    private static final String DATA_PARAM = "custom.words.mode.dataParam";
+    private static final String DATA_PARAM = "custom.words.choice.mode.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout modesLayout;
@@ -103,9 +108,10 @@ public class CustomWordsChoiceModeFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

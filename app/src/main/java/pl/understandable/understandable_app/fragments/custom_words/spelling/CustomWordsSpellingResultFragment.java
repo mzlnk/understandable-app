@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.fragments.custom_words.spelling;
 
-
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,17 +17,14 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
-import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingFragment;
-import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingResultCorrectWordsSummaryFragment;
-import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingResultIncorrectWordsSummaryFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
+
 public class CustomWordsSpellingResultFragment extends Fragment {
 
     private CustomWordsSpellingData spellingData;
@@ -94,14 +91,15 @@ public class CustomWordsSpellingResultFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsSeenAmount.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsSeenAmountInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        correctAnswers.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        correctAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        incorrectAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        incorrectAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        wordsSeenAmount.setTypeface(typeface);
+        wordsSeenAmountInfo.setTypeface(typeface);
+        correctAnswers.setTypeface(typeface);
+        correctAnswersInfo.setTypeface(typeface);
+        incorrectAnswersInfo.setTypeface(typeface);
+        incorrectAnswersInfo.setTypeface(typeface);
+        tryAgain.setTypeface(typeface);
     }
 
     private void prepareButtons() {

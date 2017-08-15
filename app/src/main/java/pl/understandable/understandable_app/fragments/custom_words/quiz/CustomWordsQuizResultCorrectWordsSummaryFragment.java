@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.custom_words.quiz;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,14 +16,16 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
-import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class CustomWordsQuizResultCorrectWordsSummaryFragment extends Fragment {
 
@@ -68,8 +71,9 @@ public class CustomWordsQuizResultCorrectWordsSummaryFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

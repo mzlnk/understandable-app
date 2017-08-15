@@ -26,6 +26,11 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class CustomWordsSetPreviewFragment extends Fragment {
 
@@ -100,15 +105,15 @@ public class CustomWordsSetPreviewFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
-        wordsSetNameInfo.setTypeface(typeFace);
-        wordsSetName.setTypeface(typeFace);
-        wordsSetIdInfo.setTypeface(typeFace);
-        wordsSetId.setTypeface(typeFace);
-        wordsSetDescriptionInfo.setTypeface(typeFace);
-        wordsSetDescription.setTypeface(typeFace);
-        delete.setTypeface(typeFace);
-        start.setTypeface(typeFace);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        wordsSetNameInfo.setTypeface(typeface);
+        wordsSetName.setTypeface(typeface);
+        wordsSetIdInfo.setTypeface(typeface);
+        wordsSetId.setTypeface(typeface);
+        wordsSetDescriptionInfo.setTypeface(typeface);
+        wordsSetDescription.setTypeface(typeface);
+        delete.setTypeface(typeface);
+        start.setTypeface(typeface);
     }
 
     private void prepareButtons() {

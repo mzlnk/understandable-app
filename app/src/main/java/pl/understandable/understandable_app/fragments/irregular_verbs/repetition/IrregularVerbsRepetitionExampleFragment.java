@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.irregular_verbs.repetition;
 
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,9 +13,10 @@ import pl.understandable.understandable_app.data.entities_data.irregular_verbs_d
 import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.font.Font;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
 
 public class IrregularVerbsRepetitionExampleFragment extends Fragment {
@@ -78,7 +78,7 @@ public class IrregularVerbsRepetitionExampleFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         wordPolish.setTypeface(typeFace);
         wordEnglish1.setTypeface(typeFace);
         wordEnglish2.setTypeface(typeFace);

@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.irregular_verbs.repetition;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +21,7 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
 
 public class IrregularVerbsRepetitionResultFragment extends Fragment {
@@ -72,14 +73,15 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
     }
 
     private void setFonts() {
-        wordsSeen.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsToRepeat.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsSeenInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsToRepeatInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        mainTitle.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsToRepeatTitle.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        viewWordsToRepeat.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        wordsSeen.setTypeface(typeface);
+        wordsToRepeat.setTypeface(typeface);
+        wordsSeenInfo.setTypeface(typeface);
+        wordsToRepeatInfo.setTypeface(typeface);
+        mainTitle.setTypeface(typeface);
+        wordsToRepeatTitle.setTypeface(typeface);
+        viewWordsToRepeat.setTypeface(typeface);
+        tryAgain.setTypeface(typeface);
     }
 
     private void prepareButtons() {

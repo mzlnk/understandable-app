@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.fragments.irregular_verbs.choice;
 
-
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,11 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
+
 public class IrregularVerbsChoiceModeFragment extends Fragment {
 
-    private static final String DATA_PARAM = "irregular.verbs.mode.dataParam";
+    private static final String DATA_PARAM = "irregular.verbs.choice.mode.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout modesLayout;
@@ -97,8 +98,9 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {

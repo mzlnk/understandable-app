@@ -25,9 +25,13 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class PhrasesChoiceCategoryFragment extends Fragment {
 
-    private static final String DATA_PARAM = "phrases.category.dataParam";
+    private static final String DATA_PARAM = "phrases.choice.category.dataParam";
 
 
     private int textColor;

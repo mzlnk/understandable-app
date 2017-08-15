@@ -15,6 +15,10 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarFillGapData;
 import pl.understandable.understandable_app.utils.ColorUtil;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class GrammarFillGapExampleFragment extends Fragment {
 
     public static final String POSITION_PARAM = "grammar.fill_gap.example.positionParam";

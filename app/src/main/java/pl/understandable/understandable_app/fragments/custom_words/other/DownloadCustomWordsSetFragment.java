@@ -23,6 +23,10 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.WebService;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class DownloadCustomWordsSetFragment extends Fragment {
 
     private RelativeLayout mainLayout;
@@ -106,10 +110,8 @@ public class DownloadCustomWordsSetFragment extends Fragment {
                 lastClicked = System.currentTimeMillis();
                 String code = codeField.getText().toString();
                 code = code.toUpperCase();
-                System.out.println("==============================");
-                System.out.println("WebService is starting...");
-                System.out.println("==============================");
                 WebService.DownloadWordsSetTask task = (WebService.DownloadWordsSetTask) new WebService.DownloadWordsSetTask(getContext(), getFragmentManager()).execute(code);
+                //todo: add task.cancel()
             }
         });
     }

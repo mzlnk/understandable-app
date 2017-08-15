@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.irregular_verbs.list;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
@@ -24,8 +23,9 @@ import pl.understandable.understandable_app.utils.font.Font;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
+
 public class IrregularVerbsListFragment extends Fragment {
 
     private int list1Color, list2Color, textColor;

@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.custom_words.repetition;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,12 +16,13 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
-import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
-import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionResultWordsToRepeatFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class CustomWordsRepetitionResultFragment extends Fragment {
 
@@ -71,14 +73,15 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
     }
 
     private void setFonts() {
-        wordsSeen.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsToRepeat.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsSeenInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsToRepeatInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        mainTitle.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        wordsToRepeatTitle.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        viewWordsToRepeat.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        wordsSeen.setTypeface(typeface);
+        wordsToRepeat.setTypeface(typeface);
+        wordsSeenInfo.setTypeface(typeface);
+        wordsToRepeatInfo.setTypeface(typeface);
+        mainTitle.setTypeface(typeface);
+        wordsToRepeatTitle.setTypeface(typeface);
+        viewWordsToRepeat.setTypeface(typeface);
+        tryAgain.setTypeface(typeface);
     }
 
     private void prepareButtons() {

@@ -18,9 +18,6 @@ import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.grammar.GrammarSet;
-import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
-import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
-import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.NetworkUtil;
@@ -28,6 +25,10 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class GrammarSetsListFragment extends Fragment {
 

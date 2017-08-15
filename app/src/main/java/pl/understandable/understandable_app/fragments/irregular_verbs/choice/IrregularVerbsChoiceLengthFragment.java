@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.fragments.irregular_verbs.choice;
 
-
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,11 +26,12 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
+
 public class IrregularVerbsChoiceLengthFragment extends Fragment {
 
-    private static final String DATA_PARAM = "irregular.verbs.length.dataParam";
+    private static final String DATA_PARAM = "irregular.verbs.choice.length.dataParam";
 
     private RelativeLayout mainLayout;
     private TextView title, amountInfo;
@@ -63,8 +64,7 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.f_irregular_verbs_choice_length, container, false);
         loadViewsFromXml(rootView);
@@ -96,9 +96,10 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        back.setTypeface(typeface);
+        submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {

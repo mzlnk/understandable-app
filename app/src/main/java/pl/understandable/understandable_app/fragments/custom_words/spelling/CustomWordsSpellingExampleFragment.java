@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +14,12 @@ import java.util.Random;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
-import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingExampleFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class CustomWordsSpellingExampleFragment extends Fragment {
 
@@ -81,7 +83,7 @@ public class CustomWordsSpellingExampleFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         word0.setTypeface(typeFace);
         word1.setTypeface(typeFace);
     }

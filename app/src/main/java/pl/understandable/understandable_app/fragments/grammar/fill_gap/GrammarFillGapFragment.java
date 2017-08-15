@@ -27,6 +27,11 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarFillGapData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class GrammarFillGapFragment extends Fragment {
 
@@ -89,7 +94,7 @@ public class GrammarFillGapFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         check.setTypeface(typeFace);
         showAnswer.setTypeface(typeFace);
         finish.setTypeface(typeFace);

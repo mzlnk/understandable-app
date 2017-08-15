@@ -1,12 +1,7 @@
 package pl.understandable.understandable_app.fragments.phrases.quiz;
 
-
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -16,27 +11,20 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQuizData;
-import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
-import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizFragment;
-import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizResultFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 public class PhrasesQuizFragment extends Fragment {
 
-    private static final int QUESTION_ANSWER_TIME_IN_MILLIS = 5000;
     private static final Random r = new Random();
 
     private PhrasesQuizData quizData;

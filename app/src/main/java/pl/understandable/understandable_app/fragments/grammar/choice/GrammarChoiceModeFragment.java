@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.grammar.choice;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,31 +23,24 @@ import java.util.List;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarFillGapData;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarQuizData;
-import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesListData;
-import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQuizData;
-import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
 import pl.understandable.understandable_app.data.enums.grammar.GrammarLearningMode;
-import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningMode;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
-import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.grammar.quiz.GrammarQuizFragment;
-import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceModeFragment;
-import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceWayFragment;
-import pl.understandable.understandable_app.fragments.phrases.list.PhrasesListFragment;
-import pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizFragment;
-import pl.understandable.understandable_app.fragments.phrases.repetition.PhrasesRepetitionFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.grammar.GrammarModeButton;
-import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class GrammarChoiceModeFragment extends Fragment {
 
-    private static final String ID_PARAM = "grammar.mode.idParam";
-    private static final String NAME_PARAM = "grammar.mode.nameParam";
+    private static final String ID_PARAM = "grammar.choice.mode.idParam";
+    private static final String NAME_PARAM = "grammar.choice.mode.nameParam";
 
     private RelativeLayout mainLayout;
     private TableLayout modesLayout;
@@ -116,9 +110,10 @@ public class GrammarChoiceModeFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

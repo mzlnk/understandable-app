@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.grammar.preview;
 
-import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,16 +10,19 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.repository.GrammarEntitiesRepository;
 import pl.understandable.understandable_app.fragments.grammar.choice.GrammarChoiceModeFragment;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class GrammarSetPreviewFragment extends Fragment {
 
@@ -89,7 +91,7 @@ public class GrammarSetPreviewFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeFace);
         start.setTypeface(typeFace);
     }

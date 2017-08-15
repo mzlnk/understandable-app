@@ -15,13 +15,15 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsListData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
-import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class CustomWordsListFragment extends Fragment {
 

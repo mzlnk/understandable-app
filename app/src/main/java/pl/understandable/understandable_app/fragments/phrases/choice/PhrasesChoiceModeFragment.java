@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.phrases.choice;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,9 +25,6 @@ import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQu
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningMode;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
-import pl.understandable.understandable_app.fragments.custom_words.list.CustomWordsListFragment;
-import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizFragment;
-import pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionFragment;
 import pl.understandable.understandable_app.fragments.phrases.list.PhrasesListFragment;
 import pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizFragment;
 import pl.understandable.understandable_app.fragments.phrases.repetition.PhrasesRepetitionFragment;
@@ -35,9 +33,13 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class PhrasesChoiceModeFragment extends Fragment {
 
-    private static final String DATA_PARAM = "phrases.mode.dataParam";
+    private static final String DATA_PARAM = "phrases.choice.mode.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout modesLayout;
@@ -103,9 +105,10 @@ public class PhrasesChoiceModeFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

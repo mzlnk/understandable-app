@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.custom_words.choice;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,21 +20,19 @@ import java.util.List;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
-import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceModeFragment;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceTypeFragment;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsWayButton;
-import pl.understandable.understandable_app.utils.buttons.words.WordsWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class CustomWordsChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "custom.words.way.dataParam";
+    private static final String DATA_PARAM = "custom.words.choice.way.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout waysLayout;
@@ -98,8 +97,9 @@ public class CustomWordsChoiceWayFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {
