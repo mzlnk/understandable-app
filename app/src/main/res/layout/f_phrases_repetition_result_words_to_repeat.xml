@@ -10,10 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true">
+        android:measureWithLargestChild="true" >
 
         <TextView
             android:id="@+id/f_phrases_repetition_result_words_to_repeat_title"
@@ -28,7 +25,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.8"
+            android:layout_weight="0.7"
             android:layout_marginLeft="@dimen/f_border_margin_medium"
             android:layout_marginRight="@dimen/f_border_margin_medium" >
 
@@ -43,8 +40,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.05"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
             android:gravity="center"
             android:orientation="horizontal" >
 

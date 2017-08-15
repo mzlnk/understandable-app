@@ -42,12 +42,9 @@ public class WordsQuizFragment extends Fragment {
     private TextView question, questionNumber;
     private Button[] answers = new Button[4];
     private Button finish;
-    private ProgressBar time;
 
-    private int timeLeft = QUESTION_ANSWER_TIME_IN_MILLIS;
     private int correctOption;
     private int chosenOption = -1;
-    private boolean isAnswered = false, timesUp = false;
 
     private WordEntity correctWord;
     private WordEntity[] incorrectWords = new WordEntity[3];
@@ -68,7 +65,6 @@ public class WordsQuizFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
-        initTimer();
 
         return rootView;
     }
@@ -81,13 +77,7 @@ public class WordsQuizFragment extends Fragment {
         answers[1] = (Button) rootView.findViewById(R.id.f_words_quiz_option_1);
         answers[2] = (Button) rootView.findViewById(R.id.f_words_quiz_option_2);
         answers[3] = (Button) rootView.findViewById(R.id.f_words_quiz_option_3);
-        time = (ProgressBar) rootView.findViewById(R.id.f_words_quiz_time);
         finish = (Button) rootView.findViewById(R.id.f_words_quiz_finish);
-    }
-
-    private void initTimer() {
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new QuizTask(getActivity()), 0, 1);
     }
 
     private void prepareLayout() {
@@ -100,10 +90,6 @@ public class WordsQuizFragment extends Fragment {
 
     private void prepareViews() {
         questionNumber.setText(new String("Pytanie " + WordsQuizData.getQuizData().currentQuestion));
-        time.setMax(QUESTION_ANSWER_TIME_IN_MILLIS);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            time.setProgressTintList(ColorStateList.valueOf(Color.rgb(0, 153, 255)));
-        }
     }
 
     private void addListeners() {
@@ -112,17 +98,13 @@ public class WordsQuizFragment extends Fragment {
             answers[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(!timesUp) {
-                        chosenOption = option;
-                        isAnswered = true;
-
-                        if(chosenOption == correctOption) {
-                            quizData.correctAnswer();
-                        } else {
-                            quizData.incorrectAnswer();
-                        }
-                        getActivity().runOnUiThread(new ShowAnswerTask());
+                    chosenOption = option;
+                    if(chosenOption == correctOption) {
+                        quizData.correctAnswer();
+                    } else {
+                        quizData.incorrectAnswer();
                     }
+                    getActivity().runOnUiThread(new ShowAnswerTask());
                 }
             });
         }
@@ -211,31 +193,6 @@ public class WordsQuizFragment extends Fragment {
         }
     }
 
-    private class QuizTask extends TimerTask {
-
-        private FragmentActivity activity;
-
-        public QuizTask(FragmentActivity activity) {
-            this.activity = activity;
-        }
-
-        @Override
-        public void run() {
-            if(timeLeft > 0) {
-                timeLeft--;
-                time.setProgress(timeLeft);
-            }
-            if(timeLeft <= 0 || isAnswered) {
-                timesUp = true;
-                if(!isAnswered) {
-                    quizData.incorrectAnswer();
-                    activity.runOnUiThread(new ShowAnswerTask());
-                }
-                this.cancel();
-            }
-        }
-    }
-
     private class ShowAnswerTask implements Runnable {
 
         @Override
@@ -245,9 +202,8 @@ public class WordsQuizFragment extends Fragment {
                 int showCorrectOptionDelay = 1000;
                 int hideIncorrectOptionsDelay = 1500;
 
-                if (isAnswered && chosenOption != -1) {
-                    answers[chosenOption].setBackgroundResource(R.drawable.field_rounded_red);
-                }
+                answers[chosenOption].setBackgroundResource(R.drawable.field_rounded_red);
+
                 if (chosenOption == correctOption) {
                     answers[chosenOption].setBackgroundResource(R.drawable.field_rounded_green);
                     showCorrectOptionDelay = 0;

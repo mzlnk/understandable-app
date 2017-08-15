@@ -15,20 +15,20 @@
         <TextView
             android:id="@+id/f_theme_choice_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
             android:layout_gravity="center"
-            android:layout_weight="0.05"
+            android:background="?attr/background_color"
             android:gravity="center"
             android:text="@string/f_choice_theme_title"
-            android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color"
-            android:background="?attr/background_color"/>
+            android:textSize="@dimen/f_text_title_medium" />
 
         <TableLayout
             android:id="@+id/f_theme_choice_theme_names_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.95"
+            android:layout_weight="0.85"
             android:orientation="horizontal"
             android:stretchColumns="*" >
 
