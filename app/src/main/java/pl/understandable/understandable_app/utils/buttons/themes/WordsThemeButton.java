@@ -87,7 +87,7 @@ public class WordsThemeButton extends ThemeBaseButton {
     }
 
     private void setSize() {
-        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_theme_choice_icon_size);
+        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_choice_icon_size);
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
         super.image.setLayoutParams(layoutParams);
         TypedValue outValue = new TypedValue();

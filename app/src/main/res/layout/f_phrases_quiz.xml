@@ -123,7 +123,7 @@
                 android:text="@string/button_finish"
                 android:textColor="?attr/text_button_color"
                 android:textAllCaps="false"
-                android:textSize="@dimen/button_finish" />
+                android:textSize="@dimen/button_text" />
 
         </LinearLayout>
     </LinearLayout>

@@ -54,7 +54,7 @@
                 android:layout_height="@dimen/button_small_height"
                 android:layout_gravity="center"
                 android:text="@string/button_start_learning"
-                android:textSize="@dimen/button_next"
+                android:textSize="@dimen/button_text"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
                 android:clickable="true" />

@@ -29,7 +29,7 @@
 
             <EditText
                 android:id="@+id/f_words_spelling_answer_field"
-                android:layout_width="@dimen/f_words_spelling_answer_field_width"
+                android:layout_width="@dimen/f_spelling_answer_field_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:gravity="center"
@@ -54,7 +54,7 @@
                 android:text="@string/button_check"
                 android:textColor="?attr/text_button_color"
                 android:textAllCaps="false"
-                android:textSize="@dimen/button_finish" />
+                android:textSize="@dimen/button_text" />
 
         </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:text="@string/button_show_answer"
                 android:textColor="?attr/text_button_color"
                 android:textAllCaps="false"
-                android:textSize="@dimen/button_finish" />
+                android:textSize="@dimen/button_text" />
 
         </LinearLayout>
 
@@ -88,7 +88,7 @@
                 android:text="@string/button_finish"
                 android:textColor="?attr/text_button_color"
                 android:textAllCaps="false"
-                android:textSize="@dimen/button_finish" />
+                android:textSize="@dimen/button_text" />
 
         </LinearLayout>
 

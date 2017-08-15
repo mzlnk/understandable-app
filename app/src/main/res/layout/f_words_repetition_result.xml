@@ -117,7 +117,7 @@
                     android:text="@string/button_show"
                     android:textAllCaps="false"
                     android:textColor="?attr/text_button_color"
-                    android:textSize="@dimen/button_show" />
+                    android:textSize="@dimen/button_text" />
 
             </TableRow>
         </TableLayout>
@@ -133,7 +133,7 @@
                 android:layout_width="@dimen/button_medium_width"
                 android:layout_height="@dimen/button_medium_height"
                 android:text="@string/button_try_again"
-                android:textSize="@dimen/button_try_again"
+                android:textSize="@dimen/button_text"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
                 android:clickable="true" />

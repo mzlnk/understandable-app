@@ -54,7 +54,7 @@
                 android:text="@string/button_download"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
-                android:textSize="@dimen/button_next" />
+                android:textSize="@dimen/button_text" />
 
         </LinearLayout>
 

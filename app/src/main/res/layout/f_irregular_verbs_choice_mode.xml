@@ -45,7 +45,7 @@
                 android:layout_width="@dimen/button_medium_width"
                 android:layout_height="@dimen/button_medium_height"
                 android:text="@string/button_next"
-                android:textSize="@dimen/button_next"
+                android:textSize="@dimen/button_text"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
                 android:clickable="true" />

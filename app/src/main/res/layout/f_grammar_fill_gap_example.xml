@@ -36,7 +36,7 @@
                     android:gravity="center"
                     android:text="Word0"
                     android:textColor="?attr/background_color"
-                    android:textSize="@dimen/f_repetition_example_word_0" />
+                    android:textSize="@dimen/f_repetition_example_word_1" />
 
             </TableRow>
 
