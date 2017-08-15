@@ -22,7 +22,6 @@ import java.util.List;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarFillGapData;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarQuizData;
-import pl.understandable.understandable_app.data.entities_data.grammar.GrammarSentenceData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesListData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQuizData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
@@ -33,7 +32,6 @@ import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.grammar.quiz.GrammarQuizFragment;
-import pl.understandable.understandable_app.fragments.grammar.sentence.GrammarSentenceFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceModeFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceWayFragment;
 import pl.understandable.understandable_app.fragments.phrases.list.PhrasesListFragment;
@@ -195,10 +193,6 @@ public class GrammarChoiceModeFragment extends Fragment {
                     case FILL_GAPS:
                         GrammarFillGapData.createRepetitionDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new GrammarFillGapFragment());
-                        break;
-                    case SENTENCE:
-                        GrammarSentenceData.createSentenceDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new GrammarSentenceFragment());
                         break;
                 }
                 transaction.commit();

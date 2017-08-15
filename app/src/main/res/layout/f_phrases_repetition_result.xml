@@ -42,7 +42,6 @@
                     android:id="@+id/f_phrases_repetition_result_words_seen_amount"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_repetition_result_words_seen_amount" />
@@ -51,7 +50,6 @@
                     android:id="@+id/f_phrases_repetition_result_words_to_repeat_amount"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_repetition_result_words_to_repeat_amount" />
@@ -77,7 +75,7 @@
                     android:id="@+id/f_phrases_repetition_result_words_to_repeat_info"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/f_repetition_result_words_to_repeat"
+                    android:text="@string/f_repetition_result_words_to_repeat_info"
                     android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_repetition_result_words_to_repeat_info" />
 

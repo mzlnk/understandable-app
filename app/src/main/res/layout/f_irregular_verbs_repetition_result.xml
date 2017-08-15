@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true">
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/f_irregular_verbs_repetition_result_title"
@@ -39,7 +42,6 @@
                     android:id="@+id/f_irregular_verbs_repetition_result_words_seen_amount"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_repetition_result_words_seen_amount" />
@@ -48,7 +50,6 @@
                     android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_amount"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="@string/number_0"
                     android:textStyle="bold"
                     android:textColor="?attr/text_2_color"
                     android:textSize="@dimen/f_repetition_result_words_to_repeat_amount" />

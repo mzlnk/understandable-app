@@ -54,7 +54,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.36"
                 android:gravity="center"
-                android:text="@string/f_quiz_question"
+                android:text=""
                 android:textColor="?attr/text_1_color"
                 android:textSize="@dimen/f_quiz_question" />
 

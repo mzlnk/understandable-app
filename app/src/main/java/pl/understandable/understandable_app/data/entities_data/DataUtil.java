@@ -6,7 +6,6 @@ import pl.understandable.understandable_app.data.entities_data.custom_words_data
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarFillGapData;
 import pl.understandable.understandable_app.data.entities_data.grammar.GrammarQuizData;
-import pl.understandable.understandable_app.data.entities_data.grammar.GrammarSentenceData;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
@@ -31,7 +30,6 @@ public class DataUtil {
         CustomWordsSpellingData.clearData();
         IrregularVerbsListData.clearData();
         IrregularVerbsRepetitionData.clearData();
-        GrammarSentenceData.clearData();
         GrammarFillGapData.clearData();
         GrammarQuizData.clearData();
     }

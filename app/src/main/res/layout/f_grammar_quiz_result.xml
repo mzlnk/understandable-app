@@ -122,7 +122,6 @@
                         <TextView
                             android:id="@+id/f_grammar_quiz_result_correct_answers_amount"
                             android:gravity="center"
-                            android:text="@string/number_0"
                             android:textStyle="bold"
                             android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_correct_answers_amount" />
@@ -192,7 +191,6 @@
                         <TextView
                             android:id="@+id/f_grammar_quiz_result_incorrect_answers_amount"
                             android:gravity="center"
-                            android:text="@string/number_0"
                             android:textStyle="bold"
                             android:textColor="?attr/text_1_color"
                             android:textSize="@dimen/f_quiz_result_incorrect_answers_amount" />

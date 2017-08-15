@@ -17,5 +17,8 @@
     <color name="light_pink">#ffb3cc</color>
     <color name="pink">#f78aae</color>
     <color name="dark_pink">#e16b92</color>
+    <color name="light_blue">#6aaef1</color>
+    <color name="blue">#1E90FF</color>
+    <color name="dark_blue">#0768c7</color>
 
 </resources>

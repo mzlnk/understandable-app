@@ -15,9 +15,6 @@
         <attr name="list_2_color" format="color"/>
         <attr name="accent_color" format="color"/>
         <attr name="table_border_color" format="color"/>
-        <attr name="start_icon_stroke_1_color" format="color" />
-        <attr name="start_icon_stroke_2_color" format="color" />
-        <attr name="start_icon_background_color" format="color" />
         <attr name="irregular_verbs_repetition_example_field_1_color" format="color" />
         <attr name="irregular_verbs_repetition_example_field_2_color" format="color" />
     </declare-styleable>
