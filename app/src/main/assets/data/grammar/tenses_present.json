@@ -79,6 +79,20 @@
     }
   ],
   "grammarSentenceEntities": [
-
+    {
+      "polish": "To jest ołówek.",
+      "english": "This is a pencil.",
+      "id": 1
+    },
+    {
+      "polish": "To jest Słońce.",
+      "english": "This is the Sun.",
+      "id": 1
+    },
+    {
+      "polish": "To jest Księżyc.",
+      "english": "This is the Moon.",
+      "id": 1
+    },
   ]
 }

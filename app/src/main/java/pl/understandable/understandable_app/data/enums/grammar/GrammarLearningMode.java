@@ -10,7 +10,6 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
 public enum GrammarLearningMode implements Identifiable {
 
     QUIZ("quiz", R.drawable.f_words_choice_unchecked),
-    SENTENCE("zdania",R.drawable.f_words_choice_unchecked),
     FILL_GAPS("uzupełnianie luk", R.drawable.f_words_choice_unchecked);
 
     private String name;

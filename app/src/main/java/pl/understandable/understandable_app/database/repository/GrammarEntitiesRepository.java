@@ -13,9 +13,6 @@ import java.util.List;
 
 import pl.understandable.understandable_app.data.enums.grammar.GrammarLearningMode;
 import pl.understandable.understandable_app.database.entity.GrammarBaseEntity;
-import pl.understandable.understandable_app.database.entity.GrammarFillGapEntity;
-import pl.understandable.understandable_app.database.entity.GrammarQuizEntity;
-import pl.understandable.understandable_app.database.entity.GrammarSentenceEntity;
 import pl.understandable.understandable_app.database.repository.maps.GrammarEntitiesMap;
 
 /**
@@ -54,8 +51,6 @@ public class GrammarEntitiesRepository {
                 return grammarEntitiesMap.getGrammarQuizEntities();
             case FILL_GAPS:
                 return grammarEntitiesMap.getGrammarFillGapEntities();
-            case SENTENCE:
-                return grammarEntitiesMap.getGrammarSentenceEntities();
         }
         return new ArrayList<>();
     }

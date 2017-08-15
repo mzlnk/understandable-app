@@ -58,6 +58,7 @@
                     android:id="@+id/f_words_spelling_result_words_seen_amount_info"
                     android:text="@string/f_spelling_result_words_seen_amount_info"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="?attr/text_1_color"
                     android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
