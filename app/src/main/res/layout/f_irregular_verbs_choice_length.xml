@@ -12,13 +12,11 @@
         android:layout_height="match_parent"
         android:measureWithLargestChild="true" >
 
-
         <TextView
             android:id="@+id/f_irregular_verbs_choice_length_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.05"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
             android:gravity="center"
             android:text="@string/f_choice_length_title"
             android:textSize="@dimen/f_text_title_medium"
@@ -28,7 +26,7 @@
             android:id="@+id/f_irregular_verbs_choice_length_size_info"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.35"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="0"
@@ -39,7 +37,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.4"
+            android:layout_weight="0.35"
             android:gravity="top" >
 
             <SeekBar
@@ -80,5 +78,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

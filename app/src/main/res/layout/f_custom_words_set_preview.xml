@@ -14,11 +14,11 @@
 
 
         <LinearLayout
-            android:id="@+id/f_custom_words_set_preview_name_field"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
-            android:layout_margin="@dimen/f_border_margin_medium"
+            android:layout_marginLeft="@dimen/f_border_margin_large"
+            android:layout_marginRight="@dimen/f_border_margin_large"
             android:orientation="vertical">
 
             <TextView
@@ -28,30 +28,36 @@
                 android:layout_weight="0.5"
                 android:gravity="center"
                 android:text="@string/f_custom_words_set_preview_words_set_name_info"
-                android:textSize="@dimen/f_custom_words_set_preview_words_set_name_info"
-                android:textColor="?attr/text_1_color" />
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_custom_words_set_preview_words_set_name_info" />
 
-            <TextView
-                android:id="@+id/f_custom_words_set_preview_words_set_name"
+            <LinearLayout
+                android:id="@+id/f_custom_words_set_preview_name_field"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
-                android:layout_marginLeft="@dimen/f_border_margin_medium"
-                android:layout_marginRight="@dimen/f_border_margin_medium"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text=""
-                android:textSize="@dimen/f_custom_words_set_preview_words_set_name"
-                android:textColor="?attr/text_1_color" />
+                android:layout_gravity="center"
+                android:gravity="center" >
 
+                <TextView
+                    android:id="@+id/f_custom_words_set_preview_words_set_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="?attr/text_1_color"
+                    android:textSize="@dimen/f_custom_words_set_preview_words_set_name" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/f_custom_words_set_preview_id_field"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
-            android:layout_margin="@dimen/f_border_margin_medium"
+            android:layout_marginLeft="@dimen/f_border_margin_large"
+            android:layout_marginRight="@dimen/f_border_margin_large"
             android:orientation="vertical" >
 
             <TextView
@@ -64,25 +70,33 @@
                 android:textSize="@dimen/f_custom_words_set_preview_words_set_id_info"
                 android:textColor="?attr/text_1_color" />
 
-            <TextView
-                android:id="@+id/f_custom_words_set_preview_words_set_id"
+            <LinearLayout
+                android:id="@+id/f_custom_words_set_preview_id_field"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:text=""
-                android:textSize="@dimen/f_custom_words_set_preview_words_set_id"
-                android:textColor="?attr/text_1_color" />
+                android:layout_gravity="center"
+                android:gravity="center" >
 
+                <TextView
+                    android:id="@+id/f_custom_words_set_preview_words_set_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="@dimen/f_custom_words_set_preview_words_set_id"
+                    android:textColor="?attr/text_1_color" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/f_custom_words_set_preview_description_field"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:layout_margin="@dimen/f_border_margin_medium"
+            android:layout_marginLeft="@dimen/f_border_margin_large"
+            android:layout_marginRight="@dimen/f_border_margin_large"
             android:orientation="vertical" >
 
             <TextView
@@ -95,17 +109,25 @@
                 android:textColor="?attr/text_1_color"
                 android:textSize="@dimen/f_custom_words_set_preview_words_set_description_info" />
 
-            <TextView
-                android:id="@+id/f_custom_words_set_preview_words_set_description"
+            <LinearLayout
+                android:id="@+id/f_custom_words_set_preview_description_field"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:gravity="center"
-                android:text=""
-                android:textAlignment="center"
-                android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_custom_words_set_preview_words_set_description" />
+                android:layout_gravity="center"
+                android:gravity="center" >
 
+                <TextView
+                    android:id="@+id/f_custom_words_set_preview_words_set_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="?attr/text_1_color"
+                    android:textSize="@dimen/f_custom_words_set_preview_words_set_description" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

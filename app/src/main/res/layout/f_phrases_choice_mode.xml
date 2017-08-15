@@ -14,10 +14,10 @@
 
         <TextView
             android:id="@+id/f_phrases_choice_mode_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
             android:layout_gravity="center"
-            android:layout_weight="0.05"
             android:gravity="center"
             android:text="@string/f_choice_mode_title"
             android:textSize="@dimen/f_text_title_medium"
@@ -27,7 +27,7 @@
             android:id="@+id/f_phrases_choice_mode_names_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.8"
+            android:layout_weight="0.7"
             android:orientation="horizontal"
             android:stretchColumns="*" >
 

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true">
+        android:measureWithLargestChild="true" >
 
         <TextView
             android:id="@+id/f_download_words_set_title"
@@ -57,8 +57,5 @@
                 android:textSize="@dimen/button_text" />
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 </RelativeLayout>

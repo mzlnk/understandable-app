@@ -18,45 +18,38 @@
             android:layout_height="0dp"
             android:layout_weight="0.7" />
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:gravity="center"
-            android:measureWithLargestChild="true" >
+            android:layout_weight="0.15"
+            android:gravity="center" >
 
-            <TableRow
-                android:layout_weight="0.4"
-                android:gravity="center"
-                android:measureWithLargestChild="true" >
+            <Button
+                android:id="@+id/f_irregular_verbs_repetition_repeat"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_repeat"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_text" />
 
-                <Button
-                    android:id="@+id/f_irregular_verbs_repetition_repeat"
-                    android:layout_width="@dimen/button_small_width"
-                    android:layout_height="@dimen/button_small_height"
-                    android:text="@string/button_repeat"
-                    android:textColor="?attr/text_button_color"
-                    android:textAllCaps="false"
-                    android:textSize="@dimen/button_text" />
+        </LinearLayout>
 
-            </TableRow>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center" >
 
-            <TableRow
-                android:layout_weight="0.4"
-                android:gravity="center"
-                android:measureWithLargestChild="true" >
+            <Button
+                android:id="@+id/f_irregular_verbs_repetition_finish"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_finish"
+                android:textColor="?attr/text_button_color"
+                android:textAllCaps="false"
+                android:textSize="@dimen/button_text" />
 
-                <Button
-                    android:id="@+id/f_irregular_verbs_repetition_finish"
-                    android:layout_width="@dimen/button_small_width"
-                    android:layout_height="@dimen/button_small_height"
-                    android:text="@string/button_finish"
-                    android:textColor="?attr/text_button_color"
-                    android:textAllCaps="false"
-                    android:textSize="@dimen/button_text" />
-
-            </TableRow>
-        </TableLayout>
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

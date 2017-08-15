@@ -10,10 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:measureWithLargestChild="true" >
 
         <android.support.v4.view.ViewPager
             android:id="@+id/f_grammar_fill_gap_view_pager"

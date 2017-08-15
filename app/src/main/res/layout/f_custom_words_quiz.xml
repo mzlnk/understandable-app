@@ -18,24 +18,10 @@
         android:layout_alignParentStart="true">
 
         <LinearLayout
-            android:id="@+id/f_custom_words_quiz_time_row"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05" >
-
-            <ProgressBar
-                android:id="@+id/f_custom_words_quiz_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="?android:attr/progressBarStyleHorizontal" />
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/f_custom_words_quiz_question_area"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.95"
+            android:layout_weight="0.85"
             android:orientation="vertical" >
 
             <TextView
@@ -104,7 +90,6 @@
                 android:layout_weight="0.12"
                 android:layout_marginRight="@dimen/f_border_margin_medium"
                 android:layout_marginLeft="@dimen/f_border_margin_medium"
-                android:layout_marginBottom="@dimen/f_border_margin_medium"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_1_color"
                 android:textSize="@dimen/f_quiz_option"

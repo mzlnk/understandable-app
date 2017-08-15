@@ -10,10 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:measureWithLargestChild="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:measureWithLargestChild="true" >
 
         <TextView
             android:id="@+id/f_irregular_verbs_repetition_result_title"
@@ -82,10 +79,12 @@
             </TableRow>
         </TableLayout>
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1" />
+            android:layout_weight="0.1" >
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/f_irregular_verbs_repetition_result_words_to_repeat_title"
@@ -98,27 +97,22 @@
             android:textSize="@dimen/f_repetition_result_words_to_repeat_subtitle" />
 
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.20"
-            android:gravity="top">
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal">
 
-            <TableRow
-                android:gravity="center"
-                android:measureWithLargestChild="true">
+            <Button
+                android:id="@+id/f_irregular_verbs_repetition_result_view_words_to_repeat"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:text="@string/button_show"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_text" />
 
-                <Button
-                    android:id="@+id/f_irregular_verbs_repetition_result_view_words_to_repeat"
-                    android:layout_width="@dimen/button_small_width"
-                    android:layout_height="@dimen/button_small_height"
-                    android:text="@string/button_show"
-                    android:textAllCaps="false"
-                    android:textColor="?attr/text_button_color"
-                    android:textSize="@dimen/button_text" />
-
-            </TableRow>
-        </TableLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

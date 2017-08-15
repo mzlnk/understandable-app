@@ -11,10 +11,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:measureWithLargestChild="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" >
+        android:measureWithLargestChild="true" >
 
         <TextView
             android:id="@+id/f_grammar_fill_gap_result_title"
@@ -26,43 +23,36 @@
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_text_title_large" />
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.2"
+            android:orientation="vertical"
             android:measureWithLargestChild="true">
 
-            <TableRow
+            <TextView
+                android:id="@+id/f_grammar_fill_gap_result_words_seen_amount"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.33"
-                android:gravity="center" >
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="0/0"
+                android:textStyle="bold"
+                android:textColor="?attr/text_2_color"
+                android:textSize="@dimen/f_quiz_result_questions_amount" />
 
-                <TextView
-                    android:id="@+id/f_grammar_fill_gap_result_words_seen_amount"
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textStyle="bold"
-                    android:textColor="?attr/text_2_color"
-                    android:textSize="@dimen/f_quiz_result_questions_amount" />
-
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/f_grammar_fill_gap_result_words_seen_amount_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.67"
-                android:gravity="center" >
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/f_spelling_result_words_seen_amount_info"
+                android:textAlignment="center"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_quiz_result_answers_amount_info" />
 
-                <TextView
-                    android:id="@+id/f_grammar_fill_gap_result_words_seen_amount_info"
-                    android:text="@string/f_spelling_result_words_seen_amount_info"
-                    android:textAlignment="center"
-                    android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_quiz_result_answers_amount_info" />
-
-            </TableRow>
-        </TableLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"

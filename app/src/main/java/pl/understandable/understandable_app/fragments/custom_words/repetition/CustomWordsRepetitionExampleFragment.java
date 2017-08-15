@@ -62,8 +62,8 @@ public class CustomWordsRepetitionExampleFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        word0 = (TextView) rootView.findViewById(R.id.f_custom_words_repetition_example_word_0);
-        word1 = (TextView) rootView.findViewById(R.id.f_custom_words_repetition_example_word_1);
+        word0 = (TextView) rootView.findViewById(R.id.f_custom_words_repetition_example_word_1);
+        word1 = (TextView) rootView.findViewById(R.id.f_custom_words_repetition_example_word_2);
         wordLayout = (LinearLayout) rootView.findViewById(R.id.f_custom_words_repetition_example_clickable_layout);
     }
 
