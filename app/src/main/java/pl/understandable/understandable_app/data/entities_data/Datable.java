@@ -6,7 +6,7 @@ import pl.understandable.understandable_app.database.entity.BaseEntity;
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-07-29.
+ * Created by Marcin Zielonka on 2017-07-29.
  */
 
 public abstract interface Datable<E extends BaseEntity, P extends BaseDataParams> {

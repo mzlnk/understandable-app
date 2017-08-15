@@ -9,6 +9,10 @@ import android.widget.ImageView;
 
 import pl.understandable.understandable_app.R;
 
+/**
+ * Created by Marcin Zielonka on 2017-11-07.
+ */
+
 public class StartActivity extends AppCompatActivity {
 
     private ImageView icon;
@@ -17,9 +21,6 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.f_activity_start_screen);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //toolbar.setTitleTextColor(Color.BLACK);
 
         icon = (ImageView) findViewById(R.id.f_content_start_screen_icon);
         setAnimation();
@@ -37,7 +38,6 @@ public class StartActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {

@@ -12,7 +12,7 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;
 
 /**
- * Created by Marcin on 2017-07-07.
+ * Created by Marcin Zielonka on 2017-07-07.
  */
 
 public class BackButtonListener {

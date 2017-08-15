@@ -3,7 +3,7 @@ package pl.understandable.understandable_app.database.entity;
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesCategory;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public class PhraseEntity extends BaseEntity {

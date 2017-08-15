@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-07-27.
+ * Created by Marcin Zielonka on 2017-07-27.
  */
 
 public class CustomWordsSetsRepository {

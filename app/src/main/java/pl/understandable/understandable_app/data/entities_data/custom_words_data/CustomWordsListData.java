@@ -4,7 +4,7 @@ import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 
 /**
- * Created by Marcin on 2017-07-29.
+ * Created by Marcin Zielonka on 2017-07-29.
  */
 
 public class CustomWordsListData extends CustomWordsBaseData {

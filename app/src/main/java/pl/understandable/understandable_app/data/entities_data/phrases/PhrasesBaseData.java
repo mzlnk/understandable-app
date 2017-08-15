@@ -10,7 +10,7 @@ import pl.understandable.understandable_app.database.entity.PhraseEntity;
 import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public class PhrasesBaseData implements Datable<PhraseEntity, PhrasesDataParams> {

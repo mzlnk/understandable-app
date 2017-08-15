@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesCategory;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningLevel;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
-import pl.understandable.understandable_app.database.entity.WordEntity;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public class PhraseEntityMap {

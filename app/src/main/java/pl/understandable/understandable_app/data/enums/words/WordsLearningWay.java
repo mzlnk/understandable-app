@@ -4,7 +4,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
 
 /**
- * Created by Lotos_ on 2016-11-12.
+ * Created by Marcin Zielonka on 2016-11-12.
  */
 
 

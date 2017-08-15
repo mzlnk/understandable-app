@@ -4,13 +4,13 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
 
 /**
- * Created by Marcin on 2017-07-05.
+ * Created by Marcin Zielonka on 2017-07-05.
  */
 
 public enum ThemeType implements Identifiable {
 
-    THEME_1("Dzień", "GrayTheme", R.drawable.f_theme_choice_default, R.style.DefaultTheme),
-    THEME_2("Noc", "NightTheme", R.drawable.f_theme_choice_night, R.style.NightTheme);
+    THEME_DAY("Dzień", "GrayTheme", R.drawable.f_theme_choice_default, R.style.DefaultTheme),
+    THEME_NIGHT("Noc", "NightTheme", R.drawable.f_theme_choice_night, R.style.NightTheme);
 
     private String name;
     private String resName;

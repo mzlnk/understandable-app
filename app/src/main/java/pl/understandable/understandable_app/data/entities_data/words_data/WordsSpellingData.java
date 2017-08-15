@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
 /**
- * Created by Marcin on 2017-08-06.
+ * Created by Marcin Zielonka on 2017-08-06.
  */
 
 public class WordsSpellingData extends WordsBaseData {

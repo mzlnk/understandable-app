@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Marcin on 2017-07-27.
+ * Created by Marcin Zielonka on 2017-07-27.
  */
 
 public class CustomWordsSetMap {

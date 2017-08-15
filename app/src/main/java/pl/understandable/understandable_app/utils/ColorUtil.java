@@ -6,7 +6,7 @@ import android.support.annotation.ColorInt;
 import android.util.TypedValue;
 
 /**
- * Created by Marcin on 2017-07-06.
+ * Created by Marcin Zielonka on 2017-07-06.
  */
 
 public class ColorUtil {

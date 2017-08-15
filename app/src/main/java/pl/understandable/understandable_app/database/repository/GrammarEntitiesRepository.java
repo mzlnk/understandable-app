@@ -16,7 +16,7 @@ import pl.understandable.understandable_app.database.entity.GrammarBaseEntity;
 import pl.understandable.understandable_app.database.repository.maps.GrammarEntitiesMap;
 
 /**
- * Created by Marcin on 2017-08-12.
+ * Created by Marcin Zielonka on 2017-08-12.
  */
 
 public class GrammarEntitiesRepository {

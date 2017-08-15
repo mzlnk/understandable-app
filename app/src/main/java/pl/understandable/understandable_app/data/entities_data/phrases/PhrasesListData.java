@@ -3,7 +3,7 @@ package pl.understandable.understandable_app.data.entities_data.phrases;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public class PhrasesListData extends PhrasesBaseData {

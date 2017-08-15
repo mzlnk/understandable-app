@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Marcin on 2017-07-29.
+ * Created by Marcin Zielonka on 2017-07-29.
  */
 
 public abstract class CustomWordsBaseData implements Datable<CustomWordEntity, CustomWordsDataParams> {

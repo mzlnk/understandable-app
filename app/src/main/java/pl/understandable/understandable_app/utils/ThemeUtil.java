@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import pl.understandable.understandable_app.R;
 
 /**
- * Created by Marcin on 2017-08-01.
+ * Created by Marcin Zielonka on 2017-08-01.
  */
 
 public class ThemeUtil {

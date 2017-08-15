@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 
 /**
- * Created by Marcin on 2017-08-07.
+ * Created by Marcin Zielonka on 2017-08-07.
  */
 
 public class CustomWordsSpellingData extends CustomWordsBaseData {

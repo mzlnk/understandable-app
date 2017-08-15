@@ -2,19 +2,13 @@ package pl.understandable.understandable_app.data.entities_data.grammar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import pl.understandable.understandable_app.data.entities_data.DataUtil;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
-import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.database.entity.GrammarBaseEntity;
 import pl.understandable.understandable_app.database.entity.GrammarQuizEntity;
-import pl.understandable.understandable_app.database.entity.WordEntity;
-import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 
 /**
- * Created by Marcin on 2017-08-12.
+ * Created by Marcin Zielonka on 2017-08-12.
  */
 
 public class GrammarQuizData extends GrammarBaseData<GrammarQuizEntity> {

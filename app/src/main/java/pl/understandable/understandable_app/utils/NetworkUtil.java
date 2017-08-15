@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 /**
- * Created by Marcin on 2017-08-02.
+ * Created by Marcin Zielonka on 2017-08-02.
  */
 
 public class NetworkUtil {

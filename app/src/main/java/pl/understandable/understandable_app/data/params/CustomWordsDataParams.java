@@ -3,10 +3,9 @@ package pl.understandable.understandable_app.data.params;
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
 import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
-import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 
 /**
- * Created by Marcin on 2017-07-29.
+ * Created by Marcin Zielonka on 2017-07-29.
  */
 
 public class CustomWordsDataParams extends BaseDataParams {

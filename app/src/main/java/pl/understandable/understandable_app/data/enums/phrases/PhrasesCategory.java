@@ -1,7 +1,7 @@
 package pl.understandable.understandable_app.data.enums.phrases;
 
 /**
- * Created by Marcin on 2017-08-08.
+ * Created by Marcin Zielonka on 2017-08-08.
  */
 
 public enum PhrasesCategory {

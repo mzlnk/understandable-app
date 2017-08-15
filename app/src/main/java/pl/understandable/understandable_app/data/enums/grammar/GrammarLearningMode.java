@@ -4,7 +4,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
 
 /**
- * Created by Marcin on 2017-08-12.
+ * Created by Marcin Zielonka on 2017-08-12.
  */
 
 public enum GrammarLearningMode implements Identifiable {

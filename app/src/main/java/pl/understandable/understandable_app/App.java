@@ -14,12 +14,10 @@ import pl.understandable.understandable_app.utils.font.FontsOverride;
 import java.io.File;
 
 /**
- * Created by Lotos_ on 2016-11-11.
+ * Created by Marcin Zielonka on 2016-11-11.
  */
 
 public class App extends Application {
-
-    private static final String DEBUG_TAG = "Understandable";
 
     @Override
     public void onCreate() {
@@ -30,17 +28,9 @@ public class App extends Application {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
-    //todo: fix it
-    public static void onStop() {
-        Log.d(DEBUG_TAG, "Closing database connection");
-        Log.d(DEBUG_TAG, "Database connection closed");
-    }
-
     private void loadData() {
-        Log.d(DEBUG_TAG, "Overriding default font");
         FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
 
-        Log.d(DEBUG_TAG, "Loading Entities");
         WordEntityRepository.init(getApplicationContext());
         IrregularVerbEntityRepository.init(getApplicationContext());
         CustomWordsSetsRepository.init(getApplicationContext());

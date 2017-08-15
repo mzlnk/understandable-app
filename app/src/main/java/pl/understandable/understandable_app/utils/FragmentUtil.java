@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.activities.NavigationActivity;
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-07-07.
+ * Created by Marcin Zielonka on 2017-07-07.
  */
 
 public class FragmentUtil {

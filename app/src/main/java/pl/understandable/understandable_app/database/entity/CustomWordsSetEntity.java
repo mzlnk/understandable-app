@@ -1,7 +1,7 @@
 package pl.understandable.understandable_app.database.entity;
 
 /**
- * Created by Marcin on 2017-07-27.
+ * Created by Marcin Zielonka on 2017-07-27.
  */
 
 public class CustomWordsSetEntity {

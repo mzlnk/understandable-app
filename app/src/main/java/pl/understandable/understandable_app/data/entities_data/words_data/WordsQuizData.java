@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-05-06.
+ * Created by Marcin Zielonka on 2017-05-06.
  */
 
 public class WordsQuizData extends WordsBaseData {

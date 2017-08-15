@@ -20,6 +20,10 @@ import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
+/**
+ * Created by Marcin Zielonka on 2017-11-07.
+ */
+
 public class NavigationActivity extends AppCompatActivity {
 
     public static NavigationActivity activity;
@@ -50,13 +54,6 @@ public class NavigationActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }*/
-        //super.onBackPressed();
         new BackButtonListener(getSupportFragmentManager()).onBackPressed();
     }
 
@@ -69,13 +66,6 @@ public class NavigationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
         return super.onOptionsItemSelected(item);
     }
 

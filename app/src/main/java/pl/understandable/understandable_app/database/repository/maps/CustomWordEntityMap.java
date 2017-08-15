@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-07-25.
+ * Created by Marcin Zielonka on 2017-07-25.
  */
 
 public class CustomWordEntityMap {

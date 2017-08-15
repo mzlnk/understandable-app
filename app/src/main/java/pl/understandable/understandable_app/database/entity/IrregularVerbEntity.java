@@ -3,7 +3,7 @@ package pl.understandable.understandable_app.database.entity;
 import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
 
 /**
- * Created by Marcin on 2017-05-06.
+ * Created by Marcin Zielonka on 2017-05-06.
  */
 
 public class IrregularVerbEntity extends BaseEntity {

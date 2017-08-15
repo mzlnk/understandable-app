@@ -6,7 +6,7 @@ import pl.understandable.understandable_app.database.repository.IrregularVerbEnt
 import org.apache.commons.lang.math.NumberUtils;
 
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin Zielonka on 2017-07-08.
  */
 
 public class IrregularVerbsDataParams extends BaseDataParams {

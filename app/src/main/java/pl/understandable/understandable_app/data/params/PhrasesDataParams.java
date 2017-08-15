@@ -5,7 +5,7 @@ import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningMo
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWay;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public class PhrasesDataParams extends BaseDataParams {

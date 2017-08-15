@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Marcin on 2017-05-06.
+ * Created by Marcin Zielonka on 2017-05-06.
  */
 
 public abstract class WordsBaseData implements Datable<WordEntity, WordsDataParams> {

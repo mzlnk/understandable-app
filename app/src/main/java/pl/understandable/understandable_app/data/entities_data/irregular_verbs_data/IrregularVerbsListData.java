@@ -4,7 +4,7 @@ import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin Zielonka on 2017-07-08.
  */
 
 public class IrregularVerbsListData extends IrregularVerbsBaseData {

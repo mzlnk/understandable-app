@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
@@ -21,7 +20,7 @@ import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
 /**
- * Created by Marcin on 2017-06-15.
+ * Created by Marcin Zielonka on 2017-06-15.
  */
 
 public class NavigationListener implements NavigationView.OnNavigationItemSelectedListener {

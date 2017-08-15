@@ -4,7 +4,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
 
 /**
- * Created by Marcin on 2017-07-29.
+ * Created by Marcin Zielonka on 2017-07-29.
  */
 
 public enum CustomWordsLearningMode implements Identifiable {

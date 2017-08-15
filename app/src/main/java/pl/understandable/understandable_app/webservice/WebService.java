@@ -31,7 +31,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 /**
- * Created by Marcin on 2017-07-25.
+ * Created by Marcin Zielonka on 2017-07-25.
  */
 
 public class WebService {
@@ -63,12 +63,6 @@ public class WebService {
                 return 3;
             }
 
-            System.out.println("TEST");
-            System.out.println("Files:");
-            for(File f : new File(context.getFilesDir(), "/words_sets/").listFiles()) {
-                System.out.println(f.getName());
-            }
-
             return 0;
         }
 
@@ -76,41 +70,18 @@ public class WebService {
         protected void onPostExecute(Integer result) {
             switch(result) {
                 case 1:
-                    System.out.println("==============================");
-                    System.out.println("Code does not exist in database");
-                    System.out.println("==============================");
                     Toast.makeText(context, "Podany kod nie istnieje", Toast.LENGTH_SHORT).show();
                     break;
                 case 2:
-                    System.out.println("==============================");
-                    System.out.println("");
-                    System.out.println("File not downloaded");
-                    System.out.println("");
-                    System.out.println("==============================");
                     Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_SHORT).show();
                     break;
                 case 3:
-                    System.out.println("==============================");
-                    System.out.println("");
-                    System.out.println("File data not downloaded/saved");
-                    System.out.println("");
-                    System.out.println("==============================");
                     Toast.makeText(context, "Pobranie zestawu nie powiodło się", Toast.LENGTH_SHORT).show();
                     break;
                 case 4:
-                    System.out.println("==============================");
-                    System.out.println("");
-                    System.out.println("No Internet connection");
-                    System.out.println("");
-                    System.out.println("==============================");
                     Toast.makeText(context, "Brak połączenia z Internetem", Toast.LENGTH_SHORT).show();
                     break;
                 case 0:
-                    System.out.println("==============================");
-                    System.out.println("");
-                    System.out.println("File downloaded and JSON file created");
-                    System.out.println("");
-                    System.out.println("==============================");
                     CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
                     Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
@@ -119,9 +90,6 @@ public class WebService {
         }
 
         private boolean idExists(String id) {
-            System.out.println("==============================");
-            System.out.println("Checking if id exists...");
-            System.out.println("==============================");
             try {
                 URI uri = new URI("http://www.understandable.pl/resources/script/words_set_exist.php?id=" + id);
                 HttpClient httpClient = new DefaultHttpClient();
@@ -141,14 +109,11 @@ public class WebService {
                 e.printStackTrace();
                 return false;
             }
+
             return true;
         }
 
         private boolean downloadFile(String id) {
-            System.out.println("==============================");
-            System.out.println("Downloading file...");
-            System.out.println("==============================");
-
             File dataDirectory = new File(context.getFilesDir(), "/words_sets");
             File output = new File(dataDirectory, id + ".json");
 
@@ -180,18 +145,10 @@ public class WebService {
                 return false;
             }
 
-            System.out.println("==============================");
-            System.out.println("File name: " + output.getName());
-            System.out.println("File size: " + output.length() + " bytes");
-            System.out.println("==============================");
-
             return true;
         }
 
         private boolean downloadWordsSetData(String id) {
-            System.out.println("==============================");
-            System.out.println("Downloading words set data...");
-            System.out.println("==============================");
             try {
                 URI uri = new URI("http://www.understandable.pl/resources/script/get_words_set_info.php?id=" + id);
                 HttpClient httpClient = new DefaultHttpClient();
@@ -218,6 +175,7 @@ public class WebService {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
             return false;
         }
 

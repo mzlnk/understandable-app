@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin Zielonka on 2017-07-08.
  */
 
 public abstract class IrregularVerbsBaseData implements Datable<IrregularVerbEntity, IrregularVerbsDataParams> {
