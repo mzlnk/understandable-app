@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.words.choice;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,9 +26,13 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class WordsChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.way.dataParam";
+    private static final String DATA_PARAM = "words.choice.way.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout waysLayout;
@@ -61,8 +66,7 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the waysLayout for this fragment
         View rootView = inflater.inflate(R.layout.f_words_choice_way, container, false);
         loadViewFromXml(rootView);
@@ -94,9 +98,10 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

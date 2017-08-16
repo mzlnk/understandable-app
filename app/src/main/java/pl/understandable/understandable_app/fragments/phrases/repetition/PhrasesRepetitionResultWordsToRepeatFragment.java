@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.phrases.repetition;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
@@ -15,15 +16,17 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
-import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class PhrasesRepetitionResultWordsToRepeatFragment extends Fragment {
 
@@ -73,8 +76,9 @@ public class PhrasesRepetitionResultWordsToRepeatFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

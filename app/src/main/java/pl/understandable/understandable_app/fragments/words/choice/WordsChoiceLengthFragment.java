@@ -1,9 +1,6 @@
 package pl.understandable.understandable_app.fragments.words.choice;
 
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -32,9 +29,13 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class WordsChoiceLengthFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.length.dataParam";
+    private static final String DATA_PARAM = "words.choice.length.dataParam";
 
     private RelativeLayout mainLayout;
     private TextView title, amountInfo;
@@ -100,9 +101,10 @@ public class WordsChoiceLengthFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        back.setTypeface(typeface);
+        submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {

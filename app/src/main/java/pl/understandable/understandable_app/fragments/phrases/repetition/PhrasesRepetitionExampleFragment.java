@@ -12,10 +12,13 @@ import android.widget.TextView;
 import java.util.Random;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
-import pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionExampleFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class PhrasesRepetitionExampleFragment extends Fragment {
 
@@ -75,7 +78,7 @@ public class PhrasesRepetitionExampleFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         word0.setTypeface(typeFace);
         word1.setTypeface(typeFace);
     }

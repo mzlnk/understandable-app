@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.fragments.words.repetition;
 
-
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
@@ -23,6 +23,10 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
 
@@ -72,8 +76,9 @@ public class WordsRepetitionResultWordsToRepeatFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        back.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {

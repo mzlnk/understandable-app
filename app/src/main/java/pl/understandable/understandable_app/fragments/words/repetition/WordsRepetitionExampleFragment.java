@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.fragments.words.repetition;
 
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,13 +12,17 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
 import pl.understandable.understandable_app.utils.ColorUtil;
-import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.font.Font;
 
 import java.util.Random;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class WordsRepetitionExampleFragment extends Fragment {
 
-    public static final String POSITION_PARAM = "words.repetiton.example.positionParam";
+    public static final String POSITION_PARAM = "words.choice.repetiton.example.positionParam";
 
     private WordsRepetitionData repetitionData;
 
@@ -75,9 +78,9 @@ public class WordsRepetitionExampleFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
-        word0.setTypeface(typeFace);
-        word1.setTypeface(typeFace);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        word0.setTypeface(typeface);
+        word1.setTypeface(typeface);
     }
 
     private void setWords() {

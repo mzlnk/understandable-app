@@ -14,12 +14,17 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.ToastUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class PhrasesRepetitionFragment extends Fragment {
 
@@ -78,7 +83,7 @@ public class PhrasesRepetitionFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
+        Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         repeat.setTypeface(typeFace);
         finish.setTypeface(typeFace);
     }
@@ -118,10 +123,10 @@ public class PhrasesRepetitionFragment extends Fragment {
             public void onClick(View view) {
                 if(repetitionData.existsInToRepeatWords(repetitionData.currentWord)) {
                     repetitionData.removeCurrentWordFromRepeat();
-                    ToastUtil.showToastMessage(getContext(), "Usunieto z powtórzenia", 800);
+                    Toast.makeText(getContext(), "Usunieto z powtórzenia", Toast.LENGTH_SHORT).show();
                 } else {
                     repetitionData.addCurrentWordToRepeat();
-                    ToastUtil.showToastMessage(getContext(), "Dodano do powtórzenia", 800);
+                    Toast.makeText(getContext(), "Dodano do powtórzenia", Toast.LENGTH_SHORT).show();
                 }
             }
         });

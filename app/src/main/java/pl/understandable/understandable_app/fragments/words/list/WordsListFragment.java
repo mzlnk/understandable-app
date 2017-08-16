@@ -21,6 +21,10 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class WordsListFragment extends Fragment {
 
     private int list1Color, list2Color, textColor;

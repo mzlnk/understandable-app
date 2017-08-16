@@ -1,6 +1,6 @@
 package pl.understandable.understandable_app.fragments.words.choice;
 
-
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,9 +28,13 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class WordsChoiceCategoryFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.category.dataParam";
+    private static final String DATA_PARAM = "words.choice.category.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout categoriesLayout;
@@ -94,8 +98,9 @@ public class WordsChoiceCategoryFragment extends Fragment {
     }
 
     public void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        submit.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {

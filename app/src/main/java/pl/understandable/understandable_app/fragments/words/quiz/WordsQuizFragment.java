@@ -1,12 +1,8 @@
 package pl.understandable.understandable_app.fragments.words.quiz;
 
-
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.os.Build;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -16,8 +12,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
@@ -28,12 +22,13 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class WordsQuizFragment extends Fragment {
 
-    private static final int QUESTION_ANSWER_TIME_IN_MILLIS = 5000;
     private static final Random r = new Random();
 
     private WordsQuizData quizData;
@@ -169,13 +164,14 @@ public class WordsQuizFragment extends Fragment {
     }
 
     private void setFonts() {
-        question.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        questionNumber.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        answers[0].setTypeface(Font.TYPEFACE_MONTSERRAT);
-        answers[1].setTypeface(Font.TYPEFACE_MONTSERRAT);
-        answers[2].setTypeface(Font.TYPEFACE_MONTSERRAT);
-        answers[3].setTypeface(Font.TYPEFACE_MONTSERRAT);
-        finish.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        question.setTypeface(typeface);
+        questionNumber.setTypeface(typeface);
+        answers[0].setTypeface(typeface);
+        answers[1].setTypeface(typeface);
+        answers[2].setTypeface(typeface);
+        answers[3].setTypeface(typeface);
+        finish.setTypeface(typeface);
     }
 
     private void prepareButtons() {

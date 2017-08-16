@@ -15,6 +15,10 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.NavigationActivity;
 import pl.understandable.understandable_app.utils.font.Font;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class StartFragment extends Fragment {
 
     private RelativeLayout mainLayout;

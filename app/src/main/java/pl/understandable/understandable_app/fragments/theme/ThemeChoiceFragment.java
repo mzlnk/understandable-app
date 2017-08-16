@@ -18,6 +18,10 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Marcin Zielonka
+ */
+
 public class ThemeChoiceFragment extends Fragment {
 
     private RelativeLayout mainLayout;

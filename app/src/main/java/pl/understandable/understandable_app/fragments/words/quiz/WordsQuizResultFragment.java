@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.fragments.words.quiz;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,7 +22,7 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Marcin Zielonka
  */
 
 public class WordsQuizResultFragment extends Fragment {
@@ -89,14 +90,15 @@ public class WordsQuizResultFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        questionAmount.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        questionAmountInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        correctAnswers.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        correctAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        incorrectAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        incorrectAnswersInfo.setTypeface(Font.TYPEFACE_MONTSERRAT);
-        tryAgain.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        questionAmount.setTypeface(typeface);
+        questionAmountInfo.setTypeface(typeface);
+        correctAnswers.setTypeface(typeface);
+        correctAnswersInfo.setTypeface(typeface);
+        incorrectAnswersInfo.setTypeface(typeface);
+        incorrectAnswersInfo.setTypeface(typeface);
+        tryAgain.setTypeface(typeface);
     }
 
     private void prepareButtons() {

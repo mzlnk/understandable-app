@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -27,6 +26,11 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.font.Font;
+
+/**
+ * Created by Marcin Zielonka
+ */
 
 public class WordsSpellingFragment extends Fragment {
 
@@ -89,11 +93,11 @@ public class WordsSpellingFragment extends Fragment {
     }
 
     private void setFonts() {
-        Typeface typeFace = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Montserrat-Regular-PL.ttf");
-        check.setTypeface(typeFace);
-        showAnswer.setTypeface(typeFace);
-        finish.setTypeface(typeFace);
-        answerField.setTypeface(typeFace);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        check.setTypeface(typeface);
+        showAnswer.setTypeface(typeface);
+        finish.setTypeface(typeface);
+        answerField.setTypeface(typeface);
     }
 
     private void prepareButtons() {
