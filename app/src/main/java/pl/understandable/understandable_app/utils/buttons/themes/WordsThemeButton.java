@@ -15,15 +15,15 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
-import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.words.WordsBaseButton;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
- * Created by Marcin on 2017-07-05.
+ * Created by Marcin Zielonka on 2017-07-05.
  */
 
 public class WordsThemeButton extends ThemeBaseButton {
@@ -107,7 +107,7 @@ public class WordsThemeButton extends ThemeBaseButton {
         changeBackgroundColor(activity, R.id.nav_view, R.attr.background_color);
         changeBackgroundColor(activity, R.id.layout_for_fragments, R.attr.background_color);
         ThemeChoiceFragment newFragment = new ThemeChoiceFragment();
-        ((AppCompatActivity)activity).getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, newFragment).commit();
+        ((AppCompatActivity)activity).getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, newFragment, redirectTo(F_START)).commit();
         changeComponentsInNavigationDrawer(activity);
     }
 

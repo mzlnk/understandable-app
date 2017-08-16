@@ -1,7 +1,6 @@
 package pl.understandable.understandable_app.utils.buttons.words;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TableRow;
@@ -11,7 +10,7 @@ import pl.understandable.understandable_app.data.enums.words.WordsLanguageCatego
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 /**
- * Created by Marcin on 2017-04-08.
+ * Created by Marcin Zielonka on 2017-04-08.
  */
 
 public class WordsCategoryButton extends WordsBaseButton {

@@ -7,7 +7,7 @@ import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public abstract class PhrasesBaseButton extends BaseButton<PhrasesDataParams> {

@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 
 /**
- * Created by Marcin on 2017-04-07.
+ * Created by Marcin Zielonka on 2017-04-07.
  */
 
 public class Font {

@@ -14,7 +14,7 @@ import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWa
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 
 /**
- * Created by Marcin on 2017-08-11.
+ * Created by Marcin Zielonka on 2017-08-11.
  */
 
 public class PhrasesWayButton extends PhrasesBaseButton {

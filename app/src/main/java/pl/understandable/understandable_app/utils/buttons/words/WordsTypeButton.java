@@ -10,7 +10,7 @@ import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 /**
- * Created by Marcin on 2017-05-07.
+ * Created by Marcin Zielonka on 2017-05-07.
  */
 
 public class WordsTypeButton extends WordsBaseButton {

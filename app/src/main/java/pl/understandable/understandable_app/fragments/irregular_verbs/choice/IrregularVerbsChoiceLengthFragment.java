@@ -158,11 +158,11 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         IrregularVerbsRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment());
+                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment(), redirectTo(F_START));
                         break;
                     case LIST:
                         IrregularVerbsListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment());
+                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment(), redirectTo(F_START));
                         break;
                 }
                 transaction.commit();

@@ -7,7 +7,7 @@ import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams
 import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 /**
- * Created by Marcin on 2017-07-08.
+ * Created by Marcin Zielonka on 2017-07-08.
  */
 
 public abstract class IrregularVerbsBaseButton extends BaseButton<IrregularVerbsDataParams> {

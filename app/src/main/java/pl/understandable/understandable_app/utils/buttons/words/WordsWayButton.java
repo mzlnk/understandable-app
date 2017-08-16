@@ -10,12 +10,11 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 import java.util.List;
 
 /**
- * Created by Marcin on 2017-05-07.
+ * Created by Marcin Zielonka on 2017-05-07.
  */
 
 public class WordsWayButton extends WordsBaseButton {
