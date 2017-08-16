@@ -72,6 +72,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
 
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        codeField.setTypeface(typeface);
         download.setTypeface(typeface);
         title.setTypeface(typeface);
     }

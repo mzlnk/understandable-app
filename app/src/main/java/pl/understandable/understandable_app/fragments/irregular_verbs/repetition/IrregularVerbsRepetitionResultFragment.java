@@ -116,9 +116,9 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 repetitionData.resetStats();
-                IrregularVerbsRepetitionFragment wordsRepetitionFragment = new IrregularVerbsRepetitionFragment();
+                IrregularVerbsRepetitionFragment repetitionFragment = new IrregularVerbsRepetitionFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, FragmentUtil.F_IRREGULAR_VERBS_REPETITION).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, repetitionFragment, FragmentUtil.F_IRREGULAR_VERBS_REPETITION).commit();
             }
         });
     }

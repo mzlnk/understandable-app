@@ -73,7 +73,7 @@ public class NavigationActivity extends AppCompatActivity {
         String sharedPrefFileName = getString(R.string.sp_preferences_file_key);
         String sharedPrefThemeKey = getString(R.string.sp_theme_key);
         SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefFileName, Context.MODE_PRIVATE);
-        int themeId = sharedPreferences.getInt(sharedPrefThemeKey, ThemeType.THEME_1.getThemeId());
+        int themeId = sharedPreferences.getInt(sharedPrefThemeKey, ThemeType.THEME_DAY.getThemeId());
         setTheme(themeId);
     }
 

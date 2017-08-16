@@ -62,8 +62,8 @@ public class IrregularVerbsRepetitionData extends IrregularVerbsBaseData {
         currentWord = word;
     }
 
-    public IrregularVerbsRepetitionData resetStats() {
-        return new IrregularVerbsRepetitionData(params);
+    public void resetStats() {
+        repetitionData = new IrregularVerbsRepetitionData(params);
     }
 
 }
