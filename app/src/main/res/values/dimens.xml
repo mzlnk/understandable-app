@@ -110,6 +110,5 @@
     
     <!-- lists -->
     <item name="f_list_text_factor" format="float" type="dimen">0.9</item>
-    
 
 </resources>
