@@ -151,7 +151,7 @@ public class PhrasesChoiceWayFragment extends Fragment {
             public void onClick(View v) {
                 PhrasesChoiceCategoryFragment categoryFragment = PhrasesChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, FragmentUtil.F_PHRASES_CHOICE_CATEGORY).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment).commit();
             }
         });
 
@@ -160,7 +160,7 @@ public class PhrasesChoiceWayFragment extends Fragment {
             public void onClick(View view) {
                 PhrasesChoiceModeFragment modeFragment = PhrasesChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_PHRASES_CHOICE_MODE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
             }
         });
     }

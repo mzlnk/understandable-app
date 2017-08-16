@@ -21,6 +21,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -121,7 +124,7 @@ public class WordsQuizResultFragment extends Fragment {
             public void onClick(View view) {
                 WordsQuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new WordsQuizFragment(), redirectTo(F_START)).commit();
             }
         });
 
@@ -129,7 +132,7 @@ public class WordsQuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new WordsQuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new WordsQuizResultCorrectWordsSummaryFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -139,7 +142,7 @@ public class WordsQuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new WordsQuizResultIncorrectWordsSummaryFragment(), FragmentUtil.F_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new WordsQuizResultIncorrectWordsSummaryFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

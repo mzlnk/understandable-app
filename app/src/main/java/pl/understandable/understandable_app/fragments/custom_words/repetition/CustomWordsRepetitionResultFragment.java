@@ -16,9 +16,11 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
-import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
+
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
@@ -106,7 +108,7 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 CustomWordsRepetitionResultWordsToRepeatFragment fragment = new CustomWordsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_REPETITION_RESULT_WORDS_TO_REPEAT);
+                transaction.replace(R.id.layout_for_fragments, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -118,7 +120,7 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
                 repetitionData.resetStats();
                 CustomWordsRepetitionFragment wordsRepetitionFragment = new CustomWordsRepetitionFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, FragmentUtil.F_CUSTOM_WORDS_REPETITION).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, redirectTo(F_START)).commit();
             }
         });
     }

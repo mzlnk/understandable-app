@@ -33,6 +33,9 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_CHOICE_CATEGORY;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -158,7 +161,7 @@ public class PhrasesChoiceModeFragment extends Fragment {
             public void onClick(View view) {
                 PhrasesChoiceWayFragment wayFragment = PhrasesChoiceWayFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, FragmentUtil.F_PHRASES_CHOICE_WAY).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
             }
         });
 
@@ -169,15 +172,15 @@ public class PhrasesChoiceModeFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         PhrasesRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new PhrasesRepetitionFragment(), FragmentUtil.F_PHRASES_REPETITION);
+                        transaction.replace(R.id.layout_for_fragments, new PhrasesRepetitionFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY));
                         break;
                     case LIST:
                         PhrasesListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new PhrasesListFragment(), FragmentUtil.F_PHRASES_LIST);
+                        transaction.replace(R.id.layout_for_fragments, new PhrasesListFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY));
                         break;
                     case QUIZ:
                         PhrasesQuizData.createQuizDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new PhrasesQuizFragment(), FragmentUtil.F_PHRASES_QUIZ);
+                        transaction.replace(R.id.layout_for_fragments, new PhrasesQuizFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY));
                         break;
                 }
                 transaction.commit();

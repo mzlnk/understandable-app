@@ -122,7 +122,7 @@ public class CustomWordsSpellingResultFragment extends Fragment {
             public void onClick(View view) {
                 spellingData.resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment(), FragmentUtil.F_CUSTOM_WORDS_SPELLING).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment()).commit();
             }
         });
 
@@ -130,7 +130,7 @@ public class CustomWordsSpellingResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingResultCorrectWordsSummaryFragment(), FragmentUtil.F_CUSTOM_WORDS_SPELLING_RESULT_CORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingResultCorrectWordsSummaryFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -140,7 +140,7 @@ public class CustomWordsSpellingResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingResultIncorrectWordsSummaryFragment(), FragmentUtil.F_CUSTOM_WORDS_SPELLING_RESULT_INCORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingResultIncorrectWordsSummaryFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

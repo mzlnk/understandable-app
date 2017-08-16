@@ -21,6 +21,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -104,7 +107,7 @@ public class GrammarQuizFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizResultFragment(), FragmentUtil.F_PHRASES_QUIZ_RESULT).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizResultFragment()).commit();
             }
         });
     }
@@ -210,10 +213,12 @@ public class GrammarQuizFragment extends Fragment {
                             return;
                         }
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        String id = quizData.getParams().id;
+                        String name = quizData.getParams().name;
                         if (quizData.wordsLeft.size() > 1) {
-                            transaction.replace(R.id.layout_for_fragments, new GrammarQuizFragment(), FragmentUtil.F_PHRASES_QUIZ).commit();
+                            transaction.replace(R.id.layout_for_fragments, new GrammarQuizFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
                         } else {
-                            transaction.replace(R.id.layout_for_fragments, new GrammarQuizResultFragment(), FragmentUtil.F_PHRASES_QUIZ_RESULT).commit();
+                            transaction.replace(R.id.layout_for_fragments, new GrammarQuizResultFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
                         }
                     }
                 }, 3000);

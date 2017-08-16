@@ -36,6 +36,10 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -43,6 +47,7 @@ import pl.understandable.understandable_app.utils.font.Font;
 public class CustomWordsChoiceModeFragment extends Fragment {
 
     private static final String DATA_PARAM = "custom.words.choice.mode.dataParam";
+    private static final String ID_PARAM = "custom.words.choice.mode.idParam";
 
     private RelativeLayout mainLayout;
     private TableLayout modesLayout;
@@ -56,10 +61,11 @@ public class CustomWordsChoiceModeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static CustomWordsChoiceModeFragment newInstance(String param) {
+    public static CustomWordsChoiceModeFragment newInstance(String id, String param) {
         CustomWordsChoiceModeFragment fragment = new CustomWordsChoiceModeFragment();
         Bundle args = new Bundle();
         args.putString(DATA_PARAM, param);
+        args.putString(ID_PARAM, id);
         fragment.setArguments(args);
         return fragment;
     }
@@ -68,10 +74,12 @@ public class CustomWordsChoiceModeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = new CustomWordsDataParams().fromString(getArguments().getString(DATA_PARAM));
-        }
-        if(dataParams == null) {
-            dataParams = new CustomWordsDataParams();
+            String params = getArguments().getString(DATA_PARAM);
+            String id = getArguments().getString(ID_PARAM);
+            dataParams = new CustomWordsDataParams(id);
+            if(params != null) {
+                dataParams = dataParams.fromString(params);
+            }
         }
     }
 
@@ -159,9 +167,10 @@ public class CustomWordsChoiceModeFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomWordsChoiceWayFragment wayFragment = CustomWordsChoiceWayFragment.newInstance(dataParams.toString());
+                CustomWordsChoiceWayFragment wayFragment = CustomWordsChoiceWayFragment.newInstance(dataParams.id, dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, FragmentUtil.F_CUSTOM_WORDS_CHOICE_WAY).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id)).commit();
+                System.out.println("id: " + dataParams.id);
             }
         });
 
@@ -181,19 +190,19 @@ public class CustomWordsChoiceModeFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         CustomWordsRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsRepetitionFragment(), FragmentUtil.F_CUSTOM_WORDS_REPETITION);
+                        transaction.replace(R.id.layout_for_fragments, new CustomWordsRepetitionFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                     case LIST:
                         CustomWordsListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsListFragment(), FragmentUtil.F_CUSTOM_WORDS_LIST);
+                        transaction.replace(R.id.layout_for_fragments, new CustomWordsListFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                     case QUIZ:
                         CustomWordsQuizData.createQuizDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ);
+                        transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                     case SPELLING:
                         CustomWordsSpellingData.createSpellingDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment(), FragmentUtil.F_CUSTOM_WORDS_SPELLING);
+                        transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                 }
                 transaction.commit();

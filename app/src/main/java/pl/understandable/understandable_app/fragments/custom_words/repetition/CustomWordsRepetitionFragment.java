@@ -22,6 +22,10 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -136,7 +140,7 @@ public class CustomWordsRepetitionFragment extends Fragment {
             public void onClick(View view) {
                 CustomWordsRepetitionResultFragment wordsRepetitionResultFragment = new CustomWordsRepetitionResultFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionResultFragment, FragmentUtil.F_CUSTOM_WORDS_REPETITION_RESULT).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionResultFragment, redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, repetitionData.getParams().id)).commit();
             }
         });
     }

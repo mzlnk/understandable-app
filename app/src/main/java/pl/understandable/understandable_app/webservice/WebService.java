@@ -83,7 +83,7 @@ public class WebService {
                     break;
                 case 0:
                     CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                     Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
                     break;
             }

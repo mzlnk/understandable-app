@@ -149,7 +149,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
                 if (dataParams.categories.size() > 0) {
                     WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment, FragmentUtil.F_WORDS_CHOICE_TYPE).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 kategorię", Toast.LENGTH_SHORT).show();
                 }

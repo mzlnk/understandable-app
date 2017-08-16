@@ -124,8 +124,8 @@ public class PhrasesChoiceCategoryFragment extends Fragment {
                 public void onClick(View v) {
                     dataParams.setCategory(category);
                     FragmentManager fragmentManager = getFragmentManager();
-                    PhrasesChoiceModeFragment fragment = PhrasesChoiceModeFragment.newInstance(dataParams.toString());
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_PHRASES_CHOICE_MODE).commit();
+                    PhrasesChoiceWayFragment fragment = PhrasesChoiceWayFragment.newInstance(dataParams.toString());
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                 }
             });
 

@@ -25,6 +25,8 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SETS_LIST;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
@@ -108,7 +110,7 @@ public class GrammarSetsListFragment extends Fragment {
                     }
                     FragmentManager fragmentManager = getFragmentManager();
                     GrammarSetPreviewFragment fragment = GrammarSetPreviewFragment.newInstance(id, name);
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_GRAMMAR_SET_PREVIEW).commit();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_GRAMMAR_SETS_LIST)).commit();
                 }
             });
 

@@ -25,6 +25,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -144,7 +147,7 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 IrregularVerbsChoiceModeFragment modeFragment = IrregularVerbsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_MODE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, redirectTo(F_START)).commit();
             }
         });
 
@@ -155,11 +158,11 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         IrregularVerbsRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment(), FragmentUtil.F_IRREGULAR_VERBS_REPETITION);
+                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment());
                         break;
                     case LIST:
                         IrregularVerbsListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment(), FragmentUtil.F_IRREGULAR_VERBS_LIST);
+                        transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment());
                         break;
                 }
                 transaction.commit();

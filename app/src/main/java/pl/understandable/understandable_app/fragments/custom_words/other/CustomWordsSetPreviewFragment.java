@@ -28,6 +28,10 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -161,7 +165,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
                                 CustomWordsSetsRepository.removeEntity(id);
                                 FragmentManager fragmentManager = getFragmentManager();
                                 CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-                                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
+                                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                             }
 
                         })
@@ -173,9 +177,9 @@ public class CustomWordsSetPreviewFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 CustomWordEntityRepository.create(getContext(), id);
-                CustomWordsChoiceWayFragment fragment = new CustomWordsChoiceWayFragment();
+                CustomWordsChoiceWayFragment fragment = CustomWordsChoiceWayFragment.newInstance(id, null);
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_CHOICE_WAY).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, id)).commit();
             }
         });
         nameField.setOnLongClickListener(new View.OnLongClickListener() {

@@ -151,7 +151,7 @@ public class WordsChoiceWayFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment, FragmentUtil.F_WORDS_CHOICE_LEVEL).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
             }
         });
 
@@ -160,7 +160,7 @@ public class WordsChoiceWayFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceModeFragment modeFragment = WordsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_WORDS_CHOICE_MODE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
             }
         });
     }

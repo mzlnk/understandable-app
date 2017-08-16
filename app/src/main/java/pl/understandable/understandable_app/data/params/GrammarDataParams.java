@@ -10,6 +10,13 @@ import pl.understandable.understandable_app.database.repository.GrammarEntitiesR
 public class GrammarDataParams extends BaseDataParams {
 
     public GrammarLearningMode mode = GrammarLearningMode.QUIZ;
+    public String id = "";
+    public String name = "";
+
+    public GrammarDataParams(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public void setMode(GrammarLearningMode mode) {
         this.mode = mode;

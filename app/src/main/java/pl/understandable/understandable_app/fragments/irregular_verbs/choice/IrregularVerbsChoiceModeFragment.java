@@ -153,7 +153,7 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
 
                 IrregularVerbsChoiceLengthFragment lengthFragment = IrregularVerbsChoiceLengthFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, lengthFragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_LENGTH).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, lengthFragment).commit();
             }
         });
     }

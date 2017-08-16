@@ -156,7 +156,7 @@ public class WordsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceModeFragment modeFragment = WordsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_WORDS_CHOICE_MODE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
             }
         });
 
@@ -168,19 +168,19 @@ public class WordsChoiceLengthFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         WordsRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment(), FragmentUtil.F_WORDS_REPETITION);
+                        transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
                         break;
                     case LIST:
                         WordsListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsListFragment(), FragmentUtil.F_WORDS_LIST);
+                        transaction.replace(R.id.layout_for_fragments, new WordsListFragment());
                         break;
                     case QUIZ:
                         WordsQuizData.createQuizDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), FragmentUtil.F_WORDS_QUIZ);
+                        transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment());
                         break;
                     case SPELLING:
                         WordsSpellingData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment(), FragmentUtil.F_WORDS_SPELLING);
+                        transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment());
                         break;
                 }
                 transaction.commit();

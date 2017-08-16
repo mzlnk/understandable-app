@@ -29,6 +29,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -183,7 +186,9 @@ public class GrammarFillGapFragment extends Fragment {
             public void onClick(View view) {
                 GrammarFillGapResultFragment grammarFillGapResultFragment = new GrammarFillGapResultFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, grammarFillGapResultFragment, FragmentUtil.F_WORDS_SPELLING_RESULT).commit();
+                String id = fillGapData.getParams().id;
+                String name = fillGapData.getParams().name;
+                manager.beginTransaction().replace(R.id.layout_for_fragments, grammarFillGapResultFragment, redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
             }
         });
     }

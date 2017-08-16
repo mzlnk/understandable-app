@@ -12,6 +12,11 @@ public class CustomWordsDataParams extends BaseDataParams {
 
     public CustomWordsLearningMode mode = CustomWordsLearningMode.REPETITION;
     public CustomWordsLearningWay way = CustomWordsLearningWay.RANDOM;
+    public String id = "";
+
+    public CustomWordsDataParams(String id) {
+        this.id = id;
+    }
 
     public void setMode(CustomWordsLearningMode mode) {
         this.mode = mode;
@@ -72,6 +77,5 @@ public class CustomWordsDataParams extends BaseDataParams {
         }
         return this;
     }
-
 
 }

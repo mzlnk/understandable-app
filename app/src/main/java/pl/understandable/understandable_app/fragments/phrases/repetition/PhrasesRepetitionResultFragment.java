@@ -20,6 +20,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_CHOICE_CATEGORY;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -106,7 +109,7 @@ public class PhrasesRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 PhrasesRepetitionResultWordsToRepeatFragment fragment = new PhrasesRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_PHRASES_REPETITION_RESULT_WORDS_TO_REPEAT);
+                transaction.replace(R.id.layout_for_fragments, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -118,7 +121,7 @@ public class PhrasesRepetitionResultFragment extends Fragment {
                 repetitionData.resetStats();
                 PhrasesRepetitionFragment wordsRepetitionFragment = new PhrasesRepetitionFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, FragmentUtil.F_PHRASES_REPETITION).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, redirectTo(F_PHRASES_CHOICE_CATEGORY)).commit();
             }
         });
     }

@@ -27,6 +27,9 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -153,7 +156,7 @@ public class WordsChoiceTypeFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, FragmentUtil.F_WORDS_CHOICE_CATEGORY).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, redirectTo(F_START)).commit();
             }
         });
 
@@ -163,7 +166,7 @@ public class WordsChoiceTypeFragment extends Fragment {
                 if(dataParams.types.size() > 0) {
                     WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment, FragmentUtil.F_WORDS_CHOICE_LEVEL).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }

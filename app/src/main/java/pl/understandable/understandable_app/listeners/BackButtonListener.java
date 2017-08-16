@@ -2,10 +2,14 @@ package pl.understandable.understandable_app.listeners;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
+import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
+import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
@@ -17,7 +21,8 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.*;
 
 public class BackButtonListener {
 
-    FragmentManager fragmentManager;
+    private FragmentManager fragmentManager;
+
 
     public BackButtonListener(FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
@@ -32,31 +37,54 @@ public class BackButtonListener {
         if(tag == null) {
             return;
         }
-        switch(tag) {
-            case F_CUSTOM_WORDS_SET_PREVIEW:
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsSetsListFragment(), F_CUSTOM_WORDS_SETS_LIST).commit();
-                break;
-            case F_GRAMMAR_SET_PREVIEW:
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarSetsListFragment(), F_GRAMMAR_SETS_LIST).commit();
-                break;
-            case F_THEME_CHOICE:
-            case F_WORDS_CHOICE_CATEGORY:
-            case F_WORDS_REPETITION_RESULT:
-            case F_WORDS_QUIZ_RESULT:
-            case F_WORDS_LIST:
-            case F_IRREGULAR_VERBS_CHOICE_MODE:
-            case F_IRREGULAR_VERBS_REPETITION_RESULT:
-            case F_IRREGULAR_VERBS_LIST:
-            case F_DOWNLOAD_CUSTOM_WORDS_SET:
-            case F_CUSTOM_WORDS_SETS_LIST:
-            case F_CUSTOM_WORDS_CHOICE_WAY:
-            case F_CUSTOM_WORDS_REPETITION_RESULT:
-            case F_CUSTOM_WORDS_QUIZ_RESULT:
-            case F_CUSTOM_WORDS_LIST:
-            case F_GRAMMAR_SETS_LIST:
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment(), F_START).commit();
-                break;
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        if(tag.equals(F_START)) {
+            transaction.replace(R.id.layout_for_fragments, new StartFragment()).commit();
+            return;
         }
+        if(tag.equals(F_GRAMMAR_SETS_LIST)) {
+            transaction.replace(R.id.layout_for_fragments, new GrammarSetsListFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_CUSTOM_WORDS_SETS_LIST)) {
+            transaction.replace(R.id.layout_for_fragments, new CustomWordsSetsListFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_PHRASES_CHOICE_CATEGORY)) {
+            transaction.replace(R.id.layout_for_fragments, new PhrasesChoiceCategoryFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.contains(F_CUSTOM_WORDS_SET_PREVIEW)) {
+            String id = tag.substring(F_CUSTOM_WORDS_SET_PREVIEW.length() + 1);
+            transaction.replace(R.id.layout_for_fragments, CustomWordsSetPreviewFragment.newInstance(id), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.contains(F_GRAMMAR_SET_PREVIEW)) {
+            String params = tag.substring(F_GRAMMAR_SET_PREVIEW.length() + 1);
+            System.out.println("params: " + params);
+            String[] decomposedParams = decomposeParams(params, 2);
+            transaction.replace(R.id.layout_for_fragments, GrammarSetPreviewFragment.newInstance(decomposedParams[0], decomposedParams[1])).commit();
+            return;
+        }
+    }
+
+    private String[] decomposeParams(String source, int numberOfParams) {
+        String[] result = new String[numberOfParams];
+        int i = 0;
+        int p = 0;
+        for(; p < numberOfParams - 1; p++) {
+            String str = "";
+            for(; i < source.length(); i++) {
+                if(source.charAt(i) == ':') {
+                    result[p] = str;
+                    break;
+                } else {
+                    str += source.charAt(i);
+                }
+            }
+        }
+        result[p] = source.substring(i + 1);
+        return result;
     }
 
 }

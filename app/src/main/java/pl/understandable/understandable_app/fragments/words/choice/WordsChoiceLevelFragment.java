@@ -152,7 +152,7 @@ public class WordsChoiceLevelFragment extends Fragment {
             public void onClick(View view) {
                 WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment, FragmentUtil.F_WORDS_CHOICE_TYPE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
             }
         });
 
@@ -162,7 +162,7 @@ public class WordsChoiceLevelFragment extends Fragment {
                 if(dataParams.levels.size() > 0) {
                     WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, FragmentUtil.F_WORDS_CHOICE_WAY).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 poziom", Toast.LENGTH_SHORT).show();
                 }

@@ -24,6 +24,8 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SETS_LIST;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
@@ -104,7 +106,7 @@ public class CustomWordsSetsListFragment extends Fragment {
                 public void onClick(View v) {
                     FragmentManager fragmentManager = getFragmentManager();
                     CustomWordsSetPreviewFragment fragment = CustomWordsSetPreviewFragment.newInstance(id);
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW).commit();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_CUSTOM_WORDS_SETS_LIST)).commit();
                 }
             });
 

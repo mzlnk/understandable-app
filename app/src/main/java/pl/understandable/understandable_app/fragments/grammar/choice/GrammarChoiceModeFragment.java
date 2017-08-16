@@ -28,10 +28,13 @@ import pl.understandable.understandable_app.data.params.GrammarDataParams;
 import pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.grammar.quiz.GrammarQuizFragment;
-import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.grammar.GrammarModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
+
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SETS_LIST;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
@@ -48,7 +51,7 @@ public class GrammarChoiceModeFragment extends Fragment {
     private Button submit, back;
 
     private List<GrammarModeButton> modes = new ArrayList<>();
-    private GrammarDataParams dataParams = new GrammarDataParams();
+    private GrammarDataParams dataParams;
     private String id;
     private String name;
 
@@ -71,9 +74,7 @@ public class GrammarChoiceModeFragment extends Fragment {
         if(getArguments() != null) {
             id = getArguments().getString(ID_PARAM);
             name = getArguments().getString(NAME_PARAM);
-        }
-        if(dataParams == null) {
-            dataParams = new GrammarDataParams();
+            dataParams = new GrammarDataParams(id, name);
         }
     }
 
@@ -163,7 +164,7 @@ public class GrammarChoiceModeFragment extends Fragment {
             public void onClick(View view) {
                 GrammarSetPreviewFragment grammarSetPreviewFragment = GrammarSetPreviewFragment.newInstance(id, name);
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, grammarSetPreviewFragment, FragmentUtil.F_PHRASES_CHOICE_WAY).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, grammarSetPreviewFragment, redirectTo(F_GRAMMAR_SETS_LIST)).commit();
             }
         });
 
@@ -183,11 +184,11 @@ public class GrammarChoiceModeFragment extends Fragment {
                 switch (dataParams.mode) {
                     case QUIZ:
                         GrammarQuizData.createQuizDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new GrammarQuizFragment(), FragmentUtil.F_PHRASES_QUIZ);
+                        transaction.replace(R.id.layout_for_fragments, new GrammarQuizFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name));
                         break;
                     case FILL_GAPS:
                         GrammarFillGapData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new GrammarFillGapFragment());
+                        transaction.replace(R.id.layout_for_fragments, new GrammarFillGapFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name));
                         break;
                 }
                 transaction.commit();

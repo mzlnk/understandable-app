@@ -20,6 +20,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -119,7 +122,9 @@ public class GrammarQuizResultFragment extends Fragment {
             public void onClick(View view) {
                 GrammarQuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizFragment(), FragmentUtil.F_PHRASES_QUIZ).commit();
+                String id = quizData.getParams().id;
+                String name = quizData.getParams().name;
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
             }
         });
     }

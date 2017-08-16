@@ -23,6 +23,10 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -109,7 +113,7 @@ public class CustomWordsQuizFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, quizData.getParams().id)).commit();
             }
         });
     }
@@ -244,9 +248,9 @@ public class CustomWordsQuizFragment extends Fragment {
                         }
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         if (quizData.wordsLeft.size() > 1) {
-                            transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ).commit();
+                            transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, quizData.getParams().id)).commit();
                         } else {
-                            transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT).commit();
+                            transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, quizData.getParams().id)).commit();
                         }
                     }
                 }, 3000);

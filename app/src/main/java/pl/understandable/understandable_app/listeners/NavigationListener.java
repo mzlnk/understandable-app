@@ -19,6 +19,8 @@ import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCa
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.*;
+
 /**
  * Created by Marcin Zielonka on 2017-06-15.
  */
@@ -43,31 +45,31 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
 
         if(id == R.id.navigation_words) {
             WordsChoiceCategoryFragment fragment = new WordsChoiceCategoryFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_WORDS_CHOICE_CATEGORY).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_irregular_verbs) {
             IrregularVerbsChoiceModeFragment fragment = new IrregularVerbsChoiceModeFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_IRREGULAR_VERBS_CHOICE_MODE).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_phrases) {
             PhrasesChoiceCategoryFragment fragment = new PhrasesChoiceCategoryFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_PHRASES_CHOICE_CATEGORY).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_grammar) {
             GrammarSetsListFragment fragment = new GrammarSetsListFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_GRAMMAR_SETS_LIST).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_download_custom_words_set) {
             DownloadCustomWordsSetFragment fragment = new DownloadCustomWordsSetFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_custom_words_sets) {
             CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_CUSTOM_WORDS_SETS_LIST).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_THEME_CHOICE).setCustomAnimations(R.anim.fade01, FragmentTransaction.TRANSIT_NONE).commit();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).setCustomAnimations(R.anim.fade01, FragmentTransaction.TRANSIT_NONE).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);

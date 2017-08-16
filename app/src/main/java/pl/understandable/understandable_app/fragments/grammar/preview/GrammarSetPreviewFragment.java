@@ -20,6 +20,9 @@ import pl.understandable.understandable_app.fragments.grammar.choice.GrammarChoi
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -129,7 +132,7 @@ public class GrammarSetPreviewFragment extends Fragment {
                 GrammarEntitiesRepository.create(getContext(), id);
                 GrammarChoiceModeFragment grammarChoiceModeFragment = GrammarChoiceModeFragment.newInstance(id, name);
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, grammarChoiceModeFragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, grammarChoiceModeFragment, redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
             }
         });
     }

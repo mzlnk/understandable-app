@@ -24,6 +24,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_CHOICE_CATEGORY;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -110,7 +113,7 @@ public class PhrasesQuizFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new PhrasesQuizResultFragment(), FragmentUtil.F_PHRASES_QUIZ_RESULT).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new PhrasesQuizResultFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY)).commit();
             }
         });
     }
@@ -244,9 +247,9 @@ public class PhrasesQuizFragment extends Fragment {
                         }
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         if (quizData.wordsLeft.size() > 1) {
-                            transaction.replace(R.id.layout_for_fragments, new PhrasesQuizFragment(), FragmentUtil.F_PHRASES_QUIZ).commit();
+                            transaction.replace(R.id.layout_for_fragments, new PhrasesQuizFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY)).commit();
                         } else {
-                            transaction.replace(R.id.layout_for_fragments, new PhrasesQuizResultFragment(), FragmentUtil.F_PHRASES_QUIZ_RESULT).commit();
+                            transaction.replace(R.id.layout_for_fragments, new PhrasesQuizResultFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY)).commit();
                         }
                     }
                 }, 3000);

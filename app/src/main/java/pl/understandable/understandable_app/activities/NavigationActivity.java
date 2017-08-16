@@ -49,7 +49,7 @@ public class NavigationActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationListener(this));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment(), FragmentUtil.F_START).commit();
+        fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment()).commit();
     }
 
     @Override

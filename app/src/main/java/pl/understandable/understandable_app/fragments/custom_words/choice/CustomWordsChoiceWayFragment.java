@@ -33,6 +33,7 @@ import pl.understandable.understandable_app.utils.font.Font;
 public class CustomWordsChoiceWayFragment extends Fragment {
 
     private static final String DATA_PARAM = "custom.words.choice.way.dataParam";
+    private static final String ID_PARAM = "custom.words.choice.way.idParam";
 
     private RelativeLayout mainLayout;
     private TableLayout waysLayout;
@@ -46,10 +47,11 @@ public class CustomWordsChoiceWayFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static CustomWordsChoiceWayFragment newInstance(String param) {
+    public static CustomWordsChoiceWayFragment newInstance(String id, String param) {
         CustomWordsChoiceWayFragment fragment = new CustomWordsChoiceWayFragment();
         Bundle args = new Bundle();
         args.putString(DATA_PARAM, param);
+        args.putString(ID_PARAM, id);
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,10 +60,12 @@ public class CustomWordsChoiceWayFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = new CustomWordsDataParams().fromString(getArguments().getString(DATA_PARAM));
-        }
-        if(dataParams == null) {
-            dataParams = new CustomWordsDataParams();
+            String params = getArguments().getString(DATA_PARAM);
+            String id = getArguments().getString(ID_PARAM);
+            dataParams = new CustomWordsDataParams(id);
+            if(params != null) {
+                dataParams = dataParams.fromString(params);
+            }
         }
     }
 
@@ -145,9 +149,9 @@ public class CustomWordsChoiceWayFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomWordsChoiceModeFragment modeFragment = CustomWordsChoiceModeFragment.newInstance(dataParams.toString());
+                CustomWordsChoiceModeFragment modeFragment = CustomWordsChoiceModeFragment.newInstance(dataParams.id, dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, FragmentUtil.F_CUSTOM_WORDS_CHOICE_MODE).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
             }
         });
     }

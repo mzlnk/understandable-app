@@ -20,6 +20,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -106,7 +109,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 IrregularVerbsRepetitionResultWordsToRepeatFragment fragment = new IrregularVerbsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment, FragmentUtil.F_IRREGULAR_VERBS_REPETITION_RESULT_WORDS_TO_REPEAT);
+                transaction.replace(R.id.layout_for_fragments, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -118,7 +121,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
                 repetitionData.resetStats();
                 IrregularVerbsRepetitionFragment repetitionFragment = new IrregularVerbsRepetitionFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, repetitionFragment, FragmentUtil.F_IRREGULAR_VERBS_REPETITION).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, repetitionFragment, redirectTo(F_START)).commit();
             }
         });
     }

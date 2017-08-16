@@ -120,7 +120,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
             public void onClick(View view) {
                 CustomWordsQuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizFragment()).commit();
             }
         });
 
@@ -128,7 +128,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultCorrectWordsSummaryFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT_CORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultCorrectWordsSummaryFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -138,7 +138,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultIncorrectWordsSummaryFragment(), FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT_INCORRECT_WORDS_SUMMARY);
+                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultIncorrectWordsSummaryFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

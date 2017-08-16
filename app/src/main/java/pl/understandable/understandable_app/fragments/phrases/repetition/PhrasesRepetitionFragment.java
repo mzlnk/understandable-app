@@ -22,6 +22,9 @@ import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_CHOICE_CATEGORY;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -136,7 +139,7 @@ public class PhrasesRepetitionFragment extends Fragment {
             public void onClick(View view) {
                 PhrasesRepetitionResultFragment phrasesRepetitionResultFragment = new PhrasesRepetitionResultFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, phrasesRepetitionResultFragment, FragmentUtil.F_PHRASES_REPETITION_RESULT).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, phrasesRepetitionResultFragment, redirectTo(F_PHRASES_CHOICE_CATEGORY)).commit();
             }
         });
     }
