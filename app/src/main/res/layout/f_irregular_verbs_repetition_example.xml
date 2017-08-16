@@ -28,7 +28,7 @@
             android:layout_marginRight="@dimen/f_border_margin_medium"
             android:gravity="center"
             android:textAllCaps="false"
-            android:textSize="@dimen/f_quiz_option"
+            android:textSize="@dimen/f_irregular_verbs_repetition_example_word"
             style="?android:attr/borderlessButtonStyle" />
 
         <LinearLayout
@@ -47,7 +47,7 @@
             android:layout_marginLeft="@dimen/f_border_margin_medium"
             android:layout_marginBottom="@dimen/f_irregular_verbs_repetition_example_margin"
             android:textAllCaps="false"
-            android:textSize="@dimen/f_quiz_option"
+            android:textSize="@dimen/f_irregular_verbs_repetition_example_word"
             style="?android:attr/borderlessButtonStyle" />
 
         <Button
@@ -59,7 +59,7 @@
             android:layout_marginRight="@dimen/f_border_margin_medium"
             android:layout_marginBottom="@dimen/f_irregular_verbs_repetition_example_margin"
             android:textAllCaps="false"
-            android:textSize="@dimen/f_quiz_option"
+            android:textSize="@dimen/f_irregular_verbs_repetition_example_word"
             style="?android:attr/borderlessButtonStyle" />
 
         <Button
@@ -71,7 +71,7 @@
             android:layout_marginRight="@dimen/f_border_margin_medium"
             android:layout_marginBottom="@dimen/f_irregular_verbs_repetition_example_margin"
             android:textAllCaps="false"
-            android:textSize="@dimen/f_quiz_option"
+            android:textSize="@dimen/f_irregular_verbs_repetition_example_word"
             style="?android:attr/borderlessButtonStyle" />
 
         <LinearLayout

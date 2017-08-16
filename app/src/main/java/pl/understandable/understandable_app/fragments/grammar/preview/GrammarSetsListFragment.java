@@ -89,11 +89,11 @@ public class GrammarSetsListFragment extends Fragment {
             }
 
             TableLayout.LayoutParams layoutParams = new TableLayout.LayoutParams();
-            int marginInPixels = getContext().getResources().getDimensionPixelSize(R.dimen.f_custom_words_sets_list_row_margin);
+            int marginInPixels = getContext().getResources().getDimensionPixelSize(R.dimen.f_grammar_sets_list_row_margin);
             layoutParams.setMargins(0, 0, 0, marginInPixels);
             row.setLayoutParams(layoutParams);
 
-            row.setMinimumHeight(getContext().getResources().getDimensionPixelSize(R.dimen.f_custom_words_sets_list_row_height));
+            row.setMinimumHeight(getContext().getResources().getDimensionPixelSize(R.dimen.f_grammar_sets_list_row_height));
             row.setMeasureWithLargestChildEnabled(true);
             row.addView(t1);
 

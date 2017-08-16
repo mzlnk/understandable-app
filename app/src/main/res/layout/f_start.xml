@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/background_color"
     tools:context="pl.understandable.understandable_app.fragments.start.StartFragment"
     android:id="@+id/f_start" >
 
@@ -18,14 +19,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25" >
+            android:layout_weight="0.05" >
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.4"
             android:gravity="center" >
 
             <ImageView
@@ -41,7 +42,7 @@
             android:id="@+id/f_start_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_weight="0.15"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/f_start_title"
@@ -51,7 +52,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.35" >
+            android:layout_weight="0.3" >
 
         </LinearLayout>
     </LinearLayout>

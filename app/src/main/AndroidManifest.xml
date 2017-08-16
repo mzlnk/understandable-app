@@ -14,16 +14,18 @@
         android:name="pl.understandable.understandable_app.App">
         <activity
             android:name="pl.understandable.understandable_app.activities.NavigationActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustNothing"
             android:label=""
-            android:theme="@style/NightTheme" >
+            android:theme="@style/NightTheme"
+            android:screenOrientation="portrait" >
         </activity>
 
         <activity
             android:name="pl.understandable.understandable_app.activities.StartActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -104,7 +104,7 @@ public class IrregularVerbsListFragment extends Fragment {
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
 
         TypedValue outValue = new TypedValue();
-        getContext().getResources().getValue(R.dimen.f_list_text_factor, outValue, true);
+        getContext().getResources().getValue(R.dimen.f_irregular_verbs_list_text_factor, outValue, true);
         float factor = outValue.getFloat();
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);

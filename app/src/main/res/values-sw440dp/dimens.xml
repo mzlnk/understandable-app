@@ -90,17 +90,8 @@
     <dimen name="f_spelling_result_correct_answers_amount_info">13sp</dimen>
     <dimen name="f_spelling_result_incorrect_answers_amount_info">13sp</dimen>
 
-    <dimen name="f_spelling_result_image_width">38dp</dimen>
-    <dimen name="f_spelling_result_image_height">38dp</dimen>
-
-
     <!-- grammar fill gap -->
     <dimen name="f_grammar_fill_gap_example_question">15sp</dimen>
-
-
-    <!-- grammar sets list -->
-    <dimen name="f_grammar_sets_list_row_height">40dp</dimen>
-    <dimen name="f_grammar_sets_list_row_margin">4dp</dimen>
 
 
     <!-- custom words sets/preview -->
@@ -119,9 +110,5 @@
 
     <!-- lists -->
     <item name="f_list_text_factor" format="float" type="dimen">0.85</item>
-
-
-    <!-- irregular verb list -->
-    <item name="f_irregular_verbs_text_factor" format="float" type="dimen">0.8</item>
 
 </resources>

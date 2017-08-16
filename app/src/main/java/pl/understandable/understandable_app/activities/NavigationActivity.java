@@ -10,8 +10,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
@@ -50,6 +53,7 @@ public class NavigationActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment()).commit();
+        displayInfo();
     }
 
     @Override
@@ -75,6 +79,15 @@ public class NavigationActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(sharedPrefFileName, Context.MODE_PRIVATE);
         int themeId = sharedPreferences.getInt(sharedPrefThemeKey, ThemeType.THEME_DAY.getThemeId());
         setTheme(themeId);
+    }
+
+    private void displayInfo() {
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+        manager.getDefaultDisplay().getMetrics(dm);
+        int width = Math.round(dm.widthPixels / dm.density);
+        int height = Math.round(dm.heightPixels / dm.density);
+        Toast.makeText(getApplicationContext(), "width: " + width + "dp\nheight: " + height + "dp", Toast.LENGTH_LONG).show();
     }
 
 }
