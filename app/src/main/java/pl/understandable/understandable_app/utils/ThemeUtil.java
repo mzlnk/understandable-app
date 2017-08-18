@@ -38,4 +38,12 @@ public class ThemeUtil {
         return getCurrentThemeId() == R.style.NightTheme;
     }
 
+    public static boolean isDefaultTheme(int themeId) {
+        return themeId == R.style.DefaultTheme;
+    }
+
+    public static boolean isNightTheme(int themeId) {
+        return themeId == R.style.NightTheme;
+    }
+
 }

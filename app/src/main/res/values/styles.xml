@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textSize">@dimen/navigation_text</item>
         <item name="android:listPreferredItemHeightSmall">@dimen/navigation_item_height</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

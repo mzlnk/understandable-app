@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
-import pl.understandable.understandable_app.utils.buttons.themes.WordsThemeButton;
+import pl.understandable.understandable_app.utils.buttons.themes.ThemeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class ThemeChoiceFragment extends Fragment {
     private TableLayout themesLayout;
     private TextView title;
 
-    private List<WordsThemeButton> themes = new ArrayList<>();
+    private List<ThemeButton> themes = new ArrayList<>();
 
     public ThemeChoiceFragment() {
         // Required empty public constructor
@@ -66,7 +66,7 @@ public class ThemeChoiceFragment extends Fragment {
 
     private void initCategoriesButtons() {
         for(ThemeType theme : ThemeType.values()) {
-            themes.add(new WordsThemeButton(getContext(), theme, themes));
+            themes.add(new ThemeButton(getContext(), theme, themes));
         }
     }
 
@@ -75,7 +75,7 @@ public class ThemeChoiceFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (WordsThemeButton theme : themes) {
+        for (ThemeButton theme : themes) {
             currentImageRow.addView(theme.getImage());
             currentTextRow.addView(theme.getText());
             if (x == 2) {

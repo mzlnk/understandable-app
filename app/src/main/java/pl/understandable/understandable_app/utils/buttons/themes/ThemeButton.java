@@ -26,12 +26,12 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
  * Created by Marcin Zielonka on 2017-07-05.
  */
 
-public class WordsThemeButton extends ThemeBaseButton {
+public class ThemeButton extends ThemeBaseButton {
 
-    private List<WordsThemeButton> allThemes;
+    private List<ThemeButton> allThemes;
     private ThemeType theme;
 
-    public WordsThemeButton(Context context, ThemeType theme, List<WordsThemeButton> allThemes) {
+    public ThemeButton(Context context, ThemeType theme, List<ThemeButton> allThemes) {
         super(context, theme, false);
         this.theme = theme;
         this.allThemes = allThemes;
@@ -74,7 +74,7 @@ public class WordsThemeButton extends ThemeBaseButton {
                     context.setTheme(theme.getThemeId());
                     refreshCurrentComponents();
                     setCurrentThemeInSharedPreferences(theme.getThemeId());
-                    for(WordsThemeButton t : allThemes) {
+                    for(ThemeButton t : allThemes) {
                         if(t.getTheme().equals(theme)) {
                             continue;
                         }
@@ -103,8 +103,6 @@ public class WordsThemeButton extends ThemeBaseButton {
 
     private void refreshCurrentComponents() {
         Activity activity = (Activity) context;
-        changeBackgroundColor(activity, R.id.toolbar, R.attr.accent_color);
-        changeBackgroundColor(activity, R.id.nav_view, R.attr.background_color);
         changeBackgroundColor(activity, R.id.layout_for_fragments, R.attr.background_color);
         ThemeChoiceFragment newFragment = new ThemeChoiceFragment();
         ((AppCompatActivity)activity).getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, newFragment, redirectTo(F_START)).commit();
@@ -119,7 +117,15 @@ public class WordsThemeButton extends ThemeBaseButton {
         NavigationView navigationView = (NavigationView)activity.findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         navigationView.setItemTextColor(ColorStateList.valueOf(colorUtil.getColor(R.attr.text_1_color)));
-        headerView.findViewById(R.id.nav_header_view).setBackgroundColor(colorUtil.getColor(R.attr.accent_color));
+        TextView title = (TextView) headerView.findViewById(R.id.nav_header_view).findViewById(R.id.navigation_title);
+        title.setTextColor(colorUtil.getColor(R.attr.text_1_color));
+
+        ThemeUtil themeUtil = new ThemeUtil(context);
+        if(themeUtil.isDefaultTheme()) {
+            navigationView.setBackgroundResource(R.drawable.field_rounded_white);
+        } else {
+            navigationView.setBackgroundResource(R.drawable.field_rounded_dark_dark_gray);
+        }
     }
 
     private void setCurrentThemeInSharedPreferences(int themeId) {

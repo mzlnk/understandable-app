@@ -4,8 +4,10 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,13 +31,15 @@ import pl.understandable.understandable_app.webservice.WebService;
 
 public class DownloadCustomWordsSetFragment extends Fragment {
 
+    private static final long COOLDOWN_IN_MILLIS = 5000;
+    private static final long MAX_DOWNLOAD_TIME_IN_MILLIS = 20000;
+
     private RelativeLayout mainLayout;
     private EditText codeField;
     private Button download;
     private TextView title;
 
     private long lastClicked = 0;
-    private static final long COOLDOWN_IN_MILLIS = 5000;
 
     public DownloadCustomWordsSetFragment() {
         // Required empty public constructor
@@ -112,9 +116,28 @@ public class DownloadCustomWordsSetFragment extends Fragment {
                 String code = codeField.getText().toString();
                 code = code.toUpperCase();
                 WebService.DownloadWordsSetTask task = (WebService.DownloadWordsSetTask) new WebService.DownloadWordsSetTask(getContext(), getFragmentManager()).execute(code);
-                //todo: add task.cancel()
+                DownloadTaskCanceller taskCanceller = new DownloadTaskCanceller(task);
+                Handler handler = new Handler();
+                handler.postDelayed(taskCanceller, MAX_DOWNLOAD_TIME_IN_MILLIS);
             }
         });
+    }
+
+    private class DownloadTaskCanceller implements Runnable {
+
+        private AsyncTask asyncTask;
+
+        public DownloadTaskCanceller(AsyncTask asyncTask) {
+            this.asyncTask = asyncTask;
+        }
+
+        @Override
+        public void run() {
+            if(asyncTask.getStatus() == AsyncTask.Status.RUNNING) {
+                asyncTask.cancel(true);
+                Toast.makeText(getContext(), "Przekroczono limit czasu pobierania. Pobieranie zostało przerwane.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 }

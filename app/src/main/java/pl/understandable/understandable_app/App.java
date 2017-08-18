@@ -22,19 +22,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        loadData();
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
         prepareCustomWordsSetsDirectory();
         Font.loadBuiltInTypefaces(getApplicationContext());
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-    }
-
-    private void loadData() {
-        FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
-
-        WordEntityRepository.init(getApplicationContext());
-        IrregularVerbEntityRepository.init(getApplicationContext());
-        CustomWordsSetsRepository.init(getApplicationContext());
-        PhraseEntityRepository.init(getApplicationContext());
     }
 
     private void prepareCustomWordsSetsDirectory() {

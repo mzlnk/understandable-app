@@ -53,6 +53,9 @@ public class WebService {
             if(!networkUtil.isNetworkAvailable()) {
                 return 4;
             }
+            if(!isConnectionAvailable()) {
+                return 4;
+            }
             if(!idExists(id)) {
                 return 1;
             }
@@ -87,6 +90,25 @@ public class WebService {
                     Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
                     break;
             }
+        }
+
+        private boolean isConnectionAvailable() {
+            try {
+                URI uri = new URI("http://www.understandable.pl/resources/script/words_set_exist.php?id=CONNECTION");
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost httpPost = new HttpPost(uri);
+                HttpResponse httpResponse = httpClient.execute(httpPost);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                return false;
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+                return false;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
         }
 
         private boolean idExists(String id) {

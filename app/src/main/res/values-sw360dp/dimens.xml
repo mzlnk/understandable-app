@@ -13,7 +13,7 @@
     <!-- navigation -->
     <dimen name="navigation_text">15sp</dimen>
     <dimen name="navigation_item_height">45dp</dimen>
-    <dimen name="navigation_drawer_width">260dp</dimen>
+    <dimen name="navigation_title">24sp</dimen>
 
 
     <!-- buttons -->

@@ -8,8 +8,8 @@
     <dimen name="activity_horizontal_margin">16sp</dimen>
     <dimen name="activity_vertical_margin">16sp</dimen>
     <dimen name="fab_margin">16sp</dimen>
-    
-    
+
+
     <!-- buttons -->
     <dimen name="button_small_width">140dp</dimen>
     <dimen name="button_small_height">40dp</dimen>
