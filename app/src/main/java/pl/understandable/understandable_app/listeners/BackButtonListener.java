@@ -3,8 +3,10 @@ package pl.understandable.understandable_app.listeners;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.activities.NavigationActivity;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
@@ -21,11 +23,12 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.*;
 
 public class BackButtonListener {
 
+    private NavigationActivity activity;
     private FragmentManager fragmentManager;
 
-
-    public BackButtonListener(FragmentManager fragmentManager) {
-        this.fragmentManager = fragmentManager;
+    public BackButtonListener(NavigationActivity activity) {
+        this.activity = activity;
+        this.fragmentManager = activity.getSupportFragmentManager();
     }
 
     public void onBackPressed() {
@@ -37,9 +40,17 @@ public class BackButtonListener {
         if(tag == null) {
             return;
         }
+        if(activity.drawer.isDrawerOpen(GravityCompat.START)) {
+            activity.drawer.closeDrawer(GravityCompat.START);
+            return;
+        }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+        if(tag.equals(APP_EXIT)) {
+            activity.finishAffinity();
+            return;
+        }
         if(tag.equals(F_START)) {
-            transaction.replace(R.id.layout_for_fragments, new StartFragment()).commit();
+            transaction.replace(R.id.layout_for_fragments, new StartFragment(), redirectTo(APP_EXIT)).commit();
             return;
         }
         if(tag.equals(F_GRAMMAR_SETS_LIST)) {

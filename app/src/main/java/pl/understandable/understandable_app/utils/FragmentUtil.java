@@ -13,6 +13,7 @@ import java.util.List;
 
 public class FragmentUtil {
 
+    public static final String APP_EXIT = "app_exit";
     public static final String F_START = "f_start";
     public static final String F_CUSTOM_WORDS_SET_PREVIEW = "f_custom_words_set_preview";
     public static final String F_CUSTOM_WORDS_SETS_LIST = "f_custom_words_sets_list";

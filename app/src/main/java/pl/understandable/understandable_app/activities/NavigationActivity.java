@@ -24,6 +24,9 @@ import pl.understandable.understandable_app.listeners.NavigationListener;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.APP_EXIT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka on 2017-11-07.
  */
@@ -55,7 +58,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        new BackButtonListener(getSupportFragmentManager()).onBackPressed();
+        new BackButtonListener(this).onBackPressed();
     }
 
     @Override
@@ -86,7 +89,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     private void showStartFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new StartFragment(), redirectTo(APP_EXIT)).commit();
     }
 
     private void setDefaultTheme() {
