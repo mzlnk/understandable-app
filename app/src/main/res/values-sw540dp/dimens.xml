@@ -20,9 +20,9 @@
 
 
     <!-- buttons -->
-    <dimen name="button_small_width">170dp</dimen>
+    <dimen name="button_small_width">180dp</dimen>
     <dimen name="button_small_height">53dp</dimen>
-    <dimen name="button_medium_width">195dp</dimen>
+    <dimen name="button_medium_width">210dp</dimen>
     <dimen name="button_medium_height">53dp</dimen>
     <dimen name="button_text">18sp</dimen>
 

@@ -3,7 +3,7 @@
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="nav_header_vertical_spacing">16sp</dimen>
-    <dimen name="nav_header_height">260sp</dimen>
+    <dimen name="nav_header_height">210sp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16sp</dimen>
     <dimen name="activity_vertical_margin">16sp</dimen>
@@ -11,72 +11,72 @@
 
 
     <!-- navigation -->
-    <dimen name="navigation_text">25sp</dimen>
-    <dimen name="navigation_item_height">80dp</dimen>
-    <dimen name="navigation_title">43sp</dimen>
-    <dimen name="navigation_header_height">100dp</dimen>
-    <dimen name="navigation_icon_size">50dp</dimen>
-    <dimen name="navigation_margin">15dp</dimen>
+    <dimen name="navigation_text">20sp</dimen>
+    <dimen name="navigation_item_height">73dp</dimen>
+    <dimen name="navigation_title">40sp</dimen>
+    <dimen name="navigation_header_height">150dp</dimen>
+    <dimen name="navigation_icon_size">65dp</dimen>
+    <dimen name="navigation_margin">19dp</dimen>
 
 
     <!-- buttons -->
-    <dimen name="button_small_width">230dp</dimen>
-    <dimen name="button_small_height">65dp</dimen>
-    <dimen name="button_medium_width">260dp</dimen>
-    <dimen name="button_medium_height">65dp</dimen>
-    <dimen name="button_text">23sp</dimen>
+    <dimen name="button_small_width">190dp</dimen>
+    <dimen name="button_small_height">60dp</dimen>
+    <dimen name="button_medium_width">220dp</dimen>
+    <dimen name="button_medium_height">60dp</dimen>
+    <dimen name="button_text">20sp</dimen>
 
 
     <!-- titles -->
-    <dimen name="f_text_title_large">80sp</dimen>
-    <dimen name="f_text_title_medium">45sp</dimen>
+    <dimen name="f_text_title_large">65sp</dimen>
+    <dimen name="f_text_title_medium">38sp</dimen>
 
 
     <!-- borders -->
-    <dimen name="f_border_margin_large">40dp</dimen>
-    <dimen name="f_border_margin_medium">20dp</dimen>
+    <dimen name="f_border_margin_large">25dp</dimen>
+    <dimen name="f_border_margin_medium">15dp</dimen>
 
 
     <!-- start -->
     <dimen name="f_start_title">30sp</dimen>
-    <dimen name="f_content_start_screen_icon">170dp</dimen>
+    <dimen name="f_content_start_screen_icon">165dp</dimen>
 
 
     <!-- choice -->
-    <dimen name="f_choice_icon_size">150dp</dimen>
-    <dimen name="f_choice_length_amount">70sp</dimen>
+    <dimen name="f_choice_icon_size">110dp</dimen>
+    <dimen name="f_choice_length_amount">65sp</dimen>
     <dimen name="f_choice_button_margin">10dp</dimen>
-    <item name="f_choice_icon_text_factor" format="float" type="dimen">0.85</item>
+    <item name="f_choice_icon_text_factor" format="float" type="dimen">0.6</item>
 
 
     <!-- repetition -->
-    <dimen name="f_repetition_example_word_1">45sp</dimen>
-    <dimen name="f_repetition_example_word_2">35sp</dimen>
+    <dimen name="f_repetition_example_word_1">38sp</dimen>
+    <dimen name="f_repetition_example_word_2">29sp</dimen>
 
-    <dimen name="f_repetition_result_words_seen_amount">55sp</dimen>
-    <dimen name="f_repetition_result_words_to_repeat_amount">55sp</dimen>
-    <dimen name="f_repetition_result_words_seen_info">30sp</dimen>
-    <dimen name="f_repetition_result_words_to_repeat_info">30sp</dimen>
-    <dimen name="f_repetition_result_words_to_repeat_subtitle">35sp</dimen>
+    <dimen name="f_repetition_result_words_seen_amount">50sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_amount">50sp</dimen>
+    <dimen name="f_repetition_result_words_seen_info">25sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_info">25sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_subtitle">30sp</dimen>
 
 
     <!-- irregular verbs repetition -->
-    <dimen name="f_irregular_verbs_repetition_example_word">34sp</dimen>
-    <dimen name="f_irregular_verbs_repetition_example_margin">11dp</dimen>
+    <dimen name="f_irregular_verbs_repetition_example_word">28sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_example_margin">9dp</dimen>
 
 
     <!-- quiz -->
-    <dimen name="f_quiz_question_number">23sp</dimen>
-    <dimen name="f_quiz_question">37sp</dimen>
-    <dimen name="f_quiz_option">25sp</dimen>
-    <dimen name="f_quiz_margin">10dp</dimen>
+    <dimen name="f_quiz_question_number">21sp</dimen>
+    <dimen name="f_quiz_question">34sp</dimen>
+    <dimen name="f_quiz_option">22sp</dimen>
+    <dimen name="f_quiz_margin">8dp</dimen>
 
     <dimen name="f_quiz_result_questions_amount">50sp</dimen>
     <dimen name="f_quiz_result_answers_amount_info">31sp</dimen>
-    <dimen name="f_quiz_result_correct_answers_amount">42sp</dimen>
-    <dimen name="f_quiz_result_incorrect_answers_amount">42sp</dimen>
-    <dimen name="f_quiz_result_correct_answers_amount_info">26sp</dimen>
-    <dimen name="f_quiz_result_incorrect_answers_amount_info">26sp</dimen>
+    <dimen name="f_quiz_result_correct_answers_amount">38sp</dimen>
+    <dimen name="f_quiz_result_incorrect_answers_amount">38sp</dimen>
+    <dimen name="f_quiz_result_correct_answers_amount_info">25sp</dimen>
+    <dimen name="f_quiz_result_incorrect_answers_amount_info">25sp</dimen>
 
     <dimen name="f_quiz_result_image_width">65dp</dimen>
     <dimen name="f_quiz_result_image_height">65dp</dimen>
@@ -87,44 +87,44 @@
 
 
     <!-- spelling -->
-    <dimen name="f_spelling_example_word_1">38sp</dimen>
-    <dimen name="f_spelling_example_word_2">28sp</dimen>
+    <dimen name="f_spelling_example_word_1">36sp</dimen>
+    <dimen name="f_spelling_example_word_2">27sp</dimen>
 
     <dimen name="f_spelling_answer_field_width">450dp</dimen>
 
     <dimen name="f_spelling_result_words_seen_amount">50sp</dimen>
     <dimen name="f_spelling_result_words_seen_info">31sp</dimen>
-    <dimen name="f_spelling_result_correct_answers_amount">42sp</dimen>
-    <dimen name="f_spelling_result_incorrect_answers_amount">42sp</dimen>
-    <dimen name="f_spelling_result_correct_answers_amount_info">26sp</dimen>
-    <dimen name="f_spelling_result_incorrect_answers_amount_info">26sp</dimen>
+    <dimen name="f_spelling_result_correct_answers_amount">38sp</dimen>
+    <dimen name="f_spelling_result_incorrect_answers_amount">38sp</dimen>
+    <dimen name="f_spelling_result_correct_answers_amount_info">25sp</dimen>
+    <dimen name="f_spelling_result_incorrect_answers_amount_info">25sp</dimen>
 
-    <dimen name="f_spelling_result_image_width">70dp</dimen>
-    <dimen name="f_spelling_result_image_height">70dp</dimen>
+    <dimen name="f_spelling_result_image_width">65dp</dimen>
+    <dimen name="f_spelling_result_image_height">65dp</dimen>
 
 
     <!-- grammar fill gap -->
-    <dimen name="f_grammar_fill_gap_example_question">36sp</dimen>
+    <dimen name="f_grammar_fill_gap_example_question">34sp</dimen>
 
     <dimen name="f_grammar_fill_gap_result_words_seen_amount">50sp</dimen>
     <dimen name="f_grammar_fill_gap_result_words_seen_info">31sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">42sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">42sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_correct_answers_info">26sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">26sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">38sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">38sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_info">25sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">25sp</dimen>
 
-    <dimen name="f_grammar_fill_gap_result_image_width">70dp</dimen>
-    <dimen name="f_grammar_fill_gap_result_image_height">70dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_width">65dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_height">65dp</dimen>
 
 
     <!-- grammar sets list -->
-    <dimen name="f_grammar_sets_list_row_height">85dp</dimen>
-    <dimen name="f_grammar_sets_list_row_margin">9dp</dimen>
+    <dimen name="f_grammar_sets_list_row_height">80dp</dimen>
+    <dimen name="f_grammar_sets_list_row_margin">8dp</dimen>
 
 
     <!-- custom words sets/preview -->
-    <dimen name="f_custom_words_sets_list_row_height">85dp</dimen>
-    <dimen name="f_custom_words_sets_list_row_margin">9dp</dimen>
+    <dimen name="f_custom_words_sets_list_row_height">80dp</dimen>
+    <dimen name="f_custom_words_sets_list_row_margin">8dp</dimen>
 
     <dimen name="f_custom_words_set_preview_words_set_id_info">29sp</dimen>
     <dimen name="f_custom_words_set_preview_words_set_id">32sp</dimen>
@@ -133,20 +133,20 @@
     <dimen name="f_custom_words_set_preview_words_set_description_info">29sp</dimen>
     <dimen name="f_custom_words_set_preview_words_set_description">23sp</dimen>
 
-    <dimen name="f_download_custom_words_set_code_field_width">160dp</dimen>
+    <dimen name="f_download_custom_words_set_code_field_width">270dp</dimen>
 
 
     <!-- lists -->
-    <item name="f_list_text_factor" format="float" type="dimen">1.6</item>
+    <item name="f_list_text_factor" format="float" type="dimen">1.05</item>
 
 
     <!-- irregular verb list -->
-    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">1.4</item>
+    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">1</item>
 
 
     <!-- Edit Texts -->
-    <dimen name="f_edit_text_large">30sp</dimen>
-    <dimen name="f_edit_text_medium">25sp</dimen>
-    <dimen name="f_edit_text_small">20sp</dimen>
+    <dimen name="f_edit_text_large">40sp</dimen>
+    <dimen name="f_edit_text_medium">29sp</dimen>
+    <dimen name="f_edit_text_small">26sp</dimen>
 
 </resources>
