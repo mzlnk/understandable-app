@@ -30,14 +30,6 @@ public class WordsModeButton extends WordsBaseButton {
         setImage();
     }
 
-    public ImageView getImage() {
-        return image;
-    }
-
-    public TextView getText() {
-        return text;
-    }
-
     private WordsLearningMode getMode() {
         return mode;
     }
@@ -45,10 +37,10 @@ public class WordsModeButton extends WordsBaseButton {
     @Override
     protected void setChoiceState() {
         if(dataParams.isChosen(mode)) {
-            image.setImageAlpha(ITEM_CHOSEN);
+            image.setAlpha(ITEM_CHOSEN);
             this.setChecked(true);
         } else {
-            image.setImageAlpha(ITEM_NOT_CHOSEN);
+            image.setAlpha(ITEM_NOT_CHOSEN);
             this.setChecked(false);
         }
     }
@@ -59,14 +51,14 @@ public class WordsModeButton extends WordsBaseButton {
             @Override
             public void onClick(View view) {
                 if(!isChecked()) {
-                    image.setImageAlpha(ITEM_CHOSEN);
+                    image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
                     dataParams.setMode(mode);
                     for(WordsModeButton m : allModes) {
                         if(m.getMode().equals(mode)) {
                             continue;
                         }
-                        m.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        m.getImage().setAlpha(ITEM_NOT_CHOSEN);
                         m.setChecked(false);
                     }
                 }

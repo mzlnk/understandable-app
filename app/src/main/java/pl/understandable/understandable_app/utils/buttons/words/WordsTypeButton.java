@@ -26,11 +26,11 @@ public class WordsTypeButton extends WordsBaseButton {
     @Override
     protected void setChoiceState() {
         if(dataParams.isChosen(type)) {
-            image.setImageAlpha(ITEM_CHOSEN);
+            image.setAlpha(ITEM_CHOSEN);
             image.setImageResource(R.drawable.f_words_choice_checked);
             this.setChecked(true);
         } else {
-            image.setImageAlpha(ITEM_NOT_CHOSEN);
+            image.setAlpha(ITEM_NOT_CHOSEN);
             image.setImageResource(R.drawable.f_words_choice_unchecked);
             this.setChecked(false);
         }
@@ -42,12 +42,12 @@ public class WordsTypeButton extends WordsBaseButton {
             @Override
             public void onClick(View view) {
                 if(!isChecked()) {
-                    image.setImageAlpha(ITEM_CHOSEN);
+                    image.setAlpha(ITEM_CHOSEN);
                     image.setImageResource(R.drawable.f_words_choice_checked);
                     setChecked(true);
                     dataParams.addType(type);
                 } else {
-                    image.setImageAlpha(ITEM_NOT_CHOSEN);
+                    image.setAlpha(ITEM_NOT_CHOSEN);
                     image.setImageResource(R.drawable.f_words_choice_unchecked);
                     setChecked(false);
                     dataParams.removeType(type);

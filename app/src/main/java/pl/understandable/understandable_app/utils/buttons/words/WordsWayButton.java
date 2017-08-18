@@ -30,14 +30,6 @@ public class WordsWayButton extends WordsBaseButton {
         setImage();
     }
 
-    public ImageView getImage() {
-        return image;
-    }
-
-    public TextView getText() {
-        return text;
-    }
-
     private WordsLearningWay getWay() {
         return way;
     }
@@ -45,10 +37,10 @@ public class WordsWayButton extends WordsBaseButton {
     @Override
     protected void setChoiceState() {
         if(dataParams.isChosen(way)) {
-            image.setImageAlpha(ITEM_CHOSEN);
+            image.setAlpha(ITEM_CHOSEN);
             this.setChecked(true);
         } else {
-            image.setImageAlpha(ITEM_NOT_CHOSEN);
+            image.setAlpha(ITEM_NOT_CHOSEN);
             this.setChecked(false);
         }
     }
@@ -59,14 +51,14 @@ public class WordsWayButton extends WordsBaseButton {
             @Override
             public void onClick(View view) {
                 if(!isChecked()) {
-                    image.setImageAlpha(ITEM_CHOSEN);
+                    image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
                     dataParams.setWay(way);
                     for(WordsWayButton w : allWays) {
                         if(w.getWay().equals(way)) {
                             continue;
                         }
-                        w.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        w.getImage().setAlpha(ITEM_NOT_CHOSEN);
                         w.setChecked(false);
                     }
                 }

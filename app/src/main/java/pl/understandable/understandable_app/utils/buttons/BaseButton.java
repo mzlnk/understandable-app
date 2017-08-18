@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -19,8 +20,8 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 public abstract class BaseButton<P extends BaseDataParams> {
 
-    protected static final int ITEM_CHOSEN = 255;
-    protected static final int ITEM_NOT_CHOSEN = 110;
+    protected static final float ITEM_CHOSEN = 1.0F;
+    protected static final float ITEM_NOT_CHOSEN = 0.43F;
 
     protected ColorUtil colorUtil;
 

@@ -39,14 +39,6 @@ public class ThemeButton extends ThemeBaseButton {
         setImage();
     }
 
-    public ImageView getImage() {
-        return image;
-    }
-
-    public TextView getText() {
-        return text;
-    }
-
     private ThemeType getTheme() {
         return theme;
     }
@@ -54,10 +46,10 @@ public class ThemeButton extends ThemeBaseButton {
     @Override
     protected void setChoiceState() {
         if(theme.getThemeId() == new ThemeUtil(context).getCurrentThemeId()) {
-            image.setImageAlpha(ITEM_CHOSEN);
+            image.setAlpha(ITEM_CHOSEN);
             this.setChecked(true);
         } else {
-            image.setImageAlpha(ITEM_NOT_CHOSEN);
+            image.setAlpha(ITEM_NOT_CHOSEN);
             this.setChecked(false);
         }
     }
@@ -68,7 +60,7 @@ public class ThemeButton extends ThemeBaseButton {
             @Override
             public void onClick(View view) {
                 if(!isChecked()) {
-                    image.setImageAlpha(ITEM_CHOSEN);
+                    image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
                     context.setTheme(theme.getThemeId());
                     refreshCurrentComponents();
@@ -77,7 +69,7 @@ public class ThemeButton extends ThemeBaseButton {
                         if(t.getTheme().equals(theme)) {
                             continue;
                         }
-                        t.getImage().setImageAlpha(ITEM_NOT_CHOSEN);
+                        t.getImage().setAlpha(ITEM_NOT_CHOSEN);
                         t.setChecked(false);
                     }
                 }

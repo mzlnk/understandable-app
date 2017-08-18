@@ -30,10 +30,10 @@ public class WordsCategoryButton extends WordsBaseButton {
     @Override
     protected void setChoiceState() {
         if(dataParams.isChosen(category)) {
-            image.setImageAlpha(ITEM_CHOSEN);
+            image.setAlpha(ITEM_CHOSEN);
             this.setChecked(true);
         } else {
-            image.setImageAlpha(ITEM_NOT_CHOSEN);
+            image.setAlpha(ITEM_NOT_CHOSEN);
             this.setChecked(false);
         }
     }
@@ -44,11 +44,11 @@ public class WordsCategoryButton extends WordsBaseButton {
             @Override
             public void onClick(View view) {
                 if(!isChecked()) {
-                    image.setImageAlpha(ITEM_CHOSEN);
+                    image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
                     dataParams.addCategory(category);
                 } else {
-                    image.setImageAlpha(ITEM_NOT_CHOSEN);
+                    image.setAlpha(ITEM_NOT_CHOSEN);
                     setChecked(false);
                     dataParams.removeCategory(category);
                 }
