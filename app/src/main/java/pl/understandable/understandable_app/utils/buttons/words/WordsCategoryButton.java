@@ -1,11 +1,14 @@
 package pl.understandable.understandable_app.utils.buttons.words;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TableRow;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
@@ -21,7 +24,6 @@ public class WordsCategoryButton extends WordsBaseButton {
         super(context, dataParams, category, false);
         this.category = category;
         prepare();
-        setSize();
         setImage();
     }
 
@@ -52,17 +54,6 @@ public class WordsCategoryButton extends WordsBaseButton {
                 }
             }
         });
-    }
-
-    private void setSize() {
-        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_choice_icon_size);
-        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
-        super.image.setLayoutParams(layoutParams);
-        TypedValue outValue = new TypedValue();
-        context.getResources().getValue(R.dimen.f_choice_icon_text_factor, outValue, true);
-        float factor = outValue.getFloat();
-        float textSizeInPixels = super.text.getTextSize() * factor;
-        super.text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
     }
 
     private void setImage() {

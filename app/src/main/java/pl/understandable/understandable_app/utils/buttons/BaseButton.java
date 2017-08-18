@@ -1,8 +1,10 @@
 package pl.understandable.understandable_app.utils.buttons;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
@@ -60,6 +62,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
     protected void prepare() {
         prepareImage();
         prepareText();
+        setSize();
     }
 
     private void prepareImage() {
@@ -74,6 +77,17 @@ public abstract class BaseButton<P extends BaseDataParams> {
         setTextColor();
         text.setGravity(Gravity.CENTER);
         text.setTypeface(Font.TYPEFACE_MONTSERRAT);
+    }
+
+    private void setSize() {
+        int imageSize = (int) context.getResources().getDimension(R.dimen.f_choice_icon_size);
+        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
+        image.setLayoutParams(layoutParams);
+        TypedValue outValue = new TypedValue();
+        context.getResources().getValue(R.dimen.f_choice_icon_text_factor, outValue, true);
+        float factor = outValue.getFloat();
+        float textSizeInPixels = text.getTextSize() * factor;
+        text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
     }
 
     private void setTextColor() {

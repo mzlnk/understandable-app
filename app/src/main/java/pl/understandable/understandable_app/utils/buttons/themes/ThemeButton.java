@@ -36,7 +36,6 @@ public class ThemeButton extends ThemeBaseButton {
         this.theme = theme;
         this.allThemes = allThemes;
         prepare();
-        setSize();
         setImage();
     }
 
@@ -84,17 +83,6 @@ public class ThemeButton extends ThemeBaseButton {
                 }
             }
         });
-    }
-
-    private void setSize() {
-        int imageSize = (int) super.context.getResources().getDimension(R.dimen.f_choice_icon_size);
-        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
-        super.image.setLayoutParams(layoutParams);
-        TypedValue outValue = new TypedValue();
-        context.getResources().getValue(R.dimen.f_choice_icon_text_factor, outValue, true);
-        float factor = outValue.getFloat();
-        float textSizeInPixels = super.text.getTextSize() * factor;
-        super.text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
     }
 
     private void setImage() {

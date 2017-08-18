@@ -78,7 +78,7 @@ public class StartActivity extends AppCompatActivity {
                 }
             }, delay);
 
-            Toast.makeText(getApplicationContext(), "Time loading: " + String.valueOf(time) + "ms", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "Time loading: " + String.valueOf(time) + "ms", Toast.LENGTH_LONG).show();
         }
 
     }
