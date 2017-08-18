@@ -12,8 +12,11 @@
 
     <!-- navigation -->
     <dimen name="navigation_text">27sp</dimen>
-    <dimen name="navigation_item_height">100dp</dimen>
-    <dimen name="navigation_drawer_width">720dp</dimen>
+    <dimen name="navigation_item_height">200dp</dimen>
+    <dimen name="navigation_title">39sp</dimen>
+    <dimen name="navigation_header_height">80dp</dimen>
+    <dimen name="navigation_icon_size">40dp</dimen>
+    <dimen name="navigation_margin">15dp</dimen>
 
 
     <!-- buttons -->
@@ -103,6 +106,16 @@
     <!-- grammar fill gap -->
     <dimen name="f_grammar_fill_gap_example_question">40sp</dimen>
 
+    <dimen name="f_grammar_fill_gap_result_words_seen_amount">65sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_words_seen_info">40sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">55sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">55sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_info">30sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">30sp</dimen>
+
+    <dimen name="f_grammar_fill_gap_result_image_width">80dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_height">80dp</dimen>
+
 
     <!-- grammar sets list -->
     <dimen name="f_grammar_sets_list_row_height">95dp</dimen>
@@ -129,5 +142,11 @@
 
     <!-- irregular verb list -->
     <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">1.7</item>
+
+
+    <!-- Edit Texts -->
+    <dimen name="f_edit_text_large">34sp</dimen>
+    <dimen name="f_edit_text_medium">29sp</dimen>
+    <dimen name="f_edit_text_small">24sp</dimen>
 
 </resources>

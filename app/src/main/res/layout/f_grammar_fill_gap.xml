@@ -34,6 +34,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="text"
                 android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_edit_text_small"
                 android:textAlignment="center" />
 
         </LinearLayout>

@@ -11,9 +11,12 @@
 
 
     <!-- navigation -->
-    <dimen name="navigation_text">12sp</dimen>
-    <dimen name="navigation_item_height">30dp</dimen>
-    <dimen name="navigation_drawer_width">200dp</dimen>
+    <dimen name="navigation_text">13sp</dimen>
+    <dimen name="navigation_item_height">40dp</dimen>
+    <dimen name="navigation_title">20sp</dimen>
+    <dimen name="navigation_header_height">80dp</dimen>
+    <dimen name="navigation_icon_size">40dp</dimen>
+    <dimen name="navigation_margin">15dp</dimen>
 
 
     <!-- buttons -->
@@ -82,6 +85,16 @@
     <!-- grammar quiz -->
     <dimen name="f_grammar_quiz_question">16sp</dimen>
 
+    <dimen name="f_grammar_fill_gap_result_words_seen_amount">28sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_words_seen_info">17sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">22sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">22sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_info">13sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">13sp</dimen>
+
+    <dimen name="f_grammar_fill_gap_result_image_width">38dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_height">38dp</dimen>
+
 
     <!-- spelling -->
     <dimen name="f_spelling_example_word_1">19sp</dimen>
@@ -101,7 +114,7 @@
 
 
     <!-- grammar fill gap -->
-    <dimen name="f_grammar_fill_gap_example_question">15sp</dimen>
+    <dimen name="f_grammar_fill_gap_example_question">18sp</dimen>
 
 
     <!-- grammar sets list -->
@@ -129,5 +142,11 @@
 
     <!-- irregular verb list -->
     <item name="f_irregular_verbs_text_factor" format="float" type="dimen">0.8</item>
+
+
+    <!-- Edit Texts -->
+    <dimen name="f_edit_text_large">20sp</dimen>
+    <dimen name="f_edit_text_medium">18sp</dimen>
+    <dimen name="f_edit_text_small">16sp</dimen>
 
 </resources>

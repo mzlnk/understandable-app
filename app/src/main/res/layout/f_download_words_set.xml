@@ -35,6 +35,7 @@
                 android:layout_gravity="bottom"
                 android:inputType="textCapCharacters"
                 android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_edit_text_large"
                 android:textAlignment="center" />
 
         </LinearLayout>
