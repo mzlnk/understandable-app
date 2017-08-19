@@ -6,10 +6,8 @@ import pl.understandable.understandable_app.data.enums.phrases.PhrasesCategory;
  * Created by Marcin Zielonka on 2017-08-11.
  */
 
-public class PhraseEntity extends BaseEntity {
+public class PhraseEntity extends BaseWordEntity {
 
-    private String polish;
-    private String english;
     private String category;
 
     public PhraseEntity(int id, String polish, String english, String category) {
@@ -17,14 +15,6 @@ public class PhraseEntity extends BaseEntity {
         this.polish = polish;
         this.english = english;
         this.category = category;
-    }
-
-    public String getPolish() {
-        return polish;
-    }
-
-    public String getEnglish() {
-        return english;
     }
 
     public PhrasesCategory getCategory() {

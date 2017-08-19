@@ -9,10 +9,8 @@ import pl.understandable.understandable_app.data.enums.words.WordsLearningLevel;
  */
 
 
-public class WordEntity extends BaseEntity {
+public class WordEntity extends BaseWordEntity {
 
-    private String polish;
-    private String english;
     private String category;
     private String type;
     private String level;
@@ -24,14 +22,6 @@ public class WordEntity extends BaseEntity {
         this.category = category;
         this.type = type;
         this.level = level;
-    }
-
-    public String getPolish() {
-        return polish;
-    }
-
-    public String getEnglish() {
-        return english;
     }
 
     public WordsLanguageCategory getCategory() {

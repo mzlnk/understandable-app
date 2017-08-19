@@ -127,12 +127,18 @@ public class IrregularVerbsRepetitionResultWordsToRepeatFragment extends Fragmen
         textView.setTextColor(textColor);
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
 
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, MATCH_PARENT, 0.25F);
+
         TypedValue outValue = new TypedValue();
-        getContext().getResources().getValue(R.dimen.f_list_text_factor, outValue, true);
+        getResources().getValue(R.dimen.f_irregular_verbs_list_text_factor, outValue, true);
         float factor = outValue.getFloat();
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-        textView.setLayoutParams(new TableRow.LayoutParams(MATCH_PARENT, MATCH_PARENT, 0.25F));
+
+        int margin = getResources().getDimensionPixelSize(R.dimen.f_list_margin);
+        params.setMargins(margin, margin, margin, margin);
+
+        textView.setLayoutParams(params);
     }
 
     private void addListeners() {

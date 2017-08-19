@@ -13,11 +13,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.List;
+
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
 import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -71,7 +74,11 @@ public class IrregularVerbsListFragment extends Fragment {
 
     private void addWordsToList() {
         boolean color = true;
-        for(IrregularVerbEntity word : IrregularVerbsListData.getListData().getEntities()) {
+
+        List<IrregularVerbEntity> entities = IrregularVerbsListData.getListData().getEntities();
+        EntitySortUtil.sort(entities);
+
+        for(IrregularVerbEntity word : entities) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
@@ -103,12 +110,18 @@ public class IrregularVerbsListFragment extends Fragment {
         textView.setTextColor(textColor);
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
 
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, MATCH_PARENT, 0.25F);
+
         TypedValue outValue = new TypedValue();
-        getContext().getResources().getValue(R.dimen.f_irregular_verbs_list_text_factor, outValue, true);
+        getResources().getValue(R.dimen.f_irregular_verbs_list_text_factor, outValue, true);
         float factor = outValue.getFloat();
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-        textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.25F));
+
+        int margin = getResources().getDimensionPixelSize(R.dimen.f_list_margin);
+        params.setMargins(margin, margin, margin, margin);
+
+        textView.setLayoutParams(params);
     }
 
     private void initColors() {

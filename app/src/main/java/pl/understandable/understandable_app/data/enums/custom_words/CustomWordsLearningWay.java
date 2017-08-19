@@ -2,12 +2,13 @@ package pl.understandable.understandable_app.data.enums.custom_words;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
+import pl.understandable.understandable_app.data.enums.LearningWay;
 
 /**
  * Created by Marcin Zielonka on 2017-07-29.
  */
 
-public enum CustomWordsLearningWay implements Identifiable {
+public enum CustomWordsLearningWay implements Identifiable, LearningWay {
 
     POLISH_TO_ENGLISH(0, "z poskiego na angielski",R.drawable.f_words_choice_way_polish_to_english),
     ENGLISH_TO_POLISH(1, "z angielskiego na polski", R.drawable.f_words_choice_way_english_to_polish),
@@ -35,6 +36,11 @@ public enum CustomWordsLearningWay implements Identifiable {
     @Override
     public int getResId() {
         return resId;
+    }
+
+    @Override
+    public int getWay() {
+        return id;
     }
 
 }

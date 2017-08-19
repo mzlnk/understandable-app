@@ -13,10 +13,15 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.Comparator;
+import java.util.List;
+
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsListData;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.utils.ColorUtil;
+import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -70,12 +75,22 @@ public class CustomWordsListFragment extends Fragment {
 
     private void addWordsToList() {
         boolean color = true;
-        for(CustomWordEntity word : CustomWordsListData.getListData().getEntities()) {
+
+        List<CustomWordEntity> entities = CustomWordsListData.getListData().getEntities();
+        CustomWordsLearningWay learningWay = CustomWordsListData.getListData().getParams().way;
+        EntitySortUtil.sort(entities, learningWay);
+
+        for(CustomWordEntity word : entities) {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            prepareCell(t1, word.getPolish());
-            prepareCell(t2, word.getEnglish());
+            if(learningWay.equals(CustomWordsLearningWay.ENGLISH_TO_POLISH)) {
+                prepareCell(t1, word.getEnglish());
+                prepareCell(t2, word.getPolish());
+            } else {
+                prepareCell(t1, word.getPolish());
+                prepareCell(t2, word.getEnglish());
+            }
 
             if(color) {
                 row.setBackgroundColor(list1Color);
@@ -96,12 +111,18 @@ public class CustomWordsListFragment extends Fragment {
         textView.setTextColor(textColor);
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
 
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, MATCH_PARENT, 0.5F);
+
         TypedValue outValue = new TypedValue();
-        getContext().getResources().getValue(R.dimen.f_list_text_factor, outValue, true);
+        getResources().getValue(R.dimen.f_list_text_factor, outValue, true);
         float factor = outValue.getFloat();
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-        textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, 0.5F));
+
+        int margin = getResources().getDimensionPixelSize(R.dimen.f_list_margin);
+        params.setMargins(margin, margin, margin, margin);
+
+        textView.setLayoutParams(params);
     }
 
     private void initColors() {
