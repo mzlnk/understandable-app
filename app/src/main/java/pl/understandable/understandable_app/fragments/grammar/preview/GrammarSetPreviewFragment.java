@@ -4,9 +4,11 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
@@ -20,6 +22,7 @@ import pl.understandable.understandable_app.fragments.grammar.choice.GrammarChoi
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static android.content.Context.WINDOW_SERVICE;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
@@ -119,10 +122,29 @@ public class GrammarSetPreviewFragment extends Fragment {
 
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         String theme = themeUtil.isDefaultTheme() ? "default" : "night";
+        String width = String.valueOf(getDisplayWidth());
 
-        String url = "http://dl.understandable.pl?id=" + id + "&theme=" + theme;
+        String url = "http://dl.understandable.pl?id=" + id + "&theme=" + theme + "&width=" + width;
         webView.loadUrl(url);
 
+    }
+
+    private int getDisplayWidth() {
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager manager = (WindowManager) getContext().getSystemService(WINDOW_SERVICE);
+        manager.getDefaultDisplay().getMetrics(dm);
+        int width = Math.round(dm.widthPixels / dm.density);
+        if(width >= 900) {
+            return 900;
+        } else if(width >= 800) {
+            return 800;
+        } else if(width >= 720) {
+            return 720;
+        } else if(width >= 600) {
+            return 600;
+        } else {
+            return 0;
+        }
     }
 
     private void addListeners() {
