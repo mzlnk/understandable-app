@@ -20,10 +20,12 @@
 
 
     <!-- buttons -->
+    <dimen name="button_small_small_width">220dp</dimen>
+    <dimen name="button_small_small_height">70dp</dimen>
     <dimen name="button_small_width">260dp</dimen>
-    <dimen name="button_small_height">75dp</dimen>
+    <dimen name="button_small_height">80dp</dimen>
     <dimen name="button_medium_width">295dp</dimen>
-    <dimen name="button_medium_height">75dp</dimen>
+    <dimen name="button_medium_height">80dp</dimen>
     <dimen name="button_text">28sp</dimen>
 
 
@@ -152,13 +154,11 @@
 
 
     <!-- dialog boxes -->
-    <dimen name="d_change_custom_words_set_name_width">670dp</dimen>
-    <dimen name="d_change_custom_words_set_name_height">670dp</dimen>
+    <dimen name="d_dialog_box_width">750dp</dimen>
 
-    <dimen name="d_change_custom_words_set_description_width">670dp</dimen>
-    <dimen name="d_change_custom_words_set_description_height">1000dp</dimen>
-
-    <dimen name="d_remove_custom_words_set_width">670dp</dimen>
-    <dimen name="d_remove_custom_words_set_height">330dp</dimen>
+    <dimen name="d_title_field_height">120dp</dimen>
+    <dimen name="d_button_field_height">120dp</dimen>
+    <dimen name="d_text">32sp</dimen>
+    <dimen name="d_edit_text">30sp</dimen>
 
 </resources>
