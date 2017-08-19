@@ -110,11 +110,11 @@ public class NavigationActivity extends AppCompatActivity {
         navigationView.setLayoutParams(params);
 
         if(ThemeUtil.isDefaultTheme(currentThemeId)) {
-            navigationView.setBackgroundResource(R.drawable.field_rounded_white);
+            navigationView.setBackgroundResource(R.drawable.field_half_rounded_white);
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
             navigationTitle.setTextColor(Color.BLACK);
         } else {
-            navigationView.setBackgroundResource(R.drawable.field_rounded_dark_dark_gray);
+            navigationView.setBackgroundResource(R.drawable.field_half_rounded_dark_dark_gray);
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.WHITE));
             navigationTitle.setTextColor(Color.WHITE);
         }

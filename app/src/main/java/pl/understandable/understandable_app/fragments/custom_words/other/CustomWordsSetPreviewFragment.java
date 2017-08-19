@@ -20,9 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.activities.NavigationActivity;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
+import pl.understandable.understandable_app.dialogs.RemoveCustomWordsSetDialog;
 import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
@@ -155,22 +157,8 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("")
-                        .setMessage("Czy chcesz usunąć ten zestaw?")
-                        .setPositiveButton("Tak", new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                CustomWordsSetsRepository.removeEntity(id);
-                                FragmentManager fragmentManager = getFragmentManager();
-                                CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-                                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
-                            }
-
-                        })
-                        .setNegativeButton("Nie", null)
-                        .show();
+                RemoveCustomWordsSetDialog dialog = new RemoveCustomWordsSetDialog(getContext(), getFragmentManager(), id);
+                dialog.show();
             }
         });
         start.setOnClickListener(new View.OnClickListener() {

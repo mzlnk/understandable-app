@@ -137,6 +137,7 @@
 
 
     <!-- lists -->
+    <dimen name="f_list_margin">2dp</dimen>
     <item name="f_list_text_factor" format="float" type="dimen">1.05</item>
 
 
@@ -148,5 +149,16 @@
     <dimen name="f_edit_text_large">40sp</dimen>
     <dimen name="f_edit_text_medium">29sp</dimen>
     <dimen name="f_edit_text_small">26sp</dimen>
+
+
+    <!-- dialog boxes -->
+    <dimen name="d_change_custom_words_set_name_width">540dp</dimen>
+    <dimen name="d_change_custom_words_set_name_height">540dp</dimen>
+
+    <dimen name="d_change_custom_words_set_description_width">540dp</dimen>
+    <dimen name="d_change_custom_words_set_description_height">700dp</dimen>
+
+    <dimen name="d_remove_custom_words_set_width">540dp</dimen>
+    <dimen name="d_remove_custom_words_set_height">270dp</dimen>
 
 </resources>
