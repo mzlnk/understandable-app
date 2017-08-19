@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.NavigationActivity;
@@ -22,6 +23,9 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.*;
  */
 
 public class BackButtonListener {
+
+    private static final long MAX_CLICK_DELAY_IN_MILLIS_TO_EXIT_APP = 2000;
+    private static long lastClick = 0;
 
     private NavigationActivity activity;
     private FragmentManager fragmentManager;
@@ -46,7 +50,13 @@ public class BackButtonListener {
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         if(tag.equals(APP_EXIT)) {
-            activity.finishAffinity();
+            long click = System.currentTimeMillis();
+            if(click - lastClick < MAX_CLICK_DELAY_IN_MILLIS_TO_EXIT_APP) {
+                activity.finishAffinity();
+            } else {
+                Toast.makeText(activity.getApplicationContext(), "Naciśnij ponownie, aby wyjść", Toast.LENGTH_SHORT).show();
+                lastClick = click;
+            }
             return;
         }
         if(tag.equals(F_START)) {
@@ -74,7 +84,7 @@ public class BackButtonListener {
             String params = tag.substring(F_GRAMMAR_SET_PREVIEW.length() + 1);
             System.out.println("params: " + params);
             String[] decomposedParams = decomposeParams(params, 2);
-            transaction.replace(R.id.layout_for_fragments, GrammarSetPreviewFragment.newInstance(decomposedParams[0], decomposedParams[1])).commit();
+            transaction.replace(R.id.layout_for_fragments, GrammarSetPreviewFragment.newInstance(decomposedParams[0], decomposedParams[1]), redirectTo(F_GRAMMAR_SETS_LIST)).commit();
             return;
         }
     }

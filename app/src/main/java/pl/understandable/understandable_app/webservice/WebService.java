@@ -30,6 +30,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka on 2017-07-25.
  */
@@ -86,7 +89,7 @@ public class WebService {
                     break;
                 case 0:
                     CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
                     Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
                     break;
             }
