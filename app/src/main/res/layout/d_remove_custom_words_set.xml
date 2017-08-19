@@ -14,7 +14,7 @@
         android:layout_height="@dimen/d_title_field_height"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/d_remove_custom_words_set_message"
+        android:text="@string/d_remove_custom_words_set_title"
         android:textSize="@dimen/d_text" />
 
     <LinearLayout

@@ -24,7 +24,7 @@ import pl.understandable.understandable_app.utils.font.Font;
  * Created by Marcin on 2017-08-19.
  */
 
-public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnClickListener {
+public class ChangeCustomWordsSetDescriptionDialog extends Dialog implements View.OnClickListener {
 
     private Context context;
 
@@ -35,7 +35,7 @@ public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnCli
     private String oldText;
     private String id;
 
-    public ChangeCustomWordsSetNameDialog(Context context, String id, String oldText, TextView textView) {
+    public ChangeCustomWordsSetDescriptionDialog(Context context, String id, String oldText, TextView textView) {
         super(context);
         this.context = context;
         this.textView = textView;
@@ -47,7 +47,7 @@ public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.d_change_custom_words_set_name);
+        setContentView(R.layout.d_change_custom_words_set_description);
         loadViewsFromXml();
         prepareViews();
         setFonts();
@@ -55,10 +55,10 @@ public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnCli
     }
 
     private void loadViewsFromXml() {
-        title = (TextView) findViewById(R.id.d_change_custom_words_set_name_title);
-        save = (Button) findViewById(R.id.d_change_custom_words_set_name_button_save);
-        cancel = (Button) findViewById(R.id.d_change_custom_words_set_name_button_cancel);
-        textField = (EditText) findViewById(R.id.d_change_custom_words_set_name_text_field);
+        title = (TextView) findViewById(R.id.d_change_custom_words_set_description_title);
+        save = (Button) findViewById(R.id.d_change_custom_words_set_description_button_save);
+        cancel = (Button) findViewById(R.id.d_change_custom_words_set_description_button_cancel);
+        textField = (EditText) findViewById(R.id.d_change_custom_words_set_description_text_field);
     }
 
     private void prepareViews() {
@@ -109,19 +109,15 @@ public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.d_change_custom_words_set_name_button_save:
+            case R.id.d_change_custom_words_set_description_button_save:
                 String text = textField.getText().toString();
-                if(text.contains("\n")) {
-                    Toast.makeText(getContext(), "Nazwa nie może zawierać znaków nowej linii (ENTER)", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(text.length() > 40) {
-                    Toast.makeText(getContext(), "Nazwa nie może być dłuższa niż 40 znaków", Toast.LENGTH_SHORT).show();
+                if(text.length() > 200) {
+                    Toast.makeText(getContext(), "Nazwa nie może być dłuższa niż 200 znaków", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 textView.setText(text);
-                CustomWordsSetsRepository.setName(id, text);
-                Toast.makeText(getContext(), "Nazwa zostala zmieniona", Toast.LENGTH_SHORT).show();
+                CustomWordsSetsRepository.setDescription(id, text);
+                Toast.makeText(getContext(), "Opis zostal zmieniony", Toast.LENGTH_SHORT).show();;
                 break;
             case R.id.d_change_custom_words_set_name_button_cancel:
                 break;

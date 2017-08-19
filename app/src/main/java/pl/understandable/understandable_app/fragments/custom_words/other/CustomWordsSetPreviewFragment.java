@@ -24,6 +24,8 @@ import pl.understandable.understandable_app.activities.NavigationActivity;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
+import pl.understandable.understandable_app.dialogs.ChangeCustomWordsSetDescriptionDialog;
+import pl.understandable.understandable_app.dialogs.ChangeCustomWordsSetNameDialog;
 import pl.understandable.understandable_app.dialogs.RemoveCustomWordsSetDialog;
 import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
@@ -173,39 +175,17 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         nameField.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                final EditText edit = new EditText(getContext());
-                edit.setText(wordsSetName.getText());
-                edit.setGravity(Gravity.CENTER);
-                new AlertDialog.Builder(getContext())
-                        .setTitle("")
-                        .setMessage("Wprowadź nową nazwę zestawu")
-                        .setView(edit)
-                        .setPositiveButton("zapisz", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String text = edit.getText().toString();
-                                if(text.contains("\n")) {
-                                    Toast.makeText(getContext(), "Nazwa nie może zawierać znaków nowej linii (ENTER)", Toast.LENGTH_LONG).show();
-                                    return;
-                                }
-                                if(text.length() > 40) {
-                                    Toast.makeText(getContext(), "Nazwa nie może być dłuższa niż 40 znaków", Toast.LENGTH_LONG).show();
-                                    return;
-                                }
-                                wordsSetName.setText(edit.getText().toString());
-                                CustomWordsSetsRepository.setName(id, edit.getText().toString());
-                                Toast.makeText(getContext(), "Nazwa zostala zmieniona", Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .setNegativeButton("anuluj", null)
-                        .show();
-                return false;
+                ChangeCustomWordsSetNameDialog dialog = new ChangeCustomWordsSetNameDialog(getContext(), id, wordsSetName.getText().toString(), wordsSetName);
+                dialog.show();
+                return true;
             }
         });
         descriptionField.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                final EditText edit = new EditText(getContext());
+                ChangeCustomWordsSetDescriptionDialog dialog = new ChangeCustomWordsSetDescriptionDialog(getContext(), id, wordsSetDescription.getText().toString(), wordsSetDescription);
+                dialog.show();
+                /*final EditText edit = new EditText(getContext());
                 edit.setText(wordsSetDescription.getText());
                 edit.setGravity(Gravity.CENTER);
                 new AlertDialog.Builder(getContext())
@@ -226,8 +206,8 @@ public class CustomWordsSetPreviewFragment extends Fragment {
                             }
                         })
                         .setNegativeButton("anuluj", null)
-                        .show();
-                return false;
+                        .show();*/
+                return true;
             }
         });
     }

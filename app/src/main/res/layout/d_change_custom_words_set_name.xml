@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/d_dialog_box_width"
     android:layout_height="wrap_content"
@@ -8,39 +8,46 @@
     tools:context="pl.understandable.understandable_app.dialogs.ChangeCustomWordsSetNameDialog"
     android:id="@+id/d_change_custom_words_set_name" >
 
-    <TextView
-        android:id="@+id/d_change_custom_words_set_name_title"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d_title_field_height"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="@string/d_change_custom_words_set_name"
-        android:textSize="@dimen/d_text" />
-
-    <EditText
-        android:id="@+id/d_change_custom_words_set_name_text_field"
+    <LinearLayout
+        android:id="@+id/d_change_custom_words_set_name_action_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/f_border_margin_medium"
-        android:layout_marginRight="@dimen/f_border_margin_medium"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:maxLines="1"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        android:textColor="?attr/text_1_color"
-        android:textSize="@dimen/f_edit_text_medium"
-        android:textAlignment="center" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/d_change_custom_words_set_name_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_title_field_height"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/d_change_custom_words_set_name_title"
+            android:textSize="@dimen/d_text" />
+
+        <EditText
+            android:id="@+id/d_change_custom_words_set_name_text_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:textSize="@dimen/d_edit_text"
+            android:textAlignment="center" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/d_button_field_height"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_below="@id/d_change_custom_words_set_name_action_field">
 
         <Button
-            android:id="@+id/d_change_custom_words_set_button_cancel"
+            android:id="@+id/d_change_custom_words_set_name_button_cancel"
             android:layout_width="@dimen/button_small_small_width"
             android:layout_height="@dimen/button_small_small_height"
             android:layout_marginRight="@dimen/f_choice_button_margin"
@@ -50,7 +57,7 @@
             android:textSize="@dimen/button_text" />
 
         <Button
-            android:id="@+id/d_change_custom_words_set_button_save"
+            android:id="@+id/d_change_custom_words_set_name_button_save"
             android:layout_width="@dimen/button_small_small_width"
             android:layout_height="@dimen/button_small_small_height"
             android:layout_marginLeft="@dimen/f_choice_button_margin"
@@ -60,4 +67,4 @@
             android:textSize="@dimen/button_text" />
 
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
