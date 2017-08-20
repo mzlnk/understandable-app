@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/navigation_icon_size"
                 android:layout_height="@dimen/navigation_icon_size"
                 android:clickable="true"
-                app:srcCompat="@drawable/f_navigation_icon" />
+                app:srcCompat="@drawable/f_app_icon" />
 
         </LinearLayout>
 
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="Understandable"
+            android:text="@string/navigation_title"
             android:textStyle="bold"
             android:textSize="@dimen/navigation_title"
             android:textColor="?attr/text_1_color" />

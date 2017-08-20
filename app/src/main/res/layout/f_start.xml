@@ -34,7 +34,7 @@
                 android:layout_height="@dimen/f_content_start_screen_icon"
                 android:layout_gravity="bottom"
                 android:alpha="1"
-                app:srcCompat="@drawable/f_start_icon" />
+                app:srcCompat="@drawable/f_app_icon" />
 
         </LinearLayout>
 

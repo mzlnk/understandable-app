@@ -19,7 +19,7 @@
             android:id="@+id/f_phrases_repetition_result_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.25"
             android:gravity="center"
             android:text="Koniec"
             android:textColor="?attr/text_1_color"
@@ -66,6 +66,7 @@
                 <TextView
                     android:id="@+id/f_phrases_repetition_result_words_seen_info"
                     android:layout_weight="0.5"
+                    android:layout_gravity="top"
                     android:gravity="center"
                     android:text="@string/f_repetition_result_words_seen_info"
                     android:textColor="?attr/text_1_color"
@@ -74,6 +75,7 @@
                 <TextView
                     android:id="@+id/f_phrases_repetition_result_words_to_repeat_info"
                     android:layout_weight="0.5"
+                    android:layout_gravity="top"
                     android:gravity="center"
                     android:text="@string/f_repetition_result_words_to_repeat_info"
                     android:textColor="?attr/text_1_color"
@@ -82,10 +84,12 @@
             </TableRow>
         </TableLayout>
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1" />
+            android:layout_weight="0.05" >
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/f_phrases_repetition_result_words_to_repeat_title"
