@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapResultFragment"
+    tools:context="pl.understandable.understandable_dev_app.fragments.grammar.fill_gap.GrammarFillGapResultFragment"
     android:id="@+id/f_grammar_fill_gap_result">
 
     <LinearLayout

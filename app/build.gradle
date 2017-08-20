@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.1'
 
     defaultConfig {
-        applicationId "pl.understandable.understandable_app"
+        applicationId "pl.understandable.understandable_dev_app"
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 16
         targetSdkVersion 24

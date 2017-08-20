@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_app.fragments.grammar.quiz.GrammarQuizFragment"
+    tools:context="pl.understandable.understandable_dev_app.fragments.grammar.quiz.GrammarQuizFragment"
     android:id="@+id/f_grammar_quiz" >
 
     <LinearLayout

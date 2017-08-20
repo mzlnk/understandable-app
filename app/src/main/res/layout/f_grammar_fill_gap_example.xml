@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapExampleFragment"
+    tools:context="pl.understandable.understandable_dev_app.fragments.grammar.fill_gap.GrammarFillGapExampleFragment"
     android:id="@+id/f_grammar_fill_gap_example" >
 
     <LinearLayout

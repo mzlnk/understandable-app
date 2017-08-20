@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizResultCorrectWordsSummaryFragment"
+    tools:context="pl.understandable.understandable_dev_app.fragments.custom_words.quiz.CustomWordsQuizResultCorrectWordsSummaryFragment"
     android:id="@+id/f_custom_words_quiz_result_correct_words_summary">
 
     <LinearLayout

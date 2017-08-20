@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingResultFragment"
+    tools:context="pl.understandable.understandable_dev_app.fragments.custom_words.spelling.CustomWordsSpellingResultFragment"
     android:id="@+id/f_custom_words_spelling_result">
 
     <LinearLayout
