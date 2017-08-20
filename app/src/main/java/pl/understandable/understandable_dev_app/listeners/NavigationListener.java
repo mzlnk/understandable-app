@@ -15,9 +15,9 @@ import pl.understandable.understandable_dev_app.fragments.custom_words.other.Dow
 import pl.understandable.understandable_dev_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_dev_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import pl.understandable.understandable_dev_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
+import pl.understandable.understandable_dev_app.fragments.pro.UnderstandableProInfoFragment;
 import pl.understandable.understandable_dev_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_dev_app.fragments.theme.ThemeChoiceFragment;
-import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 
 import static pl.understandable.understandable_dev_app.utils.FragmentUtil.*;
 
@@ -65,6 +65,10 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         }
         else if(id == R.id.navigation_custom_words_sets) {
             CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+        }
+        else if(id == R.id.navigation_app_pro) {
+            UnderstandableProInfoFragment fragment = new UnderstandableProInfoFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_themes) {

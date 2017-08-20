@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_dev_app.fragments.pro.UnderstandableProInfoFragment"
+    android:id="@+id/f_understandable_pro_info">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="@dimen/f_content_start_screen_icon"
+                android:layout_height="@dimen/f_content_start_screen_icon"
+                android:layout_gravity="bottom"
+                android:alpha="1"
+                app:srcCompat="@drawable/f_app_pro_icon" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/f_understandable_pro_info_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:text="@string/f_understandable_pro_info_title"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_text_title_medium" />
+
+        <TextView
+            android:id="@+id/f_understandable_pro_info_message"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center_horizontal"
+            android:text="@string/f_understandable_pro_info_message"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_start_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/f_understandable_pro_info_button_submit"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:layout_gravity="center"
+                android:text="@string/button_app_pro"
+                android:textSize="@dimen/button_text"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:clickable="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
