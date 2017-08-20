@@ -99,7 +99,7 @@ public class GrammarFillGapResultFragment extends Fragment {
         wordsSeenAmountInfo.setTypeface(typeface);
         correctAnswers.setTypeface(typeface);
         correctAnswersInfo.setTypeface(typeface);
-        incorrectAnswersInfo.setTypeface(typeface);
+        incorrectAnswers.setTypeface(typeface);
         incorrectAnswersInfo.setTypeface(typeface);
         tryAgain.setTypeface(typeface);
     }

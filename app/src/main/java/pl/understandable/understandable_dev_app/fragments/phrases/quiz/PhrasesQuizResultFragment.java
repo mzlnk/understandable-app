@@ -99,7 +99,7 @@ public class PhrasesQuizResultFragment extends Fragment {
         questionAmountInfo.setTypeface(typeface);
         correctAnswers.setTypeface(typeface);
         correctAnswersInfo.setTypeface(typeface);
-        incorrectAnswersInfo.setTypeface(typeface);
+        incorrectAnswers.setTypeface(typeface);
         incorrectAnswersInfo.setTypeface(typeface);
         tryAgain.setTypeface(typeface);
     }
