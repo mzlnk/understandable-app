@@ -12,9 +12,9 @@ import pl.understandable.understandable_app.dialogs.RateAppInfoDialog;
 
 public class RateAppUtil {
 
+    private static final int MIN_APP_OPENINGS = 6;
     private static final long MIN_TIME_IN_MILLIS_BETWEEN_RATE_APP_INFOS = 172800000;
     private static final long FIVE_MINUTES_IN_MILLS = 300000;
-    private static final long ZERO_MINUTES_IN_MILLIS = 0;
 
     public static final String RATED = "rated";
     public static final String LATER = "later";
@@ -31,11 +31,8 @@ public class RateAppUtil {
     }
 
     public void showRateAppDialogIfNecessary() {
-        System.out.println("1");
-        if(isRateAppStatusSetToLater()) {
-            System.out.println("2");
+        if(isMinimumAppOpenings() && isRateAppStatusSetToLater()) {
             if(isMinimumTimeBetweenRateAppInfos()) {
-                System.out.println("3");
                 updateLastRateAppInfo();
                 RateAppInfoDialog dialog = new RateAppInfoDialog(context);
                 dialog.show();
@@ -50,11 +47,27 @@ public class RateAppUtil {
         editor.commit();
     }
 
+    public void updateAmountOfAppOpenings() {
+        String sharedPrefAmountOfAppOpeningsKey = context.getResources().getString(R.string.sp_amount_of_app_openings);
+        int amountOfAppOpenings = sharedPreferences.getInt(sharedPrefAmountOfAppOpeningsKey, 0);
+        amountOfAppOpenings++;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(sharedPrefAmountOfAppOpeningsKey, amountOfAppOpenings);
+        editor.commit();
+    }
+
     private boolean isRateAppStatusSetToLater() {
         String sharedPrefRateAppStatusKey = context.getResources().getString(R.string.sp_rate_app_status);
         String rateAppStatus = sharedPreferences.getString(sharedPrefRateAppStatusKey, LATER);
 
         return rateAppStatus.equals(LATER);
+    }
+
+    private boolean isMinimumAppOpenings() {
+        String sharedPrefAmountOfAppOpeningsKey = context.getResources().getString(R.string.sp_amount_of_app_openings);
+        int amountOfAppOpenings = sharedPreferences.getInt(sharedPrefAmountOfAppOpeningsKey, 0);
+
+        return amountOfAppOpenings >= MIN_APP_OPENINGS;
     }
 
     private boolean isMinimumTimeBetweenRateAppInfos() {

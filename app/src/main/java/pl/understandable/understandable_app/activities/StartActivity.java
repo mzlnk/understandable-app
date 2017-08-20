@@ -7,13 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
 import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
+import pl.understandable.understandable_app.utils.RateAppUtil;
 
 /**
  * Created by Marcin Zielonka on 2017-11-07.
@@ -33,6 +33,7 @@ public class StartActivity extends AppCompatActivity {
         icon = (ImageView) findViewById(R.id.f_content_start_screen_icon);
         setAnimation();
 
+        new RateAppUtil(getApplicationContext()).updateAmountOfAppOpenings();
         new LoadDataTask().execute();
     }
 

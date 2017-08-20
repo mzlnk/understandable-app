@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.fragments.start;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.view.LayoutInflater;
@@ -35,7 +36,8 @@ public class StartFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
-        new RateAppUtil(getContext()).showRateAppDialogIfNecessary();
+        showRateAppInfo();
+
         return rootView;
     }
 
@@ -65,6 +67,19 @@ public class StartFragment extends Fragment {
                 NavigationActivity.activity.drawer.openDrawer(GravityCompat.START);
             }
         });
+    }
+
+    private void showRateAppInfo() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(getContext() == null) {
+                    return;
+                }
+                new RateAppUtil(getContext()).showRateAppDialogIfNecessary();
+            }
+        }, 1000L);
     }
 
 }
