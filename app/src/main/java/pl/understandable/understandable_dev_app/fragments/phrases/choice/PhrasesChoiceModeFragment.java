@@ -28,6 +28,7 @@ import pl.understandable.understandable_dev_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_dev_app.fragments.phrases.list.PhrasesListFragment;
 import pl.understandable.understandable_dev_app.fragments.phrases.quiz.PhrasesQuizFragment;
 import pl.understandable.understandable_dev_app.fragments.phrases.repetition.PhrasesRepetitionFragment;
+import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.buttons.phrases.PhrasesModeButton;
@@ -168,6 +169,8 @@ public class PhrasesChoiceModeFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AdUtil.showAd();
+
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {
                     case REPETITION:

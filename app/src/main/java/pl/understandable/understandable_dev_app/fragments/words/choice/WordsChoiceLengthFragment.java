@@ -25,6 +25,7 @@ import pl.understandable.understandable_dev_app.fragments.words.quiz.WordsQuizFr
 import pl.understandable.understandable_dev_app.fragments.words.list.WordsListFragment;
 import pl.understandable.understandable_dev_app.fragments.words.repetition.WordsRepetitionFragment;
 import pl.understandable.understandable_dev_app.fragments.words.spelling.WordsSpellingFragment;
+import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
@@ -163,6 +164,8 @@ public class WordsChoiceLengthFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AdUtil.showAd();
+
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 switch (dataParams.mode) {

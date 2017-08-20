@@ -31,6 +31,7 @@ import pl.understandable.understandable_dev_app.fragments.custom_words.list.Cust
 import pl.understandable.understandable_dev_app.fragments.custom_words.quiz.CustomWordsQuizFragment;
 import pl.understandable.understandable_dev_app.fragments.custom_words.repetition.CustomWordsRepetitionFragment;
 import pl.understandable.understandable_dev_app.fragments.custom_words.spelling.CustomWordsSpellingFragment;
+import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.buttons.custom_words.CustomWordsModeButton;
@@ -185,6 +186,8 @@ public class CustomWordsChoiceModeFragment extends Fragment {
                     Toast.makeText(getContext(), "Zbyt mała ilość fiszek, aby rozpocząć naukę w tym trybie", Toast.LENGTH_LONG).show();
                     return;
                 }
+
+                AdUtil.showAd();
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {

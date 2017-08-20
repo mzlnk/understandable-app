@@ -21,6 +21,7 @@ import pl.understandable.understandable_dev_app.data.entities_data.irregular_ver
 import pl.understandable.understandable_dev_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_dev_app.fragments.irregular_verbs.list.IrregularVerbsListFragment;
 import pl.understandable.understandable_dev_app.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionFragment;
+import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
@@ -154,6 +155,8 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AdUtil.showAd();
+
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {
                     case REPETITION:

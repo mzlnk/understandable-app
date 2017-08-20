@@ -19,6 +19,7 @@ import android.widget.TextView;
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.database.repository.GrammarEntitiesRepository;
 import pl.understandable.understandable_dev_app.fragments.grammar.choice.GrammarChoiceModeFragment;
+import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 
@@ -151,6 +152,8 @@ public class GrammarSetPreviewFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AdUtil.showAd();
+
                 GrammarEntitiesRepository.create(getContext(), id);
                 GrammarChoiceModeFragment grammarChoiceModeFragment = GrammarChoiceModeFragment.newInstance(id, name);
                 FragmentManager fragmentManager = getFragmentManager();

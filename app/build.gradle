@@ -28,6 +28,12 @@ android {
     }
 }
 
+repositories {
+    maven {
+        url "https://maven.google.com"
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/gson-2.8.0.jar')
@@ -38,5 +44,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.1.1'
     compile 'com.android.support:design:24.1.1'
     compile 'com.android.support:support-v4:24.1.1'
+    compile 'com.google.android.gms:play-services-ads:11.2.0'
     testCompile 'junit:junit:4.12'
 }
