@@ -21,6 +21,7 @@ import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
+import pl.understandable.understandable_app.utils.RateAppUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 

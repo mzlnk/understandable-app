@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/d_dialog_box_width"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    tools:context="pl.understandable.understandable_app.dialogs.RemoveCustomWordsSetDialog"
+    android:id="@+id/d_remove_custom_words_set" >
+
+    <TextView
+        android:id="@+id/d_rate_app_info_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_title_field_height"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/d_rate_app_info_title"
+        android:textSize="@dimen/d_text" />
+
+    <TextView
+        android:id="@+id/d_rate_app_info_message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_title_field_height"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/d_rate_app_info_message"
+        android:textSize="@dimen/d_edit_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_button_field_height"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/d_rate_app_info_button_yes"
+            android:layout_width="@dimen/button_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="1dp"
+            android:clickable="true"
+            android:text="@string/button_yes_rate"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_button_field_height"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/d_rate_app_info_button_no"
+            android:layout_width="@dimen/button_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:clickable="true"
+            android:text="@string/button_no_thanks"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_button_field_height"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/d_rate_app_info_button_later"
+            android:layout_width="@dimen/button_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:layout_gravity="top"
+            android:clickable="true"
+            android:text="@string/button_later"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+    </LinearLayout>
+</LinearLayout>

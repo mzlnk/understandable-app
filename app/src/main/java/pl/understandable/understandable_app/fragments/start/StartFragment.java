@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.NavigationActivity;
+import pl.understandable.understandable_app.utils.RateAppUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -34,6 +35,7 @@ public class StartFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+        new RateAppUtil(getContext()).showRateAppDialogIfNecessary();
         return rootView;
     }
 

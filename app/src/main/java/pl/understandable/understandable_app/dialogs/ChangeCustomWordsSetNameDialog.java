@@ -78,7 +78,7 @@ public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnCli
             title.setTextColor(Color.WHITE);
             save.setTextColor(Color.WHITE);
             cancel.setTextColor(Color.WHITE);
-            textField.setTextColor(Color.BLACK);
+            textField.setTextColor(Color.WHITE);
             save.setBackgroundResource(R.drawable.field_rounded_light_gray);
             cancel.setBackgroundResource(R.drawable.field_rounded_gray);
         }
