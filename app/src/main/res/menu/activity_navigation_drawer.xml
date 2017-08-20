@@ -31,8 +31,14 @@
             android:title="Przejdź na wersję Pro" />
     </group>
 
-    <item
-        android:id="@+id/navigation_themes"
-        android:title="Zmień motyw" />
+    <group android:id="@+id/navigation_group_4" >
+        <item
+            android:id="@+id/navigation_help"
+            android:title="Pomoc" />
+        <item
+            android:id="@+id/navigation_themes"
+            android:title="Zmień motyw" />
+    </group>
+
 
 </menu>

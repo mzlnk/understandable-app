@@ -1,6 +1,9 @@
 package pl.understandable.understandable_dev_app.listeners;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.fragments.custom_words.other.CustomWordsSetsListFragment;
@@ -70,6 +74,16 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         else if(id == R.id.navigation_app_pro) {
             UnderstandableProInfoFragment fragment = new UnderstandableProInfoFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+        }
+        else if(id== R.id.navigation_help) {
+            try {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://understandable.pl/help.php"));
+                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(browserIntent);
+            } catch(ActivityNotFoundException e) {
+                Toast.makeText(context, "Wystąpił problem, skontaktuj się z działem pomocy", Toast.LENGTH_SHORT).show();
+            }
+
         }
         else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
