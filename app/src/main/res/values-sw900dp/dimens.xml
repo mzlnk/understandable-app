@@ -40,7 +40,7 @@
 
 
     <!-- start -->
-    <dimen name="f_start_title">33sp</dimen>
+    <dimen name="f_start_title">35sp</dimen>
     <dimen name="f_content_start_screen_icon">200dp</dimen>
 
 
@@ -48,6 +48,7 @@
     <dimen name="f_choice_icon_size">165dp</dimen>
     <dimen name="f_choice_length_amount">80sp</dimen>
     <dimen name="f_choice_button_margin">14dp</dimen>
+    <dimen name="f_choice_subcategory_subtitle">35sp</dimen>
     <item name="f_choice_icon_text_factor" format="float" type="dimen">0.7</item>
 
 

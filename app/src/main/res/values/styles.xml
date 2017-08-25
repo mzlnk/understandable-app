@@ -41,6 +41,7 @@
         <item name="table_border_color">@color/gray</item>
         <item name="irregular_verbs_repetition_example_field_1_color">@color/dark_gray</item>
         <item name="irregular_verbs_repetition_example_field_2_color">@color/gray</item>
+        <item name="bottom_line_color">@color/light_gray</item>
     </style>
 
     <style name="DefaultTheme" parent="AppTheme">
@@ -59,6 +60,7 @@
         <item name="table_border_color">@color/light_gray</item>
         <item name="irregular_verbs_repetition_example_field_1_color">@color/light_gray</item>
         <item name="irregular_verbs_repetition_example_field_2_color">@color/light_light_gray</item>
+        <item name="bottom_line_color">@color/dark_gray</item>
     </style>
 
 </resources>

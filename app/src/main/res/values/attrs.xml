@@ -17,6 +17,7 @@
         <attr name="table_border_color" format="color"/>
         <attr name="irregular_verbs_repetition_example_field_1_color" format="color" />
         <attr name="irregular_verbs_repetition_example_field_2_color" format="color" />
+        <attr name="bottom_line_color" format="color" />
     </declare-styleable>
 
 </resources>

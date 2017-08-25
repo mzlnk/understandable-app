@@ -50,7 +50,7 @@ public enum WordsLanguageCategory implements Identifiable {
 
         try {
             result = WordsLanguageCategory.valueOf(name);
-        }catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             result = WordsLanguageCategory.HUMAN;
         }
 

@@ -48,6 +48,7 @@
     <dimen name="f_choice_icon_size">155dp</dimen>
     <dimen name="f_choice_length_amount">75sp</dimen>
     <dimen name="f_choice_button_margin">12dp</dimen>
+    <dimen name="f_choice_subcategory_subtitle">35sp</dimen>
     <item name="f_choice_icon_text_factor" format="float" type="dimen">0.65</item>
 
 

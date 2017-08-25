@@ -188,7 +188,7 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
     private TextView prepareTextView(String title, boolean active) {
         TextView textView = new TextView(getContext());
         ColorUtil colorUtil = new ColorUtil(getContext());
-        float textSize = getResources().getDimension(R.dimen.f_start_title);
+        float textSize = getResources().getDimension(R.dimen.f_choice_subcategory_subtitle);
         int margin = getResources().getDimensionPixelSize(R.dimen.f_border_margin_medium);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, margin, 0, margin);
@@ -240,7 +240,7 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
         int margin = getResources().getDimensionPixelSize(R.dimen.f_border_margin_medium);
         layoutParams.setMargins(0, margin, 0, 0);
         line.setLayoutParams(layoutParams);
-        line.setBackgroundColor(colorUtil.getColor(R.attr.text_2_color));
+        line.setBackgroundColor(colorUtil.getColor(R.attr.bottom_line_color));
         return line;
     }
 
