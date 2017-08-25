@@ -138,7 +138,16 @@ public class WordsDataParams extends BaseDataParams {
     }
 
     public int getMaximumAvailableWordsAmount() {
-        return WordEntityRepository.getSpecifiedEntities(categories, types, levels).size();
+        switch(method) {
+            case SUBCATEGORIES:
+                return WordEntityRepository.getSpecifiedEntitiesBySubcategory(categories, subcategories, levels).size();
+            case TYPES:
+                return WordEntityRepository.getSpecifiedEntitiesByType(categories, types, levels).size();
+            case ALL:
+                return WordEntityRepository.getSpecifiedEntities(categories, levels).size();
+            default:
+                return WordEntityRepository.getSpecifiedEntities(categories, levels).size();
+        }
     }
 
     @Override

@@ -13,12 +13,17 @@ import pl.understandable.understandable_dev_app.data.params.WordsDataParams;
 
 public class WordsSubcategoryButton extends WordsBaseButton {
 
-    private WordsLanguageSubcategory subcategory;
+    private static final float ITEM_NOT_ACTIVE = 0.15F;
 
-    public WordsSubcategoryButton(Context context, WordsDataParams dataParams, WordsLanguageSubcategory subcategory) {
+    private WordsLanguageSubcategory subcategory;
+    private boolean active;
+
+    public WordsSubcategoryButton(Context context, WordsDataParams dataParams, WordsLanguageSubcategory subcategory, boolean active) {
         super(context, dataParams, subcategory, false);
         this.subcategory = subcategory;
+        this.active = active;
         prepare();
+        setActivityStatus();
     }
 
     @Override
@@ -36,22 +41,35 @@ public class WordsSubcategoryButton extends WordsBaseButton {
 
     @Override
     protected void setOnClickListener() {
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!isChecked()) {
-                    image.setAlpha(ITEM_CHOSEN);
-                    image.setImageResource(R.drawable.f_words_choice_checked);
-                    setChecked(true);
-                    dataParams.addSubcategory(subcategory);
-                } else {
-                    image.setAlpha(ITEM_NOT_CHOSEN);
-                    image.setImageResource(R.drawable.f_words_choice_unchecked);
-                    setChecked(false);
-                    dataParams.removeSubcategory(subcategory);
+        if(isActive()) {
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!isChecked()) {
+                        image.setAlpha(ITEM_CHOSEN);
+                        image.setImageResource(R.drawable.f_words_choice_checked);
+                        setChecked(true);
+                        dataParams.addSubcategory(subcategory);
+                    } else {
+                        image.setAlpha(ITEM_NOT_CHOSEN);
+                        image.setImageResource(R.drawable.f_words_choice_unchecked);
+                        setChecked(false);
+                        dataParams.removeSubcategory(subcategory);
+                    }
                 }
-            }
-        });
+            });
+        }
+    }
+
+    private void setActivityStatus() {
+        if(!isActive()) {
+            image.setAlpha(ITEM_NOT_ACTIVE);
+            text.setAlpha(ITEM_NOT_ACTIVE);
+        }
+    }
+
+    private boolean isActive() {
+        return active;
     }
 
 }

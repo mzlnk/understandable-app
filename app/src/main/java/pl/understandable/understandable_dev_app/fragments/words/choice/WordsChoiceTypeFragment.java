@@ -154,9 +154,9 @@ public class WordsChoiceTypeFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
+                WordsChoiceMethodFragment methodFragment = WordsChoiceMethodFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, redirectTo(F_START)).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, methodFragment, redirectTo(F_START)).commit();
             }
         });
 

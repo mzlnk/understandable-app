@@ -21,7 +21,7 @@ import pl.understandable.understandable_dev_app.utils.font.Font;
 public abstract class BaseButton<P extends BaseDataParams> {
 
     protected static final float ITEM_CHOSEN = 1.0F;
-    protected static final float ITEM_NOT_CHOSEN = 0.43F;
+    protected static final float ITEM_NOT_CHOSEN = 0.35F;
 
     protected ColorUtil colorUtil;
 
@@ -77,7 +77,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
         text.setText(enumType.getName());
         setTextColor();
         text.setGravity(Gravity.CENTER);
-        text.setTypeface(Font.TYPEFACE_MONTSERRAT, Typeface.BOLD);
+        text.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
     private void setSize() {

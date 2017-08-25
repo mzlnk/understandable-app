@@ -1,5 +1,6 @@
 package pl.understandable.understandable_dev_app.fragments.words.choice;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -54,6 +55,8 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
 
     private Map<WordsLanguageCategory, List<WordsSubcategoryButton>> subcategories = new HashMap<>();
     private WordsDataParams dataParams;
+
+    private int i = 0;
 
     public WordsChoiceSubcategoryFragment() {
         // Required empty public constructor
@@ -129,39 +132,60 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
     }
 
     private void initSubcategoryButtons() {
-        for(WordsLanguageCategory category : dataParams.categories) {
+        for(WordsLanguageCategory category : WordsLanguageCategory.values()) {
             List<WordsSubcategoryButton> subcategoryButtons = new ArrayList<>();
+            boolean active = false;
+            if(dataParams.categories.contains(category)) {
+                active = true;
+            }
             for(WordsLanguageSubcategory subcategory : WordsLanguageSubcategory.getSubcategories(category)) {
-                subcategoryButtons.add(new WordsSubcategoryButton(getContext(), dataParams, subcategory));
+                subcategoryButtons.add(new WordsSubcategoryButton(getContext(), dataParams, subcategory, active));
             }
             subcategories.put(category, subcategoryButtons);
         }
     }
 
+
     private void addSubcategoryButtonsToTable() {
-        int width = (int)((double)getLayoutWidth() / 4.0D);
         for(WordsLanguageCategory category : subcategories.keySet()) {
-            TextView title = prepareTextView(category.getName());
-            subcategoriesMainLayout.addView(title);
-
-            HorizontalScrollView subcategoriesScrollView = prepareScrollView();
-            LinearLayout subcategoriesLayout = prepareSubcategoriesLayout();
-
-            List<WordsSubcategoryButton> subcategoryButtons = subcategories.get(category);
-
-            for(WordsSubcategoryButton subcategory : subcategoryButtons) {
-                LinearLayout container = prepareSubcategoryButtonContainer(width);
-                container.addView(subcategory.getImage());
-                container.addView(subcategory.getText());
-                subcategoriesLayout.addView(container);
+            if(dataParams.categories.contains(category)) {
+                addSubcategoriesToScrollView(category, true);
             }
-
-            subcategoriesScrollView.addView(subcategoriesLayout);
-            subcategoriesMainLayout.addView(subcategoriesScrollView);
+        }
+        for(WordsLanguageCategory category : subcategories.keySet()) {
+            if(!dataParams.categories.contains(category)) {
+                addSubcategoriesToScrollView(category, false);
+            }
         }
     }
 
-    private TextView prepareTextView(String title) {
+    private void addSubcategoriesToScrollView(WordsLanguageCategory category, boolean active) {
+        int width = (int)((double)getLayoutWidth() / 4.0D);
+
+        TextView title = prepareTextView(category.getName(), active);
+        subcategoriesMainLayout.addView(title);
+
+        HorizontalScrollView subcategoriesScrollView = prepareScrollView();
+        LinearLayout subcategoriesLayout = prepareSubcategoriesLayout();
+
+        List<WordsSubcategoryButton> subcategoryButtons = subcategories.get(category);
+
+        for(WordsSubcategoryButton subcategory : subcategoryButtons) {
+            LinearLayout container = prepareSubcategoryButtonContainer(width);
+            container.addView(subcategory.getImage());
+            container.addView(subcategory.getText());
+            subcategoriesLayout.addView(container);
+        }
+
+        subcategoriesScrollView.addView(subcategoriesLayout);
+        subcategoriesMainLayout.addView(subcategoriesScrollView);
+        if(i != (subcategories.size() - 1)) {
+            subcategoriesMainLayout.addView(prepareLine());
+        }
+        i++;
+    }
+
+    private TextView prepareTextView(String title, boolean active) {
         TextView textView = new TextView(getContext());
         ColorUtil colorUtil = new ColorUtil(getContext());
         float textSize = getResources().getDimension(R.dimen.f_start_title);
@@ -175,6 +199,10 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
         textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
         textView.setGravity(Gravity.CENTER);
         textView.setLayoutParams(layoutParams);
+
+        if(!active) {
+            textView.setAlpha(0.15F);
+        }
 
         return textView;
     }
@@ -203,6 +231,17 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
         container.setOrientation(LinearLayout.VERTICAL);
         container.setGravity(Gravity.CENTER);
         return container;
+    }
+
+    private View prepareLine() {
+        View line = new View(getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 5);
+        ColorUtil colorUtil = new ColorUtil(getContext());
+        int margin = getResources().getDimensionPixelSize(R.dimen.f_border_margin_medium);
+        layoutParams.setMargins(0, margin, 0, 0);
+        line.setLayoutParams(layoutParams);
+        line.setBackgroundColor(colorUtil.getColor(R.attr.text_2_color));
+        return line;
     }
 
     private int getLayoutWidth() {
