@@ -1,22 +1,21 @@
-package pl.understandable.understandable_dev_app.data.enums.words.subcategories;
+package pl.understandable.understandable_dev_app.data.enums.words;
 
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.data.enums.Identifiable;
 
 /**
- * Created by Marcin Zielonka on 2017-08-25.
+ * Created by Marcin on 2017-08-25.
  */
 
-public enum EnvironmentSubcategory implements Identifiable {
+public enum WordsLearningMethod implements Identifiable {
 
-    PLANTS("roślinność"),
-    LANDSCAPE("elementy geograficzne"),
-    WEATHER("pogoda"),
-    ECOLOGY("ekologia");
+    TYPES("rodzaje"),
+    SUBCATEGORIES("podkategorie"),
+    ALL("wszystko");
 
     private String name;
 
-    private EnvironmentSubcategory(String name) {
+    private WordsLearningMethod(String name) {
         this.name = name;
     }
 

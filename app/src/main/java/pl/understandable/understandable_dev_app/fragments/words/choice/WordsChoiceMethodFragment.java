@@ -1,5 +1,6 @@
 package pl.understandable.understandable_dev_app.fragments.words.choice;
 
+
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,17 +15,15 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import pl.understandable.understandable_dev_app.R;
-import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningLevel;
+import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningMethod;
 import pl.understandable.understandable_dev_app.data.params.WordsDataParams;
-import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
-import pl.understandable.understandable_dev_app.utils.buttons.words.WordsLevelButton;
+import pl.understandable.understandable_dev_app.utils.buttons.words.WordsMethodButton;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 
 import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_START;
@@ -34,24 +33,24 @@ import static pl.understandable.understandable_dev_app.utils.FragmentUtil.redire
  * Created by Marcin Zielonka
  */
 
-public class WordsChoiceLevelFragment extends Fragment {
+public class WordsChoiceMethodFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.choice.level.dataParam";
+    private static final String DATA_PARAM = "words.choice.method.dataParam";
 
     private RelativeLayout mainLayout;
-    private TableLayout modesLayout;
+    private TableLayout methodsLayout;
     private TextView title;
     private Button submit, back;
 
-    private List<WordsLevelButton> levels = new ArrayList<>();
+    private List<WordsMethodButton> methods = new ArrayList<>();
     private WordsDataParams dataParams;
 
-    public WordsChoiceLevelFragment() {
+    public WordsChoiceMethodFragment() {
         // Required empty public constructor
     }
 
-    public static WordsChoiceLevelFragment newInstance(String param) {
-        WordsChoiceLevelFragment fragment = new WordsChoiceLevelFragment();
+    public static WordsChoiceMethodFragment newInstance(String param) {
+        WordsChoiceMethodFragment fragment = new WordsChoiceMethodFragment();
         Bundle args = new Bundle();
         args.putString(DATA_PARAM, param);
         fragment.setArguments(args);
@@ -71,8 +70,8 @@ public class WordsChoiceLevelFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the modesLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_words_choice_level, container, false);
+        // Inflate the methodsLayout for this fragment
+        View rootView = inflater.inflate(R.layout.f_words_choice_method, container, false);
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -81,18 +80,18 @@ public class WordsChoiceLevelFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_level);
-        modesLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_level_names_layout);
-        title = (TextView) rootView.findViewById(R.id.f_words_choice_level_title);
-        submit = (Button) rootView.findViewById(R.id.f_words_choice_level_submit);
-        back = (Button) rootView.findViewById(R.id.f_words_choice_level_back);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_method);
+        methodsLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_method_names_layout);
+        title = (TextView) rootView.findViewById(R.id.f_words_choice_method_title);
+        submit = (Button) rootView.findViewById(R.id.f_words_choice_method_submit);
+        back = (Button) rootView.findViewById(R.id.f_words_choice_method_back);
     }
 
     private void prepareLayout() {
         setAnimation();
         setFonts();
         prepareButtons();
-        initModeButtons();
+        initMethodButtons();
         addModeButtonsToTable();
     }
 
@@ -119,9 +118,9 @@ public class WordsChoiceLevelFragment extends Fragment {
         }
     }
 
-    private void initModeButtons() {
-        for(WordsLearningLevel level : WordsLearningLevel.values()) {
-            levels.add(new WordsLevelButton(getContext(), dataParams, level));
+    private void initMethodButtons() {
+        for(WordsLearningMethod method : WordsLearningMethod.values()) {
+            methods.add(new WordsMethodButton(getContext(), dataParams, method, methods));
         }
     }
 
@@ -130,12 +129,12 @@ public class WordsChoiceLevelFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (WordsLevelButton levelButton : levels) {
-            currentImageRow.addView(levelButton.getImage());
-            currentTextRow.addView(levelButton.getText());
+        for (WordsMethodButton methodButton : methods) {
+            currentImageRow.addView(methodButton.getImage());
+            currentTextRow.addView(methodButton.getText());
             if (x == 2) {
-                modesLayout.addView(currentImageRow);
-                modesLayout.addView(currentTextRow);
+                methodsLayout.addView(currentImageRow);
+                methodsLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
                 currentTextRow = new TableRow(getContext());
                 x = 0;
@@ -144,8 +143,8 @@ public class WordsChoiceLevelFragment extends Fragment {
             }
         }
         if (x != 0) {
-            modesLayout.addView(currentImageRow);
-            modesLayout.addView(currentTextRow);
+            methodsLayout.addView(currentImageRow);
+            methodsLayout.addView(currentTextRow);
         }
     }
 
@@ -153,32 +152,28 @@ public class WordsChoiceLevelFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                WordsChoiceCategoryFragment methodFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                switch(dataParams.method) {
-                    case ALL:
-                        WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, redirectTo(F_START)).commit();
-                        break;
-                    case TYPES:
-                        WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
-                        break;
-                    case SUBCATEGORIES:
-                        //todo: add code here
-                        break;
-                }
+                manager.beginTransaction().replace(R.id.layout_for_fragments, methodFragment, redirectTo(F_START)).commit();
             }
         });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(dataParams.levels.size() > 0) {
-                    WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
-                    FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
-                } else {
-                    Toast.makeText(getContext(), "Wybierz przynajmniej 1 poziom", Toast.LENGTH_SHORT).show();
+                FragmentManager manager = getFragmentManager();
+                switch(dataParams.method) {
+                    case TYPES:
+                        WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
+                        break;
+                    case SUBCATEGORIES:
+                        //todo: code here
+                        break;
+                    case ALL:
+                        WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
+                        break;
                 }
             }
         });

@@ -1,6 +1,8 @@
 package pl.understandable.understandable_dev_app.data.params;
 
+import pl.understandable.understandable_dev_app.data.enums.words.WordsLanguageSubcategory;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningLevel;
+import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningMethod;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLanguageCategory;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLanguageType;
@@ -20,7 +22,9 @@ public class WordsDataParams extends BaseDataParams {
 
     public List<WordsLanguageCategory> categories = new ArrayList<>();
     public List<WordsLanguageType> types = new ArrayList<>();
+    public List<WordsLanguageSubcategory> subcategories = new ArrayList<>();
     public List<WordsLearningLevel> levels = new ArrayList<>();
+    public WordsLearningMethod method = WordsLearningMethod.ALL;
     public WordsLearningMode mode = WordsLearningMode.REPETITION;
     public WordsLearningWay way = WordsLearningWay.RANDOM;
     public int size = 1;
@@ -57,6 +61,22 @@ public class WordsDataParams extends BaseDataParams {
         }
     }
 
+    public void setSubcategories(List<WordsLanguageSubcategory> subcategories) {
+        this.subcategories = subcategories;
+    }
+
+    public void addSubcategory(WordsLanguageSubcategory subcategory) {
+        if(!subcategories.contains(subcategory)) {
+            subcategories.add(subcategory);
+        }
+    }
+
+    public void removeSubcategory(WordsLanguageSubcategory subcategory) {
+        if(subcategories.contains(subcategory)) {
+            subcategories.remove(subcategory);
+        }
+    }
+
     public void setLevels(List<WordsLearningLevel> levels) {
         this.levels = levels;
     }
@@ -71,6 +91,10 @@ public class WordsDataParams extends BaseDataParams {
         if(levels.contains(level)) {
             levels.remove(level);
         }
+    }
+
+    public void setMethod(WordsLearningMethod method) {
+        this.method = method;
     }
 
     public void setMode(WordsLearningMode mode) {
@@ -91,6 +115,10 @@ public class WordsDataParams extends BaseDataParams {
 
     public boolean isChosen(WordsLanguageType type) {
         return types.contains(type);
+    }
+
+    public boolean isChosen(WordsLearningMethod method) {
+        return this.method.equals(method);
     }
 
     public boolean isChosen(WordsLearningLevel level) {
@@ -128,6 +156,15 @@ public class WordsDataParams extends BaseDataParams {
         sb.deleteCharAt(sb.length() - 1);
         sb.append(";");
 
+        for(WordsLanguageSubcategory subcategory : subcategories) {
+            sb.append(subcategory.name()).append(",");
+        }
+        if(subcategories.size() == 0) {
+            sb.append(";");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(";");
+
         for(WordsLearningLevel level : levels) {
             sb.append(level.name()).append(",");
         }
@@ -137,6 +174,7 @@ public class WordsDataParams extends BaseDataParams {
         sb.deleteCharAt(sb.length() - 1);
         sb.append(";");
 
+        sb.append(method.name()).append(";");
         sb.append(mode.name()).append(";");
         sb.append(way.name()).append(";");
         sb.append(size).append(";");
@@ -191,6 +229,25 @@ public class WordsDataParams extends BaseDataParams {
             char c = input.charAt(i);
             if(c == ';') {
                 if(!str.isEmpty()) {
+                    this.addSubcategory(WordsLanguageSubcategory.valueOf(str));
+                }
+                str = "";
+                i++;
+                break;
+            }
+            if(c == ',') {
+                if(!str.isEmpty()) {
+                    this.addSubcategory(WordsLanguageSubcategory.valueOf(str));
+                }
+                str = "";
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                if(!str.isEmpty()) {
                     this.addLevel(WordsLearningLevel.valueOf(str));
                 }
                 str = "";
@@ -202,6 +259,19 @@ public class WordsDataParams extends BaseDataParams {
                     this.addLevel(WordsLearningLevel.valueOf(str));
                 }
                 str = "";
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                if(!str.isEmpty()) {
+                    this.setMethod(WordsLearningMethod.valueOf(str));
+                }
+                str = "";
+                i++;
+                break;
             } else {
                 str += c;
             }

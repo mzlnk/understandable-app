@@ -18,7 +18,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.15"
             android:gravity="center"
-            android:text="@string/f_choice_category_title"
+            android:text="@string/f_phrases_choice_category_title"
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_text_title_medium" />
 
