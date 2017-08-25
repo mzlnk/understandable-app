@@ -117,6 +117,10 @@ public class WordsDataParams extends BaseDataParams {
         return types.contains(type);
     }
 
+    public boolean isChosen(WordsLanguageSubcategory subcategory) {
+        return subcategories.contains(subcategory);
+    }
+
     public boolean isChosen(WordsLearningMethod method) {
         return this.method.equals(method);
     }

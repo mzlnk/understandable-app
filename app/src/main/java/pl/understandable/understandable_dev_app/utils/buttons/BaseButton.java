@@ -1,6 +1,7 @@
 package pl.understandable.understandable_dev_app.utils.buttons;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.ImageView;
@@ -76,7 +77,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
         text.setText(enumType.getName());
         setTextColor();
         text.setGravity(Gravity.CENTER);
-        text.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        text.setTypeface(Font.TYPEFACE_MONTSERRAT, Typeface.BOLD);
     }
 
     private void setSize() {

@@ -164,7 +164,8 @@ public class WordsChoiceLevelFragment extends Fragment {
                         manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
                         break;
                     case SUBCATEGORIES:
-                        //todo: add code here
+                        WordsChoiceSubcategoryFragment subcategoryFragment = WordsChoiceSubcategoryFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
                         break;
                 }
             }

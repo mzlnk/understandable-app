@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.words.choice.WordsChoiceTypeFragment"
     android:background="?attr/background_color"
-    android:id="@+id/f_words_choice_type" >
+    tools:context="pl.understandable.understandable_dev_app.fragments.words.choice.WordsChoiceSubcategoryFragment"
+    android:id="@+id/f_words_choice_subcategory" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:measureWithLargestChild="true" >
 
         <TextView
-            android:id="@+id/f_words_choice_type_title"
+            android:id="@+id/f_words_choice_subcategory_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.15"
@@ -22,14 +22,24 @@
             android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color" />
 
-        <TableLayout
-            android:id="@+id/f_words_choice_type_names_layout"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium"
             android:layout_weight="0.7"
+            android:scrollbars="none"
             android:stretchColumns="*" >
 
-        </TableLayout>
+            <LinearLayout
+                android:id="@+id/f_words_choice_subcategory_names_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +49,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/f_words_choice_type_back"
+                android:id="@+id/f_words_choice_subcategory_back"
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
                 android:layout_marginRight="@dimen/f_choice_button_margin"
@@ -50,7 +60,7 @@
                 android:clickable="true" />
 
             <Button
-                android:id="@+id/f_words_choice_type_submit"
+                android:id="@+id/f_words_choice_subcategory_submit"
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
                 android:layout_marginLeft="@dimen/f_choice_button_margin"

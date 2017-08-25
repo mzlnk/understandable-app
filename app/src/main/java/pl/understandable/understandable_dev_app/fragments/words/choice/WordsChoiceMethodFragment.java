@@ -92,7 +92,7 @@ public class WordsChoiceMethodFragment extends Fragment {
         setFonts();
         prepareButtons();
         initMethodButtons();
-        addModeButtonsToTable();
+        addMethodButtonsToTable();
     }
 
     private void setAnimation() {
@@ -124,7 +124,7 @@ public class WordsChoiceMethodFragment extends Fragment {
         }
     }
 
-    private void addModeButtonsToTable() {
+    private void addMethodButtonsToTable() {
         TableRow currentImageRow = new TableRow(getContext());
         TableRow currentTextRow = new TableRow(getContext());
 
@@ -168,7 +168,8 @@ public class WordsChoiceMethodFragment extends Fragment {
                         manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
                         break;
                     case SUBCATEGORIES:
-                        //todo: code here
+                        WordsChoiceSubcategoryFragment subcategoryFragment = WordsChoiceSubcategoryFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
                         break;
                     case ALL:
                         WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
