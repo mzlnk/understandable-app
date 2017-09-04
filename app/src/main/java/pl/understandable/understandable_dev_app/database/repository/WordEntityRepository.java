@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLanguageCategory;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLanguageSubcategory;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLanguageType;
-import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningLevel;
 import pl.understandable.understandable_dev_app.database.entity.WordEntity;
 import pl.understandable.understandable_dev_app.database.repository.maps.WordEntityMap;
 
@@ -51,16 +50,16 @@ public class WordEntityRepository {
         return wordEntityMap.getAllEntities();
     }
 
-    public static List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories, List<WordsLearningLevel> levels) {
-        return wordEntityMap.getSpecifiedEntities(categories, levels);
+    public static List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories) {
+        return wordEntityMap.getSpecifiedEntities(categories);
     }
 
-    public static List<WordEntity> getSpecifiedEntitiesBySubcategory(List<WordsLanguageCategory> categories, List<WordsLanguageSubcategory> subcategories, List<WordsLearningLevel> levels) {
-        return wordEntityMap.getSpecifiedEntitiesBySubcategory(categories, subcategories, levels);
+    public static List<WordEntity> getSpecifiedEntitiesBySubcategory(List<WordsLanguageCategory> categories, List<WordsLanguageSubcategory> subcategories) {
+        return wordEntityMap.getSpecifiedEntitiesBySubcategory(categories, subcategories);
     }
 
-    public static List<WordEntity> getSpecifiedEntitiesByType(List<WordsLanguageCategory> categories, List<WordsLanguageType> types, List<WordsLearningLevel> levels) {
-        return wordEntityMap.getSpecifiedEntitiesByType(categories, types, levels);
+    public static List<WordEntity> getSpecifiedEntitiesByType(List<WordsLanguageCategory> categories, List<WordsLanguageType> types) {
+        return wordEntityMap.getSpecifiedEntitiesByType(categories, types);
     }
 
 }

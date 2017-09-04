@@ -266,9 +266,9 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(dataParams.subcategories.size() > 0) {
-                    WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
+                    WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 podkategorię", Toast.LENGTH_SHORT).show();
                 }

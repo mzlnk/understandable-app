@@ -1,6 +1,9 @@
 package pl.understandable.understandable_dev_app;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.support.v7.app.AppCompatDelegate;
 
 import pl.understandable.understandable_dev_app.utils.AdUtil;
@@ -13,7 +16,7 @@ import java.io.File;
  * Created by Marcin Zielonka on 2016-11-11.
  */
 
-public class App extends Application {
+public class App extends MultiDexApplication {
 
     @Override
     public void onCreate() {
@@ -23,6 +26,12 @@ public class App extends Application {
         Font.loadBuiltInTypefaces(getApplicationContext());
         AdUtil.init(getApplicationContext());
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        MultiDex.install(this);
     }
 
     private void prepareCustomWordsSetsDirectory() {

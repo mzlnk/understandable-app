@@ -134,7 +134,7 @@ public class WordsChoiceTypeFragment extends Fragment {
         for (WordsTypeButton typeButton : types) {
             currentImageRow.addView(typeButton.getImage());
             currentTextRow.addView(typeButton.getText());
-            if (x == 3) {
+            if (x == 2) {
                 typesLayout.addView(currentImageRow);
                 typesLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
@@ -164,9 +164,9 @@ public class WordsChoiceTypeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(dataParams.types.size() > 0) {
-                    WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
+                    WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
                     FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
+                    manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
                 } else {
                     Toast.makeText(getContext(), "Wybierz przynajmniej 1 rodzaj", Toast.LENGTH_SHORT).show();
                 }

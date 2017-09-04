@@ -71,10 +71,6 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
-        else if(id == R.id.navigation_app_pro) {
-            UnderstandableProInfoFragment fragment = new UnderstandableProInfoFragment();
-            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
-        }
         else if(id== R.id.navigation_help) {
             try {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://understandable.pl/help.php"));

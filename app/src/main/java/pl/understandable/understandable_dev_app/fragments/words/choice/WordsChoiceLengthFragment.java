@@ -30,6 +30,9 @@ import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 
+import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_dev_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -175,7 +178,7 @@ public class WordsChoiceLengthFragment extends Fragment {
                         break;
                     case LIST:
                         WordsListData.createListDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsListFragment());
+                        transaction.replace(R.id.layout_for_fragments, new WordsListFragment(), redirectTo(F_START));
                         break;
                     case QUIZ:
                         WordsQuizData.createQuizDataFromParams(dataParams);

@@ -26,6 +26,9 @@ import pl.understandable.understandable_dev_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_dev_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -149,9 +152,21 @@ public class WordsChoiceWayFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
+                switch(dataParams.method) {
+                    case ALL:
+                        WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, redirectTo(F_START)).commit();
+                        break;
+                    case TYPES:
+                        WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
+                        break;
+                    case SUBCATEGORIES:
+                        WordsChoiceSubcategoryFragment subcategoryFragment = WordsChoiceSubcategoryFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
+                        break;
+                }
             }
         });
 

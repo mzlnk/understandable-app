@@ -39,13 +39,13 @@ public abstract class WordsBaseData implements Datable<WordEntity, WordsDataPara
     public void generateWords() {
         switch(params.method) {
             case ALL:
-                words = WordEntityRepository.getSpecifiedEntities(params.categories, params.levels);
+                words = WordEntityRepository.getSpecifiedEntities(params.categories);
                 break;
             case SUBCATEGORIES:
-                words = WordEntityRepository.getSpecifiedEntitiesBySubcategory(params.categories, params.subcategories, params.levels);
+                words = WordEntityRepository.getSpecifiedEntitiesBySubcategory(params.categories, params.subcategories);
                 break;
             case TYPES:
-                words = WordEntityRepository.getSpecifiedEntitiesByType(params.categories, params.types, params.levels);
+                words = WordEntityRepository.getSpecifiedEntitiesByType(params.categories, params.types);
                 break;
         }
         resize();

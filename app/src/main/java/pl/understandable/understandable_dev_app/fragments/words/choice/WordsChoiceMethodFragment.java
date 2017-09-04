@@ -172,8 +172,8 @@ public class WordsChoiceMethodFragment extends Fragment {
                         manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
                         break;
                     case ALL:
-                        WordsChoiceLevelFragment levelFragment = WordsChoiceLevelFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, levelFragment).commit();
+                        WordsChoiceWayFragment wayFragment = WordsChoiceWayFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment).commit();
                         break;
                 }
             }
