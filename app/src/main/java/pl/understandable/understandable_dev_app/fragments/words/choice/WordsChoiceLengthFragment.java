@@ -2,21 +2,23 @@ package pl.understandable.understandable_dev_app.fragments.words.choice;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.data.entities_data.words_data.WordsSpellingData;
+import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_dev_app.data.params.WordsDataParams;
 import pl.understandable.understandable_dev_app.data.entities_data.words_data.WordsListData;
 import pl.understandable.understandable_dev_app.data.entities_data.words_data.WordsQuizData;
@@ -26,7 +28,6 @@ import pl.understandable.understandable_dev_app.fragments.words.list.WordsListFr
 import pl.understandable.understandable_dev_app.fragments.words.repetition.WordsRepetitionFragment;
 import pl.understandable.understandable_dev_app.fragments.words.spelling.WordsSpellingFragment;
 import pl.understandable.understandable_dev_app.utils.AdUtil;
-import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 
@@ -43,10 +44,18 @@ public class WordsChoiceLengthFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private TextView title, amountInfo;
+    private Button decrement, increment;
     private Button submit, back;
-    private SeekBar amountAdjust;
 
     private WordsDataParams dataParams;
+
+    private Handler amountUpdater = new Handler();
+    private boolean autoIncrement = false;
+    private boolean autoDecrement = false;
+    private int incrementedElements = 0;
+    private int decrementedElements = 0;
+    private int minAmount = 0;
+    private int maxAmount = 0;
 
     public WordsChoiceLengthFragment() {
         // Required empty public constructor
@@ -86,8 +95,9 @@ public class WordsChoiceLengthFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_length);
         amountInfo = (TextView) rootView.findViewById(R.id.f_words_choice_length_size_info);
-        amountAdjust = (SeekBar) rootView.findViewById(R.id.f_words_choice_length_size_adjust);
         title = (TextView) rootView.findViewById(R.id.f_words_choice_length_title);
+        decrement = (Button) rootView.findViewById(R.id.f_words_choice_length_button_decrease);
+        increment = (Button) rootView.findViewById(R.id.f_words_choice_length_button_increase);
         back = (Button) rootView.findViewById(R.id.f_words_choice_length_back);
         submit = (Button) rootView.findViewById(R.id.f_words_choice_length_submit);
     }
@@ -96,7 +106,7 @@ public class WordsChoiceLengthFragment extends Fragment {
         setAnimation();
         setFonts();
         prepareButtons();
-        prepareSeekBar();
+        prepareAmountInfo();
     }
 
     private void setAnimation() {
@@ -114,47 +124,82 @@ public class WordsChoiceLengthFragment extends Fragment {
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
+            decrement.setBackgroundResource(R.drawable.field_rounded_pink);
+            increment.setBackgroundResource(R.drawable.field_rounded_pink);
             back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
+            decrement.setBackgroundResource(R.drawable.field_rounded_gray);
+            increment.setBackgroundResource(R.drawable.field_rounded_gray);
             back.setBackgroundResource(R.drawable.field_rounded_gray);
             submit.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
 
-    private void prepareSeekBar() {
-        final StartPosition startPos = new StartPosition();
-        switch (dataParams.mode) {
-            case QUIZ:
-                startPos.setPos(4);
-                break;
-            default:
-                startPos.setPos(1);
+    private void prepareAmountInfo() {
+        minAmount = 1;
+        if(dataParams.mode.equals(WordsLearningMode.QUIZ)) {
+            minAmount = 4;
         }
-
-        amountAdjust.setMax(dataParams.getMaximumAvailableWordsAmount() - startPos.getPos());
-        dataParams.setSize(startPos.getPos());
-        amountAdjust.setProgress(dataParams.size - startPos.getPos());
+        maxAmount = dataParams.getMaximumAvailableWordsAmount();
+        if(maxAmount > 1000) {
+            maxAmount = 1000;
+        }
+        if(dataParams.size < minAmount) {
+            dataParams.size = minAmount;
+        }
         amountInfo.setText(String.valueOf(dataParams.size));
-
-        amountAdjust.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                amountInfo.setText(String.valueOf(i + startPos.getPos()));
-                dataParams.setSize(i + startPos.getPos());
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
     }
 
     private void addListeners() {
+        increment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                incrementAmount();
+            }
+        });
+        increment.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                autoIncrement = true;
+                amountUpdater.post(new AmountUpdater());
+                return false;
+            }
+        });
+        increment.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)  && autoIncrement) {
+                    autoIncrement = false;
+                    incrementedElements = 0;
+                }
+                return false;
+            }
+        });
+        decrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decrementAmount();;
+            }
+        });
+        decrement.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                autoDecrement = true;
+                amountUpdater.post(new AmountUpdater());
+                return false;
+            }
+        });
+        decrement.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)  && autoDecrement) {
+                    autoDecrement = false;
+                    decrementedElements = 0;
+                }
+                return false;
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,17 +239,46 @@ public class WordsChoiceLengthFragment extends Fragment {
         });
     }
 
-    private class StartPosition {
+    private void incrementAmount() {
+        if(dataParams.size >= dataParams.getMaximumAvailableWordsAmount()) {
+            return;
+        }
+        dataParams.size += (1 + (int)(incrementedElements / 2D));
+        if(dataParams.size > maxAmount) {
+            dataParams.size = maxAmount;
+        }
+        amountInfo.setText(String.valueOf(dataParams.size));
+    }
 
-        private int pos;
+    private void decrementAmount() {
+        if(dataParams.size <= 1) {
+            return;
+        }
+        if(dataParams.mode.equals(WordsLearningMode.QUIZ) && dataParams.size <= 4) {
+            return;
+        }
+        dataParams.size -= (1 + (int)(decrementedElements / 2D));
+        if(dataParams.size < minAmount) {
+            dataParams.size = minAmount;
+        }
+        amountInfo.setText(String.valueOf(dataParams.size));
+    }
 
-        public void setPos(int pos) {
-            this.pos = pos;
+    private class AmountUpdater implements Runnable {
+
+        @Override
+        public void run() {
+            if(autoIncrement) {
+                incrementAmount();
+                incrementedElements++;
+                amountUpdater.postDelayed(new AmountUpdater(), 5L);
+            } else if(autoDecrement) {
+                decrementAmount();
+                decrementedElements++;
+                amountUpdater.postDelayed(new AmountUpdater(), 5L);
+            }
         }
 
-        public int getPos() {
-            return pos;
-        }
     }
 
 }
