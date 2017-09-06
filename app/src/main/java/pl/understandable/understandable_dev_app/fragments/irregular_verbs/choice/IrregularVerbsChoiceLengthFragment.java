@@ -2,10 +2,12 @@ package pl.understandable.understandable_dev_app.fragments.irregular_verbs.choic
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -18,9 +20,11 @@ import android.widget.TextView;
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_dev_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningMode;
 import pl.understandable.understandable_dev_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_dev_app.fragments.irregular_verbs.list.IrregularVerbsListFragment;
 import pl.understandable.understandable_dev_app.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionFragment;
+import pl.understandable.understandable_dev_app.fragments.words.choice.WordsChoiceLengthFragment;
 import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
@@ -40,9 +44,17 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     private RelativeLayout mainLayout;
     private TextView title, amountInfo;
     private Button submit, back;
-    private SeekBar amountAdjust;
+    private Button decrement, increment;
 
     private IrregularVerbsDataParams dataParams;
+
+    private Handler amountUpdater = new Handler();
+    private boolean autoIncrement = false;
+    private boolean autoDecrement = false;
+    private int incrementedElements = 0;
+    private int decrementedElements = 0;
+    private int minAmount = 0;
+    private int maxAmount = 0;
 
     public IrregularVerbsChoiceLengthFragment() {
         // Required empty public constructor
@@ -81,17 +93,18 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_irregular_verbs_choice_length);
         amountInfo = (TextView) rootView.findViewById(R.id.f_irregular_verbs_choice_length_size_info);
-        amountAdjust = (SeekBar) rootView.findViewById(R.id.f_irregular_verbs_choice_length_size_adjust);
         title = (TextView) rootView.findViewById(R.id.f_irregular_verbs_choice_length_title);
         back = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_length_back);
         submit = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_length_submit);
+        increment = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_length_button_increment);
+        decrement = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_length_button_decrement);
     }
 
     private void prepareLayout() {
         setAnimation();
         setFonts();
         prepareButtons();
-        prepareSeekBar();
+        prepareAmountInfo();
     }
 
     private void setAnimation() {
@@ -109,40 +122,82 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
+            decrement.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            increment.setBackgroundResource(R.drawable.field_rounded_light_pink);
             back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
+            decrement.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            increment.setBackgroundResource(R.drawable.field_rounded_light_gray);
             back.setBackgroundResource(R.drawable.field_rounded_gray);
             submit.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
 
-    private void prepareSeekBar() {
-        final IrregularVerbsChoiceLengthFragment.StartPosition startPos = new IrregularVerbsChoiceLengthFragment.StartPosition();
-        startPos.setPos(1);
-        amountAdjust.setMax(dataParams.getMaximumAvailableWordsAmount() - startPos.getPos());
-        dataParams.setSize(startPos.getPos());
-        amountAdjust.setProgress(dataParams.size - startPos.getPos());
+    private void prepareAmountInfo() {
+        minAmount = 1;
+        if(dataParams.mode.equals(WordsLearningMode.QUIZ)) {
+            minAmount = 4;
+        }
+        maxAmount = dataParams.getMaximumAvailableWordsAmount();
+        if(maxAmount > 1000) {
+            maxAmount = 1000;
+        }
+        if(dataParams.size < minAmount) {
+            dataParams.size = minAmount;
+        }
         amountInfo.setText(String.valueOf(dataParams.size));
-
-        amountAdjust.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                amountInfo.setText(String.valueOf(i + startPos.getPos()));
-                dataParams.setSize(i + startPos.getPos());
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
     }
 
     private void addListeners() {
+        increment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                incrementAmount();
+            }
+        });
+        increment.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                autoIncrement = true;
+                amountUpdater.post(new IrregularVerbsChoiceLengthFragment.AmountUpdater());
+                return false;
+            }
+        });
+        increment.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)  && autoIncrement) {
+                    autoIncrement = false;
+                    incrementedElements = 0;
+                }
+                return false;
+            }
+        });
+        decrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decrementAmount();;
+            }
+        });
+        decrement.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                autoDecrement = true;
+                amountUpdater.post(new IrregularVerbsChoiceLengthFragment.AmountUpdater());
+                return false;
+            }
+        });
+        decrement.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)  && autoDecrement) {
+                    autoDecrement = false;
+                    decrementedElements = 0;
+                }
+                return false;
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,17 +228,46 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
         });
     }
 
-    private class StartPosition {
+    private void incrementAmount() {
+        if(dataParams.size >= maxAmount) {
+            return;
+        }
+        dataParams.size += (1 + (int)(incrementedElements / 2D));
+        if(dataParams.size > maxAmount) {
+            dataParams.size = maxAmount;
+        }
+        amountInfo.setText(String.valueOf(dataParams.size));
+    }
 
-        private int pos;
+    private void decrementAmount() {
+        if(dataParams.size <= 1) {
+            return;
+        }
+        if(dataParams.mode.equals(WordsLearningMode.QUIZ) && dataParams.size <= 4) {
+            return;
+        }
+        dataParams.size -= (1 + (int)(decrementedElements / 2D));
+        if(dataParams.size < minAmount) {
+            dataParams.size = minAmount;
+        }
+        amountInfo.setText(String.valueOf(dataParams.size));
+    }
 
-        public void setPos(int pos) {
-            this.pos = pos;
+    private class AmountUpdater implements Runnable {
+
+        @Override
+        public void run() {
+            if(autoIncrement) {
+                incrementAmount();
+                incrementedElements++;
+                amountUpdater.postDelayed(new IrregularVerbsChoiceLengthFragment.AmountUpdater(), 5L);
+            } else if(autoDecrement) {
+                decrementAmount();
+                decrementedElements++;
+                amountUpdater.postDelayed(new IrregularVerbsChoiceLengthFragment.AmountUpdater(), 5L);
+            }
         }
 
-        public int getPos() {
-            return pos;
-        }
     }
 
 }

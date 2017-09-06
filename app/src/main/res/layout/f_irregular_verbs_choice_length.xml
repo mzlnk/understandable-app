@@ -22,28 +22,60 @@
             android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color" />
 
-        <TextView
-            android:id="@+id/f_irregular_verbs_choice_length_size_info"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.35"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="0"
-            android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_choice_length_amount"
-            />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.35"
-            android:gravity="top" >
+            android:layout_weight="0.7"
+            android:orientation="horizontal" >
 
-            <SeekBar
-                android:id="@+id/f_irregular_verbs_choice_length_size_adjust"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="end|center">
+
+                <Button
+                    android:id="@+id/f_irregular_verbs_choice_length_button_decrement"
+                    android:layout_width="@dimen/button_square_medium_size"
+                    android:layout_height="@dimen/button_square_medium_size"
+                    android:layout_marginRight="@dimen/f_choice_button_margin"
+                    android:text="@string/button_decrease"
+                    android:textSize="@dimen/button_text"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/text_button_color"
+                    android:clickable="true" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/f_irregular_verbs_choice_length_size_info"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_choice_length_amount" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="start|center">
+
+                <Button
+                    android:id="@+id/f_irregular_verbs_choice_length_button_increment"
+                    android:layout_width="@dimen/button_square_medium_size"
+                    android:layout_height="@dimen/button_square_medium_size"
+                    android:layout_marginRight="@dimen/f_choice_button_margin"
+                    android:text="@string/button_increase"
+                    android:textSize="@dimen/button_text"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/text_button_color"
+                    android:clickable="true" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

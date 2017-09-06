@@ -124,13 +124,13 @@ public class WordsChoiceLengthFragment extends Fragment {
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            decrement.setBackgroundResource(R.drawable.field_rounded_pink);
-            increment.setBackgroundResource(R.drawable.field_rounded_pink);
+            decrement.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            increment.setBackgroundResource(R.drawable.field_rounded_light_pink);
             back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
-            decrement.setBackgroundResource(R.drawable.field_rounded_gray);
-            increment.setBackgroundResource(R.drawable.field_rounded_gray);
+            decrement.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            increment.setBackgroundResource(R.drawable.field_rounded_light_gray);
             back.setBackgroundResource(R.drawable.field_rounded_gray);
             submit.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
@@ -240,7 +240,7 @@ public class WordsChoiceLengthFragment extends Fragment {
     }
 
     private void incrementAmount() {
-        if(dataParams.size >= dataParams.getMaximumAvailableWordsAmount()) {
+        if(dataParams.size >= maxAmount) {
             return;
         }
         dataParams.size += (1 + (int)(incrementedElements / 2D));

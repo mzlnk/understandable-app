@@ -26,6 +26,7 @@
     <dimen name="button_small_height">75dp</dimen>
     <dimen name="button_medium_width">280dp</dimen>
     <dimen name="button_medium_height">75dp</dimen>
+    <dimen name="button_square_medium_size">85dp</dimen>
     <dimen name="button_text">25sp</dimen>
 
 

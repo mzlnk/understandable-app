@@ -38,8 +38,8 @@
 
                 <Button
                     android:id="@+id/f_words_choice_length_button_decrease"
-                    android:layout_width="@dimen/button_small_height"
-                    android:layout_height="@dimen/button_small_height"
+                    android:layout_width="@dimen/button_square_medium_size"
+                    android:layout_height="@dimen/button_square_medium_size"
                     android:layout_marginRight="@dimen/f_choice_button_margin"
                     android:text="@string/button_decrease"
                     android:textSize="@dimen/button_text"
@@ -68,8 +68,8 @@
 
                 <Button
                     android:id="@+id/f_words_choice_length_button_increase"
-                    android:layout_width="@dimen/button_small_height"
-                    android:layout_height="@dimen/button_small_height"
+                    android:layout_width="@dimen/button_square_medium_size"
+                    android:layout_height="@dimen/button_square_medium_size"
                     android:layout_marginRight="@dimen/f_choice_button_margin"
                     android:text="@string/button_increase"
                     android:textSize="@dimen/button_text"
