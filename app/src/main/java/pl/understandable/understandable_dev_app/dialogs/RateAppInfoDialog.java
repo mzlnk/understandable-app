@@ -19,7 +19,7 @@ import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 
 /**
- * Created by Marcin on 2017-08-20.
+ * Created by Marcin Zielonka on 2017-08-20.
  */
 
 public class RateAppInfoDialog extends Dialog implements View.OnClickListener {

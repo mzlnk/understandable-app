@@ -19,6 +19,7 @@ import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.data.entities_data.words_data.WordsListData;
 import pl.understandable.understandable_dev_app.data.enums.words.WordsLearningWay;
 import pl.understandable.understandable_dev_app.database.entity.WordEntity;
+import pl.understandable.understandable_dev_app.fragments.words.choice.WordsChoiceLengthFragment;
 import pl.understandable.understandable_dev_app.utils.ColorUtil;
 import pl.understandable.understandable_dev_app.utils.EntitySortUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;

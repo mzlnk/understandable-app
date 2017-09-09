@@ -36,7 +36,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private EditText codeField;
-    private Button download;
+    private Button download, view;
     private TextView title;
 
     private long lastClicked = 0;
@@ -59,6 +59,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_download_words_set);
         codeField = (EditText) rootView.findViewById(R.id.f_download_words_set_code_field);
         download = (Button) rootView.findViewById(R.id.f_download_words_set_button_download);
+        view = (Button) rootView.findViewById(R.id.f_download_words_set_button_view_all_custrom_words_sets);
         title = (TextView) rootView.findViewById(R.id.f_download_words_set_title);
     }
 
@@ -77,6 +78,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         codeField.setTypeface(typeface);
+        view.setTypeface(typeface);
         download.setTypeface(typeface);
         title.setTypeface(typeface);
     }
@@ -85,8 +87,10 @@ public class DownloadCustomWordsSetFragment extends Fragment {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
             download.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            view.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
             download.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            view.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
 
@@ -119,6 +123,12 @@ public class DownloadCustomWordsSetFragment extends Fragment {
                 DownloadTaskCanceller taskCanceller = new DownloadTaskCanceller(task);
                 Handler handler = new Handler();
                 handler.postDelayed(taskCanceller, MAX_DOWNLOAD_TIME_IN_MILLIS);
+            }
+        });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new WebService.DownloadWordsSetsDataTask(getContext(), getFragmentManager()).execute();
             }
         });
     }

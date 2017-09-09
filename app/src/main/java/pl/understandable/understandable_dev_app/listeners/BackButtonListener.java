@@ -10,6 +10,7 @@ import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.activities.NavigationActivity;
 import pl.understandable.understandable_dev_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_dev_app.fragments.custom_words.other.CustomWordsSetsListFragment;
+import pl.understandable.understandable_dev_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
 import pl.understandable.understandable_dev_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_dev_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_dev_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
@@ -73,6 +74,10 @@ public class BackButtonListener {
         }
         if(tag.equals(F_PHRASES_CHOICE_CATEGORY)) {
             transaction.replace(R.id.layout_for_fragments, new PhrasesChoiceCategoryFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_DOWNLOAD_CUSTOM_WORDS_SET)) {
+            transaction.replace(R.id.layout_for_fragments, new DownloadCustomWordsSetFragment(), redirectTo(F_START)).commit();
             return;
         }
         if(tag.contains(F_CUSTOM_WORDS_SET_PREVIEW)) {

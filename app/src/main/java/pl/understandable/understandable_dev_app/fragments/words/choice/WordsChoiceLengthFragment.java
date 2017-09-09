@@ -212,8 +212,6 @@ public class WordsChoiceLengthFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AdUtil.showAd();
-
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 switch (dataParams.mode) {
@@ -234,6 +232,8 @@ public class WordsChoiceLengthFragment extends Fragment {
                         transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment());
                         break;
                 }
+
+                AdUtil.showAd();
                 transaction.commit();
             }
         });

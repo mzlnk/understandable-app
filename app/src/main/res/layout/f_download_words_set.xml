@@ -43,16 +43,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_weight="0.25"
             android:gravity="center">
 
             <Button
                 android:id="@+id/f_download_words_set_button_download"
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/f_border_margin_medium"
                 android:clickable="true"
                 android:text="@string/button_download"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/f_download_words_set_button_view_all_custrom_words_sets"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_gravity="top"
+                android:layout_marginTop="@dimen/f_border_margin_medium"
+                android:clickable="true"
+                android:text="@string/button_view"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
                 android:textSize="@dimen/button_text" />

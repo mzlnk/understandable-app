@@ -8,6 +8,8 @@ import android.widget.Toast;
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_dev_app.database.repository.CustomWordsSetsRepository;
+import pl.understandable.understandable_dev_app.database.repository.temp.AllCustomWordsSetsRepository;
+import pl.understandable.understandable_dev_app.fragments.custom_words.other.AllCustomWordsSetsListFragment;
 import pl.understandable.understandable_dev_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_dev_app.utils.NetworkUtil;
 
@@ -17,6 +19,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -189,6 +192,99 @@ public class WebService {
                 System.out.println("Name: " + name);
                 System.out.println("Description: " + description);
                 CustomWordsSetsRepository.addEntity(new CustomWordsSetEntity(id, name, description));
+                return true;
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return false;
+        }
+
+    }
+
+    public static class DownloadWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
+
+        private Context context;
+        private FragmentManager fragmentManager;
+
+        public DownloadWordsSetsDataTask(Context context, FragmentManager fragmentManager) {
+            this.context = context;
+            this.fragmentManager = fragmentManager;
+        }
+
+        @Override
+        protected Integer doInBackground(Void... params) {
+            NetworkUtil networkUtil = new NetworkUtil(context);
+            if(!networkUtil.isNetworkAvailable() || !isConnectionAvailable()) {
+                return 1;
+            }
+            if(!downloadWordsSetsData()) {
+                return 2;
+            }
+            return 0;
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            switch(result) {
+                case 1:
+                    Toast.makeText(context, "Brak połączenia z Internetem", Toast.LENGTH_SHORT).show();
+                    break;
+                case 2:
+                    Toast.makeText(context, "Wczytywanie listy zestawów nie powiodło się", Toast.LENGTH_SHORT).show();
+                    break;
+                case 0:
+                    AllCustomWordsSetsListFragment fragment = AllCustomWordsSetsListFragment.newInstance("", 0);
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                    break;
+            }
+        }
+
+        private boolean isConnectionAvailable() {
+            try {
+                URI uri = new URI("http://www.understandable.pl/resources/script/words_set_exist.php?id=CONNECTION");
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost httpPost = new HttpPost(uri);
+                HttpResponse httpResponse = httpClient.execute(httpPost);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+                return false;
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+                return false;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
+        }
+
+        private boolean downloadWordsSetsData() {
+            try {
+                URI uri = new URI("http://www.understandable.pl/resources/script/get_all_words_sets_info.php");
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpPost httpPost = new HttpPost(uri);
+                HttpResponse httpResponse = httpClient.execute(httpPost);
+                String result = EntityUtils.toString(httpResponse.getEntity());
+                if(result.equals("error")) {
+                    return false;
+                }
+                result = result.replaceAll("\"", "\\\"");
+                JSONArray jsonArray = new JSONArray(result);
+                AllCustomWordsSetsRepository.clearRepository();
+                for(int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String id = jsonObject.getString("id");
+                    String name = jsonObject.getString("name");
+                    String description = jsonObject.getString("description");
+                    AllCustomWordsSetsRepository.addWordsSet(new CustomWordsSetEntity(id, name, description));
+                }
                 return true;
             } catch (URISyntaxException e) {
                 e.printStackTrace();

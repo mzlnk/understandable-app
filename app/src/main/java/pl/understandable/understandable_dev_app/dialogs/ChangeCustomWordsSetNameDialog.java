@@ -21,7 +21,7 @@ import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 
 /**
- * Created by Marcin on 2017-08-19.
+ * Created by Marcin Zielonka on 2017-08-19.
  */
 
 public class ChangeCustomWordsSetNameDialog extends Dialog implements View.OnClickListener {
