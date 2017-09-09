@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/d_dialog_box_width"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    tools:context="pl.understandable.understandable_dev_app.dialogs.CustomWordsSetPreviewDialog"
+    android:id="@+id/d_remove_custom_words_set" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/f_border_margin_large"
+        android:layout_marginRight="@dimen/f_border_margin_large"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/d_custom_words_set_preview_words_set_name_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:gravity="center"
+            android:text="@string/f_custom_words_set_preview_words_set_name_info"
+            android:textSize="@dimen/d_text" />
+
+        <LinearLayout
+            android:id="@+id/d_custom_words_set_preview_name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:layout_gravity="center"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/d_custom_words_set_preview_words_set_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text=""
+                android:textAlignment="center"
+                android:textSize="@dimen/d_edit_text" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/f_border_margin_large"
+        android:layout_marginRight="@dimen/f_border_margin_large"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/d_custom_words_set_preview_words_set_id_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:gravity="center"
+            android:text="@string/f_custom_words_set_preview_words_set_id_info"
+            android:textSize="@dimen/d_text" />
+
+        <LinearLayout
+            android:id="@+id/d_custom_words_set_preview_id_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/d_custom_words_set_preview_words_set_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:text=""
+                android:textSize="@dimen/d_edit_text" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/f_border_margin_large"
+        android:layout_marginRight="@dimen/f_border_margin_large"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/d_custom_words_set_preview_words_set_description_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:gravity="center"
+            android:text="@string/f_custom_words_set_preview_words_set_description_info"
+            android:textSize="@dimen/d_text" />
+
+        <LinearLayout
+            android:id="@+id/d_custom_words_set_preview_description_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/d_custom_words_set_preview_words_set_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text=""
+                android:textAlignment="center"
+                android:textSize="@dimen/d_edit_text" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_button_field_height"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/d_change_custom_words_set_name_button_cancel"
+            android:layout_width="@dimen/button_small_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:layout_marginRight="@dimen/f_choice_button_margin"
+            android:clickable="true"
+            android:text="@string/button_back"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+        <Button
+            android:id="@+id/d_change_custom_words_set_name_button_save"
+            android:layout_width="@dimen/button_small_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:layout_marginLeft="@dimen/f_choice_button_margin"
+            android:clickable="true"
+            android:text="@string/button_download"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+    </LinearLayout>
+</LinearLayout>
