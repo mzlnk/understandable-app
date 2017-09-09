@@ -1,5 +1,6 @@
 package pl.understandable.understandable_dev_app.fragments.custom_words.other;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -22,6 +24,7 @@ import pl.understandable.understandable_dev_app.utils.ColorUtil;
 import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
+import pl.understandable.understandable_dev_app.webservice.WebService;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_CUSTOM_WORDS_SETS_LIST;
@@ -38,6 +41,7 @@ public class CustomWordsSetsListFragment extends Fragment {
     private RelativeLayout mainLayout;
     private TableLayout wordsTable;
     private TextView title;
+    private Button browse;
 
     public CustomWordsSetsListFragment() {
         // Required empty public constructor
@@ -49,6 +53,7 @@ public class CustomWordsSetsListFragment extends Fragment {
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
+        addListeners();
 
         return rootView;
     }
@@ -57,11 +62,13 @@ public class CustomWordsSetsListFragment extends Fragment {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_custom_words_sets_list);
         wordsTable = (TableLayout) rootView.findViewById(R.id.f_custom_words_sets_list_table);
         title = (TextView) rootView.findViewById(R.id.f_custom_words_sets_list_title);
+        browse = (Button) rootView.findViewById(R.id.f_custom_words_sets_list_button_browse);
     }
 
     private void prepareLayout() {
         setAnimation();
         setFonts();
+        prepareButtons();
         addWordsToList();
     }
 
@@ -71,7 +78,18 @@ public class CustomWordsSetsListFragment extends Fragment {
     }
 
     private void setFonts() {
-        title.setTypeface(Font.TYPEFACE_MONTSERRAT);
+        Typeface typeface = Font.TYPEFACE_MONTSERRAT;
+        title.setTypeface(typeface);
+        browse.setTypeface(typeface);
+    }
+
+    private void prepareButtons() {
+        ThemeUtil themeUtil = new ThemeUtil(getContext());
+        if(themeUtil.isDefaultTheme()) {
+            browse.setBackgroundResource(R.drawable.field_rounded_light_pink);
+        } else {
+            browse.setBackgroundResource(R.drawable.field_rounded_light_gray);
+        }
     }
 
     private void addWordsToList() {
@@ -126,6 +144,15 @@ public class CustomWordsSetsListFragment extends Fragment {
         float textSizeInPixels = textView.getTextSize() * factor;
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
         textView.setLayoutParams(new TableRow.LayoutParams(0, MATCH_PARENT, weight));
+    }
+
+    private void addListeners() {
+        browse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new WebService.DownloadWordsSetsDataTask(getContext(), getFragmentManager(), redirectTo(F_CUSTOM_WORDS_SETS_LIST)).execute();
+            }
+        });
     }
 
     private void initColors() {

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/f_border_margin_large"
         android:layout_marginRight="@dimen/f_border_margin_large"
+        android:layout_marginTop="@dimen/f_border_margin_large"
         android:orientation="vertical">
 
         <TextView
@@ -36,6 +37,7 @@
                 android:id="@+id/d_custom_words_set_preview_words_set_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/f_border_margin_medium"
                 android:gravity="center"
                 android:text=""
                 android:textAlignment="center"
@@ -72,6 +74,7 @@
                 android:id="@+id/d_custom_words_set_preview_words_set_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/f_border_margin_medium"
                 android:textAlignment="center"
                 android:gravity="center"
                 android:text=""
@@ -108,6 +111,7 @@
                 android:id="@+id/d_custom_words_set_preview_words_set_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/f_border_margin_medium"
                 android:gravity="center"
                 android:text=""
                 android:textAlignment="center"
@@ -123,7 +127,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/d_change_custom_words_set_name_button_cancel"
+            android:id="@+id/d__custom_words_set_preview_button_back"
             android:layout_width="@dimen/button_small_small_width"
             android:layout_height="@dimen/button_small_small_height"
             android:layout_marginRight="@dimen/f_choice_button_margin"
@@ -133,7 +137,7 @@
             android:textSize="@dimen/button_text" />
 
         <Button
-            android:id="@+id/d_change_custom_words_set_name_button_save"
+            android:id="@+id/d_custom_words_set_preview_button_download"
             android:layout_width="@dimen/button_small_small_width"
             android:layout_height="@dimen/button_small_small_height"
             android:layout_marginLeft="@dimen/f_choice_button_margin"

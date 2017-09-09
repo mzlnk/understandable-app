@@ -30,6 +30,7 @@ import java.util.List;
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_dev_app.database.repository.temp.AllCustomWordsSetsRepository;
+import pl.understandable.understandable_dev_app.dialogs.CustomWordsSetPreviewDialog;
 import pl.understandable.understandable_dev_app.utils.ColorUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
@@ -181,7 +182,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
             if(i > (wordsSets.size() - 1)) {
                 break;
             }
-            CustomWordsSetEntity wordsSet = wordsSets.get(i);
+            final CustomWordsSetEntity wordsSet = wordsSets.get(i);
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
@@ -208,7 +209,8 @@ public class AllCustomWordsSetsListFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    return;
+                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), wordsSet.getId());
+                    dialog.show();
                 }
             });
             wordsSetsTable.addView(row);

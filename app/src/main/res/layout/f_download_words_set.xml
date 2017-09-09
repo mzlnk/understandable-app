@@ -73,7 +73,7 @@
                 android:layout_gravity="top"
                 android:layout_marginTop="@dimen/f_border_margin_medium"
                 android:clickable="true"
-                android:text="@string/button_view"
+                android:text="@string/button_browse"
                 android:textAllCaps="false"
                 android:textColor="?attr/text_button_color"
                 android:textSize="@dimen/button_text" />

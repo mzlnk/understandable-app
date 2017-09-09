@@ -8,15 +8,19 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_dev_app.R;
-import pl.understandable.understandable_dev_app.utils.RateAppUtil;
+import pl.understandable.understandable_dev_app.database.entity.CustomWordsSetEntity;
+import pl.understandable.understandable_dev_app.database.repository.temp.AllCustomWordsSetsRepository;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
+import pl.understandable.understandable_dev_app.webservice.WebService;
 
 /**
  * Created by Marcin Zielonka on 2017-09-09.
@@ -25,105 +29,116 @@ import pl.understandable.understandable_dev_app.utils.font.Font;
 public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickListener {
 
     private Context context;
+    private FragmentManager fragmentManager;
 
-    private TextView title, message;
-    private Button yes, no, later;
+    private TextView idInfo, nameInfo, descriptionInfo;
+    private LinearLayout idField, nameField, descriptionField;
+    private TextView id, name, description;
+    private Button back, download;
 
-    public RateAppInfoDialog(Context context) {
+    private CustomWordsSetEntity wordsSet;
+
+    public CustomWordsSetPreviewDialog(Context context, FragmentManager fragmentManager, String id) {
         super(context);
         this.context = context;
+        this.fragmentManager = fragmentManager;
+        wordsSet = AllCustomWordsSetsRepository.getWordsSet(id);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.d_rate_app_info);
+        setContentView(R.layout.d_custom_words_set_preview);
         loadViewsFromXml();
         prepareViews();
+        prepareData();
         setFonts();
         addListeners();
     }
 
     private void loadViewsFromXml() {
-        title = (TextView) findViewById(R.id.d_rate_app_info_title);
-        message = (TextView) findViewById(R.id.d_rate_app_info_message);
-        yes = (Button) findViewById(R.id.d_rate_app_info_button_yes);
-        no = (Button) findViewById(R.id.d_rate_app_info_button_no);
-        later = (Button) findViewById(R.id.d_rate_app_info_button_later);
+        idInfo = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_id_info);
+        nameInfo = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_name_info);
+        descriptionInfo = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_description_info);
+        idField = (LinearLayout) findViewById(R.id.d_custom_words_set_preview_id_field);
+        nameField = (LinearLayout) findViewById(R.id.d_custom_words_set_preview_name_field);
+        descriptionField = (LinearLayout) findViewById(R.id.d_custom_words_set_preview_description_field);
+        id = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_id);
+        name = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_name);
+        description = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_description);
+        back = (Button) findViewById(R.id.d__custom_words_set_preview_button_back);
+        download = (Button) findViewById(R.id.d_custom_words_set_preview_button_download);
     }
 
     private void prepareViews() {
         ThemeUtil themeUtil = new ThemeUtil(context);
         if(themeUtil.isDefaultTheme()) {
             getWindow().setBackgroundDrawableResource(R.drawable.field_rounded_white);
-            title.setTextColor(Color.BLACK);
-            message.setTextColor(Color.BLACK);
-            yes.setTextColor(Color.WHITE);
-            no.setTextColor(Color.WHITE);
-            later.setTextColor(Color.WHITE);
-            yes.setBackgroundResource(R.drawable.field_rounded_light_pink);
-            no.setBackgroundResource(R.drawable.field_rounded_pink);
-            later.setBackgroundResource(R.drawable.field_rounded_pink);
+            idInfo.setTextColor(Color.BLACK);
+            nameInfo.setTextColor(Color.BLACK);
+            descriptionInfo.setTextColor(Color.BLACK);
+            id.setTextColor(Color.BLACK);
+            name.setTextColor(Color.BLACK);
+            description.setTextColor(Color.BLACK);
+            idField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+            nameField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+            descriptionField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
+            download.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
             getWindow().setBackgroundDrawableResource(R.drawable.field_rounded_dark_dark_gray);
-            title.setTextColor(Color.WHITE);
-            message.setTextColor(Color.WHITE);
-            yes.setTextColor(Color.WHITE);
-            no.setTextColor(Color.WHITE);
-            later.setTextColor(Color.WHITE);
-            yes.setBackgroundResource(R.drawable.field_rounded_light_gray);
-            no.setBackgroundResource(R.drawable.field_rounded_gray);
-            later.setBackgroundResource(R.drawable.field_rounded_gray);
+            idInfo.setTextColor(Color.WHITE);
+            nameInfo.setTextColor(Color.WHITE);
+            descriptionInfo.setTextColor(Color.WHITE);
+            id.setTextColor(Color.WHITE);
+            name.setTextColor(Color.WHITE);
+            description.setTextColor(Color.WHITE);
+            idField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            nameField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            descriptionField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
+            download.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
+        back.setTextColor(Color.WHITE);
+        download.setTextColor(Color.WHITE);
+    }
+
+    private void prepareData() {
+        id.setText(wordsSet.getId());
+        name.setText(wordsSet.getName());
+        description.setText(wordsSet.getDescription());
     }
 
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
-        title.setTypeface(typeface);
-        message.setTypeface(typeface);
-        yes.setTypeface(typeface);
-        no.setTypeface(typeface);
-        later.setTypeface(typeface);
+        idInfo.setTypeface(typeface);
+        nameInfo.setTypeface(typeface);
+        descriptionInfo.setTypeface(typeface);
+        id.setTypeface(typeface);
+        name.setTypeface(typeface);
+        description.setTypeface(typeface);
+        back.setTypeface(typeface);
+        download.setTypeface(typeface);
     }
 
     private void addListeners() {
-        yes.setOnClickListener(this);
-        no.setOnClickListener(this);
-        later.setOnClickListener(this);
+        back.setOnClickListener(this);
+        download.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        RateAppUtil util = new RateAppUtil(context);
         switch (v.getId()) {
-            case R.id.d_rate_app_info_button_yes:
-                util.updateRateAppStatus(RateAppUtil.RATED);
-                redirectToPlayStore();
+            case R.id.d__custom_words_set_preview_button_back:
                 break;
-            case R.id.d_rate_app_info_button_no:
-                util.updateRateAppStatus(RateAppUtil.NO);
-                break;
-            case R.id.d_rate_app_info_button_later:
-                util.updateRateAppStatus(RateAppUtil.LATER);
+            case R.id.d_custom_words_set_preview_button_download:
+                new WebService.DownloadWordsSetTask(context, fragmentManager).execute(wordsSet.getId());
                 break;
             default:
                 break;
         }
         dismiss();
-    }
-
-    private void redirectToPlayStore() {
-        String id = context.getPackageName();
-        Uri uri = Uri.parse("market://details?id=" + id);
-        Intent toPlayStore = new Intent(Intent.ACTION_VIEW, uri);
-        toPlayStore.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-
-        try {
-            context.startActivity(toPlayStore);
-        } catch(ActivityNotFoundException e) {
-            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + id)));
-        }
     }
 
 }

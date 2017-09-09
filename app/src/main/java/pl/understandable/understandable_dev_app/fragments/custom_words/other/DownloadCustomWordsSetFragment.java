@@ -25,6 +25,9 @@ import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 import pl.understandable.understandable_dev_app.webservice.WebService;
 
+import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET;
+import static pl.understandable.understandable_dev_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -128,7 +131,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new WebService.DownloadWordsSetsDataTask(getContext(), getFragmentManager()).execute();
+                new WebService.DownloadWordsSetsDataTask(getContext(), getFragmentManager(), redirectTo(F_DOWNLOAD_CUSTOM_WORDS_SET)).execute();
             }
         });
     }

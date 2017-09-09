@@ -212,10 +212,12 @@ public class WebService {
 
         private Context context;
         private FragmentManager fragmentManager;
+        private String redirect;
 
-        public DownloadWordsSetsDataTask(Context context, FragmentManager fragmentManager) {
+        public DownloadWordsSetsDataTask(Context context, FragmentManager fragmentManager, String redirect) {
             this.context = context;
             this.fragmentManager = fragmentManager;
+            this.redirect = redirect;
         }
 
         @Override
@@ -241,7 +243,7 @@ public class WebService {
                     break;
                 case 0:
                     AllCustomWordsSetsListFragment fragment = AllCustomWordsSetsListFragment.newInstance("", 0);
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(redirect)).commit();
                     break;
             }
         }

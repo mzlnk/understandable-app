@@ -177,28 +177,6 @@ public class CustomWordsSetPreviewFragment extends Fragment {
             public boolean onLongClick(View v) {
                 ChangeCustomWordsSetDescriptionDialog dialog = new ChangeCustomWordsSetDescriptionDialog(getContext(), id, wordsSetDescription.getText().toString(), wordsSetDescription);
                 dialog.show();
-                /*final EditText edit = new EditText(getContext());
-                edit.setText(wordsSetDescription.getText());
-                edit.setGravity(Gravity.CENTER);
-                new AlertDialog.Builder(getContext())
-                        .setTitle("")
-                        .setMessage("Wprowadź nowy opis zestawu")
-                        .setView(edit)
-                        .setPositiveButton("zapisz", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String text = edit.getText().toString();
-                                if(text.length() > 200) {
-                                    Toast.makeText(getContext(), "Nazwa nie może być dłuższa niż 200 znaków", Toast.LENGTH_LONG).show();
-                                    return;
-                                }
-                                wordsSetDescription.setText(edit.getText().toString());
-                                CustomWordsSetsRepository.setDescription(id, edit.getText().toString());
-                                Toast.makeText(getContext(), "Opis zostal zmieniony", Toast.LENGTH_LONG).show();;
-                            }
-                        })
-                        .setNegativeButton("anuluj", null)
-                        .show();*/
                 return true;
             }
         });

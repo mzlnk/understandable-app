@@ -28,6 +28,15 @@ public class AllCustomWordsSetsRepository {
         return result;
     }
 
+    public static CustomWordsSetEntity getWordsSet(String id) {
+        for(CustomWordsSetEntity entity : wordsSetEntities) {
+            if(entity.getId().equalsIgnoreCase(id)) {
+                return entity;
+            }
+        }
+        return null;
+    }
+
     public static void addWordsSet(CustomWordsSetEntity wordsSet) {
         wordsSetEntities.add(wordsSet);
     }
