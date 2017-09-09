@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/d_dialog_box_width"
     android:layout_height="wrap_content"
@@ -9,6 +9,7 @@
     android:id="@+id/d_remove_custom_words_set" >
 
     <LinearLayout
+        android:id="@+id/d_custom_words_set_preview_name_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/f_border_margin_large"
@@ -47,8 +48,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/d_custom_words_set_preview_id_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/d_custom_words_set_preview_name_area"
         android:layout_marginLeft="@dimen/f_border_margin_large"
         android:layout_marginRight="@dimen/f_border_margin_large"
         android:orientation="vertical" >
@@ -84,8 +87,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/d_custom_words_set_preview_description_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/d_custom_words_set_preview_id_area"
         android:layout_marginLeft="@dimen/f_border_margin_large"
         android:layout_marginRight="@dimen/f_border_margin_large"
         android:orientation="vertical" >
@@ -121,8 +126,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/d_custom_words_set_preview_buttons_area"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d_button_field_height"
+        android:layout_below="@id/d_custom_words_set_preview_description_area"
         android:gravity="center"
         android:orientation="horizontal" >
 
@@ -147,4 +154,4 @@
             android:textSize="@dimen/button_text" />
 
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
