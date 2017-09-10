@@ -55,7 +55,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private TableLayout wordsSetsTable;
-    private TextView title;
+    //private TextView title;
     private EditText searchField;
     private Button search;
     private Button previousPage, nextPage;
@@ -114,7 +114,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_all_custom_words_sets_list);
         wordsSetsTable = (TableLayout) rootView.findViewById(R.id.f_all_custom_words_sets_list_table);
-        title = (TextView) rootView.findViewById(R.id.f_all_custom_words_sets_list_title);
+        //title = (TextView) rootView.findViewById(R.id.f_all_custom_words_sets_list_title);
         searchField = (EditText) rootView.findViewById(R.id.f_all_custom_words_sets_list_search_field);
         search = (Button) rootView.findViewById(R.id.f_all_custom_words_sets_list_button_search);
         previousPage = (Button) rootView.findViewById(R.id.f_all_custom_words_sets_list_button_previous_page);
@@ -139,7 +139,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
 
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
-        title.setTypeface(typeface);
+        //title.setTypeface(typeface);
         searchField.setTypeface(typeface);
         search.setTypeface(typeface);
         previousPage.setTypeface(typeface);
@@ -241,7 +241,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
-                AllCustomWordsSetsListFragment fragment = AllCustomWordsSetsListFragment.newInstance(searchField.getText().toString(), 0);
+                AllCustomWordsSetsListFragment fragment = AllCustomWordsSetsListFragment.newInstance(searchField.getText().toString(), 0, false);
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_DOWNLOAD_CUSTOM_WORDS_SET)).commit();
                 InputMethodManager imm = (InputMethodManager)getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(search.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
