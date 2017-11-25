@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:measureWithLargestChild="true"
-    tools:context="pl.understandable.understandable_dev_app.dialogs.LoadingInfoDialog"
+    tools:context="pl.understandable.understandable_app.dialogs.LoadingInfoDialog"
     android:id="@+id/d_loading_info" >
 
     <TextView

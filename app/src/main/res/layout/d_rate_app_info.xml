@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:measureWithLargestChild="true"
-    tools:context="pl.understandable.understandable_dev_app.dialogs.RemoveCustomWordsSetDialog"
+    tools:context="pl.understandable.understandable_app.dialogs.RemoveCustomWordsSetDialog"
     android:id="@+id/d_remove_custom_words_set" >
 
     <TextView

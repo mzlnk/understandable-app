@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_dev_app.fragments.phrases.quiz.PhrasesQuizResultFragment"
+    tools:context="pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizResultFragment"
     android:id="@+id/f_phrases_quiz_result">
 
     <LinearLayout

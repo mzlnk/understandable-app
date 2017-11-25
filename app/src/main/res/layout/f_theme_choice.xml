@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pl.understandable.understandable_dev_app.fragments.theme.ThemeChoiceFragment"
+    tools:context="pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment"
     android:background="?attr/background_color"
     android:id="@+id/f_theme_choice" >
 

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_dev_app.fragments.pro.UnderstandableProInfoFragment"
+    tools:context="pl.understandable.understandable_app.fragments.pro.UnderstandableProInfoFragment"
     android:id="@+id/f_understandable_pro_info">
 
     <LinearLayout

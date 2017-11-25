@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/background_color"
-    tools:context="pl.understandable.understandable_dev_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceLengthFragment"
+    tools:context="pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceLengthFragment"
     android:id="@+id/f_irregular_verbs_choice_length" >
 
     <LinearLayout
