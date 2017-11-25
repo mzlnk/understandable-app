@@ -6,12 +6,6 @@ package pl.understandable.understandable_dev_app.user;
 
 public interface Request {
 
-    public RequestType getRequestType();
     public void executeRequest();
-
-    public static enum RequestType {
-        STATS,
-        ACHIEVEMENTS;
-    }
 
 }

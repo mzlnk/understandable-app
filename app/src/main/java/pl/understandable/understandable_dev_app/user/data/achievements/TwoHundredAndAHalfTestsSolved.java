@@ -9,6 +9,21 @@ import pl.understandable.understandable_dev_app.user.data.User;
 public class TwoHundredAndAHalfTestsSolved extends Achievement {
 
     @Override
+    public AchievementId getId() {
+        return AchievementId.TWO_HUNDRED_AND_A_HALF_TESTS_SOLVED;
+    }
+
+    @Override
+    public String getName() {
+        return "Obeznany";
+    }
+
+    @Override
+    public String getDescription() {
+        return "250 rozwiązanych testów";
+    }
+
+    @Override
     public boolean isAchievable() {
         return User.getUser().getStats().getAllTestsSolved() >= 250;
     }

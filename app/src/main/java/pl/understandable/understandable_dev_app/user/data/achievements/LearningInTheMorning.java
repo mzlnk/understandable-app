@@ -9,6 +9,21 @@ import java.util.Calendar;
 public class LearningInTheMorning extends Achievement {
 
     @Override
+    public AchievementId getId() {
+        return AchievementId.LEARNING_IN_THE_MORNING;
+    }
+
+    @Override
+    public String getName() {
+        return "Ranny ptaszek";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Nauka rano";
+    }
+
+    @Override
     public boolean isAchievable() {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);

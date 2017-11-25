@@ -6,12 +6,16 @@ package pl.understandable.understandable_dev_app.user.data;
 
 public class UserStatistics {
 
+    public static final int WORDS = 0;
+    public static final int IRREGULAR_VERBS = 1;
+    public static final int PHRASES = 2;
+
     public static final int LIST = 0;
     public static final int REPETITION = 1;
     public static final int QUIZ = 2;
     public static final int SPELLING = 3;
 
-    private long timePlayed;
+    private long timeLearnt;
     private int testsDownloaded;
     private int allTestsSolved;
     private int[] wordsTestsSolved = new int[4];
@@ -19,7 +23,7 @@ public class UserStatistics {
     private int[] phrasesTestsSolved = new int[3];
 
     public long getTimeLearnt() {
-        return timePlayed;
+        return timeLearnt;
     }
 
     public int getTestsDownloaded() {
@@ -40,6 +44,29 @@ public class UserStatistics {
 
     public int getPhrasesTestsSolved(int mode) {
         return phrasesTestsSolved[mode];
+    }
+
+    public void addTimeLearnt(long time) {
+        timeLearnt += time;
+    }
+
+    public void addTestDownloaded() {
+        testsDownloaded++;
+    }
+
+    public void addTestSolved(int which, int mode) {
+        switch(which) {
+            case WORDS:
+                wordsTestsSolved[mode]++;
+                break;
+            case IRREGULAR_VERBS:
+                irregularVerbsTestsSolved[mode]++;
+                break;
+            case PHRASES:
+                phrasesTestsSolved[mode]++;
+                break;
+        }
+        allTestsSolved++;
     }
 
 }

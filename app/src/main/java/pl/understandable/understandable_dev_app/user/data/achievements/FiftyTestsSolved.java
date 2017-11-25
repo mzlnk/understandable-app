@@ -9,6 +9,21 @@ import pl.understandable.understandable_dev_app.user.data.User;
 public class FiftyTestsSolved extends Achievement {
 
     @Override
+    public AchievementId getId() {
+        return AchievementId.FIFTY_TESTS_SOLVED;
+    }
+
+    @Override
+    public String getName() {
+        return "Początkujący";
+    }
+
+    @Override
+    public String getDescription() {
+        return "50 rozwiązanych testów";
+    }
+
+    @Override
     public boolean isAchievable() {
         return User.getUser().getStats().getAllTestsSolved() >= 50;
     }

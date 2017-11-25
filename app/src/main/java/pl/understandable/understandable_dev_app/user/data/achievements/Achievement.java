@@ -16,6 +16,9 @@ public abstract class Achievement {
         this.achieved = achieved;
     }
 
+    public abstract AchievementId getId();
+    public abstract String getName();
+    public abstract String getDescription();
     public abstract boolean isAchievable();
 
 }

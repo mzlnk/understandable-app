@@ -8,6 +8,21 @@ import pl.understandable.understandable_dev_app.user.data.User;
 
 public class TwelveHoursLearning extends Achievement {
 
+    @Override
+    public AchievementId getId() {
+        return AchievementId.TWELVE_HOURS_LEARNING;
+    }
+
+    @Override
+    public String getName() {
+        return "Wpół do dwunastej";
+    }
+
+    @Override
+    public String getDescription() {
+        return "12 godzin spędzonych na nauce";
+    }
+
     private static final long TWELVE_HOUR_IN_MILLIS = 43200000;
 
     @Override

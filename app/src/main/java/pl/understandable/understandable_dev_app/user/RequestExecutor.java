@@ -10,46 +10,26 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class RequestExecutor {
 
-    private static LinkedBlockingQueue<Request> achievementRequests = new LinkedBlockingQueue<>();
-    private static LinkedBlockingQueue<Request> statsRequests = new LinkedBlockingQueue<>();
+    private static LinkedBlockingQueue<Request> requests = new LinkedBlockingQueue<>();
 
     public static void offerRequest(Request request) {
-        switch(request.getRequestType()) {
-            case ACHIEVEMENTS:
-                achievementRequests.offer(request);
-                break;
-            case STATS:
-                statsRequests.offer(request);
-                break;
-        }
+        requests.offer(request);
     }
 
     public static void init() {
         Timer timer = new Timer();
-        TimerTask statsTask = new TimerTask() {
+        TimerTask requestsTask = new TimerTask() {
             @Override
             public void run() {
                 try {
-                    statsRequests.take().executeRequest();
+                    requests.take().executeRequest();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
             }
         };
-        TimerTask achievementsTask = new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    achievementRequests.take().executeRequest();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        };
-        timer.scheduleAtFixedRate(statsTask, 10L, 1000L);
-        timer.scheduleAtFixedRate(achievementsTask, 20L, 1000L);
+        timer.scheduleAtFixedRate(requestsTask, 20L, 1000L);
     }
 
 }

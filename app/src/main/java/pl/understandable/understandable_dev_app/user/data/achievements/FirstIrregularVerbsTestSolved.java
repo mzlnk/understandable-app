@@ -7,6 +7,21 @@ package pl.understandable.understandable_dev_app.user.data.achievements;
 public class FirstIrregularVerbsTestSolved extends Achievement {
 
     @Override
+    public AchievementId getId() {
+        return AchievementId.FIRST_IRREGULAR_VERBS_TEST_SOLVED;
+    }
+
+    @Override
+    public String getName() {
+        return "Od-czasownikowy";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Pierwszy rozwiązany test z czasowników nieregularnych";
+    }
+
+    @Override
     public boolean isAchievable() {
         return false;
     }
