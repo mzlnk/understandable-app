@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.1'
 
     defaultConfig {
-        applicationId "pl.understandable.understandable_dev_app"
+        applicationId "pl.understandable.understandable_app"
         vectorDrawables.useSupportLibrary = true
         minSdkVersion 16
         targetSdkVersion 24
@@ -50,3 +50,5 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
     testCompile 'junit:junit:4.12'
 }
+
+apply plugin: 'com.google.gms.google-services'
