@@ -5,7 +5,9 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.support.v7.app.AppCompatDelegate;
 
+import pl.understandable.understandable_dev_app.user.AchievementChecker;
 import pl.understandable.understandable_dev_app.user.RequestExecutor;
+import pl.understandable.understandable_dev_app.user.TimeLearntHandler;
 import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
 import pl.understandable.understandable_dev_app.utils.font.FontsOverride;
@@ -26,6 +28,8 @@ public class App extends MultiDexApplication {
         Font.loadBuiltInTypefaces(getApplicationContext());
         AdUtil.init(getApplicationContext());
         RequestExecutor.init();
+        TimeLearntHandler.init();
+        AchievementChecker.init();
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
