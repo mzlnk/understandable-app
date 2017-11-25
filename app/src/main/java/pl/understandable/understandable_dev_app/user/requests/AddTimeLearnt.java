@@ -1,6 +1,7 @@
 package pl.understandable.understandable_dev_app.user.requests;
 
 import pl.understandable.understandable_dev_app.user.Request;
+import pl.understandable.understandable_dev_app.user.SyncHandler;
 import pl.understandable.understandable_dev_app.user.data.User;
 
 /**
@@ -17,7 +18,10 @@ public class AddTimeLearnt implements Request {
 
     @Override
     public void executeRequest() {
-        User.getUser().getStats().addTimeLearnt(time);
+        if(SyncHandler.getSyncStatus()) {
+            User.getUser().getStats().addTimeLearnt(time);
+            User.getUser().setSyncRequired(true);
+        }
     }
 
 }

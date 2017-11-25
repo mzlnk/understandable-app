@@ -23,7 +23,8 @@ import android.widget.Toast;
 import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
-import pl.understandable.understandable_dev_app.webservice.WebService;
+import pl.understandable.understandable_dev_app.webservice.DownloadWordsSetTask;
+import pl.understandable.understandable_dev_app.webservice.DownloadWordsSetsDataTask;
 
 import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET;
 import static pl.understandable.understandable_dev_app.utils.FragmentUtil.redirectTo;
@@ -122,7 +123,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
                 lastClicked = System.currentTimeMillis();
                 String code = codeField.getText().toString();
                 code = code.toUpperCase();
-                WebService.DownloadWordsSetTask task = (WebService.DownloadWordsSetTask) new WebService.DownloadWordsSetTask(getContext(), getFragmentManager()).execute(code);
+                DownloadWordsSetTask task = (DownloadWordsSetTask) new DownloadWordsSetTask(getContext(), getFragmentManager()).execute(code);
                 DownloadTaskCanceller taskCanceller = new DownloadTaskCanceller(task);
                 Handler handler = new Handler();
                 handler.postDelayed(taskCanceller, MAX_DOWNLOAD_TIME_IN_MILLIS);
@@ -131,7 +132,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new WebService.DownloadWordsSetsDataTask(getContext(), getFragmentManager(), redirectTo(F_DOWNLOAD_CUSTOM_WORDS_SET)).execute();
+                new DownloadWordsSetsDataTask(getContext(), getFragmentManager(), redirectTo(F_DOWNLOAD_CUSTOM_WORDS_SET)).execute();
             }
         });
     }

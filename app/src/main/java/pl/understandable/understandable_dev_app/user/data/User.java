@@ -42,10 +42,15 @@ public class User {
         return user;
     }
 
+    //******************************************************************************************************
+
+    private boolean syncRequired = false;
+
     private String name;
     private long exp;
     private UserStatistics stats;
     private List<Achievement> achievements = new ArrayList<>();
+    private List<String> downloadedTests = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -61,6 +66,14 @@ public class User {
 
     public List<Achievement> getAllAchievements() {
         return achievements;
+    }
+
+    public List<String> getAllDownloadedTests() {
+        return downloadedTests;
+    }
+
+    public boolean isSyncRequired() {
+        return syncRequired;
     }
 
     public int getLevel() {
@@ -105,6 +118,18 @@ public class User {
 
     public void addExp(long exp) {
         this.exp += exp;
+    }
+
+    public void addDownloadedTest(String code) {
+        downloadedTests.add(code);
+    }
+
+    public void removeDownloadedTest(String code) {
+        downloadedTests.remove(code);
+    }
+
+    public void setSyncRequired(boolean status) {
+        syncRequired = status;
     }
 
 }

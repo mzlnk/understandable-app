@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatDelegate;
 
 import pl.understandable.understandable_dev_app.user.AchievementChecker;
 import pl.understandable.understandable_dev_app.user.RequestExecutor;
+import pl.understandable.understandable_dev_app.user.SyncHandler;
 import pl.understandable.understandable_dev_app.user.TimeLearntHandler;
 import pl.understandable.understandable_dev_app.utils.AdUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
@@ -26,10 +27,13 @@ public class App extends MultiDexApplication {
         FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Montserrat-Regular-PL.ttf");
         prepareCustomWordsSetsDirectory();
         Font.loadBuiltInTypefaces(getApplicationContext());
+
         AdUtil.init(getApplicationContext());
+        SyncHandler.init(getApplicationContext());
         RequestExecutor.init();
         TimeLearntHandler.init();
         AchievementChecker.init();
+
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 

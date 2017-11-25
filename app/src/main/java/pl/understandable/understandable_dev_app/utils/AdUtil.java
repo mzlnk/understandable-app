@@ -14,26 +14,24 @@ public class AdUtil {
     private static final String ID = "ca-app-pub-3940256099942544/1033173712";
     private static final long COOLDOWN_IN_MILLIS = 300000;
 
-    private static Context context;
     private static InterstitialAd ad;
     private static long lastAd = 0;
 
     public static void init(Context context) {
-        AdUtil.context = context;
         ad = new InterstitialAd(context);
         ad.setAdUnitId(ID);
         ad.loadAd(new AdRequest.Builder().build());
     }
 
-    public static void showAd() {
+    public static void showAd(Context context) {
         if(canBeShowed() && ad.isLoaded()) {
             ad.show();
             lastAd = System.currentTimeMillis();
         }
-        reload();
+        reload(context);
     }
 
-    private static void reload() {
+    private static void reload(Context context) {
         ad = new InterstitialAd(context);
         ad.setAdUnitId(ID);
         ad.loadAd(new AdRequest.Builder().build());

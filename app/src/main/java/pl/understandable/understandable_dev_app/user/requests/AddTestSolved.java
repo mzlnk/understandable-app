@@ -1,6 +1,7 @@
 package pl.understandable.understandable_dev_app.user.requests;
 
 import pl.understandable.understandable_dev_app.user.Request;
+import pl.understandable.understandable_dev_app.user.SyncHandler;
 import pl.understandable.understandable_dev_app.user.data.User;
 
 /**
@@ -19,7 +20,10 @@ public class AddTestSolved implements Request {
 
     @Override
     public void executeRequest() {
-        User.getUser().getStats().addTestSolved(which, mode);
+        if(SyncHandler.getSyncStatus()) {
+            User.getUser().getStats().addTestSolved(which, mode);
+            User.getUser().setSyncRequired(true);
+        }
     }
 
 }

@@ -21,10 +21,9 @@ import pl.understandable.understandable_dev_app.R;
 import pl.understandable.understandable_dev_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_dev_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_dev_app.utils.ColorUtil;
-import pl.understandable.understandable_dev_app.utils.FragmentUtil;
 import pl.understandable.understandable_dev_app.utils.ThemeUtil;
 import pl.understandable.understandable_dev_app.utils.font.Font;
-import pl.understandable.understandable_dev_app.webservice.WebService;
+import pl.understandable.understandable_dev_app.webservice.DownloadWordsSetsDataTask;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_dev_app.utils.FragmentUtil.F_CUSTOM_WORDS_SETS_LIST;
@@ -150,7 +149,7 @@ public class CustomWordsSetsListFragment extends Fragment {
         browse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new WebService.DownloadWordsSetsDataTask(getContext(), getFragmentManager(), redirectTo(F_CUSTOM_WORDS_SETS_LIST)).execute();
+                new DownloadWordsSetsDataTask(getContext(), getFragmentManager(), redirectTo(F_CUSTOM_WORDS_SETS_LIST)).execute();
             }
         });
     }
