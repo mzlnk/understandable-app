@@ -1,9 +1,13 @@
 package pl.understandable.understandable_app.user.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pl.understandable.understandable_app.user.data.achievements.*;
+
+import static pl.understandable.understandable_app.user.data.achievements.AchievementId.*;
 
 /**
  * Created by Marcin Zielonka on 2017-11-25.
@@ -11,45 +15,35 @@ import pl.understandable.understandable_app.user.data.achievements.*;
 
 public class User {
 
-    private static User user;
-
-    static {
-        user.achievements.add(new AppThemeChanged());
-        user.achievements.add(new FiftyTestsSolved());
-        user.achievements.add(new FirstDownloadedTestSolved());
-        user.achievements.add(new FirstIrregularVerbsTestSolved());
-        user.achievements.add(new FirstPhrasesTestSolved());
-        user.achievements.add(new FirstTestDownloaded());
-        user.achievements.add(new FirstWordsTestSolved());
-        user.achievements.add(new FiveHundredTestsSolved());
-        user.achievements.add(new FiveThousandTestsSolved());
-        user.achievements.add(new HundredTestsSolved());
-        user.achievements.add(new LearningAtNight());
-        user.achievements.add(new LearningInTheMorning());
-        user.achievements.add(new OneDayLearning());
-        user.achievements.add(new OneHourLearning());
-        user.achievements.add(new OneWeekLearning());
-        user.achievements.add(new QuizCorrectlySolved());
-        user.achievements.add(new SixHoursLearning());
-        user.achievements.add(new TenThousandTestsSolved());
-        user.achievements.add(new ThousandTestsSolved());
-        user.achievements.add(new TwelveHoursLearning());
-        user.achievements.add(new TwoHundredAndAHalfTestsSolved());
-        user.achievements.add(new TwoThousandFiveHundredTestsSolved());
+    public User() {
+        this.achievements.put(APP_THEME_CHANGED, new AppThemeChanged());
+        this.achievements.put(FIFTY_TESTS_SOLVED, new FiftyTestsSolved());
+        this.achievements.put(FIRST_DOWNLOADED_TEST_SOLVED, new FirstDownloadedTestSolved());
+        this.achievements.put(FIRST_IRREGULAR_VERBS_TEST_SOLVED, new FirstIrregularVerbsTestSolved());
+        this.achievements.put(FIRST_PHRASES_TEST_SOLVED, new FirstPhrasesTestSolved());
+        this.achievements.put(FIRST_TEST_DOWNLOADED, new FirstTestDownloaded());
+        this.achievements.put(FIRST_WORDS_TEST_SOLVED, new FirstWordsTestSolved());
+        this.achievements.put(FIVE_HUNDRED_TESTS_SOLVED, new FiveHundredTestsSolved());
+        this.achievements.put(FIVE_THOUSAND_TESTS_SOLVED, new FiveThousandTestsSolved());
+        this.achievements.put(HUNDRED_TESTS_SOLVED, new HundredTestsSolved());
+        this.achievements.put(LEARNING_AT_NIGHT, new LearningAtNight());
+        this.achievements.put(LEARNING_IN_THE_MORNING, new LearningInTheMorning());
+        this.achievements.put(ONE_DAY_LEARNING, new OneDayLearning());
+        this.achievements.put(ONE_HOUR_LEARNING, new OneHourLearning());
+        this.achievements.put(ONE_WEEK_LEARNING, new OneWeekLearning());
+        this.achievements.put(QUIZ_CORRECTLY_SOLVED, new QuizCorrectlySolved());
+        this.achievements.put(SIX_HOURS_LEARNING, new SixHoursLearning());
+        this.achievements.put(TEN_THOUSAND_TESTS_SOLVED, new TenThousandTestsSolved());
+        this.achievements.put(THOUSAND_TESTS_SOLVED, new ThousandTestsSolved());
+        this.achievements.put(TWELVE_HOURS_LEARNING, new TwelveHoursLearning());
+        this.achievements.put(TWO_HUNDRED_AND_A_HALF_TESTS_SOLVED, new TwoHundredAndAHalfTestsSolved());
+        this.achievements.put(TWO_THOUSAND_FIVE_HUNDRED_TESTS_SOLVED, new TwoThousandFiveHundredTestsSolved());
     }
-
-    public static User getUser() {
-        return user;
-    }
-
-    //******************************************************************************************************
-
-    private boolean syncRequired = false;
 
     private String name;
     private long exp;
     private UserStatistics stats;
-    private List<Achievement> achievements = new ArrayList<>();
+    private Map<AchievementId, Achievement> achievements = new HashMap<>();
     private List<String> downloadedTests = new ArrayList<>();
 
     public String getName() {
@@ -64,16 +58,12 @@ public class User {
         return stats;
     }
 
-    public List<Achievement> getAllAchievements() {
+    public Map<AchievementId, Achievement> getAllAchievements() {
         return achievements;
     }
 
     public List<String> getAllDownloadedTests() {
         return downloadedTests;
-    }
-
-    public boolean isSyncRequired() {
-        return syncRequired;
     }
 
     public int getLevel() {
@@ -104,12 +94,7 @@ public class User {
     }
 
     public Achievement getAchievement(AchievementId id) {
-        for(Achievement a : achievements) {
-            if(a.getId().equals(id)) {
-                return a;
-            }
-        }
-        return null;
+        return achievements.get(id);
     }
 
     public void setName(String name) {
@@ -126,10 +111,6 @@ public class User {
 
     public void removeDownloadedTest(String code) {
         downloadedTests.remove(code);
-    }
-
-    public void setSyncRequired(boolean status) {
-        syncRequired = status;
     }
 
 }

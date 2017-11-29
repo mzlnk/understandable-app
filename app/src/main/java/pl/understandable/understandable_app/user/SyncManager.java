@@ -16,7 +16,6 @@ import java.net.URISyntaxException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.user.requests.ShowSyncStoppedMessage;
 import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
 
@@ -24,42 +23,42 @@ import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
  * Created by Marcin Zielonka on 2017-11-25.
  */
 
-public class SyncHandler {
+public class SyncManager {
 
-    private static boolean syncStatus = false;
+    private static SyncStatus syncStatus = SyncStatus.OFFLINE;
 
-    public static boolean getSyncStatus() {
+    public static SyncStatus getSyncStatus() {
         return syncStatus;
     }
 
-    public static void init(final Context context) {
+    public static void init(final ConnectivityManager manager) {
         Timer timer = new Timer();
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
-                if(isNetworkAvailable(context)) {
-                    if(syncStatus == false) {
+                if(isNetworkAvailable(manager)) {
+                    if(syncStatus.equals(SyncStatus.OFFLINE)) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
+                        //pull data from server db
                     }
-                    syncStatus = true;
+                    syncStatus  = SyncStatus.ONLINE;
 
-                    if(User.getUser().isSyncRequired()) {
+                    if(UserManager.isSyncRequired()) {
                         //sync
                     }
                 } else {
-                    if(syncStatus == true) {
+                    if(syncStatus.equals(SyncStatus.ONLINE)) {
                         RequestExecutor.offerRequest(new ShowSyncStoppedMessage());
                     }
-                    syncStatus = false;
+                    syncStatus = SyncStatus.OFFLINE;
                 }
             }
         };
         timer.scheduleAtFixedRate(syncTask, 10000L, 1000L);
     }
 
-    private static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+    private static boolean isNetworkAvailable(ConnectivityManager manager) {
+        NetworkInfo activeNetworkInfo = manager.getActiveNetworkInfo();
         if(activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return false;
         }
@@ -80,6 +79,11 @@ public class SyncHandler {
             return false;
         }
         return true;
+    }
+
+    private static enum SyncStatus {
+        OFFLINE,
+        ONLINE;
     }
 
 }

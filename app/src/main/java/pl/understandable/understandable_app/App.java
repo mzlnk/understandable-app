@@ -1,14 +1,15 @@
 package pl.understandable.understandable_app;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.support.v7.app.AppCompatDelegate;
 
 import pl.understandable.understandable_app.user.AchievementChecker;
 import pl.understandable.understandable_app.user.RequestExecutor;
-import pl.understandable.understandable_app.user.SyncHandler;
-import pl.understandable.understandable_app.user.TimeLearntHandler;
+import pl.understandable.understandable_app.user.SyncManager;
+import pl.understandable.understandable_app.user.TimeLearntManager;
 import pl.understandable.understandable_app.utils.AdUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.utils.font.FontsOverride;
@@ -29,9 +30,10 @@ public class App extends MultiDexApplication {
         Font.loadBuiltInTypefaces(getApplicationContext());
 
         AdUtil.init(getApplicationContext());
-        SyncHandler.init(getApplicationContext());
+
+        SyncManager.init((ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE));
         RequestExecutor.init();
-        TimeLearntHandler.init();
+        TimeLearntManager.init();
         AchievementChecker.init();
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
