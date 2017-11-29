@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.user.data.achievements;
 
+import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 
 /**
@@ -25,7 +26,7 @@ public class FiveHundredTestsSolved extends Achievement {
 
     @Override
     public boolean isAchievable() {
-        return User.getUser().getStats().getAllTestsSolved() >= 500;
+        return UserManager.getUser().getStats().getAllTestsSolved() >= 500;
     }
 
 }

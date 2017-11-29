@@ -18,7 +18,7 @@ public class AddTimeLearnt implements Request {
 
     @Override
     public void executeRequest() {
-        if(SyncManager.getSyncStatus()) {
+        if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().getStats().addTimeLearnt(time);
             UserManager.setSyncRequired(true);
         }

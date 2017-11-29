@@ -27,8 +27,8 @@ public class SyncManager {
 
     private static SyncStatus syncStatus = SyncStatus.OFFLINE;
 
-    public static SyncStatus getSyncStatus() {
-        return syncStatus;
+    public static boolean isSyncAvailable() {
+        return syncStatus.equals(SyncStatus.ONLINE);
     }
 
     public static void init(final ConnectivityManager manager) {
@@ -37,7 +37,7 @@ public class SyncManager {
             @Override
             public void run() {
                 if(isNetworkAvailable(manager)) {
-                    if(syncStatus.equals(SyncStatus.OFFLINE)) {
+                    if(!isSyncAvailable()) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
                         //pull data from server db
                     }
@@ -47,7 +47,7 @@ public class SyncManager {
                         //sync
                     }
                 } else {
-                    if(syncStatus.equals(SyncStatus.ONLINE)) {
+                    if(isSyncAvailable()) {
                         RequestExecutor.offerRequest(new ShowSyncStoppedMessage());
                     }
                     syncStatus = SyncStatus.OFFLINE;

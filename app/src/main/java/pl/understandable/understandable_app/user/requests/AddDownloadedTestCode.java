@@ -18,7 +18,7 @@ public class AddDownloadedTestCode implements Request {
 
     @Override
     public void executeRequest() {
-        if(SyncManager.getSyncStatus()) {
+        if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().addDownloadedTest(code);
             UserManager.setSyncRequired(true);
         }

@@ -12,7 +12,7 @@ public class AddTestDownloaded implements Request {
 
     @Override
     public void executeRequest() {
-        if(SyncManager.getSyncStatus()) {
+        if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().getStats().addTestDownloaded();
             UserManager.setSyncRequired(true);
         }

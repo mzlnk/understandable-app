@@ -20,7 +20,7 @@ public class AddTestSolved implements Request {
 
     @Override
     public void executeRequest() {
-        if(SyncManager.getSyncStatus()) {
+        if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().getStats().addTestSolved(which, mode);
             UserManager.setSyncRequired(true);
         }
