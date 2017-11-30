@@ -46,6 +46,30 @@ public class UserStatistics {
         return phrasesTestsSolved[mode];
     }
 
+    public void setTimeLearnt(long timeLearnt) {
+        this.timeLearnt = timeLearnt;
+    }
+
+    public void setTestsDownloaded(int testsDownloaded) {
+        this.testsDownloaded = testsDownloaded;
+    }
+
+    public void setAllTestsSolved(int allTestsSolved) {
+        this.allTestsSolved = allTestsSolved;
+    }
+
+    public void setWordsTestsSolved(int mode, int value) {
+        this.wordsTestsSolved[mode] = value;
+    }
+
+    public void setIrregularVerbsTestsSolved(int mode, int value) {
+        this.irregularVerbsTestsSolved[mode] = value;
+    }
+
+    public void setPhrasesTestsSolved(int mode, int value) {
+        this.phrasesTestsSolved[mode] = value;
+    }
+
     public void addTimeLearnt(long time) {
         timeLearnt += time;
     }

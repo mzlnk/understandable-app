@@ -36,6 +36,9 @@ public class SyncManager {
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
+                if(!UserManager.isUserLoggedIn()) {
+                    return;
+                }
                 if(isNetworkAvailable(manager)) {
                     if(!isSyncAvailable()) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());

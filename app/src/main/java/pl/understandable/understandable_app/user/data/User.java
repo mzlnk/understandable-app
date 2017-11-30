@@ -1,5 +1,9 @@
 package pl.understandable.understandable_app.user.data;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +48,7 @@ public class User {
     private long exp;
     private UserStatistics stats;
     private Map<AchievementId, Achievement> achievements = new HashMap<>();
-    private List<String> downloadedTests = new ArrayList<>();
+    private List<String> followedTests = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -63,7 +67,7 @@ public class User {
     }
 
     public List<String> getAllDownloadedTests() {
-        return downloadedTests;
+        return followedTests;
     }
 
     public int getLevel() {
@@ -106,11 +110,93 @@ public class User {
     }
 
     public void addDownloadedTest(String code) {
-        downloadedTests.add(code);
+        followedTests.add(code);
     }
 
     public void removeDownloadedTest(String code) {
-        downloadedTests.remove(code);
+        followedTests.remove(code);
+    }
+
+    public JSONObject toJson() {
+        JSONObject user = new JSONObject();
+        try {
+            user.put("name", this.name);
+            user.put("exp", this.exp);
+
+            JSONObject stats = new JSONObject();
+            stats.put("timeLearnt", this.stats.getTimeLearnt());
+            stats.put("testsDownloaded", this.stats.getTestsDownloaded());
+            stats.put("allTestsSolved", this.stats.getAllTestsSolved());
+            JSONArray wordsTestsSolved = new JSONArray();
+            for(int i = 0; i < 4; i++) {
+                wordsTestsSolved.put(this.stats.getWordsTestsSolved(i));
+            }
+            JSONArray irregularVerbsTestsSolved = new JSONArray();
+            for(int i = 0; i < 2; i++) {
+                irregularVerbsTestsSolved.put(i);
+            }
+            JSONArray phrasesTestsSolved = new JSONArray();
+            for(int i = 0; i < 3; i++) {
+                phrasesTestsSolved.put(i);
+            }
+            stats.put("wordsTestsSolved", wordsTestsSolved);
+            stats.put("irregularVerbsTestsSolved", irregularVerbsTestsSolved);
+            stats.put("phrasesTestsSolved", phrasesTestsSolved);
+            user.put("stats", stats);
+
+            JSONObject achievements = new JSONObject();
+            for(AchievementId id : AchievementId.values()) {
+                achievements.put(id.getId2(), this.achievements.get(id).isAchieved());
+            }
+            user.put("achievements", achievements);
+
+            JSONArray followedTests = new JSONArray();
+            for(String id : this.followedTests) {
+                followedTests.put(id);
+            }
+            user.put("followedTests", followedTests);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    public void updateFromJson(JSONObject user) {
+        try {
+            this.name = user.getString("name");
+            this.exp = user.getLong("exp");
+
+            JSONObject stats = user.getJSONObject("stats");
+            this.stats.setTimeLearnt(stats.getLong("timeLearnt"));
+            this.stats.setTestsDownloaded(stats.getInt("testsDownloaded"));
+            this.stats.setAllTestsSolved(stats.getInt("allTestsSolved"));
+            JSONArray wordsTestsSolved = stats.getJSONArray("wordsTestsSolved");
+            for(int i = 0; i < 4; i++) {
+                this.stats.setWordsTestsSolved(i, wordsTestsSolved.getInt(i));
+            }
+            JSONArray irregularVerbsTestsSolved = stats.getJSONArray("irregularVerbsTestsSolved");
+            for(int i = 0; i < 2; i++) {
+                this.stats.setIrregularVerbsTestsSolved(i, irregularVerbsTestsSolved.getInt(i));
+            }
+            JSONArray phrasesTestsSolved = stats.getJSONArray("phrasesTestsSolved");
+            for(int i = 0; i < 3; i++) {
+                this.stats.setPhrasesTestsSolved(i, phrasesTestsSolved.getInt(i));
+            }
+
+            JSONObject achievements = user.getJSONObject("achievements");
+            for(AchievementId id : AchievementId.values()) {
+                this.achievements.get(id).setAchieved(achievements.getBoolean(id.name()));
+            }
+
+            JSONArray followedTests = user.getJSONArray("followedTests");
+            this.followedTests.clear();
+            for(int i = 0; i < followedTests.length(); i++) {
+                this.followedTests.add(followedTests.getString(i));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

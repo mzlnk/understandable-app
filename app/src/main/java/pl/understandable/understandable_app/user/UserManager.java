@@ -10,6 +10,7 @@ public class UserManager {
 
     private static User user;
 
+    private static UserStatus userStatus = UserStatus.NO_ACCOUNT;
     private static boolean isSyncRequired = false;
 
     public static void init() {
@@ -24,8 +25,21 @@ public class UserManager {
         return isSyncRequired;
     }
 
+    public static boolean isUserLoggedIn() {
+        return userStatus.equals(UserStatus.LOGGED_IN);
+    }
+
     public static void setSyncRequired(boolean status) {
         isSyncRequired = status;
+    }
+
+    public static void setUserStatus(UserStatus status) {
+        userStatus = status;
+    }
+
+    public static enum UserStatus {
+        LOGGED_IN,
+        NO_ACCOUNT;
     }
 
 }
