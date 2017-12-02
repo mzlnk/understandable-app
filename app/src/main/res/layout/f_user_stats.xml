@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.user.UserStatsFragment"
+    android:id="@+id/f_user_stats" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/f_border_margin_medium"
+        android:measureWithLargestChild="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/f_user_stats_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_weight="0.15"
+            android:gravity="center_vertical"
+            android:text="Anonymous"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_user_stats_name" />
+
+        <TextView
+            android:id="@+id/f_user_stats_level"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_weight="0.1"
+            android:text="poziom: 12 (12,54%)"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_user_stats_level" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/f_border_margin_medium"
+            android:layout_weight="0.55">
+
+            <TableLayout
+                android:id="@+id/f_user_stats_stats_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="*">
+
+            </TableLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f_user_stats_button_achievements"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_marginRight="@dimen/f_choice_button_margin"
+                android:clickable="true"
+                android:text="@string/button_achievements"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_text" />
+
+            <Button
+                android:id="@+id/f_user_stats_button_followed_tests"
+                android:layout_width="@dimen/button_small_width"
+                android:layout_height="@dimen/button_small_height"
+                android:layout_marginLeft="@dimen/f_choice_button_margin"
+                android:clickable="true"
+                android:text="@string/button_followed_tests"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/f_user_stats_button_log_out"
+                android:layout_width="@dimen/button_medium_width"
+                android:layout_height="@dimen/button_medium_height"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:text="@string/button_log_out"
+                android:textAllCaps="false"
+                android:textColor="?attr/text_button_color"
+                android:textSize="@dimen/button_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

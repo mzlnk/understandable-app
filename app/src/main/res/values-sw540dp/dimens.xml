@@ -163,4 +163,12 @@
     <dimen name="d_text">21sp</dimen>
     <dimen name="d_edit_text">19sp</dimen>
 
+
+    <!-- user -->
+    <dimen name="f_user_log_in_title">24sp</dimen>
+    <dimen name="f_user_log_in_icon">140dp</dimen>
+    <dimen name="f_user_stats_name">10dp</dimen>
+    <dimen name="f_user_stats_level">10dp</dimen>
+    <dimen name="f_user_stats_other">10dp</dimen>
+
 </resources>
