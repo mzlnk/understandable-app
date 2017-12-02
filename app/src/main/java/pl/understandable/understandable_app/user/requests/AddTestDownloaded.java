@@ -15,6 +15,7 @@ public class AddTestDownloaded implements Request {
         if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().getStats().addTestDownloaded();
             UserManager.setSyncRequired(true);
+            UserManager.addElementToSync(UserManager.SyncElement.TESTS);
         }
     }
 

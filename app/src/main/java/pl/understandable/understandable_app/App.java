@@ -14,11 +14,13 @@ import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.TimeLearntManager;
 import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.user.data.achievements.AchievementId;
 import pl.understandable.understandable_app.utils.AdUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.utils.font.FontsOverride;
 
 import java.io.File;
+import java.util.Random;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.
@@ -49,22 +51,25 @@ public class App extends MultiDexApplication {
             stats.put("timeLearnt", 450000);
             stats.put("testsDownloaded", 12);
             stats.put("allTestsSolved", 156);
-            JSONArray wordsTestsSolved = new JSONArray();
-            wordsTestsSolved.put(23).put(13).put(50).put(70);
-            JSONArray irregularVerbsTestsSolved = new JSONArray();
-            irregularVerbsTestsSolved.put(0).put(0);
-            JSONArray phrasesTestsSolved = new JSONArray();
-            phrasesTestsSolved.put(0).put(0).put(0);
-            stats.put("wordsTestsSolved", wordsTestsSolved);
-            stats.put("irregularVerbsTestsSolved", irregularVerbsTestsSolved);
-            stats.put("phrasesTestsSolved", phrasesTestsSolved);
+            JSONArray testsSolved = new JSONArray();
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_0").put("value", 23));
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_1").put("value", 13));
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_2").put("value", 50));
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_3").put("value", 70));
+            testsSolved.put(new JSONObject().put("id", "ir_tests_solved_0").put("value", 0));
+            testsSolved.put(new JSONObject().put("id", "ir_tests_solved_1").put("value", 0));
+            testsSolved.put(new JSONObject().put("id", "p_tests_solved_0").put("value", 0));
+            testsSolved.put(new JSONObject().put("id", "p_tests_solved_1").put("value", 0));
+            testsSolved.put(new JSONObject().put("id", "p_tests_solved_3").put("value", 0));
+            stats.put("testsSolved", testsSolved);
             user.put("stats", stats);
-            JSONObject achievements = new JSONObject();
-            achievements.put("id1", true);
-            achievements.put("id2", true);
-            achievements.put("id3", false);
-            achievements.put("id4", true);
-            achievements.put("id5", false);
+            JSONArray achievements = new JSONArray();
+            for(AchievementId id : AchievementId.values()) {
+                JSONObject a = new JSONObject();
+                a.put("id", id.getId2());
+                a.put("value", new Random().nextBoolean() ? 1 : 0);
+                achievements.put(a);
+            }
             user.put("achievements", achievements);
             JSONArray downloadedTests = new JSONArray();
             downloadedTests.put("AABBCC").put("XXYYZZ").put("ZASDBC");

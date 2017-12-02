@@ -20,6 +20,7 @@ public class CheckAchievements implements Request {
                     RequestExecutor.offerRequest(new ShowAchievement(achievement.getId()));
                     achievement.setAchieved(true);
                     UserManager.setSyncRequired(true);
+                    UserManager.addElementToSync(UserManager.SyncElement.ACHIEVEMENTS);
                 }
             }
         }

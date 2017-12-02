@@ -8,19 +8,20 @@ import pl.understandable.understandable_app.user.UserManager;
  * Created by Marcin Zielonka on 2017-11-25.
  */
 
-public class AddDownloadedTestCode implements Request {
+public class RemoveFollowedTest implements Request {
 
     private String code;
 
-    public AddDownloadedTestCode(String code) {
+    public RemoveFollowedTest(String code) {
         this.code = code;
     }
 
     @Override
     public void executeRequest() {
         if(SyncManager.isSyncAvailable()) {
-            UserManager.getUser().addDownloadedTest(code);
+            UserManager.getUser().removeDownloadedTest(code);
             UserManager.setSyncRequired(true);
+            UserManager.addElementToSync(UserManager.SyncElement.GENERAL);
         }
     }
 

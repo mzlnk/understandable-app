@@ -144,9 +144,12 @@ public class User {
             stats.put("phrasesTestsSolved", phrasesTestsSolved);
             user.put("stats", stats);
 
-            JSONObject achievements = new JSONObject();
+            JSONArray achievements = new JSONArray();
             for(AchievementId id : AchievementId.values()) {
-                achievements.put(id.getId2(), this.achievements.get(id).isAchieved());
+                JSONObject a = new JSONObject();
+                a.put("id", id.getId2());
+                a.put("value", this.achievements.get(a).isAchieved() ? 1 : 0);
+                achievements.put(a);
             }
             user.put("achievements", achievements);
 

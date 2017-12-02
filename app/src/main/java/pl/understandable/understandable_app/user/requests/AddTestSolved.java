@@ -23,6 +23,7 @@ public class AddTestSolved implements Request {
         if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().getStats().addTestSolved(which, mode);
             UserManager.setSyncRequired(true);
+            UserManager.addElementToSync(UserManager.SyncElement.TESTS);
         }
     }
 

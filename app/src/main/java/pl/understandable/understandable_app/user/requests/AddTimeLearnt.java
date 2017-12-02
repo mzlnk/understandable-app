@@ -21,6 +21,7 @@ public class AddTimeLearnt implements Request {
         if(SyncManager.isSyncAvailable()) {
             UserManager.getUser().getStats().addTimeLearnt(time);
             UserManager.setSyncRequired(true);
+            UserManager.addElementToSync(UserManager.SyncElement.GENERAL);
         }
     }
 

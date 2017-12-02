@@ -1,18 +1,25 @@
 package pl.understandable.understandable_app.user;
 
-import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -42,12 +49,22 @@ public class SyncManager {
                 if(isNetworkAvailable(manager)) {
                     if(!isSyncAvailable()) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
-                        //pull data from server db
+                        boolean syncResult = syncFromServer();
+                        if(syncResult) {
+                            System.out.println("Sync from server completed successfully");
+                        } else {
+                            System.out.println("Sync from server not completed successfully");
+                        }
                     }
                     syncStatus  = SyncStatus.ONLINE;
 
                     if(UserManager.isSyncRequired()) {
-                        //sync
+                        boolean syncResult = syncToServer();
+                        if(syncResult) {
+                            System.out.println("Sync to server completed successfully");
+                        } else {
+                            System.out.println("Sync from server not completed successfully");
+                        }
                     }
                 } else {
                     if(isSyncAvailable()) {
@@ -78,6 +95,68 @@ public class SyncManager {
             e.printStackTrace();
             return false;
         } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean syncToServer() {
+        try {
+            HttpClient client = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
+
+            List valuePairs = new ArrayList(2);
+            valuePairs.add(new BasicNameValuePair("token_id", "")); //todo : tokenId here
+            valuePairs.add(new BasicNameValuePair("data", UserManager.getJsonData().toString()));
+            httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
+
+            HttpResponse httpResponse = client.execute(httpPost);
+            String response = EntityUtils.toString(httpResponse.getEntity());
+            System.out.println("Sync response: " + response);
+
+            UserManager.clearElementsToSync();
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean syncFromServer() {
+        try {
+            HttpClient client = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
+
+            List valuePairs = new ArrayList(1);
+            valuePairs.add(new BasicNameValuePair("token_id", "")); //todo: tokenId here
+            httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
+
+            HttpResponse httpResponse = client.execute(httpPost);
+            String response = EntityUtils.toString(httpResponse.getEntity());
+
+            System.out.println("Sync response: " + response);
+
+            JSONObject data = new JSONObject(response);
+            UserManager.getUser().updateFromJson(data);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        } catch (JSONException e) {
             e.printStackTrace();
             return false;
         }
