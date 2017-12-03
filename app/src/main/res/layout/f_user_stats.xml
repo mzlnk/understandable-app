@@ -70,7 +70,7 @@
                 android:textSize="@dimen/button_text" />
 
             <Button
-                android:id="@+id/f_user_stats_button_followed_tests"
+                android:id="@+id/f_user_stats_button_followed_words_sets"
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
                 android:layout_marginLeft="@dimen/f_choice_button_margin"

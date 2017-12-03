@@ -21,6 +21,7 @@ import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
+import pl.understandable.understandable_app.webservice.DownloadFollowedWordsSetsDataTask;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_app.user.data.UserStatistics.*;
@@ -34,7 +35,7 @@ public class UserStatsFragment extends Fragment {
     private RelativeLayout mainLayout;
     private TextView name, level;
     private TableLayout statsTable;
-    private Button achievements, followedTests;
+    private Button achievements, followedWordsSets;
 
     private Button logOut;
 
@@ -63,7 +64,7 @@ public class UserStatsFragment extends Fragment {
         level = (TextView) rootView.findViewById(R.id.f_user_stats_level);
         statsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_stats_table);
         achievements = (Button) rootView.findViewById(R.id.f_user_stats_button_achievements);
-        followedTests = (Button) rootView.findViewById(R.id.f_user_stats_button_followed_tests);
+        followedWordsSets = (Button) rootView.findViewById(R.id.f_user_stats_button_followed_words_sets);
         logOut = (Button) rootView.findViewById(R.id.f_user_stats_button_log_out);
     }
 
@@ -84,7 +85,7 @@ public class UserStatsFragment extends Fragment {
         name.setTypeface(typeface);
         level.setTypeface(typeface);
         achievements.setTypeface(typeface);
-        followedTests.setTypeface(typeface);
+        followedWordsSets.setTypeface(typeface);
         logOut.setTypeface(typeface);
     }
 
@@ -92,11 +93,11 @@ public class UserStatsFragment extends Fragment {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
             achievements.setBackgroundResource(R.drawable.field_rounded_pink);
-            followedTests.setBackgroundResource(R.drawable.field_rounded_pink);
+            followedWordsSets.setBackgroundResource(R.drawable.field_rounded_pink);
             logOut.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
             achievements.setBackgroundResource(R.drawable.field_rounded_gray);
-            followedTests.setBackgroundResource(R.drawable.field_rounded_gray);
+            followedWordsSets.setBackgroundResource(R.drawable.field_rounded_gray);
             logOut.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
@@ -109,10 +110,10 @@ public class UserStatsFragment extends Fragment {
             }
         });
 
-        followedTests.setOnClickListener(new View.OnClickListener() {
+        followedWordsSets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo: code here
+                new DownloadFollowedWordsSetsDataTask(getContext(), getFragmentManager()).execute();
             }
         });
 

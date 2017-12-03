@@ -8,8 +8,10 @@ import android.widget.Toast;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,33 +20,33 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.temp.AllCustomWordsSetsRepository;
-import pl.understandable.understandable_app.fragments.custom_words.other.AllCustomWordsSetsListFragment;
+import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
+import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
+import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER_STATS;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka on 2017-12-03.
  */
 
-public class DownloadSpecificWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
+public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
 
-    /*
-     * todo: change code in class body
-     */
 
     private Context context;
     private FragmentManager fragmentManager;
-    private String redirect;
 
-    public DownloadSpecificWordsSetsDataTask(Context context, FragmentManager fragmentManager, String redirect) {
+    public DownloadFollowedWordsSetsDataTask(Context context, FragmentManager fragmentManager) {
         this.context = context;
         this.fragmentManager = fragmentManager;
-        this.redirect = redirect;
     }
 
     @Override
@@ -53,7 +55,7 @@ public class DownloadSpecificWordsSetsDataTask extends AsyncTask<Void, Void, Int
         if(!networkUtil.isNetworkAvailable() || !isConnectionAvailable()) {
             return 1;
         }
-        if(!downloadWordsSetsData()) {
+        if(!downloadFollowedWordsSetsData()) {
             return 2;
         }
         return 0;
@@ -69,15 +71,15 @@ public class DownloadSpecificWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 Toast.makeText(context, "Wczytywanie listy zestawów nie powiodło się", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
-                AllCustomWordsSetsListFragment fragment = AllCustomWordsSetsListFragment.newInstance("", 0);
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(redirect)).commit();
+                UserStatsFragment fragment = new UserStatsFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER_STATS)).commit();
                 break;
         }
     }
 
     private boolean isConnectionAvailable() {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/check_connection.php");
+            URI uri = new URI("https://www.understandable.pl/resources/script/check_connection.php");
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             HttpResponse httpResponse = httpClient.execute(httpPost);
@@ -94,19 +96,28 @@ public class DownloadSpecificWordsSetsDataTask extends AsyncTask<Void, Void, Int
         return true;
     }
 
-    private boolean downloadWordsSetsData() {
+    private boolean downloadFollowedWordsSetsData() {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/get_all_words_sets_info.php");
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(uri);
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-            String result = EntityUtils.toString(httpResponse.getEntity());
-            if(result.equals("error")) {
-                return false;
+            HttpClient client = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
+
+            String data = "[";
+            for(String code : UserManager.getUser().getAllDownloadedWordsSets()) {
+                data += "\"" + code + "\",";
             }
+            data = data.substring(0, data.length() - 1);
+            data += "]";
+
+            List valuePairs = new ArrayList(2);
+            valuePairs.add(new BasicNameValuePair("data", data));
+            httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
+
+            HttpResponse httpResponse = client.execute(httpPost);
+            String result = EntityUtils.toString(httpResponse.getEntity());
+
             result = result.replaceAll("\"", "\\\"");
             JSONArray jsonArray = new JSONArray(result);
-            AllCustomWordsSetsRepository.clearRepository();
+            FollowedCustomWordsSetsRepository.clearRepository();
             for(int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("id");
@@ -115,8 +126,6 @@ public class DownloadSpecificWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 AllCustomWordsSetsRepository.addWordsSet(new CustomWordsSetEntity(id, name, description));
             }
             return true;
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {

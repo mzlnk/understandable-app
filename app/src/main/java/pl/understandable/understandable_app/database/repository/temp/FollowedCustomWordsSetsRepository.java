@@ -9,7 +9,7 @@ import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity
  * Created by Marcin Zielonka on 2017-12-03.
  */
 
-public class FollowedWordsSetsRepository {
+public class FollowedCustomWordsSetsRepository {
 
     private static List<CustomWordsSetEntity> wordsSetEntities = new ArrayList<>();
 

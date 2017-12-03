@@ -15,6 +15,7 @@ import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSet
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
+import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;
@@ -79,6 +80,9 @@ public class BackButtonListener {
         if(tag.equals(F_DOWNLOAD_CUSTOM_WORDS_SET)) {
             transaction.replace(R.id.layout_for_fragments, new DownloadCustomWordsSetFragment(), redirectTo(F_START)).commit();
             return;
+        }
+        if(tag.equals(F_USER_STATS)) {
+            transaction.replace(R.id.layout_for_fragments, new UserStatsFragment(), redirectTo(F_START)).commit();
         }
         if(tag.contains(F_CUSTOM_WORDS_SET_PREVIEW)) {
             String id = tag.substring(F_CUSTOM_WORDS_SET_PREVIEW.length() + 1);

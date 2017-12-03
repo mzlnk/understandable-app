@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.utils;
 
+import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -21,6 +22,7 @@ public class FragmentUtil {
     public static final String F_GRAMMAR_SETS_LIST = "f_grammar_sets_list";
     public static final String F_PHRASES_CHOICE_CATEGORY = "f_phrases_choice_category";
     public static final String F_DOWNLOAD_CUSTOM_WORDS_SET = "f_download_custom_words_set";
+    public static final String F_USER_STATS = "f_user_stats";
 
     public static String redirectTo(String target, String... params) {
         String result = new String(target);
@@ -34,7 +36,7 @@ public class FragmentUtil {
 
     public static Fragment getVisibleFragment() {
         FragmentManager fragmentManager = NavigationActivity.activity.getSupportFragmentManager();
-        List<Fragment> fragments = fragmentManager.getFragments();
+        @SuppressLint("RestrictedApi") List<Fragment> fragments = fragmentManager.getFragments();
         if(fragments != null) {
             for(Fragment fragment : fragments) {
                 if(fragment != null && fragment.isVisible()) {

@@ -40,10 +40,12 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private Context context;
     private FragmentManager fragmentManager;
+    private String redirectAfterShowWordsSetsList;
 
-    public DownloadWordsSetTask(Context context, FragmentManager fragmentManager) {
+    public DownloadWordsSetTask(Context context, FragmentManager fragmentManager, String redirectAfterShowWordsSetsList) {
         this.context = context;
         this.fragmentManager = fragmentManager;
+        this.redirectAfterShowWordsSetsList = redirectAfterShowWordsSetsList;
     }
 
     @Override
@@ -86,7 +88,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
                 break;
             case 0:
                 CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(redirectAfterShowWordsSetsList)).commit();
                 Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
                 break;
         }

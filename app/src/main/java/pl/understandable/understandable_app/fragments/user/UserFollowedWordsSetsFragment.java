@@ -1,11 +1,6 @@
 package pl.understandable.understandable_app.fragments.user;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -26,21 +19,22 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
+import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
 import pl.understandable.understandable_app.dialogs.CustomWordsSetPreviewDialog;
-import pl.understandable.understandable_app.fragments.custom_words.other.AllCustomWordsSetsListFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER_STATS;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
  */
 
-public class UserFollowedTestsFragment extends Fragment {
+public class UserFollowedWordsSetsFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private TextView title;
@@ -49,14 +43,14 @@ public class UserFollowedTestsFragment extends Fragment {
 
     private int textColor;
 
-    public UserFollowedTestsFragment() {
+    public UserFollowedWordsSetsFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.f_user_followed_tests, container, false);
+        View rootView = inflater.inflate(R.layout.f_user_followed_words_sets, container, false);
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
@@ -66,10 +60,10 @@ public class UserFollowedTestsFragment extends Fragment {
     }
 
     private void loadViewsFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user_followed_tests);
-        wordsSetsTable = (TableLayout) rootView.findViewById(R.id.f_user_followed_tests_table);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user_followed_words_sets);
+        wordsSetsTable = (TableLayout) rootView.findViewById(R.id.f_user_followed_words_sets_table);
         title = (TextView) rootView.findViewById(R.id.f_user_followed_tests_title);
-        back = (Button) rootView.findViewById(R.id.f_user_followed_tests_button_back);
+        back = (Button) rootView.findViewById(R.id.f_user_followed_words_sets_button_back);
     }
 
     private void prepareLayout() {
@@ -100,13 +94,8 @@ public class UserFollowedTestsFragment extends Fragment {
     }
 
     private void addWordsSetsToList() {
-        /*int firstElement = page * ELEMENTS_PER_PAGE;
-        int lastElement = firstElement + ELEMENTS_PER_PAGE;
-        for(int i = firstElement; i < lastElement; i++) {
-            if(i > (wordsSets.size() - 1)) {
-                break;
-            }
-            final CustomWordsSetEntity wordsSet = wordsSets.get(i);
+        for(final CustomWordsSetEntity wordsSet : FollowedCustomWordsSetsRepository.getWordsSets()) {
+
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
@@ -133,13 +122,13 @@ public class UserFollowedTestsFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), wordsSet.getId());
+                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), F_USER_STATS, wordsSet.getId());
                     dialog.show();
                 }
             });
             wordsSetsTable.addView(row);
         }
-        */
+
     }
 
     private void prepareCell(TextView textView, String content, float weight) {
@@ -165,7 +154,9 @@ public class UserFollowedTestsFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo: code here
+                FragmentManager fragmentManager = getFragmentManager();
+                UserStatsFragment fragment = new UserStatsFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
             }
         });
     }

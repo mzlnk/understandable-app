@@ -27,6 +27,7 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
 
     private Context context;
     private FragmentManager fragmentManager;
+    private String redirectAfterShowWordsSetsList;
 
     private TextView idInfo, nameInfo, descriptionInfo;
     private LinearLayout idField, nameField, descriptionField;
@@ -35,10 +36,11 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
 
     private CustomWordsSetEntity wordsSet;
 
-    public CustomWordsSetPreviewDialog(Context context, FragmentManager fragmentManager, String id) {
+    public CustomWordsSetPreviewDialog(Context context, FragmentManager fragmentManager, String redirectAfterShowWordsSetsList, String id) {
         super(context);
         this.context = context;
         this.fragmentManager = fragmentManager;
+        this.redirectAfterShowWordsSetsList = redirectAfterShowWordsSetsList;
         wordsSet = AllCustomWordsSetsRepository.getWordsSet(id);
     }
 
@@ -64,7 +66,7 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
         id = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_id);
         name = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_name);
         description = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_description);
-        back = (Button) findViewById(R.id.d__custom_words_set_preview_button_back);
+        back = (Button) findViewById(R.id.d_custom_words_set_preview_button_back);
         download = (Button) findViewById(R.id.d_custom_words_set_preview_button_download);
     }
 
@@ -127,10 +129,10 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.d__custom_words_set_preview_button_back:
+            case R.id.d_custom_words_set_preview_button_back:
                 break;
             case R.id.d_custom_words_set_preview_button_download:
-                new DownloadWordsSetTask(context, fragmentManager).execute(wordsSet.getId());
+                new DownloadWordsSetTask(context, fragmentManager, redirectAfterShowWordsSetsList).execute(wordsSet.getId());
                 break;
             default:
                 break;

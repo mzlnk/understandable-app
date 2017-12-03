@@ -66,7 +66,7 @@ public class User {
         return achievements;
     }
 
-    public List<String> getAllDownloadedTests() {
+    public List<String> getAllDownloadedWordsSets() {
         return followedWordsSets;
     }
 

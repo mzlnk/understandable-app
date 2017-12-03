@@ -37,6 +37,7 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -209,7 +210,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), wordsSet.getId());
+                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), F_START, wordsSet.getId());
                     dialog.show();
                 }
             });

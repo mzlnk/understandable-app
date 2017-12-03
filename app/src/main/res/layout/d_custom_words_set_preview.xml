@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:measureWithLargestChild="true"
     tools:context="pl.understandable.understandable_app.dialogs.CustomWordsSetPreviewDialog"
-    android:id="@+id/d_remove_custom_words_set" >
+    android:id="@+id/d_custom_words_set_preview" >
 
     <LinearLayout
         android:id="@+id/d_custom_words_set_preview_name_area"
@@ -134,7 +134,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/d__custom_words_set_preview_button_back"
+            android:id="@+id/d_custom_words_set_preview_button_back"
             android:layout_width="@dimen/button_small_small_width"
             android:layout_height="@dimen/button_small_small_height"
             android:layout_marginRight="@dimen/f_choice_button_margin"
