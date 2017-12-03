@@ -48,7 +48,7 @@ public class User {
     private long exp;
     private UserStatistics stats;
     private Map<AchievementId, Achievement> achievements = new HashMap<>();
-    private List<String> followedTests = new ArrayList<>();
+    private List<String> followedWordsSets = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -67,7 +67,7 @@ public class User {
     }
 
     public List<String> getAllDownloadedTests() {
-        return followedTests;
+        return followedWordsSets;
     }
 
     public int getLevel() {
@@ -110,11 +110,11 @@ public class User {
     }
 
     public void addDownloadedTest(String code) {
-        followedTests.add(code);
+        followedWordsSets.add(code);
     }
 
     public void removeDownloadedTest(String code) {
-        followedTests.remove(code);
+        followedWordsSets.remove(code);
     }
 
     public JSONObject toJson() {
@@ -125,7 +125,7 @@ public class User {
 
             JSONObject stats = new JSONObject();
             stats.put("timeLearnt", this.stats.getTimeLearnt());
-            stats.put("testsDownloaded", this.stats.getTestsDownloaded());
+            stats.put("wordsSetsDownloaded", this.stats.getWordsSetsDownloaded());
             stats.put("allTestsSolved", this.stats.getAllTestsSolved());
             JSONArray wordsTestsSolved = new JSONArray();
             for(int i = 0; i < 4; i++) {
@@ -153,11 +153,11 @@ public class User {
             }
             user.put("achievements", achievements);
 
-            JSONArray followedTests = new JSONArray();
-            for(String id : this.followedTests) {
-                followedTests.put(id);
+            JSONArray followedWordsSets = new JSONArray();
+            for(String id : this.followedWordsSets) {
+                followedWordsSets.put(id);
             }
-            user.put("followedTests", followedTests);
+            user.put("followedWordsSets", followedWordsSets);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -171,7 +171,7 @@ public class User {
 
             JSONObject stats = user.getJSONObject("stats");
             this.stats.setTimeLearnt(stats.getLong("timeLearnt"));
-            this.stats.setTestsDownloaded(stats.getInt("testsDownloaded"));
+            this.stats.setWordsSetsDownloaded(stats.getInt("wordsSetsDownloaded"));
             this.stats.setAllTestsSolved(stats.getInt("allTestsSolved"));
             JSONArray wordsTestsSolved = stats.getJSONArray("wordsTestsSolved");
             for(int i = 0; i < 4; i++) {
@@ -191,10 +191,10 @@ public class User {
                 this.achievements.get(id).setAchieved(achievements.getBoolean(id.name()));
             }
 
-            JSONArray followedTests = user.getJSONArray("followedTests");
-            this.followedTests.clear();
-            for(int i = 0; i < followedTests.length(); i++) {
-                this.followedTests.add(followedTests.getString(i));
+            JSONArray followedWordsSets = user.getJSONArray("followedWordsSets");
+            this.followedWordsSets.clear();
+            for(int i = 0; i < followedWordsSets.length(); i++) {
+                this.followedWordsSets.add(followedWordsSets.getString(i));
             }
         } catch (JSONException e) {
             e.printStackTrace();

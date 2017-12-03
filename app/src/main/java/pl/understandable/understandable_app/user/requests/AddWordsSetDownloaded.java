@@ -8,14 +8,14 @@ import pl.understandable.understandable_app.user.UserManager;
  * Created by Marcin Zielonka on 2017-11-25.
  */
 
-public class AddTestDownloaded implements Request {
+public class AddWordsSetDownloaded implements Request {
 
     @Override
     public void executeRequest() {
         if(SyncManager.isSyncAvailable()) {
-            UserManager.getUser().getStats().addTestDownloaded();
+            UserManager.getUser().getStats().addWordsSetDownloaded();
             UserManager.setSyncRequired(true);
-            UserManager.addElementToSync(UserManager.SyncElement.TESTS);
+            UserManager.addElementToSync(UserManager.SyncElement.GENERAL);
         }
     }
 

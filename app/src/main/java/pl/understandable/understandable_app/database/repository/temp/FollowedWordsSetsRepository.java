@@ -6,26 +6,15 @@ import java.util.List;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 
 /**
- * Created by Marcin Zielonka on 2017-09-09.
+ * Created by Marcin Zielonka on 2017-12-03.
  */
 
-public class AllCustomWordsSetsRepository {
+public class FollowedWordsSetsRepository {
 
     private static List<CustomWordsSetEntity> wordsSetEntities = new ArrayList<>();
 
     public static List<CustomWordsSetEntity> getWordsSets() {
         return wordsSetEntities;
-    }
-
-    public static List<CustomWordsSetEntity> getWordSets(String search) {
-        if(search.isEmpty() || search.equalsIgnoreCase("")) {
-            return wordsSetEntities;
-        }
-        List<CustomWordsSetEntity> result = new ArrayList<>();
-        for(CustomWordsSetEntity entity : wordsSetEntities) {
-            if(entity.getName().toLowerCase().contains(search.toLowerCase())) result.add(entity);
-        }
-        return result;
     }
 
     public static CustomWordsSetEntity getWordsSet(String id) {

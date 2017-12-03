@@ -6,6 +6,11 @@ package pl.understandable.understandable_app.user.data;
 
 public class UserStatistics {
 
+    private static double ONE_WEEK_IN_MILLIS = 604800000D;
+    private static double ONE_DAY_IN_MILLIS = 86400000D;
+    private static double ONE_HOUR_IN_MILLIS = 3600000D;
+    private static double ONE_MINUTE_IN_MILLIS = 60000D;
+
     public static final int WORDS = 0;
     public static final int IRREGULAR_VERBS = 1;
     public static final int PHRASES = 2;
@@ -16,7 +21,7 @@ public class UserStatistics {
     public static final int SPELLING = 3;
 
     private long timeLearnt;
-    private int testsDownloaded;
+    private int wordsSetsDownloaded;
     private int allTestsSolved;
     private int[] wordsTestsSolved = new int[4];
     private int[] irregularVerbsTestsSolved = new int[2];
@@ -26,8 +31,8 @@ public class UserStatistics {
         return timeLearnt;
     }
 
-    public int getTestsDownloaded() {
-        return testsDownloaded;
+    public int getWordsSetsDownloaded() {
+        return wordsSetsDownloaded;
     }
 
     public int getAllTestsSolved() {
@@ -50,8 +55,8 @@ public class UserStatistics {
         this.timeLearnt = timeLearnt;
     }
 
-    public void setTestsDownloaded(int testsDownloaded) {
-        this.testsDownloaded = testsDownloaded;
+    public void setWordsSetsDownloaded(int wordsSetsDownloaded) {
+        this.wordsSetsDownloaded = wordsSetsDownloaded;
     }
 
     public void setAllTestsSolved(int allTestsSolved) {
@@ -74,8 +79,8 @@ public class UserStatistics {
         timeLearnt += time;
     }
 
-    public void addTestDownloaded() {
-        testsDownloaded++;
+    public void addWordsSetDownloaded() {
+        wordsSetsDownloaded++;
     }
 
     public void addTestSolved(int which, int mode) {
@@ -91,6 +96,23 @@ public class UserStatistics {
                 break;
         }
         allTestsSolved++;
+    }
+
+    public String getFormattedTimeLearnt() {
+        StringBuilder sb = new StringBuilder();
+
+        long time = this.timeLearnt;
+        int weeks = (int)((double) time / ONE_WEEK_IN_MILLIS);
+        int days = (int)((time - weeks * ONE_WEEK_IN_MILLIS) / ONE_DAY_IN_MILLIS);
+        int hours = (int)((time - weeks * ONE_WEEK_IN_MILLIS - days * ONE_DAY_IN_MILLIS) / ONE_HOUR_IN_MILLIS);
+        int minutes = (int)((time - weeks * ONE_WEEK_IN_MILLIS - days * ONE_DAY_IN_MILLIS - hours * ONE_HOUR_IN_MILLIS) / ONE_MINUTE_IN_MILLIS);
+
+        sb.append(weeks == 0 ? "" : (weeks + "w ")).
+           append(weeks == 0 && days == 0 ? "" : (days + "d ")).
+           append(weeks == 0 && days == 0 && hours == 0 ? "" : (hours + "h ")).
+           append(minutes + "min");
+
+        return sb.toString();
     }
 
 }
