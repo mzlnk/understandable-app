@@ -7,7 +7,7 @@ import android.support.v4.view.GravityCompat;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.activities.NavigationActivity;
+import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
@@ -29,10 +29,10 @@ public class BackButtonListener {
     private static final long MAX_CLICK_DELAY_IN_MILLIS_TO_EXIT_APP = 2000;
     private static long lastClick = 0;
 
-    private NavigationActivity activity;
+    private MainActivity activity;
     private FragmentManager fragmentManager;
 
-    public BackButtonListener(NavigationActivity activity) {
+    public BackButtonListener(MainActivity activity) {
         this.activity = activity;
         this.fragmentManager = activity.getSupportFragmentManager();
     }

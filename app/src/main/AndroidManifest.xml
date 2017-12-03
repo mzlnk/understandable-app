@@ -13,7 +13,7 @@
         android:theme="@style/NightTheme"
         android:name="pl.understandable.understandable_app.App">
         <activity
-            android:name="pl.understandable.understandable_app.activities.NavigationActivity"
+            android:name="pl.understandable.understandable_app.activities.MainActivity"
             android:configChanges="keyboardHidden|screenSize"
             android:windowSoftInputMode="adjustNothing"
             android:label=""

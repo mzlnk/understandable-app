@@ -2,7 +2,9 @@ package pl.understandable.understandable_app.fragments.user;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.utils.ColorUtil;
@@ -25,6 +34,8 @@ import pl.understandable.understandable_app.webservice.DownloadFollowedWordsSets
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_app.user.data.UserStatistics.*;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER_STATS;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
@@ -106,7 +117,8 @@ public class UserStatsFragment extends Fragment {
         achievements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo: code here
+                UserAchievementsFragment fragment = new UserAchievementsFragment();
+                getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER_STATS)).commit();
             }
         });
 
@@ -120,7 +132,16 @@ public class UserStatsFragment extends Fragment {
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo: code here
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
+                GoogleSignInClient client = GoogleSignIn.getClient(getContext(), gso);
+                client.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
+                        StartFragment fragment = new StartFragment();
+                        getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
+                    }
+                });
             }
         });
     }

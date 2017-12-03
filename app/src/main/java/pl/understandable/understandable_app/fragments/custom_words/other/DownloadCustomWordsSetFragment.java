@@ -27,6 +27,7 @@ import pl.understandable.understandable_app.webservice.DownloadWordsSetTask;
 import pl.understandable.understandable_app.webservice.DownloadWordsSetsDataTask;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_DOWNLOAD_CUSTOM_WORDS_SET;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -123,7 +124,7 @@ public class DownloadCustomWordsSetFragment extends Fragment {
                 lastClicked = System.currentTimeMillis();
                 String code = codeField.getText().toString();
                 code = code.toUpperCase();
-                DownloadWordsSetTask task = (DownloadWordsSetTask) new DownloadWordsSetTask(getContext(), getFragmentManager()).execute(code);
+                DownloadWordsSetTask task = (DownloadWordsSetTask) new DownloadWordsSetTask(getContext(), getFragmentManager(), F_START).execute(code);
                 DownloadTaskCanceller taskCanceller = new DownloadTaskCanceller(task);
                 Handler handler = new Handler();
                 handler.postDelayed(taskCanceller, MAX_DOWNLOAD_TIME_IN_MILLIS);

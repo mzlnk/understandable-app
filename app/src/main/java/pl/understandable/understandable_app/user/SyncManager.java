@@ -43,7 +43,7 @@ public class SyncManager {
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
-                if(!UserManager.isUserLoggedIn()) {
+                if(!UserManager.isUserSignedIn()) {
                     return;
                 }
                 if(isNetworkAvailable(manager)) {
@@ -107,7 +107,7 @@ public class SyncManager {
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
 
             List valuePairs = new ArrayList(2);
-            valuePairs.add(new BasicNameValuePair("token_id", "")); //todo : tokenId here
+            valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
             valuePairs.add(new BasicNameValuePair("data", UserManager.getJsonData().toString()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
@@ -136,7 +136,7 @@ public class SyncManager {
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
 
             List valuePairs = new ArrayList(1);
-            valuePairs.add(new BasicNameValuePair("token_id", "")); //todo: tokenId here
+            valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
             HttpResponse httpResponse = client.execute(httpPost);

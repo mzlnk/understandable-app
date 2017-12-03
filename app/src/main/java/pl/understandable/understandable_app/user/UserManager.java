@@ -33,8 +33,8 @@ public class UserManager {
         return isSyncRequired;
     }
 
-    public static boolean isUserLoggedIn() {
-        return userStatus.equals(UserStatus.LOGGED_IN);
+    public static boolean isUserSignedIn() {
+        return userStatus.equals(UserStatus.SIGNED_IN);
     }
 
     public static List<SyncElement> getElementsToSync() {
@@ -74,7 +74,7 @@ public class UserManager {
     }
 
     public static enum UserStatus {
-        LOGGED_IN,
+        SIGNED_IN,
         NO_ACCOUNT;
     }
 

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import pl.understandable.understandable_app.activities.NavigationActivity;
+import pl.understandable.understandable_app.activities.MainActivity;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class FragmentUtil {
     }
 
     public static Fragment getVisibleFragment() {
-        FragmentManager fragmentManager = NavigationActivity.activity.getSupportFragmentManager();
+        FragmentManager fragmentManager = MainActivity.activity.getSupportFragmentManager();
         @SuppressLint("RestrictedApi") List<Fragment> fragments = fragmentManager.getFragments();
         if(fragments != null) {
             for(Fragment fragment : fragments) {

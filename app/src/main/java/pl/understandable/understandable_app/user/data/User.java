@@ -44,11 +44,16 @@ public class User {
         this.achievements.put(TWO_THOUSAND_FIVE_HUNDRED_TESTS_SOLVED, new TwoThousandFiveHundredTestsSolved());
     }
 
+    private String tokenId;
     private String name;
     private long exp;
     private UserStatistics stats;
     private Map<AchievementId, Achievement> achievements = new HashMap<>();
     private List<String> followedWordsSets = new ArrayList<>();
+
+    public String getTokenId() {
+        return tokenId;
+    }
 
     public String getName() {
         return name;
@@ -99,6 +104,10 @@ public class User {
 
     public Achievement getAchievement(AchievementId id) {
         return achievements.get(id);
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
     }
 
     public void setName(String name) {

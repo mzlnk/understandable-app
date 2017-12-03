@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.activities.NavigationActivity;
+import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.utils.RateAppUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -64,7 +64,7 @@ public class StartFragment extends Fragment {
         mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavigationActivity.activity.drawer.openDrawer(GravityCompat.START);
+                MainActivity.activity.drawer.openDrawer(GravityCompat.START);
             }
         });
     }

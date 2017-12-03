@@ -25,6 +25,12 @@
             android:title="Lista twoich zestawów" />
     </group>
 
+    <group android:id="@+id/navigation_group_3">
+        <item
+            android:id="@+id/navigation_user"
+            android:title="Statystyki" />
+    </group>
+
     <group android:id="@+id/navigation_group_4" >
         <item
             android:id="@+id/navigation_help"

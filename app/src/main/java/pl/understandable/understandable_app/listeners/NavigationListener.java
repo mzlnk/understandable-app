@@ -19,8 +19,11 @@ import pl.understandable.understandable_app.fragments.custom_words.other.Downloa
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
+import pl.understandable.understandable_app.fragments.user.UserSignInFragment;
+import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
+import pl.understandable.understandable_app.user.UserManager;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;
 
@@ -69,8 +72,15 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         else if(id == R.id.navigation_custom_words_sets) {
             CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
-        }
-        else if(id== R.id.navigation_help) {
+        } else if(id == R.id.navigation_user) {
+            if(!UserManager.isUserSignedIn()) {
+                UserSignInFragment fragment = new UserSignInFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+            } else {
+                UserStatsFragment fragment = new UserStatsFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+            }
+        } else if(id== R.id.navigation_help) {
             try {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://understandable.pl/help.php"));
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -79,8 +89,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
                 Toast.makeText(context, "Wystąpił problem, skontaktuj się z działem pomocy", Toast.LENGTH_SHORT).show();
             }
 
-        }
-        else if(id == R.id.navigation_themes) {
+        } else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).setCustomAnimations(R.anim.fade01, FragmentTransaction.TRANSIT_NONE).commit();
         }

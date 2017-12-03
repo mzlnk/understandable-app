@@ -16,11 +16,15 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
+import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -31,15 +35,29 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
  * Created by Marcin Zielonka on 2017-11-07.
  */
 
-public class NavigationActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    public static NavigationActivity activity;
+    public static MainActivity activity;
 
     public DrawerLayout drawer;
     private NavigationView navigationView;
     private TextView navigationTitle;
 
     private int currentThemeId;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if(account != null) {
+            Toast.makeText(getApplicationContext(), "Signed in silently as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
+            UserManager.getUser().setTokenId(account.getIdToken());
+            UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
+        } else {
+            Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
+            UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
