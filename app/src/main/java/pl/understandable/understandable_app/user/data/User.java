@@ -47,7 +47,7 @@ public class User {
     private String tokenId;
     private String name;
     private long exp;
-    private UserStatistics stats;
+    private UserStatistics stats = new UserStatistics();
     private Map<AchievementId, Achievement> achievements = new HashMap<>();
     private List<String> followedWordsSets = new ArrayList<>();
 
@@ -131,42 +131,39 @@ public class User {
         try {
             user.put("name", this.name);
             user.put("exp", this.exp);
+            user.put("timeLearnt", this.stats.getTimeLearnt());
+            user.put("wordsSetsDownloaded", this.stats.getWordsSetsDownloaded());
+            user.put("allTestsSolved", this.stats.getAllTestsSolved());
 
-            JSONObject stats = new JSONObject();
-            stats.put("timeLearnt", this.stats.getTimeLearnt());
-            stats.put("wordsSetsDownloaded", this.stats.getWordsSetsDownloaded());
-            stats.put("allTestsSolved", this.stats.getAllTestsSolved());
-            JSONArray wordsTestsSolved = new JSONArray();
-            for(int i = 0; i < 4; i++) {
-                wordsTestsSolved.put(this.stats.getWordsTestsSolved(i));
-            }
-            JSONArray irregularVerbsTestsSolved = new JSONArray();
-            for(int i = 0; i < 2; i++) {
-                irregularVerbsTestsSolved.put(i);
-            }
-            JSONArray phrasesTestsSolved = new JSONArray();
-            for(int i = 0; i < 3; i++) {
-                phrasesTestsSolved.put(i);
-            }
-            stats.put("wordsTestsSolved", wordsTestsSolved);
-            stats.put("irregularVerbsTestsSolved", irregularVerbsTestsSolved);
-            stats.put("phrasesTestsSolved", phrasesTestsSolved);
-            user.put("stats", stats);
+            JSONArray testsSolved = new JSONArray();
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_0").put("value", this.stats.getWordsTestsSolved(UserStatistics.LIST)));
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_1").put("value", this.stats.getWordsTestsSolved(UserStatistics.REPETITION)));
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_2").put("value", this.stats.getWordsTestsSolved(UserStatistics.QUIZ)));
+            testsSolved.put(new JSONObject().put("id", "w_tests_solved_3").put("value", this.stats.getWordsTestsSolved(UserStatistics.SPELLING)));
+
+            testsSolved.put(new JSONObject().put("id", "ir_tests_solved_0").put("value", this.stats.getIrregularVerbsTestsSolved(UserStatistics.LIST)));
+            testsSolved.put(new JSONObject().put("id", "ir_tests_solved_1").put("value", this.stats.getIrregularVerbsTestsSolved(UserStatistics.REPETITION)));
+
+            testsSolved.put(new JSONObject().put("id", "p_tests_solved_0").put("value", this.stats.getPhrasesTestsSolved(UserStatistics.LIST)));
+            testsSolved.put(new JSONObject().put("id", "p_tests_solved_1").put("value", this.stats.getPhrasesTestsSolved(UserStatistics.REPETITION)));
+            testsSolved.put(new JSONObject().put("id", "p_tests_solved_2").put("value", this.stats.getPhrasesTestsSolved(UserStatistics.QUIZ)));
+
+            user.put("testsSolved", testsSolved);
 
             JSONArray achievements = new JSONArray();
             for(AchievementId id : AchievementId.values()) {
                 JSONObject a = new JSONObject();
                 a.put("id", id.getId2());
-                a.put("value", this.achievements.get(a).isAchieved() ? 1 : 0);
+                a.put("value", this.achievements.get(id).isAchieved() ? 1 : 0);
                 achievements.put(a);
             }
             user.put("achievements", achievements);
 
-            JSONArray followedWordsSets = new JSONArray();
-            for(String id : this.followedWordsSets) {
-                followedWordsSets.put(id);
+            StringBuilder sb = new StringBuilder();
+            for(String s : this.followedWordsSets) {
+                sb.append(s).append(";");
             }
-            user.put("followedWordsSets", followedWordsSets);
+            user.put("followedWordsSets", sb.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -177,33 +174,55 @@ public class User {
         try {
             this.name = user.getString("name");
             this.exp = user.getLong("exp");
+            this.stats.setTimeLearnt(user.getLong("timeLearnt"));
+            this.stats.setWordsSetsDownloaded(user.getInt("wordsSetsDownloaded"));
+            this.stats.setAllTestsSolved(user.getInt("allTestsSolved"));
 
-            JSONObject stats = user.getJSONObject("stats");
-            this.stats.setTimeLearnt(stats.getLong("timeLearnt"));
-            this.stats.setWordsSetsDownloaded(stats.getInt("wordsSetsDownloaded"));
-            this.stats.setAllTestsSolved(stats.getInt("allTestsSolved"));
-            JSONArray wordsTestsSolved = stats.getJSONArray("wordsTestsSolved");
-            for(int i = 0; i < 4; i++) {
-                this.stats.setWordsTestsSolved(i, wordsTestsSolved.getInt(i));
-            }
-            JSONArray irregularVerbsTestsSolved = stats.getJSONArray("irregularVerbsTestsSolved");
-            for(int i = 0; i < 2; i++) {
-                this.stats.setIrregularVerbsTestsSolved(i, irregularVerbsTestsSolved.getInt(i));
-            }
-            JSONArray phrasesTestsSolved = stats.getJSONArray("phrasesTestsSolved");
-            for(int i = 0; i < 3; i++) {
-                this.stats.setPhrasesTestsSolved(i, phrasesTestsSolved.getInt(i));
+            JSONArray testsSolved = user.getJSONArray("testsSolved");
+            Map<String, Integer> testsStats = new HashMap<>();
+            for(int i = 0; i < testsSolved.length(); i++) {
+                JSONObject test = testsSolved.getJSONObject(i);
+                testsStats.put(test.getString("id"), test.getInt("value"));
             }
 
-            JSONObject achievements = user.getJSONObject("achievements");
+            this.stats.setWordsTestsSolved(UserStatistics.LIST, testsStats.get("w_tests_solved_0"));
+            this.stats.setWordsTestsSolved(UserStatistics.REPETITION, testsStats.get("w_tests_solved_1"));
+            this.stats.setWordsTestsSolved(UserStatistics.QUIZ, testsStats.get("w_tests_solved_2"));
+            this.stats.setWordsTestsSolved(UserStatistics.SPELLING, testsStats.get("w_tests_solved_3"));
+
+            this.stats.setIrregularVerbsTestsSolved(UserStatistics.LIST, testsStats.get("ir_tests_solved_0"));
+            this.stats.setIrregularVerbsTestsSolved(UserStatistics.REPETITION, testsStats.get("ir_tests_solved_1"));
+
+            this.stats.setPhrasesTestsSolved(UserStatistics.LIST, testsStats.get("p_tests_solved_0"));
+            this.stats.setPhrasesTestsSolved(UserStatistics.REPETITION, testsStats.get("p_tests_solved_1"));
+            this.stats.setPhrasesTestsSolved(UserStatistics.QUIZ, testsStats.get("p_tests_solved_2"));
+
+            JSONArray achievements = user.getJSONArray("achievements");
+            Map<String, Integer> achievementsStats = new HashMap<>();
+            for(int i = 0; i < achievements.length(); i++) {
+                JSONObject a = achievements.getJSONObject(i);
+                achievementsStats.put(a.getString("id"), a.getInt("value"));
+            }
             for(AchievementId id : AchievementId.values()) {
-                this.achievements.get(id).setAchieved(achievements.getBoolean(id.name()));
+                if(achievementsStats.get(id.getId2()) == null) {
+                    continue;
+                }
+                boolean achieved = achievementsStats.get(id.getId2()) == 1;
+                this.achievements.get(id).setAchieved(achieved);
             }
 
-            JSONArray followedWordsSets = user.getJSONArray("followedWordsSets");
+            String followedWordsSets = user.getString("followedWordsSets");
             this.followedWordsSets.clear();
-            for(int i = 0; i < followedWordsSets.length(); i++) {
-                this.followedWordsSets.add(followedWordsSets.getString(i));
+            if(followedWordsSets != null) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < followedWordsSets.length(); i++) {
+                    if (followedWordsSets.charAt(i) != ';') {
+                        sb.append(followedWordsSets.charAt(i));
+                    } else {
+                        this.followedWordsSets.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();

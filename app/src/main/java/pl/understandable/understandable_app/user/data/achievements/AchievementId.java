@@ -25,7 +25,7 @@ public enum AchievementId {
     SIX_HOURS_LEARNING("learning6h"),
     TWELVE_HOURS_LEARNING("learning12h"),
     ONE_DAY_LEARNING("learning1d"),
-    ONE_WEEK_LEARNING("learnign1w"),
+    ONE_WEEK_LEARNING("learning1w"),
     LEARNING_AT_NIGHT("lnight"),
     LEARNING_IN_THE_MORNING("lmorning");
 

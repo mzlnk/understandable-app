@@ -2,6 +2,9 @@ package pl.understandable.understandable_app.user;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -43,38 +46,49 @@ public class SyncManager {
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
+                Log.d("SYNC", "==========================================================");
+                Log.d("SYNC", "Sync started");
                 if(!UserManager.isUserSignedIn()) {
+                    Log.d("SYNC", "No account detected");
+                    Log.d("SYNC", "Sync finished");
                     return;
                 }
+                Log.d("SYNC", "Account detected");
                 if(isNetworkAvailable(manager)) {
+                    Log.d("SYNC", "Available network detected");
                     if(!isSyncAvailable()) {
+                        Log.d("SYNC", "Start sync from server");
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
                         boolean syncResult = syncFromServer();
                         if(syncResult) {
-                            System.out.println("Sync from server completed successfully");
+                            Log.d("SYNC", "Sync from server completed successfully");
                         } else {
-                            System.out.println("Sync from server not completed successfully");
+                            Log.d("SYNC", "Sync from server not completed successfully");
                         }
                     }
                     syncStatus  = SyncStatus.ONLINE;
 
                     if(UserManager.isSyncRequired()) {
+                        Log.d("SYNC", "Start sync to server");
                         boolean syncResult = syncToServer();
                         if(syncResult) {
-                            System.out.println("Sync to server completed successfully");
+                          Log.d("SYNC", "Sync to server completed successfully");
                         } else {
-                            System.out.println("Sync from server not completed successfully");
+                            Log.d("SYNC", "Sync from server not completed successfully");
                         }
+                        UserManager.setSyncRequired(false);
                     }
                 } else {
+                    Log.d("SYNC", "No network available - sync stopped");
                     if(isSyncAvailable()) {
                         RequestExecutor.offerRequest(new ShowSyncStoppedMessage());
                     }
                     syncStatus = SyncStatus.OFFLINE;
                 }
+                Log.d("SYNC", "Sync finished");
             }
         };
-        timer.scheduleAtFixedRate(syncTask, 10000L, 1000L);
+        timer.scheduleAtFixedRate(syncTask, 10000L, 10000L);
     }
 
     private static boolean isNetworkAvailable(ConnectivityManager manager) {
@@ -108,12 +122,16 @@ public class SyncManager {
 
             List valuePairs = new ArrayList(2);
             valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
-            valuePairs.add(new BasicNameValuePair("data", UserManager.getJsonData().toString()));
+            valuePairs.add(new BasicNameValuePair("data", UserManager.getUser().toJson().toString()));
+            valuePairs.add(new BasicNameValuePair("elements_to_sync", UserManager.getElementsToSyncJson().toString()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
-            System.out.println("Sync response: " + response);
+            Log.d("SYNC-JSON", "Input: " + UserManager.getUser().toJson().toString());
+            Log.d("SYNC-JSON", "Elements to sync JSON: " + UserManager.getElementsToSyncJson().toString());
+            Log.d("WEB", "Http status code: " + httpResponse.getStatusLine().getStatusCode());
+            Log.d("SYNC-WEB", "Sync response: " + response);
 
             UserManager.clearElementsToSync();
 
@@ -135,14 +153,17 @@ public class SyncManager {
             HttpClient client = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
 
+            Log.d("SYNC-WEB", "Token ID: " + UserManager.getUser().getTokenId());
+
             List valuePairs = new ArrayList(1);
             valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
             HttpResponse httpResponse = client.execute(httpPost);
+            Log.d("WEB", "Http status code: " + httpResponse.getStatusLine().getStatusCode());
             String response = EntityUtils.toString(httpResponse.getEntity());
 
-            System.out.println("Sync response: " + response);
+            Log.d("SYNC-WEB", "Sync response: " + response);
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);

@@ -59,16 +59,10 @@ public class UserManager {
         elementsToSync.clear();
     }
 
-    public static JSONObject getJsonData() {
-        JSONObject result = user.toJson();
-        JSONArray elementsToSync = new JSONArray();
+    public static JSONArray getElementsToSyncJson() {
+        JSONArray result = new JSONArray();
         for(SyncElement element : UserManager.elementsToSync) {
-            elementsToSync.put(element.name());
-        }
-        try {
-            result.put("elementsToSync", elementsToSync);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            result.put(element.name());
         }
         return result;
     }

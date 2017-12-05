@@ -142,6 +142,12 @@ public class UserStatsFragment extends Fragment {
                         getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                     }
                 });
+                client.revokeAccess().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
             }
         });
     }
