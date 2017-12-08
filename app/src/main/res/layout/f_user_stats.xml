@@ -19,28 +19,83 @@
             android:id="@+id/f_user_stats_name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/f_border_margin_medium"
-            android:layout_weight="0.15"
-            android:gravity="center_vertical"
-            android:text="Anonymous"
+            android:layout_weight="0.13"
+            android:gravity="center"
+            android:text=""
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_user_stats_name" />
 
         <TextView
-            android:id="@+id/f_user_stats_level"
+            android:id="@+id/f_user_stats_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/f_border_margin_medium"
-            android:layout_weight="0.1"
-            android:text="poziom: 12 (12,54%)"
+            android:layout_weight="0.07"
+            android:gravity="center"
+            android:text="Spragniony Wiedzy"
             android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_user_stats_level" />
+            android:textSize="@dimen/f_user_stats_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:layout_marginLeft="@dimen/f_border_margin_large"
+            android:layout_marginRight="@dimen/f_border_margin_large"
+            android:measureWithLargestChild="true"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/f_user_stats_level_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.07"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:gravity="center|bottom"
+                android:text=""
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_user_stats_level_info" />
+
+            <ProgressBar
+                android:id="@+id/f_user_stats_level_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/f_user_stats_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minHeight="20dp"
+                android:max="10000"/>
+
+            <TextView
+                android:id="@+id/f_user_stats_level_progress_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.07"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:gravity="center|top"
+                android:text=""
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_user_stats_level_info" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/f_user_stats_stats_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.07"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:gravity="center_vertical"
+            android:text="Statystyki"
+            android:textColor="?attr/text_1_color"
+            android:textSize="@dimen/f_user_stats_stats_subtitle" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/f_border_margin_medium"
-            android:layout_weight="0.55">
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_weight="0.35">
 
             <TableLayout
                 android:id="@+id/f_user_stats_stats_table"

@@ -49,21 +49,30 @@ public class SyncManager {
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
+                System.out.println("Start sync");
+                Log.d("SYNC", "Start sync");
                 if(!UserManager.isUserSignedIn()) {
+                    System.out.println("No account");
+                    System.out.println("Sync finished");
                     return;
                 }
+                Log.d("SYNC", "Account detected");
 
                 if(isNetworkAvailable(manager)) {
+                    System.out.println("Network available");
                     if(!isSyncOnline() && !isSyncRequiredAfterReconnect()) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
+                        System.out.println("Sync from server");
                         syncFromServer();
                     }
                     syncStatus = SyncStatus.ONLINE;
 
                     if(UserManager.isSyncRequired() || isSyncRequiredAfterReconnect()) {
+                        System.out.println("Sync to server");
                         syncToServer();
                     }
                 } else {
+                    System.out.println("No network available");
                     if(isSyncOnline()) {
                         if(UserManager.isSyncRequired()) {
                             syncRequiredAfterReconnect = true;
@@ -133,14 +142,17 @@ public class SyncManager {
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
 
             List valuePairs = new ArrayList(1);
+            System.out.println("TokenID: " + UserManager.getUser().getTokenId());
             valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
+            System.out.println("Json: " + response);
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
+            System.out.println("name field: " +data.getString("name"));
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

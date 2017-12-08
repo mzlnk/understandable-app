@@ -20,9 +20,9 @@ public class UserStatistics {
     public static final int QUIZ = 2;
     public static final int SPELLING = 3;
 
-    private long timeLearnt;
-    private int wordsSetsDownloaded;
-    private int allTestsSolved;
+    private long timeLearnt = 0;
+    private int wordsSetsDownloaded = 0;
+    private int allTestsSolved = 0;
     private int[] wordsTestsSolved = new int[4];
     private int[] irregularVerbsTestsSolved = new int[2];
     private int[] phrasesTestsSolved = new int[3];

@@ -45,8 +45,8 @@ public class User {
     }
 
     private String tokenId;
-    private String name;
-    private long exp;
+    private String name = "";
+    private long exp = 0;
     private UserStatistics stats = new UserStatistics();
     private Map<AchievementId, Achievement> achievements = new HashMap<>();
     private List<String> followedWordsSets = new ArrayList<>();

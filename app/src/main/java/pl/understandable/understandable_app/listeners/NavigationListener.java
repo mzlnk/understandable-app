@@ -20,7 +20,6 @@ import pl.understandable.understandable_app.fragments.custom_words.other.Downloa
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
-import pl.understandable.understandable_app.fragments.user.UserSignInFragment;
 import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;

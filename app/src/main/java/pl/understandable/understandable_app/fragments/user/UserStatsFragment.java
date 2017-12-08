@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -44,10 +46,10 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 public class UserStatsFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TextView name, level;
+    private TextView name, levelInfo, levelProgressInfo, statsSubtitle;
+    private ProgressBar levelProgress;
     private TableLayout statsTable;
     private Button achievements, followedWordsSets;
-
     private Button logOut;
 
     private int textColor;
@@ -72,7 +74,10 @@ public class UserStatsFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user_stats);
         name = (TextView) rootView.findViewById(R.id.f_user_stats_name);
-        level = (TextView) rootView.findViewById(R.id.f_user_stats_level);
+        levelInfo = (TextView) rootView.findViewById(R.id.f_user_stats_level_info);
+        levelProgressInfo = (TextView) rootView.findViewById(R.id.f_user_stats_level_progress_info);
+        levelProgress = (ProgressBar) rootView.findViewById(R.id.f_user_stats_level_progress);
+        statsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_stats_subtitle);
         statsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_stats_table);
         achievements = (Button) rootView.findViewById(R.id.f_user_stats_button_achievements);
         followedWordsSets = (Button) rootView.findViewById(R.id.f_user_stats_button_followed_words_sets);
@@ -82,7 +87,7 @@ public class UserStatsFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
-        addStatsToTable();
+        prepareStats();
         prepareButtons();
     }
 
@@ -94,7 +99,9 @@ public class UserStatsFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         name.setTypeface(typeface);
-        level.setTypeface(typeface);
+        levelInfo.setTypeface(typeface);
+        levelProgressInfo.setTypeface(typeface);
+        statsSubtitle.setTypeface(typeface);
         achievements.setTypeface(typeface);
         followedWordsSets.setTypeface(typeface);
         logOut.setTypeface(typeface);
@@ -152,26 +159,45 @@ public class UserStatsFragment extends Fragment {
         });
     }
 
+    private void prepareStats() {
+        User user = UserManager.getUser();
+
+        Toast.makeText(getContext(), "User name: " + user.getName(), Toast.LENGTH_SHORT).show();
+        name.setText(user.getName());
+        levelInfo.setText("poziom: " + String.valueOf(user.getLevel()));
+
+        int level = user.getLevel();
+        double progress = (double)(user.getTotalExpForLevel(level) - user.getExp()) / (double)(user.getExpForLevel(level));
+        progress = Math.round(progress * 100D) / 100D;
+        levelProgressInfo.setText(String.valueOf(progress) + " %");
+
+        levelProgress.setProgress((int)(progress * 100D));
+
+        addStatsToTable();
+    }
+
     private void addStatsToTable() {
         User user = UserManager.getUser();
+        statsTable.addView(getPreparedRow("czas spedzony na nauce: " + user.getStats().getFormattedTimeLearnt()));
         statsTable.addView(getPreparedRow("pobrane testy: " + user.getStats().getWordsSetsDownloaded()));
         statsTable.addView(getPreparedRow(""));
         statsTable.addView(getPreparedRow("rozwiązane testy ze słówek:"));
+        statsTable.addView(getPreparedRow(""));
         statsTable.addView(getPreparedRow("jako lista: " + user.getStats().getWordsTestsSolved(LIST)));
         statsTable.addView(getPreparedRow("jako powtarzanie: " + user.getStats().getWordsTestsSolved(REPETITION)));
         statsTable.addView(getPreparedRow("jako pisownia: " + user.getStats().getWordsTestsSolved(SPELLING)));
         statsTable.addView(getPreparedRow("jako quiz: " + user.getStats().getWordsTestsSolved(QUIZ)));
         statsTable.addView(getPreparedRow(""));
         statsTable.addView(getPreparedRow("rozwiązane testy z czasowników nieregularnych:"));
+        statsTable.addView(getPreparedRow(""));
         statsTable.addView(getPreparedRow("jako lista: " + user.getStats().getIrregularVerbsTestsSolved(LIST)));
         statsTable.addView(getPreparedRow("jako powtarzanie: " + user.getStats().getIrregularVerbsTestsSolved(REPETITION)));
         statsTable.addView(getPreparedRow(""));
         statsTable.addView(getPreparedRow("rozwiązane testy z wyrażeń:"));
+        statsTable.addView(getPreparedRow(""));
         statsTable.addView(getPreparedRow("jako lista: " + user.getStats().getPhrasesTestsSolved(LIST)));
         statsTable.addView(getPreparedRow("jako powtarzanie: " + user.getStats().getPhrasesTestsSolved(REPETITION)));
         statsTable.addView(getPreparedRow("jako quiz: " + user.getStats().getPhrasesTestsSolved(QUIZ)));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("czas spedzony na nauce: " + user.getStats().getFormattedTimeLearnt()));
     }
 
     private TableRow getPreparedRow(String content) {

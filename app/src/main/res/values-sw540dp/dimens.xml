@@ -165,10 +165,9 @@
 
 
     <!-- user -->
-    <dimen name="f_user_log_in_title">24sp</dimen>
-    <dimen name="f_user_log_in_icon">140dp</dimen>
-    <dimen name="f_user_stats_name">10dp</dimen>
-    <dimen name="f_user_stats_level">10dp</dimen>
-    <dimen name="f_user_stats_other">10dp</dimen>
+    <dimen name="f_user_stats_name">36sp</dimen>
+    <dimen name="f_user_stats_title">24sp</dimen>
+    <dimen name="f_user_stats_level_info">18sp</dimen>
+    <dimen name="f_user_stats_stats_subtitle">26sp</dimen>
 
 </resources>
