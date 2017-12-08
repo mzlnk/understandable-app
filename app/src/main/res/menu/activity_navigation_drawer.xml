@@ -3,6 +3,12 @@
 
     <group android:id="@+id/navigation_group_1">
         <item
+            android:id="@+id/navigation_user"
+            android:title="Twój profil" />
+    </group>
+
+    <group android:id="@+id/navigation_group_2">
+        <item
             android:id="@+id/navigation_words"
             android:title="Słówka" />
         <item
@@ -16,19 +22,13 @@
             android:title="Gramatyka" />
     </group>
 
-    <group android:id="@+id/navigation_group_2" >
+    <group android:id="@+id/navigation_group_3" >
         <item
             android:id="@+id/navigation_download_custom_words_set"
             android:title="Pobierz zestaw słówek" />
         <item
             android:id="@+id/navigation_custom_words_sets"
             android:title="Lista twoich zestawów" />
-    </group>
-
-    <group android:id="@+id/navigation_group_3">
-        <item
-            android:id="@+id/navigation_user"
-            android:title="Statystyki" />
     </group>
 
     <group android:id="@+id/navigation_group_4" >

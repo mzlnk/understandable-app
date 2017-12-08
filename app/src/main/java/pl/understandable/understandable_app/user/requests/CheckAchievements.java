@@ -14,7 +14,7 @@ public class CheckAchievements implements Request {
 
     @Override
     public void executeRequest() {
-        if(SyncManager.isSyncAvailable()) {
+        if(UserManager.isUserSignedIn() && SyncManager.isSyncOnline()) {
             for (Achievement achievement : UserManager.getUser().getAllAchievements().values()) {
                 if (!achievement.isAchieved() && achievement.isAchievable()) {
                     RequestExecutor.offerRequest(new ShowAchievement(achievement.getId()));

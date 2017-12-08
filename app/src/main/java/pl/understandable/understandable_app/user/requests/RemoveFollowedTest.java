@@ -18,7 +18,7 @@ public class RemoveFollowedTest implements Request {
 
     @Override
     public void executeRequest() {
-        if(SyncManager.isSyncAvailable()) {
+        if(UserManager.isUserSignedIn() && SyncManager.isSyncOnline()) {
             UserManager.getUser().removeDownloadedTest(code);
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.GENERAL);

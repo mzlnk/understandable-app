@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -19,10 +20,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
+import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
 import pl.understandable.understandable_app.user.UserManager;
@@ -30,6 +36,7 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.APP_EXIT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -40,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
     public static MainActivity activity;
 
+    public GoogleSignInClient client;
+    public final int RC_SIGN_IN = 476;
+
     public DrawerLayout drawer;
+
     private NavigationView navigationView;
     private TextView navigationTitle;
 
@@ -59,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
             UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
         }
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.server_client_id)).build();
+        client = GoogleSignIn.getClient(getApplicationContext(), gso);
     }
 
     @Override
@@ -148,6 +162,29 @@ public class MainActivity extends AppCompatActivity {
         int height = Math.round(dm.heightPixels / dm.density);
 
         Toast.makeText(getApplicationContext(), "width: " + width + "dp\nheight: " + height + "dp", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                Toast.makeText(getApplicationContext(), "Signed in successfully as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
+                UserManager.getUser().setTokenId(account.getIdToken());
+                UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                UserStatsFragment fragment = new UserStatsFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+            } catch (ApiException e) {
+                Log.w("GOOGLE SIGN IN", "signInResult:failed code=" + e.getStatusCode());
+                Toast.makeText(getApplicationContext(), "Error while signing in", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        }
     }
 
 }

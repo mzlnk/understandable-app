@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
@@ -74,8 +75,10 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         } else if(id == R.id.navigation_user) {
             if(!UserManager.isUserSignedIn()) {
-                UserSignInFragment fragment = new UserSignInFragment();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                //UserSignInFragment fragment = new UserSignInFragment();
+                //fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                Intent signInIntent = ((MainActivity) activity).client.getSignInIntent();
+                activity.startActivityForResult(signInIntent, ((MainActivity) activity).RC_SIGN_IN);
             } else {
                 UserStatsFragment fragment = new UserStatsFragment();
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
