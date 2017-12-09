@@ -44,6 +44,7 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 public class SyncManager {
 
     private static boolean syncRequiredAfterReconnect = false;
+    private static boolean dataPulledFromServer = false;
     private static SyncStatus syncStatus = SyncStatus.OFFLINE;
 
     public static boolean isSyncOnline() {
@@ -53,6 +54,11 @@ public class SyncManager {
     public static void logout() {
         syncRequiredAfterReconnect = false;
         syncStatus = SyncStatus.OFFLINE;
+        dataPulledFromServer = false;
+    }
+
+    public static boolean isDataPulledFromServer() {
+        return dataPulledFromServer;
     }
 
     private static boolean isSyncRequiredAfterReconnect() {
@@ -165,6 +171,7 @@ public class SyncManager {
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
             System.out.println("name field: " + data.getString("name"));
+            dataPulledFromServer = true;
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

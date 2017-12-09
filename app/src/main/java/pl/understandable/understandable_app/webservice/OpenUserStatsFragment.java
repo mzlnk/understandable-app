@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
+import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
@@ -32,6 +33,9 @@ public class OpenUserStatsFragment extends AsyncTask<Void, Void, Integer> {
         if(!NetworkUtil.isNetworkAvailable((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))) {
             return 1;
         }
+        if(!SyncManager.isDataPulledFromServer()) {
+            return 2;
+        }
 
         return 0;
     }
@@ -41,6 +45,9 @@ public class OpenUserStatsFragment extends AsyncTask<Void, Void, Integer> {
         switch(result) {
             case 1:
                 Toast.makeText(context, "Brak dostępu do Internetu", Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                Toast.makeText(context, "Nie pobrano danych o profilu.\nSprawdź połączenie z Internetem.", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
                 UserStatsFragment fragment = new UserStatsFragment();
