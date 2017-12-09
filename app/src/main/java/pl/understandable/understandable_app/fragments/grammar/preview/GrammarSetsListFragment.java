@@ -1,5 +1,7 @@
 package pl.understandable.understandable_app.fragments.grammar.preview;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -102,8 +104,7 @@ public class GrammarSetsListFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    NetworkUtil networkUtil = new NetworkUtil(getContext());
-                    if(!networkUtil.isNetworkAvailable()) {
+                    if(!NetworkUtil.isNetworkAvailable((ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE))) {
                         Toast.makeText(getContext(), "Aby wyświetlić zawartość, wymagane jest połączenie z Internetem", Toast.LENGTH_SHORT).show();
                         return;
                     }

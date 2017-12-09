@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.webservice;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
@@ -45,8 +46,7 @@ public class DownloadWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
 
     @Override
     protected Integer doInBackground(Void... params) {
-        NetworkUtil networkUtil = new NetworkUtil(context);
-        if(!networkUtil.isNetworkAvailable() || !isConnectionAvailable()) {
+        if(!NetworkUtil.isNetworkAvailable((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))) {
             return 1;
         }
         if(!downloadWordsSetsData()) {
@@ -69,25 +69,6 @@ public class DownloadWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(redirect)).commit();
                 break;
         }
-    }
-
-    private boolean isConnectionAvailable() {
-        try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/check_connection.php");
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(uri);
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
     }
 
     private boolean downloadWordsSetsData() {

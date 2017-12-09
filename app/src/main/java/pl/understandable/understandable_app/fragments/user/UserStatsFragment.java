@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.Task;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
+import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.utils.ColorUtil;
@@ -46,7 +47,7 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 public class UserStatsFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TextView name, levelInfo, levelProgressInfo, statsSubtitle;
+    private TextView name, title, levelInfo, levelProgressInfo, statsSubtitle;
     private ProgressBar levelProgress;
     private TableLayout statsTable;
     private Button achievements, followedWordsSets;
@@ -74,6 +75,7 @@ public class UserStatsFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user_stats);
         name = (TextView) rootView.findViewById(R.id.f_user_stats_name);
+        title = (TextView) rootView.findViewById(R.id.f_user_stats_title);
         levelInfo = (TextView) rootView.findViewById(R.id.f_user_stats_level_info);
         levelProgressInfo = (TextView) rootView.findViewById(R.id.f_user_stats_level_progress_info);
         levelProgress = (ProgressBar) rootView.findViewById(R.id.f_user_stats_level_progress);
@@ -99,6 +101,7 @@ public class UserStatsFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         name.setTypeface(typeface);
+        title.setTypeface(typeface);
         levelInfo.setTypeface(typeface);
         levelProgressInfo.setTypeface(typeface);
         statsSubtitle.setTypeface(typeface);
@@ -144,7 +147,8 @@ public class UserStatsFragment extends Fragment {
                 client.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
+                        UserManager.logout();
+                        SyncManager.logout();
                         StartFragment fragment = new StartFragment();
                         getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                     }
@@ -162,7 +166,6 @@ public class UserStatsFragment extends Fragment {
     private void prepareStats() {
         User user = UserManager.getUser();
 
-        Toast.makeText(getContext(), "User name: " + user.getName(), Toast.LENGTH_SHORT).show();
         name.setText(user.getName());
         levelInfo.setText("poziom: " + String.valueOf(user.getLevel()));
 

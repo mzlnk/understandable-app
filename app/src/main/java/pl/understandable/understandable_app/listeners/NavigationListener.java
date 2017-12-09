@@ -3,6 +3,7 @@ package pl.understandable.understandable_app.listeners;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
@@ -24,6 +25,8 @@ import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
 import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.utils.NetworkUtil;
+import pl.understandable.understandable_app.webservice.OpenUserStatsFragment;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;
 
@@ -74,13 +77,10 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         } else if(id == R.id.navigation_user) {
             if(!UserManager.isUserSignedIn()) {
-                //UserSignInFragment fragment = new UserSignInFragment();
-                //fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
                 Intent signInIntent = ((MainActivity) activity).client.getSignInIntent();
                 activity.startActivityForResult(signInIntent, ((MainActivity) activity).RC_SIGN_IN);
             } else {
-                UserStatsFragment fragment = new UserStatsFragment();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                new OpenUserStatsFragment(context, fragmentManager).execute();
             }
         } else if(id== R.id.navigation_help) {
             try {

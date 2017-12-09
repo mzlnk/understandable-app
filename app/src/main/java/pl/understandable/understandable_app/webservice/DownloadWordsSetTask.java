@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.webservice;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
@@ -29,7 +30,6 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -51,11 +51,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
     @Override
     protected Integer doInBackground(String... ids) {
         String id = ids[0].toUpperCase();
-        NetworkUtil networkUtil = new NetworkUtil(context);
-        if(!networkUtil.isNetworkAvailable()) {
-            return 4;
-        }
-        if(!isConnectionAvailable()) {
+        if(!NetworkUtil.isNetworkAvailable((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))) {
             return 4;
         }
         if(!idExists(id)) {
@@ -92,25 +88,6 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
                 Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();
                 break;
         }
-    }
-
-    private boolean isConnectionAvailable() {
-        try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/check_connection.php");
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(uri);
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
     }
 
     private boolean idExists(String id) {

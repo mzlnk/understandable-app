@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.webservice;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
@@ -18,8 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,6 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
 
-
     private Context context;
     private FragmentManager fragmentManager;
 
@@ -51,8 +49,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
 
     @Override
     protected Integer doInBackground(Void... params) {
-        NetworkUtil networkUtil = new NetworkUtil(context);
-        if(!networkUtil.isNetworkAvailable() || !isConnectionAvailable()) {
+        if(!NetworkUtil.isNetworkAvailable((ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE))) {
             return 1;
         }
         if(!downloadFollowedWordsSetsData()) {
@@ -75,25 +72,6 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER_STATS)).commit();
                 break;
         }
-    }
-
-    private boolean isConnectionAvailable() {
-        try {
-            URI uri = new URI("https://www.understandable.pl/resources/script/check_connection.php");
-            HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(uri);
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return false;
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
     }
 
     private boolean downloadFollowedWordsSetsData() {

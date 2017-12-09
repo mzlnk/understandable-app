@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -31,6 +32,7 @@ import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
+import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -60,16 +62,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null) {
-            Toast.makeText(getApplicationContext(), "Signed in silently as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
-            Log.d("USER", "Token ID: " + account.getIdToken());
-            UserManager.getUser().setTokenId(account.getIdToken());
-            UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
-        } else {
-            Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
-            UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
-        }
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.server_client_id)).build();
         client = GoogleSignIn.getClient(getApplicationContext(), gso);
@@ -176,9 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 UserManager.getUser().setTokenId(account.getIdToken());
                 UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
 
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                UserStatsFragment fragment = new UserStatsFragment();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                SyncManager.syncFromServerAfterLogIn((ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE), getSupportFragmentManager());
             } catch (ApiException e) {
                 Log.w("GOOGLE SIGN IN", "signInResult:failed code=" + e.getStatusCode());
                 Toast.makeText(getApplicationContext(), "Error while signing in", Toast.LENGTH_SHORT).show();

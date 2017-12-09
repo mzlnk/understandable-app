@@ -55,6 +55,13 @@ public class UserManager {
         }
     }
 
+    public static void logout() {
+        user = new User();
+        isSyncRequired = false;
+        elementsToSync.clear();
+        userStatus = UserStatus.NO_ACCOUNT;
+    }
+
     public static void clearElementsToSync() {
         elementsToSync.clear();
     }

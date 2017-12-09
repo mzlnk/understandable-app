@@ -2,6 +2,7 @@ package pl.understandable.understandable_app.user;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 import org.apache.http.HttpResponse;
@@ -24,8 +25,14 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.user.requests.ShowSyncStoppedMessage;
 import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
+import pl.understandable.understandable_app.utils.NetworkUtil;
+
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka on 2017-11-25.
@@ -38,6 +45,11 @@ public class SyncManager {
 
     public static boolean isSyncOnline() {
         return syncStatus.equals(SyncStatus.ONLINE);
+    }
+
+    public static void logout() {
+        syncRequiredAfterReconnect = false;
+        syncStatus = SyncStatus.OFFLINE;
     }
 
     private static boolean isSyncRequiredAfterReconnect() {
@@ -58,7 +70,7 @@ public class SyncManager {
                 }
                 Log.d("SYNC", "Account detected");
 
-                if(isNetworkAvailable(manager)) {
+                if(NetworkUtil.isNetworkAvailable(manager)) {
                     System.out.println("Network available");
                     if(!isSyncOnline() && !isSyncRequiredAfterReconnect()) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
@@ -86,24 +98,19 @@ public class SyncManager {
         timer.scheduleAtFixedRate(syncTask, 1000L, 5000L);
     }
 
-    private static boolean isNetworkAvailable(ConnectivityManager manager) {
-        NetworkInfo activeNetworkInfo = manager.getActiveNetworkInfo();
-        if(activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return false;
-        }
+    public static void syncFromServerAfterLogIn(final ConnectivityManager manager, final FragmentManager fragmentManager) {
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if(NetworkUtil.isNetworkAvailable(manager)) {
+                    syncFromServer();
+                    syncStatus = SyncStatus.ONLINE;
 
-        try {
-            HttpURLConnection urlc = (HttpURLConnection) (new URL("http://clients3.google.com/generate_204").openConnection());
-            urlc.setRequestProperty("User-Agent", "Android");
-            urlc.setRequestProperty("Connection", "close");
-            urlc.setConnectTimeout(1500);
-            urlc.connect();
-
-            return (urlc.getResponseCode() == 204 && urlc.getContentLength() == 0);
-        } catch (IOException e) {
-            Log.e("SYNC-CONNECTION", "Error checking internet connection", e);
-            return false;
-        }
+                    UserStatsFragment fragment = new UserStatsFragment();
+                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                }
+            }
+        }, 1L);
     }
 
     private static boolean syncToServer() {
@@ -152,7 +159,7 @@ public class SyncManager {
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
-            System.out.println("name field: " +data.getString("name"));
+            System.out.println("name field: " + data.getString("name"));
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
