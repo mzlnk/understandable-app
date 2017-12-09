@@ -22,7 +22,7 @@ public class FragmentUtil {
     public static final String F_GRAMMAR_SETS_LIST = "f_grammar_sets_list";
     public static final String F_PHRASES_CHOICE_CATEGORY = "f_phrases_choice_category";
     public static final String F_DOWNLOAD_CUSTOM_WORDS_SET = "f_download_custom_words_set";
-    public static final String F_USER_STATS = "f_user_stats";
+    public static final String F_USER = "f_user";
 
     public static String redirectTo(String target, String... params) {
         String result = new String(target);

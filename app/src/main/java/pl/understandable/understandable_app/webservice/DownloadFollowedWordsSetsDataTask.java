@@ -26,11 +26,11 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.temp.AllCustomWordsSetsRepository;
 import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
-import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
+import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER_STATS;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -68,8 +68,8 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 Toast.makeText(context, "Wczytywanie listy zestawów nie powiodło się", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
-                UserStatsFragment fragment = new UserStatsFragment();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER_STATS)).commit();
+                UserFragment fragment = new UserFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER)).commit();
                 break;
         }
     }

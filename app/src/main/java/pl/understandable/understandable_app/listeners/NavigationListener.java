@@ -3,7 +3,6 @@ package pl.understandable.understandable_app.listeners;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
@@ -25,11 +24,9 @@ import pl.understandable.understandable_app.fragments.custom_words.other.Downloa
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
-import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
 import pl.understandable.understandable_app.user.UserManager;
-import pl.understandable.understandable_app.utils.NetworkUtil;
 import pl.understandable.understandable_app.webservice.OpenUserStatsFragment;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;

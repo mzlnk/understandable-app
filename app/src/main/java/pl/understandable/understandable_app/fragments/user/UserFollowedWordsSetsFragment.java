@@ -27,7 +27,7 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER_STATS;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -122,7 +122,7 @@ public class UserFollowedWordsSetsFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), F_USER_STATS, wordsSet.getId());
+                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), F_USER, wordsSet.getId());
                     dialog.show();
                 }
             });
@@ -155,7 +155,7 @@ public class UserFollowedWordsSetsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
-                UserStatsFragment fragment = new UserStatsFragment();
+                UserFragment fragment = new UserFragment();
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
             }
         });

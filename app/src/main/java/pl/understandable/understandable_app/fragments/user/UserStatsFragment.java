@@ -2,7 +2,6 @@ package pl.understandable.understandable_app.fragments.user;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.TypedValue;
@@ -12,32 +11,28 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.fragments.start.StartFragment;
-import pl.understandable.understandable_app.user.SyncManager;
+import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
+import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceMethodFragment;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.buttons.words.WordsCategoryButton;
 import pl.understandable.understandable_app.utils.font.Font;
-import pl.understandable.understandable_app.webservice.DownloadFollowedWordsSetsDataTask;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static pl.understandable.understandable_app.user.data.UserStatistics.*;
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER_STATS;
+import static pl.understandable.understandable_app.user.data.UserStatistics.LIST;
+import static pl.understandable.understandable_app.user.data.UserStatistics.QUIZ;
+import static pl.understandable.understandable_app.user.data.UserStatistics.REPETITION;
+import static pl.understandable.understandable_app.user.data.UserStatistics.SPELLING;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -47,11 +42,9 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 public class UserStatsFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TextView name, title, levelInfo, levelProgressInfo, statsSubtitle;
-    private ProgressBar levelProgress;
     private TableLayout statsTable;
-    private Button achievements, followedWordsSets;
-    private Button logOut;
+    private TextView title;
+    private Button back;
 
     private int textColor;
 
@@ -59,124 +52,60 @@ public class UserStatsFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the statsTable for this fragment
         View rootView = inflater.inflate(R.layout.f_user_stats, container, false);
-        initColors();
         loadViewsFromXml(rootView);
+        initColors();
         prepareLayout();
         addListeners();
-
         return rootView;
     }
 
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user_stats);
-        name = (TextView) rootView.findViewById(R.id.f_user_stats_name);
+        statsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_table);
         title = (TextView) rootView.findViewById(R.id.f_user_stats_title);
-        levelInfo = (TextView) rootView.findViewById(R.id.f_user_stats_level_info);
-        levelProgressInfo = (TextView) rootView.findViewById(R.id.f_user_stats_level_progress_info);
-        levelProgress = (ProgressBar) rootView.findViewById(R.id.f_user_stats_level_progress);
-        statsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_stats_subtitle);
-        statsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_stats_table);
-        achievements = (Button) rootView.findViewById(R.id.f_user_stats_button_achievements);
-        followedWordsSets = (Button) rootView.findViewById(R.id.f_user_stats_button_followed_words_sets);
-        logOut = (Button) rootView.findViewById(R.id.f_user_stats_button_log_out);
+        back = (Button) rootView.findViewById(R.id.f_user_stats_button_back);
     }
 
     private void prepareLayout() {
         setAnimation();
         setFonts();
-        prepareStats();
         prepareButtons();
+        addStatsToTable();
     }
 
-    private void setAnimation() {
+    public void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
         mainLayout.setAnimation(anim);
     }
 
-    private void setFonts() {
+    public void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
-        name.setTypeface(typeface);
         title.setTypeface(typeface);
-        levelInfo.setTypeface(typeface);
-        levelProgressInfo.setTypeface(typeface);
-        statsSubtitle.setTypeface(typeface);
-        achievements.setTypeface(typeface);
-        followedWordsSets.setTypeface(typeface);
-        logOut.setTypeface(typeface);
+        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            achievements.setBackgroundResource(R.drawable.field_rounded_pink);
-            followedWordsSets.setBackgroundResource(R.drawable.field_rounded_pink);
-            logOut.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
-            achievements.setBackgroundResource(R.drawable.field_rounded_gray);
-            followedWordsSets.setBackgroundResource(R.drawable.field_rounded_gray);
-            logOut.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
 
     private void addListeners() {
-        achievements.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                UserAchievementsFragment fragment = new UserAchievementsFragment();
-                getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER_STATS)).commit();
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                UserFragment fragment = new UserFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
             }
         });
-
-        followedWordsSets.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DownloadFollowedWordsSetsDataTask(getContext(), getFragmentManager()).execute();
-            }
-        });
-
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
-                GoogleSignInClient client = GoogleSignIn.getClient(getContext(), gso);
-                client.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        UserManager.logout();
-                        SyncManager.logout();
-                        StartFragment fragment = new StartFragment();
-                        getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
-                    }
-                });
-                client.revokeAccess().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                    }
-                });
-            }
-        });
-    }
-
-    private void prepareStats() {
-        User user = UserManager.getUser();
-
-        name.setText(user.getName());
-        levelInfo.setText("poziom: " + String.valueOf(user.getLevel()));
-
-        int level = user.getLevel();
-        double progress = (double)(user.getTotalExpForLevel(level) - user.getExp()) / (double)(user.getExpForLevel(level));
-        progress = Math.round(progress * 100D) / 100D;
-        levelProgressInfo.setText(String.valueOf(progress) + " %");
-
-        levelProgress.setProgress((int)(progress * 100D));
-
-        addStatsToTable();
     }
 
     private void addStatsToTable() {

@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,13 +95,17 @@ public class UserAchievementsFragment extends Fragment {
 
     private void addCategoryButtonsToTable() {
         TableRow currentImageRow = new TableRow(getContext());
+        TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
         for (AchievementButton achievementButton : achievements) {
             currentImageRow.addView(achievementButton.getImage());
+            currentTextRow.addView(achievementButton.getText());
             if (x == 3) {
                 achievementsTable.addView(currentImageRow);
+                achievementsTable.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
+                currentTextRow = new TableRow(getContext());
                 x = 0;
             } else {
                 x++;
@@ -110,6 +113,7 @@ public class UserAchievementsFragment extends Fragment {
         }
         if (x != 0) {
             achievementsTable.addView(currentImageRow);
+            achievementsTable.addView(currentTextRow);
         }
     }
 
@@ -118,7 +122,7 @@ public class UserAchievementsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentManager manager = getFragmentManager();
-                UserStatsFragment fragment = new UserStatsFragment();
+                UserFragment fragment = new UserFragment();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
             }
         });

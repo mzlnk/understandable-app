@@ -86,7 +86,6 @@ public class App extends MultiDexApplication {
                     GoogleSignInAccount account = task.getResult();
                     if (account != null) {
                         Toast.makeText(getApplicationContext(), "Signed in silently as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(getApplicationContext(), "Token ID:\n" + (account.getIdToken() != null ? account.getIdToken() : "NULL"), Toast.LENGTH_SHORT).show();
                         Log.d("USER", "Token ID: " + account.getIdToken());
                         UserManager.getUser().setTokenId(account.getIdToken());
                         UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);

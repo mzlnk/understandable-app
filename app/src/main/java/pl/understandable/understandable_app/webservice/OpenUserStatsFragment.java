@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
+import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
@@ -50,7 +50,7 @@ public class OpenUserStatsFragment extends AsyncTask<Void, Void, Integer> {
                 Toast.makeText(context, "Nie pobrano danych o profilu.\nSprawdź połączenie z Internetem.", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
-                UserStatsFragment fragment = new UserStatsFragment();
+                UserFragment fragment = new UserFragment();
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
                 break;
         }

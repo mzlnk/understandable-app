@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -22,14 +21,12 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
-import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
 import pl.understandable.understandable_app.user.SyncManager;
@@ -38,7 +35,6 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.APP_EXIT;
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**

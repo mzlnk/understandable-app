@@ -16,7 +16,7 @@ public class TenThousandTestsSolved extends Achievement {
 
     @Override
     public String getName() {
-        return "Bezwględnie Wyuczony";
+        return "Wyuczony";
     }
 
     @Override

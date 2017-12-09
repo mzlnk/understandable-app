@@ -5,10 +5,7 @@ import android.net.ConnectivityManager;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.api.OptionalPendingResult;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -29,7 +26,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.fragments.user.UserStatsFragment;
+import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.user.requests.ShowSyncStoppedMessage;
 import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
 import pl.understandable.understandable_app.utils.NetworkUtil;
@@ -117,7 +114,7 @@ public class SyncManager {
                     syncFromServer(context);
                     syncStatus = SyncStatus.ONLINE;
 
-                    UserStatsFragment fragment = new UserStatsFragment();
+                    UserFragment fragment = new UserFragment();
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
                 }
             }
