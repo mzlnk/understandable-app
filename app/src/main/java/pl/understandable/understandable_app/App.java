@@ -2,9 +2,20 @@ package pl.understandable.understandable_app;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -38,48 +49,12 @@ public class App extends MultiDexApplication {
         AdUtil.init(getApplicationContext());
 
         UserManager.init();
-        SyncManager.init((ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE));
+        googleSilentSignIn();
+
+        SyncManager.init(getApplicationContext());
         RequestExecutor.init();
         TimeLearntManager.init();
         AchievementChecker.init();
-
-        try {
-            JSONObject user = new JSONObject();
-            user.put("name", "Anonymous");
-            user.put("exp", 1552342);
-            JSONObject stats = new JSONObject();
-            stats.put("timeLearnt", 450000);
-            stats.put("testsDownloaded", 12);
-            stats.put("allTestsSolved", 156);
-            JSONArray testsSolved = new JSONArray();
-            testsSolved.put(new JSONObject().put("id", "w_tests_solved_0").put("value", 23));
-            testsSolved.put(new JSONObject().put("id", "w_tests_solved_1").put("value", 13));
-            testsSolved.put(new JSONObject().put("id", "w_tests_solved_2").put("value", 50));
-            testsSolved.put(new JSONObject().put("id", "w_tests_solved_3").put("value", 70));
-            testsSolved.put(new JSONObject().put("id", "ir_tests_solved_0").put("value", 0));
-            testsSolved.put(new JSONObject().put("id", "ir_tests_solved_1").put("value", 0));
-            testsSolved.put(new JSONObject().put("id", "p_tests_solved_0").put("value", 0));
-            testsSolved.put(new JSONObject().put("id", "p_tests_solved_1").put("value", 0));
-            testsSolved.put(new JSONObject().put("id", "p_tests_solved_3").put("value", 0));
-            stats.put("testsSolved", testsSolved);
-            user.put("stats", stats);
-            JSONArray achievements = new JSONArray();
-            for(AchievementId id : AchievementId.values()) {
-                JSONObject a = new JSONObject();
-                a.put("id", id.getId2());
-                a.put("value", new Random().nextBoolean() ? 1 : 0);
-                achievements.put(a);
-            }
-            user.put("achievements", achievements);
-            JSONArray downloadedTests = new JSONArray();
-            downloadedTests.put("AABBCC").put("XXYYZZ").put("ZASDBC");
-            user.put("downloadedTests", downloadedTests);
-            System.out.println("=========================================================");
-            System.out.println(user.toString());
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
@@ -99,6 +74,31 @@ public class App extends MultiDexApplication {
         if(!customWordsSetsInfoDirectory.exists()) {
             customWordsSetsInfoDirectory.mkdir();
         }
+    }
+
+    private void googleSilentSignIn() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.server_client_id)).build();
+        GoogleSignInClient client = GoogleSignIn.getClient(getApplicationContext(), gso);
+        client.silentSignIn().addOnCompleteListener(new OnCompleteListener<GoogleSignInAccount>() {
+            @Override
+            public void onComplete(@NonNull Task<GoogleSignInAccount> task) {
+                try {
+                    GoogleSignInAccount account = task.getResult();
+                    if (account != null) {
+                        Toast.makeText(getApplicationContext(), "Signed in silently as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Token ID:\n" + (account.getIdToken() != null ? account.getIdToken() : "NULL"), Toast.LENGTH_SHORT).show();
+                        Log.d("USER", "Token ID: " + account.getIdToken());
+                        UserManager.getUser().setTokenId(account.getIdToken());
+                        UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
+                        UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }

@@ -1,9 +1,14 @@
 package pl.understandable.understandable_app.user;
 
+import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.api.OptionalPendingResult;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -18,8 +23,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -56,7 +59,8 @@ public class SyncManager {
         return syncRequiredAfterReconnect;
     }
 
-    public static void init(final ConnectivityManager manager) {
+    public static void init(final Context context) {
+        final ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         Timer timer = new Timer();
         TimerTask syncTask = new TimerTask() {
             @Override
@@ -75,13 +79,13 @@ public class SyncManager {
                     if(!isSyncOnline() && !isSyncRequiredAfterReconnect()) {
                         RequestExecutor.offerRequest(new ShowWelcomeMessage());
                         System.out.println("Sync from server");
-                        syncFromServer();
+                        syncFromServer(context);
                     }
                     syncStatus = SyncStatus.ONLINE;
 
                     if(UserManager.isSyncRequired() || isSyncRequiredAfterReconnect()) {
                         System.out.println("Sync to server");
-                        syncToServer();
+                        syncToServer(context);
                     }
                 } else {
                     System.out.println("No network available");
@@ -98,12 +102,13 @@ public class SyncManager {
         timer.scheduleAtFixedRate(syncTask, 1000L, 5000L);
     }
 
-    public static void syncFromServerAfterLogIn(final ConnectivityManager manager, final FragmentManager fragmentManager) {
+    public static void syncFromServerAfterLogIn(final Context context, final FragmentManager fragmentManager) {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
+                ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if(NetworkUtil.isNetworkAvailable(manager)) {
-                    syncFromServer();
+                    syncFromServer(context);
                     syncStatus = SyncStatus.ONLINE;
 
                     UserStatsFragment fragment = new UserStatsFragment();
@@ -113,13 +118,13 @@ public class SyncManager {
         }, 1L);
     }
 
-    private static boolean syncToServer() {
+    private static boolean syncToServer(Context context) {
         try {
             HttpClient client = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
 
             List valuePairs = new ArrayList(2);
-            valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
+            valuePairs.add(new BasicNameValuePair("token_id", GoogleSignIn.getLastSignedInAccount(context).getIdToken()));
             valuePairs.add(new BasicNameValuePair("data", UserManager.getUser().toJson().toString()));
             valuePairs.add(new BasicNameValuePair("elements_to_sync", UserManager.getElementsToSyncJson().toString()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
@@ -143,14 +148,14 @@ public class SyncManager {
         return true;
     }
 
-    private static boolean syncFromServer() {
+    private static boolean syncFromServer(Context context) {
         try {
             HttpClient client = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
 
             List valuePairs = new ArrayList(1);
-            System.out.println("TokenID: " + UserManager.getUser().getTokenId());
-            valuePairs.add(new BasicNameValuePair("token_id", UserManager.getUser().getTokenId()));
+            System.out.println("TokenID: " + GoogleSignIn.getLastSignedInAccount(context).getIdToken());
+            valuePairs.add(new BasicNameValuePair("token_id", GoogleSignIn.getLastSignedInAccount(context).getIdToken()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
             HttpResponse httpResponse = client.execute(httpPost);

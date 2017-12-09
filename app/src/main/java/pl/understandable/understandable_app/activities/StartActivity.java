@@ -34,17 +34,6 @@ public class StartActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null) {
-            Toast.makeText(getApplicationContext(), "Signed in silently as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
-            Log.d("USER", "Token ID: " + account.getIdToken());
-            UserManager.getUser().setTokenId(account.getIdToken());
-            UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
-        } else {
-            Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
-            UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
-        }
     }
 
     @Override

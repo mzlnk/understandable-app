@@ -62,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.server_client_id)).build();
-        client = GoogleSignIn.getClient(getApplicationContext(), gso);
     }
 
     @Override
@@ -168,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 UserManager.getUser().setTokenId(account.getIdToken());
                 UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
 
-                SyncManager.syncFromServerAfterLogIn((ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE), getSupportFragmentManager());
+                SyncManager.syncFromServerAfterLogIn(getApplicationContext(), getSupportFragmentManager());
             } catch (ApiException e) {
                 Log.w("GOOGLE SIGN IN", "signInResult:failed code=" + e.getStatusCode());
                 Toast.makeText(getApplicationContext(), "Error while signing in", Toast.LENGTH_SHORT).show();

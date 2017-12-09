@@ -14,6 +14,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
@@ -77,7 +81,9 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         } else if(id == R.id.navigation_user) {
             if(!UserManager.isUserSignedIn()) {
-                Intent signInIntent = ((MainActivity) activity).client.getSignInIntent();
+                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(context.getString(R.string.server_client_id)).build();
+                GoogleSignInClient client = GoogleSignIn.getClient(context, gso);
+                Intent signInIntent = client.getSignInIntent();
                 activity.startActivityForResult(signInIntent, ((MainActivity) activity).RC_SIGN_IN);
             } else {
                 new OpenUserStatsFragment(context, fragmentManager).execute();
