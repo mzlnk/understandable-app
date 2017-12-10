@@ -79,7 +79,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
         text.setTypeface(Font.TYPEFACE_MONTSERRAT);
     }
 
-    private void setSize() {
+    protected void setSize() {
         int imageSize = (int) context.getResources().getDimension(R.dimen.f_choice_icon_size);
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(imageSize, imageSize);
         image.setLayoutParams(layoutParams);
@@ -90,7 +90,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
         text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
     }
 
-    private void setTextColor() {
+    protected void setTextColor() {
         text.setTextColor(colorUtil.getColor(R.attr.text_1_color));
     }
 

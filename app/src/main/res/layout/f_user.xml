@@ -33,7 +33,7 @@
             android:gravity="center|bottom"
             android:text="twoja nazwa"
             android:textColor="?attr/text_1_color"
-            android:textSize="15dp" />
+            android:textSize="@dimen/f_user_info_text" />
 
         <LinearLayout
             android:id="@+id/f_user_name_field"
@@ -50,7 +50,7 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_stats_title" />
+                android:textSize="@dimen/f_user_field_text" />
 
         </LinearLayout>
 
@@ -67,7 +67,7 @@
             android:gravity="center|bottom"
             android:text="twój tytuł"
             android:textColor="?attr/text_1_color"
-            android:textSize="15dp" />
+            android:textSize="@dimen/f_user_info_text" />
 
         <LinearLayout
             android:id="@+id/f_user_title_field"
@@ -84,7 +84,7 @@
                 android:gravity="center"
                 android:text="Spragniony Wiedzy"
                 android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_stats_title" />
+                android:textSize="@dimen/f_user_field_text" />
 
         </LinearLayout>
 
@@ -111,7 +111,7 @@
                 android:gravity="center|bottom"
                 android:text=""
                 android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_stats_level_info" />
+                android:textSize="@dimen/f_user_info_text" />
 
             <ProgressBar
                 android:id="@+id/f_user_level_progress"
@@ -119,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:progressDrawable="@drawable/f_user_stats_progress_bar_theme_default"
+                android:progressDrawable="@drawable/f_user_progress_bar_theme_default"
                 android:minHeight="15dp"
                 android:max="10000"/>
 
@@ -132,7 +132,7 @@
                 android:gravity="center|top"
                 android:text=""
                 android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_stats_level_info" />
+                android:textSize="@dimen/f_user_info_text" />
 
 
         </LinearLayout>

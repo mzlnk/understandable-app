@@ -9,6 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/f_border_margin_medium"
+        android:layout_marginRight="@dimen/f_border_margin_medium"
         android:orientation="vertical"
         android:measureWithLargestChild="true" >
 
@@ -23,20 +25,158 @@
             android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color" />
 
+
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="@dimen/f_border_margin_medium"
-            android:layout_marginRight="@dimen/f_border_margin_medium"
-            android:layout_weight="0.7">
+            android:layout_weight="0.7"
+            android:layout_marginTop="@dimen/f_border_margin_medium" >
 
-            <TableLayout
-                android:id="@+id/f_user_stats_table"
+            <LinearLayout
+                android:id="@+id/f_user_stats_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:shrinkColumns="*">
+                android:orientation="vertical" >
 
-            </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/f_user_stats_general_stats_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/f_border_margin_large"
+                    android:stretchColumns="*" >
+
+                </TableLayout>
+
+                <TableLayout
+                    android:id="@+id/f_user_stats_tests_stats_table"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/f_user_stats_margin_large"
+                    android:stretchColumns="*">
+
+                    <TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/f_user_stats_words_tests_stats_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/f_user_stats_margin_large"
+                            android:layout_marginBottom="@dimen/f_user_stats_margin_large"
+                            android:gravity="center"
+                            android:text="@string/f_user_stats_words_tests_stats_subtitle"
+                            android:textSize="@dimen/f_user_field_text"
+                            android:textColor="?attr/text_1_color" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TableLayout
+                            android:id="@+id/f_user_stats_words_tests_stats_table"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stretchColumns="*" >
+
+                        </TableLayout>
+                    </TableRow>
+
+                    <TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/f_user_stats_irregular_verbs_tests_stats_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/f_user_stats_margin_large"
+                            android:layout_marginBottom="@dimen/f_user_stats_margin_large"
+                            android:gravity="center"
+                            android:text="@string/f_user_stats_irregular_verbs_tests_stats_subtitle"
+                            android:textSize="@dimen/f_user_field_text"
+                            android:textColor="?attr/text_1_color" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TableLayout
+                            android:id="@+id/f_user_stats_irregular_verbs_tests_stats_table"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stretchColumns="*" >
+
+                        </TableLayout>
+                    </TableRow>
+
+                    <TableRow>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/f_user_stats_phrases_tests_stats_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/f_user_stats_margin_large"
+                            android:layout_marginBottom="@dimen/f_user_stats_margin_large"
+                            android:gravity="center"
+                            android:text="@string/f_user_stats_phrases_tests_stats_subtitle"
+                            android:textSize="@dimen/f_user_field_text"
+                            android:textColor="?attr/text_1_color" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TableLayout
+                            android:id="@+id/f_user_stats_phrases_tests_stats_table"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stretchColumns="*" >
+
+                        </TableLayout>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
         </ScrollView>
 
         <LinearLayout

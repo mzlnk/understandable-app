@@ -165,9 +165,14 @@
 
 
     <!-- user -->
-    <dimen name="f_user_stats_name">41sp</dimen>
-    <dimen name="f_user_stats_title">28sp</dimen>
-    <dimen name="f_user_stats_level_info">21sp</dimen>
-    <dimen name="f_user_stats_stats_subtitle">30sp</dimen>
+    <dimen name="f_user_field_text">28sp</dimen>
+    <dimen name="f_user_info_text">21sp</dimen>
+    <dimen name="f_user_stats_icon_medium_size">88dp</dimen>
+    <dimen name="f_user_stats_icon_large_size">165dp</dimen>
+    <item name="f_user_stats_text_medium_factor" format="float" type="dimen">1.5</item>
+    <item name="f_user_stats_text_large_factor" format="float" type="dimen">2.0</item>
+    <dimen name="f_user_stats_margin">8dp</dimen> <!-- 400% of f_list_margin -->
+    <dimen name="f_user_stats_margin_large">12dp</dimen> <!-- 600% of f_list_margin -->
+    <dimen name="f_user_stats_stats_subtitle">28sp</dimen>
 
 </resources>

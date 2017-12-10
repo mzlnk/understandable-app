@@ -242,9 +242,9 @@ public class UserFragment extends Fragment {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(!themeUtil.isDefaultTheme()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                levelProgress.setProgressDrawable(getContext().getDrawable(R.drawable.f_user_stats_progress_bar_theme_night));
+                levelProgress.setProgressDrawable(getContext().getDrawable(R.drawable.f_user_progress_bar_theme_night));
             } else {
-                levelProgress.setProgressDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.f_user_stats_progress_bar_theme_night, null));
+                levelProgress.setProgressDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.f_user_progress_bar_theme_night, null));
             }
         }
     }

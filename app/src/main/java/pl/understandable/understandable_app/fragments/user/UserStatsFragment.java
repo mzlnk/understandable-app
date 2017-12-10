@@ -5,33 +5,30 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
-import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceMethodFragment;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
+import pl.understandable.understandable_app.user.data.buttons_data.UserStats;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.words.WordsCategoryButton;
+import pl.understandable.understandable_app.utils.buttons.user_stats.UserStatsButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static pl.understandable.understandable_app.user.data.UserStatistics.LIST;
-import static pl.understandable.understandable_app.user.data.UserStatistics.QUIZ;
-import static pl.understandable.understandable_app.user.data.UserStatistics.REPETITION;
-import static pl.understandable.understandable_app.user.data.UserStatistics.SPELLING;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
@@ -42,11 +39,9 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 public class UserStatsFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TableLayout statsTable;
-    private TextView title;
+    private TableLayout generalStatsTable, wordsTestsStatsTable, irregularVerbsTestsStatsTable, phrasesTestsStatsTable;
+    private TextView title, wordsTestsStatsSubtitle, irregularVerbsTestsStatsSubtitle, phrasesTestsStatsSubtitle;
     private Button back;
-
-    private int textColor;
 
     public UserStatsFragment() {
         // Required empty public constructor
@@ -54,18 +49,28 @@ public class UserStatsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the statsTable for this fragment
+        // Inflate the generalStatsTable for this fragment
         View rootView = inflater.inflate(R.layout.f_user_stats, container, false);
         loadViewsFromXml(rootView);
-        initColors();
         prepareLayout();
         addListeners();
+        TableLayout view = (TableLayout) rootView.findViewById(R.id.f_user_stats_general_stats_table);
+        System.out.println("========================= CHILDS ==========================");
+        for(int i = 0; i < view.getChildCount(); i++) {
+            System.out.println("Child: " + view.getChildAt(i).getId());
+        }
         return rootView;
     }
 
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user_stats);
-        statsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_table);
+        generalStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_general_stats_table);
+        wordsTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_words_tests_stats_table);
+        irregularVerbsTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_irregular_verbs_tests_stats_table);
+        phrasesTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_phrases_tests_stats_table);
+        wordsTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_words_tests_stats_subtitle);
+        irregularVerbsTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_irregular_verbs_tests_stats_subtitle);
+        phrasesTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_phrases_tests_stats_subtitle);
         title = (TextView) rootView.findViewById(R.id.f_user_stats_title);
         back = (Button) rootView.findViewById(R.id.f_user_stats_button_back);
     }
@@ -77,6 +82,74 @@ public class UserStatsFragment extends Fragment {
         addStatsToTable();
     }
 
+    private void addStatsToTable() {
+        addGeneralStatsToTable();
+        addTestsStatsToTable();
+    }
+
+    private void addGeneralStatsToTable() {
+        User user = UserManager.getUser();
+        UserStatsButton timeLearnt = new UserStatsButton(getContext(), UserStats.TIME_LEARNT, user.getStats().getFormattedTimeLearnt(), true);
+        UserStatsButton wordsSetsDownloaded = new UserStatsButton(getContext(), UserStats.WORDS_SETS_DOWNLOADED, String.valueOf(user.getStats().getWordsSetsDownloaded()), true);
+
+        TableRow iconRow = new TableRow(getContext());
+        iconRow.addView(timeLearnt.getImage());
+        iconRow.addView(wordsSetsDownloaded.getImage());
+
+        TableRow valueRow = new TableRow(getContext());
+        valueRow.addView(timeLearnt.getText2());
+        valueRow.addView(wordsSetsDownloaded.getText2());
+
+        TableRow infoRow = new TableRow(getContext());
+        infoRow.addView(timeLearnt.getText());
+        infoRow.addView(wordsSetsDownloaded.getText());
+
+        generalStatsTable.addView(iconRow);
+        generalStatsTable.addView(valueRow);
+        generalStatsTable.addView(infoRow);
+    }
+
+    private void addTestsStatsToTable() {
+        User user = UserManager.getUser();
+        TableRow wordsIconRow = new TableRow(getContext());
+        TableRow wordsValueRow = new TableRow(getContext());
+        for(int i = 0; i < 4; i++) {
+            UserStatsButton stat = new UserStatsButton(getContext(), UserStats.getEnumByPosInUserStatistics(i), String.valueOf(user.getStats().getWordsTestsSolved(i)), false);
+            wordsIconRow.addView(stat.getImage());
+            wordsValueRow.addView(stat.getText2());
+        }
+        wordsTestsStatsTable.addView(wordsIconRow);
+        wordsTestsStatsTable.addView(wordsValueRow);
+
+        TableRow irregularVerbsIconRow = new TableRow(getContext());
+        TableRow irregularVerbsValueRow = new TableRow(getContext());
+        irregularVerbsIconRow.addView(new TextView(getContext()));
+        irregularVerbsValueRow.addView(new TextView(getContext()));
+        for(int i = 0; i < 2; i++) {
+            UserStatsButton stat = new UserStatsButton(getContext(), UserStats.getEnumByPosInUserStatistics(i), String.valueOf(user.getStats().getIrregularVerbsTestsSolved(i)), false);
+            irregularVerbsIconRow.addView(stat.getImage());
+            irregularVerbsValueRow.addView(stat.getText2());
+        }
+        irregularVerbsIconRow.addView(new TextView(getContext()));
+        irregularVerbsValueRow.addView(new TextView(getContext()));
+        irregularVerbsTestsStatsTable.addView(irregularVerbsIconRow);
+        irregularVerbsTestsStatsTable.addView(irregularVerbsValueRow);
+
+        TableRow phrasesIconRow = new TableRow(getContext());
+        TableRow phrasesValueRow = new TableRow(getContext());
+        phrasesIconRow.addView(new TextView(getContext()));
+        phrasesValueRow.addView(new TextView(getContext()));
+        for(int i = 0; i < 3; i++) {
+            UserStatsButton stat = new UserStatsButton(getContext(), UserStats.getEnumByPosInUserStatistics(i), String.valueOf(user.getStats().getPhrasesTestsSolved(i)), false);
+            phrasesIconRow.addView(stat.getImage());
+            phrasesValueRow.addView(stat.getText2());
+        }
+        phrasesIconRow.addView(new TextView(getContext()));
+        phrasesValueRow.addView(new TextView(getContext()));
+        phrasesTestsStatsTable.addView(phrasesIconRow);
+        phrasesTestsStatsTable.addView(phrasesValueRow);
+    }
+
     public void setAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.fade01);
         mainLayout.setAnimation(anim);
@@ -85,6 +158,9 @@ public class UserStatsFragment extends Fragment {
     public void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeface);
+        wordsTestsStatsSubtitle.setTypeface(typeface);
+        irregularVerbsTestsStatsSubtitle.setTypeface(typeface);
+        phrasesTestsStatsSubtitle.setTypeface(typeface);
         back.setTypeface(typeface);
     }
 
@@ -106,62 +182,6 @@ public class UserStatsFragment extends Fragment {
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
             }
         });
-    }
-
-    private void addStatsToTable() {
-        User user = UserManager.getUser();
-        statsTable.addView(getPreparedRow("czas spedzony na nauce: " + user.getStats().getFormattedTimeLearnt()));
-        statsTable.addView(getPreparedRow("pobrane testy: " + user.getStats().getWordsSetsDownloaded()));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("rozwiązane testy ze słówek:"));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("jako lista: " + user.getStats().getWordsTestsSolved(LIST)));
-        statsTable.addView(getPreparedRow("jako powtarzanie: " + user.getStats().getWordsTestsSolved(REPETITION)));
-        statsTable.addView(getPreparedRow("jako pisownia: " + user.getStats().getWordsTestsSolved(SPELLING)));
-        statsTable.addView(getPreparedRow("jako quiz: " + user.getStats().getWordsTestsSolved(QUIZ)));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("rozwiązane testy z czasowników nieregularnych:"));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("jako lista: " + user.getStats().getIrregularVerbsTestsSolved(LIST)));
-        statsTable.addView(getPreparedRow("jako powtarzanie: " + user.getStats().getIrregularVerbsTestsSolved(REPETITION)));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("rozwiązane testy z wyrażeń:"));
-        statsTable.addView(getPreparedRow(""));
-        statsTable.addView(getPreparedRow("jako lista: " + user.getStats().getPhrasesTestsSolved(LIST)));
-        statsTable.addView(getPreparedRow("jako powtarzanie: " + user.getStats().getPhrasesTestsSolved(REPETITION)));
-        statsTable.addView(getPreparedRow("jako quiz: " + user.getStats().getPhrasesTestsSolved(QUIZ)));
-    }
-
-    private TableRow getPreparedRow(String content) {
-        TableRow row = new TableRow(getContext());
-        TextView textView = new TextView(getContext());
-
-        textView.setText(content);
-        textView.setTextColor(textColor);
-        textView.setTypeface(Font.TYPEFACE_MONTSERRAT);
-
-        TableRow.LayoutParams params = new TableRow.LayoutParams(0, MATCH_PARENT, 0.5F);
-
-        TypedValue outValue = new TypedValue();
-        getResources().getValue(R.dimen.f_list_text_factor, outValue, true);
-        float factor = outValue.getFloat();
-        float textSizeInPixels = textView.getTextSize() * factor;
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizeInPixels);
-
-        int margin = getResources().getDimensionPixelSize(R.dimen.f_list_margin);
-        params.setMargins(margin, margin, margin, margin);
-
-        textView.setLayoutParams(params);
-
-        row.setMeasureWithLargestChildEnabled(true);
-        row.addView(textView);
-
-        return row;
-    }
-
-    private void initColors() {
-        ColorUtil colorUtil = new ColorUtil(getContext());
-        textColor = colorUtil.getColor(R.attr.text_1_color);
     }
 
 }
