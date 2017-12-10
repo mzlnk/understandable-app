@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.requests.ChangeUserName;
 import pl.understandable.understandable_app.utils.ThemeUtil;
@@ -47,7 +46,7 @@ public class ChangeUserNameDialog extends Dialog implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.d_change_user_name);
+        setContentView(R.layout.d_user_change_name);
         loadViewsFromXml();
         prepareViews();
         setFonts();
@@ -55,10 +54,10 @@ public class ChangeUserNameDialog extends Dialog implements View.OnClickListener
     }
 
     private void loadViewsFromXml() {
-        title = (TextView) findViewById(R.id.d_change_user_name_title);
-        save = (Button) findViewById(R.id.d_change_user_name_button_save);
-        cancel = (Button) findViewById(R.id.d_change_user_name_button_cancel);
-        textField = (EditText) findViewById(R.id.d_change_user_name_text_field);
+        title = (TextView) findViewById(R.id.d_user_change_name_title);
+        save = (Button) findViewById(R.id.d_user_change_name_button_save);
+        cancel = (Button) findViewById(R.id.d_user_change_name_button_cancel);
+        textField = (EditText) findViewById(R.id.d_user_change_name_text_field);
     }
 
     private void prepareViews() {
@@ -109,7 +108,7 @@ public class ChangeUserNameDialog extends Dialog implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.d_change_user_name_button_save:
+            case R.id.d_user_change_name_button_save:
                 String text = textField.getText().toString();
                 if(text.contains("\n")) {
                     Toast.makeText(getContext(), "Nazwa nie może zawierać znaków nowej linii (ENTER)", Toast.LENGTH_SHORT).show();

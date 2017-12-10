@@ -24,9 +24,4 @@ public abstract class Achievement implements Identifiable {
     public abstract String getDescription();
     public abstract boolean isAchievable();
 
-    @Override
-    public int getResId() {
-        return R.drawable.f_user_achievements_not_done;
-    }
-
 }

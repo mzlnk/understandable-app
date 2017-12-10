@@ -72,7 +72,7 @@ public abstract class BaseButton<P extends BaseDataParams> {
         setOnClickListener();
     }
 
-    private void prepareText() {
+    protected void prepareText() {
         text.setText(enumType.getName());
         setTextColor();
         text.setGravity(Gravity.CENTER);

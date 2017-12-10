@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.user.data.achievements;
 
+import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 
@@ -29,6 +30,11 @@ public class OneHourLearning extends Achievement {
     @Override
     public boolean isAchievable() {
         return UserManager.getUser().getStats().getTimeLearnt() >= ONE_HOUR_IN_MILLIS;
+    }
+
+    @Override
+    public int getResId() {
+        return R.drawable.f_user_achievements_learning1h;
     }
 
 }

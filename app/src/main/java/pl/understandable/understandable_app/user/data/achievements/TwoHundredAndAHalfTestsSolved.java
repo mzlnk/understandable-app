@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.user.data.achievements;
 
+import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 
@@ -27,6 +28,11 @@ public class TwoHundredAndAHalfTestsSolved extends Achievement {
     @Override
     public boolean isAchievable() {
         return UserManager.getUser().getStats().getAllTestsSolved() >= 250;
+    }
+
+    @Override
+    public int getResId() {
+        return R.drawable.f_user_achievements_ts250;
     }
 
 }
