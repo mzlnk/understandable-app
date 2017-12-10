@@ -210,7 +210,7 @@ public class AllCustomWordsSetsListFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), F_START, wordsSet.getId());
+                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), wordsSet.getId());
                     dialog.show();
                 }
             });

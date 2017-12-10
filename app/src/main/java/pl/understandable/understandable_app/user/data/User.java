@@ -159,11 +159,11 @@ public class User {
             }
             user.put("achievements", achievements);
 
-            StringBuilder sb = new StringBuilder();
-            for(String s : this.followedWordsSets) {
-                sb.append(s).append(";");
+            JSONArray followedWordsSets = new JSONArray();
+            for(String wordsSet : this.followedWordsSets) {
+                followedWordsSets.put(wordsSet);
             }
-            user.put("followedWordsSets", sb.toString());
+            user.put("followedWordsSets", followedWordsSets);
         } catch (JSONException e) {
             e.printStackTrace();
         }

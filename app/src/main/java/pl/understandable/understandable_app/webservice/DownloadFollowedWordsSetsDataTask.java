@@ -26,6 +26,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.temp.AllCustomWordsSetsRepository;
 import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
+import pl.understandable.understandable_app.fragments.user.UserFollowedWordsSetsFragment;
 import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
@@ -68,7 +69,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 Toast.makeText(context, "Wczytywanie listy zestawów nie powiodło się", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
-                UserFragment fragment = new UserFragment();
+                UserFollowedWordsSetsFragment fragment = new UserFollowedWordsSetsFragment();
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER)).commit();
                 break;
         }
@@ -83,8 +84,12 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
             for(String code : UserManager.getUser().getAllDownloadedWordsSets()) {
                 data += "\"" + code + "\",";
             }
-            data = data.substring(0, data.length() - 1);
+            if(data.length() > 1) {
+                data = data.substring(0, data.length() - 1);
+            }
             data += "]";
+
+            System.out.println("JSON data: " + data);
 
             List valuePairs = new ArrayList(2);
             valuePairs.add(new BasicNameValuePair("data", data));
@@ -92,6 +97,8 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
 
             HttpResponse httpResponse = client.execute(httpPost);
             String result = EntityUtils.toString(httpResponse.getEntity());
+
+            System.out.println("JSON Response: " + result);
 
             result = result.replaceAll("\"", "\\\"");
             JSONArray jsonArray = new JSONArray(result);
@@ -101,7 +108,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 String id = jsonObject.getString("id");
                 String name = jsonObject.getString("name");
                 String description = jsonObject.getString("description");
-                AllCustomWordsSetsRepository.addWordsSet(new CustomWordsSetEntity(id, name, description));
+                FollowedCustomWordsSetsRepository.addWordsSet(new CustomWordsSetEntity(id, name, description));
             }
             return true;
         } catch (ClientProtocolException e) {

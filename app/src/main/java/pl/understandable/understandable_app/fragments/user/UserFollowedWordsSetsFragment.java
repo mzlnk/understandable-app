@@ -21,6 +21,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
 import pl.understandable.understandable_app.dialogs.CustomWordsSetPreviewDialog;
+import pl.understandable.understandable_app.dialogs.user_dialogs.FollowedCustomWordsSetPreviewDialog;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -122,7 +123,7 @@ public class UserFollowedWordsSetsFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CustomWordsSetPreviewDialog dialog = new CustomWordsSetPreviewDialog(getContext(), getFragmentManager(), F_USER, wordsSet.getId());
+                    FollowedCustomWordsSetPreviewDialog dialog = new FollowedCustomWordsSetPreviewDialog(getContext(), getFragmentManager(), wordsSet.getId());
                     dialog.show();
                 }
             });

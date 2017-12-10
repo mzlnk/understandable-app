@@ -40,7 +40,7 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class SyncManager {
 
-    private static boolean syncRequiredAfterReconnect = false;
+    public static boolean syncRequiredAfterReconnect = false;
     private static boolean dataPulledFromServer = false;
     private static SyncStatus syncStatus = SyncStatus.OFFLINE;
 
@@ -63,6 +63,7 @@ public class SyncManager {
     }
 
     public static void init(final Context context) {
+        System.out.println("[INIT] Json");
         final ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         Timer timer = new Timer();
         TimerTask syncTask = new TimerTask() {
@@ -126,6 +127,8 @@ public class SyncManager {
             HttpClient client = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
 
+            System.out.println("[JSON TO SERVER] Json: " + UserManager.getUser().toJson().toString());
+
             List valuePairs = new ArrayList(2);
             valuePairs.add(new BasicNameValuePair("token_id", GoogleSignIn.getLastSignedInAccount(context).getIdToken()));
             valuePairs.add(new BasicNameValuePair("data", UserManager.getUser().toJson().toString()));
@@ -134,6 +137,7 @@ public class SyncManager {
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
+            System.out.println("JSON TO SERVER RESPONSE] Json: " + response);
 
             UserManager.clearElementsToSync();
             UserManager.setSyncRequired(false);
@@ -163,7 +167,7 @@ public class SyncManager {
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
-            System.out.println("Json: " + response);
+            System.out.println("[JSON FROM SERVER] Json: " + response);
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);

@@ -60,6 +60,7 @@ public class UserManager {
         isSyncRequired = false;
         elementsToSync.clear();
         userStatus = UserStatus.NO_ACCOUNT;
+        SyncManager.syncRequiredAfterReconnect = false;
     }
 
     public static void clearElementsToSync() {
