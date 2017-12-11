@@ -18,6 +18,7 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
 import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
+import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.RateAppUtil;
 

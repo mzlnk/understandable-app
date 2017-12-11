@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d_user_dialog_box_height"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    tools:context="pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithIconDialog"
+    android:id="@+id/d_user_message_with_icon" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:measureWithLargestChild="true" >
+
+        <LinearLayout
+            android:id="@+id/d_user_message_with_icon_icon_area"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:layout_margin="@dimen/f_border_margin_medium"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/d_user_message_with_icon_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:textSize="@dimen/d_title" />
+
+    </LinearLayout>
+
+</RelativeLayout>

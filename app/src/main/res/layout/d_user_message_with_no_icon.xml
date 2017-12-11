@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d_user_dialog_box_height"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    tools:context="pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithNoIconDialog"
+    android:id="@+id/d_user_message_with_no_icon"
+    android:theme="@style/MessageDialog" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:measureWithLargestChild="true" >
+
+        <TextView
+            android:id="@+id/d_user_message_with_no_icon_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/d_title" />
+
+    </LinearLayout>
+
+</LinearLayout>

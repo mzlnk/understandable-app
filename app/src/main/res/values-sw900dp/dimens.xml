@@ -157,9 +157,11 @@
 
     <!-- dialog boxes -->
     <dimen name="d_dialog_box_width">750dp</dimen>
+    <dimen name="d_user_dialog_box_height">200dp</dimen>
 
     <dimen name="d_title_field_height">120dp</dimen>
     <dimen name="d_button_field_height">120dp</dimen>
+    <dimen name="d_title">38sp</dimen>
     <dimen name="d_text">32sp</dimen>
     <dimen name="d_edit_text">30sp</dimen>
 

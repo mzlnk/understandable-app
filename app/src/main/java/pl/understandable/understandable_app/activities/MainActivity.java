@@ -29,8 +29,10 @@ import pl.understandable.understandable_app.data.enums.themes.ThemeType;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
+import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+
     }
 
     @Override
@@ -73,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         prepareNavigationView();
         showStartFragment();
         showWindowMetrics();
+
+        RequestExecutor.offerRequest(new ShowWelcomeMessage(this));
     }
 
     @Override

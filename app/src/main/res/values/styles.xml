@@ -63,4 +63,9 @@
         <item name="bottom_line_color">@color/dark_gray</item>
     </style>
 
+    <style name="MessageDialog" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="windowMinWidthMajor">100%</item>
+        <item name="windowMinWidthMinor">10%</item>
+    </style>
+
 </resources>

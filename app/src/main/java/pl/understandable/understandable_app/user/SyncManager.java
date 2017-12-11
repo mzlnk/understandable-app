@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 
@@ -81,7 +82,7 @@ public class SyncManager {
                 if(NetworkUtil.isNetworkAvailable(manager)) {
                     System.out.println("Network available");
                     if(!isSyncOnline() && !isSyncRequiredAfterReconnect()) {
-                        RequestExecutor.offerRequest(new ShowWelcomeMessage());
+                        System.out.println("[WELCOME] Welcome message");
                         System.out.println("Sync from server");
                         syncFromServer(context);
                     }
@@ -97,7 +98,6 @@ public class SyncManager {
                         if(UserManager.isSyncRequired()) {
                             syncRequiredAfterReconnect = true;
                         }
-                        RequestExecutor.offerRequest(new ShowSyncStoppedMessage());
                     }
                     syncStatus = SyncStatus.OFFLINE;
                 }
