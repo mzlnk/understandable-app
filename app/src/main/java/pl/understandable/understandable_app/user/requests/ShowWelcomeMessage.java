@@ -3,12 +3,12 @@ package pl.understandable.understandable_app.user.requests;
 import android.content.Context;
 import android.os.Handler;
 import android.view.Gravity;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 
+import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithNoIconDialog;
 import pl.understandable.understandable_app.user.Request;
+import pl.understandable.understandable_app.user.UserManager;
 
 /**
  * Created by Marcin Zielonka on 2017-11-25.
@@ -28,7 +28,8 @@ public class ShowWelcomeMessage implements Request {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                final UserMessageWithNoIconDialog dialog = new UserMessageWithNoIconDialog(context, "Witaj ponownie");
+                String name = UserManager.getUser().getName();
+                final UserMessageWithNoIconDialog dialog = new UserMessageWithNoIconDialog(MainActivity.getActivity(), "Witaj ponownie " + name.split(" ")[0]);
                 dialog.show();
 
                 Handler postHandler = new Handler();

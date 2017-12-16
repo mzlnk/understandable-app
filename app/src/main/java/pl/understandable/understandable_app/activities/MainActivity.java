@@ -45,7 +45,7 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class MainActivity extends AppCompatActivity {
 
-    public static MainActivity activity;
+    private static MainActivity activity;
 
     public GoogleSignInClient client;
     public final int RC_SIGN_IN = 476;
@@ -57,11 +57,15 @@ public class MainActivity extends AppCompatActivity {
 
     private int currentThemeId;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
+    public static MainActivity getActivity() {
+        return activity;
     }
+
+    public MainActivity() {
+        super();
+        activity = this;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         showStartFragment();
         showWindowMetrics();
 
-        RequestExecutor.offerRequest(new ShowWelcomeMessage(this));
+        RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()));
     }
 
     @Override

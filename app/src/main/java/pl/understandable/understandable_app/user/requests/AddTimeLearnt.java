@@ -18,7 +18,7 @@ public class AddTimeLearnt implements Request {
 
     @Override
     public void executeRequest() {
-        if(UserManager.isUserSignedIn() && SyncManager.isSyncOnline()) {
+        if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             UserManager.getUser().getStats().addTimeLearnt(time);
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.GENERAL);

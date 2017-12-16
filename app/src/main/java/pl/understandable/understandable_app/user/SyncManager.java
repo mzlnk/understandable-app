@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 
@@ -27,6 +26,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.user.requests.ShowSyncStoppedMessage;
 import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
@@ -41,26 +41,10 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class SyncManager {
 
-    public static boolean syncRequiredAfterReconnect = false;
-    private static boolean dataPulledFromServer = false;
-    private static SyncStatus syncStatus = SyncStatus.OFFLINE;
+    private static SyncParams syncParams = new SyncParams();
 
-    public static boolean isSyncOnline() {
-        return syncStatus.equals(SyncStatus.ONLINE);
-    }
-
-    public static void logout() {
-        syncRequiredAfterReconnect = false;
-        syncStatus = SyncStatus.OFFLINE;
-        dataPulledFromServer = false;
-    }
-
-    public static boolean isDataPulledFromServer() {
-        return dataPulledFromServer;
-    }
-
-    private static boolean isSyncRequiredAfterReconnect() {
-        return syncRequiredAfterReconnect;
+    public static SyncParams getSyncParams() {
+        return syncParams;
     }
 
     public static void init(final Context context) {
@@ -81,25 +65,34 @@ public class SyncManager {
 
                 if(NetworkUtil.isNetworkAvailable(manager)) {
                     System.out.println("Network available");
-                    if(!isSyncOnline() && !isSyncRequiredAfterReconnect()) {
-                        System.out.println("[WELCOME] Welcome message");
-                        System.out.println("Sync from server");
-                        syncFromServer(context);
-                    }
-                    syncStatus = SyncStatus.ONLINE;
+                    if(!syncParams.isSyncOnline()) {
+                        if(MainActivity.getActivity() != null) {
+                            RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
+                        } else {
+                            System.out.println("[WELCOME] Welcome message not showed - null!");
+                        }
+                        if(!syncParams.isSyncRequiredAfterReconnect()) {
+                            System.out.println("[WELCOME] Welcome message");
+                            System.out.println("Sync from server");
 
-                    if(UserManager.isSyncRequired() || isSyncRequiredAfterReconnect()) {
+                            syncFromServer(context);
+                        }
+                    }
+                    syncParams.setSyncStatus(SyncStatus.ONLINE);
+
+                    if(UserManager.isSyncRequired() || syncParams.isSyncRequiredAfterReconnect()) {
                         System.out.println("Sync to server");
                         syncToServer(context);
                     }
                 } else {
                     System.out.println("No network available");
-                    if(isSyncOnline()) {
+                    if(syncParams.isSyncOnline()) {
+                        RequestExecutor.offerRequest(new ShowSyncStoppedMessage(context));
                         if(UserManager.isSyncRequired()) {
-                            syncRequiredAfterReconnect = true;
+                            syncParams.setSyncRequiredAfterReconnect(true);
                         }
                     }
-                    syncStatus = SyncStatus.OFFLINE;
+                    syncParams.setSyncStatus(SyncStatus.OFFLINE);
                 }
             }
         };
@@ -113,7 +106,7 @@ public class SyncManager {
                 ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if(NetworkUtil.isNetworkAvailable(manager)) {
                     syncFromServer(context);
-                    syncStatus = SyncStatus.ONLINE;
+                    syncParams.setSyncStatus(SyncStatus.ONLINE);
 
                     UserFragment fragment = new UserFragment();
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
@@ -172,7 +165,7 @@ public class SyncManager {
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
             System.out.println("name field: " + data.getString("name"));
-            dataPulledFromServer = true;
+            syncParams.setDataPulledFromServer(true);
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -193,6 +186,44 @@ public class SyncManager {
     private static enum SyncStatus {
         OFFLINE,
         ONLINE;
+    }
+
+    public static class SyncParams {
+
+        private boolean syncRequiredAfterReconnect = false;
+        private boolean dataPulledFromServer = false;
+        private SyncStatus syncStatus = SyncStatus.OFFLINE;
+
+        public void setDataPulledFromServer(boolean status) {
+            this.dataPulledFromServer = status;
+        }
+
+        public void setSyncStatus(SyncStatus status) {
+            this.syncStatus = status;
+        }
+
+        public void setSyncRequiredAfterReconnect(boolean required) {
+            syncRequiredAfterReconnect = required;
+        }
+
+        public boolean isSyncRequiredAfterReconnect() {
+            return syncRequiredAfterReconnect;
+        }
+
+        public boolean isDataPulledFromServer() {
+            return dataPulledFromServer;
+        }
+
+        public boolean isSyncOnline() {
+            return syncStatus.equals(SyncStatus.ONLINE);
+        }
+
+        public void logout() {
+            syncRequiredAfterReconnect = false;
+            syncStatus = SyncStatus.OFFLINE;
+            dataPulledFromServer = false;
+        }
+
     }
 
 }

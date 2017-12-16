@@ -64,7 +64,7 @@ public class StartFragment extends Fragment {
         mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.activity.drawer.openDrawer(GravityCompat.START);
+                MainActivity.getActivity().drawer.openDrawer(GravityCompat.START);
             }
         });
     }

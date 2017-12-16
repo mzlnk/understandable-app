@@ -20,7 +20,7 @@ public class AddTestSolved implements Request {
 
     @Override
     public void executeRequest() {
-        if(UserManager.isUserSignedIn() && SyncManager.isSyncOnline()) {
+        if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             UserManager.getUser().getStats().addTestSolved(which, mode);
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.TESTS);

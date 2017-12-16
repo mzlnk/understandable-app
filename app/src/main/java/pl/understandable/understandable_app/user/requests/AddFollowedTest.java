@@ -18,7 +18,7 @@ public class AddFollowedTest implements Request {
 
     @Override
     public void executeRequest() {
-        if(UserManager.isUserSignedIn() && SyncManager.isSyncOnline()) {
+        if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             UserManager.getUser().addDownloadedTest(code);
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.GENERAL);

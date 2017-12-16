@@ -12,7 +12,7 @@ public class AddWordsSetDownloaded implements Request {
 
     @Override
     public void executeRequest() {
-        if(UserManager.isUserSignedIn() && SyncManager.isSyncOnline()) {
+        if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             UserManager.getUser().getStats().addWordsSetDownloaded();
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.GENERAL);

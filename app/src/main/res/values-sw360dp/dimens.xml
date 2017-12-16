@@ -158,6 +158,7 @@
     <!-- dialog boxes -->
     <dimen name="d_dialog_box_width">300dp</dimen>
     <dimen name="d_user_dialog_box_height">80dp</dimen>
+    <dimen name="d_user_dialog_box_width">360dp</dimen>
 
     <dimen name="d_title_field_height">60dp</dimen>
     <dimen name="d_button_field_height">60dp</dimen>

@@ -33,7 +33,7 @@ public class OpenUserStatsFragment extends AsyncTask<Void, Void, Integer> {
         if(!NetworkUtil.isNetworkAvailable((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE))) {
             return 1;
         }
-        if(!SyncManager.isDataPulledFromServer()) {
+        if(!SyncManager.getSyncParams().isDataPulledFromServer()) {
             return 2;
         }
 

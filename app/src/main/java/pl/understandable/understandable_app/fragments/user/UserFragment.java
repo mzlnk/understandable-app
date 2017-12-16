@@ -210,7 +210,7 @@ public class UserFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         UserManager.logout();
-                        SyncManager.logout();
+                        SyncManager.getSyncParams().logout();
                         StartFragment fragment = new StartFragment();
                         getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                     }

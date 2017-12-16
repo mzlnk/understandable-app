@@ -76,7 +76,7 @@ public class UserMessageWithNoIconDialog extends Dialog implements View.OnClickL
         WindowManager.LayoutParams wlp = getWindow().getAttributes();
         wlp.gravity = Gravity.TOP;
         wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        getWindow().setAttributes(wlp);
+        this.getWindow().setAttributes(wlp);
     }
 
     @Override

@@ -35,7 +35,7 @@ public class FragmentUtil {
     }
 
     public static Fragment getVisibleFragment() {
-        FragmentManager fragmentManager = MainActivity.activity.getSupportFragmentManager();
+        FragmentManager fragmentManager = MainActivity.getActivity().getSupportFragmentManager();
         @SuppressLint("RestrictedApi") List<Fragment> fragments = fragmentManager.getFragments();
         if(fragments != null) {
             for(Fragment fragment : fragments) {
