@@ -47,6 +47,10 @@ public class SyncManager {
         return syncParams;
     }
 
+    public static void clearSyncParams() {
+        syncParams = new SyncParams();
+    }
+
     public static void init(final Context context) {
         System.out.println("[INIT] Json");
         final ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -66,7 +70,9 @@ public class SyncManager {
                 if(NetworkUtil.isNetworkAvailable(manager)) {
                     System.out.println("Network available");
                     if(!syncParams.isSyncOnline()) {
+                        System.out.println("[WELCOME] Welcome message - try to show dialog!");
                         if(MainActivity.getActivity() != null) {
+                            System.out.println("Dialog has been shown!");
                             RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
                         } else {
                             System.out.println("[WELCOME] Welcome message not showed - null!");
@@ -110,6 +116,7 @@ public class SyncManager {
 
                     UserFragment fragment = new UserFragment();
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
+                    RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
                 }
             }
         }, 1L);
@@ -216,12 +223,6 @@ public class SyncManager {
 
         public boolean isSyncOnline() {
             return syncStatus.equals(SyncStatus.ONLINE);
-        }
-
-        public void logout() {
-            syncRequiredAfterReconnect = false;
-            syncStatus = SyncStatus.OFFLINE;
-            dataPulledFromServer = false;
         }
 
     }

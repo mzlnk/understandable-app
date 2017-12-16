@@ -29,7 +29,7 @@ public class RequestExecutor {
 
             }
         };
-        timer.scheduleAtFixedRate(requestsTask, 20L, 1000L);
+        timer.scheduleAtFixedRate(requestsTask, 20L, 500L);
     }
 
 }
