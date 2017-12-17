@@ -73,7 +73,7 @@ public class SyncManager {
                         System.out.println("[WELCOME] Welcome message - try to show dialog!");
                         if(MainActivity.getActivity() != null) {
                             System.out.println("Dialog has been shown!");
-                            RequestExecutor.offerRequest(new ShowWelcomeMessage(context), true);
+                            RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
                         } else {
                             System.out.println("[WELCOME] Welcome message not showed - null!");
                         }
@@ -93,7 +93,7 @@ public class SyncManager {
                 } else {
                     System.out.println("No network available");
                     if(syncParams.isSyncOnline()) {
-                        RequestExecutor.offerRequest(new ShowSyncStoppedMessage(context), true);
+                        RequestExecutor.offerRequest(new ShowSyncStoppedMessage(context));
                         if(UserManager.isSyncRequired()) {
                             syncParams.setSyncRequiredAfterReconnect(true);
                         }
@@ -116,7 +116,7 @@ public class SyncManager {
 
                     UserFragment fragment = new UserFragment();
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
-                    RequestExecutor.offerRequest(new ShowWelcomeMessage(context), true, 500L);
+                    RequestExecutor.offerRequest(new ShowWelcomeMessage(context), 500L);
                 }
             }
         }, 1L);

@@ -12,52 +12,45 @@ import pl.understandable.understandable_app.user.requests.Request;
 
 public class RequestExecutor {
 
-    private static LinkedBlockingQueue<Request> requests = new LinkedBlockingQueue<>();
-
-    private static long nextOffer = 0;
+    //private static LinkedBlockingQueue<Request> requests = new LinkedBlockingQueue<>();
 
     public static void offerRequest(Request request) {
-        requests.offer(request);
+        offerRequest(request, 1L);
     }
 
-    public static void offerRequest(Request request, boolean instant) {
-        offerRequest(request, true, 1L);
-    }
-
-    public static void offerRequest(final Request request, boolean instant, long delayInMillis) {
-        if(instant) {
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    request.executeRequest();
-                    nextOffer = System.currentTimeMillis() + request.getCooldownInMillis();
-                }
-            }, delayInMillis);
-        } else {
-            offerRequest(request);
-        }
-    }
-
-
-    public static void init() {
-        Timer timer = new Timer();
-        TimerTask requestsTask = new TimerTask() {
+    public static void offerRequest(final Request request, long delayInMillis) {
+        new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                if(System.currentTimeMillis() < nextOffer) {
-                    return;
-                }
-                try {
-                    Request request = requests.take();
-                    request.executeRequest();
-                    nextOffer = System.currentTimeMillis() + request.getCooldownInMillis();
-                } catch (InterruptedException e) {
-                    //e.printStackTrace();
-                }
-
+                request.executeRequest();
+                //nextOffer = System.currentTimeMillis() + request.getCooldownInMillis();
             }
-        };
-        timer.scheduleAtFixedRate(requestsTask, 20L, 500L);
+        }, delayInMillis);
     }
+
+
+
+//    public static void init() {
+//        Timer timer = new Timer();
+//        TimerTask requestsTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                System.out.println("[REQUEST-EXEC] now: " + (long)(System.currentTimeMillis() / 1000D) + ", nextOffer: " + (long)(nextOffer / 1000D));
+//                if(System.currentTimeMillis() > nextOffer) {
+//                    try {
+//                        Request request = requests.take();
+//                        System.out.println("[REQUEST-EXEC] Request: " + request.getClass().getName());
+//                        nextOffer = System.currentTimeMillis() + request.getCooldownInMillis();
+//                        request.executeRequest();
+//                    } catch (InterruptedException e) {
+//                        System.out.println("[REQUEST-EXEC] Try!");
+//                    }
+//                } else {
+//                    System.out.println("[REQUEST-EXEC] cooldown!");
+//                }
+//            }
+//        };
+//        timer.scheduleAtFixedRate(requestsTask, 20L, 500L);
+//    }
 
 }

@@ -52,7 +52,7 @@ public class App extends MultiDexApplication {
         googleSilentSignIn();
 
         SyncManager.init(getApplicationContext());
-        RequestExecutor.init();
+        //RequestExecutor.init();
         TimeLearntManager.init();
         AchievementChecker.init(getApplicationContext());
 

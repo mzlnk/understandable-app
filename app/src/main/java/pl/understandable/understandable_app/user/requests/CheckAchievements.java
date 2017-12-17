@@ -24,7 +24,7 @@ public class CheckAchievements implements Request {
         if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             for (Achievement achievement : UserManager.getUser().getAllAchievements().values()) {
                 if (!achievement.isAchieved() && achievement.isAchievable()) {
-                    //RequestExecutor.offerRequest(new ShowAchievementMessage(context, achievement));
+                    RequestExecutor.offerRequest(new ShowAchievementMessage(context, achievement));
                     achievement.setAchieved(true);
                     UserManager.setSyncRequired(true);
                     UserManager.addElementToSync(UserManager.SyncElement.ACHIEVEMENTS);

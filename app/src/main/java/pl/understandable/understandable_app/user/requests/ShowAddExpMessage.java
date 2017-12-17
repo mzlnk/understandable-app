@@ -18,6 +18,7 @@ public class ShowAddExpMessage implements Request {
 
     public ShowAddExpMessage(Context context, long exp) {
         this.context = context;
+        this.exp = exp;
     }
 
     @Override
@@ -44,7 +45,7 @@ public class ShowAddExpMessage implements Request {
 
     @Override
     public long getCooldownInMillis() {
-        return 3000;
+        return 3000L;
     }
 
 }

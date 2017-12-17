@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.utils.buttons.achievements;
 
 import android.content.Context;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.view.View;
 
 import pl.understandable.understandable_app.R;

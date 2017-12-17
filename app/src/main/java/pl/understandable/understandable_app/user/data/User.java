@@ -79,7 +79,7 @@ public class User {
         long currentExp = this.exp;
         int level = 1;
         while(true) {
-            long expForLevel = (long) (Math.pow((double) level, 2.2D) + 20);
+            long expForLevel = (long) (Math.pow((double) level, 2.2D) + 50);
             if(currentExp >= expForLevel) {
                 level++;
                 currentExp -= expForLevel;
@@ -92,8 +92,8 @@ public class User {
 
     public long getTotalExpForLevel(int level) {
         long exp = 0;
-        for(int i = 1; i < level; i++) {
-            exp += (long)(Math.pow((double) level, 2.2D) + 20);
+        for(int i = 1; i <= level; i++) {
+            exp += (long)(Math.pow((double) i, 2.2D) + 50);
         }
         return exp;
     }

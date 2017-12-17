@@ -29,7 +29,7 @@ public class ShowLevelUpMessage implements Request {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                String message = "Zdobyto kolejny poziom\n" + String.valueOf(previousLevel) + " -> " + String.valueOf(currentLevel);
+                String message = "Zdobyto kolejny poziom: " + String.valueOf(currentLevel);
                 final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), message, R.drawable.d_user_message_level_up);
                 dialog.show();
 
@@ -47,7 +47,7 @@ public class ShowLevelUpMessage implements Request {
 
     @Override
     public long getCooldownInMillis() {
-        return 3000;
+        return 3000L;
     }
 
 }

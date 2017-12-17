@@ -18,7 +18,7 @@ public class AchievementChecker {
         TimerTask requestsTask = new TimerTask() {
             @Override
             public void run() {
-                RequestExecutor.offerRequest(new CheckAchievements(context), true);
+                RequestExecutor.offerRequest(new CheckAchievements(context));
             }
         };
         timer.scheduleAtFixedRate(requestsTask, 7500L, 1000L);

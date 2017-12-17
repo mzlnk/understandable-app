@@ -209,26 +209,6 @@ public class UserFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 new LogOutTask(getContext(), getFragmentManager()).execute();
-                /*
-                GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
-                GoogleSignInClient client = GoogleSignIn.getClient(getContext(), gso);
-                client.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        UserManager.logout();
-                        SyncManager.clearSyncParams();
-                        RequestExecutor.offerRequest(new ShowLogOutMessage(getContext()));
-                        StartFragment fragment = new StartFragment();
-                        getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
-                    }
-                });
-                client.revokeAccess().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                    }
-                });
-                */
             }
         });
 
@@ -241,8 +221,10 @@ public class UserFragment extends Fragment {
         levelInfo.setText("poziom: " + String.valueOf(user.getLevel()));
 
         int level = user.getLevel();
-        double progress = (double)(user.getTotalExpForLevel(level) - user.getExp()) / (double)(user.getExpForLevel(level));
-        progress = Math.round(progress * 100D) / 100D;
+        double progress = (double)(user.getExp() - user.getTotalExpForLevel(level - 1)) / (double)(user.getExpForLevel(level));
+        System.out.println("[USER-EXP] progress: " + progress);
+        progress = Math.round(progress * 10000D) / 100D;
+        System.out.println("[USER-EXP] lvl: " + level + ", totalExpForLvl-1: " + user.getTotalExpForLevel(level-1) + ", exp: " + user.getExp() + ", expForLvl: " + user.getExpForLevel(level));
         levelProgressInfo.setText(String.valueOf(progress) + " %");
 
         levelProgress.setProgress((int)(progress * 100D));

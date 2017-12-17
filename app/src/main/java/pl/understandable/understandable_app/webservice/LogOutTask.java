@@ -62,7 +62,7 @@ public class LogOutTask extends AsyncTask<Void, Void, Integer> {
                     public void onComplete(@NonNull Task<Void> task) {
                         UserManager.logout();
                         SyncManager.clearSyncParams();
-                        RequestExecutor.offerRequest(new ShowLogOutMessage(context), true, 500L);
+                        RequestExecutor.offerRequest(new ShowLogOutMessage(context), 500L);
                         StartFragment fragment = new StartFragment();
                         fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                     }

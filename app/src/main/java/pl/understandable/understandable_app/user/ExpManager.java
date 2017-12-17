@@ -15,6 +15,7 @@ public class ExpManager {
                 exp += (long) (extraAmount * extraRatio);
             }
         }
+        System.out.println("[EXP] amount: " + amount + ", ratio: " + ratio.getRatio() + " -> exp: " + exp);
         return exp;
     }
 

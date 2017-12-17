@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         showWindowMetrics();
 
         if(SyncManager.getSyncParams().isSyncOnline()) {
-            RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()), true, 500L);
+            RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()), 500L);
         }
     }
 
