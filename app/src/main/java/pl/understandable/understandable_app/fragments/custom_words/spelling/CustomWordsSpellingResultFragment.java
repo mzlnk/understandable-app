@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsSpellingData;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.requests.AddExp;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -52,6 +55,7 @@ public class CustomWordsSpellingResultFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+        addUserExp();
 
         return rootView;
     }
@@ -144,6 +148,12 @@ public class CustomWordsSpellingResultFragment extends Fragment {
                 transaction.commit();
             }
         });
+    }
+
+    private void addUserExp() {
+        int amount = CustomWordsSpellingData.getSpellingData().wordsSeen.size();
+        int amountCorrect = CustomWordsSpellingData.getSpellingData().correctAnswers.size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_SPELLING, amount, amountCorrect));
     }
 
 }

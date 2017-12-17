@@ -1,6 +1,5 @@
 package pl.understandable.understandable_app.user.requests;
 
-import pl.understandable.understandable_app.user.Request;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 

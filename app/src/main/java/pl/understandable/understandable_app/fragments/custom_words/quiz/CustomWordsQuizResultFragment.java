@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.requests.AddExp;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -52,6 +55,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+        addUserExp();
 
         return rootView;
     }
@@ -142,6 +146,12 @@ public class CustomWordsQuizResultFragment extends Fragment {
                 transaction.commit();
             }
         });
+    }
+
+    private void addUserExp() {
+        int amount = CustomWordsQuizData.getQuizData().wordsSeen;
+        int amountCorrect = CustomWordsQuizData.getQuizData().correctAnswers.size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_QUIZ, amount, amountCorrect));
     }
 
 }

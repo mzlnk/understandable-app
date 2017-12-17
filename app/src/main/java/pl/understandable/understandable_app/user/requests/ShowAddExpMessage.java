@@ -8,14 +8,15 @@ import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithIconDialog;
 
 /**
- * Created by Marcin Zielonka on 2017-11-25.
+ * Created by Marcin Zielonka on 2017-12-17.
  */
 
-public class ShowSyncStoppedMessage implements Request {
+public class ShowAddExpMessage implements Request {
 
     private Context context;
+    private long exp;
 
-    public ShowSyncStoppedMessage(Context context) {
+    public ShowAddExpMessage(Context context, long exp) {
         this.context = context;
     }
 
@@ -25,7 +26,8 @@ public class ShowSyncStoppedMessage implements Request {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), "Przeszedłeś w tryb offline", R.drawable.d_user_message_offline);
+                String message = "+ " + String.valueOf(exp) + " XP";
+                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), message, R.drawable.d_user_message_add_exp);
                 dialog.show();
 
                 Handler postHandler = new Handler();
@@ -37,10 +39,12 @@ public class ShowSyncStoppedMessage implements Request {
                 }, 2000L);
             }
         });
+
     }
 
     @Override
     public long getCooldownInMillis() {
         return 3000;
     }
+
 }

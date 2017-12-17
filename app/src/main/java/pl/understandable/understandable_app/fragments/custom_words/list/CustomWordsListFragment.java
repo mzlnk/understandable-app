@@ -19,6 +19,11 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsListData;
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.SyncManager;
+import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.user.requests.AddExp;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -47,6 +52,7 @@ public class CustomWordsListFragment extends Fragment {
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
+        addUserExp();
 
         return rootView;
     }
@@ -129,6 +135,11 @@ public class CustomWordsListFragment extends Fragment {
         list1Color = colorUtil.getColor(R.attr.list_1_color);
         list2Color = colorUtil.getColor(R.attr.list_2_color);
         textColor = colorUtil.getColor(R.attr.text_1_color);
+    }
+
+    private void addUserExp() {
+        int amount = CustomWordsListData.getListData().getEntities().size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_LIST, amount));
     }
 
 }

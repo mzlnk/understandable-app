@@ -54,7 +54,7 @@ public class App extends MultiDexApplication {
         SyncManager.init(getApplicationContext());
         RequestExecutor.init();
         TimeLearntManager.init();
-        AchievementChecker.init();
+        AchievementChecker.init(getApplicationContext());
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }

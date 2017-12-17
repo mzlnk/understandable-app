@@ -63,7 +63,7 @@ public class UserAchievementsFragment extends Fragment {
         setAnimation();
         setFonts();
         prepareButtons();
-        initCategoriesButtons();
+        initAchievementsButtons();
         addCategoryButtonsToTable();
     }
 
@@ -87,7 +87,7 @@ public class UserAchievementsFragment extends Fragment {
         }
     }
 
-    private void initCategoriesButtons() {
+    private void initAchievementsButtons() {
         for(Achievement achievement : UserManager.getUser().getAllAchievements().values()) {
             achievements.add(new AchievementButton(getContext(), achievement));
         }

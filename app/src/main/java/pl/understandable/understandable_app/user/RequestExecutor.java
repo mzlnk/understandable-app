@@ -4,6 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import pl.understandable.understandable_app.user.requests.Request;
+
 /**
  * Created by Marcin Zielonka on 2017-10-13.
  */
@@ -17,6 +19,25 @@ public class RequestExecutor {
     public static void offerRequest(Request request) {
         requests.offer(request);
     }
+
+    public static void offerRequest(Request request, boolean instant) {
+        offerRequest(request, true, 1L);
+    }
+
+    public static void offerRequest(final Request request, boolean instant, long delayInMillis) {
+        if(instant) {
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    request.executeRequest();
+                    nextOffer = System.currentTimeMillis() + request.getCooldownInMillis();
+                }
+            }, delayInMillis);
+        } else {
+            offerRequest(request);
+        }
+    }
+
 
     public static void init() {
         Timer timer = new Timer();

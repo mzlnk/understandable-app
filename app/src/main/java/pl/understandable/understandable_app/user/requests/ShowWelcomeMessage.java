@@ -2,14 +2,10 @@ package pl.understandable.understandable_app.user.requests;
 
 import android.content.Context;
 import android.os.Handler;
-import android.view.Gravity;
-import android.view.WindowManager;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithIconDialog;
-import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithNoIconDialog;
-import pl.understandable.understandable_app.user.Request;
 import pl.understandable.understandable_app.user.UserManager;
 
 /**

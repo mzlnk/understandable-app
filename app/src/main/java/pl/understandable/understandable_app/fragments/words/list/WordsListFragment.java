@@ -19,6 +19,9 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
 import pl.understandable.understandable_app.database.entity.WordEntity;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.requests.AddExp;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -47,6 +50,7 @@ public class WordsListFragment extends Fragment {
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
+        addUserExp();
 
         return rootView;
     }
@@ -129,6 +133,11 @@ public class WordsListFragment extends Fragment {
         list1Color = colorUtil.getColor(R.attr.list_1_color);
         list2Color = colorUtil.getColor(R.attr.list_2_color);
         textColor = colorUtil.getColor(R.attr.text_1_color);
+    }
+
+    private void addUserExp() {
+        int amount = WordsListData.getListData().getEntities().size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_LIST, amount));
     }
 
 }

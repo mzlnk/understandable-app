@@ -6,8 +6,6 @@ import android.os.Handler;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithIconDialog;
-import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithNoIconDialog;
-import pl.understandable.understandable_app.user.Request;
 
 /**
  * Created by Marcin Zielonka on 2017-12-17.

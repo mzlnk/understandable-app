@@ -16,6 +16,9 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.requests.AddExp;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -46,6 +49,7 @@ public class WordsRepetitionResultFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+        addUserExp();
 
         return rootView;
     }
@@ -123,6 +127,11 @@ public class WordsRepetitionResultFragment extends Fragment {
                 manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, redirectTo(F_START)).commit();
             }
         });
+    }
+
+    private void addUserExp() {
+        int amount = WordsRepetitionData.getRepetitionData().wordsSeen.size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_REPETITION, amount));
     }
 
 }
