@@ -25,4 +25,9 @@ public class AddTimeLearnt implements Request {
         }
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 0;
+    }
+
 }

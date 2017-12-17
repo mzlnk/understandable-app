@@ -114,8 +114,13 @@ public class User {
         this.name = name;
     }
 
-    public void addExp(long exp) {
+    public AddExpResponse addExp(long exp) {
+        int previousLevel = getLevel();
         this.exp += exp;
+        int currentLevel = getLevel();
+
+        boolean levelUp = currentLevel != previousLevel;
+        return new AddExpResponse(levelUp, previousLevel, currentLevel);
     }
 
     public void addDownloadedTest(String code) {
@@ -226,6 +231,37 @@ public class User {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    public static class AddExpResponse {
+
+        private AddExpReponseType response;
+        private int previousLevel;
+        private int currentLevel;
+
+        public AddExpResponse(boolean levelUp, int previousLevel, int currentLevel) {
+            this.response = levelUp ? AddExpReponseType.LEVEL_UP : AddExpReponseType.ONLY_EXP_ADDED;
+            this.previousLevel = previousLevel;
+            this.currentLevel = currentLevel;
+        }
+
+        public AddExpReponseType getResponse() {
+            return response;
+        }
+
+        public int getPreviousLevel() {
+            return previousLevel;
+        }
+
+        public int getCurrentLevel() {
+            return currentLevel;
+        }
+
+        public static enum AddExpReponseType {
+            LEVEL_UP,
+            ONLY_EXP_ADDED;
         }
 
     }

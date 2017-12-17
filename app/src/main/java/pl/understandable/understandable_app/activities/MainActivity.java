@@ -81,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
         showStartFragment();
         showWindowMetrics();
 
-        RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()));
+        if(SyncManager.getSyncParams().isSyncOnline()) {
+            RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()));
+        }
     }
 
     @Override

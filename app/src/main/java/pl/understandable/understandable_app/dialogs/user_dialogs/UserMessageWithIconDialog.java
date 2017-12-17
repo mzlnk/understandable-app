@@ -8,9 +8,13 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -48,6 +52,7 @@ public class UserMessageWithIconDialog extends Dialog implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prepareWindow();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.d_user_message_with_icon);
         loadViewsFromXml();
@@ -84,6 +89,15 @@ public class UserMessageWithIconDialog extends Dialog implements View.OnClickLis
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         text.setTypeface(typeface);
+    }
+
+    private void prepareWindow() {
+        getWindow().setDimAmount(0F);
+
+        WindowManager.LayoutParams wlp = getWindow().getAttributes();
+        wlp.gravity = Gravity.TOP;
+        wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        this.getWindow().setAttributes(wlp);
     }
 
     @Override

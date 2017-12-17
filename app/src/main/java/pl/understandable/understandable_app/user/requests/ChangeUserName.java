@@ -25,4 +25,9 @@ public class ChangeUserName implements Request {
         }
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 0;
+    }
+
 }

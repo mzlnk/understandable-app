@@ -166,6 +166,7 @@
     <dimen name="d_text">16sp</dimen>
     <dimen name="d_edit_text">15sp</dimen>
 
+    <dimen name="d_user_dialog_box_message">17sp</dimen>
 
     <!-- user -->
     <dimen name="f_user_field_text">18sp</dimen>

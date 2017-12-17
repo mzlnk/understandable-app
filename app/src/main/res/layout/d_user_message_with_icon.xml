@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/d_user_dialog_box_width"
     android:layout_height="@dimen/d_user_dialog_box_height"
     android:orientation="vertical"
     android:measureWithLargestChild="true"
@@ -14,23 +14,52 @@
         android:orientation="horizontal"
         android:measureWithLargestChild="true" >
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+
         <LinearLayout
-            android:id="@+id/d_user_message_with_icon_icon_area"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
-            android:layout_margin="@dimen/f_border_margin_medium"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.18" />
+
+            <LinearLayout
+                android:id="@+id/d_user_message_with_icon_icon_area"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.64"
+                android:layout_gravity="center_vertical | right"
+                android:gravity="center"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.18" />
 
         </LinearLayout>
+
+
 
         <TextView
             android:id="@+id/d_user_message_with_icon_text"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.8"
+            android:layout_weight="0.75"
             android:gravity="center"
-            android:textSize="@dimen/d_title" />
+            android:layout_marginRight="@dimen/f_border_margin_medium"
+            android:textSize="@dimen/d_user_dialog_box_message" />
+
 
     </LinearLayout>
 

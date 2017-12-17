@@ -5,7 +5,9 @@ import android.os.Handler;
 import android.view.Gravity;
 import android.view.WindowManager;
 
+import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.activities.MainActivity;
+import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithIconDialog;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithNoIconDialog;
 import pl.understandable.understandable_app.user.Request;
 import pl.understandable.understandable_app.user.UserManager;
@@ -30,7 +32,7 @@ public class ShowWelcomeMessage implements Request {
             public void run() {
                 String name = UserManager.getUser().getName();
                 String firstName = (!name.split(" ")[0].isEmpty()) ? name.split(" ")[0] : name;
-                final UserMessageWithNoIconDialog dialog = new UserMessageWithNoIconDialog(MainActivity.getActivity(), "Witaj ponownie " + firstName);
+                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), "Witaj ponownie " + firstName, R.drawable.d_user_message_welcome);
                 dialog.show();
 
                 Handler postHandler = new Handler();
@@ -42,7 +44,11 @@ public class ShowWelcomeMessage implements Request {
                 }, 2000L);
             }
         });
+    }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 3000;
     }
 
 }

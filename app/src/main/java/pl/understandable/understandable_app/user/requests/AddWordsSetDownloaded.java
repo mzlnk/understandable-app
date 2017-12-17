@@ -19,4 +19,9 @@ public class AddWordsSetDownloaded implements Request {
         }
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 0;
+    }
+
 }

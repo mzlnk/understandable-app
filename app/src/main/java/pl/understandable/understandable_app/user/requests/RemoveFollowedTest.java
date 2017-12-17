@@ -25,4 +25,9 @@ public class RemoveFollowedTest implements Request {
         }
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 0;
+    }
+
 }

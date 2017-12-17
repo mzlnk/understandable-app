@@ -28,4 +28,9 @@ public class AddTestSolved implements Request {
         }
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 0;
+    }
+
 }

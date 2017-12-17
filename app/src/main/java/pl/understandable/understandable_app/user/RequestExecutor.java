@@ -12,6 +12,8 @@ public class RequestExecutor {
 
     private static LinkedBlockingQueue<Request> requests = new LinkedBlockingQueue<>();
 
+    private static long nextOffer = 0;
+
     public static void offerRequest(Request request) {
         requests.offer(request);
     }
@@ -21,10 +23,15 @@ public class RequestExecutor {
         TimerTask requestsTask = new TimerTask() {
             @Override
             public void run() {
+                if(System.currentTimeMillis() < nextOffer) {
+                    return;
+                }
                 try {
-                    requests.take().executeRequest();
+                    Request request = requests.take();
+                    request.executeRequest();
+                    nextOffer = System.currentTimeMillis() + request.getCooldownInMillis();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
 
             }

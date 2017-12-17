@@ -122,6 +122,10 @@ public class SyncManager {
         }, 1L);
     }
 
+    public static void syncToServerAfterLogOut(final Context context) {
+        syncToServer(context);
+    }
+
     private static boolean syncToServer(Context context) {
         try {
             HttpClient client = new DefaultHttpClient();

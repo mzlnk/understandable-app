@@ -20,4 +20,9 @@ public class ShowAchievement implements Request {
         //todo: show achievement on main thread in dialog
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 3000;
+    }
+
 }

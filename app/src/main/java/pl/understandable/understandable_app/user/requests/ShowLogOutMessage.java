@@ -8,17 +8,16 @@ import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithIconDialog;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserMessageWithNoIconDialog;
 import pl.understandable.understandable_app.user.Request;
-import pl.understandable.understandable_app.user.UserManager;
 
 /**
- * Created by Marcin Zielonka on 2017-11-25.
+ * Created by Marcin Zielonka on 2017-12-17.
  */
 
-public class ShowSyncStoppedMessage implements Request {
+public class ShowLogOutMessage implements Request {
 
     private Context context;
 
-    public ShowSyncStoppedMessage(Context context) {
+    public ShowLogOutMessage(Context context) {
         this.context = context;
     }
 
@@ -28,7 +27,7 @@ public class ShowSyncStoppedMessage implements Request {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), "Przeszedłeś w tryb offline", R.drawable.d_user_message_offline);
+                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), "Wylogowano pomyślnie", R.drawable.d_user_message_welcome);
                 dialog.show();
 
                 Handler postHandler = new Handler();
@@ -40,10 +39,12 @@ public class ShowSyncStoppedMessage implements Request {
                 }, 2000L);
             }
         });
+
     }
 
     @Override
     public long getCooldownInMillis() {
         return 3000;
     }
+
 }

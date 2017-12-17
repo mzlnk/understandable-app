@@ -7,5 +7,6 @@ package pl.understandable.understandable_app.user;
 public interface Request {
 
     public void executeRequest();
+    public long getCooldownInMillis();
 
 }

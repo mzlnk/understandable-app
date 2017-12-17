@@ -26,4 +26,9 @@ public class CheckAchievements implements Request {
         }
     }
 
+    @Override
+    public long getCooldownInMillis() {
+        return 0;
+    }
+
 }

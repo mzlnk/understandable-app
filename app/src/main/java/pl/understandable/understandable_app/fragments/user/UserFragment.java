@@ -29,14 +29,18 @@ import com.google.android.gms.tasks.Task;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.dialogs.user_dialogs.ChangeUserNameDialog;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
+import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.user.data.buttons_data.UserOptions;
+import pl.understandable.understandable_app.user.requests.ShowLogOutMessage;
+import pl.understandable.understandable_app.user.requests.ShowSyncStoppedMessage;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.user.UserButton;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.DownloadFollowedWordsSetsDataTask;
+import pl.understandable.understandable_app.webservice.LogOutTask;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
@@ -204,6 +208,8 @@ public class UserFragment extends Fragment {
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new LogOutTask(getContext(), getFragmentManager()).execute();
+                /*
                 GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
                 GoogleSignInClient client = GoogleSignIn.getClient(getContext(), gso);
                 client.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -211,6 +217,7 @@ public class UserFragment extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         UserManager.logout();
                         SyncManager.clearSyncParams();
+                        RequestExecutor.offerRequest(new ShowLogOutMessage(getContext()));
                         StartFragment fragment = new StartFragment();
                         getFragmentManager().beginTransaction().replace(R.id.layout_for_fragments, fragment).commit();
                     }
@@ -221,6 +228,7 @@ public class UserFragment extends Fragment {
 
                     }
                 });
+                */
             }
         });
 
