@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.user.data.achievements;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.user.UserManager;
 
 /**
  * Created by Marcin Zielonka on 2017-11-25.
@@ -25,7 +26,7 @@ public class FirstTestDownloaded extends Achievement {
 
     @Override
     public boolean isAchievable() {
-        return false;
+        return UserManager.getUser().getStats().getWordsSetsDownloaded() >= 1;
     }
 
     @Override

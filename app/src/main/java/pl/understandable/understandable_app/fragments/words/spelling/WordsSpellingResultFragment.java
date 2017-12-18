@@ -19,7 +19,9 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
 import pl.understandable.understandable_app.user.ExpManager;
 import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.data.UserStatistics;
 import pl.understandable.understandable_app.user.requests.AddExp;
+import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -58,7 +60,7 @@ public class WordsSpellingResultFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
-        addUserExp();
+        addUserStats();
 
         return rootView;
     }
@@ -153,10 +155,11 @@ public class WordsSpellingResultFragment extends Fragment {
         });
     }
 
-    private void addUserExp() {
+    private void addUserStats() {
         int amount = WordsSpellingData.getSpellingData().wordsSeen.size();
         int amountCorrect = WordsSpellingData.getSpellingData().correctAnswers.size();
         RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_SPELLING, amount, amountCorrect));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.SPELLING));
     }
 
 }

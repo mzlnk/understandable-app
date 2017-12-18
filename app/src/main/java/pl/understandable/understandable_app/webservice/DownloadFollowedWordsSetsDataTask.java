@@ -24,10 +24,8 @@ import java.util.List;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
-import pl.understandable.understandable_app.database.repository.temp.AllCustomWordsSetsRepository;
 import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
 import pl.understandable.understandable_app.fragments.user.UserFollowedWordsSetsFragment;
-import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 

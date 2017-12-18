@@ -16,9 +16,15 @@ import android.widget.TextView;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesListData;
 import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWay;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.data.UserStatistics;
+import pl.understandable.understandable_app.user.requests.AddExp;
+import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -47,6 +53,7 @@ public class PhrasesListFragment extends Fragment {
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
+        addUserStats();
 
         return rootView;
     }
@@ -129,6 +136,12 @@ public class PhrasesListFragment extends Fragment {
         list1Color = colorUtil.getColor(R.attr.list_1_color);
         list2Color = colorUtil.getColor(R.attr.list_2_color);
         textColor = colorUtil.getColor(R.attr.text_1_color);
+    }
+
+    private void addUserStats() {
+        int amount = PhrasesListData.getListData().getEntities().size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_LIST, amount));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.LIST));
     }
 
 }

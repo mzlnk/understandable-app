@@ -39,8 +39,8 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 public class UserStatsFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TableLayout generalStatsTable, wordsTestsStatsTable, irregularVerbsTestsStatsTable, phrasesTestsStatsTable;
-    private TextView title, wordsTestsStatsSubtitle, irregularVerbsTestsStatsSubtitle, phrasesTestsStatsSubtitle;
+    private TableLayout generalStatsTable, wordsTestsStatsTable, irregularVerbsTestsStatsTable, phrasesTestsStatsTable, customWordsTestsStatsTable;
+    private TextView title, wordsTestsStatsSubtitle, irregularVerbsTestsStatsSubtitle, phrasesTestsStatsSubtitle, customWordsTestsStatsSubtitle;
     private Button back;
 
     public UserStatsFragment() {
@@ -54,11 +54,7 @@ public class UserStatsFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
-        TableLayout view = (TableLayout) rootView.findViewById(R.id.f_user_stats_general_stats_table);
-        System.out.println("========================= CHILDS ==========================");
-        for(int i = 0; i < view.getChildCount(); i++) {
-            System.out.println("Child: " + view.getChildAt(i).getId());
-        }
+
         return rootView;
     }
 
@@ -68,9 +64,11 @@ public class UserStatsFragment extends Fragment {
         wordsTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_words_tests_stats_table);
         irregularVerbsTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_irregular_verbs_tests_stats_table);
         phrasesTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_phrases_tests_stats_table);
+        customWordsTestsStatsTable = (TableLayout) rootView.findViewById(R.id.f_user_stats_custom_words_tests_stats_table);
         wordsTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_words_tests_stats_subtitle);
         irregularVerbsTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_irregular_verbs_tests_stats_subtitle);
         phrasesTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_phrases_tests_stats_subtitle);
+        customWordsTestsStatsSubtitle = (TextView) rootView.findViewById(R.id.f_user_stats_custom_words_tests_stats_subtitle);
         title = (TextView) rootView.findViewById(R.id.f_user_stats_title);
         back = (Button) rootView.findViewById(R.id.f_user_stats_button_back);
     }
@@ -148,6 +146,20 @@ public class UserStatsFragment extends Fragment {
         phrasesValueRow.addView(new TextView(getContext()));
         phrasesTestsStatsTable.addView(phrasesIconRow);
         phrasesTestsStatsTable.addView(phrasesValueRow);
+
+        TableRow customWordsIconRow = new TableRow(getContext());
+        TableRow customWordsValueRow = new TableRow(getContext());
+        customWordsIconRow.addView(new TextView(getContext()));
+        customWordsValueRow.addView(new TextView(getContext()));
+        for(int i = 0; i < 4; i++) {
+            UserStatsButton stat = new UserStatsButton(getContext(), UserStats.getEnumByPosInUserStatistics(i), String.valueOf(user.getStats().getCustomWordsTestsSolved(i)), false);
+            customWordsIconRow.addView(stat.getImage());
+            customWordsValueRow.addView(stat.getText2());
+        }
+        customWordsIconRow.addView(new TextView(getContext()));
+        customWordsValueRow.addView(new TextView(getContext()));
+        customWordsTestsStatsTable.addView(customWordsIconRow);
+        customWordsTestsStatsTable.addView(customWordsValueRow);
     }
 
     public void setAnimation() {
@@ -161,6 +173,7 @@ public class UserStatsFragment extends Fragment {
         wordsTestsStatsSubtitle.setTypeface(typeface);
         irregularVerbsTestsStatsSubtitle.setTypeface(typeface);
         phrasesTestsStatsSubtitle.setTypeface(typeface);
+        customWordsTestsStatsSubtitle.setTypeface(typeface);
         back.setTypeface(typeface);
     }
 

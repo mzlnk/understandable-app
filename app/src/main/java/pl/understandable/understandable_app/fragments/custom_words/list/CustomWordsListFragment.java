@@ -21,9 +21,9 @@ import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsL
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.user.ExpManager;
 import pl.understandable.understandable_app.user.RequestExecutor;
-import pl.understandable.understandable_app.user.SyncManager;
-import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.user.data.UserStatistics;
 import pl.understandable.understandable_app.user.requests.AddExp;
+import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -52,7 +52,7 @@ public class CustomWordsListFragment extends Fragment {
         initColors();
         loadViewsFromXml(rootView);
         prepareLayout();
-        addUserExp();
+        addUserStats();
 
         return rootView;
     }
@@ -137,9 +137,10 @@ public class CustomWordsListFragment extends Fragment {
         textColor = colorUtil.getColor(R.attr.text_1_color);
     }
 
-    private void addUserExp() {
+    private void addUserStats() {
         int amount = CustomWordsListData.getListData().getEntities().size();
         RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_LIST, amount));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.LIST));
     }
 
 }

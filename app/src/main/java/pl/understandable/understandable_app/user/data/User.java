@@ -153,6 +153,11 @@ public class User {
             testsSolved.put(new JSONObject().put("id", "p_tests_solved_1").put("value", this.stats.getPhrasesTestsSolved(UserStatistics.REPETITION)));
             testsSolved.put(new JSONObject().put("id", "p_tests_solved_2").put("value", this.stats.getPhrasesTestsSolved(UserStatistics.QUIZ)));
 
+            testsSolved.put(new JSONObject().put("id", "cw_tests_solved_0").put("value", this.stats.getCustomWordsTestsSolved(UserStatistics.LIST)));
+            testsSolved.put(new JSONObject().put("id", "cw_tests_solved_1").put("value", this.stats.getCustomWordsTestsSolved(UserStatistics.REPETITION)));
+            testsSolved.put(new JSONObject().put("id", "cw_tests_solved_2").put("value", this.stats.getCustomWordsTestsSolved(UserStatistics.QUIZ)));
+            testsSolved.put(new JSONObject().put("id", "cw_tests_solved_3").put("value", this.stats.getCustomWordsTestsSolved(UserStatistics.SPELLING)));
+
             user.put("testsSolved", testsSolved);
 
             JSONArray achievements = new JSONArray();
@@ -201,6 +206,11 @@ public class User {
             this.stats.setPhrasesTestsSolved(UserStatistics.LIST, testsStats.get("p_tests_solved_0"));
             this.stats.setPhrasesTestsSolved(UserStatistics.REPETITION, testsStats.get("p_tests_solved_1"));
             this.stats.setPhrasesTestsSolved(UserStatistics.QUIZ, testsStats.get("p_tests_solved_2"));
+
+            this.stats.setCustomWordsTestsSolved(UserStatistics.LIST, testsStats.get("cw_tests_solved_0"));
+            this.stats.setCustomWordsTestsSolved(UserStatistics.REPETITION, testsStats.get("cw_tests_solved_1"));
+            this.stats.setCustomWordsTestsSolved(UserStatistics.QUIZ, testsStats.get("cw_tests_solved_2"));
+            this.stats.setCustomWordsTestsSolved(UserStatistics.SPELLING, testsStats.get("cw_tests_solved_3"));
 
             JSONArray achievements = user.getJSONArray("achievements");
             Map<String, Integer> achievementsStats = new HashMap<>();

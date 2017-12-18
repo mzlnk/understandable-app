@@ -16,7 +16,15 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
+import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesListData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQuizData;
+import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.data.UserStatistics;
+import pl.understandable.understandable_app.user.requests.AddExp;
+import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -55,6 +63,7 @@ public class PhrasesQuizResultFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+        addUserStats();
 
         return rootView;
     }
@@ -145,6 +154,13 @@ public class PhrasesQuizResultFragment extends Fragment {
                 transaction.commit();
             }
         });
+    }
+
+    private void addUserStats() {
+        int amount =PhrasesQuizData.getQuizData().wordsSeen;
+        int amountCorrect = PhrasesQuizData.getQuizData().correctAnswers.size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_QUIZ, amount, amountCorrect));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.QUIZ));
     }
 
 }

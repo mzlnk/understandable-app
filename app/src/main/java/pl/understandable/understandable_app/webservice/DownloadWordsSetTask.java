@@ -28,6 +28,8 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.requests.AddWordsSetDownloaded;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
@@ -83,6 +85,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
                 Toast.makeText(context, "Brak połączenia z Internetem", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
+                RequestExecutor.offerRequest(new AddWordsSetDownloaded());
                 CustomWordsSetsListFragment fragment = new CustomWordsSetsListFragment();
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(redirectAfterShowWordsSetsList)).commit();
                 Toast.makeText(context, "Zestaw słówek został pobrany", Toast.LENGTH_SHORT).show();

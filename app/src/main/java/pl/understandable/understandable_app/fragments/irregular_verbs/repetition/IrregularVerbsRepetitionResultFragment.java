@@ -15,7 +15,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import pl.understandable.understandable_app.user.ExpManager;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.data.UserStatistics;
+import pl.understandable.understandable_app.user.requests.AddExp;
+import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -46,6 +52,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+        addUserStats();
 
         return rootView;
     }
@@ -123,6 +130,12 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
                 manager.beginTransaction().replace(R.id.layout_for_fragments, repetitionFragment, redirectTo(F_START)).commit();
             }
         });
+    }
+
+    private void addUserStats() {
+        int amount = IrregularVerbsRepetitionData.getRepetitionData().wordsSeen.size();
+        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.IRREGULAR_VERBS_REPETITION, amount));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.IRREGULAR_VERBS, UserStatistics.REPETITION));
     }
 
 }

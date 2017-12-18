@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.user.data.achievements;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.user.UserManager;
 
 /**
  * Created by Marcin Zielonka on 2017-11-25.
@@ -25,7 +26,14 @@ public class FirstIrregularVerbsTestSolved extends Achievement {
 
     @Override
     public boolean isAchievable() {
-        return false;
+        boolean result = false;
+        for(int i = 0; i < 2; i++) {
+            result = UserManager.getUser().getStats().getIrregularVerbsTestsSolved(i) >= 1;
+            if(result) {
+                break;
+            }
+        }
+        return result;
     }
 
     @Override

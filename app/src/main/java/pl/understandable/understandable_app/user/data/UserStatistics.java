@@ -14,6 +14,7 @@ public class UserStatistics {
     public static final int WORDS = 0;
     public static final int IRREGULAR_VERBS = 1;
     public static final int PHRASES = 2;
+    public static final int CUSTOM_WORDS = 3;
 
     public static final int LIST = 0;
     public static final int REPETITION = 1;
@@ -26,6 +27,7 @@ public class UserStatistics {
     private int[] wordsTestsSolved = new int[4];
     private int[] irregularVerbsTestsSolved = new int[2];
     private int[] phrasesTestsSolved = new int[3];
+    private int[] customWordsTestsSolved = new int[4];
 
     public long getTimeLearnt() {
         return timeLearnt;
@@ -49,6 +51,10 @@ public class UserStatistics {
 
     public int getPhrasesTestsSolved(int mode) {
         return phrasesTestsSolved[mode];
+    }
+
+    public int getCustomWordsTestsSolved(int mode) {
+        return customWordsTestsSolved[mode];
     }
 
     public void setTimeLearnt(long timeLearnt) {
@@ -75,6 +81,10 @@ public class UserStatistics {
         this.phrasesTestsSolved[mode] = value;
     }
 
+    public void setCustomWordsTestsSolved(int mode, int value) {
+        this.customWordsTestsSolved[mode] = value;
+    }
+
     public void addTimeLearnt(long time) {
         timeLearnt += time;
     }
@@ -93,6 +103,9 @@ public class UserStatistics {
                 break;
             case PHRASES:
                 phrasesTestsSolved[mode]++;
+                break;
+            case CUSTOM_WORDS:
+                customWordsTestsSolved[mode]++;
                 break;
         }
         allTestsSolved++;
