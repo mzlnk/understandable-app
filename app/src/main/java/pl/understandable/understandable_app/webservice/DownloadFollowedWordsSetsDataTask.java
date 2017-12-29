@@ -79,7 +79,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
 
             String data = "[";
-            for(String code : UserManager.getUser().getAllDownloadedWordsSets()) {
+            for(String code : UserManager.getUser().getAllFollowedWordsSets()) {
                 data += "\"" + code + "\",";
             }
             if(data.length() > 1) {

@@ -30,6 +30,13 @@ public class FollowedCustomWordsSetsRepository {
         wordsSetEntities.add(wordsSet);
     }
 
+    public static void removeWordsSet(String id) {
+        CustomWordsSetEntity wordsSet = getWordsSet(id);
+        if(wordsSet != null) {
+            wordsSetEntities.remove(wordsSet);
+        }
+    }
+
     public static void clearRepository() {
         wordsSetEntities.clear();
     }

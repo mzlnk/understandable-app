@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
@@ -15,11 +16,15 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
+import pl.understandable.understandable_app.fragments.user.UserFollowedWordsSetsFragment;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.requests.RemoveFollowedTest;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.DownloadWordsSetTask;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka on 2017-12-10.
@@ -33,7 +38,7 @@ public class FollowedCustomWordsSetPreviewDialog extends Dialog implements View.
     private TextView idInfo, nameInfo, descriptionInfo;
     private LinearLayout idField, nameField, descriptionField;
     private TextView id, name, description;
-    private Button back, download;
+    private Button back, download, unfollow;
 
     private CustomWordsSetEntity wordsSet;
 
@@ -68,6 +73,7 @@ public class FollowedCustomWordsSetPreviewDialog extends Dialog implements View.
         description = (TextView) findViewById(R.id.d_user_followed_custom_words_set_preview_words_set_description);
         back = (Button) findViewById(R.id.d_user_followed_custom_words_set_preview_button_back);
         download = (Button) findViewById(R.id.d_user_followed_custom_words_set_preview_button_download);
+        unfollow = (Button) findViewById(R.id.d_user_followed_custom_words_set_preview_button_unfollow);
     }
 
     private void prepareViews() {
@@ -83,8 +89,9 @@ public class FollowedCustomWordsSetPreviewDialog extends Dialog implements View.
             idField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
             nameField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
             descriptionField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
-            back.setBackgroundResource(R.drawable.field_rounded_pink);
-            download.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            back.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            download.setBackgroundResource(R.drawable.field_rounded_pink);
+            unfollow.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
             getWindow().setBackgroundDrawableResource(R.drawable.field_rounded_dark_dark_gray);
             idInfo.setTextColor(Color.WHITE);
@@ -96,11 +103,13 @@ public class FollowedCustomWordsSetPreviewDialog extends Dialog implements View.
             idField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
             nameField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
             descriptionField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
-            back.setBackgroundResource(R.drawable.field_rounded_gray);
-            download.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            back.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            download.setBackgroundResource(R.drawable.field_rounded_gray);
+            unfollow.setBackgroundResource(R.drawable.field_rounded_gray);
         }
         back.setTextColor(Color.WHITE);
         download.setTextColor(Color.WHITE);
+        unfollow.setTextColor(Color.WHITE);
     }
 
     private void prepareData() {
@@ -119,11 +128,13 @@ public class FollowedCustomWordsSetPreviewDialog extends Dialog implements View.
         description.setTypeface(typeface);
         back.setTypeface(typeface);
         download.setTypeface(typeface);
+        unfollow.setTypeface(typeface);
     }
 
     private void addListeners() {
         back.setOnClickListener(this);
         download.setOnClickListener(this);
+        unfollow.setOnClickListener(this);
     }
 
     @Override
@@ -133,6 +144,12 @@ public class FollowedCustomWordsSetPreviewDialog extends Dialog implements View.
                 break;
             case R.id.d_user_followed_custom_words_set_preview_button_download:
                 new DownloadWordsSetTask(context, fragmentManager, F_USER).execute(wordsSet.getId());
+                break;
+            case R.id.d_user_followed_custom_words_set_preview_button_unfollow:
+                new RemoveFollowedTest(wordsSet.getId()).executeRequest();
+                //RequestExecutor.offerRequest(new RemoveFollowedTest(wordsSet.getId()), true);
+                UserFollowedWordsSetsFragment fragment = new UserFollowedWordsSetsFragment();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_USER)).commit();
                 break;
             default:
                 break;

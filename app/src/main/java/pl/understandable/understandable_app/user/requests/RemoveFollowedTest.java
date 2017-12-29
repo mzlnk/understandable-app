@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.user.requests;
 
+import pl.understandable.understandable_app.database.repository.temp.FollowedCustomWordsSetsRepository;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 
@@ -19,6 +20,7 @@ public class RemoveFollowedTest implements Request {
     public void executeRequest() {
         if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             UserManager.getUser().removeFollowedWordsSet(code);
+            FollowedCustomWordsSetsRepository.removeWordsSet(code);
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.GENERAL);
         }

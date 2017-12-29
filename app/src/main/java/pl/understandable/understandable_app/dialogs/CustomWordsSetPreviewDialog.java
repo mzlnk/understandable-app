@@ -11,10 +11,17 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.temp.AllCustomWordsSetsRepository;
+import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.SyncManager;
+import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.user.requests.AddFollowedTest;
+import pl.understandable.understandable_app.user.requests.RemoveFollowedTest;
+import pl.understandable.understandable_app.user.requests.Request;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.DownloadWordsSetTask;
@@ -33,7 +40,7 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
     private TextView idInfo, nameInfo, descriptionInfo;
     private LinearLayout idField, nameField, descriptionField;
     private TextView id, name, description;
-    private Button back, download;
+    private Button back, download, addToFollowed;
 
     private CustomWordsSetEntity wordsSet;
 
@@ -68,6 +75,7 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
         description = (TextView) findViewById(R.id.d_custom_words_set_preview_words_set_description);
         back = (Button) findViewById(R.id.d_custom_words_set_preview_button_back);
         download = (Button) findViewById(R.id.d_custom_words_set_preview_button_download);
+        addToFollowed = (Button) findViewById(R.id.d_custom_words_set_preview_button_add_to_followed);
     }
 
     private void prepareViews() {
@@ -83,8 +91,9 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
             idField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
             nameField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
             descriptionField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
-            back.setBackgroundResource(R.drawable.field_rounded_pink);
-            download.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            back.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            download.setBackgroundResource(R.drawable.field_rounded_pink);
+            addToFollowed.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
             getWindow().setBackgroundDrawableResource(R.drawable.field_rounded_dark_dark_gray);
             idInfo.setTextColor(Color.WHITE);
@@ -96,11 +105,13 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
             idField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
             nameField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
             descriptionField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
-            back.setBackgroundResource(R.drawable.field_rounded_gray);
-            download.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            back.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            download.setBackgroundResource(R.drawable.field_rounded_gray);
+            addToFollowed.setBackgroundResource(R.drawable.field_rounded_gray);
         }
         back.setTextColor(Color.WHITE);
         download.setTextColor(Color.WHITE);
+        addToFollowed.setTextColor(Color.WHITE);
     }
 
     private void prepareData() {
@@ -119,11 +130,13 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
         description.setTypeface(typeface);
         back.setTypeface(typeface);
         download.setTypeface(typeface);
+        addToFollowed.setTypeface(typeface);
     }
 
     private void addListeners() {
         back.setOnClickListener(this);
         download.setOnClickListener(this);
+        addToFollowed.setOnClickListener(this);
     }
 
     @Override
@@ -134,10 +147,36 @@ public class CustomWordsSetPreviewDialog extends Dialog implements View.OnClickL
             case R.id.d_custom_words_set_preview_button_download:
                 new DownloadWordsSetTask(context, fragmentManager, F_START).execute(wordsSet.getId());
                 break;
+            case R.id.d_custom_words_set_preview_button_add_to_followed:
+                manageFollowedWordsSet();
+                break;
             default:
                 break;
         }
         dismiss();
+    }
+
+    private void manageFollowedWordsSet() {
+        if(!UserManager.isUserSignedIn()) {
+            Toast.makeText(context, "Musisz najpierw się zalogować", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!SyncManager.getSyncParams().isSyncOnline()) {
+            Toast.makeText(context, "Musisz być w trybie online", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        boolean wordsSetExistsInFollowed = UserManager.getUser().getAllFollowedWordsSets().contains(wordsSet.getId());
+        if(!wordsSetExistsInFollowed) {
+            if(UserManager.getUser().getAllFollowedWordsSets().size() < 100) {
+                RequestExecutor.offerRequest(new AddFollowedTest(wordsSet.getId()));
+                Toast.makeText(context, "Dodano do obserwowanych", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Nie możesz dodać więcej obserwowanych zestawów", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            RequestExecutor.offerRequest(new RemoveFollowedTest(wordsSet.getId()));
+            Toast.makeText(context, "Usunięto z obserwowanych", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

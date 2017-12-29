@@ -71,7 +71,7 @@ public class User {
         return achievements;
     }
 
-    public List<String> getAllDownloadedWordsSets() {
+    public List<String> getAllFollowedWordsSets() {
         return followedWordsSets;
     }
 
@@ -133,6 +133,7 @@ public class User {
     }
 
     public void removeFollowedWordsSet(String code) {
+        System.out.println("[FOLLOWED] Remove words set");
         followedWordsSets.remove(code);
     }
 

@@ -14,6 +14,14 @@ public class RequestExecutor {
 
     //private static LinkedBlockingQueue<Request> requests = new LinkedBlockingQueue<>();
 
+    public static void offerRequest(Request request, boolean onMainThread) {
+        if(onMainThread) {
+            request.executeRequest();
+        } else {
+            offerRequest(request);
+        }
+    }
+
     public static void offerRequest(Request request) {
         offerRequest(request, 1L);
     }

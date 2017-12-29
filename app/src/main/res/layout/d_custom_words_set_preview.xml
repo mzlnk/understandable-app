@@ -130,16 +130,16 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/d_button_field_height"
         android:layout_below="@id/d_custom_words_set_preview_description_area"
-        android:gravity="center"
+        android:gravity="center | bottom"
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/d_custom_words_set_preview_button_back"
+            android:id="@+id/d_custom_words_set_preview_button_add_to_followed"
             android:layout_width="@dimen/button_small_small_width"
             android:layout_height="@dimen/button_small_small_height"
             android:layout_marginRight="@dimen/f_choice_button_margin"
             android:clickable="true"
-            android:text="@string/button_back"
+            android:text="@string/button_follow"
             android:textAllCaps="false"
             android:textSize="@dimen/button_text" />
 
@@ -150,6 +150,26 @@
             android:layout_marginLeft="@dimen/f_choice_button_margin"
             android:clickable="true"
             android:text="@string/button_download"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/d_custom_words_set_preview_button_back_area"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_button_field_height"
+        android:layout_below="@id/d_custom_words_set_preview_buttons_area"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/d_custom_words_set_preview_button_back"
+            android:layout_width="@dimen/button_small_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:layout_marginRight="@dimen/f_choice_button_margin"
+            android:clickable="true"
+            android:text="@string/button_back"
             android:textAllCaps="false"
             android:textSize="@dimen/button_text" />
 
