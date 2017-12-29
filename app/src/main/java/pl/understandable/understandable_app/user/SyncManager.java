@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 
@@ -14,6 +15,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +45,10 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class SyncManager {
 
+    private static final int ONE_SECOND_IN_MILLIS = 1000;
+    private static final int CONNECTION_TIMEOUT = 0;
+    private static final int SOCKET_TIMEOUT = 15 * ONE_SECOND_IN_MILLIS;
+
     private static SyncParams syncParams = new SyncParams();
 
     public static SyncParams getSyncParams() {
@@ -58,7 +66,12 @@ public class SyncManager {
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
+                if(syncParams.isActionInProgress()) {
+                    System.out.println("[TEST] Action in progress - continue...");
+                    return;
+                }
                 System.out.println("Start sync");
+                System.out.println("[TEST] Sync...");
                 Log.d("SYNC", "Start sync");
                 if(!UserManager.isUserSignedIn()) {
                     System.out.println("No account");
@@ -71,25 +84,24 @@ public class SyncManager {
                     System.out.println("Network available");
                     if(!syncParams.isSyncOnline()) {
                         System.out.println("[WELCOME] Welcome message - try to show dialog!");
+                        if(!syncParams.isSyncRequiredAfterReconnect()) {
+                            System.out.println("[WELCOME] Welcome message");
+                            System.out.println("Sync from server");
+
+                            syncFromServer(context);
+                        } else {
+                            System.out.println("Sync to server");
+                            syncToServer(context);
+                        }
                         if(MainActivity.getActivity() != null) {
                             System.out.println("Dialog has been shown!");
                             RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
                         } else {
                             System.out.println("[WELCOME] Welcome message not showed - null!");
                         }
-                        if(!syncParams.isSyncRequiredAfterReconnect()) {
-                            System.out.println("[WELCOME] Welcome message");
-                            System.out.println("Sync from server");
-
-                            syncFromServer(context);
-                        }
                     }
                     syncParams.setSyncStatus(SyncStatus.ONLINE);
 
-                    if(UserManager.isSyncRequired() || syncParams.isSyncRequiredAfterReconnect()) {
-                        System.out.println("Sync to server");
-                        syncToServer(context);
-                    }
                 } else {
                     System.out.println("No network available");
                     if(syncParams.isSyncOnline()) {
@@ -109,8 +121,10 @@ public class SyncManager {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
+                syncParams.setActionInProgress(true);
                 ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if(NetworkUtil.isNetworkAvailable(manager)) {
+                    System.out.println("[TEST] Sync from server: -1");
                     syncFromServer(context);
                     syncParams.setSyncStatus(SyncStatus.ONLINE);
 
@@ -118,6 +132,7 @@ public class SyncManager {
                     fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
                     RequestExecutor.offerRequest(new ShowWelcomeMessage(context), 500L);
                 }
+                syncParams.setActionInProgress(false);
             }
         }, 1L);
     }
@@ -128,7 +143,11 @@ public class SyncManager {
 
     private static boolean syncToServer(Context context) {
         try {
-            HttpClient client = new DefaultHttpClient();
+            syncParams.setActionInProgress(true);
+            HttpParams httpParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpParams, SOCKET_TIMEOUT);
+            HttpClient client = new DefaultHttpClient(httpParams);
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
 
             System.out.println("[JSON TO SERVER] Json: " + UserManager.getUser().toJson().toString());
@@ -145,15 +164,19 @@ public class SyncManager {
 
             UserManager.clearElementsToSync();
             UserManager.setSyncRequired(false);
+            syncParams.setActionInProgress(false);
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
             return false;
         } catch (ClientProtocolException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
             return false;
         } catch (IOException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
             return false;
         }
         return true;
@@ -161,34 +184,55 @@ public class SyncManager {
 
     private static boolean syncFromServer(Context context) {
         try {
-            HttpClient client = new DefaultHttpClient();
+            syncParams.setActionInProgress(true);
+            System.out.println("[TEST] Sync from server: 0");
+            HttpParams httpParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpParams, SOCKET_TIMEOUT);
+            HttpClient client = new DefaultHttpClient(httpParams);
             HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
+
+            System.out.println("[TEST] Sync from server: 1");
 
             List valuePairs = new ArrayList(1);
             System.out.println("TokenID: " + GoogleSignIn.getLastSignedInAccount(context).getIdToken());
             valuePairs.add(new BasicNameValuePair("token_id", GoogleSignIn.getLastSignedInAccount(context).getIdToken()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
+            System.out.println("[TEST] Sync from server: 2");
+
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
             System.out.println("[JSON FROM SERVER] Json: " + response);
+
+            System.out.println("[TEST] Sync from server: 3");
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
             System.out.println("name field: " + data.getString("name"));
             syncParams.setDataPulledFromServer(true);
+            System.out.println("[TEST] Successful sync from server");
+            syncParams.setActionInProgress(false);
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
+            System.out.println("[TEST] Failed to sync from server");
             return false;
         } catch (ClientProtocolException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
+            System.out.println("[TEST] Failed to sync from server");
             return false;
         } catch (IOException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
+            System.out.println("[TEST] Failed to sync from server");
             return false;
         } catch (JSONException e) {
             e.printStackTrace();
+            syncParams.setActionInProgress(false);
+            System.out.println("[TEST] Failed to sync from server");
             return false;
         }
         return true;
@@ -205,6 +249,8 @@ public class SyncManager {
         private boolean dataPulledFromServer = false;
         private SyncStatus syncStatus = SyncStatus.OFFLINE;
 
+        private boolean actionInProgress = false;
+
         public void setDataPulledFromServer(boolean status) {
             this.dataPulledFromServer = status;
         }
@@ -217,6 +263,10 @@ public class SyncManager {
             syncRequiredAfterReconnect = required;
         }
 
+        public void setActionInProgress(boolean actionInProgress) {
+            this.actionInProgress = actionInProgress;
+        }
+
         public boolean isSyncRequiredAfterReconnect() {
             return syncRequiredAfterReconnect;
         }
@@ -227,6 +277,10 @@ public class SyncManager {
 
         public boolean isSyncOnline() {
             return syncStatus.equals(SyncStatus.ONLINE);
+        }
+
+        public boolean isActionInProgress() {
+            return actionInProgress;
         }
 
     }
