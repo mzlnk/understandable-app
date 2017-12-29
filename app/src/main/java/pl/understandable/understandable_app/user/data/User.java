@@ -123,11 +123,16 @@ public class User {
         return new AddExpResponse(levelUp, previousLevel, currentLevel);
     }
 
-    public void addDownloadedTest(String code) {
-        followedWordsSets.add(code);
+    public boolean addFollowedWordsSet(String code) {
+        if(followedWordsSets.size() < 100) {
+            followedWordsSets.add(code);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void removeDownloadedTest(String code) {
+    public void removeFollowedWordsSet(String code) {
         followedWordsSets.remove(code);
     }
 

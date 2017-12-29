@@ -32,6 +32,8 @@ import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.user.RequestExecutor;
+import pl.understandable.understandable_app.user.UserManager;
+import pl.understandable.understandable_app.user.requests.AddFollowedTest;
 import pl.understandable.understandable_app.user.requests.AddWordsSetDownloaded;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
@@ -62,12 +64,13 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
         if(!idExists(id)) {
             return 1;
         }
-        if(!downloadFile(id)) {
-            return 2;
-        }
         if(!downloadWordsSetData(id)) {
             return 3;
         }
+        if(!downloadFile(id)) {
+            return 2;
+        }
+        addToFollowedWordsSets(id);
 
         return 0;
     }
@@ -182,6 +185,10 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
         }
 
         return false;
+    }
+
+    private void addToFollowedWordsSets(String id) {
+        RequestExecutor.offerRequest(new AddFollowedTest(id));
     }
 
 }

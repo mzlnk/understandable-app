@@ -47,7 +47,7 @@ public class SyncManager {
 
     private static final int ONE_SECOND_IN_MILLIS = 1000;
     private static final int CONNECTION_TIMEOUT = 0;
-    private static final int SOCKET_TIMEOUT = 15 * ONE_SECOND_IN_MILLIS;
+    private static final int SOCKET_TIMEOUT = 0;
 
     private static SyncParams syncParams = new SyncParams();
 
@@ -98,6 +98,11 @@ public class SyncManager {
                             RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
                         } else {
                             System.out.println("[WELCOME] Welcome message not showed - null!");
+                        }
+                    } else {
+                        if(UserManager.isSyncRequired()) {
+                            System.out.println("[TEST] Sync to server");
+                            syncToServer(context);
                         }
                     }
                     syncParams.setSyncStatus(SyncStatus.ONLINE);
