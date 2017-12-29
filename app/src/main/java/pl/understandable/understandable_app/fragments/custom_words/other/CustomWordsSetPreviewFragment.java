@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;
 import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
@@ -159,6 +160,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 CustomWordEntityRepository.create(getContext(), id);
+                System.out.println("Entities:");
                 CustomWordsChoiceWayFragment fragment = CustomWordsChoiceWayFragment.newInstance(id, null);
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, id)).commit();

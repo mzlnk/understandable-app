@@ -134,7 +134,7 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
     private void addUserStats() {
         int amount = CustomWordsRepetitionData.getRepetitionData().wordsSeen.size();
         RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_REPETITION, amount));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.REPETITION));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.CUSTOM_WORDS, UserStatistics.REPETITION));
     }
 
 }

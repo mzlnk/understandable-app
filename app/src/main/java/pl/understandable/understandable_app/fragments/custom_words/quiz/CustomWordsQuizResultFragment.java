@@ -154,7 +154,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
         int amount = CustomWordsQuizData.getQuizData().wordsSeen;
         int amountCorrect = CustomWordsQuizData.getQuizData().correctAnswers.size();
         RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_QUIZ, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.QUIZ));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.CUSTOM_WORDS, UserStatistics.QUIZ));
     }
 
 }

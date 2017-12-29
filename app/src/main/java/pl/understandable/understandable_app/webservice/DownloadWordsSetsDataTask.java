@@ -73,7 +73,7 @@ public class DownloadWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
 
     private boolean downloadWordsSetsData() {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/get_all_words_sets_info.php");
+            URI uri = new URI("https://www.understandable.pl/resources/script/get_all_words_sets_info.php");
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             HttpResponse httpResponse = httpClient.execute(httpPost);

@@ -156,7 +156,7 @@ public class CustomWordsSpellingResultFragment extends Fragment {
         int amount = CustomWordsSpellingData.getSpellingData().wordsSeen.size();
         int amountCorrect = CustomWordsSpellingData.getSpellingData().correctAnswers.size();
         RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_SPELLING, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.SPELLING));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.CUSTOM_WORDS, UserStatistics.SPELLING));
     }
 
 }

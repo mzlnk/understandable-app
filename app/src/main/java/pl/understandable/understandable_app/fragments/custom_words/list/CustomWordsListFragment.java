@@ -140,7 +140,7 @@ public class CustomWordsListFragment extends Fragment {
     private void addUserStats() {
         int amount = CustomWordsListData.getListData().getEntities().size();
         RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_LIST, amount));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.LIST));
+        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.CUSTOM_WORDS, UserStatistics.LIST));
     }
 
 }

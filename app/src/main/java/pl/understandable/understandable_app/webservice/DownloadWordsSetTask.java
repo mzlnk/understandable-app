@@ -9,6 +9,7 @@ import android.widget.Toast;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
@@ -16,9 +17,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -122,9 +125,12 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
         File output = new File(dataDirectory, id + ".json");
 
         try {
-            URL url = new URL("http://www.understandable.pl/resources/script/download_file.php?id=" + id);
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpGet httpGet = new HttpGet("https://www.understandable.pl/resources/script/download_file.php?id=" + id);
 
-            BufferedInputStream in = new BufferedInputStream(url.openStream());
+            HttpResponse response = httpClient.execute(httpGet);
+            BufferedInputStream in = new BufferedInputStream(response.getEntity().getContent());
+
             FileOutputStream out = new FileOutputStream(output);
 
             byte[] buffer = new byte[1024];
@@ -134,13 +140,8 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
                 out.write(buffer, 0, bytesRead);
             }
             out.close();
+            in.close();
 
-            if(in != null) {
-                in.close();
-            }
-            if(out != null) {
-                out.close();
-            }
         } catch (MalformedURLException e) {
             e.printStackTrace();
             return false;
