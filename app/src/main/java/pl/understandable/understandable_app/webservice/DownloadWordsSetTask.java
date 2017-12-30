@@ -12,6 +12,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,9 +104,12 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean idExists(String id) {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/words_set_exist.php?id=" + id);
+            URI uri = new URI("http://understandable.pl/resources/script/words_set_exist.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
+            httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpPost.setHeader("Pragma", "no-cache");
+
             HttpResponse httpResponse = httpClient.execute(httpPost);
             String s = EntityUtils.toString(httpResponse.getEntity());
             if(!s.equals("exists")) {
@@ -129,7 +135,9 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpGet httpGet = new HttpGet("https://www.understandable.pl/resources/script/download_file.php?id=" + id);
+            HttpGet httpGet = new HttpGet("http://understandable.pl/resources/script/download_file.php?id=" + id);
+            httpGet.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpGet.setHeader("Pragma", "no-cache");
 
             HttpResponse response = httpClient.execute(httpGet);
             BufferedInputStream in = new BufferedInputStream(response.getEntity().getContent());
@@ -158,9 +166,12 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean downloadWordsSetData(String id) {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/get_words_set_info.php?id=" + id);
+            URI uri = new URI("http://understandable.pl/resources/script/get_words_set_info.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
+            httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpPost.setHeader("Pragma", "no-cache");
+
             HttpResponse httpResponse = httpClient.execute(httpPost);
             String result = EntityUtils.toString(httpResponse.getEntity());
             if(result.equals("error")) {

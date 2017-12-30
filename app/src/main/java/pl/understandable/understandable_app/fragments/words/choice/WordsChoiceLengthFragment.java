@@ -142,9 +142,6 @@ public class WordsChoiceLengthFragment extends Fragment {
             minAmount = 4;
         }
         maxAmount = dataParams.getMaximumAvailableWordsAmount();
-        if(maxAmount > 1000) {
-            maxAmount = 1000;
-        }
         if(dataParams.size < minAmount) {
             dataParams.size = minAmount;
         }

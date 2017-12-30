@@ -11,6 +11,9 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -73,9 +76,12 @@ public class DownloadWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
 
     private boolean downloadWordsSetsData() {
         try {
-            URI uri = new URI("https://www.understandable.pl/resources/script/get_all_words_sets_info.php");
+            URI uri = new URI("http://understandable.pl/resources/script/get_all_words_sets_info.php");
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
+            httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpPost.setHeader("Pragma", "no-cache");
+
             HttpResponse httpResponse = httpClient.execute(httpPost);
             String result = EntityUtils.toString(httpResponse.getEntity());
             if(result.equals("error")) {

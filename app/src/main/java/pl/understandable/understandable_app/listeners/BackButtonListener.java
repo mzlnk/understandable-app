@@ -16,6 +16,7 @@ import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSet
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.fragments.user.UserFragment;
+import pl.understandable.understandable_app.fragments.words.list.WordsListFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;

@@ -13,6 +13,10 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.DefaultedHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,7 +80,9 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
     private boolean downloadFollowedWordsSetsData() {
         try {
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
+            HttpPost httpPost = new HttpPost("http://understandable.pl/resources/script/get_specific_words_sets_info.php");
+            httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpPost.setHeader("Pragma", "no-cache");
 
             String data = "[";
             for(String code : UserManager.getUser().getAllFollowedWordsSets()) {

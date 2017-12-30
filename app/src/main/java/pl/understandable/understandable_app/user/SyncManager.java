@@ -149,11 +149,10 @@ public class SyncManager {
     private static boolean syncToServer(Context context) {
         try {
             syncParams.setActionInProgress(true);
-            HttpParams httpParams = new BasicHttpParams();
-            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMEOUT);
-            HttpConnectionParams.setSoTimeout(httpParams, SOCKET_TIMEOUT);
-            HttpClient client = new DefaultHttpClient(httpParams);
-            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
+            HttpClient client = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("http://understandable.pl/resources/script/sync_to_server.php");
+            httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpPost.setHeader("Pragma", "no-cache");
 
             System.out.println("[JSON TO SERVER] Json: " + UserManager.getUser().toJson().toString());
 
@@ -191,11 +190,10 @@ public class SyncManager {
         try {
             syncParams.setActionInProgress(true);
             System.out.println("[TEST] Sync from server: 0");
-            HttpParams httpParams = new BasicHttpParams();
-            HttpConnectionParams.setConnectionTimeout(httpParams, CONNECTION_TIMEOUT);
-            HttpConnectionParams.setSoTimeout(httpParams, SOCKET_TIMEOUT);
-            HttpClient client = new DefaultHttpClient(httpParams);
-            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
+            HttpClient client = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("http://understandable.pl/resources/script/sync_from_server.php");
+            httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            httpPost.setHeader("Pragma", "no-cache");
 
             System.out.println("[TEST] Sync from server: 1");
 
