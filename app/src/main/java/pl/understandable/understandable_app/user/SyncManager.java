@@ -150,9 +150,10 @@ public class SyncManager {
         try {
             syncParams.setActionInProgress(true);
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://understandable.pl/resources/script/sync_to_server.php");
+            HttpPost httpPost = new HttpPost("http://www.understandable.pl/resources/script/sync_to_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
+            httpPost.setHeader("User-Agent", "");
 
             System.out.println("[JSON TO SERVER] Json: " + UserManager.getUser().toJson().toString());
 
@@ -191,9 +192,10 @@ public class SyncManager {
             syncParams.setActionInProgress(true);
             System.out.println("[TEST] Sync from server: 0");
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://understandable.pl/resources/script/sync_from_server.php");
+            HttpPost httpPost = new HttpPost("http://www.understandable.pl/resources/script/sync_from_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
+            httpPost.setHeader("User-Agent", "");
 
             System.out.println("[TEST] Sync from server: 1");
 

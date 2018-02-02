@@ -68,7 +68,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
                 Toast.makeText(context, "Brak połączenia z Internetem", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
-                Toast.makeText(context, "Wczytywanie listy zestawów nie powiodło się", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Wczytanie listy zestawów nie powiodło się", Toast.LENGTH_SHORT).show();
                 break;
             case 0:
                 UserFollowedWordsSetsFragment fragment = new UserFollowedWordsSetsFragment();
@@ -80,9 +80,10 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
     private boolean downloadFollowedWordsSetsData() {
         try {
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://understandable.pl/resources/script/get_specific_words_sets_info.php");
+            HttpPost httpPost = new HttpPost("http://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
+            httpPost.setHeader("User-Agent", "");
 
             String data = "[";
             for(String code : UserManager.getUser().getAllFollowedWordsSets()) {

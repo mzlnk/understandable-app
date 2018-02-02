@@ -76,11 +76,12 @@ public class DownloadWordsSetsDataTask extends AsyncTask<Void, Void, Integer> {
 
     private boolean downloadWordsSetsData() {
         try {
-            URI uri = new URI("http://understandable.pl/resources/script/get_all_words_sets_info.php");
+            URI uri = new URI("http://www.understandable.pl/resources/script/get_all_words_sets_info.php");
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
+            httpPost.setHeader("User-Agent", "");
 
             HttpResponse httpResponse = httpClient.execute(httpPost);
             String result = EntityUtils.toString(httpResponse.getEntity());

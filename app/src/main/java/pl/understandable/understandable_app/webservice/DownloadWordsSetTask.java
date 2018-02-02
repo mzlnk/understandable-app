@@ -104,11 +104,12 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean idExists(String id) {
         try {
-            URI uri = new URI("http://understandable.pl/resources/script/words_set_exist.php?id=" + id);
+            URI uri = new URI("http://www.understandable.pl/resources/script/words_set_exist.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
+            httpPost.setHeader("User-Agent", "");
 
             HttpResponse httpResponse = httpClient.execute(httpPost);
             String s = EntityUtils.toString(httpResponse.getEntity());
@@ -135,9 +136,10 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpGet httpGet = new HttpGet("http://understandable.pl/resources/script/download_file.php?id=" + id);
+            HttpGet httpGet = new HttpGet("http://www.understandable.pl/resources/script/download_file.php?id=" + id);
             httpGet.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpGet.setHeader("Pragma", "no-cache");
+            httpGet.setHeader("User-Agent", "");
 
             HttpResponse response = httpClient.execute(httpGet);
             BufferedInputStream in = new BufferedInputStream(response.getEntity().getContent());
@@ -166,11 +168,12 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean downloadWordsSetData(String id) {
         try {
-            URI uri = new URI("http://understandable.pl/resources/script/get_words_set_info.php?id=" + id);
+            URI uri = new URI("http://www.understandable.pl/resources/script/get_words_set_info.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
+            httpPost.setHeader("User-Agent", "");
 
             HttpResponse httpResponse = httpClient.execute(httpPost);
             String result = EntityUtils.toString(httpResponse.getEntity());

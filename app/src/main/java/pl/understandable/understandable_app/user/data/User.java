@@ -125,7 +125,9 @@ public class User {
 
     public boolean addFollowedWordsSet(String code) {
         if(followedWordsSets.size() < 100) {
-            followedWordsSets.add(code);
+            if(!followedWordsSets.contains(code)) {
+                followedWordsSets.add(code);
+            }
             return true;
         } else {
             return false;
@@ -133,8 +135,9 @@ public class User {
     }
 
     public void removeFollowedWordsSet(String code) {
-        System.out.println("[FOLLOWED] Remove words set");
-        followedWordsSets.remove(code);
+        if(followedWordsSets.contains(code)) {
+            followedWordsSets.remove(code);
+        }
     }
 
     public JSONObject toJson() {
