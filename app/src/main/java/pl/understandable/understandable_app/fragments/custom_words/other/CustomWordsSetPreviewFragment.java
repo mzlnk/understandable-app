@@ -22,6 +22,8 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.dialogs.ChangeCustomWordsSetDescriptionDialog;
 import pl.understandable.understandable_app.dialogs.ChangeCustomWordsSetNameDialog;
 import pl.understandable.understandable_app.dialogs.RemoveCustomWordsSetDialog;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.WordsSetHelpDialog;
 import pl.understandable.understandable_app.fragments.custom_words.choice.CustomWordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -74,6 +76,8 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         setAnimation();
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(new WordsSetHelpDialog(getContext()));
 
         return rootView;
     }

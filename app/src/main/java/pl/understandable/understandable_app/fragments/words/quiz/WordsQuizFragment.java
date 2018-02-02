@@ -17,6 +17,8 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsQuizData;
 import pl.understandable.understandable_app.database.entity.WordEntity;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.QuizHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -62,6 +64,8 @@ public class WordsQuizFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(new QuizHelpDialog(getContext()));
 
         return rootView;
     }

@@ -27,6 +27,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.ProfileHelpDialog;
 import pl.understandable.understandable_app.dialogs.user_dialogs.ChangeUserNameDialog;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.user.RequestExecutor;
@@ -71,6 +73,8 @@ public class UserFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(new ProfileHelpDialog(getContext()));
 
         return rootView;
     }

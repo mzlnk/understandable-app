@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.RepetitionHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -56,6 +58,8 @@ public class WordsRepetitionFragment extends Fragment {
         loadViewFromXml(rootView);
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(new RepetitionHelpDialog(getContext()));
 
         return rootView;
     }

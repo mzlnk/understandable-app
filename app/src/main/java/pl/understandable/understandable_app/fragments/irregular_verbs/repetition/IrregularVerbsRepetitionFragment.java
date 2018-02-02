@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.IrregularVerbsRepetitionHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -56,6 +58,8 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
         loadViewFromXml(rootView);
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(new IrregularVerbsRepetitionHelpDialog(getContext()));
 
         return rootView;
     }

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:measureWithLargestChild="true"
-    tools:context="pl.understandable.understandable_app.dialogs.CustomWordsSetPreviewDialog"
+    tools:context="pl.understandable.understandable_app.dialogs.user_dialogs.UserAchievementPreviewDialog"
     android:id="@+id/d_custom_words_set_preview" >
 
     <LinearLayout
