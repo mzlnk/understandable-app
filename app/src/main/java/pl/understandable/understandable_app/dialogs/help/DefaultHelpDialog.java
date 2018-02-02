@@ -96,7 +96,7 @@ public class DefaultHelpDialog extends Dialog implements View.OnClickListener {
 
     private void prepareIcon() {
         image = new ImageView(context);
-        image.setImageResource(R.drawable.f_app_icon  );
+        image.setImageResource(currentContent.getImageResId());
 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(300,550);
         int margin = context.getResources().getDimensionPixelSize(R.dimen.f_border_margin_large);
@@ -141,7 +141,7 @@ public class DefaultHelpDialog extends Dialog implements View.OnClickListener {
                 }
                 if(currentContent.getPos() > 0) {
                     currentContent = content.get(currentContent.getPos() - 1);
-                    image.setImageResource(R.drawable.f_app_icon);
+                    image.setImageResource(currentContent.getImageResId());
                     text.setText(currentContent.getTextResId());
                 }
                 break;

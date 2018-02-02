@@ -21,7 +21,7 @@ public class ProfileHelpDialog extends DefaultHelpDialog {
 
     @Override
     public void addContent() {
-        content.add(new HelpContent(0, R.drawable.f_user_achievements_ts250, R.string.h_profile_change_name));
+        content.add(new HelpContent(0, R.drawable.h_profile_change_name, R.string.h_profile_change_name));
         content.add(new HelpContent(1, R.drawable.h_profile_level, R.string.h_profile_level));
         content.add(new HelpContent(2, R.drawable.h_profile_title, R.string.h_profile_title));
         content.add(new HelpContent(3, R.drawable.h_profile_options, R.string.h_profile_options));

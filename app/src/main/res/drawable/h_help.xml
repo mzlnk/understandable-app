@@ -1284,7 +1284,7 @@
         android:strokeLineJoin="miter"
         android:strokeAlpha="1"/>
     <path
-        android:pathData="m130.5,61.8 l0,617.6 347.4,0 0,-617.6 -347.4,0zM130.5,516.1 L408.6,516.1 408.6,565.4 130.5,565.4 130.5,516.1z"
+        android:pathData="m36.5,62.8 l0,617.6 347.4,0 0,-617.6 -347.4,0zM36.5,517.1 L314.6,517.1 314.6,566.4 36.5,566.4 36.5,517.1z"
         android:strokeLineCap="butt"
         android:fillAlpha="0.34901961"
         android:strokeColor="#00000000"
