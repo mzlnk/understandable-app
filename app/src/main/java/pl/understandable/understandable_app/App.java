@@ -27,10 +27,12 @@ import pl.understandable.understandable_app.user.TimeLearntManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.achievements.AchievementId;
 import pl.understandable.understandable_app.utils.AdUtil;
+import pl.understandable.understandable_app.utils.announcement.AnnouncementManager;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.utils.font.FontsOverride;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 /**

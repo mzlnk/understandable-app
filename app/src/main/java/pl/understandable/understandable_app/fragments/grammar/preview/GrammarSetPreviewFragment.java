@@ -117,7 +117,6 @@ public class GrammarSetPreviewFragment extends Fragment {
     }
 
     private void prepareWebView() {
-        webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
 
@@ -127,7 +126,6 @@ public class GrammarSetPreviewFragment extends Fragment {
 
         String url = "http://dl.understandable.pl?id=" + id + "&theme=" + theme + "&width=" + width;
         webView.loadUrl(url);
-
     }
 
     private int getDisplayWidth() {

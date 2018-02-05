@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/d_dialog_box_width"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    tools:context="pl.understandable.understandable_app.dialogs.AnnouncementDialog"
+    android:id="@+id/d_remove_custom_words_set" >
+
+    <TextView
+        android:id="@+id/d_announcement_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/d_announcement_title"
+        android:textSize="@dimen/d_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:layout_margin="@dimen/f_border_margin_medium">
+
+        <WebView
+            android:id="@+id/d_announcement_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        </WebView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/d_announcement_button_ok"
+            android:layout_width="@dimen/button_small_width"
+            android:layout_height="@dimen/button_small_small_height"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:text="@string/button_ok"
+            android:textAllCaps="false"
+            android:textSize="@dimen/button_text" />
+
+    </LinearLayout>
+</LinearLayout>

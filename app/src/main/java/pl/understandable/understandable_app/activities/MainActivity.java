@@ -34,6 +34,7 @@ import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.announcement.AnnouncementManager;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.APP_EXIT;
@@ -80,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         prepareNavigationView();
         showStartFragment();
         showWindowMetrics();
+
+        AnnouncementManager.showAnnouncement(this);
 
         if(SyncManager.getSyncParams().isSyncOnline()) {
             RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()), 500L);
