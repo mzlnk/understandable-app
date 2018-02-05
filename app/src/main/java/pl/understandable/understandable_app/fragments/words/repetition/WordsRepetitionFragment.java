@@ -2,6 +2,7 @@ package pl.understandable.understandable_app.fragments.words.repetition;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -15,6 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 import pl.understandable.understandable_app.R;;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
@@ -37,9 +40,11 @@ public class WordsRepetitionFragment extends Fragment {
     private WordsRepetitionData repetitionData;
 
     private RelativeLayout mainLayout;
-    private Button repeat, finish;
+    private Button repeat, finish, speak;
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
+
+    private TextToSpeech tts;
 
     public WordsRepetitionFragment() {
         // Required empty public constructor
@@ -49,6 +54,15 @@ public class WordsRepetitionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         repetitionData = WordsRepetitionData.getRepetitionData();
+
+        tts = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    tts.setLanguage(Locale.UK);
+                }
+            }
+        });
     }
 
     @Override
@@ -64,10 +78,20 @@ public class WordsRepetitionFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+    }
+
     private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_repetition);
         pager = (ViewPager) rootView.findViewById(R.id.f_words_repetition_view_pager);
         repeat = (Button) rootView.findViewById(R.id.f_words_repetition_repeat);
+        speak = (Button) rootView.findViewById(R.id.f_words_repetition_speak);
         finish = (Button) rootView.findViewById(R.id.f_words_repetition_finish);
     }
 
@@ -91,6 +115,7 @@ public class WordsRepetitionFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         repeat.setTypeface(typeface);
+        speak.setTypeface(typeface);
         finish.setTypeface(typeface);
     }
 
@@ -98,9 +123,11 @@ public class WordsRepetitionFragment extends Fragment {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
             repeat.setBackgroundResource(R.drawable.field_rounded_pink);
+            speak.setBackgroundResource(R.drawable.field_rounded_pink);
             finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
             repeat.setBackgroundResource(R.drawable.field_rounded_gray);
+            speak.setBackgroundResource(R.drawable.field_rounded_gray);
             finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
@@ -134,6 +161,13 @@ public class WordsRepetitionFragment extends Fragment {
                     repetitionData.addCurrentWordToRepeat();
                     Toast.makeText(getContext(), "Dodano do powtórzenia", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        speak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tts.speak(repetitionData.currentWord.getEnglish(), TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
