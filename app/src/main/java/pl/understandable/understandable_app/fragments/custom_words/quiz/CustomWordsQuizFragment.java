@@ -43,6 +43,8 @@ public class CustomWordsQuizFragment extends Fragment {
     private int correctOption;
     private int chosenOption = -1;
 
+    private boolean answered = false;
+
     private CustomWordEntity correctWord;
     private CustomWordEntity[] incorrectWords = new CustomWordEntity[3];
 
@@ -95,14 +97,16 @@ public class CustomWordsQuizFragment extends Fragment {
             answers[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    chosenOption = option;
-                    if(chosenOption == correctOption) {
-                        quizData.correctAnswer();
-                    } else {
-                        quizData.incorrectAnswer();
+                    if(!answered) {
+                        answered = true;
+                        chosenOption = option;
+                        if (chosenOption == correctOption) {
+                            quizData.correctAnswer();
+                        } else {
+                            quizData.incorrectAnswer();
+                        }
+                        getActivity().runOnUiThread(new CustomWordsQuizFragment.ShowAnswerTask());
                     }
-                    getActivity().runOnUiThread(new CustomWordsQuizFragment.ShowAnswerTask());
-
                 }
             });
         }

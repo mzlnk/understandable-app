@@ -45,6 +45,8 @@ public class WordsQuizFragment extends Fragment {
     private int correctOption;
     private int chosenOption = -1;
 
+    private boolean answered = false;
+
     private WordEntity correctWord;
     private WordEntity[] incorrectWords = new WordEntity[3];
 
@@ -99,13 +101,16 @@ public class WordsQuizFragment extends Fragment {
             answers[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    chosenOption = option;
-                    if(chosenOption == correctOption) {
-                        quizData.correctAnswer();
-                    } else {
-                        quizData.incorrectAnswer();
+                    if(!answered) {
+                        answered = true;
+                        chosenOption = option;
+                        if (chosenOption == correctOption) {
+                            quizData.correctAnswer();
+                        } else {
+                            quizData.incorrectAnswer();
+                        }
+                        getActivity().runOnUiThread(new ShowAnswerTask());
                     }
-                    getActivity().runOnUiThread(new ShowAnswerTask());
                 }
             });
         }
