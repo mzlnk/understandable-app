@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.R;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class SpellingHelpDialog extends DefaultHelpDialog {
+public class SpellingHelpDialog extends HelpDialog {
 
     public SpellingHelpDialog(Context context) {
         super(context);

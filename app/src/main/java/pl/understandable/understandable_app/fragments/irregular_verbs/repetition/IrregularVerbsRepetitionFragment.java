@@ -59,7 +59,7 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
         prepareLayout();
         addListeners();
 
-        HelpManager.showHelpDialog(new IrregularVerbsRepetitionHelpDialog(getContext()));
+        HelpManager.showHelpDialog(getContext(), new IrregularVerbsRepetitionHelpDialog(getContext()));
 
         return rootView;
     }

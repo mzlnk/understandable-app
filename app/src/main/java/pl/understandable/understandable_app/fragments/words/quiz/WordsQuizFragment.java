@@ -65,7 +65,7 @@ public class WordsQuizFragment extends Fragment {
         prepareLayout();
         addListeners();
 
-        HelpManager.showHelpDialog(new QuizHelpDialog(getContext()));
+        HelpManager.showHelpDialog(getContext(), new QuizHelpDialog(getContext()));
 
         return rootView;
     }

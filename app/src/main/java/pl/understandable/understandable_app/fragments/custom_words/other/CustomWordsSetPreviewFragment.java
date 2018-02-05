@@ -77,7 +77,7 @@ public class CustomWordsSetPreviewFragment extends Fragment {
         prepareLayout();
         addListeners();
 
-        HelpManager.showHelpDialog(new WordsSetHelpDialog(getContext()));
+        HelpManager.showHelpDialog(getContext(), new WordsSetHelpDialog(getContext()));
 
         return rootView;
     }

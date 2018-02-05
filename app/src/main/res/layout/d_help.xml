@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:measureWithLargestChild="true"
-    tools:context="pl.understandable.understandable_app.dialogs.help.DefaultHelpDialog"
+    tools:context="pl.understandable.understandable_app.dialogs.help.HelpDialog"
     android:id="@+id/d_help" >
 
     <LinearLayout

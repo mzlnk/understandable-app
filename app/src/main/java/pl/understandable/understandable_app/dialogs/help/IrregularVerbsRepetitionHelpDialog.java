@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.R;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class IrregularVerbsRepetitionHelpDialog extends DefaultHelpDialog {
+public class IrregularVerbsRepetitionHelpDialog extends HelpDialog {
 
     public IrregularVerbsRepetitionHelpDialog(Context context) {
         super(context);

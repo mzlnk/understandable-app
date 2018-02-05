@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.R;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class QuizHelpDialog extends DefaultHelpDialog {
+public class QuizHelpDialog extends HelpDialog {
 
     public QuizHelpDialog(Context context) {
         super(context);

@@ -59,7 +59,7 @@ public class WordsRepetitionFragment extends Fragment {
         prepareLayout();
         addListeners();
 
-        HelpManager.showHelpDialog(new RepetitionHelpDialog(getContext()));
+        HelpManager.showHelpDialog(getContext(), new RepetitionHelpDialog(getContext()));
 
         return rootView;
     }

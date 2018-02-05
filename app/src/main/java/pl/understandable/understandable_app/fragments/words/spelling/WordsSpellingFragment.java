@@ -66,7 +66,7 @@ public class WordsSpellingFragment extends Fragment {
         prepareLayout();
         addListeners();
 
-        HelpManager.showHelpDialog(new SpellingHelpDialog(getContext()));
+        HelpManager.showHelpDialog(getContext(), new SpellingHelpDialog(getContext()));
 
         return rootView;
     }

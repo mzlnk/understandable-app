@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.R;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class RepetitionHelpDialog extends DefaultHelpDialog {
+public class RepetitionHelpDialog extends HelpDialog {
 
     public RepetitionHelpDialog(Context context) {
         super(context);

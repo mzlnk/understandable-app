@@ -28,7 +28,7 @@ import pl.understandable.understandable_app.utils.font.Font;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class DefaultHelpDialog extends Dialog implements View.OnClickListener {
+public class HelpDialog extends Dialog implements View.OnClickListener {
 
     private Context context;
 
@@ -40,7 +40,7 @@ public class DefaultHelpDialog extends Dialog implements View.OnClickListener {
     protected List<HelpContent> content = new ArrayList<>();
     private HelpContent currentContent;
 
-    public DefaultHelpDialog(Context context) {
+    public HelpDialog(Context context) {
         super(context);
         this.context = context;
     }

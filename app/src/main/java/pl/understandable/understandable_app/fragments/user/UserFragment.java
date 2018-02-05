@@ -74,7 +74,7 @@ public class UserFragment extends Fragment {
         prepareLayout();
         addListeners();
 
-        HelpManager.showHelpDialog(new ProfileHelpDialog(getContext()));
+        HelpManager.showHelpDialog(getContext(), new ProfileHelpDialog(getContext()));
 
         return rootView;
     }

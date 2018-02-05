@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.R;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class WordsSetHelpDialog extends DefaultHelpDialog {
+public class WordsSetHelpDialog extends HelpDialog {
 
     public WordsSetHelpDialog(Context context) {
         super(context);

@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.R;
  * Created by Marcin Zielonka on 2018-02-02.
  */
 
-public class ProfileHelpDialog extends DefaultHelpDialog {
+public class ProfileHelpDialog extends HelpDialog {
 
     public ProfileHelpDialog(Context context) {
         super(context);
