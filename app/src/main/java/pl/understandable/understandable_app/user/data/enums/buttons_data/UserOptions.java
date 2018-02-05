@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.user.data.buttons_data;
+package pl.understandable.understandable_app.user.data.enums.buttons_data;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;

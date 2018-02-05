@@ -3,7 +3,6 @@ package pl.understandable.understandable_app.fragments.user;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.res.ResourcesCompat;
@@ -20,24 +19,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.dialogs.help.HelpManager;
 import pl.understandable.understandable_app.dialogs.help.ProfileHelpDialog;
 import pl.understandable.understandable_app.dialogs.user_dialogs.ChangeUserNameDialog;
-import pl.understandable.understandable_app.fragments.start.StartFragment;
-import pl.understandable.understandable_app.user.RequestExecutor;
-import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
-import pl.understandable.understandable_app.user.data.buttons_data.UserOptions;
-import pl.understandable.understandable_app.user.requests.ShowLogOutMessage;
-import pl.understandable.understandable_app.user.requests.ShowSyncStoppedMessage;
+import pl.understandable.understandable_app.user.data.enums.UserTitle;
+import pl.understandable.understandable_app.user.data.enums.buttons_data.UserOptions;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.user.UserButton;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -223,6 +212,7 @@ public class UserFragment extends Fragment {
 
         name.setText(user.getName());
         levelInfo.setText("poziom: " + String.valueOf(user.getLevel()));
+        title.setText(UserTitle.getTitleByLevel(user.getLevel()).getTitle());
 
         int level = user.getLevel();
         double progress = (double)(user.getExp() - user.getTotalExpForLevel(level - 1)) / (double)(user.getExpForLevel(level));

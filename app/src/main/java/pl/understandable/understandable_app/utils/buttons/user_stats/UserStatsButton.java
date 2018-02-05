@@ -8,7 +8,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.user.data.buttons_data.UserStats;
+import pl.understandable.understandable_app.user.data.enums.buttons_data.UserStats;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**

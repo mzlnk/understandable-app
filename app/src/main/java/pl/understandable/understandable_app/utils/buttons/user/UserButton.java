@@ -2,7 +2,7 @@ package pl.understandable.understandable_app.utils.buttons.user;
 
 import android.content.Context;
 
-import pl.understandable.understandable_app.user.data.buttons_data.UserOptions;
+import pl.understandable.understandable_app.user.data.enums.buttons_data.UserOptions;
 
 /**
  * Created by Marcin Zielonka on 2017-12-09.
