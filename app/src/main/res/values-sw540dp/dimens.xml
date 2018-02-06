@@ -166,6 +166,8 @@
     <dimen name="d_text">21sp</dimen>
     <dimen name="d_edit_text">19sp</dimen>
 
+    <dimen name="d_user_achievement_preview_icon_size">80dp</dimen>
+
 
     <!-- user -->
     <dimen name="f_user_field_text">24sp</dimen>

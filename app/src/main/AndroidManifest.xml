@@ -6,31 +6,35 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/NightTheme"
-        android:name="pl.understandable.understandable_app.App">
+        android:theme="@style/NightTheme">
         <activity
-            android:name="pl.understandable.understandable_app.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustNothing"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/NightTheme"
-            android:screenOrientation="portrait" >
-        </activity>
-
+            android:windowSoftInputMode="adjustNothing"></activity>
         <activity
-            android:name="pl.understandable.understandable_app.activities.StartActivity"
+            android:name=".activities.StartActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.AdActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_ad"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.activities.AdActivity;
 import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
@@ -93,7 +94,6 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             } catch(ActivityNotFoundException e) {
                 Toast.makeText(context, "Wystąpił problem, skontaktuj się z działem pomocy", Toast.LENGTH_SHORT).show();
             }
-
         } else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).setCustomAnimations(R.anim.fade01, FragmentTransaction.TRANSIT_NONE).commit();

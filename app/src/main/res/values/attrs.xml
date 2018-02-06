@@ -2,22 +2,31 @@
 <resources>
 
     <declare-styleable name="CustomImageButton">
-        <attr name="background_color" format="color"/>
-        <attr name="text_1_color" format="color"/>
-        <attr name="text_2_color" format="color"/>
-        <attr name="text_button_color" format="color"/>
-        <attr name="button_1_color" format="color"/>
-        <attr name="button_2_color" format="color"/>
-        <attr name="button_quiz_option_color" format="color"/>
+        <attr name="background_color" format="color" />
+        <attr name="text_1_color" format="color" />
+        <attr name="text_2_color" format="color" />
+        <attr name="text_button_color" format="color" />
+        <attr name="button_1_color" format="color" />
+        <attr name="button_2_color" format="color" />
+        <attr name="button_quiz_option_color" format="color" />
         <attr name="button_choice_background_color" format="color" />
         <attr name="button_choice_symbol_color" format="color" />
-        <attr name="list_1_color" format="color"/>
-        <attr name="list_2_color" format="color"/>
-        <attr name="accent_color" format="color"/>
-        <attr name="table_border_color" format="color"/>
+        <attr name="list_1_color" format="color" />
+        <attr name="list_2_color" format="color" />
+        <attr name="accent_color" format="color" />
+        <attr name="table_border_color" format="color" />
         <attr name="irregular_verbs_repetition_example_field_1_color" format="color" />
         <attr name="irregular_verbs_repetition_example_field_2_color" format="color" />
         <attr name="bottom_line_color" format="color" />
+    </declare-styleable>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
 
 </resources>
