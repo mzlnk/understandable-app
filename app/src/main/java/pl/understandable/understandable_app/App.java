@@ -79,7 +79,7 @@ public class App extends MultiDexApplication {
     }
 
     private void googleSilentSignIn() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.server_client_id)).build();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.server_client_id)).requestProfile().build();
         GoogleSignInClient client = GoogleSignIn.getClient(getApplicationContext(), gso);
         client.silentSignIn().addOnCompleteListener(new OnCompleteListener<GoogleSignInAccount>() {
             @Override
@@ -87,16 +87,13 @@ public class App extends MultiDexApplication {
                 try {
                     GoogleSignInAccount account = task.getResult();
                     if (account != null) {
-                        Toast.makeText(getApplicationContext(), "Signed in silently as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
                         Log.d("USER", "Token ID: " + account.getIdToken());
                         UserManager.getUser().setTokenId(account.getIdToken());
                         UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
                     } else {
-                        Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
                         UserManager.setUserStatus(UserManager.UserStatus.NO_ACCOUNT);
                     }
                 } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "No account", Toast.LENGTH_SHORT).show();
                 }
             }
         });

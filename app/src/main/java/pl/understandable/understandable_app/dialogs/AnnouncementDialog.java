@@ -86,7 +86,6 @@ public class AnnouncementDialog extends Dialog implements View.OnClickListener {
         ThemeUtil themeUtil = new ThemeUtil(context);
         String theme = themeUtil.isDefaultTheme() ? "default" : "night";
 
-        Toast.makeText(context, theme, Toast.LENGTH_SHORT).show();
         String url = "http://dl.understandable.pl?theme=" + theme;
         webView.loadUrl(url);
     }

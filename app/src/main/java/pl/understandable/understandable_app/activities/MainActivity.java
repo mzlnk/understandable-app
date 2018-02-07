@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         int width = Math.round(dm.widthPixels / dm.density);
         int height = Math.round(dm.heightPixels / dm.density);
 
-        Toast.makeText(getApplicationContext(), "width: " + width + "dp\nheight: " + height + "dp", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "width: " + width + "dp\nheight: " + height + "dp", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Toast.makeText(getApplicationContext(), "Signed in successfully as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Signed in successfully as " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
                 UserManager.getUser().setTokenId(account.getIdToken());
                 UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
 

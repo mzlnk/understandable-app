@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -101,7 +102,7 @@ public class SyncManager {
                         }
                     } else {
                         if(UserManager.isSyncRequired()) {
-                            System.out.println("[TEST] Sync to server");
+                            System.out.println("[TEST] Sync to server - provide name!");
                             syncToServer(context);
                         }
                     }
@@ -150,7 +151,7 @@ public class SyncManager {
         try {
             syncParams.setActionInProgress(true);
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://www.understandable.pl/resources/script/sync_to_server.php");
+            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");
@@ -192,7 +193,7 @@ public class SyncManager {
             syncParams.setActionInProgress(true);
             System.out.println("[TEST] Sync from server: 0");
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://www.understandable.pl/resources/script/sync_from_server.php");
+            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");
