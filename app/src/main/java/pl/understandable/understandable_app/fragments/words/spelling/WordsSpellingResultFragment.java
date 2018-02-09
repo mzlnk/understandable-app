@@ -26,6 +26,7 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_WORDS_SPELLING_RESULT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -138,8 +139,7 @@ public class WordsSpellingResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultCorrectWordsSummaryFragment());
-                transaction.addToBackStack(null);
+                transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultCorrectWordsSummaryFragment(), redirectTo(F_WORDS_SPELLING_RESULT));
                 transaction.commit();
             }
         });
@@ -148,8 +148,7 @@ public class WordsSpellingResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultIncorrectWordsSummaryFragment());
-                transaction.addToBackStack(null);
+                transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultIncorrectWordsSummaryFragment(), redirectTo(F_WORDS_SPELLING_RESULT));
                 transaction.commit();
             }
         });

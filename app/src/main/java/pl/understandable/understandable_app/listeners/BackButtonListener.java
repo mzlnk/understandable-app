@@ -17,6 +17,9 @@ import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoi
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.fragments.words.list.WordsListFragment;
+import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizResultFragment;
+import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionResultFragment;
+import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingResultFragment;
 import pl.understandable.understandable_app.utils.FragmentUtil;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.*;
@@ -84,10 +87,23 @@ public class BackButtonListener {
         }
         if(tag.equals(F_USER)) {
             transaction.replace(R.id.layout_for_fragments, new UserFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_WORDS_QUIZ_RESULT)) {
+            transaction.replace(R.id.layout_for_fragments, new WordsQuizResultFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_WORDS_SPELLING_RESULT)) {
+            transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_WORDS_REPETITION_RESULT)) {
+            transaction.replace(R.id.layout_for_fragments, new WordsRepetitionResultFragment(), redirectTo(F_START)).commit();
+            return;
         }
         if(tag.contains(F_CUSTOM_WORDS_SET_PREVIEW)) {
             String id = tag.substring(F_CUSTOM_WORDS_SET_PREVIEW.length() + 1);
-            transaction.replace(R.id.layout_for_fragments, CustomWordsSetPreviewFragment.newInstance(id), redirectTo(F_START)).commit();
+            transaction.replace(R.id.layout_for_fragments, CustomWordsSetPreviewFragment.newInstance(id), redirectTo(F_CUSTOM_WORDS_SETS_LIST)).commit();
             return;
         }
         if(tag.contains(F_GRAMMAR_SET_PREVIEW)) {

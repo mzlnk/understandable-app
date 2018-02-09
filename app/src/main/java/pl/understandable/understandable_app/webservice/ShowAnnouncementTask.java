@@ -43,7 +43,9 @@ public class ShowAnnouncementTask extends AsyncTask<Void, Void, Integer> {
 
     @Override
     protected void onPostExecute(Integer result) {
-        new AnnouncementDialog(context).show();
+        if(result == 0) {
+            new AnnouncementDialog(context).show();
+        }
     }
 
     private boolean announcementExists() {

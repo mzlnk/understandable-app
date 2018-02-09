@@ -214,7 +214,7 @@ public class WordsChoiceLengthFragment extends Fragment {
                 switch (dataParams.mode) {
                     case REPETITION:
                         WordsRepetitionData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment());
+                        transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment(), redirectTo(F_START));
                         break;
                     case LIST:
                         WordsListData.createListDataFromParams(dataParams);
@@ -222,11 +222,11 @@ public class WordsChoiceLengthFragment extends Fragment {
                         break;
                     case QUIZ:
                         WordsQuizData.createQuizDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment());
+                        transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), redirectTo(F_START));
                         break;
                     case SPELLING:
                         WordsSpellingData.createRepetitionDataFromParams(dataParams);
-                        transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment());
+                        transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment(), redirectTo(F_START));
                         break;
                 }
 

@@ -23,6 +23,9 @@ public class FragmentUtil {
     public static final String F_PHRASES_CHOICE_CATEGORY = "f_phrases_choice_category";
     public static final String F_DOWNLOAD_CUSTOM_WORDS_SET = "f_download_custom_words_set";
     public static final String F_USER = "f_user";
+    public static final String F_WORDS_QUIZ_RESULT = "f_words_quiz_result";
+    public static final String F_WORDS_SPELLING_RESULT = "f_words_spelling_result";
+    public static final String F_WORDS_REPETITION_RESULT = "f_words_repetition_result";
 
     public static String redirectTo(String target, String... params) {
         String result = new String(target);
