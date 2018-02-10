@@ -19,6 +19,7 @@ import pl.understandable.understandable_app.data.entities_data.grammar.GrammarFi
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_FILL_GAP_RESULT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
@@ -126,6 +127,26 @@ public class GrammarFillGapResultFragment extends Fragment {
                 String id = fillGapData.getParams().id;
                 String name = fillGapData.getParams().name;
                 manager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarFillGapFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
+            }
+        });
+
+        correctAnswersField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                String id = fillGapData.getParams().id;
+                String name = fillGapData.getParams().name;
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarFillGapResultCorrectExamplesSummaryFragment(), redirectTo(F_GRAMMAR_FILL_GAP_RESULT, id, name)).commit();
+            }
+        });
+
+        incorrectAnswersField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                String id = fillGapData.getParams().id;
+                String name = fillGapData.getParams().name;
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarFillGapResultIncorrectExamplesSummaryFragment(), redirectTo(F_GRAMMAR_FILL_GAP_RESULT, id, name)).commit();
             }
         });
 

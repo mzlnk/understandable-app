@@ -27,6 +27,7 @@ public class FragmentUtil {
     public static final String F_WORDS_SPELLING_RESULT = "f_words_spelling_result";
     public static final String F_WORDS_REPETITION_RESULT = "f_words_repetition_result";
     public static final String F_GRAMMAR_QUIZ_RESULT = "f_grammar_quiz_result";
+    public static final String F_GRAMMAR_FILL_GAP_RESULT = "f_grammar_fill_gap_result";
 
     public static String redirectTo(String target, String... params) {
         String result = new String(target);
