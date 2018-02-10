@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import pl.understandable.understandable_app.data.entities_data.BaseData;
 import pl.understandable.understandable_app.data.entities_data.Datable;;
 import pl.understandable.understandable_app.data.params.GrammarDataParams;
 import pl.understandable.understandable_app.database.entity.GrammarBaseEntity;
@@ -13,7 +14,7 @@ import pl.understandable.understandable_app.database.repository.GrammarEntitiesR
  * Created by Marcin Zielonka on 2017-08-12.
  */
 
-public abstract class GrammarBaseData<T extends GrammarBaseEntity> implements Datable<T, GrammarDataParams> {
+public abstract class GrammarBaseData<T extends GrammarBaseEntity> extends BaseData implements Datable<T, GrammarDataParams> {
 
     protected static final Random r = new Random();
 

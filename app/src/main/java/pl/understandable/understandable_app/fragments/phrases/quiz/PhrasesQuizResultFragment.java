@@ -140,7 +140,6 @@ public class PhrasesQuizResultFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, new PhrasesQuizResultCorrectWordsSummaryFragment());
-                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -150,17 +149,19 @@ public class PhrasesQuizResultFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, new PhrasesQuizResultIncorrectWordsSummaryFragment());
-                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
     }
 
     private void addUserStats() {
-        int amount =PhrasesQuizData.getQuizData().wordsSeen;
-        int amountCorrect = PhrasesQuizData.getQuizData().correctAnswers.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_QUIZ, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.QUIZ));
+        if(!PhrasesQuizData.getQuizData().areStatsUpdated()) {
+            int amount = PhrasesQuizData.getQuizData().wordsSeen;
+            int amountCorrect = PhrasesQuizData.getQuizData().correctAnswers.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_QUIZ, amount, amountCorrect));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.QUIZ));
+            PhrasesQuizData.getQuizData().setStatsUpdated(true);
+        }
     }
 
 }

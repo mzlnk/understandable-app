@@ -1,5 +1,6 @@
 package pl.understandable.understandable_app.data.entities_data.irregular_verbs_data;
 
+import pl.understandable.understandable_app.data.entities_data.BaseData;
 import pl.understandable.understandable_app.data.entities_data.Datable;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
@@ -13,7 +14,7 @@ import java.util.Random;
  * Created by Marcin Zielonka on 2017-07-08.
  */
 
-public abstract class IrregularVerbsBaseData implements Datable<IrregularVerbEntity, IrregularVerbsDataParams> {
+public abstract class IrregularVerbsBaseData extends BaseData implements Datable<IrregularVerbEntity, IrregularVerbsDataParams> {
 
     protected static final Random r = new Random();
 

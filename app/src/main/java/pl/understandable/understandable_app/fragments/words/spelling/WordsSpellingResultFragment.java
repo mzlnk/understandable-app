@@ -155,10 +155,13 @@ public class WordsSpellingResultFragment extends Fragment {
     }
 
     private void addUserStats() {
-        int amount = WordsSpellingData.getSpellingData().wordsSeen.size();
-        int amountCorrect = WordsSpellingData.getSpellingData().correctAnswers.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_SPELLING, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.SPELLING));
+        if(!WordsSpellingData.getSpellingData().areStatsUpdated()) {
+            int amount = WordsSpellingData.getSpellingData().wordsSeen.size();
+            int amountCorrect = WordsSpellingData.getSpellingData().correctAnswers.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_SPELLING, amount, amountCorrect));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.SPELLING));
+            WordsSpellingData.getSpellingData().setStatsUpdated(true);
+        }
     }
 
 }

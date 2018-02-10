@@ -3,6 +3,7 @@ package pl.understandable.understandable_app.fragments.irregular_verbs.repetitio
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +20,14 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsRepetitionData;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
 import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
+import pl.understandable.understandable_app.fragments.words.quiz.WordsQuizResultFragment;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
  * Created by Marcin Zielonka
@@ -145,7 +149,8 @@ public class IrregularVerbsRepetitionResultWordsToRepeatFragment extends Fragmen
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().popBackStack();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionResultFragment(), redirectTo(F_START)).commit();
             }
         });
     }

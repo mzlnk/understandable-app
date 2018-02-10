@@ -116,7 +116,6 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
                 IrregularVerbsRepetitionResultWordsToRepeatFragment fragment = new IrregularVerbsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, fragment);
-                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -133,9 +132,12 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
     }
 
     private void addUserStats() {
-        int amount = IrregularVerbsRepetitionData.getRepetitionData().wordsSeen.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.IRREGULAR_VERBS_REPETITION, amount));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.IRREGULAR_VERBS, UserStatistics.REPETITION));
+        if(!IrregularVerbsRepetitionData.getRepetitionData().areStatsUpdated()) {
+            int amount = IrregularVerbsRepetitionData.getRepetitionData().wordsSeen.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.IRREGULAR_VERBS_REPETITION, amount));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.IRREGULAR_VERBS, UserStatistics.REPETITION));
+            IrregularVerbsRepetitionData.getRepetitionData().setStatsUpdated(true);
+        }
     }
 
 }

@@ -154,10 +154,13 @@ public class WordsQuizResultFragment extends Fragment {
     }
 
     private void addUserStats() {
-        int amount = WordsQuizData.getQuizData().wordsSeen;
-        int amountCorrect = WordsQuizData.getQuizData().correctAnswers.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_QUIZ, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.QUIZ));
+        if(!WordsQuizData.getQuizData().areStatsUpdated()) {
+            int amount = WordsQuizData.getQuizData().wordsSeen;
+            int amountCorrect = WordsQuizData.getQuizData().correctAnswers.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_QUIZ, amount, amountCorrect));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.QUIZ));
+            WordsQuizData.getQuizData().setStatsUpdated(true);
+        }
     }
 
 }

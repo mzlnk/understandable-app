@@ -132,9 +132,12 @@ public class WordsRepetitionResultFragment extends Fragment {
     }
 
     private void addUserStats() {
-        int amount = WordsRepetitionData.getRepetitionData().wordsSeen.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_REPETITION, amount));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.REPETITION));
+        if(!WordsRepetitionData.getRepetitionData().areStatsUpdated()) {
+            int amount = WordsRepetitionData.getRepetitionData().wordsSeen.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.WORDS_REPETITION, amount));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.WORDS, UserStatistics.REPETITION));
+            WordsRepetitionData.getRepetitionData().setStatsUpdated(true);
+        }
     }
 
 }

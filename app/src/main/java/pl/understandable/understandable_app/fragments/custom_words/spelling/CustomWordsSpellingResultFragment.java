@@ -153,10 +153,13 @@ public class CustomWordsSpellingResultFragment extends Fragment {
     }
 
     private void addUserStats() {
-        int amount = CustomWordsSpellingData.getSpellingData().wordsSeen.size();
-        int amountCorrect = CustomWordsSpellingData.getSpellingData().correctAnswers.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_SPELLING, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.CUSTOM_WORDS, UserStatistics.SPELLING));
+        if(!CustomWordsSpellingData.getSpellingData().areStatsUpdated()) {
+            int amount = CustomWordsSpellingData.getSpellingData().wordsSeen.size();
+            int amountCorrect = CustomWordsSpellingData.getSpellingData().correctAnswers.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.CUSTOM_WORDS_SPELLING, amount, amountCorrect));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.CUSTOM_WORDS, UserStatistics.SPELLING));
+            CustomWordsSpellingData.getSpellingData().setStatsUpdated(true);
+        }
     }
 
 }

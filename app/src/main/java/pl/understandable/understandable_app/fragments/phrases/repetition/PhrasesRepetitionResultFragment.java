@@ -116,7 +116,6 @@ public class PhrasesRepetitionResultFragment extends Fragment {
                 PhrasesRepetitionResultWordsToRepeatFragment fragment = new PhrasesRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, fragment);
-                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -133,10 +132,13 @@ public class PhrasesRepetitionResultFragment extends Fragment {
     }
 
     private void addUserStats() {
-        int amount = PhrasesRepetitionData.getRepetitionData().wordsSeen.size();
-        int amountCorrect = CustomWordsQuizData.getQuizData().correctAnswers.size();
-        RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_REPETITON, amount, amountCorrect));
-        RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.REPETITION));
+        if(!PhrasesRepetitionData.getRepetitionData().areStatsUpdated()) {
+            int amount = PhrasesRepetitionData.getRepetitionData().wordsSeen.size();
+            int amountCorrect = CustomWordsQuizData.getQuizData().correctAnswers.size();
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_REPETITON, amount, amountCorrect));
+            RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.REPETITION));
+            PhrasesRepetitionData.getRepetitionData().setStatsUpdated(true);
+        }
     }
 
 }

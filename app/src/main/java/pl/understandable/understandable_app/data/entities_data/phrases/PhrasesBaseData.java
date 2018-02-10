@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import pl.understandable.understandable_app.data.entities_data.BaseData;
 import pl.understandable.understandable_app.data.entities_data.Datable;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
@@ -13,7 +14,7 @@ import pl.understandable.understandable_app.database.repository.PhraseEntityRepo
  * Created by Marcin Zielonka on 2017-08-11.
  */
 
-public class PhrasesBaseData implements Datable<PhraseEntity, PhrasesDataParams> {
+public class PhrasesBaseData extends BaseData implements Datable<PhraseEntity, PhrasesDataParams> {
 
     protected static final Random r = new Random();
 

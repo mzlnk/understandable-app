@@ -172,7 +172,7 @@ public class GrammarFillGapFragment extends Fragment {
                 TextView answer = GrammarFillGapExampleFragment.sentences.get(fillGapData.currentWordPosition);
                 if(answer.getText().toString().contains("_")) {
                     String gap = fillGapData.currentWord.getGap();
-                    String text = answer.getText().toString().replace("_", "<font color='blue'>" + gap + "</font>");
+                    String text = answer.getText().toString().replace("_", "<font color='#e16b92'>" + gap + "</font>");
                     answer.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE);
                 } else {
                     answer.setText(fillGapData.currentWord.getSentence());
