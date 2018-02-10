@@ -13,6 +13,7 @@ import pl.understandable.understandable_app.fragments.custom_words.other.CustomW
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
+import pl.understandable.understandable_app.fragments.grammar.quiz.GrammarQuizResultFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.fragments.user.UserFragment;
@@ -100,6 +101,13 @@ public class BackButtonListener {
         if(tag.equals(F_WORDS_REPETITION_RESULT)) {
             transaction.replace(R.id.layout_for_fragments, new WordsRepetitionResultFragment(), redirectTo(F_START)).commit();
             return;
+        }
+        if(tag.contains(F_GRAMMAR_QUIZ_RESULT)) {
+            String params = tag.substring(F_GRAMMAR_QUIZ_RESULT.length() + 1);
+            String[] decomposedParams = decomposeParams(params, 2);
+            String id = decomposedParams[0];
+            String name = decomposedParams[1];
+            transaction.replace(R.id.layout_for_fragments, new GrammarQuizResultFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
         }
         if(tag.contains(F_CUSTOM_WORDS_SET_PREVIEW)) {
             String id = tag.substring(F_CUSTOM_WORDS_SET_PREVIEW.length() + 1);

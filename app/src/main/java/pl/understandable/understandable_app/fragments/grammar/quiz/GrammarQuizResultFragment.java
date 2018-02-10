@@ -19,6 +19,7 @@ import pl.understandable.understandable_app.data.entities_data.grammar.GrammarQu
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_QUIZ_RESULT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SET_PREVIEW;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
@@ -81,8 +82,8 @@ public class GrammarQuizResultFragment extends Fragment {
 
     private void prepareViews() {
         questionAmount.setText(String.valueOf(quizData.wordsSeen) + "/" + String.valueOf(quizData.getEntities().size()));
-        correctAnswers.setText(String.valueOf(quizData.correctAnswers));
-        incorrectAnswers.setText(String.valueOf(quizData.incorrectAnswers));
+        correctAnswers.setText(String.valueOf(quizData.correctAnswers.size()));
+        incorrectAnswers.setText(String.valueOf(quizData.incorrectAnswers.size()));
     }
 
     private void setAnimation() {
@@ -124,6 +125,26 @@ public class GrammarQuizResultFragment extends Fragment {
                 String id = quizData.getParams().id;
                 String name = quizData.getParams().name;
                 manager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizFragment(), redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
+            }
+        });
+
+        correctAnswersField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                String id = quizData.getParams().id;
+                String name = quizData.getParams().name;
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizResultCorrectExamplesSummaryFragment(), redirectTo(F_GRAMMAR_QUIZ_RESULT, id, name)).commit();
+            }
+        });
+
+        incorrectAnswersField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                String id = quizData.getParams().id;
+                String name = quizData.getParams().name;
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, new GrammarQuizResultIncorrectExamplesSummaryFragment(), redirectTo(F_GRAMMAR_QUIZ_RESULT, id, name)).commit();
             }
         });
     }

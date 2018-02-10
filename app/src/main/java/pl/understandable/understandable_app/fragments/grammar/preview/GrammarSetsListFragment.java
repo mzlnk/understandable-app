@@ -24,6 +24,7 @@ import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
+import pl.understandable.understandable_app.webservice.ShowGrammarSetPreviewTask;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_GRAMMAR_SETS_LIST;
@@ -104,13 +105,7 @@ public class GrammarSetsListFragment extends Fragment {
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!NetworkUtil.isNetworkAvailable((ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE))) {
-                        Toast.makeText(getContext(), "Aby wyświetlić zawartość, wymagane jest połączenie z Internetem", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    FragmentManager fragmentManager = getFragmentManager();
-                    GrammarSetPreviewFragment fragment = GrammarSetPreviewFragment.newInstance(id, name);
-                    fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_GRAMMAR_SETS_LIST)).commit();
+                    new ShowGrammarSetPreviewTask(getContext(), getFragmentManager(), id, name).execute();
                 }
             });
 

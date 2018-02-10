@@ -29,11 +29,11 @@ public class GrammarQuizData extends GrammarBaseData<GrammarQuizEntity> {
     }
 
     public List<GrammarQuizEntity> wordsLeft = new ArrayList<>();
+    public List<GrammarQuizEntity> correctAnswers = new ArrayList<>();
+    public List<GrammarQuizEntity> incorrectAnswers = new ArrayList<>();
     public GrammarQuizEntity currentWord;
     public int currentQuestion = 1;
     public int wordsSeen = 0;
-    public int correctAnswers = 0;
-    public int incorrectAnswers = 0;
 
     public GrammarQuizData(GrammarDataParams params) {
         super(params);
@@ -48,11 +48,11 @@ public class GrammarQuizData extends GrammarBaseData<GrammarQuizEntity> {
     }
 
     public void correctAnswer() {
-        correctAnswers++;
+        correctAnswers.add(currentWord);
     }
 
     public void incorrectAnswer() {
-        incorrectAnswers++;
+        incorrectAnswers.add(currentWord);
     }
 
     public void resetStats() {
