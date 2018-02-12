@@ -167,13 +167,16 @@
     <dimen name="d_edit_text">30sp</dimen>
 
     <dimen name="d_user_achievement_preview_icon_size">80dp</dimen>
+    <dimen name="d_help_icon_width">150dp</dimen>
+    <dimen name="d_help_icon_height">276dp</dimen>
+    <dimen name="d_user_dialog_box_message">17sp</dimen>
 
 
     <!-- user -->
     <dimen name="f_user_field_text">36sp</dimen>
     <dimen name="f_user_info_text">27sp</dimen>
-    <dimen name="f_user_stats_icon_medium_size">130dp</dimen>
-    <dimen name="f_user_stats_icon_large_size">245dp</dimen>
+    <dimen name="f_user_stats_icon_medium_size">130dp</dimen> <!-- 85% of choice icon size -->
+    <dimen name="f_user_stats_icon_large_size">245dp</dimen> <!-- 120% of choice icon size -->
     <item name="f_user_stats_text_medium_factor" format="float" type="dimen">1.5</item>
     <item name="f_user_stats_text_large_factor" format="float" type="dimen">2.0</item>
     <dimen name="f_user_stats_margin">8dp</dimen> <!-- 400% of f_list_margin -->

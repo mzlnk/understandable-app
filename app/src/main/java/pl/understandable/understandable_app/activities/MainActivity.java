@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         int width = Math.round(dm.widthPixels / dm.density);
         int height = Math.round(dm.heightPixels / dm.density);
 
-        //Toast.makeText(getApplicationContext(), "width: " + width + "dp\nheight: " + height + "dp", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "width: " + width + "dp\nheight: " + height + "dp", Toast.LENGTH_SHORT).show();
     }
 
     @Override

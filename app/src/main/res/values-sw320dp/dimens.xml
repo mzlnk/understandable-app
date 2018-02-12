@@ -89,16 +89,6 @@
     <!-- grammar quiz -->
     <dimen name="f_grammar_quiz_question">16sp</dimen>
 
-    <dimen name="f_grammar_fill_gap_result_words_seen_amount">28sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_words_seen_info">17sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">22sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">22sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_correct_answers_info">13sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">13sp</dimen>
-
-    <dimen name="f_grammar_fill_gap_result_image_width">38dp</dimen>
-    <dimen name="f_grammar_fill_gap_result_image_height">38dp</dimen>
-
 
     <!-- spelling -->
     <dimen name="f_spelling_example_word_1">19sp</dimen>
@@ -119,6 +109,16 @@
 
     <!-- grammar fill gap -->
     <dimen name="f_grammar_fill_gap_example_question">18sp</dimen>
+
+    <dimen name="f_grammar_fill_gap_result_words_seen_amount">28sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_words_seen_info">17sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">22sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">22sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_info">13sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">13sp</dimen>
+
+    <dimen name="f_grammar_fill_gap_result_image_width">38dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_height">38dp</dimen>
 
 
     <!-- grammar sets list -->
@@ -146,7 +146,7 @@
 
 
     <!-- irregular verb list -->
-    <item name="f_irregular_verbs_text_factor" format="float" type="dimen">0.8</item>
+    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">0.8</item>
 
 
     <!-- Edit Texts -->
@@ -167,13 +167,16 @@
     <dimen name="d_edit_text">13sp</dimen>
 
     <dimen name="d_user_achievement_preview_icon_size">80dp</dimen>
+    <dimen name="d_help_icon_width">150dp</dimen>
+    <dimen name="d_help_icon_height">276dp</dimen>
+    <dimen name="d_user_dialog_box_message">17sp</dimen>
 
 
     <!-- user -->
     <dimen name="f_user_field_text">16sp</dimen>
     <dimen name="f_user_info_text">12sp</dimen>
-    <dimen name="f_user_stats_icon_medium_size">48dp</dimen>
-    <dimen name="f_user_stats_icon_large_size">90dp</dimen>
+    <dimen name="f_user_stats_icon_medium_size">48dp</dimen> <!-- 85% of choice icon size -->
+    <dimen name="f_user_stats_icon_large_size">90dp</dimen> <!-- 120% of choice icon size -->
     <item name="f_user_stats_text_medium_factor" format="float" type="dimen">1.5</item>
     <item name="f_user_stats_text_large_factor" format="float" type="dimen">2.0</item>
     <dimen name="f_user_stats_margin">8dp</dimen> <!-- 400% of f_list_margin -->

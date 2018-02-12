@@ -108,7 +108,8 @@ public class UserAchievementPreviewDialog extends Dialog implements View.OnClick
             icon.setAlpha(ITEM_NOT_CHOSEN);
         }
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(350, 350);
+        int iconSize = context.getResources().getDimensionPixelSize(R.dimen.d_user_achievement_preview_icon_size);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iconSize, iconSize);
         icon.setLayoutParams(layoutParams);
 
         iconArea.addView(icon);

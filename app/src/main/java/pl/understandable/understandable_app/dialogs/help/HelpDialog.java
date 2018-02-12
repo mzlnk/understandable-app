@@ -98,7 +98,9 @@ public class HelpDialog extends Dialog implements View.OnClickListener {
         image = new ImageView(context);
         image.setImageResource(currentContent.getImageResId());
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(300,550);
+        int iconWidth = context.getResources().getDimensionPixelSize(R.dimen.d_help_icon_width);
+        int iconHeight = context.getResources().getDimensionPixelSize(R.dimen.d_help_icon_height);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iconWidth, iconHeight);
         int margin = context.getResources().getDimensionPixelSize(R.dimen.f_border_margin_large);
         layoutParams.setMargins(0, 0, 0, margin);
         image.setAdjustViewBounds(true);
