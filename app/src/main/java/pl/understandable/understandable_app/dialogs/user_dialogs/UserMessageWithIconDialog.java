@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.requests.ChangeUserName;
 import pl.understandable.understandable_app.utils.ThemeUtil;
@@ -101,6 +103,9 @@ public class UserMessageWithIconDialog extends Dialog implements View.OnClickLis
         WindowManager.LayoutParams wlp = getWindow().getAttributes();
         wlp.gravity = Gravity.TOP;
         wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
         this.getWindow().setAttributes(wlp);
     }
 
