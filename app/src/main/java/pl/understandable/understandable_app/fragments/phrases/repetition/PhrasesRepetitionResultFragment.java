@@ -134,8 +134,7 @@ public class PhrasesRepetitionResultFragment extends Fragment {
     private void addUserStats() {
         if(!PhrasesRepetitionData.getRepetitionData().areStatsUpdated()) {
             int amount = PhrasesRepetitionData.getRepetitionData().wordsSeen.size();
-            int amountCorrect = CustomWordsQuizData.getQuizData().correctAnswers.size();
-            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_REPETITON, amount, amountCorrect));
+            RequestExecutor.offerRequest(new AddExp(getContext(), ExpManager.ExpRatio.PHRASES_REPETITON, amount));
             RequestExecutor.offerRequest(new AddTestSolved(UserStatistics.PHRASES, UserStatistics.REPETITION));
             PhrasesRepetitionData.getRepetitionData().setStatsUpdated(true);
         }

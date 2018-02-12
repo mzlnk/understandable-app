@@ -231,7 +231,8 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
 
     private View prepareLine() {
         View line = new View(getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 5);
+        int lineHeight = getResources().getDimensionPixelSize(R.dimen.f_choice_subcategory_line_height);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, lineHeight);
         ColorUtil colorUtil = new ColorUtil(getContext());
         int margin = getResources().getDimensionPixelSize(R.dimen.f_border_margin_medium);
         layoutParams.setMargins(0, margin, 0, 0);
