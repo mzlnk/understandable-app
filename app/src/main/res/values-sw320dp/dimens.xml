@@ -10,6 +10,10 @@
     <dimen name="fab_margin">16sp</dimen>
 
 
+    <!-- side margin -->
+    <dimen name="f_side_margin">0dp</dimen>
+
+
     <!-- navigation -->
     <dimen name="navigation_text">13sp</dimen>
     <dimen name="navigation_item_height">40dp</dimen>
