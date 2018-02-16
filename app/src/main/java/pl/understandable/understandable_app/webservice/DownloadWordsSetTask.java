@@ -104,7 +104,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean idExists(String id) {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/words_set_exist.php?id=" + id);
+            URI uri = new URI("https://www.understandable.pl/resources/script/words_set_exist.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");

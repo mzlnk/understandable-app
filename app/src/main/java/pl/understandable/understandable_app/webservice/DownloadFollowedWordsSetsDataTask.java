@@ -80,7 +80,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
     private boolean downloadFollowedWordsSetsData() {
         try {
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
+            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");
@@ -96,7 +96,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
 
             System.out.println("JSON data: " + data);
 
-            List valuePairs = new ArrayList(2);
+            List valuePairs = new ArrayList(1);
             valuePairs.add(new BasicNameValuePair("data", data));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 

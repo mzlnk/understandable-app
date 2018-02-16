@@ -158,7 +158,7 @@ public class SyncManager {
 
             System.out.println("[JSON TO SERVER] Json: " + UserManager.getUser().toJson().toString());
 
-            List valuePairs = new ArrayList(2);
+            List valuePairs = new ArrayList(3);
             valuePairs.add(new BasicNameValuePair("token_id", GoogleSignIn.getLastSignedInAccount(context).getIdToken()));
             valuePairs.add(new BasicNameValuePair("data", UserManager.getUser().toJson().toString()));
             valuePairs.add(new BasicNameValuePair("elements_to_sync", UserManager.getElementsToSyncJson().toString()));

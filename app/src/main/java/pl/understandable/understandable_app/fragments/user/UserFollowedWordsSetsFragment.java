@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.database.entity.CustomWordsSetEntity;

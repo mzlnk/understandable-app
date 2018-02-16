@@ -50,7 +50,7 @@ public class ShowAnnouncementTask extends AsyncTask<Void, Void, Integer> {
 
     private boolean announcementExists() {
         try {
-            URI uri = new URI("http://dl.understandable.pl/announcement.php");
+            URI uri = new URI("https://dl.understandable.pl/announcement.php");
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");

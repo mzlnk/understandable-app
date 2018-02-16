@@ -140,6 +140,7 @@ public class WordsSpellingResultFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultCorrectWordsSummaryFragment(), redirectTo(F_WORDS_SPELLING_RESULT));
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -149,6 +150,7 @@ public class WordsSpellingResultFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, new WordsSpellingResultIncorrectWordsSummaryFragment(), redirectTo(F_WORDS_SPELLING_RESULT));
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });

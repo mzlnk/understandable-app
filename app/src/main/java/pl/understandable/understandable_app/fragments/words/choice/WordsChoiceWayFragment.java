@@ -154,8 +154,8 @@ public class WordsChoiceWayFragment extends Fragment {
                 FragmentManager manager = getFragmentManager();
                 switch(dataParams.method) {
                     case ALL:
-                        WordsChoiceCategoryFragment categoryFragment = WordsChoiceCategoryFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, redirectTo(F_START)).commit();
+                        WordsChoiceMethodFragment methodFragment = WordsChoiceMethodFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, methodFragment).commit();
                         break;
                     case TYPES:
                         WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());

@@ -25,6 +25,9 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -150,7 +153,7 @@ public class PhrasesChoiceWayFragment extends Fragment {
             public void onClick(View v) {
                 PhrasesChoiceCategoryFragment categoryFragment = PhrasesChoiceCategoryFragment.newInstance(dataParams.toString());
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, categoryFragment, redirectTo(F_START)).commit();
             }
         });
 

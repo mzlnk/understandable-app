@@ -36,7 +36,7 @@
 
     <!-- titles -->
     <dimen name="f_text_title_large">40sp</dimen>
-    <dimen name="f_text_title_medium">25sp</dimen>
+    <dimen name="f_text_title_medium">24.5sp</dimen>
 
 
     <!-- borders -->

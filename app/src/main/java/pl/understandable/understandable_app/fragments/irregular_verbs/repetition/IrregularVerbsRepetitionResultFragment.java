@@ -116,6 +116,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
                 IrregularVerbsRepetitionResultWordsToRepeatFragment fragment = new IrregularVerbsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
