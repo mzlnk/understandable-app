@@ -138,9 +138,9 @@
     <dimen name="f_custom_words_set_preview_words_set_id_info">18sp</dimen>
     <dimen name="f_custom_words_set_preview_words_set_id">20sp</dimen>
     <dimen name="f_custom_words_set_preview_words_set_name_info">18sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_name">18sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_name">17.5sp</dimen>
     <dimen name="f_custom_words_set_preview_words_set_description_info">18sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_description">14sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_description">13.5sp</dimen>
 
     <dimen name="f_download_custom_words_set_code_field_width">180dp</dimen>
 
