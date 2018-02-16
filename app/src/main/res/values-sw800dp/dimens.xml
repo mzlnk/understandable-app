@@ -42,6 +42,7 @@
     <!-- borders -->
     <dimen name="f_border_margin_large">25dp</dimen>
     <dimen name="f_border_margin_medium">15dp</dimen>
+    <dimen name="f_border_margin_small">2dp</dimen>
 
 
     <!-- start -->

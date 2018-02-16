@@ -92,6 +92,8 @@
                             android:id="@+id/f_user_stats_words_tests_stats_table"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/f_side_margin"
+                            android:layout_marginRight="@dimen/f_side_margin"
                             android:stretchColumns="*" >
 
                         </TableLayout>

@@ -62,6 +62,8 @@
                 android:id="@+id/f_all_custom_words_sets_list_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/f_side_margin"
+                android:layout_marginRight="@dimen/f_side_margin"
                 android:shrinkColumns="*">
 
             </TableLayout>

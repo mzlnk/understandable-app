@@ -31,7 +31,9 @@
             <WebView
                 android:id="@+id/f_grammar_set_preview_webview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin" >
 
             </WebView>
         </LinearLayout>

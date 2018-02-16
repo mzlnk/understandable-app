@@ -37,6 +37,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
                 android:layout_gravity="center"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin"
                 android:gravity="center" >
 
                 <TextView
@@ -76,6 +78,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
                 android:layout_gravity="center"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin"
                 android:gravity="center" >
 
                 <TextView
@@ -115,6 +119,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="2"
                 android:layout_gravity="center"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin"
                 android:gravity="center" >
 
                 <TextView
