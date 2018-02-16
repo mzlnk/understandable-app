@@ -151,7 +151,7 @@
 
 
     <!-- irregular verb list -->
-    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">0.93</item>
+    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">0.92</item>
 
 
     <!-- Edit Texts -->

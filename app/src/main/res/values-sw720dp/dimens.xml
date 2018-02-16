@@ -11,15 +11,15 @@
 
 
     <!-- side margin -->
-    <dimen name="f_side_margin">10dp</dimen>
+    <dimen name="f_side_margin">50dp</dimen>
 
 
     <!-- navigation -->
     <dimen name="navigation_text">20sp</dimen>
     <dimen name="navigation_item_height">65dp</dimen>
-    <dimen name="navigation_title">42sp</dimen>
-    <dimen name="navigation_header_height">125dp</dimen>
-    <dimen name="navigation_icon_size">65dp</dimen>
+    <dimen name="navigation_title">46sp</dimen>
+    <dimen name="navigation_header_height">140dp</dimen>
+    <dimen name="navigation_icon_size">70dp</dimen>
     <dimen name="navigation_margin">19dp</dimen>
 
 
@@ -35,7 +35,7 @@
 
 
     <!-- titles -->
-    <dimen name="f_text_title_large">60sp</dimen>
+    <dimen name="f_text_title_large">65sp</dimen>
     <dimen name="f_text_title_medium">34sp</dimen>
 
 
@@ -45,12 +45,12 @@
 
 
     <!-- start -->
-    <dimen name="f_start_title">24sp</dimen>
-    <dimen name="f_content_start_screen_icon">140dp</dimen>
+    <dimen name="f_start_title">25sp</dimen>
+    <dimen name="f_content_start_screen_icon">145dp</dimen>
 
 
     <!-- choice -->
-    <dimen name="f_choice_icon_size">100dp</dimen>
+    <dimen name="f_choice_icon_size">110dp</dimen>
     <dimen name="f_choice_length_amount">60sp</dimen>
     <dimen name="f_choice_button_margin">10dp</dimen>
     <dimen name="f_choice_subcategory_subtitle">24sp</dimen>
@@ -62,33 +62,33 @@
     <dimen name="f_repetition_example_word_1">35sp</dimen>
     <dimen name="f_repetition_example_word_2">24sp</dimen>
 
-    <dimen name="f_repetition_result_words_seen_amount">45sp</dimen>
-    <dimen name="f_repetition_result_words_to_repeat_amount">45sp</dimen>
-    <dimen name="f_repetition_result_words_seen_info">19sp</dimen>
-    <dimen name="f_repetition_result_words_to_repeat_info">19sp</dimen>
-    <dimen name="f_repetition_result_words_to_repeat_subtitle">24sp</dimen>
+    <dimen name="f_repetition_result_words_seen_amount">48sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_amount">48sp</dimen>
+    <dimen name="f_repetition_result_words_seen_info">22sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_info">22sp</dimen>
+    <dimen name="f_repetition_result_words_to_repeat_subtitle">27sp</dimen>
 
 
     <!-- irregular verbs repetition -->
-    <dimen name="f_irregular_verbs_repetition_example_word">23sp</dimen>
+    <dimen name="f_irregular_verbs_repetition_example_word">25sp</dimen>
     <dimen name="f_irregular_verbs_repetition_example_margin">9dp</dimen>
 
 
     <!-- quiz -->
-    <dimen name="f_quiz_question_number">19sp</dimen>
-    <dimen name="f_quiz_question">28sp</dimen>
-    <dimen name="f_quiz_option">20sp</dimen>
+    <dimen name="f_quiz_question_number">22sp</dimen>
+    <dimen name="f_quiz_question">31sp</dimen>
+    <dimen name="f_quiz_option">22sp</dimen>
     <dimen name="f_quiz_margin">8dp</dimen>
 
     <dimen name="f_quiz_result_questions_amount">48sp</dimen>
     <dimen name="f_quiz_result_answers_amount_info">26sp</dimen>
-    <dimen name="f_quiz_result_correct_answers_amount">33sp</dimen>
-    <dimen name="f_quiz_result_incorrect_answers_amount">33sp</dimen>
-    <dimen name="f_quiz_result_correct_answers_amount_info">19sp</dimen>
-    <dimen name="f_quiz_result_incorrect_answers_amount_info">19sp</dimen>
+    <dimen name="f_quiz_result_correct_answers_amount">35sp</dimen>
+    <dimen name="f_quiz_result_incorrect_answers_amount">35sp</dimen>
+    <dimen name="f_quiz_result_correct_answers_amount_info">20sp</dimen>
+    <dimen name="f_quiz_result_incorrect_answers_amount_info">20sp</dimen>
 
-    <dimen name="f_quiz_result_image_width">60dp</dimen>
-    <dimen name="f_quiz_result_image_height">60dp</dimen>
+    <dimen name="f_quiz_result_image_width">65dp</dimen>
+    <dimen name="f_quiz_result_image_height">65dp</dimen>
 
 
     <!-- grammar quiz -->
@@ -96,34 +96,34 @@
 
 
     <!-- spelling -->
-    <dimen name="f_spelling_example_word_1">29sp</dimen>
-    <dimen name="f_spelling_example_word_2">22sp</dimen>
+    <dimen name="f_spelling_example_word_1">31sp</dimen>
+    <dimen name="f_spelling_example_word_2">24sp</dimen>
 
     <dimen name="f_spelling_answer_field_width">380dp</dimen>
 
     <dimen name="f_spelling_result_words_seen_amount">48sp</dimen>
     <dimen name="f_spelling_result_words_seen_info">26sp</dimen>
-    <dimen name="f_spelling_result_correct_answers_amount">33sp</dimen>
-    <dimen name="f_spelling_result_incorrect_answers_amount">33sp</dimen>
-    <dimen name="f_spelling_result_correct_answers_amount_info">19sp</dimen>
-    <dimen name="f_spelling_result_incorrect_answers_amount_info">19sp</dimen>
+    <dimen name="f_spelling_result_correct_answers_amount">35sp</dimen>
+    <dimen name="f_spelling_result_incorrect_answers_amount">35sp</dimen>
+    <dimen name="f_spelling_result_correct_answers_amount_info">20sp</dimen>
+    <dimen name="f_spelling_result_incorrect_answers_amount_info">20sp</dimen>
 
-    <dimen name="f_spelling_result_image_width">60dp</dimen>
-    <dimen name="f_spelling_result_image_height">60dp</dimen>
+    <dimen name="f_spelling_result_image_width">65dp</dimen>
+    <dimen name="f_spelling_result_image_height">65dp</dimen>
 
 
     <!-- grammar fill gap -->
-    <dimen name="f_grammar_fill_gap_example_question">27sp</dimen>
+    <dimen name="f_grammar_fill_gap_example_question">28sp</dimen>
 
     <dimen name="f_grammar_fill_gap_result_words_seen_amount">48sp</dimen>
     <dimen name="f_grammar_fill_gap_result_words_seen_info">26sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">33sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">33sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_correct_answers_info">19sp</dimen>
-    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">19sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_amount">35sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_amount">35sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_correct_answers_info">20sp</dimen>
+    <dimen name="f_grammar_fill_gap_result_incorrect_answers_info">20sp</dimen>
 
-    <dimen name="f_grammar_fill_gap_result_image_width">60dp</dimen>
-    <dimen name="f_grammar_fill_gap_result_image_height">60dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_width">65dp</dimen>
+    <dimen name="f_grammar_fill_gap_result_image_height">65dp</dimen>
 
 
     <!-- grammar sets list -->
@@ -135,12 +135,12 @@
     <dimen name="f_custom_words_sets_list_row_height">65dp</dimen>
     <dimen name="f_custom_words_sets_list_row_margin">8dp</dimen>
 
-    <dimen name="f_custom_words_set_preview_words_set_id_info">23sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_id">27sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_name_info">23sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_name">23sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_description_info">23sp</dimen>
-    <dimen name="f_custom_words_set_preview_words_set_description">18sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_id_info">24sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_id">28sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_name_info">24sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_name">24sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_description_info">24sp</dimen>
+    <dimen name="f_custom_words_set_preview_words_set_description">19sp</dimen>
 
     <dimen name="f_download_custom_words_set_code_field_width">240dp</dimen>
 
@@ -162,7 +162,7 @@
 
     <!-- dialog boxes -->
     <dimen name="d_dialog_box_width">410dp</dimen>
-    <dimen name="d_user_dialog_box_height">130dp</dimen>
+    <dimen name="d_user_dialog_box_height">140dp</dimen>
     <dimen name="d_announcement_dialog_box_height">600dp</dimen>
 
     <dimen name="d_title_field_height">82dp</dimen>
@@ -174,16 +174,16 @@
     <dimen name="d_user_achievement_preview_icon_size">145dp</dimen>
     <dimen name="d_help_icon_width">168dp</dimen>
     <dimen name="d_help_icon_height">310dp</dimen>
-    <dimen name="d_user_dialog_box_message">21sp</dimen>
+    <dimen name="d_user_dialog_box_message">24sp</dimen>
 
 
     <!-- user -->
     <dimen name="f_user_field_text">24sp</dimen>
     <dimen name="f_user_info_text">18sp</dimen>
-    <dimen name="f_user_stats_icon_medium_size">80dp</dimen> <!-- 85% of choice icon size -->
-    <dimen name="f_user_stats_icon_large_size">125dp</dimen> <!-- 120% of choice icon size -->
-    <item name="f_user_stats_text_medium_factor" format="float" type="dimen">1.5</item>
-    <item name="f_user_stats_text_large_factor" format="float" type="dimen">2.0</item>
+    <dimen name="f_user_stats_icon_medium_size">90dp</dimen> <!-- 85% of choice icon size -->
+    <dimen name="f_user_stats_icon_large_size">135dp</dimen> <!-- 120% of choice icon size -->
+    <item name="f_user_stats_text_medium_factor" format="float" type="dimen">1.6</item>
+    <item name="f_user_stats_text_large_factor" format="float" type="dimen">2.1</item>
     <dimen name="f_user_stats_margin">8dp</dimen> <!-- 400% of f_list_margin -->
     <dimen name="f_user_stats_margin_large">12dp</dimen> <!-- 600% of f_list_margin -->
     <dimen name="f_user_stats_stats_subtitle">24sp</dimen>
