@@ -43,7 +43,7 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class WordsListFragment extends Fragment {
 
-    private static final int ELEMENTS_PER_PAGE = 200;
+    private static final int ELEMENTS_PER_PAGE = 150;
 
     private int start = 0;
     private int end = ELEMENTS_PER_PAGE;

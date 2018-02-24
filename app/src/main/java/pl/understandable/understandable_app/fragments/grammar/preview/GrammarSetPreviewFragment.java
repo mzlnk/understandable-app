@@ -39,7 +39,7 @@ public class GrammarSetPreviewFragment extends Fragment {
     private RelativeLayout mainLayout;
     private WebView webView;
     private TextView title;
-    private Button start;
+    //private Button start;
 
     private String id;
     private String name;
@@ -82,7 +82,7 @@ public class GrammarSetPreviewFragment extends Fragment {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_grammar_set_preview);
         webView = (WebView) rootView.findViewById(R.id.f_grammar_set_preview_webview);
         title = (TextView) rootView.findViewById(R.id.f_grammar_set_preview_title);
-        start = (Button) rootView.findViewById(R.id.f_grammar_set_preview_button_start_learning);
+        //start = (Button) rootView.findViewById(R.id.f_grammar_set_preview_button_start_learning);
     }
 
     private void setAnimation() {
@@ -100,15 +100,15 @@ public class GrammarSetPreviewFragment extends Fragment {
     private void setFonts() {
         Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeFace);
-        start.setTypeface(typeFace);
+        //start.setTypeface(typeFace);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            start.setBackgroundResource(R.drawable.field_rounded_light_pink);
+            //start.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
-            start.setBackgroundResource(R.drawable.field_rounded_light_gray);
+            //start.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
 
@@ -147,17 +147,17 @@ public class GrammarSetPreviewFragment extends Fragment {
     }
 
     private void addListeners() {
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdUtil.showAd(getContext());
-
-                GrammarEntitiesRepository.create(getContext(), id);
-                GrammarChoiceModeFragment grammarChoiceModeFragment = GrammarChoiceModeFragment.newInstance(id, name);
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, grammarChoiceModeFragment, redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
-            }
-        });
+//        start.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AdUtil.showAd(getContext());
+//
+//                GrammarEntitiesRepository.create(getContext(), id);
+//                GrammarChoiceModeFragment grammarChoiceModeFragment = GrammarChoiceModeFragment.newInstance(id, name);
+//                FragmentManager fragmentManager = getFragmentManager();
+//                fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, grammarChoiceModeFragment, redirectTo(F_GRAMMAR_SET_PREVIEW, id, name)).commit();
+//            }
+//        });
     }
 
 }

@@ -1,40 +1,166 @@
 {
   "irregularVerbEntities": [
     {
-      "polish": "być",
+      "polish": "zsiadać, wysiadać",
       "english": [
-        "be",
-        "was/were",
-        "been"
+        "alight",
+        "alighted/ alit",
+        "alighted/ alit"
       ],
       "id": 1
     },
     {
-      "polish": "stawać się",
+      "polish": "nadarzać się, powstawać",
+      "english": [
+        "arise",
+        "arose",
+        "arisen"
+      ],
+      "id": 2
+    },
+    {
+      "polish": "obudzić się",
+      "english": [
+        "awake",
+        "awoke/ awaked",
+        "awoken/ awaked"
+      ],
+      "id": 3
+    },
+    {
+      "polish": "być",
+      "english": [
+        "be",
+        "was/ were",
+        "been"
+      ],
+      "id": 4
+    },
+    {
+      "polish": "pobić",
+      "english": [
+        "beat",
+        "beat",
+        "beaten"
+      ],
+      "id": 5
+    },
+    {
+      "polish": "znosić, urodzić",
+      "english": [
+        "bear",
+        "bore",
+        "born"
+      ],
+      "id": 6
+    },
+    {
+      "polish": "stać się",
       "english": [
         "become",
         "became",
         "become"
       ],
-      "id": 2
+      "id": 7
     },
     {
-      "polish": "zaczynać",
+      "polish": "zacząć",
       "english": [
         "begin",
         "began",
         "begun"
       ],
-      "id": 3
+      "id": 8
     },
     {
-      "polish": "zepsuć, złamać",
+      "polish": "zginać",
+      "english": [
+        "bend",
+        "bent",
+        "bent"
+      ],
+      "id": 9
+    },
+    {
+      "polish": "pozbawić, osierocić",
+      "english": [
+        "bereave",
+        "bereaved/ bereft",
+        "bereaved/ bereft"
+      ],
+      "id": 10
+    },
+    {
+      "polish": "błagać, poprosić",
+      "english": [
+        "beseech",
+        "beseeched/ besought",
+        "beseeched/ besought"
+      ],
+      "id": 11
+    },
+    {
+      "polish": "zakładać się",
+      "english": [
+        "bet",
+        "bet/ betted",
+        "bet/ betted"
+      ],
+      "id": 12
+    },
+    {
+      "polish": "kazać, rozkazać",
+      "english": [
+        "bid",
+        "bade/ bid",
+        "bidden/ bid/ bade"
+      ],
+      "id": 13
+    },
+    {
+      "polish": "gryźć",
+      "english": [
+        "bite",
+        "bit",
+        "bitten"
+      ],
+      "id": 14
+    },
+    {
+      "polish": "krwawić",
+      "english": [
+        "bleed",
+        "bled",
+        "bled"
+      ],
+      "id": 15
+    },
+    {
+      "polish": "poświęcić, pobłogosławić",
+      "english": [
+        "bless",
+        "blessed/ blest",
+        "blessed/ blest"
+      ],
+      "id": 16
+    },
+    {
+      "polish": "dmuchać",
+      "english": [
+        "blow",
+        "blew",
+        "blown"
+      ],
+      "id": 17
+    },
+    {
+      "polish": "łamać",
       "english": [
         "break",
         "broke",
         "broken"
       ],
-      "id": 4
+      "id": 18
     },
     {
       "polish": "przynosić",
@@ -43,7 +169,16 @@
         "brought",
         "brought"
       ],
-      "id": 5
+      "id": 19
+    },
+    {
+      "polish": "transmitować, nadawać",
+      "english": [
+        "broadcast",
+        "broadcast/ broadcasted",
+        "broadcast/ broadcasted"
+      ],
+      "id": 20
     },
     {
       "polish": "budować",
@@ -52,7 +187,25 @@
         "built",
         "built"
       ],
-      "id": 6
+      "id": 21
+    },
+    {
+      "polish": "spłonąć",
+      "english": [
+        "burn",
+        "burnt",
+        "burnt"
+      ],
+      "id": 22
+    },
+    {
+      "polish": "wybuchnąć",
+      "english": [
+        "burst",
+        "burst",
+        "burst"
+      ],
+      "id": 23
     },
     {
       "polish": "kupować",
@@ -61,7 +214,7 @@
         "bought",
         "bought"
       ],
-      "id": 7
+      "id": 24
     },
     {
       "polish": "łapać",
@@ -70,7 +223,16 @@
         "caught",
         "caught"
       ],
-      "id": 8
+      "id": 25
+    },
+    {
+      "polish": "rzucać",
+      "english": [
+        "cast",
+        "cast",
+        "cast"
+      ],
+      "id": 26
     },
     {
       "polish": "wybierać",
@@ -79,16 +241,34 @@
         "chose",
         "chosen"
       ],
-      "id": 9
+      "id": 27
     },
     {
-      "polish": "przyjść",
+      "polish": "rozłupać, rozdzielić",
+      "english": [
+        "cleave",
+        "cleaved/ cleft/ clove",
+        "cleaved/ cleft/ cloven"
+      ],
+      "id": 28
+    },
+    {
+      "polish": "uparcie trwać (przy czymś), czepić się (czegoś)",
+      "english": [
+        "cling",
+        "clung",
+        "clung"
+      ],
+      "id": 29
+    },
+    {
+      "polish": "przychodzić",
       "english": [
         "come",
         "came",
         "come"
       ],
-      "id": 10
+      "id": 30
     },
     {
       "polish": "kosztować",
@@ -97,7 +277,25 @@
         "cost",
         "cost"
       ],
-      "id": 11
+      "id": 31
+    },
+    {
+      "polish": "skradać się",
+      "english": [
+        "creep",
+        "crept",
+        "crept"
+      ],
+      "id": 32
+    },
+    {
+      "polish": "piać, gaworzyć",
+      "english": [
+        "crow",
+        "crowed",
+        "crowed/ crew"
+      ],
+      "id": 33
     },
     {
       "polish": "ciąć",
@@ -106,7 +304,25 @@
         "cut",
         "cut"
       ],
-      "id": 12
+      "id": 34
+    },
+    {
+      "polish": "zajmować się",
+      "english": [
+        "deal",
+        "dealt",
+        "dealt"
+      ],
+      "id": 35
+    },
+    {
+      "polish": "kopać",
+      "english": [
+        "dig",
+        "dug",
+        "dug"
+      ],
+      "id": 36
     },
     {
       "polish": "robić",
@@ -115,7 +331,7 @@
         "did",
         "done"
       ],
-      "id": 13
+      "id": 37
     },
     {
       "polish": "rysować",
@@ -124,16 +340,16 @@
         "drew",
         "drawn"
       ],
-      "id": 14
+      "id": 38
     },
     {
-      "polish": "marzyć",
+      "polish": "śnić, marzyć",
       "english": [
         "dream",
-        "dreamed/dreamt",
-        "dreamed/dreamt"
+        "dreamed/ dreamt",
+        "dreamed/ dreamt"
       ],
-      "id": 15
+      "id": 39
     },
     {
       "polish": "pić",
@@ -142,7 +358,7 @@
         "drank",
         "drunk"
       ],
-      "id": 16
+      "id": 40
     },
     {
       "polish": "prowadzić samochód",
@@ -151,7 +367,7 @@
         "drove",
         "driven"
       ],
-      "id": 17
+      "id": 41
     },
     {
       "polish": "jeść",
@@ -160,16 +376,16 @@
         "ate",
         "eaten"
       ],
-      "id": 18
+      "id": 42
     },
     {
-      "polish": "upaść",
+      "polish": "upadać",
       "english": [
         "fall",
         "fell",
         "fallen"
       ],
-      "id": 19
+      "id": 43
     },
     {
       "polish": "karmić",
@@ -178,7 +394,7 @@
         "fed",
         "fed"
       ],
-      "id": 20
+      "id": 44
     },
     {
       "polish": "czuć",
@@ -187,7 +403,7 @@
         "felt",
         "felt"
       ],
-      "id": 21
+      "id": 45
     },
     {
       "polish": "walczyć",
@@ -196,7 +412,7 @@
         "fought",
         "fought"
       ],
-      "id": 22
+      "id": 46
     },
     {
       "polish": "znaleźć",
@@ -205,7 +421,16 @@
         "found",
         "found"
       ],
-      "id": 23
+      "id": 47
+    },
+    {
+      "polish": "uciekać",
+      "english": [
+        "flee",
+        "fled",
+        "fled"
+      ],
+      "id": 48
     },
     {
       "polish": "lecieć",
@@ -214,25 +439,43 @@
         "flew",
         "flown"
       ],
-      "id": 24
+      "id": 49
     },
     {
-      "polish": "zapomnieć",
+      "polish": "zakazać, zabronić",
+      "english": [
+        "forbid",
+        "forbade",
+        "forbidden"
+      ],
+      "id": 50
+    },
+    {
+      "polish": "zapominać",
       "english": [
         "forget",
         "forgot",
         "forgotten"
       ],
-      "id": 25
+      "id": 51
     },
     {
-      "polish": "wybaczyć",
+      "polish": "wybaczać",
       "english": [
         "forgive",
         "forgave",
         "forgiven"
       ],
-      "id": 26
+      "id": 52
+    },
+    {
+      "polish": "zamarznąć",
+      "english": [
+        "freeze",
+        "froze",
+        "frozen"
+      ],
+      "id": 53
     },
     {
       "polish": "dostać",
@@ -241,16 +484,16 @@
         "got",
         "got"
       ],
-      "id": 27
+      "id": 54
     },
     {
-      "polish": "dać",
+      "polish": "dawać",
       "english": [
         "give",
         "gave",
         "given"
       ],
-      "id": 28
+      "id": 55
     },
     {
       "polish": "iść",
@@ -259,16 +502,898 @@
         "went",
         "gone"
       ],
-      "id": 29
+      "id": 56
     },
     {
-      "polish": "rosnąć",
+      "polish": "siekać, mielić",
+      "english": [
+        "grind",
+        "ground",
+        "ground"
+      ],
+      "id": 57
+    },
+    {
+      "polish": "rosnąć, hodować",
       "english": [
         "grow",
         "grew",
         "grown"
       ],
-      "id": 30
+      "id": 58
+    },
+    {
+      "polish": "mieć",
+      "english": [
+        "have",
+        "had",
+        "had"
+      ],
+      "id": 59
+    },
+    {
+      "polish": "słyszeć",
+      "english": [
+        "hear",
+        "heard",
+        "heard"
+      ],
+      "id": 60
+    },
+    {
+      "polish": "ukrywać",
+      "english": [
+        "hide",
+        "hid",
+        "hidden"
+      ],
+      "id": 61
+    },
+    {
+      "polish": "uderzać",
+      "english": [
+        "hit",
+        "hit",
+        "hit"
+      ],
+      "id": 62
+    },
+    {
+      "polish": "trzymać",
+      "english": [
+        "hold",
+        "held",
+        "held"
+      ],
+      "id": 63
+    },
+    {
+      "polish": "powiesić",
+      "english": [
+        "hang",
+        "hung",
+        "hung"
+      ],
+      "id": 64
+    },
+    {
+      "polish": "ranić",
+      "english": [
+        "hurt",
+        "hurt",
+        "hurt"
+      ],
+      "id": 65
+    },
+    {
+      "polish": "trzymać",
+      "english": [
+        "keep",
+        "kept",
+        "kept"
+      ],
+      "id": 66
+    },
+    {
+      "polish": "klęczeć",
+      "english": [
+        "kneel",
+        "knelt",
+        "knelt"
+      ],
+      "id": 67
+    },
+    {
+      "polish": "robić na drutach",
+      "english": [
+        "knit",
+        "knit",
+        "knit"
+      ],
+      "id": 68
+    },
+    {
+      "polish": "znać",
+      "english": [
+        "know",
+        "knew",
+        "known"
+      ],
+      "id": 69
+    },
+    {
+      "polish": "kłaść",
+      "english": [
+        "lay",
+        "laid",
+        "laid"
+      ],
+      "id": 70
+    },
+    {
+      "polish": "prowadzić",
+      "english": [
+        "lead",
+        "led",
+        "led"
+      ],
+      "id": 71
+    },
+    {
+      "polish": "opierać się",
+      "english": [
+        "lean",
+        "leaned/ leant",
+        "leaned/ leant"
+      ],
+      "id": 72
+    },
+    {
+      "polish": "przeskoczyć, skakać",
+      "english": [
+        "leap",
+        "leaped/ leapt",
+        "leaped/ leapt"
+      ],
+      "id": 73
+    },
+    {
+      "polish": "uczyć się",
+      "english": [
+        "learn",
+        "learned/ learnt",
+        "learned/ learnt"
+      ],
+      "id": 74
+    },
+    {
+      "polish": "opuszczać",
+      "english": [
+        "leave",
+        "left",
+        "left"
+      ],
+      "id": 75
+    },
+    {
+      "polish": "pożyczać (komuś)",
+      "english": [
+        "lend",
+        "lent",
+        "lent"
+      ],
+      "id": 76
+    },
+    {
+      "polish": "pozwalać",
+      "english": [
+        "let",
+        "let",
+        "let"
+      ],
+      "id": 77
+    },
+    {
+      "polish": "leżeć",
+      "english": [
+        "lie",
+        "lay",
+        "lain"
+      ],
+      "id": 78
+    },
+    {
+      "polish": "świecić",
+      "english": [
+        "light",
+        "lit",
+        "lit"
+      ],
+      "id": 79
+    },
+    {
+      "polish": "gubić",
+      "english": [
+        "lose",
+        "lost",
+        "lost"
+      ],
+      "id": 80
+    },
+    {
+      "polish": "produkować",
+      "english": [
+        "make",
+        "made",
+        "made"
+      ],
+      "id": 81
+    },
+    {
+      "polish": "znaczyć, mieć na myśli",
+      "english": [
+        "mean",
+        "meant",
+        "meant"
+      ],
+      "id": 82
+    },
+    {
+      "polish": "pomylić się",
+      "english": [
+        "mistake",
+        "mistook",
+        "mistaken"
+      ],
+      "id": 83
+    },
+    {
+      "polish": "źle zrozumieć",
+      "english": [
+        "misunderstand",
+        "misunderstood",
+        "misunderstood"
+      ],
+      "id": 84
+    },
+    {
+      "polish": "spotykać",
+      "english": [
+        "meet",
+        "met",
+        "met"
+      ],
+      "id": 85
+    },
+    {
+      "polish": "topić",
+      "english": [
+        "melt",
+        "melted",
+        "melted/ molten"
+      ],
+      "id": 86
+    },
+    {
+      "polish": "kosić",
+      "english": [
+        "mow",
+        "mowed",
+        "mowed/ mown"
+      ],
+      "id": 87
+    },
+    {
+      "polish": "płacić",
+      "english": [
+        "pay ",
+        "paid",
+        "paid"
+      ],
+      "id": 88
+    },
+    {
+      "polish": "błagać",
+      "english": [
+        "plead",
+        "pleaded/ pled",
+        "pleaded/ pled"
+      ],
+      "id": 89
+    },
+    {
+      "polish": "udowadniać",
+      "english": [
+        "prove",
+        "proved",
+        "proved/ proven"
+      ],
+      "id": 90
+    },
+    {
+      "polish": "kłaść",
+      "english": [
+        "put",
+        "put",
+        "put"
+      ],
+      "id": 91
+    },
+    {
+      "polish": "rezygnować",
+      "english": [
+        "quit",
+        "quit",
+        "quit"
+      ],
+      "id": 92
+    },
+    {
+      "polish": "czytać",
+      "english": [
+        "read",
+        "read",
+        "read"
+      ],
+      "id": 93
+    },
+    {
+      "polish": "pozbyć się",
+      "english": [
+        "rid",
+        "rid",
+        "rid"
+      ],
+      "id": 94
+    },
+    {
+      "polish": "jeździć (na rowerze)",
+      "english": [
+        "ride",
+        "rode",
+        "ridden"
+      ],
+      "id": 95
+    },
+    {
+      "polish": "dzwonić",
+      "english": [
+        "ring",
+        "rang",
+        "rung"
+      ],
+      "id": 96
+    },
+    {
+      "polish": "podnieść",
+      "english": [
+        "rise",
+        "rose",
+        "risen"
+      ],
+      "id": 97
+    },
+    {
+      "polish": "biec",
+      "english": [
+        "run",
+        "ran",
+        "run"
+      ],
+      "id": 98
+    },
+    {
+      "polish": "mówić",
+      "english": [
+        "say",
+        "said",
+        "said"
+      ],
+      "id": 99
+    },
+    {
+      "polish": "widzieć",
+      "english": [
+        "see",
+        "saw",
+        "seen"
+      ],
+      "id": 100
+    },
+    {
+      "polish": "szukać",
+      "english": [
+        "seek",
+        "sought",
+        "sought"
+      ],
+      "id": 101
+    },
+    {
+      "polish": "sprzedawać",
+      "english": [
+        "sell",
+        "sold",
+        "sold"
+      ],
+      "id": 102
+    },
+    {
+      "polish": "szyć",
+      "english": [
+        "sew",
+        "sewed",
+        "sewed/ sewn"
+      ],
+      "id": 103
+    },
+    {
+      "polish": "strzyc",
+      "english": [
+        "shear",
+        "sheared",
+        "sheared/ shorn"
+      ],
+      "id": 104
+    },
+    {
+      "polish": "świecić, błyszczeć",
+      "english": [
+        "shine",
+        "shone",
+        "shone"
+      ],
+      "id": 105
+    },
+    {
+      "polish": "strzelać",
+      "english": [
+        "shoot",
+        "shot",
+        "shot"
+      ],
+      "id": 106
+    },
+    {
+      "polish": "wysyłać",
+      "english": [
+        "send",
+        "sent",
+        "sent"
+      ],
+      "id": 107
+    },
+    {
+      "polish": "ustawiać",
+      "english": [
+        "set",
+        "set",
+        "set"
+      ],
+      "id": 108
+    },
+    {
+      "polish": "trząść",
+      "english": [
+        "shake",
+        "shook",
+        "shaken"
+      ],
+      "id": 109
+    },
+    {
+      "polish": "pokazywać",
+      "english": [
+        "show",
+        "showed",
+        "shown"
+      ],
+      "id": 110
+    },
+    {
+      "polish": "kurczyć się",
+      "english": [
+        "shrink",
+        "shrank",
+        "shrunk"
+      ],
+      "id": 111
+    },
+    {
+      "polish": "zamknąć",
+      "english": [
+        "shut",
+        "shut",
+        "shut"
+      ],
+      "id": 112
+    },
+    {
+      "polish": "śpiewać",
+      "english": [
+        "sing",
+        "sang",
+        "sung"
+      ],
+      "id": 113
+    },
+    {
+      "polish": "zatopić",
+      "english": [
+        "sink",
+        "sank",
+        "sunk"
+      ],
+      "id": 114
+    },
+    {
+      "polish": "siedzieć",
+      "english": [
+        "sit",
+        "sat",
+        "sat"
+      ],
+      "id": 115
+    },
+    {
+      "polish": "wąchać",
+      "english": [
+        "smell",
+        "smelled/ smelt",
+        "smelled/ smelt"
+      ],
+      "id": 116
+    },
+    {
+      "polish": "pokonać, pobić",
+      "english": [
+        "smite",
+        "smote",
+        "smitten"
+      ],
+      "id": 117
+    },
+    {
+      "polish": "spać",
+      "english": [
+        "sleep",
+        "slept",
+        "slept"
+      ],
+      "id": 118
+    },
+    {
+      "polish": "mówić",
+      "english": [
+        "speak",
+        "spoke",
+        "spoken"
+      ],
+      "id": 119
+    },
+    {
+      "polish": "pędzić, mknąć",
+      "english": [
+        "speed",
+        "speeded/ sped",
+        "speeded/ sped"
+      ],
+      "id": 120
+    },
+    {
+      "polish": "literować, sylabizować",
+      "english": [
+        "spell",
+        "spelled/ spelt",
+        "spelled/ spelt"
+      ],
+      "id": 121
+    },
+    {
+      "polish": "wydawać",
+      "english": [
+        "spend",
+        "spent",
+        "spent"
+      ],
+      "id": 122
+    },
+    {
+      "polish": "rozlać",
+      "english": [
+        "spill",
+        "spilled/ spilt",
+        "spilled/ spilt"
+      ],
+      "id": 123
+    },
+    {
+      "polish": "obracać się",
+      "english": [
+        "spin",
+        "spun",
+        "spun"
+      ],
+      "id": 124
+    },
+    {
+      "polish": "pluć",
+      "english": [
+        "spit",
+        "spit",
+        "spit"
+      ],
+      "id": 125
+    },
+    {
+      "polish": "rozszczepić",
+      "english": [
+        "split",
+        "split",
+        "split"
+      ],
+      "id": 126
+    },
+    {
+      "polish": "zepsuć",
+      "english": [
+        "spoil",
+        "spoiled/ spoilt",
+        "spoiled /spoilt"
+      ],
+      "id": 127
+    },
+    {
+      "polish": "rozpościerać",
+      "english": [
+        "spread",
+        "spread",
+        "spread"
+      ],
+      "id": 128
+    },
+    {
+      "polish": "stać się",
+      "english": [
+        "stand",
+        "stood",
+        "stood"
+      ],
+      "id": 129
+    },
+    {
+      "polish": "kraść",
+      "english": [
+        "steal",
+        "stole",
+        "stolen"
+      ],
+      "id": 130
+    },
+    {
+      "polish": "przyklejać, wbijać",
+      "english": [
+        "stick",
+        "stuck",
+        "stuck"
+      ],
+      "id": 131
+    },
+    {
+      "polish": "cuchnąć",
+      "english": [
+        "stink",
+        "stunk",
+        "stunk"
+      ],
+      "id": 132
+    },
+    {
+      "polish": "uderzać, strajkować",
+      "english": [
+        "strike",
+        "struck",
+        "struck"
+      ],
+      "id": 133
+    },
+    {
+      "polish": "nawlekać",
+      "english": [
+        "string",
+        "strung",
+        "strung"
+      ],
+      "id": 134
+    },
+    {
+      "polish": "starać się, zmagać się z (czymś)",
+      "english": [
+        "strive",
+        "strove",
+        "striven"
+      ],
+      "id": 135
+    },
+    {
+      "polish": "przysięgać, kląć",
+      "english": [
+        "swear",
+        "swore",
+        "sworn"
+      ],
+      "id": 136
+    },
+    {
+      "polish": "zamiatać",
+      "english": [
+        "sweep",
+        "swept",
+        "swept"
+      ],
+      "id": 137
+    },
+    {
+      "polish": "pływać",
+      "english": [
+        "swim",
+        "swam",
+        "swum"
+      ],
+      "id": 138
+    },
+    {
+      "polish": "brać",
+      "english": [
+        "take",
+        "took",
+        "taken"
+      ],
+      "id": 139
+    },
+    {
+      "polish": "uczyć kogoś",
+      "english": [
+        "teach",
+        "taught",
+        "taught"
+      ],
+      "id": 140
+    },
+    {
+      "polish": "rwać, szarpać",
+      "english": [
+        "tear",
+        "tore",
+        "torn"
+      ],
+      "id": 141
+    },
+    {
+      "polish": "mówić",
+      "english": [
+        "tell",
+        "told",
+        "told"
+      ],
+      "id": 142
+    },
+    {
+      "polish": "myśleć",
+      "english": [
+        "think",
+        "thought",
+        "thought"
+      ],
+      "id": 143
+    },
+    {
+      "polish": "rzucać",
+      "english": [
+        "throw",
+        "threw",
+        "thrown"
+      ],
+      "id": 144
+    },
+    {
+      "polish": "przejść",
+      "english": [
+        "undergo",
+        "underwent",
+        "undergone"
+      ],
+      "id": 145
+    },
+    {
+      "polish": "rozumieć",
+      "english": [
+        "understand",
+        "understood",
+        "understood"
+      ],
+      "id": 146
+    },
+    {
+      "polish": "tkać, knuć",
+      "english": [
+        "weave",
+        "wove",
+        "woven"
+      ],
+      "id": 147
+    },
+    {
+      "polish": "obudzić",
+      "english": [
+        "wake",
+        "woke",
+        "woken"
+      ],
+      "id": 148
+    },
+    {
+      "polish": "ubierać",
+      "english": [
+        "wear",
+        "wore",
+        "worn"
+      ],
+      "id": 149
+    },
+    {
+      "polish": "płakać",
+      "english": [
+        "weep",
+        "wept",
+        "wept"
+      ],
+      "id": 150
+    },
+    {
+      "polish": "wycofać się",
+      "english": [
+        "withdraw",
+        "withdrew",
+        "withdrawn"
+      ],
+      "id": 151
+    },
+    {
+      "polish": "wygrywać",
+      "english": [
+        "win",
+        "won",
+        "won"
+      ],
+      "id": 152
+    },
+    {
+      "polish": "pozbawić tchu",
+      "english": [
+        "wind",
+        "wound",
+        "wound"
+      ],
+      "id": 153
+    },
+    {
+      "polish": "wymuszać, wykręcać",
+      "english": [
+        "wring",
+        "wrung",
+        "wrung"
+      ],
+      "id": 154
+    },
+    {
+      "polish": "pisać",
+      "english": [
+        "write",
+        "wrote",
+        "written"
+      ],
+      "id": 155
     }
   ]
 }
