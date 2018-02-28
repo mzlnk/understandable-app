@@ -17,8 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.words.WordsType;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsTypeButton;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -120,7 +120,7 @@ public class WordsChoiceTypeFragment extends Fragment {
     }
 
     private void initTypeButtons() {
-        for(WordsLanguageType type : WordsLanguageType.values()) {
+        for(WordsType type : WordsType.values()) {
             types.add(new WordsTypeButton(getContext(), dataParams, type));
         }
     }

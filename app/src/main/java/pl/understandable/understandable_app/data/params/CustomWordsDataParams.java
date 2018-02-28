@@ -1,7 +1,9 @@
 package pl.understandable.understandable_app.data.params;
 
 import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningMode;
-import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningLanguageWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningOrderWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWordsWay;
 import pl.understandable.understandable_app.database.repository.CustomWordEntityRepository;
 
 /**
@@ -11,7 +13,9 @@ import pl.understandable.understandable_app.database.repository.CustomWordEntity
 public class CustomWordsDataParams extends BaseDataParams {
 
     public CustomWordsLearningMode mode = CustomWordsLearningMode.REPETITION;
-    public CustomWordsLearningWay way = CustomWordsLearningWay.RANDOM;
+    public CustomWordsLearningLanguageWay languageWay = CustomWordsLearningLanguageWay.RANDOM;
+    public CustomWordsLearningWordsWay wordsWay = CustomWordsLearningWordsWay.ALL_WORDS;
+    public CustomWordsLearningOrderWay orderWay = CustomWordsLearningOrderWay.NO_ORDER;
     public String id = "";
 
     public CustomWordsDataParams(String id) {
@@ -22,20 +26,36 @@ public class CustomWordsDataParams extends BaseDataParams {
         this.mode = mode;
     }
 
-    public void setWay(CustomWordsLearningWay way) {
-        this.way = way;
+    public void setLanguageWay(CustomWordsLearningLanguageWay languageWay) {
+        this.languageWay = languageWay;
     }
 
-    public boolean isChosen(CustomWordsLearningWay way) {
-        return this.way.equals(way);
+    public void setWordsWay(CustomWordsLearningWordsWay wordsWay) {
+        this.wordsWay = wordsWay;
+    }
+
+    public void setOrderWay(CustomWordsLearningOrderWay orderWay) {
+        this.orderWay = orderWay;
+    }
+
+    public boolean isChosen(CustomWordsLearningLanguageWay languageWay) {
+        return this.languageWay.equals(languageWay);
     }
 
     public boolean isChosen(CustomWordsLearningMode mode) {
         return this.mode.equals(mode);
     }
 
+    public boolean isChosen(CustomWordsLearningWordsWay wordsWay) {
+        return this.wordsWay.equals(wordsWay);
+    }
+
+    public boolean isChosen(CustomWordsLearningOrderWay orderWay) {
+        return this.orderWay.equals(orderWay);
+    }
+
     public int getMaximumAvailableWordsAmount() {
-        return CustomWordEntityRepository.getAllEntities().size();
+        return CustomWordEntityRepository.getEntities(wordsWay).size();
     }
 
     @Override
@@ -43,7 +63,9 @@ public class CustomWordsDataParams extends BaseDataParams {
         StringBuilder sb = new StringBuilder();
 
         sb.append(mode.name()).append(";");
-        sb.append(way.name()).append(";");
+        sb.append(languageWay.name()).append(";");
+        sb.append(wordsWay.name()).append(";");
+        sb.append(orderWay.name()).append(";");
         System.out.println("dataParams: output: " + sb.toString());
         return sb.toString();
     }
@@ -67,7 +89,29 @@ public class CustomWordsDataParams extends BaseDataParams {
         for(; i < input.length(); i++) {
             char c = input.charAt(i);
             if(c == ';') {
-                this.setWay(CustomWordsLearningWay.valueOf(str));
+                this.setLanguageWay(CustomWordsLearningLanguageWay.valueOf(str));
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                this.setWordsWay(CustomWordsLearningWordsWay.valueOf(str));
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                this.setOrderWay(CustomWordsLearningOrderWay.valueOf(str));
                 str = "";
                 i++;
                 break;

@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Map;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageSubcategory;
+import pl.understandable.understandable_app.data.enums.words.WordsCategory;
+import pl.understandable.understandable_app.data.enums.words.WordsSubcategory;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.utils.ColorUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
@@ -49,7 +49,7 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
     private TextView title;
     private Button submit, back;
 
-    private Map<WordsLanguageCategory, List<WordsSubcategoryButton>> subcategories = new HashMap<>();
+    private Map<WordsCategory, List<WordsSubcategoryButton>> subcategories = new HashMap<>();
     private WordsDataParams dataParams;
 
     private int i = 0;
@@ -128,13 +128,13 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
     }
 
     private void initSubcategoryButtons() {
-        for(WordsLanguageCategory category : WordsLanguageCategory.values()) {
+        for(WordsCategory category : WordsCategory.values()) {
             List<WordsSubcategoryButton> subcategoryButtons = new ArrayList<>();
             boolean active = false;
             if(dataParams.categories.contains(category)) {
                 active = true;
             }
-            for(WordsLanguageSubcategory subcategory : WordsLanguageSubcategory.getSubcategories(category)) {
+            for(WordsSubcategory subcategory : WordsSubcategory.getSubcategories(category)) {
                 subcategoryButtons.add(new WordsSubcategoryButton(getContext(), dataParams, subcategory, active));
             }
             subcategories.put(category, subcategoryButtons);
@@ -143,19 +143,19 @@ public class WordsChoiceSubcategoryFragment extends Fragment {
 
 
     private void addSubcategoryButtonsToTable() {
-        for(WordsLanguageCategory category : subcategories.keySet()) {
+        for(WordsCategory category : subcategories.keySet()) {
             if(dataParams.categories.contains(category)) {
                 addSubcategoriesToScrollView(category, true);
             }
         }
-        for(WordsLanguageCategory category : subcategories.keySet()) {
+        for(WordsCategory category : subcategories.keySet()) {
             if(!dataParams.categories.contains(category)) {
                 addSubcategoriesToScrollView(category, false);
             }
         }
     }
 
-    private void addSubcategoriesToScrollView(WordsLanguageCategory category, boolean active) {
+    private void addSubcategoriesToScrollView(WordsCategory category, boolean active) {
         int width = (int)((double)getLayoutWidth() / 4.0D);
 
         TextView title = prepareTextView(category.getName(), active);

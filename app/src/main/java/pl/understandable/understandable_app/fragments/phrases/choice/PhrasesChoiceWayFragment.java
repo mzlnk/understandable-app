@@ -34,7 +34,7 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class PhrasesChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "phrases.choice.way.dataParam";
+    private static final String DATA_PARAM = "phrases.choice.languageWay.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout waysLayout;

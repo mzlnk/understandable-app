@@ -23,17 +23,44 @@
             android:textSize="@dimen/f_text_title_medium"
             android:textColor="?attr/text_1_color" />
 
-        <TableLayout
-            android:id="@+id/f_custom_words_choice_way_names_layout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.7"
-            android:layout_marginRight="@dimen/f_side_margin"
-            android:layout_marginLeft="@dimen/f_side_margin"
-            android:orientation="horizontal"
-            android:stretchColumns="*" >
+            android:orientation="vertical" >
 
-        </TableLayout>
+            <TableLayout
+                android:id="@+id/f_custom_words_choice_language_way_names_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin"
+                android:orientation="horizontal"
+                android:stretchColumns="*" >
+
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/f_choice_subcategory_line_height"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_marginRight="@dimen/f_border_margin_medium"
+                android:layout_marginTop="@dimen/f_border_margin_large"
+                android:layout_marginBottom="@dimen/f_border_margin_large"
+                android:background="?attr/bottom_line_color" />
+
+            <TableLayout
+                android:id="@+id/f_custom_words_choice_words_and_order_way_names_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin"
+                android:orientation="horizontal"
+                android:stretchColumns="*" >
+
+            </TableLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

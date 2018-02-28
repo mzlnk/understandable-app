@@ -21,10 +21,8 @@ import java.util.List;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsListData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
-import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningLanguageWay;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
-import pl.understandable.understandable_app.dialogs.RateAppInfoDialog;
 import pl.understandable.understandable_app.user.ExpManager;
 import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.data.UserStatistics;
@@ -115,15 +113,14 @@ public class CustomWordsListFragment extends Fragment {
         boolean color = true;
 
         List<CustomWordEntity> entities = CustomWordsListData.getListData().getEntities();
-        CustomWordsLearningWay learningWay = CustomWordsListData.getListData().getParams().way;
-        EntitySortUtil.sort(entities, learningWay);
+        CustomWordsLearningLanguageWay learningWay = CustomWordsListData.getListData().getParams().languageWay;
 
         for(int i = start; i < end && i < entities.size(); i++) {
             CustomWordEntity word = entities.get(i);
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            if(learningWay.equals(CustomWordsLearningWay.ENGLISH_TO_POLISH)) {
+            if(learningWay.equals(CustomWordsLearningLanguageWay.ENGLISH_TO_POLISH)) {
                 prepareCell(t1, word.getEnglish());
                 prepareCell(t2, word.getPolish());
             } else {

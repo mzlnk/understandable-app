@@ -1,23 +1,23 @@
-package pl.understandable.understandable_app.utils.buttons.words;
+package pl.understandable.understandable_app.utils.buttons.custom_words;
 
 import android.content.Context;
 import android.view.View;
 
-import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
-import pl.understandable.understandable_app.data.params.WordsDataParams;
-
 import java.util.List;
 
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningLanguageWay;
+import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
+
 /**
- * Created by Marcin Zielonka on 2017-05-07.
+ * Created by Marcin Zielonka on 2017-07-29.
  */
 
-public class WordsWayButton extends WordsBaseButton {
+public class CustomWordsLanguageWayButton extends CustomWordsBaseButton {
 
-    private List<WordsWayButton> allWays;
-    private WordsLearningLanguageWay way;
+    private List<CustomWordsLanguageWayButton> allWays;
+    private CustomWordsLearningLanguageWay way;
 
-    public WordsWayButton(Context context, WordsDataParams dataParams, WordsLearningLanguageWay way, List<WordsWayButton> allWays) {
+    public CustomWordsLanguageWayButton(Context context, CustomWordsDataParams dataParams, CustomWordsLearningLanguageWay way, List<CustomWordsLanguageWayButton> allWays) {
         super(context, dataParams, way, false);
         this.way = way;
         this.allWays = allWays;
@@ -25,7 +25,7 @@ public class WordsWayButton extends WordsBaseButton {
         setImage();
     }
 
-    private WordsLearningLanguageWay getWay() {
+    private CustomWordsLearningLanguageWay getWay() {
         return way;
     }
 
@@ -48,8 +48,8 @@ public class WordsWayButton extends WordsBaseButton {
                 if(!isChecked()) {
                     image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
-                    dataParams.setLaguageWay(way);
-                    for(WordsWayButton w : allWays) {
+                    dataParams.setLanguageWay(way);
+                    for(CustomWordsLanguageWayButton w : allWays) {
                         if(w.getWay().equals(way)) {
                             continue;
                         }

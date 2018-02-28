@@ -3,7 +3,7 @@ package pl.understandable.understandable_app.utils.buttons.words;
 import android.content.Context;
 import android.view.View;
 
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
+import pl.understandable.understandable_app.data.enums.words.WordsCategory;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 /**
@@ -12,9 +12,9 @@ import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 public class WordsCategoryButton extends WordsBaseButton {
 
-    private WordsLanguageCategory category;
+    private WordsCategory category;
 
-    public WordsCategoryButton(Context context, WordsDataParams dataParams, WordsLanguageCategory category) {
+    public WordsCategoryButton(Context context, WordsDataParams dataParams, WordsCategory category) {
         super(context, dataParams, category, false);
         this.category = category;
         prepare();

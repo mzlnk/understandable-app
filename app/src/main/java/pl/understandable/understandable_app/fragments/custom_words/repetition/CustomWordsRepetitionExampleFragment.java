@@ -84,7 +84,7 @@ public class CustomWordsRepetitionExampleFragment extends Fragment {
     }
 
     private void setWords() {
-        switch(repetitionData.getParams().way) {
+        switch(repetitionData.getParams().languageWay) {
             case POLISH_TO_ENGLISH:
                 setWordsPolishToEnglish();
                 break;

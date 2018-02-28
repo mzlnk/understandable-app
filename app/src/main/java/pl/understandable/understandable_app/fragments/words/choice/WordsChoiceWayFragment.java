@@ -16,7 +16,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsWayButton;
@@ -25,16 +25,13 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
-import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
-import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
-
 /**
  * Created by Marcin Zielonka
  */
 
 public class WordsChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.choice.way.dataParam";
+    private static final String DATA_PARAM = "words.choice.languageWay.dataParam";
 
     private RelativeLayout mainLayout;
     private TableLayout waysLayout;
@@ -118,7 +115,7 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     private void initWayButtons() {
-        for(WordsLearningWay way : WordsLearningWay.values()) {
+        for(WordsLearningLanguageWay way : WordsLearningLanguageWay.values()) {
             ways.add(new WordsWayButton(getContext(), dataParams, way, ways));
         }
     }

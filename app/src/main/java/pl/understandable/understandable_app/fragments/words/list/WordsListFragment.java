@@ -3,7 +3,6 @@ package pl.understandable.understandable_app.fragments.words.list;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +21,7 @@ import java.util.List;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.dialogs.RateAppInfoDialog;
 import pl.understandable.understandable_app.user.ExpManager;
@@ -115,7 +114,7 @@ public class WordsListFragment extends Fragment {
         boolean color = true;
 
         List<WordEntity> entities = WordsListData.getListData().getEntities();
-        WordsLearningWay learningWay = WordsListData.getListData().getParams().way;
+        WordsLearningLanguageWay learningWay = WordsListData.getListData().getParams().laguageWay;
         EntitySortUtil.sort(entities, learningWay);
 
         for(int i = start; i < end && i < entities.size(); i++) {
@@ -123,7 +122,7 @@ public class WordsListFragment extends Fragment {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            if(learningWay.equals(WordsLearningWay.ENGLISH_TO_POLISH)) {
+            if(learningWay.equals(WordsLearningLanguageWay.ENGLISH_TO_POLISH)) {
                 prepareCell(t1, word.getEnglish());
                 prepareCell(t2, word.getPolish());
             } else {

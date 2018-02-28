@@ -4,9 +4,10 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageSubcategory;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
+import pl.understandable.understandable_app.data.enums.words.WordsCategory;
+import pl.understandable.understandable_app.data.enums.words.WordsSubcategory;
+import pl.understandable.understandable_app.data.enums.words.WordsType;
+import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.database.repository.maps.WordEntityMap;
 
@@ -50,16 +51,16 @@ public class WordEntityRepository {
         return wordEntityMap.getAllEntities();
     }
 
-    public static List<WordEntity> getSpecifiedEntities(List<WordsLanguageCategory> categories) {
-        return wordEntityMap.getSpecifiedEntities(categories);
+    public static List<WordEntity> getSpecifiedEntitiesByCategory(WordsDataParams params) {
+        return wordEntityMap.getSpecifiedEntitiesByCategory(params);
     }
 
-    public static List<WordEntity> getSpecifiedEntitiesBySubcategory(List<WordsLanguageCategory> categories, List<WordsLanguageSubcategory> subcategories) {
-        return wordEntityMap.getSpecifiedEntitiesBySubcategory(categories, subcategories);
+    public static List<WordEntity> getSpecifiedEntitiesBySubcategory(WordsDataParams params) {
+        return wordEntityMap.getSpecifiedEntitiesBySubcategory(params);
     }
 
-    public static List<WordEntity> getSpecifiedEntitiesByType(List<WordsLanguageCategory> categories, List<WordsLanguageType> types) {
-        return wordEntityMap.getSpecifiedEntitiesByType(categories, types);
+    public static List<WordEntity> getSpecifiedEntitiesByType(WordsDataParams params) {
+        return wordEntityMap.getSpecifiedEntitiesByType(params);
     }
 
 }

@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
  */
 
 
-public enum WordsLanguageType implements Identifiable {
+public enum WordsType implements Identifiable {
 
     VERB("czasownik", R.drawable.f_words_choice_checked),
     NOUN("rzeczownik", R.drawable.f_words_choice_checked),
@@ -21,7 +21,7 @@ public enum WordsLanguageType implements Identifiable {
     private String name;
     private int resId;
 
-    private WordsLanguageType(String name, int resId) {
+    private WordsType(String name, int resId) {
         this.name = name;
         this.resId = resId;
     }
@@ -36,13 +36,13 @@ public enum WordsLanguageType implements Identifiable {
         return resId;
     }
 
-    public static WordsLanguageType getEnum(String name) {
-        WordsLanguageType result;
+    public static WordsType getEnum(String name) {
+        WordsType result;
 
         try {
-            result = WordsLanguageType.valueOf(name);
+            result = WordsType.valueOf(name);
         } catch(IllegalArgumentException e) {
-            result = WordsLanguageType.PHRASE;
+            result = WordsType.PHRASE;
         }
 
         return result;

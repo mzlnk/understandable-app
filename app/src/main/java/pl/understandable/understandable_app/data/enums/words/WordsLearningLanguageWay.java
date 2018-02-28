@@ -9,17 +9,17 @@ import pl.understandable.understandable_app.data.enums.LearningWay;
  */
 
 
-public enum WordsLearningWay implements Identifiable, LearningWay {
+public enum WordsLearningLanguageWay implements Identifiable, LearningWay {
 
-    POLISH_TO_ENGLISH(0, "z polskiego na angielski", R.drawable.f_words_choice_way_polish_to_english),
-    ENGLISH_TO_POLISH(1, "z angielskiego na polski", R.drawable.f_words_choice_way_english_to_polish),
+    POLISH_TO_ENGLISH(0, "z polskiego\nna angielski", R.drawable.f_words_choice_way_polish_to_english),
+    ENGLISH_TO_POLISH(1, "z angielskiego\nna polski", R.drawable.f_words_choice_way_english_to_polish),
     RANDOM(2, "losowo", R.drawable.f_words_choice_way_random);
 
     private int id;
     private String name;
     private int resId;
 
-    private WordsLearningWay(int id, String name, int resId) {
+    private WordsLearningLanguageWay(int id, String name, int resId) {
         this.id = id;
         this.name = name;
         this.resId = resId;

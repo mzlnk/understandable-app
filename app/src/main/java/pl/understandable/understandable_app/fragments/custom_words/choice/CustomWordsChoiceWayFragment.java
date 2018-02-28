@@ -19,10 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningLanguageWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningOrderWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWordsWay;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsWayButton;
+import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsLanguageWayButton;
+import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsOrderWayButton;
+import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsWordsWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -31,15 +35,18 @@ import pl.understandable.understandable_app.utils.font.Font;
 
 public class CustomWordsChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "custom.words.choice.way.dataParam";
-    private static final String ID_PARAM = "custom.words.choice.way.idParam";
+    private static final String DATA_PARAM = "custom.words.choice.languageWay.dataParam";
+    private static final String ID_PARAM = "custom.words.choice.languageWay.idParam";
 
     private RelativeLayout mainLayout;
-    private TableLayout waysLayout;
+    private TableLayout laguageWaysLayout;
+    private TableLayout wordsAndOrderWaysLayout;
     private TextView title;
     private Button submit;
 
-    private List<CustomWordsWayButton> ways = new ArrayList<>();
+    private List<CustomWordsLanguageWayButton> laguageWays = new ArrayList<>();
+    private List<CustomWordsWordsWayButton> wordWays = new ArrayList<>();
+    private CustomWordsOrderWayButton orderWay;
     private CustomWordsDataParams dataParams;
 
     public CustomWordsChoiceWayFragment() {
@@ -70,7 +77,7 @@ public class CustomWordsChoiceWayFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the waysLayout for this fragment
+        // Inflate the laguageWaysLayout for this fragment
         View rootView = inflater.inflate(R.layout.f_custom_words_choice_way, container, false);
         loadViewFromXml(rootView);
         prepareLayout();
@@ -89,7 +96,8 @@ public class CustomWordsChoiceWayFragment extends Fragment {
 
     private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_custom_words_choice_way);
-        waysLayout = (TableLayout) rootView.findViewById(R.id.f_custom_words_choice_way_names_layout);
+        laguageWaysLayout = (TableLayout) rootView.findViewById(R.id.f_custom_words_choice_language_way_names_layout);
+        wordsAndOrderWaysLayout = (TableLayout) rootView.findViewById(R.id.f_custom_words_choice_words_and_order_way_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_custom_words_choice_way_title);
         submit = (Button) rootView.findViewById(R.id.f_custom_words_choice_way_submit);
     }
@@ -115,9 +123,13 @@ public class CustomWordsChoiceWayFragment extends Fragment {
     }
 
     private void initWayButtons() {
-        for(CustomWordsLearningWay way : CustomWordsLearningWay.values()) {
-            ways.add(new CustomWordsWayButton(getContext(), dataParams, way, ways));
+        for(CustomWordsLearningLanguageWay way : CustomWordsLearningLanguageWay.values()) {
+            laguageWays.add(new CustomWordsLanguageWayButton(getContext(), dataParams, way, laguageWays));
         }
+        for(CustomWordsLearningWordsWay way : CustomWordsLearningWordsWay.values()) {
+            wordWays.add(new CustomWordsWordsWayButton(getContext(), dataParams, way, wordWays));
+        }
+        orderWay = new CustomWordsOrderWayButton(getContext(), dataParams, CustomWordsLearningOrderWay.ALPHABETICAL);
     }
 
     private void addWayButtonsToTable() {
@@ -125,12 +137,12 @@ public class CustomWordsChoiceWayFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (CustomWordsWayButton wayButton : ways) {
-            currentImageRow.addView(wayButton.getImage());
-            currentTextRow.addView(wayButton.getText());
+        for (CustomWordsLanguageWayButton languageWayButton : laguageWays) {
+            currentImageRow.addView(languageWayButton.getImage());
+            currentTextRow.addView(languageWayButton.getText());
             if (x == 3) {
-                waysLayout.addView(currentImageRow);
-                waysLayout.addView(currentTextRow);
+                laguageWaysLayout.addView(currentImageRow);
+                laguageWaysLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
                 currentTextRow = new TableRow(getContext());
                 x = 0;
@@ -139,9 +151,35 @@ public class CustomWordsChoiceWayFragment extends Fragment {
             }
         }
         if (x != 0) {
-            waysLayout.addView(currentImageRow);
-            waysLayout.addView(currentTextRow);
+            laguageWaysLayout.addView(currentImageRow);
+            laguageWaysLayout.addView(currentTextRow);
         }
+
+        currentImageRow = new TableRow(getContext());
+        currentTextRow = new TableRow(getContext());
+        x = 0;
+
+        for(CustomWordsWordsWayButton wordWayButton : wordWays) {
+            currentImageRow.addView(wordWayButton.getImage());
+            currentTextRow.addView(wordWayButton.getText());
+            if (x == 3) {
+                wordsAndOrderWaysLayout.addView(currentImageRow);
+                wordsAndOrderWaysLayout.addView(currentTextRow);
+                currentImageRow = new TableRow(getContext());
+                currentTextRow = new TableRow(getContext());
+                x = 0;
+            } else {
+                x++;
+            }
+        }
+        currentImageRow.addView(orderWay.getImage());
+        currentTextRow.addView(orderWay.getText());
+        x++;
+        if (x != 0) {
+            wordsAndOrderWaysLayout.addView(currentImageRow);
+            wordsAndOrderWaysLayout.addView(currentTextRow);
+        }
+
     }
 
     private void addListeners() {

@@ -6,13 +6,13 @@ import java.util.List;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.Identifiable;
 
-import static pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory.*;
+import static pl.understandable.understandable_app.data.enums.words.WordsCategory.*;
 
 /**
  * Created by Marcin Zielonka on 2017-08-25.
  */
 
-public enum WordsLanguageSubcategory implements Identifiable {
+public enum WordsSubcategory implements Identifiable {
 
     MUSIC("muzyka", CULTURE),
     MUSIC_TYPES("rodzaje muzyki", CULTURE),
@@ -103,9 +103,9 @@ public enum WordsLanguageSubcategory implements Identifiable {
     MONEY("zarobki i pieniądze", WORK);
 
     private String name;
-    private WordsLanguageCategory category;
+    private WordsCategory category;
 
-    private WordsLanguageSubcategory(String name, WordsLanguageCategory category) {
+    private WordsSubcategory(String name, WordsCategory category) {
         this.name = name;
         this.category = category;
     }
@@ -120,13 +120,13 @@ public enum WordsLanguageSubcategory implements Identifiable {
         return R.drawable.f_words_choice_unchecked;
     }
 
-    public WordsLanguageCategory getCategory() {
+    public WordsCategory getCategory() {
         return category;
     }
 
-    public static List<WordsLanguageSubcategory> getSubcategories(WordsLanguageCategory category) {
-        List<WordsLanguageSubcategory> result = new ArrayList<>();
-        for(WordsLanguageSubcategory e : WordsLanguageSubcategory.values()) {
+    public static List<WordsSubcategory> getSubcategories(WordsCategory category) {
+        List<WordsSubcategory> result = new ArrayList<>();
+        for(WordsSubcategory e : WordsSubcategory.values()) {
             if(e.getCategory().equals(category)) {
                 result.add(e);
             }

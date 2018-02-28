@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageSubcategory;
+import pl.understandable.understandable_app.data.enums.words.WordsSubcategory;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 /**
@@ -15,10 +15,10 @@ public class WordsSubcategoryButton extends WordsBaseButton {
 
     private static final float ITEM_NOT_ACTIVE = 0.15F;
 
-    private WordsLanguageSubcategory subcategory;
+    private WordsSubcategory subcategory;
     private boolean active;
 
-    public WordsSubcategoryButton(Context context, WordsDataParams dataParams, WordsLanguageSubcategory subcategory, boolean active) {
+    public WordsSubcategoryButton(Context context, WordsDataParams dataParams, WordsSubcategory subcategory, boolean active) {
         super(context, dataParams, subcategory, false);
         this.subcategory = subcategory;
         this.active = active;

@@ -10,8 +10,8 @@ import pl.understandable.understandable_app.data.enums.LearningWay;
 
 public enum PhrasesLearningWay implements Identifiable, LearningWay {
 
-    POLISH_TO_ENGLISH(0, "z polskiego na angielski", R.drawable.f_words_choice_way_polish_to_english),
-    ENGLISH_TO_POLISH(1, "z angielskiego na polski", R.drawable.f_words_choice_way_english_to_polish),
+    POLISH_TO_ENGLISH(0, "z polskiego\nna angielski", R.drawable.f_words_choice_way_polish_to_english),
+    ENGLISH_TO_POLISH(1, "z angielskiego\nna polski", R.drawable.f_words_choice_way_english_to_polish),
     RANDOM(2, "losowo", R.drawable.f_words_choice_way_random);
 
     private int id;

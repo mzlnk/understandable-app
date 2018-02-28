@@ -5,27 +5,25 @@ import android.view.View;
 
 import java.util.List;
 
-import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWay;
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningOrderWay;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 
 /**
- * Created by Marcin Zielonka on 2017-07-29.
+ * Created by Marcin Zielonka on 2018-02-28.
  */
 
-public class CustomWordsWayButton extends CustomWordsBaseButton {
+public class CustomWordsOrderWayButton extends CustomWordsBaseButton {
 
-    private List<CustomWordsWayButton> allWays;
-    private CustomWordsLearningWay way;
+    private CustomWordsLearningOrderWay way;
 
-    public CustomWordsWayButton(Context context, CustomWordsDataParams dataParams, CustomWordsLearningWay way, List<CustomWordsWayButton> allWays) {
+    public CustomWordsOrderWayButton(Context context, CustomWordsDataParams dataParams, CustomWordsLearningOrderWay way) {
         super(context, dataParams, way, false);
         this.way = way;
-        this.allWays = allWays;
         prepare();
         setImage();
     }
 
-    private CustomWordsLearningWay getWay() {
+    private CustomWordsLearningOrderWay getWay() {
         return way;
     }
 
@@ -48,14 +46,11 @@ public class CustomWordsWayButton extends CustomWordsBaseButton {
                 if(!isChecked()) {
                     image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
-                    dataParams.setWay(way);
-                    for(CustomWordsWayButton w : allWays) {
-                        if(w.getWay().equals(way)) {
-                            continue;
-                        }
-                        w.getImage().setAlpha(ITEM_NOT_CHOSEN);
-                        w.setChecked(false);
-                    }
+                    dataParams.setOrderWay(way);
+                } else {
+                    image.setAlpha(ITEM_NOT_CHOSEN);
+                    setChecked(false);
+                    dataParams.setOrderWay(CustomWordsLearningOrderWay.NO_ORDER);
                 }
             }
         });

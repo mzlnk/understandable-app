@@ -5,20 +5,15 @@ import android.content.Context;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import pl.understandable.understandable_app.data.enums.custom_words.CustomWordsLearningWordsWay;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.database.repository.maps.CustomWordEntityMap;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Marcin Zielonka on 2017-07-25.
@@ -73,8 +68,8 @@ public class CustomWordEntityRepository {
         saveData();
     }
 
-    public static List<CustomWordEntity> getAllEntities() {
-        return customWordEntityMap.getAllEntities();
+    public static List<CustomWordEntity> getEntities(CustomWordsLearningWordsWay wordsWay) {
+        return customWordEntityMap.getEntities(wordsWay);
     }
 
 }

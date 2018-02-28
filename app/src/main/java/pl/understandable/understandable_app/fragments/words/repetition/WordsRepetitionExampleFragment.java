@@ -84,7 +84,7 @@ public class WordsRepetitionExampleFragment extends Fragment {
     }
 
     private void setWords() {
-        switch(repetitionData.getParams().way) {
+        switch(repetitionData.getParams().laguageWay) {
             case POLISH_TO_ENGLISH:
                 setWordsPolishToEnglish();
                 break;

@@ -2,4 +2,4 @@
 2. organize methods in fragment classes
 3. remove onCreate method which is only used to init data repository -> init in field
 4. remove unnecessary comments (especially in fragment classes)
-5. try to find a way to set font in xml file
+5. try to find a languageWay to set font in xml file

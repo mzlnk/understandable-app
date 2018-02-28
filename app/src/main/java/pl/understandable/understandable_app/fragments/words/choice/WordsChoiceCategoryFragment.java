@@ -18,8 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.words.WordsCategory;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsCategoryButton;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -112,7 +112,7 @@ public class WordsChoiceCategoryFragment extends Fragment {
     }
 
     private void initCategoriesButtons() {
-        for(WordsLanguageCategory category : WordsLanguageCategory.values()) {
+        for(WordsCategory category : WordsCategory.values()) {
             categories.add(new WordsCategoryButton(getContext(), dataParams, category));
         }
     }

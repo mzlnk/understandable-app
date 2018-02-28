@@ -40,13 +40,13 @@ public abstract class WordsBaseData extends BaseData implements Datable<WordEnti
     public void generateWords() {
         switch(params.method) {
             case ALL:
-                words = WordEntityRepository.getSpecifiedEntities(params.categories);
+                words = WordEntityRepository.getSpecifiedEntitiesByCategory(params);
                 break;
             case SUBCATEGORIES:
-                words = WordEntityRepository.getSpecifiedEntitiesBySubcategory(params.categories, params.subcategories);
+                words = WordEntityRepository.getSpecifiedEntitiesBySubcategory(params);
                 break;
             case TYPES:
-                words = WordEntityRepository.getSpecifiedEntitiesByType(params.categories, params.types);
+                words = WordEntityRepository.getSpecifiedEntitiesByType(params);
                 break;
         }
         resize();

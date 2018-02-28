@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
+import pl.understandable.understandable_app.data.enums.words.WordsType;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 /**
@@ -13,9 +13,9 @@ import pl.understandable.understandable_app.data.params.WordsDataParams;
 
 public class WordsTypeButton extends WordsBaseButton {
 
-    private WordsLanguageType type;
+    private WordsType type;
 
-    public WordsTypeButton(Context context, WordsDataParams dataParams, WordsLanguageType type) {
+    public WordsTypeButton(Context context, WordsDataParams dataParams, WordsType type) {
         super(context, dataParams, type, false);
         this.type = type;
         prepare();

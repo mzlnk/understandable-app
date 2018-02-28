@@ -89,7 +89,7 @@ public class WordsSpellingExampleFragment extends Fragment {
     }
 
     private void setWords() {
-        switch(spellingData.getParams().way) {
+        switch(spellingData.getParams().laguageWay) {
             case POLISH_TO_ENGLISH:
                 setWordsPolishToEnglish();
                 break;

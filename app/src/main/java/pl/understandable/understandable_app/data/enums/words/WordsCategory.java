@@ -8,7 +8,7 @@ import pl.understandable.understandable_app.data.enums.Identifiable;
  * Created by Marcin Zielonka on 2016-11-11.
  */
 
-public enum WordsLanguageCategory implements Identifiable {
+public enum WordsCategory implements Identifiable {
 
     HUMAN("człowiek", R.drawable.f_words_choice_category_human),
     HOUSE("dom", R.drawable.f_words_choice_category_house),
@@ -30,7 +30,7 @@ public enum WordsLanguageCategory implements Identifiable {
     private String name;
     private int resId;
 
-    private WordsLanguageCategory(String name, int resId) {
+    private WordsCategory(String name, int resId) {
         this.name = name;
         this.resId = resId;
     }
@@ -45,13 +45,13 @@ public enum WordsLanguageCategory implements Identifiable {
         return resId;
     }
 
-    public static WordsLanguageCategory getEnum(String name) {
-        WordsLanguageCategory result;
+    public static WordsCategory getEnum(String name) {
+        WordsCategory result;
 
         try {
-            result = WordsLanguageCategory.valueOf(name);
+            result = WordsCategory.valueOf(name);
         } catch (IllegalArgumentException e) {
-            result = WordsLanguageCategory.HUMAN;
+            result = WordsCategory.HUMAN;
         }
 
         return result;

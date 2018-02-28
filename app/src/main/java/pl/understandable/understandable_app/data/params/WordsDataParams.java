@@ -1,11 +1,13 @@
 package pl.understandable.understandable_app.data.params;
 
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageSubcategory;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningOrderWay;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;
+import pl.understandable.understandable_app.data.enums.words.WordsSubcategory;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningMethod;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningMode;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageCategory;
-import pl.understandable.understandable_app.data.enums.words.WordsLanguageType;
-import pl.understandable.understandable_app.data.enums.words.WordsLearningWay;
+import pl.understandable.understandable_app.data.enums.words.WordsCategory;
+import pl.understandable.understandable_app.data.enums.words.WordsType;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 
 import org.apache.commons.lang.math.NumberUtils;
@@ -19,57 +21,59 @@ import java.util.List;
 
 public class WordsDataParams extends BaseDataParams {
 
-    public List<WordsLanguageCategory> categories = new ArrayList<>();
-    public List<WordsLanguageType> types = new ArrayList<>();
-    public List<WordsLanguageSubcategory> subcategories = new ArrayList<>();
+    public List<WordsCategory> categories = new ArrayList<>();
+    public List<WordsType> types = new ArrayList<>();
+    public List<WordsSubcategory> subcategories = new ArrayList<>();
     public WordsLearningMethod method = WordsLearningMethod.ALL;
     public WordsLearningMode mode = WordsLearningMode.REPETITION;
-    public WordsLearningWay way = WordsLearningWay.RANDOM;
+    public WordsLearningLanguageWay laguageWay = WordsLearningLanguageWay.RANDOM;
+    public WordsLearningWordsWay wordsWay = WordsLearningWordsWay.ALL_WORDS;
+    public WordsLearningOrderWay orderWay = WordsLearningOrderWay.NO_ORDER;
     public int size = 1;
 
-    public void setCategories(List<WordsLanguageCategory> categories) {
+    public void setCategories(List<WordsCategory> categories) {
         this.categories = categories;
     }
 
-    public void addCategory(WordsLanguageCategory category) {
+    public void addCategory(WordsCategory category) {
         if(!categories.contains(category)) {
             categories.add(category);
         }
     }
 
-    public void removeCategory(WordsLanguageCategory category) {
+    public void removeCategory(WordsCategory category) {
         if(categories.contains(category)) {
             categories.remove(category);
         }
     }
 
-    public void setTypes(List<WordsLanguageType> types) {
+    public void setTypes(List<WordsType> types) {
         this.types = types;
     }
 
-    public void addType(WordsLanguageType type) {
+    public void addType(WordsType type) {
         if(!types.contains(type)) {
             types.add(type);
         }
     }
 
-    public void removeType(WordsLanguageType type) {
+    public void removeType(WordsType type) {
         if(types.contains(type)) {
             types.remove(type);
         }
     }
 
-    public void setSubcategories(List<WordsLanguageSubcategory> subcategories) {
+    public void setSubcategories(List<WordsSubcategory> subcategories) {
         this.subcategories = subcategories;
     }
 
-    public void addSubcategory(WordsLanguageSubcategory subcategory) {
+    public void addSubcategory(WordsSubcategory subcategory) {
         if(!subcategories.contains(subcategory)) {
             subcategories.add(subcategory);
         }
     }
 
-    public void removeSubcategory(WordsLanguageSubcategory subcategory) {
+    public void removeSubcategory(WordsSubcategory subcategory) {
         if(subcategories.contains(subcategory)) {
             subcategories.remove(subcategory);
         }
@@ -83,23 +87,31 @@ public class WordsDataParams extends BaseDataParams {
         this.mode = mode;
     }
 
-    public void setWay(WordsLearningWay way) {
-        this.way = way;
+    public void setLaguageWay(WordsLearningLanguageWay laguageWay) {
+        this.laguageWay = laguageWay;
+    }
+
+    public void setWordsWay(WordsLearningWordsWay wordsWay) {
+        this.wordsWay = wordsWay;
+    }
+
+    public void setOrderWay(WordsLearningOrderWay orderWay) {
+        this.orderWay = orderWay;
     }
 
     public void setSize(int size) {
         this.size = size;
     }
 
-    public boolean isChosen(WordsLanguageCategory category) {
+    public boolean isChosen(WordsCategory category) {
         return categories.contains(category);
     }
 
-    public boolean isChosen(WordsLanguageType type) {
+    public boolean isChosen(WordsType type) {
         return types.contains(type);
     }
 
-    public boolean isChosen(WordsLanguageSubcategory subcategory) {
+    public boolean isChosen(WordsSubcategory subcategory) {
         return subcategories.contains(subcategory);
     }
 
@@ -107,8 +119,16 @@ public class WordsDataParams extends BaseDataParams {
         return this.method.equals(method);
     }
 
-    public boolean isChosen(WordsLearningWay way) {
-        return this.way.equals(way);
+    public boolean isChosen(WordsLearningLanguageWay laguageWay) {
+        return this.laguageWay.equals(laguageWay);
+    }
+
+    public boolean isChosen(WordsLearningWordsWay wordsWay) {
+        return this.wordsWay.equals(wordsWay);
+    }
+
+    public boolean isChosen(WordsLearningOrderWay orderWay) {
+        return this.orderWay.equals(orderWay);
     }
 
     public boolean isChosen(WordsLearningMode mode) {
@@ -118,13 +138,13 @@ public class WordsDataParams extends BaseDataParams {
     public int getMaximumAvailableWordsAmount() {
         switch(method) {
             case SUBCATEGORIES:
-                return WordEntityRepository.getSpecifiedEntitiesBySubcategory(categories, subcategories).size();
+                return WordEntityRepository.getSpecifiedEntitiesBySubcategory(this).size();
             case TYPES:
-                return WordEntityRepository.getSpecifiedEntitiesByType(categories, types).size();
+                return WordEntityRepository.getSpecifiedEntitiesByType(this).size();
             case ALL:
-                return WordEntityRepository.getSpecifiedEntities(categories).size();
+                return WordEntityRepository.getSpecifiedEntitiesByCategory(this).size();
             default:
-                return WordEntityRepository.getSpecifiedEntities(categories).size();
+                return WordEntityRepository.getSpecifiedEntitiesByCategory(this).size();
         }
     }
 
@@ -132,13 +152,13 @@ public class WordsDataParams extends BaseDataParams {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for(WordsLanguageCategory category : categories) {
+        for(WordsCategory category : categories) {
             sb.append(category.name()).append(",");
         }
         sb.deleteCharAt(sb.length() - 1);
         sb.append(";");
 
-        for(WordsLanguageType type : types) {
+        for(WordsType type : types) {
             sb.append(type.name()).append(",");
         }
         if(types.size() == 0) {
@@ -147,7 +167,7 @@ public class WordsDataParams extends BaseDataParams {
         sb.deleteCharAt(sb.length() - 1);
         sb.append(";");
 
-        for(WordsLanguageSubcategory subcategory : subcategories) {
+        for(WordsSubcategory subcategory : subcategories) {
             sb.append(subcategory.name()).append(",");
         }
         if(subcategories.size() == 0) {
@@ -158,7 +178,9 @@ public class WordsDataParams extends BaseDataParams {
 
         sb.append(method.name()).append(";");
         sb.append(mode.name()).append(";");
-        sb.append(way.name()).append(";");
+        sb.append(laguageWay.name()).append(";");
+        sb.append(wordsWay.name()).append(";");
+        sb.append(orderWay.name()).append(";");
         sb.append(size).append(";");
         System.out.println("dataParams: output: " + sb.toString());
         return sb.toString();
@@ -173,7 +195,7 @@ public class WordsDataParams extends BaseDataParams {
             char c = input.charAt(i);
             if(c == ';') {
                 if(!str.isEmpty()) {
-                    this.addCategory(WordsLanguageCategory.valueOf(str));
+                    this.addCategory(WordsCategory.valueOf(str));
                 }
                 str = "";
                 i++;
@@ -181,7 +203,7 @@ public class WordsDataParams extends BaseDataParams {
             }
             if(c == ',') {
                 if(!str.isEmpty()) {
-                    this.addCategory(WordsLanguageCategory.valueOf(str));
+                    this.addCategory(WordsCategory.valueOf(str));
                 }
                 str = "";
             } else {
@@ -192,7 +214,7 @@ public class WordsDataParams extends BaseDataParams {
             char c = input.charAt(i);
             if(c == ';') {
                 if(!str.isEmpty()) {
-                    this.addType(WordsLanguageType.valueOf(str));
+                    this.addType(WordsType.valueOf(str));
                 }
                 str = "";
                 i++;
@@ -200,7 +222,7 @@ public class WordsDataParams extends BaseDataParams {
             }
             if(c == ',') {
                 if(!str.isEmpty()) {
-                    this.addType(WordsLanguageType.valueOf(str));
+                    this.addType(WordsType.valueOf(str));
                 }
                 str = "";
             } else {
@@ -211,7 +233,7 @@ public class WordsDataParams extends BaseDataParams {
             char c = input.charAt(i);
             if(c == ';') {
                 if(!str.isEmpty()) {
-                    this.addSubcategory(WordsLanguageSubcategory.valueOf(str));
+                    this.addSubcategory(WordsSubcategory.valueOf(str));
                 }
                 str = "";
                 i++;
@@ -219,7 +241,7 @@ public class WordsDataParams extends BaseDataParams {
             }
             if(c == ',') {
                 if(!str.isEmpty()) {
-                    this.addSubcategory(WordsLanguageSubcategory.valueOf(str));
+                    this.addSubcategory(WordsSubcategory.valueOf(str));
                 }
                 str = "";
             } else {
@@ -256,7 +278,33 @@ public class WordsDataParams extends BaseDataParams {
             char c = input.charAt(i);
             if(c == ';') {
                 if(!str.isEmpty()) {
-                    this.setWay(WordsLearningWay.valueOf(str));
+                    this.setLaguageWay(WordsLearningLanguageWay.valueOf(str));
+                }
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                if(!str.isEmpty()) {
+                    this.setWordsWay(WordsLearningWordsWay.valueOf(str));
+                }
+                str = "";
+                i++;
+                break;
+            } else {
+                str += c;
+            }
+        }
+        for(; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if(c == ';') {
+                if(!str.isEmpty()) {
+                    this.setOrderWay(WordsLearningOrderWay.valueOf(str));
                 }
                 str = "";
                 i++;
