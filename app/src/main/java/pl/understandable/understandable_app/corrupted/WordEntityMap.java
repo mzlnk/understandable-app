@@ -1,4 +1,4 @@
-package pl.understandable.understandable_app.database.repository.maps;
+package pl.understandable.understandable_app.corrupted;
 
 import pl.understandable.understandable_app.data.enums.words.WordsCategory;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;

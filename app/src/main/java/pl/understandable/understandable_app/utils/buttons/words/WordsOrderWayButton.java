@@ -3,29 +3,25 @@ package pl.understandable.understandable_app.utils.buttons.words;
 import android.content.Context;
 import android.view.View;
 
-import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningOrderWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 
-import java.util.List;
-
 /**
- * Created by Marcin Zielonka on 2017-05-07.
+ * Created by Marcin Zielonka on 2018-03-04.
  */
 
-public class WordsWayButton extends WordsBaseButton {
+public class WordsOrderWayButton extends WordsBaseButton {
 
-    private List<WordsWayButton> allWays;
-    private WordsLearningLanguageWay way;
+    private WordsLearningOrderWay way;
 
-    public WordsWayButton(Context context, WordsDataParams dataParams, WordsLearningLanguageWay way, List<WordsWayButton> allWays) {
+    public WordsOrderWayButton(Context context, WordsDataParams dataParams, WordsLearningOrderWay way) {
         super(context, dataParams, way, false);
         this.way = way;
-        this.allWays = allWays;
         prepare();
         setImage();
     }
 
-    private WordsLearningLanguageWay getWay() {
+    private WordsLearningOrderWay getWay() {
         return way;
     }
 
@@ -48,14 +44,11 @@ public class WordsWayButton extends WordsBaseButton {
                 if(!isChecked()) {
                     image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
-                    dataParams.setLaguageWay(way);
-                    for(WordsWayButton w : allWays) {
-                        if(w.getWay().equals(way)) {
-                            continue;
-                        }
-                        w.getImage().setAlpha(ITEM_NOT_CHOSEN);
-                        w.setChecked(false);
-                    }
+                    dataParams.setOrderWay(way);
+                } else {
+                    image.setAlpha(ITEM_NOT_CHOSEN);
+                    setChecked(false);
+                    dataParams.setOrderWay(WordsLearningOrderWay.NO_ORDER);
                 }
             }
         });

@@ -17,9 +17,13 @@ import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningOrderWay;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.words.WordsWayButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsLanguageWayButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsOrderWayButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsWordsWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import java.util.ArrayList;
@@ -31,14 +35,17 @@ import java.util.List;
 
 public class WordsChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.choice.languageWay.dataParam";
+    private static final String DATA_PARAM = "custom.words.choice.languageWay.dataParam";
 
     private RelativeLayout mainLayout;
-    private TableLayout waysLayout;
+    private TableLayout laguageWaysLayout;
+    private TableLayout wordsAndOrderWaysLayout;
     private TextView title;
-    private Button submit, back;
+    private Button submit;
 
-    private List<WordsWayButton> ways = new ArrayList<>();
+    private List<WordsLanguageWayButton> laguageWays = new ArrayList<>();
+    private List<WordsWordsWayButton> wordWays = new ArrayList<>();
+    private WordsOrderWayButton orderWay;
     private WordsDataParams dataParams;
 
     public WordsChoiceWayFragment() {
@@ -57,16 +64,17 @@ public class WordsChoiceWayFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
-            dataParams = new WordsDataParams().fromString(getArguments().getString(DATA_PARAM));
-        }
-        if(dataParams == null) {
+            String params = getArguments().getString(DATA_PARAM);
             dataParams = new WordsDataParams();
+            if(params != null) {
+                dataParams = dataParams.fromString(params);
+            }
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the waysLayout for this fragment
+        // Inflate the laguageWaysLayout for this fragment
         View rootView = inflater.inflate(R.layout.f_words_choice_way, container, false);
         loadViewFromXml(rootView);
         prepareLayout();
@@ -85,10 +93,10 @@ public class WordsChoiceWayFragment extends Fragment {
 
     private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_way);
-        waysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_way_names_layout);
+        laguageWaysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_language_way_names_layout);
+        wordsAndOrderWaysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_words_and_order_way_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_words_choice_way_title);
         submit = (Button) rootView.findViewById(R.id.f_words_choice_way_submit);
-        back = (Button) rootView.findViewById(R.id.f_words_choice_way_back);
     }
 
     private void setAnimation() {
@@ -100,24 +108,25 @@ public class WordsChoiceWayFragment extends Fragment {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeface);
         submit.setTypeface(typeface);
-        back.setTypeface(typeface);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
-            back.setBackgroundResource(R.drawable.field_rounded_gray);
             submit.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
 
     private void initWayButtons() {
         for(WordsLearningLanguageWay way : WordsLearningLanguageWay.values()) {
-            ways.add(new WordsWayButton(getContext(), dataParams, way, ways));
+            laguageWays.add(new WordsLanguageWayButton(getContext(), dataParams, way, laguageWays));
         }
+        for(WordsLearningWordsWay way : WordsLearningWordsWay.values()) {
+            wordWays.add(new WordsWordsWayButton(getContext(), dataParams, way, wordWays));
+        }
+        orderWay = new WordsOrderWayButton(getContext(), dataParams, WordsLearningOrderWay.ALPHABETICAL);
     }
 
     private void addWayButtonsToTable() {
@@ -125,12 +134,12 @@ public class WordsChoiceWayFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (WordsWayButton wayButton : ways) {
-            currentImageRow.addView(wayButton.getImage());
-            currentTextRow.addView(wayButton.getText());
+        for (WordsLanguageWayButton languageWayButton : laguageWays) {
+            currentImageRow.addView(languageWayButton.getImage());
+            currentTextRow.addView(languageWayButton.getText());
             if (x == 3) {
-                waysLayout.addView(currentImageRow);
-                waysLayout.addView(currentTextRow);
+                laguageWaysLayout.addView(currentImageRow);
+                laguageWaysLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
                 currentTextRow = new TableRow(getContext());
                 x = 0;
@@ -139,33 +148,38 @@ public class WordsChoiceWayFragment extends Fragment {
             }
         }
         if (x != 0) {
-            waysLayout.addView(currentImageRow);
-            waysLayout.addView(currentTextRow);
+            laguageWaysLayout.addView(currentImageRow);
+            laguageWaysLayout.addView(currentTextRow);
         }
+
+        currentImageRow = new TableRow(getContext());
+        currentTextRow = new TableRow(getContext());
+        x = 0;
+
+        for(WordsWordsWayButton wordWayButton : wordWays) {
+            currentImageRow.addView(wordWayButton.getImage());
+            currentTextRow.addView(wordWayButton.getText());
+            if (x == 3) {
+                wordsAndOrderWaysLayout.addView(currentImageRow);
+                wordsAndOrderWaysLayout.addView(currentTextRow);
+                currentImageRow = new TableRow(getContext());
+                currentTextRow = new TableRow(getContext());
+                x = 0;
+            } else {
+                x++;
+            }
+        }
+        currentImageRow.addView(orderWay.getImage());
+        currentTextRow.addView(orderWay.getText());
+        x++;
+        if (x != 0) {
+            wordsAndOrderWaysLayout.addView(currentImageRow);
+            wordsAndOrderWaysLayout.addView(currentTextRow);
+        }
+
     }
 
     private void addListeners() {
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager manager = getFragmentManager();
-                switch(dataParams.method) {
-                    case ALL:
-                        WordsChoiceMethodFragment methodFragment = WordsChoiceMethodFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, methodFragment).commit();
-                        break;
-                    case TYPES:
-                        WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
-                        break;
-                    case SUBCATEGORIES:
-                        WordsChoiceSubcategoryFragment subcategoryFragment = WordsChoiceSubcategoryFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
-                        break;
-                }
-            }
-        });
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

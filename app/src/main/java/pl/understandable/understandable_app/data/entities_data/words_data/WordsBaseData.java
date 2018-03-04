@@ -2,9 +2,11 @@ package pl.understandable.understandable_app.data.entities_data.words_data;
 
 import pl.understandable.understandable_app.data.entities_data.BaseData;
 import pl.understandable.understandable_app.data.entities_data.Datable;
+import pl.understandable.understandable_app.data.enums.words.WordsLearningOrderWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
+import pl.understandable.understandable_app.utils.EntitySortUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,9 @@ public abstract class WordsBaseData extends BaseData implements Datable<WordEnti
                 break;
         }
         resize();
+        if(params.orderWay.equals(WordsLearningOrderWay.ALPHABETICAL)) {
+            EntitySortUtil.sort(words, params.laguageWay);
+        }
     }
 
     private void resize() {

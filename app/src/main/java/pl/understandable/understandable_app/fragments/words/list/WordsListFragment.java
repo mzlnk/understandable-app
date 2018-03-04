@@ -115,7 +115,6 @@ public class WordsListFragment extends Fragment {
 
         List<WordEntity> entities = WordsListData.getListData().getEntities();
         WordsLearningLanguageWay learningWay = WordsListData.getListData().getParams().laguageWay;
-        EntitySortUtil.sort(entities, learningWay);
 
         for(int i = start; i < end && i < entities.size(); i++) {
             WordEntity word = entities.get(i);

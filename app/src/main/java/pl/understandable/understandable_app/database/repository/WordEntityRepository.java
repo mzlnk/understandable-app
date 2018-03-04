@@ -5,20 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.google.gson.Gson;
-
-import pl.understandable.understandable_app.data.enums.words.WordsCategory;
-import pl.understandable.understandable_app.data.enums.words.WordsSubcategory;
-import pl.understandable.understandable_app.data.enums.words.WordsType;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.database_access.WordEntityDatabaseManager;
 import pl.understandable.understandable_app.database.entity.WordEntity;
-import pl.understandable.understandable_app.database.repository.maps.WordEntityMap;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 

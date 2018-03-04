@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.Task;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
+import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
 import pl.understandable.understandable_app.listeners.NavigationListener;
@@ -87,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
         if(SyncManager.getSyncParams().isSyncOnline()) {
             RequestExecutor.offerRequest(new ShowWelcomeMessage(getApplicationContext()), 500L);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        WordEntityRepository.close();
     }
 
     @Override
