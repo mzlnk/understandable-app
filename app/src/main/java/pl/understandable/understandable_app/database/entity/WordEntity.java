@@ -14,7 +14,6 @@ public class WordEntity extends BaseWordEntity {
     private String category;
     private String type;
     private String subcategory;
-    private boolean isLearnt = false;
 
     public WordEntity(int id, String polish, String english, String category, String type, String subcategory, boolean isLearnt) {
         this.id = id;
@@ -36,14 +35,6 @@ public class WordEntity extends BaseWordEntity {
 
     public WordsSubcategory getSubcategory() {
         return WordsSubcategory.valueOf(subcategory);
-    }
-
-    public boolean isLearnt() {
-        return isLearnt;
-    }
-
-    public void setLearnt(boolean isLearnt) {
-        this.isLearnt = isLearnt;
     }
 
 }

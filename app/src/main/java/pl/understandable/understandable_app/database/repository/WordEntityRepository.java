@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.database_access.WordEntityDatabaseManager;
 import pl.understandable.understandable_app.database.entity.WordEntity;
@@ -29,24 +30,17 @@ public class WordEntityRepository {
         database.close();
     }
 
-    public static List<WordEntity> getAllEntities() {
-        List<WordEntity> result = new ArrayList<>();
-        String sql = "SELECT * FROM word_entities";
+    public static WordEntity getEntity(int id) {
+        String sql = "SELECT * FROM word_entities WHERE id='" + String.valueOf(id) + "'";
         Cursor cursor = database.rawQuery(sql, null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            WordEntity entity = new WordEntity(cursor.getInt(0),
-                                               cursor.getString(1),
-                                               cursor.getString(2),
-                                               cursor.getString(3),
-                                               cursor.getString(4),
-                                               cursor.getString(5),
-                                               cursor.getInt(6) == 1);
-            result.add(entity);
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return result;
+        return new WordEntity(cursor.getInt(0),
+                              cursor.getString(1),
+                              cursor.getString(2),
+                              cursor.getString(3),
+                              cursor.getString(4),
+                              cursor.getString(5),
+                              cursor.getInt(6) == 1);
     }
 
     public static List<WordEntity> getSpecifiedEntitiesByCategory(WordsDataParams params) {
@@ -94,6 +88,9 @@ public class WordEntityRepository {
             }
         }
         sb.append(")");
+        if(params.wordsWay.equals(WordsLearningWordsWay.NOT_LEARNED)) {
+            sb.append(" AND is_learnt=0");
+        }
         String sql = sb.toString();
 
         List<WordEntity> result = new ArrayList<>();
@@ -130,6 +127,9 @@ public class WordEntityRepository {
             }
         }
         sb.append(")");
+        if(params.wordsWay.equals(WordsLearningWordsWay.NOT_LEARNED)) {
+            sb.append(" AND is_learnt=0");
+        }
         String sql = sb.toString();
 
         List<WordEntity> result = new ArrayList<>();
@@ -152,12 +152,6 @@ public class WordEntityRepository {
 
     public static void updateEntity(WordEntity entity) {
         ContentValues cv = new ContentValues();
-        cv.put("id", entity.getId());
-        cv.put("polish", entity.getPolish());
-        cv.put("english", entity.getEnglish());
-        cv.put("category", entity.getCategory().name());
-        cv.put("subcategory", entity.getSubcategory().name());
-        cv.put("type", entity.getType().name());
         cv.put("is_learnt", entity.isLearnt() ? 1 : 0);
         database.update("word_entities", cv, "id=?", new String[]{String.valueOf(entity.getId())});
     }

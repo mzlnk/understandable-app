@@ -12,7 +12,7 @@ import pl.understandable.understandable_app.utils.buttons.BaseButton;
 public abstract class ThemeBaseButton extends BaseButton {
 
     public ThemeBaseButton(Context context, Identifiable enumType, boolean checked) {
-        super(context, null, enumType, checked);
+        super(context, enumType, checked);
     }
 
 }

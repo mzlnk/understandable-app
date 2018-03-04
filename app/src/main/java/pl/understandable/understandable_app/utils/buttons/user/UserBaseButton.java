@@ -12,7 +12,7 @@ import pl.understandable.understandable_app.utils.buttons.BaseButton;
 public abstract class UserBaseButton extends BaseButton {
 
     public UserBaseButton(Context context, Identifiable enumType) {
-        super(context, null, enumType, true);
+        super(context, enumType, true);
     }
 
 }

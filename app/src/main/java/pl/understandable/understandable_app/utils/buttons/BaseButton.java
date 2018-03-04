@@ -28,14 +28,12 @@ public abstract class BaseButton<P extends BaseDataParams> {
     protected ImageView image;
     protected TextView text;
 
-    protected P dataParams;
     protected Identifiable enumType;
 
     protected boolean checked;
 
-    public BaseButton(Context context, P dataParams, Identifiable enumType, boolean checked) {
+    public BaseButton(Context context, Identifiable enumType, boolean checked) {
         this.context = context;
-        this.dataParams = dataParams;
         this.image = new ImageView(context);
         this.text = new TextView(context);
         this.enumType = enumType;

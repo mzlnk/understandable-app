@@ -12,7 +12,7 @@ import pl.understandable.understandable_app.utils.buttons.BaseButton;
 public abstract class AchievementBaseButton extends BaseButton {
 
     public AchievementBaseButton(Context context, Identifiable enumType, boolean checked) {
-        super(context, null, enumType, checked);
+        super(context, enumType, checked);
     }
 
 }

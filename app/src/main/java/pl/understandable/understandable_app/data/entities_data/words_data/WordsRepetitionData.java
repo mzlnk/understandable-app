@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.data.entities_data.words_data;
 
 import pl.understandable.understandable_app.data.entities_data.DataUtil;
+import pl.understandable.understandable_app.data.entities_data.RepetitionData;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Marcin Zielonka on 2017-05-06.
  */
 
-public class WordsRepetitionData extends WordsBaseData {
+public class WordsRepetitionData extends WordsBaseData implements RepetitionData<WordEntity> {
 
     private static WordsRepetitionData repetitionData;
 
@@ -36,6 +37,16 @@ public class WordsRepetitionData extends WordsBaseData {
         super(params);
         setCurrentWord(words.get(0));
         addCurrentWordToSeen();
+    }
+
+    @Override
+    public WordEntity getCurrentWord() {
+        return currentWord;
+    }
+
+    @Override
+    public List<WordEntity> getWordsToRepeat() {
+        return wordsToRepeat;
     }
 
     public boolean existsInToRepeatWords(WordEntity word) {

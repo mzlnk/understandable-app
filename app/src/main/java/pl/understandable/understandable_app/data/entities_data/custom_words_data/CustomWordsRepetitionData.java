@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.data.entities_data.custom_words_data;
 
 import pl.understandable.understandable_app.data.entities_data.DataUtil;
+import pl.understandable.understandable_app.data.entities_data.RepetitionData;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Marcin Zielonka on 2017-07-29.
  */
 
-public class CustomWordsRepetitionData extends CustomWordsBaseData {
+public class CustomWordsRepetitionData extends CustomWordsBaseData implements RepetitionData<CustomWordEntity> {
 
     private static CustomWordsRepetitionData repetitionData;
 
@@ -36,6 +37,16 @@ public class CustomWordsRepetitionData extends CustomWordsBaseData {
         super(params);
         setCurrentWord(words.get(0));
         addCurrentWordToSeen();
+    }
+
+    @Override
+    public CustomWordEntity getCurrentWord() {
+        return currentWord;
+    }
+
+    @Override
+    public List<CustomWordEntity> getWordsToRepeat() {
+        return wordsToRepeat;
     }
 
     public boolean existsInToRepeatWords(CustomWordEntity word) {

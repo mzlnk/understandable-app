@@ -21,37 +21,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.15"
+            android:layout_weight="0.3"
             android:gravity="center" >
 
-            <Button
-                android:id="@+id/f_words_repetition_repeat"
-                android:layout_width="@dimen/button_small_width"
-                android:layout_height="@dimen/button_small_height"
-                android:text="@string/button_repeat"
-                android:textColor="?attr/text_button_color"
-                android:textAllCaps="false"
-                android:textSize="@dimen/button_text" />
+            <TableLayout
+                android:id="@+id/f_words_repetition_options_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:stretchColumns="*" >
+
+            </TableLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.15"
-            android:gravity="center | top" >
-
-            <Button
-                android:id="@+id/f_words_repetition_speak"
-                android:layout_width="@dimen/button_small_width"
-                android:layout_height="@dimen/button_small_height"
-                android:text="@string/button_speak"
-                android:textColor="?attr/text_button_color"
-                android:textAllCaps="false"
-                android:textSize="@dimen/button_text" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
