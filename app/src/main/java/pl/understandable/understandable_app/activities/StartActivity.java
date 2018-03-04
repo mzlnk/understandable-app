@@ -4,26 +4,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.database.DatabaseAccess;
 import pl.understandable.understandable_app.database.repository.CustomWordsSetsRepository;
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
 import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
-import pl.understandable.understandable_app.user.SyncManager;
-import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.utils.RateAppUtil;
 
 /**
@@ -51,19 +40,6 @@ public class StartActivity extends AppCompatActivity {
 
         new RateAppUtil(getApplicationContext()).updateAmountOfAppOpenings();
         new LoadDataTask().execute();
-        System.out.println("[DATABASE]===========================================================");
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        databaseAccess.open();
-        List<String> quotes = databaseAccess.getQuotes();
-        databaseAccess.close();
-        for(String s : quotes) {
-            try {
-                System.out.println("[DB-DATA] " + new String(s.getBytes(), "UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }
-        Toast.makeText(getApplicationContext(), quotes.get(0), Toast.LENGTH_SHORT).show();
     }
 
     private void setAnimation() {

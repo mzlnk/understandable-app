@@ -1,6 +1,9 @@
 package pl.understandable.understandable_app.database.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.Gson;
 
@@ -8,6 +11,7 @@ import pl.understandable.understandable_app.data.enums.words.WordsCategory;
 import pl.understandable.understandable_app.data.enums.words.WordsSubcategory;
 import pl.understandable.understandable_app.data.enums.words.WordsType;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
+import pl.understandable.understandable_app.database.database_access.WordEntityDatabaseManager;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 import pl.understandable.understandable_app.database.repository.maps.WordEntityMap;
 
@@ -15,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,44 +28,148 @@ import java.util.List;
 
 public class WordEntityRepository {
 
-    private static WordEntityMap wordEntityMap = new WordEntityMap();
-
-    private static final String FILE_PATH = "data/word_entities.json";
-    private static InputStream dataFile;
+    private static SQLiteDatabase database;
 
     public static void init(Context context) {
-        try {
-            dataFile = context.getAssets().open(FILE_PATH);
-            loadData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        WordEntityDatabaseManager manager = new WordEntityDatabaseManager(context);
+        database = manager.getWritableDatabase();
     }
 
-    private static void loadData() {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(dataFile));
-            wordEntityMap = new Gson().fromJson(br, WordEntityMap.class);
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void close() {
+        database.close();
     }
 
     public static List<WordEntity> getAllEntities() {
-        return wordEntityMap.getAllEntities();
+        List<WordEntity> result = new ArrayList<>();
+        String sql = "SELECT * FROM word_entities";
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            WordEntity entity = new WordEntity(cursor.getInt(0),
+                                               cursor.getString(1),
+                                               cursor.getString(2),
+                                               cursor.getString(3),
+                                               cursor.getString(4),
+                                               cursor.getString(5),
+                                               cursor.getInt(6) == 1);
+            result.add(entity);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return result;
     }
 
     public static List<WordEntity> getSpecifiedEntitiesByCategory(WordsDataParams params) {
-        return wordEntityMap.getSpecifiedEntitiesByCategory(params);
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM word_entities WHERE ");
+        sb.append("category='").append(params.categories.get(0).name()).append("'");
+        if(params.categories.size() > 1) {
+            for(int i = 1; i < params.categories.size(); i++) {
+                sb.append(" OR ").append("category='").append(params.categories.get(i).name()).append("'");
+            }
+        }
+        String sql = sb.toString();
+
+        List<WordEntity> result = new ArrayList<>();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            WordEntity entity = new WordEntity(cursor.getInt(0),
+                                               cursor.getString(1),
+                                               cursor.getString(2),
+                                               cursor.getString(3),
+                                               cursor.getString(4),
+                                               cursor.getString(5),
+                                               cursor.getInt(6) == 1);
+            result.add(entity);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return result;
     }
 
     public static List<WordEntity> getSpecifiedEntitiesBySubcategory(WordsDataParams params) {
-        return wordEntityMap.getSpecifiedEntitiesBySubcategory(params);
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM word_entities WHERE (");
+        sb.append("category='").append(params.categories.get(0).name()).append("'");
+        if(params.categories.size() > 1) {
+            for(int i = 1; i < params.categories.size(); i++) {
+                sb.append(" OR ").append("category='").append(params.categories.get(i).name()).append("'");
+            }
+        }
+        sb.append(")").append("AND (").append("subcategory='").append(params.subcategories.get(0).name()).append("'");
+        if(params.subcategories.size() > 1) {
+            for(int i = 0; i < params.subcategories.size(); i++) {
+                sb.append(" OR ").append("subcategory='").append(params.subcategories.get(i).name()).append("'");
+            }
+        }
+        sb.append(")");
+        String sql = sb.toString();
+
+        List<WordEntity> result = new ArrayList<>();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            WordEntity entity = new WordEntity(cursor.getInt(0),
+                                               cursor.getString(1),
+                                               cursor.getString(2),
+                                               cursor.getString(3),
+                                               cursor.getString(4),
+                                               cursor.getString(5),
+                                               cursor.getInt(6) == 1);
+            result.add(entity);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return result;
     }
 
     public static List<WordEntity> getSpecifiedEntitiesByType(WordsDataParams params) {
-        return wordEntityMap.getSpecifiedEntitiesByType(params);
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM word_entities WHERE (");
+        sb.append("category='").append(params.categories.get(0).name()).append("'");
+        if(params.categories.size() > 1) {
+            for(int i = 1; i < params.categories.size(); i++) {
+                sb.append(" OR ").append("type='").append(params.types.get(i).name()).append("'");
+            }
+        }
+        sb.append(")").append(" AND (").append("type='").append(params.types.get(0).name()).append("'");
+        if(params.types.size() > 1) {
+            for(int i = 0; i < params.types.size(); i++) {
+                sb.append(" OR ").append("type='").append(params.types.get(i).name()).append("'");
+            }
+        }
+        sb.append(")");
+        String sql = sb.toString();
+
+        List<WordEntity> result = new ArrayList<>();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            WordEntity entity = new WordEntity(cursor.getInt(0),
+                                               cursor.getString(1),
+                                               cursor.getString(2),
+                                               cursor.getString(3),
+                                               cursor.getString(4),
+                                               cursor.getString(5),
+                                               cursor.getInt(6) == 1);
+            result.add(entity);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return result;
+    }
+
+    public static void updateEntity(WordEntity entity) {
+        ContentValues cv = new ContentValues();
+        cv.put("id", entity.getId());
+        cv.put("polish", entity.getPolish());
+        cv.put("english", entity.getEnglish());
+        cv.put("category", entity.getCategory().name());
+        cv.put("subcategory", entity.getSubcategory().name());
+        cv.put("type", entity.getType().name());
+        cv.put("is_learnt", entity.isLearnt() ? 1 : 0);
+        database.update("word_entities", cv, "id=?", new String[]{String.valueOf(entity.getId())});
     }
 
 }
