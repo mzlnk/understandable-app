@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
@@ -56,9 +57,13 @@ public class StartActivity extends AppCompatActivity {
         List<String> quotes = databaseAccess.getQuotes();
         databaseAccess.close();
         for(String s : quotes) {
-            System.out.println("[DB-DATA] " + s);
+            try {
+                System.out.println("[DB-DATA] " + new String(s.getBytes(), "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         }
-        Toast.makeText(getApplicationContext(), quotes.get(2), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), quotes.get(0), Toast.LENGTH_SHORT).show();
     }
 
     private void setAnimation() {
