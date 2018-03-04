@@ -16,13 +16,17 @@
             android:id="@+id/f_words_repetition_view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.7" />
+            android:layout_weight="0.8"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:gravity="center" >
+            android:layout_weight="0.2"
+            android:layout_marginLeft="@dimen/f_side_words_set_options_margin"
+            android:layout_marginRight="@dimen/f_side_words_set_options_margin"
+            android:gravity="center | top" >
 
             <TableLayout
                 android:id="@+id/f_words_repetition_options_table"
@@ -32,8 +36,8 @@
                 android:stretchColumns="*" >
 
             </TableLayout>
-
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

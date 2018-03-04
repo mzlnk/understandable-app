@@ -3,6 +3,7 @@ package pl.understandable.understandable_app.data.entities_data.custom_words_dat
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.understandable.understandable_app.data.entities_data.CurrentWordData;
 import pl.understandable.understandable_app.data.entities_data.DataUtil;
 import pl.understandable.understandable_app.data.params.CustomWordsDataParams;
 import pl.understandable.understandable_app.database.entity.CustomWordEntity;
@@ -11,7 +12,7 @@ import pl.understandable.understandable_app.database.entity.CustomWordEntity;
  * Created by Marcin Zielonka on 2017-08-07.
  */
 
-public class CustomWordsSpellingData extends CustomWordsBaseData {
+public class CustomWordsSpellingData extends CustomWordsBaseData implements CurrentWordData<CustomWordEntity> {
 
     private static CustomWordsSpellingData spellingData;
 
@@ -40,6 +41,11 @@ public class CustomWordsSpellingData extends CustomWordsBaseData {
         setCurrentWord(words.get(0));
         addCurrentWordToSeen();
         addToIncorrectAnswers();
+    }
+
+    @Override
+    public CustomWordEntity getCurrentWord() {
+        return currentWord;
     }
 
     public void addCurrentWordToSeen() {

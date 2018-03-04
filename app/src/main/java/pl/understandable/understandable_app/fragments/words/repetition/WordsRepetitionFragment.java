@@ -2,7 +2,6 @@ package pl.understandable.understandable_app.fragments.words.repetition;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -17,20 +16,15 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.Toast;
-
-import java.util.Locale;
 
 import pl.understandable.understandable_app.R;;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
-import pl.understandable.understandable_app.data.enums.words.WordsType;
 import pl.understandable.understandable_app.dialogs.help.HelpManager;
 import pl.understandable.understandable_app.dialogs.help.RepetitionHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.words.WordsHaveLearntButton;
 import pl.understandable.understandable_app.utils.buttons.words.WordsPronunciationButton;
-import pl.understandable.understandable_app.utils.buttons.words.WordsRepeatButton;
-import pl.understandable.understandable_app.utils.buttons.words.WordsTypeButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsRepetitionRepeatButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
@@ -48,7 +42,7 @@ public class WordsRepetitionFragment extends Fragment {
 
     private RelativeLayout mainLayout;
     private TableLayout optionsTable;
-    private WordsRepeatButton repeat;
+    private WordsRepetitionRepeatButton repeat;
     private WordsPronunciationButton pronunciation;
     private WordsHaveLearntButton haveLearnt;
     private Button finish;
@@ -125,7 +119,7 @@ public class WordsRepetitionFragment extends Fragment {
     }
 
     private void initOptionButtons() {
-        repeat = new WordsRepeatButton(getContext(), WordsRepetitionData.getRepetitionData());
+        repeat = new WordsRepetitionRepeatButton(getContext());
         pronunciation = new WordsPronunciationButton(getContext(), WordsRepetitionData.getRepetitionData());
         haveLearnt = new WordsHaveLearntButton(getContext(), WordsRepetitionData.getRepetitionData());
     }

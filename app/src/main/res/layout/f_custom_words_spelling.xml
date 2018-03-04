@@ -16,7 +16,9 @@
             android:id="@+id/f_custom_words_spelling_view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.4" />
+            android:layout_weight="0.4"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,35 +44,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:gravity="center">
+            android:layout_weight="0.2"
+            android:layout_marginLeft="@dimen/f_side_words_set_options_margin"
+            android:layout_marginRight="@dimen/f_side_words_set_options_margin"
+            android:gravity="center | top" >
 
-            <Button
-                android:id="@+id/f_custom_words_spelling_check"
-                android:layout_width="@dimen/button_small_width"
-                android:layout_height="@dimen/button_small_height"
-                android:text="@string/button_check"
-                android:textColor="?attr/text_button_color"
-                android:textAllCaps="false"
-                android:textSize="@dimen/button_text" />
+            <TableLayout
+                android:id="@+id/f_custom_words_spelling_options_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:stretchColumns="*" >
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/f_custom_words_spelling_show_answer"
-                android:layout_width="@dimen/button_small_width"
-                android:layout_height="@dimen/button_small_height"
-                android:text="@string/button_show_answer"
-                android:textColor="?attr/text_button_color"
-                android:textAllCaps="false"
-                android:textSize="@dimen/button_text" />
-
+            </TableLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -87,13 +73,6 @@
                 android:textColor="?attr/text_button_color"
                 android:textAllCaps="false"
                 android:textSize="@dimen/button_text" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1">
 
         </LinearLayout>
     </LinearLayout>

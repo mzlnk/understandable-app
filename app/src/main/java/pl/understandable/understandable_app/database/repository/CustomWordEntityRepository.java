@@ -58,10 +58,10 @@ public class CustomWordEntityRepository {
         customWordEntityMap = new CustomWordEntityMap();
     }
 
-    public void setWordLearnt(int id, boolean learnt) {
-        for(CustomWordEntity entity : customWordEntityMap.getAllEntities()) {
-            if(entity.getId() == id) {
-                entity.setLearnt(learnt);
+    public static void updateEntity(CustomWordEntity entity) {
+        for(CustomWordEntity e : customWordEntityMap.getAllEntities()) {
+            if(e.getId() == entity.getId()) {
+                e.setLearnt(entity.isLearnt());
                 break;
             }
         }

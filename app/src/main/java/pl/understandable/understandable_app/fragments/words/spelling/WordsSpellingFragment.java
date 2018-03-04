@@ -19,14 +19,17 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.words_data.WordsSpellingData;
 import pl.understandable.understandable_app.dialogs.help.HelpManager;
 import pl.understandable.understandable_app.dialogs.help.SpellingHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.buttons.words.WordsHaveLearntButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsSpellingCheckAnswerButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsSpellingShowAnswerButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
@@ -43,10 +46,14 @@ public class WordsSpellingFragment extends Fragment {
     private WordsSpellingData spellingData;
 
     private RelativeLayout mainLayout;
-    private Button check, showAnswer, finish;
+    private Button finish;
+    private WordsSpellingCheckAnswerButton checkAnswer;
+    private WordsSpellingShowAnswerButton showAnswer;
+    private WordsHaveLearntButton haveLearnt;
     private EditText answerField;
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
+    private TableLayout optionsTable;
 
     public WordsSpellingFragment() {
         // Required empty public constructor
@@ -75,8 +82,7 @@ public class WordsSpellingFragment extends Fragment {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_spelling);
         answerField = (EditText) rootView.findViewById(R.id.f_words_spelling_answer_field);
         pager = (ViewPager) rootView.findViewById(R.id.f_words_spelling_view_pager);
-        check = (Button) rootView.findViewById(R.id.f_words_spelling_check);
-        showAnswer = (Button) rootView.findViewById(R.id.f_words_spelling_show_answer);
+        optionsTable = (TableLayout) rootView.findViewById(R.id.f_words_spelling_options_table);
         finish = (Button) rootView.findViewById(R.id.f_words_spelling_finish);
     }
 
@@ -86,6 +92,8 @@ public class WordsSpellingFragment extends Fragment {
         prepareButtons();
         prepareAnswerField();
         prepareAdapter();
+        initOptionButtons();
+        addOptionButtonsToTable();
     }
 
     private void prepareAdapter() {
@@ -100,8 +108,6 @@ public class WordsSpellingFragment extends Fragment {
 
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
-        check.setTypeface(typeface);
-        showAnswer.setTypeface(typeface);
         finish.setTypeface(typeface);
         answerField.setTypeface(typeface);
     }
@@ -109,12 +115,8 @@ public class WordsSpellingFragment extends Fragment {
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            check.setBackgroundResource(R.drawable.field_rounded_pink);
-            showAnswer.setBackgroundResource(R.drawable.field_rounded_pink);
             finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
-            check.setBackgroundResource(R.drawable.field_rounded_gray);
-            showAnswer.setBackgroundResource(R.drawable.field_rounded_gray);
             finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
     }
@@ -132,6 +134,28 @@ public class WordsSpellingFragment extends Fragment {
         }
     }
 
+    private void initOptionButtons() {
+        checkAnswer = new WordsSpellingCheckAnswerButton(getContext(), answerField);
+        showAnswer = new WordsSpellingShowAnswerButton(getContext());
+        haveLearnt = new WordsHaveLearntButton(getContext(), WordsSpellingData.getSpellingData());
+    }
+
+    private void addOptionButtonsToTable() {
+        TableRow currentImageRow = new TableRow(getContext());
+        TableRow currentTextRow = new TableRow(getContext());
+
+        currentImageRow.addView(checkAnswer.getImage());
+        currentImageRow.addView(showAnswer.getImage());
+        currentImageRow.addView(haveLearnt.getImage());
+
+        currentTextRow.addView(checkAnswer.getText());
+        currentTextRow.addView(showAnswer.getText());
+        currentTextRow.addView(haveLearnt.getText());
+
+        optionsTable.addView(currentImageRow);
+        optionsTable.addView(currentTextRow);
+    }
+
     private void addListeners() {
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -146,37 +170,12 @@ public class WordsSpellingFragment extends Fragment {
                 spellingData.addCurrentWordToSeen();
                 spellingData.addToIncorrectAnswers();
                 answerField.setText("");
+                haveLearnt.updateChoiceState();
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
 
-            }
-        });
-
-        check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String answer = answerField.getText().toString();
-                String correct = (String) WordsSpellingExampleFragment.answers.get(spellingData.currentWordPosition).getText();
-                if(answer.equalsIgnoreCase(correct)) {
-                    Toast.makeText(getContext(), "Poprawna odpowiedź", Toast.LENGTH_SHORT).show();
-                    spellingData.addToCorrectAnswers();
-                } else {
-                    Toast.makeText(getContext(), "Niepoprawna odpowiedź", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        showAnswer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView answer = WordsSpellingExampleFragment.answers.get(spellingData.currentWordPosition);
-                if(answer.getCurrentTextColor() == WordsSpellingExampleFragment.hiddenWordColor) {
-                    answer.setTextColor(WordsSpellingExampleFragment.word2Color);
-                } else {
-                    answer.setTextColor(WordsSpellingExampleFragment.hiddenWordColor);
-                }
             }
         });
 

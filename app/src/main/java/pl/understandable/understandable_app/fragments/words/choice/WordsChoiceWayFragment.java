@@ -41,7 +41,7 @@ public class WordsChoiceWayFragment extends Fragment {
     private TableLayout laguageWaysLayout;
     private TableLayout wordsAndOrderWaysLayout;
     private TextView title;
-    private Button submit;
+    private Button back, submit;
 
     private List<WordsLanguageWayButton> laguageWays = new ArrayList<>();
     private List<WordsWordsWayButton> wordWays = new ArrayList<>();
@@ -96,6 +96,7 @@ public class WordsChoiceWayFragment extends Fragment {
         laguageWaysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_language_way_names_layout);
         wordsAndOrderWaysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_words_and_order_way_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_words_choice_way_title);
+        back = (Button) rootView.findViewById(R.id.f_words_choice_way_back);
         submit = (Button) rootView.findViewById(R.id.f_words_choice_way_submit);
     }
 
@@ -107,14 +108,17 @@ public class WordsChoiceWayFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeface);
+        back.setTypeface(typeface);
         submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
@@ -180,6 +184,27 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     private void addListeners() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager manager = getFragmentManager();
+                switch(dataParams.method) {
+                    case ALL:
+                        WordsChoiceMethodFragment methodFragment = WordsChoiceMethodFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, methodFragment).commit();
+                        break;
+                    case TYPES:
+                        WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
+                        break;
+                    case SUBCATEGORIES:
+                        WordsChoiceSubcategoryFragment subcategoryFragment = WordsChoiceSubcategoryFragment.newInstance(dataParams.toString());
+                        manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
+                        break;
+                }
+            }
+        });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

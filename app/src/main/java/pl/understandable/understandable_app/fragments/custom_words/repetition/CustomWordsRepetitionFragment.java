@@ -14,11 +14,20 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
+import pl.understandable.understandable_app.data.entities_data.words_data.WordsRepetitionData;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsHaveLearntButton;
+import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsPronunciationButton;
+import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsRepetitionRepeatButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsHaveLearntButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsPronunciationButton;
+import pl.understandable.understandable_app.utils.buttons.words.WordsRepetitionRepeatButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
@@ -35,9 +44,13 @@ public class CustomWordsRepetitionFragment extends Fragment {
     private CustomWordsRepetitionData repetitionData;
 
     private RelativeLayout mainLayout;
-    private Button repeat, finish;
+    private Button finish;
+    private CustomWordsRepetitionRepeatButton repeat;
+    private CustomWordsPronunciationButton pronunciation;
+    private CustomWordsHaveLearntButton haveLearnt;
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
+    private TableLayout optionsTable;
 
     public CustomWordsRepetitionFragment() {
         // Required empty public constructor
@@ -60,10 +73,16 @@ public class CustomWordsRepetitionFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        pronunciation.shutdownTts();
+    }
+
     private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_custom_words_repetition);
         pager = (ViewPager) rootView.findViewById(R.id.f_custom_words_repetition_view_pager);
-        repeat = (Button) rootView.findViewById(R.id.f_custom_words_repetition_repeat);
+        optionsTable = (TableLayout) rootView.findViewById(R.id.f_custom_words_repetition_options_table);
         finish = (Button) rootView.findViewById(R.id.f_custom_words_repetition_finish);
     }
 
@@ -72,6 +91,8 @@ public class CustomWordsRepetitionFragment extends Fragment {
         setFonts();
         prepareButtons();
         prepareAdapter();
+        initOptionButtons();
+        addOptionButtonsToTable();
     }
 
     private void prepareAdapter() {
@@ -86,19 +107,38 @@ public class CustomWordsRepetitionFragment extends Fragment {
 
     private void setFonts() {
         Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
-        repeat.setTypeface(typeFace);
         finish.setTypeface(typeFace);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            repeat.setBackgroundResource(R.drawable.field_rounded_pink);
             finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
-            repeat.setBackgroundResource(R.drawable.field_rounded_gray);
             finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
+    }
+
+    private void initOptionButtons() {
+        repeat = new CustomWordsRepetitionRepeatButton(getContext());
+        pronunciation = new CustomWordsPronunciationButton(getContext(), CustomWordsRepetitionData.getRepetitionData());
+        haveLearnt = new CustomWordsHaveLearntButton(getContext(), CustomWordsRepetitionData.getRepetitionData());
+    }
+
+    private void addOptionButtonsToTable() {
+        TableRow currentImageRow = new TableRow(getContext());
+        TableRow currentTextRow = new TableRow(getContext());
+
+        currentImageRow.addView(repeat.getImage());
+        currentImageRow.addView(pronunciation.getImage());
+        currentImageRow.addView(haveLearnt.getImage());
+
+        currentTextRow.addView(repeat.getText());
+        currentTextRow.addView(pronunciation.getText());
+        currentTextRow.addView(haveLearnt.getText());
+
+        optionsTable.addView(currentImageRow);
+        optionsTable.addView(currentTextRow);
     }
 
     private void addListeners() {
@@ -112,24 +152,13 @@ public class CustomWordsRepetitionFragment extends Fragment {
             public void onPageSelected(int position) {
                 repetitionData.setCurrentWord(repetitionData.getEntities().get(position));
                 repetitionData.addCurrentWordToSeen();
+                repeat.updateChoiceState();
+                haveLearnt.updateChoiceState();
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
 
-            }
-        });
-
-        repeat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(repetitionData.existsInToRepeatWords(repetitionData.currentWord)) {
-                    repetitionData.removeCurrentWordFromRepeat();
-                    Toast.makeText(getContext(), "Usunieto z powtórzenia", Toast.LENGTH_SHORT).show();
-                } else {
-                    repetitionData.addCurrentWordToRepeat();
-                    Toast.makeText(getContext(), "Dodano do powtórzenia", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

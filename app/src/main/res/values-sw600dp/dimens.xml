@@ -12,6 +12,7 @@
 
     <!-- side margin -->
     <dimen name="f_side_margin">10dp</dimen>
+    <dimen name="f_side_words_set_options_margin">10dp</dimen>
 
 
     <!-- navigation -->

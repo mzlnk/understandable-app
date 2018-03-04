@@ -11,7 +11,9 @@ public enum WordsSetOptions implements Identifiable {
 
     REPEAT("powtórz",R.drawable.f_words_set_repeat),
     PRONUNCIATION("wymowa", R.drawable.f_words_set_pronunciation),
-    HAVE_LEARNT("umiem to!", R.drawable.f_words_set_have_learnt);
+    HAVE_LEARNT("umiem to!", R.drawable.f_words_set_have_learnt),
+    SHOW_ANSWER("pokaż odpowiedź", R.drawable.f_words_set_correct_answer),
+    CHECK_ANSWER("sprawdź", R.drawable.f_words_set_check_answer);
 
     private String name;
     private int resId;

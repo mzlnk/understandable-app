@@ -1,24 +1,23 @@
-package pl.understandable.understandable_app.utils.buttons.words;
+package pl.understandable.understandable_app.utils.buttons.custom_words;
 
 import android.content.Context;
 import android.view.View;
 
-import pl.understandable.understandable_app.data.entities_data.RepetitionData;
+import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsRepetitionData;
 import pl.understandable.understandable_app.data.enums.words_set.WordsSetOptions;
-import pl.understandable.understandable_app.database.entity.WordEntity;
+import pl.understandable.understandable_app.database.entity.CustomWordEntity;
 import pl.understandable.understandable_app.utils.buttons.BaseButton;
 
 /**
  * Created by Marcin Zielonka on 2018-03-04.
  */
 
-public class WordsRepeatButton extends BaseButton {
+public class CustomWordsRepetitionRepeatButton extends BaseButton {
 
-    private RepetitionData<WordEntity> repetitionData;
+    private CustomWordsRepetitionData repetitionData = CustomWordsRepetitionData.getRepetitionData();
 
-    public WordsRepeatButton(Context context, RepetitionData<WordEntity> repetitionData) {
+    public CustomWordsRepetitionRepeatButton(Context context) {
         super(context, WordsSetOptions.REPEAT, false);
-        this.repetitionData = repetitionData;
         prepare();
     }
 
@@ -42,11 +41,11 @@ public class WordsRepeatButton extends BaseButton {
                 if(!isChecked()) {
                     image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
-                    repetitionData.getWordsToRepeat().remove(repetitionData.getCurrentWord());
+                    repetitionData.getWordsToRepeat().add(repetitionData.currentWord);
                 } else {
                     image.setAlpha(ITEM_NOT_CHOSEN);
                     setChecked(false);
-                    repetitionData.getWordsToRepeat().add(repetitionData.getCurrentWord());
+                    repetitionData.getWordsToRepeat().remove(repetitionData.currentWord);
                 }
             }
         });
@@ -57,8 +56,8 @@ public class WordsRepeatButton extends BaseButton {
     }
 
     private boolean isCurrentWordInWordsToRepeat() {
-        for(WordEntity entity : repetitionData.getWordsToRepeat()) {
-            if(entity.getId() == repetitionData.getCurrentWord().getId()) {
+        for(CustomWordEntity entity : repetitionData.getWordsToRepeat()) {
+            if(entity.getId() == repetitionData.currentWord.getId()) {
                 return true;
             }
         }
