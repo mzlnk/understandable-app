@@ -2,9 +2,11 @@ package pl.understandable.understandable_app.data.entities_data.irregular_verbs_
 
 import pl.understandable.understandable_app.data.entities_data.BaseData;
 import pl.understandable.understandable_app.data.entities_data.Datable;
+import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningOrderWay;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
+import pl.understandable.understandable_app.utils.EntitySortUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +40,12 @@ public abstract class IrregularVerbsBaseData extends BaseData implements Datable
 
     @Override
     public void generateWords() {
-        words = IrregularVerbEntityRepository.getAllEntities();
+        words = IrregularVerbEntityRepository.getAllEntities(params);
         resize();
+        System.out.println("ORDER: " + params.orderWay.name());
+        if(params.orderWay.equals(IrregularVerbsLearningOrderWay.ALPHABETICAL)) {
+            EntitySortUtil.sort(words);
+        }
     }
 
     private void resize() {

@@ -9,6 +9,9 @@ import java.util.Locale;
 import pl.understandable.understandable_app.data.enums.LearningWay;
 import pl.understandable.understandable_app.database.entity.BaseWordEntity;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
+import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
+
+import static pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum.*;
 
 /**
  * Created by Marcin on 2017-08-19.
@@ -55,9 +58,9 @@ public class EntitySortUtil {
         Comparator<IrregularVerbEntity> alphaOrder = new Comparator<IrregularVerbEntity>() {
             @Override
             public int compare(IrregularVerbEntity entity1, IrregularVerbEntity entity2) {
-                int result = c.compare(entity1.getPolish(), entity2.getPolish());
+                int result = c.compare(entity1.getEnglish(INFINITVE), entity2.getEnglish(INFINITVE));
                 if(result == 0) {
-                    return entity1.getPolish().compareTo(entity2.getPolish());
+                    return entity1.getEnglish(INFINITVE).compareTo(entity2.getEnglish(INFINITVE));
                 }
                 return result;
             }

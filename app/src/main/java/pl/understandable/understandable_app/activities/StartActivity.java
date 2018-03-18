@@ -57,8 +57,6 @@ public class StartActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            WordEntityRepository.init(getApplicationContext());
-            IrregularVerbEntityRepository.init(getApplicationContext());
             CustomWordsSetsRepository.init(getApplicationContext());
             PhraseEntityRepository.init(getApplicationContext());
 

@@ -11,10 +11,11 @@ public class IrregularVerbEntity extends BaseEntity {
     private String polish;
     private String[] english = new String[3];
 
-    public IrregularVerbEntity(int id, String polish, String... english) {
+    public IrregularVerbEntity(int id, String polish, String[] english, boolean isLearnt) {
         this.id = id;
         this.polish = polish;
         this.english = english;
+        this.isLearnt = isLearnt;
     }
 
     public String getPolish() {

@@ -200,7 +200,7 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
             public void onClick(View view) {
                 IrregularVerbsChoiceModeFragment modeFragment = IrregularVerbsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment, redirectTo(F_START)).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
             }
         });
 

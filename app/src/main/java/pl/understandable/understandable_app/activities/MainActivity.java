@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.Task;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.enums.themes.ThemeType;
+import pl.understandable.understandable_app.database.database_access.DatabaseManager;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.listeners.BackButtonListener;
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        WordEntityRepository.close();
+        DatabaseManager.closeDatabase();
     }
 
     @Override

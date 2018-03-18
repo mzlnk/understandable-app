@@ -7,28 +7,19 @@ import android.database.sqlite.SQLiteDatabase;
 
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.database.database_access.WordEntityDatabaseManager;
+import pl.understandable.understandable_app.database.database_access.DatabaseManager;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static pl.understandable.understandable_app.database.database_access.DatabaseManager.database;
 
 /**
  * Created by Marcin Zielonka on 2017-05-06.
  */
 
 public class WordEntityRepository {
-
-    private static SQLiteDatabase database;
-
-    public static void init(Context context) {
-        WordEntityDatabaseManager manager = new WordEntityDatabaseManager(context);
-        database = manager.getWritableDatabase();
-    }
-
-    public static void close() {
-        database.close();
-    }
 
     public static WordEntity getEntity(int id) {
         String sql = "SELECT * FROM word_entities WHERE id='" + String.valueOf(id) + "'";

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import pl.understandable.understandable_app.database.database_access.DatabaseManager;
 import pl.understandable.understandable_app.user.AchievementChecker;
 import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.SyncManager;
@@ -48,13 +49,14 @@ public class App extends MultiDexApplication {
         prepareCustomWordsSetsDirectory();
         Font.loadBuiltInTypefaces(getApplicationContext());
 
+        DatabaseManager.init(getApplicationContext());
+
         AdUtil.init(getApplicationContext());
 
         UserManager.init();
         googleSilentSignIn();
 
         SyncManager.init(getApplicationContext());
-        //RequestExecutor.init();
         TimeLearntManager.init();
         AchievementChecker.init(getApplicationContext());
 

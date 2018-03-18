@@ -1,17 +1,16 @@
 package pl.understandable.understandable_app.database.repository;
 
-import android.content.Context;
+import android.content.ContentValues;
+import android.database.Cursor;
 
-import com.google.gson.Gson;
-
+import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningWordsWay;
+import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
-import pl.understandable.understandable_app.database.repository.maps.IrregularVerbEntityMap;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
+
+import static pl.understandable.understandable_app.database.database_access.DatabaseManager.database;
 
 /**
  * Created by Marcin Zielonka on 2017-05-06.
@@ -19,32 +18,34 @@ import java.util.List;
 
 public class IrregularVerbEntityRepository {
 
-    private static IrregularVerbEntityMap irregularVerbEntityMap = new IrregularVerbEntityMap();
-
-    private static final String FILE_PATH = "data/irregular_verb_entities.json";
-    private static InputStream dataFile;
-
-    public static void init(Context context) {
-        try {
-            dataFile = context.getAssets().open(FILE_PATH);
-            loadData();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static List<IrregularVerbEntity> getAllEntities(IrregularVerbsDataParams params) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM irregular_verb_entities");
+        if(params.wordsWay.equals(IrregularVerbsLearningWordsWay.NOT_LEARNED)) {
+            sb.append(" WHERE is_learnt=0");
         }
-    }
+        String sql = sb.toString();
 
-    private static void loadData() {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(dataFile));
-            irregularVerbEntityMap = new Gson().fromJson(br, IrregularVerbEntityMap.class);
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        List<IrregularVerbEntity> result = new ArrayList<>();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            IrregularVerbEntity entity = new IrregularVerbEntity(cursor.getInt(0),
+                    cursor.getString(1),
+                    new String[] {cursor.getString(2), cursor.getString(3), cursor.getString(4)},
+                    cursor.getInt(5) == 1);
+            result.add(entity);
+            cursor.moveToNext();
         }
+        cursor.close();
+        return result;
     }
 
-    public static List<IrregularVerbEntity> getAllEntities() {
-        return irregularVerbEntityMap.getAllEntities();
+    public static void updateEntity(IrregularVerbEntity entity) {
+        ContentValues cv = new ContentValues();
+        cv.put("is_learnt", entity.isLearnt() ? 1 : 0);
+        database.update("irregular_verb_entities", cv, "id=?", new String[]{String.valueOf(entity.getId())});
     }
+
 
 }

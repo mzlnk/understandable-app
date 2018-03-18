@@ -1,4 +1,5 @@
-package pl.understandable.understandable_app.fragments.words.choice;
+package pl.understandable.understandable_app.fragments.irregular_verbs.choice;
+
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,45 +16,57 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pl.understandable.understandable_app.R;
+import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningOrderWay;
+import pl.understandable.understandable_app.data.enums.irregular_verbs.IrregularVerbsLearningWordsWay;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningLanguageWay;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningOrderWay;
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;
+import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
+import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceMethodFragment;
+import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceModeFragment;
+import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceSubcategoryFragment;
+import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceTypeFragment;
+import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceWayFragment;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsOrderWayButton;
+import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsWordsWayButton;
 import pl.understandable.understandable_app.utils.buttons.words.WordsLanguageWayButton;
 import pl.understandable.understandable_app.utils.buttons.words.WordsOrderWayButton;
 import pl.understandable.understandable_app.utils.buttons.words.WordsWordsWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
-import java.util.ArrayList;
-import java.util.List;
+import static pl.understandable.understandable_app.data.enums.words.WordsLearningMethod.ALL;
+import static pl.understandable.understandable_app.data.enums.words.WordsLearningMethod.SUBCATEGORIES;
+import static pl.understandable.understandable_app.data.enums.words.WordsLearningMethod.TYPES;
 
 /**
  * Created by Marcin Zielonka
  */
 
-public class WordsChoiceWayFragment extends Fragment {
+public class IrregularVerbsChoiceWayFragment extends Fragment {
 
-    private static final String DATA_PARAM = "words.choice.languageWay.dataParam";
+    private static final String DATA_PARAM = "irregular.verbs.choice.languageWay.dataParam";
 
     private RelativeLayout mainLayout;
-    private TableLayout laguageWaysLayout;
     private TableLayout wordsAndOrderWaysLayout;
     private TextView title;
-    private Button back, submit;
+    private Button submit;
 
-    private List<WordsLanguageWayButton> laguageWays = new ArrayList<>();
-    private List<WordsWordsWayButton> wordWays = new ArrayList<>();
-    private WordsOrderWayButton orderWay;
-    private WordsDataParams dataParams;
+    private List<IrregularVerbsWordsWayButton> wordWays = new ArrayList<>();
+    private IrregularVerbsOrderWayButton orderWay;
+    private IrregularVerbsDataParams dataParams;
 
-    public WordsChoiceWayFragment() {
+    public IrregularVerbsChoiceWayFragment() {
         // Required empty public constructor
     }
 
-    public static WordsChoiceWayFragment newInstance(String param) {
-        WordsChoiceWayFragment fragment = new WordsChoiceWayFragment();
+    public static IrregularVerbsChoiceWayFragment newInstance(String param) {
+        IrregularVerbsChoiceWayFragment fragment = new IrregularVerbsChoiceWayFragment();
         Bundle args = new Bundle();
         args.putString(DATA_PARAM, param);
         fragment.setArguments(args);
@@ -65,17 +78,20 @@ public class WordsChoiceWayFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if(getArguments() != null) {
             String params = getArguments().getString(DATA_PARAM);
-            dataParams = new WordsDataParams();
+            dataParams = new IrregularVerbsDataParams();
             if(params != null) {
                 dataParams = dataParams.fromString(params);
             }
+        }
+        if(dataParams == null) {
+            dataParams = new IrregularVerbsDataParams();
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the laguageWaysLayout for this fragment
-        View rootView = inflater.inflate(R.layout.f_words_choice_way, container, false);
+        View rootView = inflater.inflate(R.layout.f_irregular_verbs_choice_way, container, false);
         loadViewFromXml(rootView);
         prepareLayout();
         addListeners();
@@ -92,12 +108,10 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     private void loadViewFromXml(View rootView) {
-        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_words_choice_way);
-        laguageWaysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_language_way_names_layout);
-        wordsAndOrderWaysLayout = (TableLayout) rootView.findViewById(R.id.f_words_choice_words_and_order_way_names_layout);
-        title = (TextView) rootView.findViewById(R.id.f_words_choice_way_title);
-        back = (Button) rootView.findViewById(R.id.f_words_choice_way_back);
-        submit = (Button) rootView.findViewById(R.id.f_words_choice_way_submit);
+        mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_irregular_verbs_choice_way);
+        wordsAndOrderWaysLayout = (TableLayout) rootView.findViewById(R.id.f_irregular_verbs_choice_words_and_order_way_names_layout);
+        title = (TextView) rootView.findViewById(R.id.f_irregular_verbs_choice_way_title);
+        submit = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_way_submit);
     }
 
     private void setAnimation() {
@@ -108,29 +122,23 @@ public class WordsChoiceWayFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeface);
-        back.setTypeface(typeface);
         submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
-            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
 
     private void initWayButtons() {
-        for(WordsLearningLanguageWay way : WordsLearningLanguageWay.values()) {
-            laguageWays.add(new WordsLanguageWayButton(getContext(), dataParams, way, laguageWays));
+        for(IrregularVerbsLearningWordsWay way : IrregularVerbsLearningWordsWay.values()) {
+            wordWays.add(new IrregularVerbsWordsWayButton(getContext(), dataParams, way, wordWays));
         }
-        for(WordsLearningWordsWay way : WordsLearningWordsWay.values()) {
-            wordWays.add(new WordsWordsWayButton(getContext(), dataParams, way, wordWays));
-        }
-        orderWay = new WordsOrderWayButton(getContext(), dataParams, WordsLearningOrderWay.ALPHABETICAL);
+        orderWay = new IrregularVerbsOrderWayButton(getContext(), dataParams, IrregularVerbsLearningOrderWay.ALPHABETICAL);
     }
 
     private void addWayButtonsToTable() {
@@ -138,29 +146,7 @@ public class WordsChoiceWayFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (WordsLanguageWayButton languageWayButton : laguageWays) {
-            currentImageRow.addView(languageWayButton.getImage());
-            currentTextRow.addView(languageWayButton.getText());
-            if (x == 3) {
-                laguageWaysLayout.addView(currentImageRow);
-                laguageWaysLayout.addView(currentTextRow);
-                currentImageRow = new TableRow(getContext());
-                currentTextRow = new TableRow(getContext());
-                x = 0;
-            } else {
-                x++;
-            }
-        }
-        if (x != 0) {
-            laguageWaysLayout.addView(currentImageRow);
-            laguageWaysLayout.addView(currentTextRow);
-        }
-
-        currentImageRow = new TableRow(getContext());
-        currentTextRow = new TableRow(getContext());
-        x = 0;
-
-        for(WordsWordsWayButton wordWayButton : wordWays) {
+        for(IrregularVerbsWordsWayButton wordWayButton : wordWays) {
             currentImageRow.addView(wordWayButton.getImage());
             currentTextRow.addView(wordWayButton.getText());
             if (x == 3) {
@@ -184,35 +170,13 @@ public class WordsChoiceWayFragment extends Fragment {
     }
 
     private void addListeners() {
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager manager = getFragmentManager();
-                switch(dataParams.method) {
-                    case ALL:
-                        WordsChoiceMethodFragment methodFragment = WordsChoiceMethodFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, methodFragment).commit();
-                        break;
-                    case TYPES:
-                        WordsChoiceTypeFragment typeFragment = WordsChoiceTypeFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, typeFragment).commit();
-                        break;
-                    case SUBCATEGORIES:
-                        WordsChoiceSubcategoryFragment subcategoryFragment = WordsChoiceSubcategoryFragment.newInstance(dataParams.toString());
-                        manager.beginTransaction().replace(R.id.layout_for_fragments, subcategoryFragment).commit();
-                        break;
-                }
-            }
-        });
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WordsChoiceModeFragment modeFragment = WordsChoiceModeFragment.newInstance(dataParams.toString());
+                IrregularVerbsChoiceModeFragment modeFragment = IrregularVerbsChoiceModeFragment.newInstance(dataParams.toString());
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.layout_for_fragments, modeFragment).commit();
             }
         });
     }
-
 }

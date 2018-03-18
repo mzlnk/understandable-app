@@ -116,7 +116,6 @@ public class IrregularVerbsListFragment extends Fragment {
         boolean color = true;
 
         List<IrregularVerbEntity> entities = IrregularVerbsListData.getListData().getEntities();
-        EntitySortUtil.sort(entities);
 
         for(int i = start; i < end && i < entities.size(); i++) {
             IrregularVerbEntity word = entities.get(i);

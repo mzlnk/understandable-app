@@ -26,6 +26,9 @@ import pl.understandable.understandable_app.utils.font.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -37,7 +40,7 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     private RelativeLayout mainLayout;
     private TableLayout modesLayout;
     private TextView title;
-    private Button submit;
+    private Button back, submit;
 
     private List<IrregularVerbsModeButton> modes = new ArrayList<>();
     private IrregularVerbsDataParams dataParams;
@@ -80,6 +83,7 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_irregular_verbs_choice_mode);
         modesLayout = (TableLayout) rootView.findViewById(R.id.f_irregular_verbs_choice_mode_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_irregular_verbs_choice_mode_title);
+        back = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_mode_back);
         submit = (Button) rootView.findViewById(R.id.f_irregular_verbs_choice_mode_submit);
     }
 
@@ -99,14 +103,17 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         title.setTypeface(typeface);
+        back.setTypeface(typeface);
         submit.setTypeface(typeface);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
+            back.setBackgroundResource(R.drawable.field_rounded_pink);
             submit.setBackgroundResource(R.drawable.field_rounded_pink);
         } else {
+            back.setBackgroundResource(R.drawable.field_rounded_gray);
             submit.setBackgroundResource(R.drawable.field_rounded_gray);
         }
     }
@@ -142,6 +149,15 @@ public class IrregularVerbsChoiceModeFragment extends Fragment {
     }
 
     private void addListeners() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IrregularVerbsChoiceWayFragment wayFragment = IrregularVerbsChoiceWayFragment.newInstance(dataParams.toString());
+                FragmentManager manager = getFragmentManager();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wayFragment, redirectTo(F_START)).commit();
+            }
+        });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

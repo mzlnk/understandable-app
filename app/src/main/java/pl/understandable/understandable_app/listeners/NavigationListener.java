@@ -24,6 +24,7 @@ import pl.understandable.understandable_app.fragments.custom_words.other.CustomW
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceModeFragment;
+import pl.understandable.understandable_app.fragments.irregular_verbs.choice.IrregularVerbsChoiceWayFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.words.choice.WordsChoiceCategoryFragment;
 import pl.understandable.understandable_app.fragments.theme.ThemeChoiceFragment;
@@ -59,7 +60,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_irregular_verbs) {
-            IrregularVerbsChoiceModeFragment fragment = new IrregularVerbsChoiceModeFragment();
+            IrregularVerbsChoiceWayFragment fragment = new IrregularVerbsChoiceWayFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
         else if(id == R.id.navigation_phrases) {
