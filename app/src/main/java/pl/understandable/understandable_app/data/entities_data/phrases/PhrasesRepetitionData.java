@@ -3,6 +3,7 @@ package pl.understandable.understandable_app.data.entities_data.phrases;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.understandable.understandable_app.data.entities_data.RepetitionData;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
 
@@ -10,7 +11,7 @@ import pl.understandable.understandable_app.database.entity.PhraseEntity;
  * Created by Marcin Zielonka on 2017-08-11.
  */
 
-public class PhrasesRepetitionData extends PhrasesBaseData {
+public class PhrasesRepetitionData extends PhrasesBaseData implements RepetitionData<PhraseEntity> {
 
     private static PhrasesRepetitionData repetitionData;
 
@@ -30,6 +31,16 @@ public class PhrasesRepetitionData extends PhrasesBaseData {
         super(params);
         setCurrentWord(words.get(0));
         addCurrentWordToSeen();
+    }
+
+    @Override
+    public PhraseEntity getCurrentWord() {
+        return currentWord;
+    }
+
+    @Override
+    public List<PhraseEntity> getWordsToRepeat() {
+        return wordsToRepeat;
     }
 
     public boolean existsInToRepeatWords(PhraseEntity word) {

@@ -1,1 +1,0 @@
-CREATE TABLE 'words' ('id' INTEGER PRIMARY KEY,'polish' TEXT,'english' TEXT,'type' TEXT,'type' TEXT);

@@ -19,10 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWay;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningLanguageWay;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningOrderWay;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWordsWay;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.utils.ThemeUtil;
-import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesWayButton;
+import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesLanguageWayButton;
+import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesOrderWayButton;
+import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesWordsWayButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
@@ -37,11 +41,14 @@ public class PhrasesChoiceWayFragment extends Fragment {
     private static final String DATA_PARAM = "phrases.choice.languageWay.dataParam";
 
     private RelativeLayout mainLayout;
-    private TableLayout waysLayout;
+    private TableLayout languageWaysLayout;
+    private TableLayout wordsAndOrderWaysLayout;
     private TextView title;
     private Button back, submit;
 
-    private List<PhrasesWayButton> ways = new ArrayList<>();
+    private List<PhrasesLanguageWayButton> languageWays = new ArrayList<>();
+    private List<PhrasesWordsWayButton> wordWays = new ArrayList<>();
+    private PhrasesOrderWayButton orderWay;
     private PhrasesDataParams dataParams;
 
     public PhrasesChoiceWayFragment() {
@@ -69,7 +76,7 @@ public class PhrasesChoiceWayFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the waysLayout for this fragment
+        // Inflate the languageWaysLayout for this fragment
         View rootView = inflater.inflate(R.layout.f_phrases_choice_way, container, false);
         loadViewFromXml(rootView);
         prepareLayout();
@@ -88,7 +95,8 @@ public class PhrasesChoiceWayFragment extends Fragment {
 
     private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_phrases_choice_way);
-        waysLayout = (TableLayout) rootView.findViewById(R.id.f_phrases_choice_way_names_layout);
+        languageWaysLayout = (TableLayout) rootView.findViewById(R.id.f_phrases_choice_language_way_names_layout);
+        wordsAndOrderWaysLayout = (TableLayout) rootView.findViewById(R.id.f_phrases_choice_words_and_order_way_names_layout);
         title = (TextView) rootView.findViewById(R.id.f_phrases_choice_way_title);
         back = (Button) rootView.findViewById(R.id.f_phrases_choice_way_back);
         submit = (Button) rootView.findViewById(R.id.f_phrases_choice_way_submit);
@@ -118,9 +126,13 @@ public class PhrasesChoiceWayFragment extends Fragment {
     }
 
     private void initWayButtons() {
-        for(PhrasesLearningWay way : PhrasesLearningWay.values()) {
-            ways.add(new PhrasesWayButton(getContext(), dataParams, way, ways));
+        for(PhrasesLearningLanguageWay way : PhrasesLearningLanguageWay.values()) {
+            languageWays.add(new PhrasesLanguageWayButton(getContext(), dataParams, way, languageWays));
         }
+        for(PhrasesLearningWordsWay way : PhrasesLearningWordsWay.values()) {
+            wordWays.add(new PhrasesWordsWayButton(getContext(), dataParams, way, wordWays));
+        }
+        orderWay = new PhrasesOrderWayButton(getContext(), dataParams, PhrasesLearningOrderWay.ALPHABETICAL);
     }
 
     private void addWayButtonsToTable() {
@@ -128,12 +140,12 @@ public class PhrasesChoiceWayFragment extends Fragment {
         TableRow currentTextRow = new TableRow(getContext());
 
         int x = 0;
-        for (PhrasesWayButton wayButton : ways) {
-            currentImageRow.addView(wayButton.getImage());
-            currentTextRow.addView(wayButton.getText());
+        for (PhrasesLanguageWayButton languageWayButton : languageWays) {
+            currentImageRow.addView(languageWayButton.getImage());
+            currentTextRow.addView(languageWayButton.getText());
             if (x == 3) {
-                waysLayout.addView(currentImageRow);
-                waysLayout.addView(currentTextRow);
+                languageWaysLayout.addView(currentImageRow);
+                languageWaysLayout.addView(currentTextRow);
                 currentImageRow = new TableRow(getContext());
                 currentTextRow = new TableRow(getContext());
                 x = 0;
@@ -142,9 +154,35 @@ public class PhrasesChoiceWayFragment extends Fragment {
             }
         }
         if (x != 0) {
-            waysLayout.addView(currentImageRow);
-            waysLayout.addView(currentTextRow);
+            languageWaysLayout.addView(currentImageRow);
+            languageWaysLayout.addView(currentTextRow);
         }
+
+        currentImageRow = new TableRow(getContext());
+        currentTextRow = new TableRow(getContext());
+        x = 0;
+
+        for(PhrasesWordsWayButton wordWayButton : wordWays) {
+            currentImageRow.addView(wordWayButton.getImage());
+            currentTextRow.addView(wordWayButton.getText());
+            if (x == 3) {
+                wordsAndOrderWaysLayout.addView(currentImageRow);
+                wordsAndOrderWaysLayout.addView(currentTextRow);
+                currentImageRow = new TableRow(getContext());
+                currentTextRow = new TableRow(getContext());
+                x = 0;
+            } else {
+                x++;
+            }
+        }
+        currentImageRow.addView(orderWay.getImage());
+        currentTextRow.addView(orderWay.getText());
+        x++;
+        if (x != 0) {
+            wordsAndOrderWaysLayout.addView(currentImageRow);
+            wordsAndOrderWaysLayout.addView(currentTextRow);
+        }
+
     }
 
     private void addListeners() {

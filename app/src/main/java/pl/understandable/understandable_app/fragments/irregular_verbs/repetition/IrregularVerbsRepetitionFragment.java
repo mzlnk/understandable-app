@@ -14,6 +14,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import pl.understandable.understandable_app.R;
@@ -21,6 +23,9 @@ import pl.understandable.understandable_app.data.entities_data.irregular_verbs_d
 import pl.understandable.understandable_app.dialogs.help.HelpManager;
 import pl.understandable.understandable_app.dialogs.help.IrregularVerbsRepetitionHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
+import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsHaveLearntButton;
+import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsPronunciationButton;
+import pl.understandable.understandable_app.utils.buttons.irregular_verbs.IrregularVerbsRepetitionRepeatButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
@@ -37,7 +42,11 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
     private IrregularVerbsRepetitionData repetitionData;
 
     private RelativeLayout mainLayout;
-    private Button repeat, finish;
+    private TableLayout optionsTable;
+    private IrregularVerbsRepetitionRepeatButton repeat;
+    private IrregularVerbsPronunciationButton pronunciation;
+    private IrregularVerbsHaveLearntButton haveLearnt;
+    private Button finish;
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
 
@@ -64,10 +73,16 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        pronunciation.shutdownTts();
+    }
+
     private void loadViewFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_irregular_verbs_repetition);
         pager = (ViewPager) rootView.findViewById(R.id.f_irregular_verbs_repetition_view_pager);
-        repeat = (Button) rootView.findViewById(R.id.f_irregular_verbs_repetition_repeat);
+        optionsTable = (TableLayout) rootView.findViewById(R.id.f_irregular_verbs_repetition_options_table);
         finish = (Button) rootView.findViewById(R.id.f_irregular_verbs_repetition_finish);
     }
 
@@ -76,6 +91,8 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
         setFonts();
         prepareButtons();
         prepareAdapter();
+        initOptionButtons();
+        addOptionButtonsToTable();
     }
 
     private void prepareAdapter() {
@@ -90,19 +107,38 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
 
     private void setFonts() {
         Typeface typeFace = Font.TYPEFACE_MONTSERRAT;
-        repeat.setTypeface(typeFace);
         finish.setTypeface(typeFace);
     }
 
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            repeat.setBackgroundResource(R.drawable.field_rounded_pink);
             finish.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
-            repeat.setBackgroundResource(R.drawable.field_rounded_gray);
             finish.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
+    }
+
+    private void initOptionButtons() {
+        repeat = new IrregularVerbsRepetitionRepeatButton(getContext());
+        pronunciation = new IrregularVerbsPronunciationButton(getContext(), IrregularVerbsRepetitionData.getRepetitionData());
+        haveLearnt = new IrregularVerbsHaveLearntButton(getContext(), IrregularVerbsRepetitionData.getRepetitionData());
+    }
+
+    private void addOptionButtonsToTable() {
+        TableRow currentImageRow = new TableRow(getContext());
+        TableRow currentTextRow = new TableRow(getContext());
+
+        currentImageRow.addView(repeat.getImage());
+        currentImageRow.addView(pronunciation.getImage());
+        currentImageRow.addView(haveLearnt.getImage());
+
+        currentTextRow.addView(repeat.getText());
+        currentTextRow.addView(pronunciation.getText());
+        currentTextRow.addView(haveLearnt.getText());
+
+        optionsTable.addView(currentImageRow);
+        optionsTable.addView(currentTextRow);
     }
 
     private void addListeners() {
@@ -117,24 +153,13 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
                 System.out.println("pos 2: " + position);
                 repetitionData.setCurrentWord(repetitionData.getEntities().get(position));
                 repetitionData.addCurrentWordToSeen();
+                repeat.updateChoiceState();
+                haveLearnt.updateChoiceState();
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
 
-            }
-        });
-
-        repeat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(repetitionData.existsInToRepeatWords(repetitionData.currentWord)) {
-                    repetitionData.removeCurrentWordFromRepeat();
-                    Toast.makeText(getContext(), "Usunieto z powtórzenia", Toast.LENGTH_SHORT).show();
-                } else {
-                    repetitionData.addCurrentWordToRepeat();
-                    Toast.makeText(getContext(), "Dodano do powtórzenia", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -156,7 +181,6 @@ public class IrregularVerbsRepetitionFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            System.out.println("pos 1: " + position);
             return IrregularVerbsRepetitionExampleFragment.newInstance(position);
         }
 

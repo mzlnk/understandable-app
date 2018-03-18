@@ -9,7 +9,6 @@ public abstract class BaseWordEntity extends BaseEntity {
     protected String polish;
     protected String english;
 
-
     public String getPolish() {
         return polish;
     }

@@ -36,12 +36,16 @@ public class WordEntityRepository {
 
     public static List<WordEntity> getSpecifiedEntitiesByCategory(WordsDataParams params) {
         StringBuilder sb = new StringBuilder();
-        sb.append("SELECT * FROM word_entities WHERE ");
+        sb.append("SELECT * FROM word_entities WHERE (");
         sb.append("category='").append(params.categories.get(0).name()).append("'");
         if(params.categories.size() > 1) {
             for(int i = 1; i < params.categories.size(); i++) {
                 sb.append(" OR ").append("category='").append(params.categories.get(i).name()).append("'");
             }
+        }
+        sb.append(")");
+        if(params.wordsWay.equals(WordsLearningWordsWay.NOT_LEARNED)) {
+            sb.append(" AND is_learnt=0");
         }
         String sql = sb.toString();
 

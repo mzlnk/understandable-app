@@ -6,9 +6,11 @@ import java.util.Random;
 
 import pl.understandable.understandable_app.data.entities_data.BaseData;
 import pl.understandable.understandable_app.data.entities_data.Datable;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningOrderWay;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
 import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
+import pl.understandable.understandable_app.utils.EntitySortUtil;
 
 /**
  * Created by Marcin Zielonka on 2017-08-11.
@@ -38,7 +40,10 @@ public class PhrasesBaseData extends BaseData implements Datable<PhraseEntity, P
 
     @Override
     public void generateWords() {
-        words = PhraseEntityRepository.getSpecifiedEntities(params.category);
+        words = PhraseEntityRepository.getSpecifiedEntitiesByCategory(params);
+        if(params.orderWay.equals(PhrasesLearningOrderWay.ALPHABETICAL)) {
+            EntitySortUtil.sort(words, params.languageWay);
+        }
     }
 
 }

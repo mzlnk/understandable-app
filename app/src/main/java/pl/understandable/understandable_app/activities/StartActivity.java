@@ -58,8 +58,6 @@ public class StartActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             CustomWordsSetsRepository.init(getApplicationContext());
-            PhraseEntityRepository.init(getApplicationContext());
-
             return null;
         }
 

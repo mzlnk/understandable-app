@@ -20,12 +20,9 @@ import android.widget.Toast;
 import java.util.List;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.data.entities_data.irregular_verbs_data.IrregularVerbsListData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesListData;
-import pl.understandable.understandable_app.data.entities_data.words_data.WordsListData;
-import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWay;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningLanguageWay;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
-import pl.understandable.understandable_app.dialogs.RateAppInfoDialog;
 import pl.understandable.understandable_app.user.ExpManager;
 import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.data.UserStatistics;
@@ -116,7 +113,7 @@ public class PhrasesListFragment extends Fragment {
         boolean color = true;
 
         List<PhraseEntity> entities = PhrasesListData.getListData().getEntities();
-        PhrasesLearningWay learningWay = PhrasesListData.getListData().getParams().way;
+        PhrasesLearningLanguageWay learningWay = PhrasesListData.getListData().getParams().languageWay;
         EntitySortUtil.sort(entities, learningWay);
 
         for(int i = start; i < end && i < entities.size(); i++) {
@@ -124,7 +121,7 @@ public class PhrasesListFragment extends Fragment {
             TableRow row = new TableRow(getContext());
             TextView t1 = new TextView(getContext());
             TextView t2 = new TextView(getContext());
-            if(learningWay.equals(PhrasesLearningWay.ENGLISH_TO_POLISH)) {
+            if(learningWay.equals(PhrasesLearningLanguageWay.ENGLISH_TO_POLISH)) {
                 prepareCell(t1, word.getEnglish());
                 prepareCell(t2, word.getPolish());
             } else {

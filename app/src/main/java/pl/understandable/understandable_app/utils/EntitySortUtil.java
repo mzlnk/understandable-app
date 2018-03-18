@@ -9,7 +9,6 @@ import java.util.Locale;
 import pl.understandable.understandable_app.data.enums.LearningWay;
 import pl.understandable.understandable_app.database.entity.BaseWordEntity;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
-import pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum;
 
 import static pl.understandable.understandable_app.database.entity.enums.IrregularVerbEnum.*;
 

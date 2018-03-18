@@ -1,6 +1,7 @@
 package pl.understandable.understandable_app.data.entities_data.irregular_verbs_data;
 
 import pl.understandable.understandable_app.data.entities_data.DataUtil;
+import pl.understandable.understandable_app.data.entities_data.RepetitionData;
 import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams;
 import pl.understandable.understandable_app.database.entity.IrregularVerbEntity;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by Marcin Zielonka on 2017-07-08.
  */
 
-public class IrregularVerbsRepetitionData extends IrregularVerbsBaseData {
+public class IrregularVerbsRepetitionData extends IrregularVerbsBaseData implements RepetitionData<IrregularVerbEntity> {
 
     private static IrregularVerbsRepetitionData repetitionData;
 
@@ -36,6 +37,16 @@ public class IrregularVerbsRepetitionData extends IrregularVerbsBaseData {
         super(params);
         setCurrentWord(words.get(0));
         addCurrentWordToSeen();
+    }
+
+    @Override
+    public IrregularVerbEntity getCurrentWord() {
+        return currentWord;
+    }
+
+    @Override
+    public List<IrregularVerbEntity> getWordsToRepeat() {
+        return wordsToRepeat;
     }
 
     public boolean existsInToRepeatWords(IrregularVerbEntity word) {

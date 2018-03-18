@@ -127,7 +127,7 @@ public class PhrasesQuizFragment extends Fragment {
         correctWord = quizData.currentWord;
         incorrectWords = quizData.getRandomIncorrectAnswers();
 
-        switch(quizData.getParams().way) {
+        switch(quizData.getParams().languageWay) {
             case POLISH_TO_ENGLISH:
                 setQuestionsPolishToEnglish();
                 break;

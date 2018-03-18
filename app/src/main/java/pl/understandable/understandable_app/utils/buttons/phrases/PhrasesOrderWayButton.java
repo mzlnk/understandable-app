@@ -3,29 +3,25 @@ package pl.understandable.understandable_app.utils.buttons.phrases;
 import android.content.Context;
 import android.view.View;
 
-import java.util.List;
-
-import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningWay;
+import pl.understandable.understandable_app.data.enums.phrases.PhrasesLearningOrderWay;
 import pl.understandable.understandable_app.data.params.PhrasesDataParams;
 
 /**
- * Created by Marcin Zielonka on 2017-08-11.
+ * Created by Marcin Zielonka on 2018-03-18.
  */
 
-public class PhrasesWayButton extends PhrasesBaseButton {
+public class PhrasesOrderWayButton extends PhrasesBaseButton {
 
-    private List<PhrasesWayButton> allWays;
-    private PhrasesLearningWay way;
+    private PhrasesLearningOrderWay way;
 
-    public PhrasesWayButton(Context context, PhrasesDataParams dataParams, PhrasesLearningWay way, List<PhrasesWayButton> allWays) {
+    public PhrasesOrderWayButton(Context context, PhrasesDataParams dataParams, PhrasesLearningOrderWay way) {
         super(context, dataParams, way, false);
         this.way = way;
-        this.allWays = allWays;
         prepare();
         setImage();
     }
 
-    private PhrasesLearningWay getWay() {
+    private PhrasesLearningOrderWay getWay() {
         return way;
     }
 
@@ -48,14 +44,11 @@ public class PhrasesWayButton extends PhrasesBaseButton {
                 if(!isChecked()) {
                     image.setAlpha(ITEM_CHOSEN);
                     setChecked(true);
-                    dataParams.setWay(way);
-                    for(PhrasesWayButton w : allWays) {
-                        if(w.getWay().equals(way)) {
-                            continue;
-                        }
-                        w.getImage().setAlpha(ITEM_NOT_CHOSEN);
-                        w.setChecked(false);
-                    }
+                    dataParams.setOrderWay(way);
+                } else {
+                    image.setAlpha(ITEM_NOT_CHOSEN);
+                    setChecked(false);
+                    dataParams.setOrderWay(PhrasesLearningOrderWay.NO_ORDER);
                 }
             }
         });
