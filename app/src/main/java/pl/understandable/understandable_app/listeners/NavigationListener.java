@@ -93,7 +93,7 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
             }
         } else if(id== R.id.navigation_help) {
             try {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.understandable.pl/help.php"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.understandable.pl/pomoc.php"));
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(browserIntent);
             } catch(ActivityNotFoundException e) {
