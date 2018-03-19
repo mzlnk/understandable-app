@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/d_dialog_box_width"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:measureWithLargestChild="true"
+    tools:context="pl.understandable.understandable_app.dialogs.GrammarInfoDialog"
+    android:id="@+id/d_grammar_info">
+
+    <ImageView
+        android:id="@+id/d_grammar_info_icon"
+        android:layout_width="@dimen/f_choice_icon_size"
+        android:layout_height="@dimen/f_choice_icon_size"
+        android:layout_marginTop="@dimen/f_border_margin_large"
+        android:alpha="1"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/d_grammar_info_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_title_field_height"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/d_grammar_info_title"
+        android:textSize="@dimen/d_text" />
+
+</LinearLayout>

@@ -104,7 +104,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean idExists(String id) {
         try {
-            URI uri = new URI("https://www.understandable.pl/resources/script/words_set_exist.php?id=" + id);
+            URI uri = new URI("https://dl.understandable.pl/android_webservice/words_set_exists.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -136,7 +136,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
         try {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpGet httpGet = new HttpGet("http://www.understandable.pl/resources/script/download_file.php?id=" + id);
+            HttpGet httpGet = new HttpGet("https://dl.understandable.pl/android_webservice/download_file.php?id=" + id);
             httpGet.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpGet.setHeader("Pragma", "no-cache");
             httpGet.setHeader("User-Agent", "");
@@ -168,7 +168,7 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
 
     private boolean downloadWordsSetData(String id) {
         try {
-            URI uri = new URI("http://www.understandable.pl/resources/script/get_words_set_info.php?id=" + id);
+            URI uri = new URI("https://dl.understandable.pl/android_webservice/get_words_set_info.php?id=" + id);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");

@@ -80,7 +80,7 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
     private boolean downloadFollowedWordsSetsData() {
         try {
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/get_specific_words_sets_info.php");
+            HttpPost httpPost = new HttpPost("https://dl.understandable.pl/android_webservice/get_specific_words_sets_info.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");

@@ -86,7 +86,7 @@ public class AnnouncementDialog extends Dialog implements View.OnClickListener {
         ThemeUtil themeUtil = new ThemeUtil(context);
         String theme = themeUtil.isDefaultTheme() ? "default" : "night";
 
-        String url = "http://dl.understandable.pl?theme=" + theme;
+        String url = "https://dl.understandable.pl/announcements/announcement.php?theme=" + theme;
         webView.loadUrl(url);
     }
 

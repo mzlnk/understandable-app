@@ -151,7 +151,7 @@ public class SyncManager {
         try {
             syncParams.setActionInProgress(true);
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_to_server.php");
+            HttpPost httpPost = new HttpPost("https://dl.understandable.pl/android_webservice/sync_to_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");
@@ -193,7 +193,7 @@ public class SyncManager {
             syncParams.setActionInProgress(true);
             System.out.println("[TEST] Sync from server: 0");
             HttpClient client = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("https://www.understandable.pl/resources/script/sync_from_server.php");
+            HttpPost httpPost = new HttpPost("https://dl.understandable.pl/android_webservice/sync_from_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");

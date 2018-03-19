@@ -62,20 +62,20 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/d_button_field_height"
-        android:gravity="center"
-        android:orientation="horizontal">
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/d_button_field_height"
+    android:gravity="center"
+    android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/d_rate_app_info_button_later"
-            android:layout_width="@dimen/button_small_width"
-            android:layout_height="@dimen/button_small_small_height"
-            android:layout_gravity="top"
-            android:clickable="true"
-            android:text="@string/button_later"
-            android:textAllCaps="false"
-            android:textSize="@dimen/button_text" />
+    <Button
+        android:id="@+id/d_rate_app_info_button_later"
+        android:layout_width="@dimen/button_small_width"
+        android:layout_height="@dimen/button_small_small_height"
+        android:layout_gravity="top"
+        android:clickable="true"
+        android:text="@string/button_later"
+        android:textAllCaps="false"
+        android:textSize="@dimen/button_text" />
 
-    </LinearLayout>
+</LinearLayout>
 </LinearLayout>
