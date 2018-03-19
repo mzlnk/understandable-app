@@ -22,7 +22,13 @@ public class AdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad);
         loadViewsFromXl();
-        addListeners();    }
+        addListeners();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
     private void loadViewsFromXl() {
         back = (ImageView) findViewById(R.id.f_ad_button_back);
