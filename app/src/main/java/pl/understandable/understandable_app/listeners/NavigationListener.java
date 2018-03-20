@@ -22,6 +22,7 @@ import pl.understandable.understandable_app.activities.AdActivity;
 import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.dialogs.GrammarInfoDialog;
 import pl.understandable.understandable_app.dialogs.RateAppInfoDialog;
+import pl.understandable.understandable_app.fragments.about_app.AboutAppFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
@@ -102,6 +103,9 @@ public class NavigationListener implements NavigationView.OnNavigationItemSelect
         } else if(id == R.id.navigation_themes) {
             ThemeChoiceFragment fragment = new ThemeChoiceFragment();
             fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).setCustomAnimations(R.anim.fade01, FragmentTransaction.TRANSIT_NONE).commit();
+        } else if(id == R.id.about_app) {
+            AboutAppFragment fragment = new AboutAppFragment();
+            fragmentManager.beginTransaction().replace(R.id.layout_for_fragments, fragment, redirectTo(F_START)).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);

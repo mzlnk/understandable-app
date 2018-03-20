@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background_color"
+    tools:context="pl.understandable.understandable_app.fragments.start.AboutAppFragment"
+    android:id="@+id/f_about_app" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:measureWithLargestChild="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:layout_marginBottom="@dimen/f_border_margin_large"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="@dimen/f_about_app_icon_size"
+                android:layout_height="@dimen/f_about_app_icon_size"
+                android:layout_gravity="bottom"
+                android:alpha="1"
+                app:srcCompat="@drawable/f_app_icon" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/f_about_app_app_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_about_app_app_name" />
+
+        <TextView
+            android:id="@+id/f_about_app_motd"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1  "
+            android:gravity="center | top"
+            android:text="@string/f_about_app_app_motd"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_about_app_app_motd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" >
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/f_about_app_statute_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1  "
+            android:gravity="center | bottom"
+            android:text="@string/f_about_app_statute_info"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_about_app_statute_info"/>
+
+        <TextView
+            android:id="@+id/f_about_app_google_analytics_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15  "
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/f_about_app_google_analytics_info"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_about_app_google_analytics_info"/>
+
+        <TextView
+            android:id="@+id/f_about_app_foot_1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05  "
+            android:gravity="center | bottom"
+            android:text="@string/f_about_app_foot_1"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_about_app_foot"/>
+
+        <TextView
+            android:id="@+id/f_about_app_foot_2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05  "
+            android:gravity="center | top"
+            android:text="@string/f_about_app_foot_2"
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_about_app_foot"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -40,5 +40,11 @@
             android:title="Zmień motyw" />
     </group>
 
+    <group android:id="@+id/navigation_group_5" >
+        <item
+            android:id="@+id/about_app"
+            android:title="O aplikacji" />
+    </group>
+
 
 </menu>

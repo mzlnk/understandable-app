@@ -166,6 +166,7 @@
     <dimen name="d_dialog_box_width">330dp</dimen>
     <dimen name="d_user_dialog_box_height">90dp</dimen>
     <dimen name="d_announcement_dialog_box_height">400dp</dimen>
+    <dimen name="d_welcome_dialog_box_height">400dp</dimen>
 
     <dimen name="d_title_field_height">70dp</dimen>
     <dimen name="d_button_field_height">70dp</dimen>
@@ -178,6 +179,15 @@
     <dimen name="d_help_icon_height">276dp</dimen>
     <dimen name="d_user_dialog_box_message">17sp</dimen>
     <dimen name="d_help_description_area_height">100dp</dimen> <!-- 0.36x d_help_icon_height -->
+
+
+    <!-- about app -->
+    <dimen name="f_about_app_icon_size">120dp</dimen>
+    <dimen name="f_about_app_app_name">25sp</dimen>
+    <dimen name="f_about_app_app_motd">18sp</dimen>
+    <dimen name="f_about_app_statute_info">13sp</dimen>
+    <dimen name="f_about_app_google_analytics_info">12sp</dimen>
+    <dimen name="f_about_app_foot">10sp</dimen>
 
 
     <!-- user -->
