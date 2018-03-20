@@ -18,12 +18,31 @@
 
     </LinearLayout>
 
+    <ScrollView
+        android:id="@+id/d_help_description_scroll_view_area"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/d_help_description_area_height"
+        android:layout_below="@+id/d_help_content_area">
+
+        <LinearLayout
+            android:id="@+id/d_help_description_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+
+    </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/d_button_field_height"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_below="@id/d_help_content_area">
+        android:layout_below="@id/d_help_description_scroll_view_area">
 
         <Button
             android:id="@+id/d_help_button_previous"

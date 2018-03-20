@@ -18,6 +18,8 @@ public class HelpManager {
 
         boolean helpSeen = sharedPreferences.getBoolean(sharedPrefHelpKey, false);
         if(!helpSeen) {
+            helpDialog.setCancelable(false);
+            helpDialog.setCanceledOnTouchOutside(false);
             helpDialog.show();
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(sharedPrefHelpKey, true);

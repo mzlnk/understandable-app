@@ -177,6 +177,7 @@
     <dimen name="d_help_icon_width">100dp</dimen>
     <dimen name="d_help_icon_height">184dp</dimen> <!-- 1.84x d_help_icon_width -->
     <dimen name="d_user_dialog_box_message">13sp</dimen>
+    <dimen name="d_help_description_area_height">65dp</dimen> <!-- 0.36x d_help_icon_height -->
 
 
     <!-- user -->

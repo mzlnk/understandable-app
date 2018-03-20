@@ -22,7 +22,7 @@ public class IrregularVerbsRepetitionHelpDialog extends HelpDialog {
     @Override
     public void addContent() {
         content.add(new HelpContent(0, R.drawable.h_irregular_verbs_show_word, R.string.h_irregular_verbs_show_word));
-        content.add(new HelpContent(1, R.drawable.h_irregular_verbs_repeat, R.string.h_irregular_verbs_repeat));
+        content.add(new HelpContent(1, R.drawable.h_irregular_verbs_options, R.string.h_irregular_verbs_options));
         content.add(new HelpContent(2, R.drawable.h_help, R.string.h_help, true));
     }
 

@@ -44,7 +44,10 @@ public class ShowAnnouncementTask extends AsyncTask<Void, Void, Integer> {
     @Override
     protected void onPostExecute(Integer result) {
         if(result == 0) {
-            new AnnouncementDialog(context).show();
+            AnnouncementDialog dialog = new AnnouncementDialog(context);
+            dialog.setCancelable(false);
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.show();
         }
     }
 

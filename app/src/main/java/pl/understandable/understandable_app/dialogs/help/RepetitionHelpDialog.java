@@ -22,7 +22,7 @@ public class RepetitionHelpDialog extends HelpDialog {
     @Override
     public void addContent() {
         content.add(new HelpContent(0, R.drawable.h_repetition_navigate, R.string.h_repetition_navigate));
-        content.add(new HelpContent(1, R.drawable.h_repetition_repeat, R.string.h_repetition_repeat));
+        content.add(new HelpContent(1, R.drawable.h_repetition_options, R.string.h_repetition_options));
         content.add(new HelpContent(2, R.drawable.h_repetition_finish, R.string.h_repetition_finish));
         content.add(new HelpContent(3, R.drawable.h_help, R.string.h_help, true));
     }

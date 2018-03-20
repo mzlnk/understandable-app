@@ -33,6 +33,7 @@ public class HelpDialog extends Dialog implements View.OnClickListener {
     private Context context;
 
     private LinearLayout contentArea;
+    private LinearLayout descriptionArea;
     private ImageView image;
     private TextView text;
     private Button previous, next;
@@ -70,6 +71,7 @@ public class HelpDialog extends Dialog implements View.OnClickListener {
 
     private void loadViewsFromXml() {
         contentArea = (LinearLayout) findViewById(R.id.d_help_content_area);
+        descriptionArea = (LinearLayout) findViewById(R.id.d_help_description_area);
         previous = (Button) findViewById(R.id.d_help_button_previous);
         next = (Button) findViewById(R.id.d_help_button_next);
     }
@@ -113,7 +115,7 @@ public class HelpDialog extends Dialog implements View.OnClickListener {
         text = new TextView(context);
         text.setText(currentContent.getTextResId());
         text.setGravity(Gravity.CENTER);
-        contentArea.addView(text);
+        descriptionArea.addView(text);
     }
 
     private void setFonts() {
