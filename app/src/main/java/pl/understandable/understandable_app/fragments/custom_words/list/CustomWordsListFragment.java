@@ -29,7 +29,6 @@ import pl.understandable.understandable_app.user.data.UserStatistics;
 import pl.understandable.understandable_app.user.requests.AddExp;
 import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ColorUtil;
-import pl.understandable.understandable_app.utils.EntitySortUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 

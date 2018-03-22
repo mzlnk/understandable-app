@@ -24,11 +24,15 @@ import pl.understandable.understandable_app.data.params.IrregularVerbsDataParams
 import pl.understandable.understandable_app.fragments.irregular_verbs.list.IrregularVerbsListFragment;
 import pl.understandable.understandable_app.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionFragment;
 import pl.understandable.understandable_app.utils.AdUtil;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_IRREGULAR_VERBS_LIST;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_IRREGULAR_VERBS_REPETITION;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.GA_C_OPEN;
 
 /**
  * Created by Marcin Zielonka
@@ -212,10 +216,12 @@ public class IrregularVerbsChoiceLengthFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {
                     case REPETITION:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_IRREGULAR_VERBS_REPETITION, GA_C_OPEN);
                         IrregularVerbsRepetitionData.createRepetitionDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionFragment(), redirectTo(F_START));
                         break;
                     case LIST:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_IRREGULAR_VERBS_LIST, GA_C_OPEN);
                         IrregularVerbsListData.createListDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new IrregularVerbsListFragment(), redirectTo(F_START));
                         break;

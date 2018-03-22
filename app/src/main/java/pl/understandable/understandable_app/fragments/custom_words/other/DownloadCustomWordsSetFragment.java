@@ -51,6 +51,11 @@ public class DownloadCustomWordsSetFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.f_download_words_set, container, false);
         loadViewsFromXml(rootView);

@@ -13,7 +13,11 @@ import pl.understandable.understandable_app.database.repository.CustomWordsSetsR
 import pl.understandable.understandable_app.database.repository.IrregularVerbEntityRepository;
 import pl.understandable.understandable_app.database.repository.PhraseEntityRepository;
 import pl.understandable.understandable_app.database.repository.WordEntityRepository;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.RateAppUtil;
+
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_APP_OPEN;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.GA_C_APP;
 
 /**
  * Created by Marcin Zielonka on 2017-11-07.
@@ -40,6 +44,7 @@ public class StartActivity extends AppCompatActivity {
 
         new RateAppUtil(getApplicationContext()).updateAmountOfAppOpenings();
         new LoadDataTask().execute();
+        GoogleAnalyticsManager.Tracker.trackEvent(getApplication(), GA_A_APP_OPEN, GA_C_APP);
     }
 
     private void setAnimation() {

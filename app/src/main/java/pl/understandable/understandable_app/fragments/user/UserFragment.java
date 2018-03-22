@@ -27,6 +27,7 @@ import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.user.data.enums.UserTitle;
 import pl.understandable.understandable_app.user.data.enums.buttons_data.UserOptions;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.user.UserButton;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -35,6 +36,8 @@ import pl.understandable.understandable_app.webservice.LogOutTask;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_USER_PROFILE;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.GA_C_OPEN;
 
 /**
  * Created by Marcin Zielonka
@@ -54,6 +57,11 @@ public class UserFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_USER_PROFILE, GA_C_OPEN);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

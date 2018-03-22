@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -42,6 +44,9 @@ import java.util.Random;
 
 public class App extends MultiDexApplication {
 
+    private static GoogleAnalytics googleAnalytics;
+    private static Tracker tracker;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -52,6 +57,8 @@ public class App extends MultiDexApplication {
         DatabaseManager.init(getApplicationContext());
 
         AdUtil.init(getApplicationContext());
+
+        googleAnalytics = GoogleAnalytics.getInstance(this);
 
         UserManager.init();
         googleSilentSignIn();
@@ -67,6 +74,13 @@ public class App extends MultiDexApplication {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         MultiDex.install(this);
+    }
+
+    synchronized public Tracker getDefaultTracker() {
+        if (tracker == null) {
+            tracker = googleAnalytics.newTracker(R.xml.global_tracker);
+        }
+        return tracker;
     }
 
     private void prepareCustomWordsSetsDirectory() {

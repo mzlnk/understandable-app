@@ -21,9 +21,13 @@ import java.util.List;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.achievements.Achievement;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.achievements.AchievementButton;
 import pl.understandable.understandable_app.utils.font.Font;
+
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_USER_PROFILE_ACHIEVEMENTS;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.GA_C_OPEN;
 
 /**
  * Created by Marcin Zielonka
@@ -40,6 +44,12 @@ public class UserAchievementsFragment extends Fragment {
 
     public UserAchievementsFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
+        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_USER_PROFILE_ACHIEVEMENTS, GA_C_OPEN);
     }
 
     @Override

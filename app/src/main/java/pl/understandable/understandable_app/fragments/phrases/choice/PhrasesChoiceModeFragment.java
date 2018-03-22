@@ -29,12 +29,17 @@ import pl.understandable.understandable_app.fragments.phrases.list.PhrasesListFr
 import pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizFragment;
 import pl.understandable.understandable_app.fragments.phrases.repetition.PhrasesRepetitionFragment;
 import pl.understandable.understandable_app.utils.AdUtil;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_CHOICE_CATEGORY;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_PHRASES_LIST;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_PHRASES_QUIZ;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_PHRASES_REPETITION;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.GA_C_OPEN;
 
 /**
  * Created by Marcin Zielonka
@@ -173,14 +178,17 @@ public class PhrasesChoiceModeFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {
                     case REPETITION:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_PHRASES_REPETITION, GA_C_OPEN);
                         PhrasesRepetitionData.createRepetitionDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new PhrasesRepetitionFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY));
                         break;
                     case LIST:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_PHRASES_LIST, GA_C_OPEN);
                         PhrasesListData.createListDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new PhrasesListFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY));
                         break;
                     case QUIZ:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_PHRASES_QUIZ, GA_C_OPEN);
                         PhrasesQuizData.createQuizDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new PhrasesQuizFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY));
                         break;

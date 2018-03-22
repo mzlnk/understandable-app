@@ -32,12 +32,15 @@ import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWo
 import pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionFragment;
 import pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingFragment;
 import pl.understandable.understandable_app.utils.AdUtil;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.custom_words.CustomWordsModeButton;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.*;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.*;
 
 /**
  * Created by Marcin Zielonka
@@ -190,18 +193,22 @@ public class CustomWordsChoiceModeFragment extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 switch (dataParams.mode) {
                     case REPETITION:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_CUSTOM_WORDS_REPETITION, GA_C_OPEN);
                         CustomWordsRepetitionData.createRepetitionDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new CustomWordsRepetitionFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                     case LIST:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_CUSTOM_WORDS_LIST, GA_C_OPEN);
                         CustomWordsListData.createListDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new CustomWordsListFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                     case QUIZ:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_CUSTOM_WORDS_QUIZ, GA_C_OPEN);
                         CustomWordsQuizData.createQuizDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;
                     case SPELLING:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_CUSTOM_WORDS_SPELLING, GA_C_OPEN);
                         CustomWordsSpellingData.createSpellingDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, dataParams.id));
                         break;

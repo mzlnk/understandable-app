@@ -38,6 +38,7 @@ import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.requests.AddFollowedTest;
 import pl.understandable.understandable_app.user.requests.AddWordsSetDownloaded;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.NetworkUtil;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;

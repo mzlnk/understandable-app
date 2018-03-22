@@ -28,11 +28,17 @@ import pl.understandable.understandable_app.fragments.words.list.WordsListFragme
 import pl.understandable.understandable_app.fragments.words.repetition.WordsRepetitionFragment;
 import pl.understandable.understandable_app.fragments.words.spelling.WordsSpellingFragment;
 import pl.understandable.understandable_app.utils.AdUtil;
+import pl.understandable.understandable_app.utils.GoogleAnalyticsManager;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_WORDS_LIST;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_WORDS_QUIZ;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_WORDS_REPETITION;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Action.GA_A_WORDS_SPELLING;
+import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.Category.GA_C_OPEN;
 
 /**
  * Created by Marcin Zielonka
@@ -213,18 +219,22 @@ public class WordsChoiceLengthFragment extends Fragment {
 
                 switch (dataParams.mode) {
                     case REPETITION:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_WORDS_REPETITION, GA_C_OPEN);
                         WordsRepetitionData.createRepetitionDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new WordsRepetitionFragment(), redirectTo(F_START));
                         break;
                     case LIST:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_WORDS_LIST, GA_C_OPEN);
                         WordsListData.createListDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new WordsListFragment(), redirectTo(F_START));
                         break;
                     case QUIZ:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_WORDS_QUIZ, GA_C_OPEN);
                         WordsQuizData.createQuizDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new WordsQuizFragment(), redirectTo(F_START));
                         break;
                     case SPELLING:
+                        GoogleAnalyticsManager.Tracker.trackEvent(getActivity().getApplication(), GA_A_WORDS_SPELLING, GA_C_OPEN);
                         WordsSpellingData.createRepetitionDataFromParams(dataParams);
                         transaction.replace(R.id.layout_for_fragments, new WordsSpellingFragment(), redirectTo(F_START));
                         break;
