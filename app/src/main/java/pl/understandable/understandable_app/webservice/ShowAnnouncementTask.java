@@ -17,6 +17,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import pl.understandable.understandable_app.dialogs.AnnouncementDialog;
 import pl.understandable.understandable_app.utils.NetworkUtil;
+import pl.understandable.understandable_app.utils.ThemeUtil;
 
 /**
  * Created by Marcin Zielonka on 2018-02-05.
@@ -53,7 +54,9 @@ public class ShowAnnouncementTask extends AsyncTask<Void, Void, Integer> {
 
     private boolean announcementExists() {
         try {
-            URI uri = new URI("https://dl.understandable.pl/announcements/announcement.php");
+            ThemeUtil themeUtil  = new ThemeUtil(context);
+            String theme = themeUtil.isDefaultTheme() ? "default" : "night";
+            URI uri = new URI("https://dl.understandable.pl/announcements/announcement.php?theme=" + theme);
             HttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(uri);
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");

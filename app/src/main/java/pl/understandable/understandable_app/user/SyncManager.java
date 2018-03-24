@@ -209,6 +209,7 @@ public class SyncManager {
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
+            response = response.replaceAll("\"", "\\\"");
             System.out.println("[JSON FROM SERVER] Json: " + response);
 
             System.out.println("[TEST] Sync from server: 3");
