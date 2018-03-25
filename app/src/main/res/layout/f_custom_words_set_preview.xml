@@ -148,6 +148,8 @@
                 android:layout_width="@dimen/button_small_width"
                 android:layout_height="@dimen/button_small_height"
                 android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/f_border_margin_small"
+
                 android:clickable="true"
                 android:text="@string/button_delete"
                 android:textAllCaps="false"

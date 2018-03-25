@@ -56,6 +56,7 @@ public class AboutAppFragment extends Fragment {
         setAnimation();
         setFonts();
         prepareHyperLink();
+        prepareFoot();
     }
 
     private void setAnimation() {
@@ -77,6 +78,12 @@ public class AboutAppFragment extends Fragment {
         String text = "Korzystając z aplikacji, akceptujesz\n<style='text-decoration:none;color:#f78aae;><a href='https://m.understandable.pl/regulamin.php'>regulamin</a></style>";
         statuteInfo.setText(Html.fromHtml(text));
         statuteInfo.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    private void prepareFoot() {
+        String foot = foot1.getText().toString();
+        foot = foot.concat(getResources().getString(R.string.app_version));
+        foot1.setText(foot);
     }
 
 }

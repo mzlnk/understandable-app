@@ -12,7 +12,7 @@
 
     <!-- side margin -->
     <dimen name="f_side_margin">10dp</dimen>
-    <dimen name="f_side_words_set_options_margin">10dp</dimen>
+    <dimen name="f_side_words_set_options_margin">55dp</dimen>
 
 
     <!-- navigation -->
@@ -182,12 +182,12 @@
 
 
     <!-- about app -->
-    <dimen name="f_about_app_icon_size">120dp</dimen>
-    <dimen name="f_about_app_app_name">25sp</dimen>
-    <dimen name="f_about_app_app_motd">18sp</dimen>
-    <dimen name="f_about_app_statute_info">13sp</dimen>
-    <dimen name="f_about_app_google_analytics_info">12sp</dimen>
-    <dimen name="f_about_app_foot">10sp</dimen>
+    <dimen name="f_about_app_icon_size">155dp</dimen>
+    <dimen name="f_about_app_app_name">33sp</dimen>
+    <dimen name="f_about_app_app_motd">22sp</dimen>
+    <dimen name="f_about_app_statute_info">16sp</dimen>
+    <dimen name="f_about_app_google_analytics_info">15sp</dimen>
+    <dimen name="f_about_app_foot">13sp</dimen>
 
 
     <!-- user -->

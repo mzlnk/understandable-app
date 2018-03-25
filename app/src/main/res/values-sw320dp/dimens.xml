@@ -182,12 +182,12 @@
 
 
     <!-- about app -->
-    <dimen name="f_about_app_icon_size">120dp</dimen>
-    <dimen name="f_about_app_app_name">25sp</dimen>
-    <dimen name="f_about_app_app_motd">18sp</dimen>
-    <dimen name="f_about_app_statute_info">13sp</dimen>
-    <dimen name="f_about_app_google_analytics_info">12sp</dimen>
-    <dimen name="f_about_app_foot">10sp</dimen>
+    <dimen name="f_about_app_icon_size">100dp</dimen>
+    <dimen name="f_about_app_app_name">21sp</dimen>
+    <dimen name="f_about_app_app_motd">16sp</dimen>
+    <dimen name="f_about_app_statute_info">11sp</dimen>
+    <dimen name="f_about_app_google_analytics_info">10sp</dimen>
+    <dimen name="f_about_app_foot">8sp</dimen>
 
 
     <!-- user -->

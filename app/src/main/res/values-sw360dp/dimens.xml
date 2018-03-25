@@ -153,7 +153,7 @@
 
 
     <!-- irregular verb list -->
-    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">0.9</item>
+    <item name="f_irregular_verbs_list_text_factor" format="float" type="dimen">0.8</item>
 
 
     <!-- Edit Texts -->
@@ -184,9 +184,9 @@
     <!-- about app -->
     <dimen name="f_about_app_icon_size">105dp</dimen>
     <dimen name="f_about_app_app_name">24sp</dimen>
-    <dimen name="f_about_app_app_motd">17sp</dimen>
-    <dimen name="f_about_app_statute_info">13sp</dimen>
-    <dimen name="f_about_app_google_analytics_info">12sp</dimen>
+    <dimen name="f_about_app_app_motd">16sp</dimen>
+    <dimen name="f_about_app_statute_info">12sp</dimen>
+    <dimen name="f_about_app_google_analytics_info">11sp</dimen>
     <dimen name="f_about_app_foot">10sp</dimen>
 
 

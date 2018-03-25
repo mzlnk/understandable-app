@@ -20,7 +20,7 @@
             android:gravity="center"
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_text_title_medium"
-            android:text="Odpowiedzi błędne" />
+            android:text="@string/f_quiz_result_incorrect_words_summary_title" />
 
         <ScrollView
             android:layout_width="match_parent"
