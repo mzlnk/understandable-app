@@ -7,7 +7,7 @@ package pl.understandable.understandable_app.data.enums.phrases;
 public enum PhrasesCategory {
 
     CONVERSATION("uczestniczenie w rozmowie"),
-    OPINION("wyrazanie opinii"),
+    OPINION("wyrażanie opinii"),
     ADVICE("udzielanie rady"),
     DESCRIPTION("opisywanie ilustracji"),
     EVENT("relacjonowanie zdarzeń"),
@@ -15,7 +15,7 @@ public enum PhrasesCategory {
     COMPLAINT("skargi i zażalenia"),
     DESTINATION("pytanie o drogę"),
     SHOP("w sklepie"),
-    RESTOURANT("w restouracji");
+    RESTOURANT("w restauracji");
 
     private String name;
 
