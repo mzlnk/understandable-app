@@ -47,6 +47,8 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
 
 public class MainActivity extends AppCompatActivity {
 
+    public static boolean userActive = true;
+
     private static MainActivity activity;
 
     public GoogleSignInClient client;
@@ -95,6 +97,18 @@ public class MainActivity extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         DatabaseManager.closeDatabase();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        userActive = false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        userActive = true;
     }
 
     @Override
