@@ -16,7 +16,7 @@ public class TimeLearntManager {
         TimerTask requestsTask = new TimerTask() {
             @Override
             public void run() {
-                RequestExecutor.offerRequest(new AddTimeLearnt(60000L));
+                RequestExecutor.offerRequest(new AddTimeLearnt(1L));
             }
         };
         timer.scheduleAtFixedRate(requestsTask, 60000L, 60000L);

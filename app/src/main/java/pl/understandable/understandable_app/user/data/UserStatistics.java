@@ -6,10 +6,9 @@ package pl.understandable.understandable_app.user.data;
 
 public class UserStatistics {
 
-    private static double ONE_WEEK_IN_MILLIS = 604800000D;
-    private static double ONE_DAY_IN_MILLIS = 86400000D;
-    private static double ONE_HOUR_IN_MILLIS = 3600000D;
-    private static double ONE_MINUTE_IN_MILLIS = 60000D;
+    private static double ONE_WEEK_IN_MINUTES = 10080D;
+    private static double ONE_DAY_IN_MINUTES = 1440D;
+    private static double ONE_HOUR_IN_MINUTES = 60D;
 
     public static final int WORDS = 0;
     public static final int IRREGULAR_VERBS = 1;
@@ -115,10 +114,10 @@ public class UserStatistics {
         StringBuilder sb = new StringBuilder();
 
         long time = this.timeLearnt;
-        int weeks = (int)((double) time / ONE_WEEK_IN_MILLIS);
-        int days = (int)((time - weeks * ONE_WEEK_IN_MILLIS) / ONE_DAY_IN_MILLIS);
-        int hours = (int)((time - weeks * ONE_WEEK_IN_MILLIS - days * ONE_DAY_IN_MILLIS) / ONE_HOUR_IN_MILLIS);
-        int minutes = (int)((time - weeks * ONE_WEEK_IN_MILLIS - days * ONE_DAY_IN_MILLIS - hours * ONE_HOUR_IN_MILLIS) / ONE_MINUTE_IN_MILLIS);
+        int weeks = (int)((double) time / ONE_WEEK_IN_MINUTES);
+        int days = (int)((time - weeks * ONE_WEEK_IN_MINUTES) / ONE_DAY_IN_MINUTES);
+        int hours = (int)((time - weeks * ONE_WEEK_IN_MINUTES - days * ONE_DAY_IN_MINUTES) / ONE_HOUR_IN_MINUTES);
+        int minutes = (int)(time - weeks * ONE_WEEK_IN_MINUTES - days * ONE_DAY_IN_MINUTES - hours * ONE_HOUR_IN_MINUTES);
 
         sb.append(weeks == 0 ? "" : (weeks + "w ")).
            append(weeks == 0 && days == 0 ? "" : (days + "d ")).

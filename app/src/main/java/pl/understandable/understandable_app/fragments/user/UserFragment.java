@@ -23,6 +23,7 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.dialogs.help.HelpManager;
 import pl.understandable.understandable_app.dialogs.help.ProfileHelpDialog;
 import pl.understandable.understandable_app.dialogs.user_dialogs.ChangeUserNameDialog;
+import pl.understandable.understandable_app.dialogs.user_dialogs.UserAccountRemoveDialog;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
 import pl.understandable.understandable_app.user.data.enums.UserTitle;
@@ -33,6 +34,7 @@ import pl.understandable.understandable_app.utils.buttons.user.UserButton;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.DownloadFollowedWordsSetsDataTask;
 import pl.understandable.understandable_app.webservice.LogOutTask;
+import pl.understandable.understandable_app.webservice.RemoveUserAccountTask;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
@@ -51,7 +53,7 @@ public class UserFragment extends Fragment {
     private ProgressBar levelProgress;
     private TableLayout optionsTable;
     private UserButton achievements, stats, followedWordsSets;
-    private Button logOut;
+    private Button removeAccount, logOut;
 
     public UserFragment() {
         // Required empty public constructor
@@ -89,6 +91,7 @@ public class UserFragment extends Fragment {
         titleField = (LinearLayout) rootView.findViewById(R.id.f_user_title_field);
         levelProgress = (ProgressBar) rootView.findViewById(R.id.f_user_level_progress);
         optionsTable = (TableLayout) rootView.findViewById(R.id.f_user_options_table);
+        removeAccount = (Button) rootView.findViewById(R.id.f_user_button_remove_account);
         logOut = (Button) rootView.findViewById(R.id.f_user_button_log_out);
     }
 
@@ -115,6 +118,7 @@ public class UserFragment extends Fragment {
         titleInfo.setTypeface(typeface);
         levelInfo.setTypeface(typeface);
         levelProgressInfo.setTypeface(typeface);
+        removeAccount.setTypeface(typeface);
         logOut.setTypeface(typeface);
     }
 
@@ -132,8 +136,10 @@ public class UserFragment extends Fragment {
     private void prepareButtons() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
+            removeAccount.setBackgroundResource(R.drawable.field_rounded_pink);
             logOut.setBackgroundResource(R.drawable.field_rounded_light_pink);
         } else {
+            removeAccount.setBackgroundResource(R.drawable.field_rounded_gray);
             logOut.setBackgroundResource(R.drawable.field_rounded_light_gray);
         }
 
@@ -203,6 +209,14 @@ public class UserFragment extends Fragment {
                 ChangeUserNameDialog dialog = new ChangeUserNameDialog(getContext(), name.getText().toString(), name);
                 dialog.show();
                 return true;
+            }
+        });
+
+        removeAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserAccountRemoveDialog dialog = new UserAccountRemoveDialog(getContext(), getFragmentManager());
+                dialog.show();
             }
         });
 
