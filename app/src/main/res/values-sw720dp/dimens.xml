@@ -64,6 +64,9 @@
     <dimen name="f_repetition_example_word_1">35sp</dimen>
     <dimen name="f_repetition_example_word_2">24sp</dimen>
 
+    <dimen name="f_phrases_repetition_example_word_1">31sp</dimen>
+    <dimen name="f_phrases_repetition_example_word_2">20sp</dimen>
+
     <dimen name="f_repetition_result_words_seen_amount">48sp</dimen>
     <dimen name="f_repetition_result_words_to_repeat_amount">48sp</dimen>
     <dimen name="f_repetition_result_words_seen_info">22sp</dimen>

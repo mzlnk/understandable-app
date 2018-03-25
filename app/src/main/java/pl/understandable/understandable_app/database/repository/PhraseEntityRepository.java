@@ -37,7 +37,7 @@ public class PhraseEntityRepository {
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getInt(6) == 1);
+                    cursor.getInt(4) == 1);
             result.add(entity);
             cursor.moveToNext();
         }

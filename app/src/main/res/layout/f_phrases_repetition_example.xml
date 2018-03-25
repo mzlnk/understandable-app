@@ -27,7 +27,7 @@
             android:layout_weight="0.2"
             android:gravity="center"
             android:textColor="?attr/background_color"
-            android:textSize="@dimen/f_repetition_example_word_1" />
+            android:textSize="@dimen/f_phrases_repetition_example_word_1" />
 
         <TextView
             android:id="@+id/f_phrases_repetition_example_word_1"
@@ -36,7 +36,7 @@
             android:layout_weight="0.2"
             android:gravity="center"
             android:textColor="?attr/background_color"
-            android:textSize="@dimen/f_repetition_example_word_2" />
+            android:textSize="@dimen/f_phrases_repetition_example_word_2" />
 
         <LinearLayout
             android:layout_width="match_parent"

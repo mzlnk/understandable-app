@@ -10,8 +10,6 @@ public enum PhrasesCategory {
     OPINION("wyrażanie opinii"),
     ADVICE("udzielanie rady"),
     DESCRIPTION("opisywanie ilustracji"),
-    EVENT("relacjonowanie zdarzeń"),
-    CHOICE("dokonywanie wyboru"),
     COMPLAINT("skargi i zażalenia"),
     DESTINATION("pytanie o drogę"),
     SHOP("w sklepie"),
