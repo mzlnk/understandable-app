@@ -28,6 +28,12 @@ public class FragmentUtil {
     public static final String F_WORDS_REPETITION_RESULT = "f_words_repetition_result";
     public static final String F_GRAMMAR_QUIZ_RESULT = "f_grammar_quiz_result";
     public static final String F_GRAMMAR_FILL_GAP_RESULT = "f_grammar_fill_gap_result";
+    public static final String F_IRREGULAR_VERBS_REPETITION_RESULT = "f_irregular_verbs_repetition_result";
+    public static final String F_PHRASES_REPETITION_RESULT = "f_phrases_repetition_result";
+    public static final String F_PHRASES_QUIZ_RESULT = "f_phrases_quiz_result";
+    public static final String F_CUSTOM_WORDS_REPETITION_RESULT = "f_custom_words_repetition_result";
+    public static final String F_CUSTOM_WORDS_QUIZ_RESULT = "f_custom_words_quiz_result";
+    public static final String F_CUSTOM_WORDS_SPELLING_RESULT = "f_custom_words_spelling_result";
 
     public static String redirectTo(String target, String... params) {
         String result = new String(target);

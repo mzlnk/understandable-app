@@ -24,6 +24,8 @@ import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_REPETITION_RESULT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
@@ -114,7 +116,7 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 CustomWordsRepetitionResultWordsToRepeatFragment fragment = new CustomWordsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.replace(R.id.layout_for_fragments, fragment, redirectTo(F_CUSTOM_WORDS_REPETITION_RESULT, repetitionData.getParams().id));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -126,7 +128,7 @@ public class CustomWordsRepetitionResultFragment extends Fragment {
                 repetitionData.resetStats();
                 CustomWordsRepetitionFragment wordsRepetitionFragment = new CustomWordsRepetitionFragment();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, redirectTo(F_START)).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, wordsRepetitionFragment, redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, repetitionData.getParams().id)).commit();
             }
         });
     }

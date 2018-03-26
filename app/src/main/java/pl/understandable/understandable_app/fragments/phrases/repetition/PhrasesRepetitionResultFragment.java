@@ -26,6 +26,7 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_CHOICE_CATEGORY;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_PHRASES_REPETITION_RESULT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -115,7 +116,7 @@ public class PhrasesRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 PhrasesRepetitionResultWordsToRepeatFragment fragment = new PhrasesRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.replace(R.id.layout_for_fragments, fragment, redirectTo(F_PHRASES_REPETITION_RESULT));
                 transaction.commit();
             }
         });

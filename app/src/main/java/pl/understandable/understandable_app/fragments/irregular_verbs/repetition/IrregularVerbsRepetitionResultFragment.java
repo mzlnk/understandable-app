@@ -25,6 +25,7 @@ import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_IRREGULAR_VERBS_REPETITION_RESULT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
@@ -115,7 +116,7 @@ public class IrregularVerbsRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 IrregularVerbsRepetitionResultWordsToRepeatFragment fragment = new IrregularVerbsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.replace(R.id.layout_for_fragments, fragment, redirectTo(F_IRREGULAR_VERBS_REPETITION_RESULT));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

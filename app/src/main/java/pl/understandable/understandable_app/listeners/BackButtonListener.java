@@ -11,11 +11,17 @@ import pl.understandable.understandable_app.activities.MainActivity;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.CustomWordsSetsListFragment;
 import pl.understandable.understandable_app.fragments.custom_words.other.DownloadCustomWordsSetFragment;
+import pl.understandable.understandable_app.fragments.custom_words.quiz.CustomWordsQuizResultFragment;
+import pl.understandable.understandable_app.fragments.custom_words.repetition.CustomWordsRepetitionResultFragment;
+import pl.understandable.understandable_app.fragments.custom_words.spelling.CustomWordsSpellingResultFragment;
 import pl.understandable.understandable_app.fragments.grammar.fill_gap.GrammarFillGapResultFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetPreviewFragment;
 import pl.understandable.understandable_app.fragments.grammar.preview.GrammarSetsListFragment;
 import pl.understandable.understandable_app.fragments.grammar.quiz.GrammarQuizResultFragment;
+import pl.understandable.understandable_app.fragments.irregular_verbs.repetition.IrregularVerbsRepetitionResultFragment;
 import pl.understandable.understandable_app.fragments.phrases.choice.PhrasesChoiceCategoryFragment;
+import pl.understandable.understandable_app.fragments.phrases.quiz.PhrasesQuizResultFragment;
+import pl.understandable.understandable_app.fragments.phrases.repetition.PhrasesRepetitionResultFragment;
 import pl.understandable.understandable_app.fragments.start.StartFragment;
 import pl.understandable.understandable_app.fragments.user.UserFragment;
 import pl.understandable.understandable_app.fragments.words.list.WordsListFragment;
@@ -103,6 +109,33 @@ public class BackButtonListener {
             transaction.replace(R.id.layout_for_fragments, new WordsRepetitionResultFragment(), redirectTo(F_START)).commit();
             return;
         }
+        if(tag.equals(F_IRREGULAR_VERBS_REPETITION_RESULT)) {
+            transaction.replace(R.id.layout_for_fragments, new IrregularVerbsRepetitionResultFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_PHRASES_REPETITION_RESULT)) {
+            transaction.replace(R.id.layout_for_fragments, new PhrasesRepetitionResultFragment(), redirectTo(F_START)).commit();
+            return;
+        }
+        if(tag.equals(F_PHRASES_QUIZ_RESULT)) {
+            transaction.replace(R.id.layout_for_fragments, new PhrasesQuizResultFragment(), redirectTo(F_PHRASES_CHOICE_CATEGORY)).commit();
+            return;
+        }
+        if(tag.contains(F_CUSTOM_WORDS_REPETITION_RESULT)) {
+            String id = tag.substring(F_CUSTOM_WORDS_REPETITION_RESULT.length() + 1);
+            transaction.replace(R.id.layout_for_fragments, new CustomWordsRepetitionResultFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, id)).commit();
+            return;
+        }
+        if(tag.contains(F_CUSTOM_WORDS_QUIZ_RESULT)) {
+            String id = tag.substring(F_CUSTOM_WORDS_QUIZ_RESULT.length() + 1);
+            transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, id)).commit();
+            return;
+        }
+        if(tag.contains(F_CUSTOM_WORDS_SPELLING_RESULT)) {
+            String id = tag.substring(F_CUSTOM_WORDS_SPELLING_RESULT.length() + 1);
+            transaction.replace(R.id.layout_for_fragments, new CustomWordsSpellingResultFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, id)).commit();
+            return;
+        }
         if(tag.contains(F_GRAMMAR_QUIZ_RESULT)) {
             String params = tag.substring(F_GRAMMAR_QUIZ_RESULT.length() + 1);
             String[] decomposedParams = decomposeParams(params, 2);
@@ -126,7 +159,6 @@ public class BackButtonListener {
         }
         if(tag.contains(F_GRAMMAR_SET_PREVIEW)) {
             String params = tag.substring(F_GRAMMAR_SET_PREVIEW.length() + 1);
-            System.out.println("params: " + params);
             String[] decomposedParams = decomposeParams(params, 2);
             transaction.replace(R.id.layout_for_fragments, GrammarSetPreviewFragment.newInstance(decomposedParams[0], decomposedParams[1]), redirectTo(F_GRAMMAR_SETS_LIST)).commit();
             return;

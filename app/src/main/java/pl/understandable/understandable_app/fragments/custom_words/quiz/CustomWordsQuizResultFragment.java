@@ -25,6 +25,10 @@ import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_QUIZ_RESULT;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -125,7 +129,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
             public void onClick(View view) {
                 CustomWordsQuizData.getQuizData().resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizFragment()).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsQuizFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, quizData.getParams().id)).commit();
             }
         });
 
@@ -133,7 +137,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultCorrectWordsSummaryFragment());
+                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultCorrectWordsSummaryFragment(), redirectTo(F_CUSTOM_WORDS_QUIZ_RESULT, quizData.getParams().id));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -143,7 +147,7 @@ public class CustomWordsQuizResultFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultIncorrectWordsSummaryFragment());
+                transaction.replace(R.id.layout_for_fragments, new CustomWordsQuizResultIncorrectWordsSummaryFragment(), redirectTo(F_CUSTOM_WORDS_QUIZ_RESULT, quizData.getParams().id));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }

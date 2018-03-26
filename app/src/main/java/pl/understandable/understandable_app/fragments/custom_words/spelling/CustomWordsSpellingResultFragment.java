@@ -25,6 +25,9 @@ import pl.understandable.understandable_app.user.requests.AddTestSolved;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_CUSTOM_WORDS_SET_PREVIEW;
+import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
+
 /**
  * Created by Marcin Zielonka
  */
@@ -127,7 +130,7 @@ public class CustomWordsSpellingResultFragment extends Fragment {
             public void onClick(View view) {
                 spellingData.resetStats();
                 FragmentManager manager = getFragmentManager();
-                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment()).commit();
+                manager.beginTransaction().replace(R.id.layout_for_fragments, new CustomWordsSpellingFragment(), redirectTo(F_CUSTOM_WORDS_SET_PREVIEW, spellingData.getParams().id)).commit();
             }
         });
 

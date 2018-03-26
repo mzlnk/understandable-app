@@ -25,6 +25,7 @@ import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_START;
+import static pl.understandable.understandable_app.utils.FragmentUtil.F_WORDS_REPETITION_RESULT;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
 
 /**
@@ -114,7 +115,7 @@ public class WordsRepetitionResultFragment extends Fragment {
             public void onClick(View view) {
                 WordsRepetitionResultWordsToRepeatFragment fragment = new WordsRepetitionResultWordsToRepeatFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.layout_for_fragments, fragment);
+                transaction.replace(R.id.layout_for_fragments, fragment, redirectTo(F_WORDS_REPETITION_RESULT));
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
