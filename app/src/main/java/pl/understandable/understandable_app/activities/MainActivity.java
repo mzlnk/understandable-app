@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -34,6 +35,7 @@ import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.requests.ShowWelcomeMessage;
+import pl.understandable.understandable_app.utils.AdUtil;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.announcement.AnnouncementManager;
 import pl.understandable.understandable_app.utils.font.Font;
@@ -46,6 +48,8 @@ import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo
  */
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String AD_APP_ID = "ca-app-pub-8409658556260306~8565854884";
 
     public static boolean userActive = true;
 
@@ -77,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         activity = this;
 
         setContentView(R.layout.activity_navigation);
+
+        MobileAds.initialize(this, AD_APP_ID);
+        AdUtil.init(getApplicationContext());
 
         loadViewsFromXml();
         setDefaultTheme();

@@ -1,13 +1,10 @@
 package pl.understandable.understandable_app;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.support.v7.app.AppCompatDelegate;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -15,28 +12,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import pl.understandable.understandable_app.database.database_access.DatabaseManager;
 import pl.understandable.understandable_app.user.AchievementChecker;
-import pl.understandable.understandable_app.user.RequestExecutor;
 import pl.understandable.understandable_app.user.SyncManager;
 import pl.understandable.understandable_app.user.TimeLearntManager;
 import pl.understandable.understandable_app.user.UserManager;
-import pl.understandable.understandable_app.user.data.achievements.AchievementId;
-import pl.understandable.understandable_app.utils.AdUtil;
-import pl.understandable.understandable_app.utils.announcement.AnnouncementManager;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.utils.font.FontsOverride;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Random;
 
 /**
  * Created by Marcin Zielonka on 2016-11-11.
@@ -55,8 +42,6 @@ public class App extends MultiDexApplication {
         Font.loadBuiltInTypefaces(getApplicationContext());
 
         DatabaseManager.init(getApplicationContext());
-
-        AdUtil.init(getApplicationContext());
 
         googleAnalytics = GoogleAnalytics.getInstance(this);
 
