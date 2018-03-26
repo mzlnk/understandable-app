@@ -37,7 +37,7 @@
                 android:layout_weight="0.36"
                 android:gravity="center"
                 android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_quiz_question" />
+                android:textSize="@dimen/f_phrases_quiz_question" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                     android:layout_marginBottom="@dimen/f_quiz_margin"
                     android:textAllCaps="false"
                     android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_quiz_option"
+                    android:textSize="@dimen/f_phrases_quiz_option"
                     style="?android:attr/borderlessButtonStyle" />
 
                 <Button
@@ -70,7 +70,7 @@
                     android:layout_marginBottom="@dimen/f_quiz_margin"
                     android:textAllCaps="false"
                     android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_quiz_option"
+                    android:textSize="@dimen/f_phrases_quiz_option"
                     style="?android:attr/borderlessButtonStyle" />
 
                 <Button
@@ -83,7 +83,7 @@
                     android:layout_marginBottom="@dimen/f_quiz_margin"
                     android:textAllCaps="false"
                     android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_quiz_option"
+                    android:textSize="@dimen/f_phrases_quiz_option"
                     style="?android:attr/borderlessButtonStyle" />
 
                 <Button
@@ -96,7 +96,7 @@
                     android:layout_marginBottom="@dimen/f_border_margin_medium"
                     android:textAllCaps="false"
                     android:textColor="?attr/text_1_color"
-                    android:textSize="@dimen/f_quiz_option"
+                    android:textSize="@dimen/f_phrases_quiz_option"
                     style="?android:attr/borderlessButtonStyle" />
 
             </LinearLayout>

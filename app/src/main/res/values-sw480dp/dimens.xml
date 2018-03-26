@@ -85,6 +85,9 @@
     <dimen name="f_quiz_option">19sp</dimen>
     <dimen name="f_quiz_margin">7dp</dimen>
 
+    <dimen name="f_phrases_quiz_question">25sp</dimen>
+    <dimen name="f_phrases_quiz_option">17sp</dimen>
+
     <dimen name="f_quiz_result_questions_amount">45sp</dimen>
     <dimen name="f_quiz_result_answers_amount_info">25sp</dimen>
     <dimen name="f_quiz_result_correct_answers_amount">31sp</dimen>

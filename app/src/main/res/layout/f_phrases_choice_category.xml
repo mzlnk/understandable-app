@@ -34,6 +34,8 @@
                 android:id="@+id/f_phrases_choice_category_categories_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:layout_marginLeft="@dimen/f_side_margin"
                 android:shrinkColumns="*">
 
             </TableLayout>
