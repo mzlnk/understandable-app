@@ -8,6 +8,9 @@ public class ExpManager {
 
     public static long convertToExp(ExpRatio ratio, int amount, int... extraAmounts) {
         long exp = (long)(amount * ratio.getRatio());
+        if(ExpRatio.isListRatio(ratio) && exp > ExpRatio.MAX_EXP_FOR_LIST_RATIO) {
+            exp = 50L;
+        }
         if(extraAmounts != null) {
             for (int i = 0; i < extraAmounts.length; i++) {
                 int extraAmount = extraAmounts[i];
@@ -15,7 +18,6 @@ public class ExpManager {
                 exp += (long) (extraAmount * extraRatio);
             }
         }
-        System.out.println("[EXP] amount: " + amount + ", ratio: " + ratio.getRatio() + " -> exp: " + exp);
         return exp;
     }
 
@@ -35,6 +37,8 @@ public class ExpManager {
         CUSTOM_WORDS_SPELLING(0.1D, 1.1D),
         CUSTOM_WORDS_QUIZ(1D, 0.3D);
 
+        public static long MAX_EXP_FOR_LIST_RATIO = 50;
+
         private double ratio;
         private double[] extraRatios;
 
@@ -49,6 +53,13 @@ public class ExpManager {
 
         public double[] getExtraRatios() {
             return extraRatios;
+        }
+
+        public static boolean isListRatio(ExpRatio ratio) {
+            return ratio.equals(WORDS_LIST) ||
+                   ratio.equals(IRREGULAR_VERBS_LIST) ||
+                   ratio.equals(PHRASES_LIST) ||
+                   ratio.equals(CUSTOM_WORDS_LIST);
         }
 
     }

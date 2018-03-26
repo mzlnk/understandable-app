@@ -94,16 +94,12 @@ public class DownloadFollowedWordsSetsDataTask extends AsyncTask<Void, Void, Int
             }
             data += "]";
 
-            System.out.println("JSON data: " + data);
-
             List valuePairs = new ArrayList(1);
             valuePairs.add(new BasicNameValuePair("data", data));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
 
             HttpResponse httpResponse = client.execute(httpPost);
             String result = EntityUtils.toString(httpResponse.getEntity());
-
-            System.out.println("JSON Response: " + result);
 
             result = result.replaceAll("\"", "\\\"");
             JSONArray jsonArray = new JSONArray(result);

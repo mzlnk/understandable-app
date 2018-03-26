@@ -185,8 +185,6 @@ public class DownloadWordsSetTask extends AsyncTask<String, Void, Integer> {
             JSONObject jsonObject = new JSONObject(result);
             String name = jsonObject.getString("name");
             String description = jsonObject.getString("description");
-            System.out.println("Name: " + name);
-            System.out.println("Description: " + description);
             CustomWordsSetsRepository.addEntity(new CustomWordsSetEntity(id, name, description));
             return true;
         } catch (URISyntaxException e) {

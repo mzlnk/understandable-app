@@ -103,7 +103,6 @@ public class App extends MultiDexApplication {
                 try {
                     GoogleSignInAccount account = task.getResult();
                     if (account != null) {
-                        Log.d("USER", "Token ID: " + account.getIdToken());
                         UserManager.getUser().setTokenId(account.getIdToken());
                         UserManager.setUserStatus(UserManager.UserStatus.SIGNED_IN);
                     } else {

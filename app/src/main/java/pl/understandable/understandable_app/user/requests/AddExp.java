@@ -30,11 +30,12 @@ public class AddExp implements Request {
     public void executeRequest() {
         if(UserManager.isUserSignedIn() && SyncManager.getSyncParams().isSyncOnline()) {
             long exp = ExpManager.convertToExp(ratio, amount, extraAmounts);
-            System.out.println("[EXP] Request exp: " + exp);
             User.AddExpResponse response = UserManager.getUser().addExp(exp);
             UserManager.setSyncRequired(true);
             UserManager.addElementToSync(UserManager.SyncElement.GENERAL);
-            RequestExecutor.offerRequest(new ShowAddExpMessage(context, exp));
+            if(exp > 0) {
+                RequestExecutor.offerRequest(new ShowAddExpMessage(context, exp));
+            }
             if(response.getResponse().equals(User.AddExpResponse.AddExpReponseType.LEVEL_UP)) {
                 RequestExecutor.offerRequest(new ShowLevelUpMessage(context, response.getPreviousLevel(), response.getCurrentLevel()), 4500L);
             }

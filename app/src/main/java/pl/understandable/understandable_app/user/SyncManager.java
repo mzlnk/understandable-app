@@ -63,55 +63,36 @@ public class SyncManager {
     }
 
     public static void init(final Context context) {
-        System.out.println("[INIT] Json");
         final ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         Timer timer = new Timer();
         TimerTask syncTask = new TimerTask() {
             @Override
             public void run() {
                 if(syncParams.isActionInProgress()) {
-                    System.out.println("[TEST] Action in progress - continue...");
                     return;
                 }
-                System.out.println("Start sync");
-                System.out.println("[TEST] Sync...");
-                Log.d("SYNC", "Start sync");
                 if(!UserManager.isUserSignedIn()) {
-                    System.out.println("No account");
-                    System.out.println("Sync finished");
                     return;
                 }
-                Log.d("SYNC", "Account detected");
 
                 if(NetworkUtil.isNetworkAvailable(manager)) {
-                    System.out.println("Network available");
                     if(!syncParams.isSyncOnline()) {
-                        System.out.println("[WELCOME] Welcome message - try to show dialog!");
                         if(!syncParams.isSyncRequiredAfterReconnect()) {
-                            System.out.println("[WELCOME] Welcome message");
-                            System.out.println("Sync from server");
-
                             syncFromServer(context);
                         } else {
-                            System.out.println("Sync to server");
                             syncToServer(context);
                         }
                         if(MainActivity.getActivity() != null) {
-                            System.out.println("Dialog has been shown!");
                             RequestExecutor.offerRequest(new ShowWelcomeMessage(context));
-                        } else {
-                            System.out.println("[WELCOME] Welcome message not showed - null!");
                         }
                     } else {
                         if(UserManager.isSyncRequired()) {
-                            System.out.println("[TEST] Sync to server - provide name!");
                             syncToServer(context);
                         }
                     }
                     syncParams.setSyncStatus(SyncStatus.ONLINE);
 
                 } else {
-                    System.out.println("No network available");
                     if(syncParams.isSyncOnline()) {
                         RequestExecutor.offerRequest(new ShowSyncStoppedMessage(context));
                         if(UserManager.isSyncRequired()) {
@@ -132,7 +113,6 @@ public class SyncManager {
                 syncParams.setActionInProgress(true);
                 ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if(NetworkUtil.isNetworkAvailable(manager)) {
-                    System.out.println("[TEST] Sync from server: -1");
                     syncFromServer(context);
                     syncParams.setSyncStatus(SyncStatus.ONLINE);
 
@@ -169,7 +149,6 @@ public class SyncManager {
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
-            System.out.println("JSON TO SERVER RESPONSE] Json: " + response);
 
             UserManager.clearElementsToSync();
             UserManager.setSyncRequired(false);
@@ -194,55 +173,41 @@ public class SyncManager {
     private static boolean syncFromServer(Context context) {
         try {
             syncParams.setActionInProgress(true);
-            System.out.println("[TEST] Sync from server: 0");
             HttpClient client = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost("https://dl.understandable.pl/android_webservice/sync_from_server.php");
             httpPost.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             httpPost.setHeader("Pragma", "no-cache");
             httpPost.setHeader("User-Agent", "");
 
-            System.out.println("[TEST] Sync from server: 1");
-
             List valuePairs = new ArrayList(1);
-            System.out.println("TokenID: " + GoogleSignIn.getLastSignedInAccount(context).getIdToken());
             valuePairs.add(new BasicNameValuePair("token_id", GoogleSignIn.getLastSignedInAccount(context).getIdToken()));
             httpPost.setEntity(new UrlEncodedFormEntity(valuePairs));
-
-            System.out.println("[TEST] Sync from server: 2");
 
             HttpResponse httpResponse = client.execute(httpPost);
             String response = EntityUtils.toString(httpResponse.getEntity());
             response = response.replaceAll("\"", "\\\"");
-            System.out.println("[JSON FROM SERVER] Json: " + response);
-
-            System.out.println("[TEST] Sync from server: 3");
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
             System.out.println("name field: " + data.getString("name"));
             syncParams.setDataPulledFromServer(true);
-            System.out.println("[TEST] Successful sync from server");
             syncParams.setActionInProgress(false);
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             syncParams.setActionInProgress(false);
-            System.out.println("[TEST] Failed to sync from server");
             return false;
         } catch (ClientProtocolException e) {
             e.printStackTrace();
             syncParams.setActionInProgress(false);
-            System.out.println("[TEST] Failed to sync from server");
             return false;
         } catch (IOException e) {
             e.printStackTrace();
             syncParams.setActionInProgress(false);
-            System.out.println("[TEST] Failed to sync from server");
             return false;
         } catch (JSONException e) {
             e.printStackTrace();
             syncParams.setActionInProgress(false);
-            System.out.println("[TEST] Failed to sync from server");
             return false;
         }
         return true;
