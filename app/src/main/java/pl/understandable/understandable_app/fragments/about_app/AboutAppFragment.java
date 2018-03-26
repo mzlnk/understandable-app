@@ -2,9 +2,7 @@ package pl.understandable.understandable_app.fragments.about_app;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -16,8 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.activities.MainActivity;
-import pl.understandable.understandable_app.utils.RateAppUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
 /**
@@ -27,7 +23,7 @@ import pl.understandable.understandable_app.utils.font.Font;
 public class AboutAppFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TextView appName, motd, statuteInfo, googleAnalyticsInfo, foot1, foot2;
+    private TextView appName, motd, statuteInfo, googleAnalyticsInfo, licenseInfo, foot1, foot2;
 
     public AboutAppFragment() {
         // Required empty public constructor
@@ -48,6 +44,7 @@ public class AboutAppFragment extends Fragment {
         motd = (TextView) rootView.findViewById(R.id.f_about_app_motd);
         statuteInfo = (TextView) rootView.findViewById(R.id.f_about_app_statute_info);
         googleAnalyticsInfo = (TextView) rootView.findViewById(R.id.f_about_app_google_analytics_info);
+        licenseInfo = (TextView) rootView.findViewById(R.id.f_about_app_license_info);
         foot1 = (TextView) rootView.findViewById(R.id.f_about_app_foot_1);
         foot2 = (TextView) rootView.findViewById(R.id.f_about_app_foot_2);
     }
@@ -55,7 +52,7 @@ public class AboutAppFragment extends Fragment {
     private void prepareLayout() {
         setAnimation();
         setFonts();
-        prepareHyperLink();
+        prepareHyperLinks();
         prepareFoot();
     }
 
@@ -70,14 +67,19 @@ public class AboutAppFragment extends Fragment {
         motd.setTypeface(typeface);
         statuteInfo.setTypeface(typeface);
         googleAnalyticsInfo.setTypeface(typeface);
+        licenseInfo.setTypeface(typeface);
         foot1.setTypeface(typeface);
         foot2.setTypeface(typeface);
     }
 
-    private void prepareHyperLink() {
-        String text = "Korzystając z aplikacji, akceptujesz\n<style='text-decoration:none;color:#f78aae;><a href='https://m.understandable.pl/regulamin.php'>regulamin</a></style>";
-        statuteInfo.setText(Html.fromHtml(text));
+    private void prepareHyperLinks() {
+        String statuteText = "Korzystając z aplikacji, akceptujesz\n<style='text-decoration:none;color:#f78aae;><a href='https://m.understandable.pl/regulamin.php'>regulamin</a></style>";
+        statuteInfo.setText(Html.fromHtml(statuteText));
         statuteInfo.setMovementMethod(LinkMovementMethod.getInstance());
+
+        String licenseText = "Licencje użytych zasobów znajdziesz <style='text-decoration:none;color:#f78aae;><a href='https://m.understandable.pl/licencje.php'>tutaj</a></style>";
+        licenseInfo.setText(Html.fromHtml(licenseText));
+        licenseInfo.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private void prepareFoot() {
