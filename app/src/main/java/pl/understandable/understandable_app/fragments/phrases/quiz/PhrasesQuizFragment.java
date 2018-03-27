@@ -20,6 +20,8 @@ import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.custom_words_data.CustomWordsQuizData;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesQuizData;
 import pl.understandable.understandable_app.database.entity.PhraseEntity;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.QuizHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
@@ -65,6 +67,8 @@ public class PhrasesQuizFragment extends Fragment {
         loadViewsFromXml(rootView);
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(getContext(), new QuizHelpDialog(getContext()));
 
         return rootView;
     }

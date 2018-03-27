@@ -19,6 +19,8 @@ import android.widget.TableRow;
 
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.data.entities_data.phrases.PhrasesRepetitionData;
+import pl.understandable.understandable_app.dialogs.help.HelpManager;
+import pl.understandable.understandable_app.dialogs.help.RepetitionHelpDialog;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesHaveLearntButton;
 import pl.understandable.understandable_app.utils.buttons.phrases.PhrasesPronunciationButton;
@@ -64,6 +66,8 @@ public class PhrasesRepetitionFragment extends Fragment {
         loadViewFromXml(rootView);
         prepareLayout();
         addListeners();
+
+        HelpManager.showHelpDialog(getContext(), new RepetitionHelpDialog(getContext()));
 
         return rootView;
     }
