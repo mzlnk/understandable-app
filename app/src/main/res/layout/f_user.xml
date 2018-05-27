@@ -25,41 +25,62 @@
             android:textColor="?attr/text_1_color"
             android:textSize="@dimen/f_text_title_medium" />
 
-        <TextView
-            android:id="@+id/f_user_name_info"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:gravity="center|bottom"
-            android:text="twoja nazwa"
-            android:textColor="?attr/text_1_color"
-            android:textSize="@dimen/f_user_info_text" />
-
         <LinearLayout
-            android:id="@+id/f_user_name_field"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/f_side_margin"
-            android:layout_marginRight="@dimen/f_side_margin"
-            android:gravity="center" >
+            android:layout_marginLeft="@dimen/f_border_margin_large"
+            android:layout_marginRight="@dimen/f_border_margin_large"
+            android:layout_weight="0.28"
+            android:measureWithLargestChild="true"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/f_user_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text=""
-                android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_field_text" />
-
-        </LinearLayout>
-
-        <View
+            android:id="@+id/f_user_level"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.05" />
+            android:layout_marginLeft="@dimen/f_border_margin_medium"
+            android:layout_marginRight="@dimen/f_border_margin_medium"
+            android:layout_weight="0.63"
+            android:gravity="center|bottom"
+            android:text=""
+            android:textColor="?attr/text_2_color"
+            android:textSize="@dimen/f_user_level" />
+
+            <TextView
+                android:id="@+id/f_user_level_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_weight="0.16"
+                android:gravity="center|top"
+                android:text="poziom"
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_user_info_text" />
+
+            <ProgressBar
+                android:id="@+id/f_user_level_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/f_side_margin"
+                android:layout_marginRight="@dimen/f_side_margin"
+                android:max="10000"
+                android:minHeight="15dp"
+                android:progressDrawable="@drawable/f_user_progress_bar_theme_default" />
+
+            <TextView
+                android:id="@+id/f_user_level_progress_info"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/f_border_margin_medium"
+                android:layout_weight="0.2"
+                android:gravity="center|top"
+                android:text=""
+                android:textColor="?attr/text_1_color"
+                android:textSize="@dimen/f_user_info_text" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/f_user_title_info"
@@ -94,53 +115,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.03" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:layout_marginLeft="@dimen/f_border_margin_large"
-            android:layout_marginRight="@dimen/f_border_margin_large"
-            android:measureWithLargestChild="true"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/f_user_level_info"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.07"
-                android:layout_marginLeft="@dimen/f_border_margin_medium"
-                android:gravity="center|bottom"
-                android:text=""
-                android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_info_text" />
-
-            <ProgressBar
-                android:id="@+id/f_user_level_progress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/f_side_margin"
-                android:layout_marginRight="@dimen/f_side_margin"
-                android:progressDrawable="@drawable/f_user_progress_bar_theme_default"
-                android:minHeight="15dp"
-                android:max="10000"/>
-
-            <TextView
-                android:id="@+id/f_user_level_progress_info"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.07"
-                android:layout_marginLeft="@dimen/f_border_margin_medium"
-                android:gravity="center|top"
-                android:text=""
-                android:textColor="?attr/text_1_color"
-                android:textSize="@dimen/f_user_info_text" />
-
-
-        </LinearLayout>
+            android:layout_weight="0.05" />
 
         <View
             android:layout_width="match_parent"

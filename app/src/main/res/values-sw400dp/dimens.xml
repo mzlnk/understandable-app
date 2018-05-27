@@ -197,6 +197,7 @@
 
 
     <!-- user -->
+    <dimen name="f_user_level">80sp</dimen>
     <dimen name="f_user_field_text">20sp</dimen>
     <dimen name="f_user_info_text">15sp</dimen>
     <dimen name="f_user_stats_icon_medium_size">64dp</dimen> <!-- 85% of choice icon size -->

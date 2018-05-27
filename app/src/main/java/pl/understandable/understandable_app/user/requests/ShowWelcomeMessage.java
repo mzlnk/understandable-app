@@ -26,9 +26,7 @@ public class ShowWelcomeMessage implements Request {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                String name = UserManager.getUser().getName();
-                String firstName = (!name.split(" ")[0].isEmpty()) ? name.split(" ")[0] : name;
-                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), "Witaj ponownie " + firstName, R.drawable.d_user_message_welcome);
+                final UserMessageWithIconDialog dialog = new UserMessageWithIconDialog(MainActivity.getActivity(), "Witaj ponownie", R.drawable.d_user_message_welcome);
                 dialog.show();
 
                 Handler postHandler = new Handler();

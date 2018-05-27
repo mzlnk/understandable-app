@@ -189,7 +189,6 @@ public class SyncManager {
 
             JSONObject data = new JSONObject(response);
             UserManager.getUser().updateFromJson(data);
-            System.out.println("name field: " + data.getString("name"));
             syncParams.setDataPulledFromServer(true);
             syncParams.setActionInProgress(false);
 

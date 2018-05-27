@@ -1,13 +1,10 @@
 package pl.understandable.understandable_app.database.repository;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 
 import pl.understandable.understandable_app.data.enums.words.WordsLearningWordsWay;
 import pl.understandable.understandable_app.data.params.WordsDataParams;
-import pl.understandable.understandable_app.database.database_access.DatabaseManager;
 import pl.understandable.understandable_app.database.entity.WordEntity;
 
 import java.util.ArrayList;
@@ -112,7 +109,7 @@ public class WordEntityRepository {
         sb.append("category='").append(params.categories.get(0).name()).append("'");
         if(params.categories.size() > 1) {
             for(int i = 1; i < params.categories.size(); i++) {
-                sb.append(" OR ").append("type='").append(params.types.get(i).name()).append("'");
+                sb.append(" OR ").append("category='").append(params.categories.get(i).name()).append("'");
             }
         }
         sb.append(")").append(" AND (").append("type='").append(params.types.get(0).name()).append("'");

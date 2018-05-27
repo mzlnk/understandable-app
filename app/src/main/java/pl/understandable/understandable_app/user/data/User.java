@@ -45,7 +45,6 @@ public class User {
     }
 
     private String tokenId;
-    private String name = "";
     private long exp = 0;
     private UserStatistics stats = new UserStatistics();
     private Map<AchievementId, Achievement> achievements = new HashMap<>();
@@ -53,10 +52,6 @@ public class User {
 
     public String getTokenId() {
         return tokenId;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public long getExp() {
@@ -110,10 +105,6 @@ public class User {
         this.tokenId = tokenId;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public AddExpResponse addExp(long exp) {
         int previousLevel = getLevel();
         this.exp += exp;
@@ -143,7 +134,6 @@ public class User {
     public JSONObject toJson() {
         JSONObject user = new JSONObject();
         try {
-            user.put("name", this.name);
             user.put("exp", this.exp);
             user.put("timeLearnt", this.stats.getTimeLearnt());
             user.put("wordsSetsDownloaded", this.stats.getWordsSetsDownloaded());
@@ -191,7 +181,6 @@ public class User {
 
     public void updateFromJson(JSONObject user) {
         try {
-            this.name = user.getString("name");
             this.exp = user.getLong("exp");
             this.stats.setTimeLearnt(user.getLong("timeLearnt"));
             this.stats.setWordsSetsDownloaded(user.getInt("wordsSetsDownloaded"));

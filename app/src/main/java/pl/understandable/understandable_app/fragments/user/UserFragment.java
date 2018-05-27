@@ -22,7 +22,6 @@ import android.widget.TextView;
 import pl.understandable.understandable_app.R;
 import pl.understandable.understandable_app.dialogs.help.HelpManager;
 import pl.understandable.understandable_app.dialogs.help.ProfileHelpDialog;
-import pl.understandable.understandable_app.dialogs.user_dialogs.ChangeUserNameDialog;
 import pl.understandable.understandable_app.dialogs.user_dialogs.UserAccountRemoveDialog;
 import pl.understandable.understandable_app.user.UserManager;
 import pl.understandable.understandable_app.user.data.User;
@@ -34,7 +33,6 @@ import pl.understandable.understandable_app.utils.buttons.user.UserButton;
 import pl.understandable.understandable_app.utils.font.Font;
 import pl.understandable.understandable_app.webservice.DownloadFollowedWordsSetsDataTask;
 import pl.understandable.understandable_app.webservice.LogOutTask;
-import pl.understandable.understandable_app.webservice.RemoveUserAccountTask;
 
 import static pl.understandable.understandable_app.utils.FragmentUtil.F_USER;
 import static pl.understandable.understandable_app.utils.FragmentUtil.redirectTo;
@@ -48,8 +46,8 @@ import static pl.understandable.understandable_app.utils.GoogleAnalyticsManager.
 public class UserFragment extends Fragment {
 
     private RelativeLayout mainLayout;
-    private TextView mainTitle, name, title, nameInfo, titleInfo, levelInfo, levelProgressInfo;
-    private LinearLayout nameField, titleField;
+    private TextView mainTitle, title, level, titleInfo, levelInfo, levelProgressInfo;
+    private LinearLayout titleField;
     private ProgressBar levelProgress;
     private TableLayout optionsTable;
     private UserButton achievements, stats, followedWordsSets;
@@ -81,13 +79,11 @@ public class UserFragment extends Fragment {
     private void loadViewsFromXml(View rootView) {
         mainLayout = (RelativeLayout) rootView.findViewById(R.id.f_user);
         mainTitle = (TextView) rootView.findViewById(R.id.f_user_main_title);
-        name = (TextView) rootView.findViewById(R.id.f_user_name);
         title = (TextView) rootView.findViewById(R.id.f_user_title);
-        nameInfo = (TextView) rootView.findViewById(R.id.f_user_name_info);
+        level = (TextView) rootView.findViewById(R.id.f_user_level);
         titleInfo = (TextView) rootView.findViewById(R.id.f_user_title_info);
         levelInfo = (TextView) rootView.findViewById(R.id.f_user_level_info);
         levelProgressInfo = (TextView) rootView.findViewById(R.id.f_user_level_progress_info);
-        nameField = (LinearLayout) rootView.findViewById(R.id.f_user_name_field);
         titleField = (LinearLayout) rootView.findViewById(R.id.f_user_title_field);
         levelProgress = (ProgressBar) rootView.findViewById(R.id.f_user_level_progress);
         optionsTable = (TableLayout) rootView.findViewById(R.id.f_user_options_table);
@@ -112,9 +108,8 @@ public class UserFragment extends Fragment {
     private void setFonts() {
         Typeface typeface = Font.TYPEFACE_MONTSERRAT;
         mainTitle.setTypeface(typeface);
-        name.setTypeface(typeface);
         title.setTypeface(typeface);
-        nameInfo.setTypeface(typeface);
+        level.setTypeface(typeface);
         titleInfo.setTypeface(typeface);
         levelInfo.setTypeface(typeface);
         levelProgressInfo.setTypeface(typeface);
@@ -125,10 +120,8 @@ public class UserFragment extends Fragment {
     private void prepareFields() {
         ThemeUtil themeUtil = new ThemeUtil(getContext());
         if(themeUtil.isDefaultTheme()) {
-            nameField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
             titleField.setBackgroundResource(R.drawable.field_rounded_light_light_light_gray);
         } else {
-            nameField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
             titleField.setBackgroundResource(R.drawable.field_rounded_dark_gray);
         }
     }
@@ -203,15 +196,6 @@ public class UserFragment extends Fragment {
     }
 
     private void addListeners() {
-        nameField.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                ChangeUserNameDialog dialog = new ChangeUserNameDialog(getContext(), name.getText().toString(), name);
-                dialog.show();
-                return true;
-            }
-        });
-
         removeAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -232,8 +216,7 @@ public class UserFragment extends Fragment {
     private void prepareStats() {
         User user = UserManager.getUser();
 
-        name.setText(user.getName());
-        levelInfo.setText("poziom: " + String.valueOf(user.getLevel()));
+        level.setText(String.valueOf(user.getLevel()));
         title.setText(UserTitle.getTitleByLevel(user.getLevel()).getTitle());
 
         int level = user.getLevel();

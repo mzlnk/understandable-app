@@ -22,15 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import pl.understandable.understandable_app.R;
-import pl.understandable.understandable_app.activities.MainActivity;
-import pl.understandable.understandable_app.user.RequestExecutor;
-import pl.understandable.understandable_app.user.requests.ChangeUserName;
 import pl.understandable.understandable_app.utils.ThemeUtil;
 import pl.understandable.understandable_app.utils.font.Font;
 
