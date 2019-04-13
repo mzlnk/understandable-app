@@ -14,9 +14,20 @@ android {
         multiDexEnabled true
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', "server_client_id", understandable_server_client_id
+            resValue 'string', "server_client_id", understandable_server_client_id
+            buildConfigField 'String', "ad_id", understandable_ad_id
+            resValue 'string', "ad_id", understandable_ad_id
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "server_client_id", understandable_server_client_id
+            resValue 'string', "server_client_id", understandable_server_client_id
+            buildConfigField 'String', "ad_id", understandable_ad_id
+            resValue 'string', "ad_id", understandable_ad_id
         }
     }
     packagingOptions {
