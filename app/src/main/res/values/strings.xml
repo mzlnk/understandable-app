@@ -1,0 +1,209 @@
+<resources>
+    <string name="app_name">Understandable</string>
+    <string name="app_version">1.0.7</string>
+    <string name="app_version_v2">107000</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+
+    <!-- buttons -->
+    <string name="button_try_again">spróbuj ponownie</string>
+    <string name="button_back">powrót</string>
+    <string name="button_next">dalej</string>
+    <string name="button_start">start</string>
+    <string name="button_show">zobacz</string>
+    <string name="button_delete">usuń</string>
+    <string name="button_start_learning">rozpocznij naukę</string>
+    <string name="button_download">pobierz</string>
+    <string name="button_repeat">powtórz</string>
+    <string name="button_finish">zakończ</string>
+    <string name="button_show_answer">pokaż odpowiedź</string>
+    <string name="button_check">sprawdź</string>
+    <string name="button_yes">tak</string>
+    <string name="button_no">nie</string>
+    <string name="button_save">zapisz</string>
+    <string name="button_cancel">anuluj</string>
+    <string name="button_no_thanks">nie, dzięki</string>
+    <string name="button_yes_rate">tak, oceń</string>
+    <string name="button_later">później</string>
+    <string name="button_app_pro">przejdź na Pro</string>
+    <string name="button_increase">+</string>
+    <string name="button_decrease">-</string>
+    <string name="button_search">wyszukaj</string>
+    <string name="button_previous_page">poprzednia</string>
+    <string name="button_next_page">następna</string>
+    <string name="button_browse">przeglądaj</string>
+    <string name="button_achievements">osiągnięcia</string>
+    <string name="button_followed_tests">twoje testy</string>
+    <string name="button_log_out">wyloguj</string>
+    <string name="button_follow">obserwuj</string>
+    <string name="button_unfollow">nie obserwuj</string>
+    <string name="button_ok">okej!</string>
+    <string name="button_speak">wymowa</string>
+    <string name="button_agree">Zgadzam się</string>
+    <string name="button_remove_account">usuń konto</string>
+    <string name="button_approve">potwierdź</string>
+
+
+    <!-- choice -->
+    <string name="f_choice_category_title">wybierz kategorie</string>
+    <string name="f_choice_type_title">wybierz rodzaj</string>
+    <string name="f_choice_level_title">wybierz poziom</string>
+    <string name="f_choice_way_title">wybierz sposób</string>
+    <string name="f_choice_mode_title">wybierz tryb</string>
+    <string name="f_choice_length_title">wybierz ilość</string>
+    <string name="f_choice_theme_title">wybierz motyw</string>
+    <string name="f_choice_set_title">wybierz dział</string>
+    <string name="f_choice_method_title">wybierz metodę</string>
+    <string name="f_choice_subcategory_title">wybierz podkategorie</string>
+
+
+    <!-- phrases choice -->
+    <string name="f_phrases_choice_category_title">wybierz kategorię</string>
+
+
+    <!-- repetition -->
+    <string name="f_repetition_result_title">Koniec</string>
+    <string name="f_repetition_result_words_seen_info">powtórzonych\nsłówek</string>
+    <string name="f_repetition_result_words_to_repeat_info">słówek\ndo powtórzenia</string>
+    <string name="f_repetition_result_words_to_repeat_title">słówka do powtórzenia</string>
+
+
+    <!-- quiz -->
+    <string name="f_quiz_question_number">pytanie x/y</string>
+
+    <string name="f_quiz_result_title">Koniec</string>
+    <string name="f_quiz_result_questions_seen_info">wszystkich pytań</string>
+    <string name="f_quiz_result_correct_answers_info">dobrych\nodpowiedzi</string>
+    <string name="f_quiz_result_incorrect_answers_info">złych\nodpowiedzi</string>
+
+    <string name="f_quiz_result_correct_words_summary_title">odpowiedzi poprawne</string>
+    <string name="f_quiz_result_incorrect_words_summary_title">odpowiedzi błędne</string>
+
+
+    <!-- spelling -->
+    <string name="f_spelling_result_title">Koniec</string>
+    <string name="f_spelling_result_correct_answers_info">dobrych\nodpowiedzi</string>
+    <string name="f_spelling_result_incorrect_answers_info">złych\nodpowiedzi</string>
+    <string name="f_spelling_result_words_seen_amount_info">powtórzonych\nsłówek</string>
+    <string name="f_spelling_result_correct_words_summary_title">odpowiedzi poprawne</string>
+    <string name="f_spelling_result_inccorect_words_summary_title">odpowiedzi błędne</string>
+
+
+    <!-- lists -->
+    <string name="f_words_list_title">lista słówek</string>
+    <string name="f_custom_words_sets_list_title">lista zestawów</string>
+    <string name="f_irregular_verbs_list_title">lista czasowników</string>
+    <string name="f_grammar_sets_list_title">lista działów</string>
+    <string name="f_all_custom_words_sets_list_title">dostępne zestawy</string>
+
+
+    <!-- start -->
+    <string name="f_start_title">kliknij, aby\nrozpocząć naukę</string>
+
+
+    <!-- irregular verbs repetition -->
+    <string name="f_irregular_verbs_repetition_result_words_seen_info">powtórzonych\nczasowników</string>
+    <string name="f_irregular_verbs_repetition_result_words_to_repeat">czasowników\ndo powtórzenia</string>
+    <string name="f_irregular_verbs_repetition_result_words_to_repeat_title">czasowniki do powtórzenia</string>
+
+
+    <!-- custom words -->
+    <string name="f_download_words_set_title">pobierz zestaw</string>
+
+    <string name="f_custom_words_set_preview_words_set_name_info">nazwa zestawu</string>
+    <string name="f_custom_words_set_preview_words_set_description_info">opis</string>
+    <string name="f_custom_words_set_preview_words_set_id_info">kod</string>
+
+
+    <!-- dialog boxes -->
+    <string name="d_remove_custom_words_set_title">Czy chcesz usunąć ten zestaw?</string>
+    <string name="d_change_custom_words_set_name_title">Wprowadź nową nazwę zestawu</string>
+    <string name="d_change_custom_words_set_description_title">Wprowadź nowy opis zestawu</string>
+    <string name="d_rate_app_info_title">Czy spodobała Ci się aplikacja?</string>
+    <string name="d_rate_app_info_message">Poświęć chwilę\ni oceń ją w Sklepie Play.</string>
+    <string name="d_loading_info_title">ładowanie słówek</string>
+    <string name="d_user_change_name_title">Wprowadź nową nazwę</string>
+    <string name="d_user_achievement_preview_achievement_name_info">osiągnięcie</string>
+    <string name="d_user_achievement_preview_achievement_description_info">opis</string>
+    <string name="d_announcement_title">Co nowego?</string>
+    <string name="d_grammar_info_title">Dostepne wkrótce</string>
+    <string name="d_user_account_remove_title">Czy chcesz usunąć profil?</string>
+    <string name="d_user_account_remove_info">(Wpisz \'usuń\', aby potwierdzić)</string>
+
+
+    <!-- navigation -->
+    <string name="navigation_title">Understandable</string>
+
+
+    <!-- app version pro -->
+    <string name="f_understandable_pro_info_title">przejdź na wersję Pro</string>
+    <string name="f_understandable_pro_info_message">i ciesz się nauką słówek\nbez reklam</string>
+
+
+    <!-- user -->
+    <string name="f_user_followed_words_sets_title">obserwowane zestawy</string>
+    <string name="f_user_achievements_title">twoje osiągnięcia</string>
+    <string name="f_user_stats_title">twoje postępy</string>
+    <string name="f_user_stats_words_tests_stats_subtitle">rozwiązane testy ze słówek</string>
+    <string name="f_user_stats_irregular_verbs_tests_stats_subtitle">rozwiązane testy z\nczasowników nieregularnych</string>
+    <string name="f_user_stats_phrases_tests_stats_subtitle">rozwiązane testy z wyrażeń</string>
+    <string name="f_user_stats_custom_words_tests_stats_subtitle">rozwiązane testy z\npobranych zestawów</string>
+
+
+    <!-- about app -->
+    <string name="f_about_app_app_motd">Nauka angielskiego\nw całkiem inny sposób</string>
+    <string name="f_about_app_statute_info">Korzystając z aplikacji, akceptujesz\nregulamin</string>
+    <string name="f_about_app_google_analytics_info">Aplikacja korzysta z usług Google Analytics w celu\nanonimowego zbierania statystyk dotyczących\naktywności użytkownika w aplikacji</string>
+    <string name="f_about_app_license_info">Licencje użytych zasobów znajdziesz tutaj</string>
+    <string name="f_about_app_foot_1">© 2018 Understandable v </string>
+    <string name="f_about_app_foot_2">Marcin Zielonka</string>
+
+
+    <!-- ********************************************************************************************** -->
+
+    <string name="sp_preferences_file_key">pl.understandable.understandable_app.preferences</string>
+    <string name="sp_theme_key">current_theme</string>
+    <string name="sp_last_rate_app_info">last_rate_app_info</string>
+    <string name="sp_rate_app_status">rate_app_status</string>
+    <string name="sp_amount_of_app_openings">amount_of_app_openings</string>
+    <string name="sp_d_help_subkey">help_status_</string>
+    <string name="sp_announcements_seen">announcement_status</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- ********************************************************************************************** -->
+
+    <string name="h_irregular_verbs_show_word">Kliknij na poszczególne pola, aby sprawdzić pisownię czasownika w danej formie\n\nAby przejść do kolejnego czasownika, przesuń palcem w prawo lub w lewo w obrębie podanego obszaru</string>
+    <string name="h_irregular_verbs_options">Kliknij przycisk "powtórz", aby dodać podany czasownik do powtórzenia na koniec nauki. Funkcja "Umiem to!" pozwala na pominięcie słówka podczas następnych powtarzań</string>
+    <string name="h_profile_change_name">Aby zmienić swoją nazwę, przytrzymaj palec na polu z twoją nazwą</string>
+    <string name="h_profile_level">Wraz z postępami w nauce, będziesz zdobywał kolejne poziomy</string>
+    <string name="h_profile_title">Po zodbyciu odpowiednich poziomów, będziesz otrzymywał kolejne tytuły</string>
+    <string name="h_profile_options">Tutaj możesz sprawdzić swoje postępy, osiągnięcia, a także obserwowane testy</string>
+    <string name="h_quiz_answers">Wybierz jedną z czterech odpowiedzi. Jeżeli odpowiesz poprawnie, pole zmieni się na kolor zielony, jeżli odpowiedź będzie błędna - zmieni się na kolor czerwony oraz pokaże poprawną odpowiedź</string>
+    <string name="h_quiz_finish">Po wyczerpaniu się puli pytań, quiz zakończy się samoczynnie. Jeżeli chcesz zakończyć wcześniej, kliknij "zakończ"</string>
+    <string name="h_repetition_finish">Aby zakończyć powtarzanie i przejść do podsumowania, kliknij przycisk "zakończ"</string>
+    <string name="h_repetition_navigate">Aby zobaczyć przykład w drugim języku kliknij na podane pole\n\nAby przejść do kolejnego przykładu, przesuń palcem w prawo lub w lewo w obrębie podanego obszaru</string>
+    <string name="h_repetition_options">Kliknij przycisk "powtórz", aby dodać podany słówko do powtórzenia na koniec nauki. Funkcja "Umiem to!" pozwala na pominięcie słówka podczas następnych powtarzań</string>
+    <string name="h_spelling_finish">Aby zakończyć tryb i przejść do podsumowania, kliknij przycisk "zakończ"</string>
+    <string name="h_spelling_navigate">Aby przejść do kolejnego przykładu, przesuń palcem w prawo lub w lewo w obrębie podanego obszaru</string>
+    <string name="h_spelling_options">Aby sprawdzić, czy pisownia podanego przykładu jest prawidłowa, kliknij przycisk "sprawdź"\n\nAby sprawdzić prawidłową pisownię podanego przykładu, kliknij przycisk "pokaż odpowiedź".\n\nFunkcja "Umiem to!" pozwala na pominięcie słówka podczas następnych powtarzań</string>
+    <string name="h_spelling_text">W tym miejscu wpisz tłumaczenie podanego przykładu na drugi język.</string>
+    <string name="h_words_set_delete">Jeżeli chcesz usunąć podany zestaw, kliknij przycisk "usuń"</string>
+    <string name="h_words_set_description">Aby zmienić opis podanego zestawu, przytrzymaj palec na polu z opisem zestawu</string>
+    <string name="h_words_set_name">Aby zmienić nazwę podanego zestawu, przytrzymaj palec na polu z nazwą zestawu</string>
+    <string name="h_words_set_start_learning">Aby rozpocząć naukę na podanym zestawie, kliknij przycisk "rozpocznij naukę"</string>
+    <string name="h_help">W razie innych pytań, skorzystaj z działu pomocy</string>
+
+    <string name="title_activity_ad">AdActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+</resources>
