@@ -1,6 +1,8 @@
 # /app files
 app/release
 app/libs
+app/google-services.json
+app/src/main/res/xml/global_tracker.xml
 
 #built application files
 *.apk
@@ -33,6 +35,7 @@ Thumbs.db
 .idea
 #.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
+gradle.properties
 build/
 .navigation
 captures/
